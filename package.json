@@ -1,0 +1,26 @@
+{
+  "name": "ai-insight-agent",
+  "version": "1.0.0",
+  "description": "Market Intelligence Agent — AI 行业市场洞察日报系统（单体 Agent + 模块化内部流程）",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node --experimental-sqlite dist/cli/index.js run",
+    "run": "npm run build && node --experimental-sqlite dist/cli/index.js run",
+    "run:ts": "node --experimental-sqlite --no-warnings dist/cli/index.js run",
+    "run:today": "npm run build && node --experimental-sqlite dist/cli/index.js run --date \"$(date +%F)\"",
+    "dev": "node --experimental-sqlite --no-warnings --experimental-strip-types src/cli/index.ts run",
+    "serve": "node --experimental-sqlite --no-warnings --experimental-strip-types src/cli/index.ts serve",
+    "serve:built": "node --experimental-sqlite --no-warnings dist/cli/index.js serve",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^22.0.0"
+  }
+}
