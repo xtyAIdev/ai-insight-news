@@ -12,6 +12,7 @@ import type { EnterpriseRawEvent, SourceEvidence, TaskContext } from '../types/e
 import { ENTERPRISE_POOL, INVESTMENT_KEYWORDS, PRODUCT_KEYWORDS, sourceCredibility } from '../config/constants.js';
 import { httpGetJson } from '../utils/http.js';
 import { webSearch } from '../utils/websearch.js';
+import { wechatSearch } from '../utils/wechatSearch.js';
 import { writeJsonCache, readJsonCache } from '../utils/cache.js';
 import { logger } from '../utils/logger.js';
 import { recordSourceOk, recordSourceFail } from '../db/index.js';
@@ -91,13 +92,17 @@ export async function collectEnterprise(ctx: TaskContext): Promise<EnterpriseRaw
     }
   }
 
-  // 3. 投融资 WebSearch 兜底（Sheet04 04-05 分支 A）
+  // 3. 微信公众号中文补充采集（国内企业动态/投融资，解决 HN/DDG 中文命中率低的问题）
+  const wechatEvents = await collectWechatSupplement(ctx);
+  all.push(...wechatEvents);
+
+  // 4. 投融资 WebSearch 兜底（Sheet04 04-05 分支 A）
   if (ctx.modules.includes('enterprise')) {
     invEvents = await collectInvestmentFallback(ctx);
     all.push(...invEvents);
   }
 
-  // 3b. aihot 与投融资全部失败 → 缓存降级（stale 标记）
+  // 4b. aihot 与投融资全部失败 → 缓存降级（stale 标记）
   if (all.length === 0) {
     degraded = true;
     const cached = readJsonCache<EnterpriseRawEvent>(CACHE_SCOPE, CACHE_KEY, CACHE_MAX_AGE_MS);
@@ -121,9 +126,13 @@ export async function collectEnterprise(ctx: TaskContext): Promise<EnterpriseRaw
 
   // 8. 成功后写缓存
   if (capped.length > 0) {
+    const usedSources: string[] = [];
+    if (allItems.length > 0) usedSources.push('aihot');
+    if (wechatEvents.length > 0) usedSources.push('wechat');
+    if (invEvents.length > 0) usedSources.push('websearch');
     writeJsonCache(CACHE_SCOPE, CACHE_KEY, capped, {
       windowHours: ctx.time_window_hours,
-      sources: allItems.length > 0 ? ['aihot'] : (invEvents.length > 0 ? ['websearch'] : []),
+      sources: usedSources,
       degraded,
     });
   }
@@ -317,6 +326,60 @@ function extractCompanyName(title: string): string | null {
   // ② 尝试从标题提取公司名（"XX 完成 YY 融资"）
   const m = title.match(/^([\u4e00-\u9fa5A-Za-z0-9]{2,20}?)(?:完成|宣布|获得|启动|发布|推出)/);
   return m ? m[1] : null;
+}
+
+// ========== 微信公众号中文补充采集（国内企业动态/投融资） ==========
+
+/**
+ * 微信公号搜索补充（wechat-article-search 技能，搜狗微信源）：
+ *  ① 对每家池内企业做一次"企业名+AI"检索（国内企业命中率显著高于 HN/DDG）
+ *  ② 再做一次通用投融资检索（中文）
+ *  ③ 严格归属：标题/摘要必须含公司名/别名才归属（沿用 matchItemsToCompanies 强信号逻辑）
+ * 失败静默降级（不阻塞主流程），成功条数计入缓存 sources。
+ */
+async function collectWechatSupplement(ctx: TaskContext): Promise<EnterpriseRawEvent[]> {
+  const out: EnterpriseRawEvent[] = [];
+  const queries: string[] = [];
+  // 国内企业优先（国外企业搜狗覆盖差），每家最多 1 条，避免过度补充
+  for (const p of ENTERPRISE_POOL) {
+    const isDomestic = /[\u4e00-\u9fa5]/.test(p.company) || (p.domesticSources?.length ?? 0) > 0;
+    if (isDomestic) queries.push(`${p.company} AI`);
+  }
+  queries.push('AI 融资 大模型');
+
+  for (const q of queries) {
+    const res = await wechatSearch(q, { limit: 4, maxDays: Math.max(7, Math.ceil(ctx.time_window_hours / 24)) });
+    if (!res.ok) {
+      logger.warn(`[enterprise] wechat 搜索失败(${q}): ${res.error}`);
+      continue;
+    }
+    for (const a of res.results) {
+      if (out.length >= 6) break;
+      const text = `${a.title} ${a.summary}`;
+      const matched = ENTERPRISE_POOL.find((p) =>
+        [p.company, ...p.aliases]
+          .filter((n) => !LOW_DISCRIMINATIVE_ALIASES.has(n.toLowerCase()))
+          .some((n) => n.length >= 2 && text.toLowerCase().includes(n.toLowerCase())),
+      );
+      if (!matched) continue; // 池外文章不采集（企业池约束）
+      const subType = classifyByRule(a.title, a.summary);
+      out.push({
+        module: 'enterprise',
+        sub_type: subType,
+        company: matched.company,
+        title: a.title,
+        // 脚本输出即中国时区（UTC+8）YYYY-MM-DD HH:mm:ss，直接透传，与 aihot 的 published_at 格式一致
+        published_at: a.datetime || toISODate(new Date()),
+        content: a.summary.slice(0, 300),
+        fields: {},
+        related_event_ids: [],
+        source_urls: [{ url: a.url, source_type: 'wechat', name: a.source || '微信公众号', credibility_score: 3 }],
+      });
+    }
+    if (out.length >= 6) break;
+  }
+  if (out.length > 0) logger.info(`[enterprise] wechat 补充 ${out.length} 条`);
+  return out;
 }
 
 // ========== 双分支分流 + 实体抽取（Sheet04 04-04/04-05/04-06） ==========

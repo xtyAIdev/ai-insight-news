@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { DailyReport, ModuleName, ReportSection, StandardEvent, WatchItem } from '../types/events.js';
 import { getLLM, withLLMFallback } from '../llm/index.js';
+import { restateEvents } from './restate.js';
 import { logger } from '../utils/logger.js';
 import { saveReport, saveFeedback, computeQualityMetrics } from '../db/index.js';
 import { config } from '../config/index.js';
@@ -35,6 +36,13 @@ export async function generateReport(input: ReportInput): Promise<DailyReport> {
 
   // 按模块组织 TopN
   const sections = buildSections(input);
+
+  // 07-02b 中文重述（TopN 事件英文标题/正文 → 中文；无 LLM 规则兜底）
+  const restated = await restateEvents(input.topN.map((t) => t.event));
+  if (restated.size > 0) {
+    const applied = applyRestate(input.topN, restated);
+    logger.info(`[reporter] 中文重述应用 ${applied} 条（LLM 可用: ${getLLM().available()}）`);
+  }
 
   // 07-03 LLM 内容生成（含降级）
   const { summary, futureWatch, watchlist } = await generateNarrative(input, sections);
@@ -87,6 +95,42 @@ function buildSections(input: ReportInput): ReportSection[] {
     });
   }
   return sections;
+}
+
+// ========== 07-02b 中文重述应用 ==========
+
+/** 把重述结果就地应用到 TopN 事件（sections 内引用的是同一批 StandardEvent 对象） */
+function applyRestate(
+  topN: Array<{ event: StandardEvent; reason: string }>,
+  restated: Map<string, { title: string; body: string; byLLM: boolean }>,
+): number {
+  let applied = 0;
+  for (const t of topN) {
+    const r = restated.get(t.event.event_id);
+    if (!r) continue;
+    if (r.title && r.title !== t.event.title) {
+      // 原文溯源：英文原标题保留到描述末尾（仅 LLM 重述时），便于核对
+      if (r.byLLM && !/[\u4e00-\u9fa5]/.test(t.event.title)) {
+        const orig = t.event.title;
+        if (!t.event.description.includes(orig)) {
+          t.event.description = `${t.event.description || ''}\n\n（原标题：${orig}）`.trim();
+        }
+      }
+      t.event.title = r.title;
+      applied++;
+    }
+    if (r.body && !isChineseBody(t.event.description)) {
+      t.event.description = r.body;
+    }
+  }
+  return applied;
+}
+
+/** 判断描述是否已主要是中文（避免重复重述） */
+function isChineseBody(s: string): boolean {
+  if (!s) return false;
+  const cjk = (s.match(/[\u4e00-\u9fa5]/g) || []).length;
+  return cjk / Math.max(s.length, 1) > 0.4;
 }
 
 // ========== 07-03 内容生成（LLM + 规则降级） ==========
