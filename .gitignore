@@ -9,3 +9,5 @@ reports/
 logs/
 .env
 *.tsbuildinfo
+site/
+site/

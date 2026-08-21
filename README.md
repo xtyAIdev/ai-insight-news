@@ -72,74 +72,15 @@ node --experimental-sqlite dist/cli/index.js db:init        # 初始化数据库
 | `TOP_N` | `5` | 每模块默认 TopN |
 | `MAIL_*` | 关 | 邮件推送（可选，演示环境默认入库） |
 
-## 自动化（GitHub Actions Workflow）
+## 自动化与在线日报（GitHub Actions + Pages）
 
-本项目可在 GitHub 上通过 Actions 每日自动运行并推送日报。
+本项目已配置 GitHub Actions 每日自动化，并发布到 **GitHub Pages** 公开网页：
 
-### 方式一：利用 GitHub 自带的每日调度（推荐）
-
-创建 `.github/workflows/daily-report.yml`：
-
-```yaml
-name: Daily AI Insight Report
-
-on:
-  schedule:
-    - cron: '0 0 * * *'   # 每天 UTC 00:00（北京时间 08:00）
-  workflow_dispatch:      # 支持手动触发
-
-jobs:
-  report:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - run: npm install
-
-      - name: 运行完整日报流程
-        env:
-          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}     # 在仓库 Settings → Secrets 配置
-          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
-          LLM_MODEL: ${{ secrets.LLM_MODEL }}
-        run: npm run
-
-      - name: 提交并推送生成的日报
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add reports/
-          git diff --cached --quiet || git commit -m "chore: daily report $(date +%F)"
-          git push
-```
-
-配置步骤：
-1. 在仓库 **Settings → Secrets and variables → Actions** 添加 `LLM_API_KEY`（OpenAI 兼容 Key）、`LLM_BASE_URL`、`LLM_MODEL`
-2. 推送 `.github/workflows/daily-report.yml` 到 main 分支即生效
-3. 手动触发：仓库 **Actions** 页 → 选中 workflow → **Run workflow**
-
-> 说明：采集与报告生成全部在 Actions 的 ubuntu 环境内完成，LLM 调用依赖上述 Secrets，未配置时自动降级为规则引擎（仍可产出日报）。
-
-### 方式二：本地生成 + GitHub 提交推送
-
-在本地跑完 `npm run` 后，把生成的 `reports/` 提交推送即可：
-
-```bash
-npm run                 # 本地生成日报（reports/YYYY-MM-DD/）
-git add reports/
-git commit -m "chore: daily report $(date +%F)"
-git push origin main
-```
-
-若仓库尚未配置远端：
-
-```bash
-git remote add origin https://github.com/<你的用户名>/ai-insight-news.git
-git push -u origin main
-```
+- **在线日报**：https://xtyAIdev.github.io/ai-insight-news/ （日报归档索引 + 每日网页版，含历史归档）
+- **工作流**：`.github/workflows/daily-report.yml` —— 每天 UTC 00:00（北京时间 08:00）自动运行完整日报流程，生成静态站点并部署到 Pages
+- **手动触发**：仓库 **Actions** 页 → **Daily AI Insight Report** → **Run workflow**
+- **LLM 配置**：在仓库 **Settings → Secrets and variables → Actions** 添加 `LLM_API_KEY` / `LLM_BASE_URL` / `LLM_MODEL`；未配置时自动降级为规则引擎（仍可产出日报）
+- **本地生成**：`npm run` 生成 `reports/YYYY-MM-DD/`（Markdown + HTML 双归档）
 
 ## 目录结构
 
