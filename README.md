@@ -2,8 +2,6 @@
 
 一个单体 **Market Intelligence Agent**（内部模块化流程），每日自动采集 AI 行业情报（开源技术 / 学术研究 / 企业动态），经标准化 → 五维洞察（仅用于评估排序）→ 真实性核验 → 质量评分，产出**新闻简报模板化日报**（Markdown + HTML 网页版双归档），并支持邮件推送。
 
-> 本实现完全对应《Market Intelligence Agent 系统需求规格说明书 V2.0》（Sheet 00–09）与《业务流程图 V1.0》。
-
 ## 架构总览
 
 ```
@@ -49,7 +47,6 @@ npm run serve       # 启动本地 Web 查看器 http://localhost:8787（网页�
 - **无 Key 也能跑**：LLM 未配置/失败时自动降级为内置规则引擎，全流程可离线跑通。
 - **配置 Key 后**：实体抽取、五维洞察、真实性判断、质量评分、报告生成全部走真实 LLM（OpenAI 兼容协议）。
 - **三层兜底**：实时源失败 → WebSearch（Hacker News / DuckDuckGo，免 Key）→ 本地缓存（stale 标注「缓存数据」）。
-- **三层兜底**：实时源失败 → WebSearch（Hacker News / DuckDuckGo，免 Key）→ 本地缓存（stale 标注「缓存数据」）。
 
 ## 命令行
 
@@ -75,6 +72,75 @@ node --experimental-sqlite dist/cli/index.js db:init        # 初始化数据库
 | `TOP_N` | `5` | 每模块默认 TopN |
 | `MAIL_*` | 关 | 邮件推送（可选，演示环境默认入库） |
 
+## 自动化（GitHub Actions Workflow）
+
+本项目可在 GitHub 上通过 Actions 每日自动运行并推送日报。
+
+### 方式一：利用 GitHub 自带的每日调度（推荐）
+
+创建 `.github/workflows/daily-report.yml`：
+
+```yaml
+name: Daily AI Insight Report
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 每天 UTC 00:00（北京时间 08:00）
+  workflow_dispatch:      # 支持手动触发
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - name: 运行完整日报流程
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}     # 在仓库 Settings → Secrets 配置
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: npm run
+
+      - name: 提交并推送生成的日报
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add reports/
+          git diff --cached --quiet || git commit -m "chore: daily report $(date +%F)"
+          git push
+```
+
+配置步骤：
+1. 在仓库 **Settings → Secrets and variables → Actions** 添加 `LLM_API_KEY`（OpenAI 兼容 Key）、`LLM_BASE_URL`、`LLM_MODEL`
+2. 推送 `.github/workflows/daily-report.yml` 到 main 分支即生效
+3. 手动触发：仓库 **Actions** 页 → 选中 workflow → **Run workflow**
+
+> 说明：采集与报告生成全部在 Actions 的 ubuntu 环境内完成，LLM 调用依赖上述 Secrets，未配置时自动降级为规则引擎（仍可产出日报）。
+
+### 方式二：本地生成 + GitHub 提交推送
+
+在本地跑完 `npm run` 后，把生成的 `reports/` 提交推送即可：
+
+```bash
+npm run                 # 本地生成日报（reports/YYYY-MM-DD/）
+git add reports/
+git commit -m "chore: daily report $(date +%F)"
+git push origin main
+```
+
+若仓库尚未配置远端：
+
+```bash
+git remote add origin https://github.com/<你的用户名>/ai-insight-news.git
+git push -u origin main
+```
+
 ## 目录结构
 
 ```
@@ -91,18 +157,3 @@ src/
 ├── reporter/       # 报告层（生成/质量检查/推送/反馈）
 └── orchestrator/   # 调度器 + 编排器 + 异常矩阵
 ```
-
-## 规格覆盖矩阵
-
-| 规格 Sheet | 实现位置 |
-|---|---|
-| 00 总览与全局约定 | `config/` `types/` |
-| 01 端到端主流程 | `orchestrator/` |
-| 02 开源技术采集 | `collectors/opensource.ts` |
-| 03 学术研究采集 | `collectors/paper.ts` |
-| 04 企业动态采集 | `collectors/enterprise.ts` |
-| 05 标准化与事件融合 | `processor/` |
-| 06 真实性与质量评估 | `evaluator/` |
-| 07 报告生成与输出 | `reporter/` |
-| 08 异常降级处理 | `utils/retry.ts` `orchestrator/errors.ts` |
-| 09 数据模型 Schema | `db/schema.sql` `types/` |
