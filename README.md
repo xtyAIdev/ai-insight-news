@@ -79,8 +79,11 @@ node --experimental-sqlite dist/cli/index.js db:init        # 初始化数据库
 - **在线日报**：https://xtyAIdev.github.io/ai-insight-news/ （日报归档索引 + 每日网页版，含历史归档）
 - **工作流**：`.github/workflows/daily-report.yml` —— 每天 UTC 00:00（北京时间 08:00）自动运行完整日报流程，生成静态站点并部署到 Pages
 - **手动触发**：仓库 **Actions** 页 → **Daily AI Insight Report** → **Run workflow**
-- **LLM 配置**：在仓库 **Settings → Secrets and variables → Actions** 添加 `LLM_API_KEY` / `LLM_BASE_URL` / `LLM_MODEL`；未配置时自动降级为规则引擎（仍可产出日报）
+- **LLM 配置（可选）**：在仓库 **Settings → Secrets and variables → Actions** 添加 Secret。**只需配 `LLM_API_KEY` 一个**即可启用真实 LLM（`LLM_BASE_URL` / `LLM_MODEL` 有默认值，可留空）；未配置时自动降级为内置规则引擎（仍可产出日报）
+- **失败告警**：每日定时运行若失败，会自动在仓库 Issues 创建「⚠️ 日报生成失败」告警，避免静默丢失
 - **本地生成**：`npm run` 生成 `reports/YYYY-MM-DD/`（Markdown + HTML 双归档）
+
+> **Secret 原理**：GitHub Secrets 加密存储于仓库设置中，**从不写入仓库文件**（不进 `.env`、不进 git）。Workflow 运行时通过 `${{ secrets.LLM_API_KEY }}` 注入为进程环境变量，代码自动读取。Secret 值在 Actions 日志中自动打码，无法被输出泄露。
 
 ## 目录结构
 

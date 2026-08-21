@@ -9,6 +9,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  issues: write          # 失败时自动建 issue 告警
 
 concurrency:
   group: pages
@@ -23,17 +24,32 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm        # 依赖缓存，加速 npm install
 
-      - run: npm install
+      - run: npm ci          # lockfile 精确安装（比 npm install 更快更稳）
 
       - name: 运行完整日报流程
+        id: report
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
-        run: npm run run
+        # --date 显式传入运行日期（runner 为 UTC，与 cron 自洽，避免手动触发时漂移）
+        run: npm run build && node --experimental-sqlite dist/cli/index.js run --date "$(date +%F)"
+
+      - name: 检查日报是否生成
+        id: check
+        run: |
+          REPORT_DATE="$(date +%F)"
+          if [ ! -d "reports/${REPORT_DATE}" ] || [ -z "$(ls reports/${REPORT_DATE}/*.html 2>/dev/null)" ]; then
+            echo "::warning::报告未生成：reports/${REPORT_DATE} 为空或缺失"
+            echo "generated=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "generated=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: 提交日报归档回仓库（保留历史）
+        if: steps.check.outputs.generated == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -59,3 +75,36 @@ jobs:
       - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # 失败告警：日报流程失败时自动建 issue，避免静默失败
+  alert:
+    if: failure() && github.event_name == 'schedule'
+    needs: [report, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: 创建失败告警 issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const date = new Date().toISOString().slice(0, 10);
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              creator: 'github-actions[bot]',
+            });
+            const todayIssue = issues.find(i => i.title.includes(`日报生成失败 ${date}`));
+            if (todayIssue) {
+              console.log(`今日告警已存在：#${todayIssue.number}`);
+              return;
+            }
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `⚠️ 日报生成失败 ${date}`,
+              body: `**每日自动化日报生成失败**\n\n- 运行：[${context.runId}](${runUrl})\n- 时间：${new Date().toISOString()}\n\n请检查 Actions 日志定位原因。若为临时网络/API 故障，可手动重新触发。`,
+            });
+            console.log('已创建告警 issue');
