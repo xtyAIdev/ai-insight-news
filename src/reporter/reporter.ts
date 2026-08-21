@@ -357,30 +357,31 @@ export function renderHtml(report: DailyReport): string {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 行业市场洞察日报 ${esc(report.date)}</title>
 <style>
-:root { --bg:#f6f8fa; --card:#fff; --border:#d0d7de; --text:#1f2328; --muted:#59636e; --accent:#0969da; --accent2:#1f883d; }
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
 * { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
-.wrap { max-width:860px; margin:0 auto; padding:32px 20px 60px; }
-header { text-align:center; padding:24px 0 16px; border-bottom:3px solid var(--accent); margin-bottom:28px; }
-header h1 { font-size:26px; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
 header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
-.summary { background:linear-gradient(135deg,#f0f6ff,#e8f6ef); border:1px solid #d0e2ff; border-radius:12px; padding:18px 22px; margin-bottom:28px; }
-.summary h2 { font-size:17px; margin-bottom:6px; }
-.module { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px 24px; margin-bottom:22px; }
-.module h2 { font-size:19px; border-left:4px solid var(--accent); padding-left:10px; margin-bottom:14px; }
-.news-item { padding:14px 0; border-bottom:1px solid var(--border); }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
 .news-item:last-child { border-bottom:none; }
-.news-item h3 { font-size:16px; margin-bottom:6px; color:var(--text); }
-.news-body { font-size:14px; color:#37414b; margin-bottom:8px; }
-.meta { margin-bottom:6px; }
-.tag { display:inline-block; background:#ddf4ff; color:#0969da; border-radius:10px; padding:1px 10px; font-size:12px; margin-right:6px; }
-.tag-gray { background:#eaeef2; color:#59636e; }
-.source { font-size:13px; color:var(--muted); }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.source { font-size:12.5px; color:var(--muted); }
 .source a { color:var(--accent); text-decoration:none; margin-right:8px; }
 .source a:hover { text-decoration:underline; }
 .empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
 .watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
-footer { text-align:center; color:var(--muted); font-size:12px; margin-top:30px; }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
 </style>
 </head>
 <body>
