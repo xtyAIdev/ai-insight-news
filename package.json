@@ -18,9 +18,7 @@
     "serve:built": "node --experimental-sqlite --no-warnings dist/cli/index.js serve",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
-  "dependencies": {
-    "cheerio": "^1.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^22.0.0",
     "typescript": "^5.5.0"

@@ -109,7 +109,15 @@ export async function evaluateEvents(events: StandardEvent[], topN: number): Pro
   const topNList: Array<{ event: StandardEvent; reason: string }> = [];
 
   for (const module of modules) {
-    const moduleEvents = evaluated.filter((e) => e.category === module).slice(0, topN);
+    let moduleEvents = evaluated.filter((e) => e.category === module);
+    // 企业动态模块：投融资与产品动态是双分支，保底 1 席投融资（避免被产品事件完全挤出）
+    if (module === 'enterprise') {
+      const investment = moduleEvents.filter((e) => e.sub_type === 'investment');
+      if (investment.length > 0) {
+        moduleEvents = [...investment.slice(0, 1), ...moduleEvents.filter((e) => e.sub_type !== 'investment')];
+      }
+    }
+    moduleEvents = moduleEvents.slice(0, topN);
     const moduleTop: Array<{ event: StandardEvent; reason: string }> = [];
     for (let i = 0; i < moduleEvents.length; i++) {
       const evt = moduleEvents[i];

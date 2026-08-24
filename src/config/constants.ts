@@ -89,9 +89,10 @@ export interface EnterpriseProfile {
 }
 
 export const ENTERPRISE_POOL: EnterpriseProfile[] = [
-  { company: 'OpenAI', aliases: ['OpenAI Inc'], officialSources: ['https://openai.com/blog/rss.xml'], fallback: ['techcrunch', 'theverge'] },
+  // 海外官方源：2026-08-24 实测 —— OpenAI /news/rss.xml 可用(307→跟随)；Anthropic HTML 可用；Google 需用 /innovation-and-ai/ 新路径；Meta 超时/Microsoft 403(Cloudflare) 属网络不可达，采集时自动跳过
+  { company: 'OpenAI', aliases: ['OpenAI Inc'], officialSources: ['https://openai.com/news/rss.xml'], fallback: ['techcrunch', 'theverge'] },
   { company: 'Anthropic', aliases: ['Anthropic'], officialSources: ['https://www.anthropic.com/news'], fallback: ['techcrunch'] },
-  { company: 'Google', aliases: ['Google DeepMind', 'Gemini'], officialSources: ['https://blog.google/technology/ai/rss/'], fallback: ['theverge'] },
+  { company: 'Google', aliases: ['Google DeepMind', 'Gemini'], officialSources: ['https://blog.google/innovation-and-ai/technology/ai/rss/'], fallback: ['theverge'] },
   { company: 'Meta', aliases: ['Meta AI', 'Facebook'], officialSources: ['https://ai.meta.com/blog/rss/'], fallback: ['theverge'] },
   { company: '字节跳动', aliases: ['ByteDance', '火山引擎', '豆包', 'Seed'], officialSources: [], domesticSources: ['https://seed.bytedance.com/zh/blog'], fallback: ['36kr', '机器之心'] },
   { company: '阿里巴巴', aliases: ['阿里', '通义', '阿里云', 'Qwen', 'Alibaba'], officialSources: [], domesticSources: ['https://tongyi.aliyun.com/'], fallback: ['36kr', '机器之心'] },
