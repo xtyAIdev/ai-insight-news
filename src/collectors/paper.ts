@@ -159,8 +159,11 @@ async function collectPaperWebSearch(ctx: TaskContext): Promise<{ ok: boolean; i
 
 async function collectArxiv(ctx: TaskContext): Promise<{ ok: boolean; items: PaperRawEvent[]; error?: string }> {
   const out: PaperRawEvent[] = [];
-  const dateStart = toISODate(new Date(ctx.date_range.start));
+  // 查询窗口放宽到 7 天：arXiv submittedDate 索引有 6-24h 延迟（周末更久），
+  // 严格 24h 窗口必然扑空（实测 24h=0 条 / 7d=15 条）。
+  // 采集 7 天内提交的论文，后续 filterPapers 仍按 24h/72h 严格过滤，保证日报时效。
   const dateEnd = toISODate(new Date(ctx.date_range.end));
+  const dateStart = toISODate(new Date(new Date(ctx.date_range.end).getTime() - 7 * 86_400_000));
 
   for (const topic of PAPER_TOPICS) {
     for (const cat of topic.arxivCategories) {

@@ -134,6 +134,14 @@ async function main(): Promise<void> {
   const cmd = args[0] || 'run';
   const isLongRunning = cmd === 'serve';
 
+  // 全局兜底：unhandledRejection / uncaughtException 不静默崩溃（否则 Actions 里 exit 1 且无日志）
+  process.on('unhandledRejection', (reason) => {
+    logger.error(`未处理的 Promise 拒绝: ${reason instanceof Error ? reason.stack : String(reason)}`);
+  });
+  process.on('uncaughtException', (err) => {
+    logger.error(`未捕获异常: ${err.stack || err.message}`);
+  });
+
   switch (cmd) {
     case 'run': {
       const rest = args.slice(1);

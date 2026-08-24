@@ -1,9 +1,10 @@
 /**
  * 微信公众号搜索封装（中文企业动态/投融资补充源）
  *
- * 通过子进程调用 wechat-article-search 技能脚本（搜狗微信搜索）：
- *   ~/.workbuddy/skills/wechat-article-search/scripts/search_wechat.js
- * 项目保持零运行时依赖（cheerio 装在技能目录，不污染项目 node_modules）。
+ * 通过子进程调用搜狗微信搜索脚本：
+ *   scripts/wechat-search/search_wechat.cjs（项目内置，GitHub Actions 可用）
+ *   或 ~/.workbuddy/skills/wechat-article-search/scripts/search_wechat.js（本地技能）
+ * cheerio 为项目依赖（scripts/wechat-search 运行时向上查 node_modules）。
  *
  * 输出：{ title, url, summary, datetime, source }[]（按 datetime 降序，可过滤旧文）
  */
@@ -12,6 +13,7 @@ import { execFile } from 'node:child_process';
 import path from 'node:path';
 import os from 'node:os';
 import fs from 'node:fs';
+import { ROOT_DIR } from '../config/index.js';
 import { logger } from './logger.js';
 
 export interface WechatArticle {
@@ -23,10 +25,13 @@ export interface WechatArticle {
   source: string;        // 公众号名称
 }
 
-/** 技能脚本可能的位置（用户级技能目录） */
+/** 技能脚本可能的位置（项目内置优先，其次用户级技能目录） */
 function findSkillScript(): string | null {
   const home = os.homedir();
   const candidates = [
+    // 项目内置（GitHub Actions 环境无用户技能目录，必须用这个；.cjs 规避 package.json type:module）
+    path.join(ROOT_DIR, 'scripts', 'wechat-search', 'search_wechat.cjs'),
+    // 本地用户技能目录（WorkBuddy 环境）
     path.join(home, '.workbuddy', 'skills', 'wechat-article-search', 'scripts', 'search_wechat.js'),
   ];
   for (const p of candidates) {

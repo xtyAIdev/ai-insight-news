@@ -312,6 +312,44 @@ async function collectInvestmentFallback(ctx: TaskContext): Promise<EnterpriseRa
     }
     if (out.length >= 6) break;
   }
+
+  // 中文投融资兜底：HN/DDG 对中文命中率极低，用微信搜索补（脚本已内置项目 scripts/wechat-search/）
+  if (out.length < 4) {
+    for (const q of ['AI 融资 大模型', '大模型 融资 亿元']) {
+      if (out.length >= 4) break;
+      const res = await wechatSearch(q, { limit: 4, maxDays: Math.max(30, Math.ceil(ctx.time_window_hours / 24)) });
+      if (!res.ok) {
+        logger.warn(`[enterprise] 投融资 wechat 搜索失败(${q}): ${res.error}`);
+        continue;
+      }
+      for (const a of res.results) {
+        if (out.length >= 4) break;
+        const text = `${a.title} ${a.summary}`;
+        if (isWechatNoise(text)) continue; // 过滤面经/招聘/广告类噪音
+        const isInvestment = INVESTMENT_KEYWORDS.some((k) => text.includes(k));
+        if (!isInvestment) continue;
+        // 池内企业优先归属；池外但属已知 AI 机构也保留（投融资是新增信息源，不强制企业池约束）
+        const matched = ENTERPRISE_POOL.find((p) =>
+          [p.company, ...p.aliases]
+            .filter((n) => !LOW_DISCRIMINATIVE_ALIASES.has(n.toLowerCase()))
+            .some((n) => n.length >= 2 && text.toLowerCase().includes(n.toLowerCase())),
+        );
+        const knownOrg = KNOWN_AI_ORGS.find((n) => text.toLowerCase().includes(n.toLowerCase()));
+        if (!matched && !knownOrg) continue;
+        out.push({
+          module: 'enterprise',
+          sub_type: 'investment',
+          company: normalizeCompany(matched?.company || (knownOrg ? knownOrg.charAt(0).toUpperCase() + knownOrg.slice(1) : 'AI 企业')),
+          title: a.title,
+          published_at: a.datetime || toISODate(new Date()),
+          content: a.summary.slice(0, 300),
+          fields: {},
+          related_event_ids: [],
+          source_urls: [{ url: a.url, source_type: 'wechat', name: a.source || '微信公众号', credibility_score: 3 }],
+        });
+      }
+    }
+  }
   return out;
 }
 
@@ -326,6 +364,14 @@ function extractCompanyName(title: string): string | null {
   // ② 尝试从标题提取公司名（"XX 完成 YY 融资"）
   const m = title.match(/^([\u4e00-\u9fa5A-Za-z0-9]{2,20}?)(?:完成|宣布|获得|启动|发布|推出)/);
   return m ? m[1] : null;
+}
+
+/** 微信源噪音词（招聘/培训/面经/广告等，非企业动态） */
+const WECHAT_NOISE_KEYWORDS = ['面经', '面试', 'offer', '求职', '招聘', '培训', '辅导', '陪跑', '学员', '简历', '上岸', '内推', '课程', '讲座', '报名', '咨询加', '加微信', '扫码'];
+
+function isWechatNoise(text: string): boolean {
+  const lower = text.toLowerCase();
+  return WECHAT_NOISE_KEYWORDS.some((k) => lower.includes(k));
 }
 
 // ========== 微信公众号中文补充采集（国内企业动态/投融资） ==========
@@ -348,7 +394,7 @@ async function collectWechatSupplement(ctx: TaskContext): Promise<EnterpriseRawE
   queries.push('AI 融资 大模型');
 
   for (const q of queries) {
-    const res = await wechatSearch(q, { limit: 4, maxDays: Math.max(7, Math.ceil(ctx.time_window_hours / 24)) });
+    const res = await wechatSearch(q, { limit: 4, maxDays: Math.max(30, Math.ceil(ctx.time_window_hours / 24)) });
     if (!res.ok) {
       logger.warn(`[enterprise] wechat 搜索失败(${q}): ${res.error}`);
       continue;
@@ -356,6 +402,7 @@ async function collectWechatSupplement(ctx: TaskContext): Promise<EnterpriseRawE
     for (const a of res.results) {
       if (out.length >= 6) break;
       const text = `${a.title} ${a.summary}`;
+      if (isWechatNoise(text)) continue; // 过滤面经/招聘/广告类噪音
       const matched = ENTERPRISE_POOL.find((p) =>
         [p.company, ...p.aliases]
           .filter((n) => !LOW_DISCRIMINATIVE_ALIASES.has(n.toLowerCase()))

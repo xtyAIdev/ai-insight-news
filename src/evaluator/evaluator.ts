@@ -151,7 +151,14 @@ async function judgeAccuracy(evt: StandardEvent, ruleAcc?: { score: number; reas
 
   const prompt = `你是情报真实性审核员。基于以下事件及其来源证据，判断真实性并输出 0-5 分 JSON：
 {"score":0.0,"reason":"一句话理由"}
-规则参考：来源可信度（官方/原文最高5分）、信息一致性、多源交叉验证。
+评分标准：
+- 5 分：官方公告/一手原文，信息具体可查证
+- 4 分：权威媒体（TechCrunch/The Verge/路透/新华社等）报道
+- 3 分：一般媒体报道，信息合理可信
+- 2 分：来源不明或信息模糊
+- 0-1 分：明显编造/谣言/标题党无实质内容
+重要规则：以下"规则参考分"基于来源可信度自动计算，若规则分 >= 3，说明来源有基本可信度，除非信息本身明显矛盾或荒谬，否则不应判为 0-1 分（来源 URL 陌生不代表假新闻）。
+规则参考分：${ruleResult.score}（${ruleResult.reason}）
 事件：${evt.title}
 描述：${evt.description.slice(0, 400)}
 来源：${evt.source.map((s) => `${s.name}(${s.source_type}):${s.url}`).join('; ')}`;
@@ -186,7 +193,7 @@ async function reflection(
     }
     // LLM 路径：让 LLM 基于上下文重新判断
     if (getLLM().available()) {
-      const prompt = `重新评估该事件真实性（这是第 ${attempt + 1} 次修正）。事件：${evt.title}。来源：${evt.source.map((s) => s.url).join('; ')}。当前分 ${score}。请判断是否可信，输出 JSON {"score":0.0,"reason":"..."}`;
+      const prompt = `重新评估该事件真实性（这是第 ${attempt + 1} 次修正）。事件：${evt.title}。来源：${evt.source.map((s) => s.url).join('; ')}。当前分 ${score}。规则参考分：${ruleResult.score}（${ruleResult.reason}）。注意：来源 URL 陌生不代表假新闻，若内容合理且来源有基本可信度应给 3 分以上。请判断是否可信，输出 JSON {"score":0.0,"reason":"..."}`;
       const r = await getLLM().completeJson<{ score: number; reason: string }>(prompt, 'judge');
       if (r && typeof r.score === 'number') {
         score = Math.max(0, Math.min(5, r.score));
