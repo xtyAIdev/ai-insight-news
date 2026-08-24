@@ -32,7 +32,78 @@ function isChineseText(s: string): boolean {
   return CJK_RE.test(s || '');
 }
 
-/** 规则兜底：机械标题模板化改写 + 保留英文原文 */
+/** 企业池（公司名 + 别名），用于规则翻译时提取主体 */
+const KNOWN_AI_ORGS: Array<{ name: string; aliases: string[] }> = [
+  { name: 'OpenAI', aliases: ['OpenAI Inc', 'OpenAI'] },
+  { name: 'Anthropic', aliases: ['Anthropic'] },
+  { name: 'Google', aliases: ['Google DeepMind', 'Google', 'Gemini', 'DeepMind'] },
+  { name: 'Meta', aliases: ['Meta AI', 'Meta', 'Facebook'] },
+  { name: 'Microsoft', aliases: ['Microsoft', '微软'] },
+  { name: 'NVIDIA', aliases: ['NVIDIA', '英伟达'] },
+  { name: '字节跳动', aliases: ['ByteDance', '字节跳动', '火山引擎', '豆包', 'Seed'] },
+  { name: '阿里巴巴', aliases: ['Alibaba', '阿里巴巴', '阿里', '通义', '阿里云', 'Qwen'] },
+  { name: '腾讯', aliases: ['Tencent', '腾讯', '混元', '腾讯云', '元宝'] },
+  { name: '月之暗面', aliases: ['Moonshot AI', '月之暗面', 'Kimi'] },
+  { name: 'DeepSeek', aliases: ['DeepSeek AI', 'DeepSeek', '深度求索'] },
+  { name: 'Hugging Face', aliases: ['Hugging Face', 'HuggingFace'] },
+  { name: 'Mistral', aliases: ['Mistral AI', 'Mistral'] },
+  { name: 'xAI', aliases: ['xAI', 'Grok'] },
+  { name: 'Amazon', aliases: ['Amazon', 'AWS', 'Bedrock'] },
+];
+
+/** 英文动作词 → 中文（用于模板翻译） */
+const EN_ACTION_MAP: Array<{ re: RegExp; zh: string }> = [
+  { re: /launch(es|ed)?|unveil(s|ed)?|introduc(e|es|ed)|announce(s|d)?|debut(s|ed)?|release(s|d)?|rolls?\s*out/i, zh: '发布' },
+  { re: /updat(e|es|ed)|upgrad(e|es|ed)|improve(s|d)?|version/i, zh: '更新' },
+  { re: /open[- ]?source(s|d)?|open-sourcing/i, zh: '开源' },
+  { re: /partner(s|ed|ing)?|collaborat(e|es|ed|ion)?|integrat(e|es|ed|ion)?/i, zh: '合作' },
+  { re: /rais(e|es|ed|ing)\b|secures?\b|funding|investment|invests?\b|acquires?\b|acquisition/i, zh: '融资' },
+  { re: /research|paper|study/i, zh: '研究' },
+  // 财报类放最后（learning/report 等日常词易误匹配，优先级必须低于发布/更新）
+  { re: /\b(report|earning|earnings)\b/i, zh: '发布财报' },
+];
+
+/** 从英文标题提取公司主体（优先企业池，其次常见组织词） */
+function extractCompany(title: string): string | undefined {
+  const t = title.toLowerCase();
+  for (const org of KNOWN_AI_ORGS) {
+    for (const alias of org.aliases) {
+      if (t.includes(alias.toLowerCase())) return org.name;
+    }
+  }
+  return undefined;
+}
+
+/** 英文标题中的主题词提取（论文/技术方向/产品），用于规则模板翻译时保留核心信息 */
+const EN_TOPIC_MAP: Array<{ re: RegExp; zh: string }> = [
+  { re: /large language model|llm|foundation model|language model/i, zh: '大模型' },
+  { re: /reasoning|chain.?of.?thought|inference/i, zh: '推理' },
+  { re: /retrieval|rag|augmented generation/i, zh: 'RAG' },
+  { re: /reinforcement|rlhf/i, zh: '强化学习' },
+  { re: /multimodal|vision.?language|image|video/i, zh: '多模态' },
+  { re: /agent|multi.?agent/i, zh: 'Agent' },
+  { re: /quantization|fpga|edge|on.?device|small.?sat/i, zh: '边缘部署' },
+  { re: /bioinformatics|biology|medical|health/i, zh: '生物医药' },
+  { re: /search|learning/i, zh: '搜索学习' },
+  { re: /robot|humanoid/i, zh: '机器人' },
+  { re: /security|safety|watermark/i, zh: '安全' },
+];
+
+/** 常见 AI 产品/模型名（用于规则翻译保留产品名） */
+const EN_PRODUCT_MAP: Array<{ re: RegExp; name: string }> = [
+  { re: /claude opus \d/i, name: 'Claude Opus' },
+  { re: /claude\b/i, name: 'Claude' },
+  { re: /gpt-?\d/i, name: 'GPT' },
+  { re: /gemini/i, name: 'Gemini' },
+  { re: /qwen/i, name: 'Qwen' },
+  { re: /llama/i, name: 'Llama' },
+  { re: /deepseek/i, name: 'DeepSeek' },
+  { re: /mistral/i, name: 'Mistral' },
+  { re: /grok/i, name: 'Grok' },
+  { re: /copilot/i, name: 'Copilot' },
+];
+
+/** 规则兜底：机械标题模板化改写 + 英文标题中文模板翻译（不再原样保留纯英文） */
 function ruleRestate(evt: StandardEvent): RestateResult {
   let title = evt.title;
   // opensource 的机械标题 "开源项目 X 更新" → "开源项目 X 近期活跃更新（⭐N stars）"
@@ -44,7 +115,27 @@ function ruleRestate(evt: StandardEvent): RestateResult {
   } else if (isChineseText(title)) {
     // 中文标题保持原样
   } else {
-    // 英文标题：保留原文（无法可靠规则翻译），渲染层会标注
+    // 英文标题：模板化中文翻译（公司名 + 动作词 + 主题词/产品名）
+    // 公司名优先取标准化事件 company 字段（采集端已归属），其次从标题文本提取
+    const company = evt.company && /[\u4e00-\u9fa5A-Za-z]/.test(evt.company) ? evt.company : (extractCompany(title) || '');
+    const action = EN_ACTION_MAP.find(({ re }) => re.test(title))?.zh;
+    const topic = EN_TOPIC_MAP.find(({ re }) => re.test(title))?.zh;
+    const product = EN_PRODUCT_MAP.find(({ re }) => re.test(title))?.name;
+    const subject = product || topic;
+    if (company) {
+      title = action
+        ? `${company}${action}${subject ? `${subject}新动态` : '新动态'}`
+        : `${company}发布${subject ? `${subject}新动态` : '最新动态'}`;
+    } else if (subject) {
+      title = action ? `${subject}领域${action}新进展` : `${subject}领域发布最新动态`;
+    } else {
+      // 无公司名无主题词：取英文标题前 3-4 个实义词作为信息量（避免空泛标题）
+      const words = title.split(/[^a-zA-Z0-9]+/).filter((w) => w.length >= 3 && !['the', 'and', 'with', 'from', 'that', 'this', 'into', 'your', 'you', 'are', 'for', 'new', 'how', 'what', 'why', 'can', 'not', 'its', 'has', 'had', 'was', 'were', 'will'].includes(w.toLowerCase())).slice(0, 3);
+      title = words.length >= 2
+        ? `${words.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} 动态`
+        : 'AI 行业最新动态';
+    }
+    // 正文兜底：英文原文保留（渲染层会以中文标题呈现，正文标注英文原文供核对）
   }
   return { title, body: '', byLLM: false };
 }

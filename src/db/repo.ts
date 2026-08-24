@@ -22,9 +22,19 @@ export function saveReport(report: DailyReport, contentMarkdown: string): void {
   );
 }
 
-export function listReports(): Array<{ report_id: string; date: string; markdown_path: string | null; push_status: string; created_at: string }> {
+export function listReports(limit?: number, offset?: number): Array<{ report_id: string; date: string; markdown_path: string | null; push_status: string; created_at: string }> {
   const db = getDb();
-  return db.prepare('SELECT report_id, date, markdown_path, push_status, created_at FROM reports ORDER BY date DESC').all() as Array<{ report_id: string; date: string; markdown_path: string | null; push_status: string; created_at: string }>;
+  const sql = 'SELECT report_id, date, markdown_path, push_status, created_at FROM reports ORDER BY date DESC'
+    + (limit !== undefined ? ' LIMIT ? OFFSET ?' : '');
+  const stmt = db.prepare(sql);
+  const rows = (limit !== undefined ? stmt.all(limit, offset || 0) : stmt.all()) as Array<{ report_id: string; date: string; markdown_path: string | null; push_status: string; created_at: string }>;
+  return rows;
+}
+
+export function countReports(): number {
+  const db = getDb();
+  const row = db.prepare('SELECT COUNT(*) AS n FROM reports').get() as { n: number };
+  return row?.n ?? 0;
 }
 
 export function getReport(reportId: string): { report_id: string; date: string; content: string; markdown_path: string | null; push_status: string } | null {

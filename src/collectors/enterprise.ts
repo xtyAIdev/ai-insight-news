@@ -300,7 +300,11 @@ function parseRssEvents(xml: string, company: string, sourceType = 'official_rss
     if (!title) continue;
     const link = (block.match(/<link[^>]*href="([^"]+)"/i) || block.match(/<link[^>]*>([^<]+)<\/link>/i) || [])[1] || '';
     const rawDate = (block.match(/<pubDate[^>]*>([^<]+)<\/pubDate>/i) || block.match(/<updated[^>]*>([^<]+)<\/updated>/i) || [])[1] || '';
-    const published = parseFlexibleDate(rawDate) || toISODate(new Date());
+    // 时间取真实发布日期：URL 含日期路径（/YYYY/MM/DD/）时以 URL 日期为准，
+    // 因为 RSS pubDate 常是"最近更新时间"（旧文被重新推送/更新时 pubDate 会变新），
+    // 会导致日报时间不真实（如微软 7/28 旧文被标成 8/24）。URL 无日期时回退 pubDate。
+    const urlDate = urlDateOf(link);
+    const published = urlDate || parseFlexibleDate(rawDate) || toISODate(new Date());
     items.push({
       module: 'enterprise',
       sub_type: 'product',
@@ -319,6 +323,16 @@ function parseRssEvents(xml: string, company: string, sourceType = 'official_rss
     });
   }
   return items;
+}
+
+/** 从 URL 路径提取日期（/YYYY/MM/DD/），如 blogs.microsoft.com/blog/2026/07/28/... → 2026-07-28 */
+function urlDateOf(link: string): string | null {
+  if (!link) return null;
+  const m = link.match(/\/(20\d{2})\/(\d{1,2})\/(\d{1,2})\//);
+  if (!m) return null;
+  const y = m[1], mo = m[2].padStart(2, '0'), d = m[3].padStart(2, '0');
+  const dt = new Date(`${y}-${mo}-${d}`);
+  return Number.isNaN(dt.getTime()) ? null : `${y}-${mo}-${d}`;
 }
 
 /** HTML 新闻卡片解析：Anthropic /news（卡片带日期+链接） */
@@ -343,10 +357,21 @@ function parseHtmlNewsEvents(html: string, company: string): EnterpriseRawEvent[
       // 旧卡片：日期在中间 → 标题是日期前的部分，描述是日期后的部分
       titleRaw = blockText.slice(0, dateM.index);
     }
-    const title = titleRaw
-      .replace(/^(Announcements|Product|Economic Research|Research|Engineering)\s*/, '')
+    // 去头部/尾部残留：分类词（Announcements/Product/...) 循环清理开头 + 去尾部脏词
+    // 例："Introducing Claude Opus 5 Product" → 循环去头分类词后为 "Introducing Claude Opus 5 Product"，再截尾部 "Product" → "Introducing Claude Opus 5"
+    let title = titleRaw.trim().replace(/^[|>\-•\s]+/, '');
+    // 循环清理开头分类词（可能连续出现）
+    const HEAD_WORDS = /^(Announcements|Product|Economic Research|Research|Engineering|News|Press Release|Updates?|Blog)\s+/i;
+    let guard = 0;
+    while (HEAD_WORDS.test(title) && guard < 6) {
+      title = title.replace(HEAD_WORDS, '');
+      guard++;
+    }
+    // 清理尾部残留分类词/提示语
+    title = title
+      .replace(/\s+(Announcements|Product|Economic Research|Research|Engineering|News|Press Release|Updates?|Blog|Read more|Learn more)$/i, '')
+      .replace(/\s+(Opus \d|Claude \d(\.\d+)?)\s+(is a|are a|represents|marks|delivers|sets|comes)\b.*$/i, '$1')
       .trim()
-      .replace(/^[|>\-•\s]+/, '')
       .slice(0, 150);
     if (!title || title.length < 8) continue;
     const published = dateStr ? parseFlexibleDate(dateStr) || toISODate(new Date()) : toISODate(new Date());
@@ -511,12 +536,14 @@ async function fetchMediaSource(t: { name: string; url: string; lang: 'en' | 'zh
           .some((n) => n.length >= 2 && text.includes(n.toLowerCase())),
       );
       if (!matched) continue; // 媒体源只采集企业池相关事件
+      // 时间取真实发布日期：URL 含日期路径（/YYYY/MM/DD/）时以 URL 日期为准（RSS pubDate 常是更新时间）
+      const urlDate = urlDateOf(item.link);
       events.push({
         module: 'enterprise',
         sub_type: 'product',
         company: normalizeCompany(matched.company),
         title: item.title.slice(0, 200),
-        published_at: parseFlexibleDate(item.date) || toISODate(new Date()),
+        published_at: urlDate || parseFlexibleDate(item.date) || toISODate(new Date()),
         content: item.snippet,
         fields: {},
         related_event_ids: [],

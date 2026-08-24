@@ -249,10 +249,18 @@ export function renderMarkdown(report: DailyReport): string {
       // 标题（带序号）
       lines.push(`### ${idx + 1}. ${evt.title}`);
       lines.push('');
-      // 核心内容：优先原始事件正文（新闻本体），其次描述
-      const body = evt.raw_event ? rawEventBody(evt) : (evt.description || '');
+      // 核心内容：优先中文重述后的 description（LLM/规则已转中文），raw.content 仅作兜底
+      // （修复：此前优先 rawEventBody 读 raw.content 英文原文，导致中文重述不生效）
+      const body = evt.description && evt.description !== evt.title
+        ? evt.description
+        : (evt.raw_event ? rawEventBody(evt) : '');
       if (body) {
         lines.push(body);
+        lines.push('');
+      }
+      // 时间（用户要求时间要真：每条事件显式标注发生日期）
+      if (evt.time) {
+        lines.push(`**时间**：${evt.time}`);
         lines.push('');
       }
       // 关键实体信息（公司/产品/标签），一行内联
@@ -315,14 +323,28 @@ function rawEventBody(evt: StandardEvent): string {
 /** 渲染 HTML 版日报（网页预览 + 归档） */
 export function renderHtml(report: DailyReport): string {
   const esc = (s: string) => (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  // 三大模块锚点导航（用户要求：研究动态可直接跳转）
+  const MODULE_ANCHORS: Array<{ id: string; label: string }> = [
+    { id: 'module-opensource', label: 'AI 开源' },
+    { id: 'module-paper', label: 'AI 论文' },
+    { id: 'module-enterprise', label: 'AI 企业' },
+  ];
+  const navHtml = `
+  <nav class="module-nav">
+    ${MODULE_ANCHORS.map((m) => `<a href="#${m.id}">${m.label}</a>`).join('<span class="sep">｜</span>')}
+  </nav>`;
   const sectionsHtml = report.sections.map((section) => {
     let body = '';
     if (section.events.length === 0) {
       body = `<div class="empty-note">${esc(section.empty_note || '今日无重大动态')}</div>`;
     } else {
       body = section.events.map((evt, idx) => {
-        const bodyText = evt.raw_event ? rawEventBody(evt) : (evt.description || '');
+        // 核心内容：优先中文重述后的 description，raw.content 仅兜底（修复英文残留）
+        const bodyText = evt.description && evt.description !== evt.title
+          ? evt.description
+          : (evt.raw_event ? rawEventBody(evt) : '');
         const meta = [];
+        if (evt.time) meta.push(`<span class="tag tag-time">🕐 ${esc(evt.time)}</span>`);
         if (evt.company) meta.push(`<span class="tag">${esc(evt.company)}</span>`);
         if (evt.product && evt.category === 'enterprise') meta.push(`<span class="tag">${esc(evt.product)}</span>`);
         if (evt.sub_tags.length > 0) meta.push(`<span class="tag tag-gray">${esc(evt.sub_tags.slice(0, 4).join(' / '))}</span>`);
@@ -339,8 +361,9 @@ export function renderHtml(report: DailyReport): string {
         </article>`;
       }).join('');
     }
+    // 模块锚点：id="module-<module>"（opensource/paper/enterprise）
     return `
-    <section class="module">
+    <section class="module" id="module-${section.module}">
       <h2>${esc(section.module_label)}</h2>
       ${body}
     </section>`;
@@ -376,6 +399,13 @@ header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
 .meta { margin-bottom:8px; }
 .tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
 .tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
 .source { font-size:12.5px; color:var(--muted); }
 .source a { color:var(--accent); text-decoration:none; margin-right:8px; }
 .source a:hover { text-decoration:underline; }
@@ -390,6 +420,7 @@ footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px;
 <h1>AI 行业市场洞察日报</h1>
 <div class="sub">${esc(report.date)} ｜ ${esc(report.report_id)}</div>
 </header>
+${navHtml}
 <section class="summary">
 <h2>📌 今日要闻速览</h2>
 <p>${esc(report.summary)}</p>
@@ -398,6 +429,7 @@ ${sectionsHtml}
 ${watchlistHtml}
 <footer>由 AI Insight Agent 自动生成 ｜ ${new Date().toISOString()}</footer>
 </div>
+<a href="#" class="back-top" title="返回顶部">↑ 顶部</a>
 </body>
 </html>`;
 }

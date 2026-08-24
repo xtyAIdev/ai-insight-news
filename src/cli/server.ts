@@ -8,7 +8,7 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
-import { listReports, getReport, listStandardEvents, listFeedback, listTaskRuns, computeQualityMetrics, saveFeedback } from '../db/index.js';
+import { listReports, countReports, getReport, listStandardEvents, listFeedback, listTaskRuns, computeQualityMetrics, saveFeedback } from '../db/index.js';
 import { logger } from '../utils/logger.js';
 import { config } from '../config/index.js';
 
@@ -38,13 +38,14 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
 
   if (pathname === '/' || pathname === '/index.html') {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-    res.end(renderDashboard());
+    res.end(renderHome());
     return;
   }
 
   if (pathname === '/reports') {
+    const page = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10) || 1);
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-    res.end(renderReports());
+    res.end(renderReports(page));
     return;
   }
 
@@ -215,12 +216,16 @@ footer { text-align:center; color:var(--muted2); font-size:12px; margin-top:36px
 }
 .filter-chip:hover { color:#fff; border-color:var(--accent); }
 .filter-chip.on { color:#fff; background:linear-gradient(135deg, var(--accent), #3b5bdb); border-color:transparent; box-shadow:0 0 12px var(--glow1); }
+.back-top { position:fixed; bottom:24px; right:24px; background:linear-gradient(135deg, var(--accent), #3b5bdb); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.35); opacity:.85; z-index:10; }
+.back-top:hover { opacity:1; text-decoration:none; }
+.inner-report .module-nav a { color:var(--accent2); border-color:rgba(79,124,255,0.4); }
+.inner-report .module-nav a:hover { color:#fff; }
 `;
 
 function layout(title: string, body: string, active: string): string {
   const navItems = [
-    { href: '/', label: '📊 仪表盘', key: 'dash' },
-    { href: '/reports', label: '📰 日报', key: 'reports' },
+    { href: '/', label: '📰 今日日报', key: 'dash' },
+    { href: '/reports', label: '🗂 归档', key: 'reports' },
     { href: '/events', label: '📡 事件', key: 'events' },
     { href: '/feedback', label: '✍️ 反馈', key: 'feedback' },
     { href: '/metrics', label: '📈 质量指标', key: 'metrics' },
@@ -262,25 +267,57 @@ ${body}
 
 // ========== 页面渲染 ==========
 
-function renderDashboard(): string {
+/** 主页 = 今日日报全文（最新一份）+ 最近日报快捷入口 */
+function renderHome(): string {
   const reports = listReports();
   const events = listStandardEvents();
   const feedback = listFeedback();
   const runs = listTaskRuns(10);
   const today = new Date().toISOString().slice(0, 10);
   const done = runs.filter((r) => r.status === 'done').length;
+  const latest = reports[0]; // listReports 按 date DESC
+
+  let reportHtml = '';
+  if (latest) {
+    // 优先读归档 HTML（含模块锚点导航），否则读 DB content 渲染
+    const htmlPath = latest.markdown_path ? latest.markdown_path.replace(/\.md$/, '.html') : '';
+    if (htmlPath && fs.existsSync(htmlPath)) {
+      // 内嵌归档 HTML：去掉其 <!DOCTYPE>/<html>/<head>/<body> 骨架，只保留内容区（含导航条/锚点/返回顶部）
+      const raw = fs.readFileSync(htmlPath, 'utf-8');
+      // 以 <footer> 为结束锚点（footer 前是全部内容区），footer 后只剩返回顶部按钮（一并截掉，主页导航已够用）
+      const contentMatch = raw.match(/<div class="wrap">([\s\S]*?)<footer>/);
+      reportHtml = contentMatch ? `<div class="inner-report">${contentMatch[1]}</div>` : raw;
+    } else {
+      const detail = getReport(latest.report_id);
+      if (detail) reportHtml = `<div class="card"><pre>${escapeHtml(detail.content)}</pre></div>`;
+    }
+  }
+
+  const recentLinks = reports.slice(0, 8).map((r) => `
+    <div style="margin-bottom:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <span>📄 <a href="/reports/${r.report_id}">${r.report_id}</a> <span class="muted mono">${r.date}</span></span>
+      <span class="muted">push=${r.push_status}</span>
+    </div>`).join('') || '<p class="muted">暂无日报，运行 <code>npm run</code> 生成</p>';
+
+  // 主页返回顶部按钮（独立于内嵌日报）
+  const backTop = '<a href="#" class="back-top" title="返回顶部">↑ 顶部</a>';
 
   const body = `
 <div class="fade-in">
-<h1><span class="grad">Market Intelligence</span> 仪表盘</h1>
-<p class="muted">报告库 ${reports.length} 份 ｜ 标准化事件 ${events.length} 条 ｜ 反馈 ${feedback.length} 条 ｜ 日期 ${today}</p>
-
-<div class="grid" style="margin-top:18px">
-  <div class="stat hl"><b>${reports.length}</b><div class="lbl">日报</div></div>
+<div class="grid" style="margin-bottom:18px">
+  <div class="stat hl"><b>${reports.length}</b><div class="lbl">日报（归档分页查看）</div></div>
   <div class="stat"><b>${events.length}</b><div class="lbl">标准化事件</div></div>
   <div class="stat"><b>${feedback.length}</b><div class="lbl">人工反馈</div></div>
   <div class="stat"><b>${done}/${runs.length}</b><div class="lbl">成功任务</div></div>
 </div>
+
+${latest ? `
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:8px">
+  <h1><span class="grad">📰 今日日报</span> <span class="muted" style="font-size:13px">${latest.date} ｜ <a href="/reports/${latest.report_id}">${latest.report_id}</a></span></h1>
+  <span><a href="/reports/${latest.report_id}" class="badge badge-blue">网页版预览</a> <a href="/reports/${latest.report_id}?raw=1" class="badge badge-gray">Markdown</a></span>
+</div>
+<div class="card" style="padding:8px 6px">${reportHtml}</div>
+` : '<div class="card"><p class="muted">暂无日报，运行 <code>npm run</code> 生成</p></div>'}
 
 <h2>最近任务</h2>
 <div class="card">
@@ -291,24 +328,35 @@ ${runs.map((r) => `<tr><td class="muted mono">${r.started_at.slice(0, 19)}</td><
 </div>
 
 <h2>最近日报</h2>
-<div class="card">
-${reports.slice(0, 6).map((r) => `<div style="margin-bottom:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><span>📄 <a href="/reports/${r.report_id}">${r.report_id}</a> <span class="muted mono">${r.date}</span></span><span class="muted">push=${r.push_status}</span></div>`).join('') || '<p class="muted">暂无日报</p>'}
-</div>
-
-<h2>最新事件</h2>
-<div class="card">
-${events.slice(0, 8).map((e) => `<div style="margin-bottom:10px"><span class="badge badge-blue">${e.category}</span> <a href="/events">${e.title}</a> <span class="muted">真实性 <span class="mono">${e.accuracy_score.toFixed(1)}</span> ｜ 综合 <span class="mono">${e.importance_score.toFixed(1)}</span></span></div>`).join('') || '<p class="muted">暂无事件</p>'}
+<div class="card">${recentLinks}
+<div class="divider"></div>
+<div style="text-align:center"><a href="/reports" class="badge badge-blue">查看全部归档 →</a></div>
 </div>
 </div>
+${backTop}
 `;
-  return layout('仪表盘', body, 'dash');
+  return layout('今日日报', body, 'dash');
 }
 
-function renderReports(): string {
-  const reports = listReports();
+/** 归档分页：每页 10 份 */
+function renderReports(page = 1): string {
+  const PAGE_SIZE = 10;
+  const total = countReports();
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const pageClamped = Math.min(Math.max(1, page), totalPages);
+  const reports = listReports(PAGE_SIZE, (pageClamped - 1) * PAGE_SIZE);
+
+  const paginationHtml = `
+<div class="pagination" style="display:flex;justify-content:center;align-items:center;gap:14px;margin:20px 0 6px">
+  ${pageClamped > 1 ? `<a href="/reports?page=${pageClamped - 1}" class="filter-chip">← 上一页</a>` : '<span class="filter-chip" style="opacity:.45;cursor:not-allowed">← 上一页</span>'}
+  <span class="muted mono">第 ${pageClamped} / ${totalPages} 页（共 ${total} 份）</span>
+  ${pageClamped < totalPages ? `<a href="/reports?page=${pageClamped + 1}" class="filter-chip">下一页 →</a>` : '<span class="filter-chip" style="opacity:.45;cursor:not-allowed">下一页 →</span>'}
+</div>`;
+
   const body = `
 <div class="fade-in">
-<h1><span class="grad">📰 日报库</span></h1>
+<h1><span class="grad">🗂 日报归档</span> <span class="muted" style="font-size:13px">共 ${total} 份，按日期倒序</span></h1>
+${paginationHtml}
 ${reports.map((r) => `<div class="card">
 <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center">
   <b class="mono">${r.report_id}</b>
@@ -317,9 +365,10 @@ ${reports.map((r) => `<div class="card">
 <div style="margin-top:8px"><a href="/reports/${r.report_id}">📄 网页版预览</a> ｜ <a href="/reports/${r.report_id}?raw=1">查看 Markdown</a></div>
 <div class="muted mono" style="margin-top:6px;font-size:12px">${r.markdown_path || ''}</div>
 </div>`).join('') || '<div class="card"><p class="muted">暂无日报，运行 <code>npm run</code> 生成</p></div>'}
+${paginationHtml}
 </div>
 `;
-  return layout('日报库', body, 'reports');
+  return layout('日报归档', body, 'reports');
 }
 
 function renderReportDetail(report: { report_id: string; date: string; content: string; markdown_path: string | null; push_status: string }): string {
@@ -440,4 +489,4 @@ function escapeHtml(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-export { renderDashboard };
+export { renderHome };

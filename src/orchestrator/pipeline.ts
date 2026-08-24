@@ -58,6 +58,7 @@ export async function runPipeline(opts: {
     task_id: taskId,
     trigger_type: trigger,
     date_range: { start: windowStart.toISOString(), end: endISO },
+    report_date: date,
     time_window_hours: config.timeWindowHours,
     top_n: config.topN,
     modules,
@@ -148,7 +149,7 @@ async function execute(ctx: TaskContext, date: string): Promise<OrchestratorResu
   let topNList: Array<{ event: StandardEvent; reason: string }> = [];
   if (standardEvents.length > 0) {
     try {
-      const evalResult = await evaluateEvents(standardEvents, ctx.top_n);
+      const evalResult = await evaluateEvents(standardEvents, ctx.top_n, date);
       topNList = evalResult.topN;
       if (evalResult.dropped.length > 0) logger.info(`[orchestrator] 评估丢弃 ${evalResult.dropped.length} 条`);
     } catch (err) {

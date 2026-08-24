@@ -23,10 +23,13 @@ export interface EvalResult {
  * 两阶段评估（性能优化）：
  *  Phase 1：规则粗评（真实性 + 重要性）—— 快速过滤，成本 O(1)/条
  *  Phase 2：仅对粗评 TopN×2 候选做 LLM 精评（真实性 + 重要性）—— LLM 调用量从 N 降到 2N
- *  Phase 3：按模块 TopN 入选 + 排序理由
+ *  Phase 3：按 reportDate 严格当天过滤 → 按模块 TopN 入选 + 排序理由
  * 规则分在 LLM 不可用/失败时自动兜底（与无 Key 路径一致）。
+ *
+ * @param reportDate 报告日期 YYYY-MM-DD；传入后 Phase 3 仅保留 time === reportDate 的事件
+ *                   （用户硬约束：日报时间必须真实，不得混入历史事件）
  */
-export async function evaluateEvents(events: StandardEvent[], topN: number): Promise<EvalResult> {
+export async function evaluateEvents(events: StandardEvent[], topN: number, reportDate?: string): Promise<EvalResult> {
   const dropped: StandardEvent[] = [];
 
   // ---- Phase 1：规则过滤 + 规则粗评 ----
@@ -101,16 +104,29 @@ export async function evaluateEvents(events: StandardEvent[], topN: number): Pro
     }
   }
 
-  // ---- Phase 3：排序 + 按模块 TopN（规格 Sheet06 06-09） ----
+  // ---- Phase 3：排序 + 严格当天过滤 + 按模块 TopN（规格 Sheet06 06-09） ----
   evaluated.sort((a, b) => b.importance_score - a.importance_score);
 
+  // 严格当天过滤：仅保留 reportDate 当天事件（用户硬约束：时间要真）
+  // 注意：过滤在排序后、按模块分组前执行，确保 TopN 全部是"今天"的事件
+  let pool = evaluated;
+  if (reportDate) {
+    const dayPool = evaluated.filter((e) => e.time === reportDate);
+    if (dayPool.length > 0) {
+      pool = dayPool;
+    } else {
+      logger.warn(`[evaluator] 报告日 ${reportDate} 当天无事件通过评估（共 ${evaluated.length} 条跨期），TopN 将为空 → 显示'今日无重大动态'`);
+    }
+  }
+
   const topNByModule: Record<string, Array<{ event: StandardEvent; reason: string }>> = {};
-  const modules = Array.from(new Set(evaluated.map((e) => e.category)));
+  const modules = Array.from(new Set(pool.map((e) => e.category)));
   const topNList: Array<{ event: StandardEvent; reason: string }> = [];
 
   for (const module of modules) {
-    let moduleEvents = evaluated.filter((e) => e.category === module);
+    let moduleEvents = pool.filter((e) => e.category === module);
     // 企业动态模块：投融资与产品动态是双分支，保底 1 席投融资（避免被产品事件完全挤出）
+    // 注意：必须在日期过滤之后执行，保证保底的是"当天"投融资
     if (module === 'enterprise') {
       const investment = moduleEvents.filter((e) => e.sub_type === 'investment');
       if (investment.length > 0) {

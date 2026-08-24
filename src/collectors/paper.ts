@@ -54,7 +54,18 @@ export async function collectPaper(ctx: TaskContext): Promise<PaperRawEvent[]> {
   const all: PaperRawEvent[] = [];
   let degraded = false;
 
-  // 1. arXiv 主源（按分类）
+  // 1. OpenAlex 主源：无条件先采，严格当天（report_date 或 date_range.end 当天）
+  //    OpenAlex 无索引延迟（实测当天即 132 篇），是"当天新论文"的可靠来源；
+  //    arXiv submittedDate 有 6-24h 索引延迟（周末更久），当天查询必然扑空。
+  const oa = await collectOpenAlex(ctx);
+  if (oa.ok) {
+    all.push(...oa.items);
+  } else {
+    logger.warn(`[paper] OpenAlex 异常: ${oa.error}`);
+    degraded = true;
+  }
+
+  // 2. arXiv 补充源：7d submittedDate 拉近期提交（索引延迟内可回补），filterPapers 仍严格当天过滤
   const arxiv = await collectArxiv(ctx);
   if (arxiv.ok) {
     all.push(...arxiv.items);
@@ -63,17 +74,14 @@ export async function collectPaper(ctx: TaskContext): Promise<PaperRawEvent[]> {
     degraded = true;
   }
 
-  // 2. OpenAlex 兜底/补全
-  if (all.length < 10) {
-    const oa = await collectOpenAlex(ctx);
-    if (oa.ok) {
-      all.push(...oa.items);
-    } else {
-      logger.warn(`[paper] OpenAlex 异常: ${oa.error}`);
-    }
+  // 2b. Hugging Face daily_papers 可选尝试：失败静默（HF 网络不稳，不阻塞主流程）
+  const hf = await collectHuggingFacePapers(ctx);
+  if (hf.ok) {
+    all.push(...hf.items);
+    logger.info(`[paper] HF Papers 补充 ${hf.items.length} 条`);
   }
 
-  // 2b. 实时源不足 → WebSearch 兜底（arXiv/OpenAlex 均失败时）
+  // 2c. 实时源不足 → WebSearch 兜底（前三源合计不足 5 条时）
   if (all.length < 5) {
     degraded = true;
     const ws = await collectPaperWebSearch(ctx);
@@ -109,7 +117,7 @@ export async function collectPaper(ctx: TaskContext): Promise<PaperRawEvent[]> {
   if (deduped.length > 0) {
     writeJsonCache(CACHE_SCOPE, CACHE_KEY, deduped, {
       windowHours: ctx.time_window_hours,
-      sources: arxiv.ok ? ['arxiv'] : (all.length > 0 ? ['openalex', 'websearch'] : []),
+      sources: [oa.ok ? 'openalex' : null, arxiv.ok ? 'arxiv' : null, hf.ok ? 'huggingface' : null].filter(Boolean) as string[],
       degraded,
     });
   }
@@ -264,21 +272,23 @@ function extractInfluenceHint(comment: string): string | undefined {
   return undefined;
 }
 
-// ========== OpenAlex 兜底 ==========
+// ========== OpenAlex 主源（当天） ==========
 
 async function collectOpenAlex(ctx: TaskContext): Promise<{ ok: boolean; items: PaperRawEvent[]; error?: string }> {
   const out: PaperRawEvent[] = [];
-  const dateStart = toISODate(new Date(ctx.date_range.start));
-  const dateEnd = toISODate(new Date(ctx.date_range.end));
+  // 严格当天：report_date 优先（日报日期），缺省回退 date_range.end
+  const target = ctx.report_date || toISODate(new Date(ctx.date_range.end));
   // AI 概念 ID（C154945302 = Artificial Intelligence）
-  const url = `https://api.openalex.org/works?filter=publication_date:${dateStart},publication_date:${dateEnd},concepts.id:C154945302&sort=cited_by_count:desc&per-page=20`;
+  // 注意：当天论文引用数几乎全为 0，按 cited_by_count 排序无意义且会把 AI 主题论文挤出 top-20，
+  // 因此不排序、per-page=100 全量拉取，交给 filterPapers 做主题过滤（实测 100 篇中含 26 篇主题命中）
+  const url = `https://api.openalex.org/works?filter=from_publication_date:${target},to_publication_date:${target},concepts.id:C154945302&per-page=100`;
   const res = await httpGetJson<OpenAlexResponse>(url, { timeoutMs: 15_000, retries: 1, exponential: true });
   if (!res.ok || !res.data?.results) {
     recordSourceFail('openalex', res.error || 'empty');
     return { ok: false, items: [], error: res.error || 'openalex empty' };
   }
   recordSourceOk('openalex');
-  for (const w of res.data.results.slice(0, 15)) {
+  for (const w of res.data.results) {
     const authors = (w.authorships || []).map((a) => a.author.display_name).slice(0, 10);
     const institutions = (w.authorships || []).flatMap((a) => (a.institutions || []).map((i) => i.display_name));
     out.push({
@@ -297,6 +307,51 @@ async function collectOpenAlex(ctx: TaskContext): Promise<{ ok: boolean; items: 
   return { ok: out.length > 0, items: out, error: out.length ? undefined : 'openalex 无结果' };
 }
 
+// ========== Hugging Face daily_papers（可选尝试，失败静默） ==========
+
+interface HuggingFacePaper {
+  title: string;
+  paper?: { id?: string; url?: string };
+  publishedAt?: string;
+  authors?: Array<{ name?: string }>;
+  summary?: string;
+  upvotes?: number;
+}
+
+async function collectHuggingFacePapers(ctx: TaskContext): Promise<{ ok: boolean; items: PaperRawEvent[]; error?: string }> {
+  const out: PaperRawEvent[] = [];
+  try {
+    const res = await httpGetJson<HuggingFacePaper[]>('https://huggingface.co/api/daily_papers', {
+      timeoutMs: 10_000,
+      retries: 0,
+    });
+    if (!res.ok || !Array.isArray(res.data)) {
+      // 失败静默：不 recordSourceFail，避免源健康噪音
+      return { ok: false, items: [], error: res.error || 'hf empty' };
+    }
+    for (const p of res.data.slice(0, 15)) {
+      const title = (p.title || '').trim();
+      if (!title) continue;
+      const publishedAt = p.publishedAt ? parseFlexibleDate(p.publishedAt) || toISODate(new Date()) : toISODate(new Date());
+      out.push({
+        module: 'paper',
+        paper_id: `HF:${p.paper?.id || title.slice(0, 40).replace(/\s+/g, '-')}`,
+        title,
+        authors: (p.authors || []).map((a) => a.name || '').filter(Boolean).slice(0, 10),
+        published_at: publishedAt,
+        abstract: (p.summary || '').slice(0, 600),
+        category: 'cs.AI',
+        influence_hint: (p.upvotes || 0) > 20 ? `HF 热议(${p.upvotes})` : undefined,
+        source_urls: [{ url: p.paper?.url || `https://huggingface.co/papers/${p.paper?.id || ''}`, source_type: 'huggingface', name: 'Hugging Face Papers', credibility_score: 4 }],
+      });
+    }
+    return { ok: out.length > 0, items: out, error: out.length ? undefined : 'hf 无结果' };
+  } catch (err) {
+    // 失败静默（网络异常/超时不阻塞主流程）
+    return { ok: false, items: [], error: err instanceof Error ? err.message : String(err) };
+  }
+}
+
 function reconstructAbstract(inverted: Record<string, number[]> | undefined): string {
   if (!inverted) return '';
   const words: Array<{ idx: number; word: string }> = [];
@@ -310,11 +365,18 @@ function reconstructAbstract(inverted: Record<string, number[]> | undefined): st
 // ========== 过滤（三门槛） ==========
 
 function filterPapers(items: PaperRawEvent[], ctx: TaskContext, degraded = false): PaperRawEvent[] {
-  const windowHours = degraded ? Math.max(72, ctx.time_window_hours * 3) : ctx.time_window_hours;
+  // 时间窗口：正常 24h / 降级放宽到 48h（不再 72h/×3 过度放宽——用户硬约束"不随意扩大时间窗口"）
+  // OpenAlex 是当天源（published_at=报告日期）天然通过；arXiv 旧论文会被正确滤掉
+  const windowHours = degraded ? Math.max(48, ctx.time_window_hours) : Math.max(24, ctx.time_window_hours);
+  // 时间基准：report_date 当天正午（回补历史日报时论文 relative 该日期），缺省回退 now
+  const ref = ctx.report_date ? new Date(`${ctx.report_date}T12:00:00`) : new Date();
   return items.filter((p) => {
-    // ① 时间过滤
-    const hours = (Date.now() - new Date(p.published_at).getTime()) / 3600_000;
-    if (hours > windowHours) return false;
+    // ① 时间过滤：允许 [0, windowHours]，过滤未来时间（防时区导致 hours<0）
+    const hours = (ref.getTime() - new Date(p.published_at).getTime()) / 3600_000;
+    if (hours < 0 || hours > windowHours) return false;
+    // ①b 正文完整性：无摘要（abstract 为空）的论文无法生成中文重述，价值低 → 滤掉
+    //     （OpenAlex 部分条目 abstract_inverted_index 为空；空摘要会导致正文渲染兜底成 low_influence 噪音）
+    if (!p.abstract || p.abstract.trim().length < 20) return false;
     // ② 方向匹配
     const text = `${p.title} ${p.abstract}`.toLowerCase();
     const matched = PAPER_TOPICS.some((t) => {

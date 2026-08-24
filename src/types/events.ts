@@ -148,6 +148,7 @@ export interface TaskContext {
   task_id: string;
   trigger_type: TriggerType;
   date_range: { start: string; end: string }; // ISO 日期（含小时）
+  report_date?: string; // 报告日期 YYYY-MM-DD（严格当天过滤用，缺省回退 date_range.end）
   time_window_hours: number;
   top_n: number;
   modules: ModuleName[];
