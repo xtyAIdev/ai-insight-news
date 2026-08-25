@@ -1,0 +1,283 @@
+/**
+ * Public Site 静态服务（只读，读者向 —— 面向 GitHub Pages 展示形态）
+ *
+ * 职责边界（用户明确要求）：
+ *  - 前端展示页（今日日报 + 归档）与内部控制台分离 —— 本文件只服务"读者阅读"场景
+ *  - 只读：无反馈提交、无事件详情、无任务/数据源管理（那些是本地调试台 console 的职责）
+ *  - 本地可用 `site` 命令预览；生产由 GitHub Actions `build-site.mjs` 生成纯静态站点
+ *
+ * 页面：
+ *  - /              今日日报全文（最新一期）+ 归档入口
+ *  - /reports/<id>  单期日报（优先读归档 HTML，回退 DB）
+ *  - /reports       归档列表
+ *  视觉：白色专业卡片化（#1a56db 主色）—— 与 build-site.mjs 同一设计语言
+ */
+
+import http from 'node:http';
+import fs from 'node:fs';
+import { listReports, getReport } from '../db/index.js';
+import { logger } from '../utils/logger.js';
+
+export function startSiteServer(port: number): void {
+  const server = http.createServer(async (req, res) => {
+    try {
+      await route(req, res);
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end(`Server Error: ${err instanceof Error ? err.message : err}`);
+    }
+  });
+
+  server.listen(port, () => {
+    logger.info(`[site] Public Site 已启动 http://127.0.0.1:${port}（只读：今日日报 + 归档）`);
+  });
+}
+
+async function route(req: http.IncomingMessage, res: http.ServerResponse): Promise<void> {
+  const url = new URL(req.url || '/', `http://localhost`);
+  const pathname = url.pathname;
+
+  if (pathname === '/' || pathname === '/index.html') {
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    res.end(renderHome());
+    return;
+  }
+
+  if (pathname === '/reports') {
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    res.end(renderReports());
+    return;
+  }
+
+  if (pathname.startsWith('/reports/')) {
+    const id = pathname.split('/').pop() || '';
+    const report = getReport(id);
+    if (!report) {
+      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('报告不存在');
+      return;
+    }
+    // 优先读归档 HTML（含模块锚点/快评样式），回退 DB content
+    const htmlPath = report.markdown_path ? report.markdown_path.replace(/\.md$/, '.html') : '';
+    if (htmlPath && fs.existsSync(htmlPath)) {
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      res.end(fs.readFileSync(htmlPath, 'utf-8'));
+      return;
+    }
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    res.end(renderReportDetail(report));
+    return;
+  }
+
+  res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+  res.end('404 Not Found');
+}
+
+// ========== 白色专业卡片化布局（读者向，只读） ==========
+
+const SHELL_CSS = `
+:root {
+  --bg:#f5f7fb; --card:#ffffff; --card-border:#e2e8f0;
+  --text:#1e293b; --muted:#64748b; --muted2:#94a3b8;
+  --accent:#1a56db; --accent-soft:#eff4ff; --accent-border:#c7d7fe;
+  --green:#059669;
+  --radius:12px; --shadow:0 1px 3px rgba(15,23,42,0.06), 0 4px 14px rgba(15,23,42,0.05);
+  --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif;
+  --mono:'SF Mono','JetBrains Mono',Consolas,Menlo,monospace;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.75; min-height:100vh;
+  -webkit-font-smoothing:antialiased; font-size:15px;
+}
+.wrap { max-width:960px; margin:0 auto; padding:28px 24px 80px; }
+header.top {
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:16px 20px; margin-bottom:24px; flex-wrap:wrap;
+  background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.brand { display:flex; align-items:center; gap:12px; }
+.brand .logo {
+  width:36px; height:36px; border-radius:9px; flex:none;
+  background:var(--accent); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:17px;
+}
+.brand .name { font-size:16px; font-weight:700; }
+.brand .sub { font-size:12px; color:var(--muted); }
+nav { display:flex; gap:6px; flex-wrap:wrap; }
+nav a {
+  padding:7px 14px; border-radius:8px; font-size:13.5px; text-decoration:none; color:var(--muted);
+  border:1px solid transparent; transition:all .15s; font-weight:500;
+}
+nav a:hover { color:var(--accent); background:var(--accent-soft); }
+nav a.active { color:var(--accent); background:var(--accent-soft); border-color:var(--accent-border); }
+h1 { font-size:22px; margin-bottom:6px; font-weight:700; }
+h2 { font-size:15.5px; margin:22px 0 12px; padding-left:10px; border-left:3px solid var(--accent); }
+.muted { color:var(--muted); font-size:13px; }
+.mono { font-family:var(--mono); }
+.card {
+  background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius);
+  padding:18px 22px; margin-bottom:14px; box-shadow:var(--shadow);
+}
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; }
+th,td { padding:9px 11px; border-bottom:1px solid var(--card-border); text-align:left; vertical-align:top; }
+th { background:#f8fafc; color:var(--muted); font-weight:600; font-size:12.5px; }
+tr:hover td { background:#fafcff; }
+pre {
+  background:#f8fafc; border:1px solid var(--card-border); border-radius:10px;
+  padding:16px; overflow-x:auto; font-size:13px; line-height:1.55; font-family:var(--mono);
+}
+code { font-family:var(--mono); background:var(--accent-soft); padding:1px 6px; border-radius:5px; font-size:12.5px; color:var(--accent); }
+.badge { display:inline-block; padding:2px 11px; border-radius:999px; font-size:12px; font-weight:600; }
+.badge-blue { background:var(--accent-soft); color:var(--accent); border:1px solid var(--accent-border); }
+.badge-gray { background:#f1f5f9; color:var(--muted); border:1px solid #e2e8f0; }
+.archive { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; }
+.archive a {
+  display:block; padding:14px 16px; background:var(--card); border:1px solid var(--card-border);
+  border-radius:10px; text-decoration:none; color:var(--text); transition:all .15s;
+}
+.archive a:hover { border-color:var(--accent-border); background:var(--accent-soft); }
+.archive .d { font-size:14px; font-weight:600; font-family:var(--mono); }
+.archive .t { font-size:11.5px; color:var(--muted); margin-top:3px; }
+.archive a.today { border-color:var(--accent); box-shadow:0 0 0 1px var(--accent); }
+.inner-report .module-nav a { color:var(--accent); border-color:var(--accent-border); }
+footer { text-align:center; color:var(--muted2); font-size:12px; margin-top:36px; border-top:1px solid var(--card-border); padding-top:20px; }
+.fade-in { animation:fadeIn .35s ease both; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(26,86,219,.3); opacity:.85; z-index:10; }
+.back-top:hover { opacity:1; text-decoration:none; }
+`;
+
+function layout(title: string, body: string, active: string): string {
+  const navItems = [
+    { href: '/', label: '📰 今日日报', key: 'home' },
+    { href: '/reports', label: '🗂 历史归档', key: 'reports' },
+  ];
+  const nav = navItems
+    .map((n) => `<a href="${n.href}" class="${n.key === active ? 'active' : ''}">${n.label}</a>`)
+    .join('');
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title} · AI 行业市场洞察</title>
+<style>${SHELL_CSS}</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top fade-in">
+  <div class="brand">
+    <div class="logo">📊</div>
+    <div>
+      <div class="name">AI 行业市场洞察</div>
+      <div class="sub mono">Market Intelligence · 每日报告</div>
+    </div>
+  </div>
+  <nav>${nav}</nav>
+</header>
+${body}
+<footer class="fade-in">AI 行业市场洞察日报 · 由 AI Insight Agent 自动生成 · 每日更新</footer>
+</div>
+</body>
+</html>`;
+}
+
+// ========== 页面 ==========
+
+/** 主页 = 今日日报全文（最新一份）+ 归档入口 */
+function renderHome(): string {
+  const reports = listReports();
+  const latest = reports[0]; // listReports 按 date DESC
+
+  let reportHtml = '';
+  if (latest) {
+    const htmlPath = latest.markdown_path ? latest.markdown_path.replace(/\.md$/, '.html') : '';
+    if (htmlPath && fs.existsSync(htmlPath)) {
+      const raw = fs.readFileSync(htmlPath, 'utf-8');
+      // 内嵌归档 HTML 正文区（去骨架）
+      const contentMatch = raw.match(/<div class="wrap">([\s\S]*?)<footer>/);
+      reportHtml = contentMatch ? `<div class="inner-report">${contentMatch[1]}</div>` : raw;
+    } else {
+      const detail = getReport(latest.report_id);
+      if (detail) reportHtml = `<div class="card"><pre>${escapeHtml(detail.content)}</pre></div>`;
+    }
+  }
+
+  const archiveHtml = reports.slice(0, 12).map((r) => {
+    const isToday = r.date === (latest?.date || '');
+    return `<a href="/reports/${r.report_id}" class="${isToday ? 'today' : ''}">
+      <div class="d">${r.date}</div><div class="t">${isToday ? '今日日报' : '归档'}</div>
+    </a>`;
+  }).join('');
+
+  const backTop = '<a href="#" class="back-top" title="返回顶部">↑ 顶部</a>';
+
+  const body = `
+<div class="fade-in">
+${latest ? `
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:8px">
+  <h1>📰 今日日报 <span class="muted" style="font-size:13px">${latest.date} ｜ ${latest.report_id}</span></h1>
+  <span><a href="/reports/${latest.report_id}" class="badge badge-blue">网页版</a></span>
+</div>
+<div class="card" style="padding:8px 6px">${reportHtml}</div>
+` : '<div class="card"><p class="muted">暂无日报，运行 <code>npm run</code> 生成</p></div>'}
+
+<h2>📁 历史归档（共 ${reports.length} 期）</h2>
+<div class="archive">${archiveHtml || '<p class="muted">暂无归档</p>'}</div>
+</div>
+${backTop}
+`;
+  return layout('今日日报', body, 'home');
+}
+
+/** 归档列表（简单分页） */
+function renderReports(page = 1): string {
+  const PAGE_SIZE = 12;
+  const total = listReports().length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const pageClamped = Math.min(Math.max(1, page), totalPages);
+  const reports = listReports(PAGE_SIZE, (pageClamped - 1) * PAGE_SIZE);
+
+  const pagination = `
+<div style="display:flex;justify-content:center;align-items:center;gap:14px;margin:20px 0 6px">
+  ${pageClamped > 1 ? `<a href="/reports?page=${pageClamped - 1}" class="badge badge-blue">← 上一页</a>` : ''}
+  <span class="muted mono">第 ${pageClamped} / ${totalPages} 页（共 ${total} 期）</span>
+  ${pageClamped < totalPages ? `<a href="/reports?page=${pageClamped + 1}" class="badge badge-blue">下一页 →</a>` : ''}
+</div>`;
+
+  const body = `
+<div class="fade-in">
+<h1>🗂 历史归档</h1>
+${pagination}
+<div class="archive">
+${reports.map((r) => `<a href="/reports/${r.report_id}">
+  <div class="d">${r.date}</div><div class="t">${r.report_id}</div>
+</a>`).join('') || '<p class="muted">暂无日报</p>'}
+</div>
+${pagination}
+</div>
+`;
+  return layout('历史归档', body, 'reports');
+}
+
+function renderReportDetail(report: { report_id: string; date: string; content: string; markdown_path: string | null }): string {
+  const body = `
+<div class="fade-in">
+<h1>📄 ${report.report_id}</h1>
+<p class="muted">日期 ${report.date} ｜ <a href="/reports">← 返回归档</a></p>
+<div class="card" style="margin-top:14px"><pre>${escapeHtml(report.content)}</pre></div>
+</div>
+`;
+  return layout(report.report_id, body, 'reports');
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+export { renderHome };

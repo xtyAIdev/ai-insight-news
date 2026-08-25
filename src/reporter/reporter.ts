@@ -170,8 +170,8 @@ async function generateNarrative(
     .map((s) => `【${s.module_label}】\n` + s.events.map((e) => `- ${e.title}（${e.company || e.product || ''}）`).join('\n'))
     .join('\n');
 
-  const prompt = `你是 AI 行业市场洞察分析师。基于以下今日入选事件，生成日报的三个部分，只输出 JSON：
-{"summary":"今日趋势总结（3-5句，概括整体动态与关键趋势）","future_watch":"未来关注建议（2-3句）","watchlist":[{"title":"关注项1","reason":"理由"}]}
+  const prompt = `你是 AI 行业市场洞察分析师。基于以下今日入选事件，生成日报的三个部分，只输出 JSON，全部使用简体中文：
+{"summary":"今日趋势总结（3-5句，简体中文，概括整体动态与关键趋势）","future_watch":"未来关注建议（2-3句，简体中文）","watchlist":[{"title":"关注项1（简体中文）","reason":"理由（简体中文）"}]}
 
 日期：${input.date}
 入选事件：
@@ -269,10 +269,10 @@ export function renderMarkdown(report: DailyReport): string {
         lines.push(body);
         lines.push('');
       }
-      // 快评（"发生了什么+快评"结构，阶段 4）：LLM 生成或规则五维洞察 what 兜底
+      // 快评（"发生了什么+快评"结构，阶段 4）：只留内容不显示"快评"字样（视觉用斜体引用区分）
       const comment = evt.quick_comment || (evt.insight?.what && evt.insight.what !== evt.title ? evt.insight.what : '');
       if (comment) {
-        lines.push(`> 💬 快评：${comment}`);
+        lines.push(`> *${comment}*`);
         lines.push('');
       }
       // 时间（用户要求时间要真：每条事件显式标注发生日期）
@@ -374,7 +374,7 @@ export function renderHtml(report: DailyReport): string {
         <article class="news-item">
           <h3>${idx + 1}. ${esc(evt.title)}</h3>
           ${bodyText ? `<p class="news-body">${esc(bodyText)}</p>` : ''}
-          ${comment ? `<p class="comment">💬 快评：${esc(comment)}</p>` : ''}
+          ${comment ? `<p class="comment">${esc(comment)}</p>` : ''}
           ${meta.length ? `<div class="meta">${meta.join(' ')}</div>` : ''}
           ${sourceHtml}
         </article>`;

@@ -119,6 +119,11 @@ body {
 .report-body .news-item { padding:18px 0; border-bottom:1px solid var(--border); }
 .report-body .news-item:last-child { border-bottom:none; }
 .report-body .news-body { color:var(--text-2); font-size:14.5px; margin:6px 0 10px; }
+.report-body .comment {
+  color:var(--text-2); font-size:13.5px; font-style:italic;
+  border-left:3px solid var(--accent-border); background:var(--accent-soft);
+  padding:8px 14px; border-radius:8px; margin:6px 0 12px; line-height:1.65;
+}
 .report-body .meta { margin-bottom:8px; }
 .report-body .tag {
   display:inline-block; background:var(--accent-soft); color:var(--accent);

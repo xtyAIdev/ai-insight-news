@@ -44,7 +44,14 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
       continue;
     }
     // 日期真实性：time 为空或已过期（非报告当天）→ date_missing（禁止未知日期默认今天）
-    const timeMissing = !evt.time || (reportDate ? evt.time !== reportDate : false);
+    // 特例：论文模块（arXiv 主源）——arXiv submittedDate 索引有 6-24h 延迟，严格当天必空，
+    //       需求规格 3.4 明确论文按"分类+日期检索"（近 7 天提交窗口）而非严格当天；
+    //       → 论文事件在报告日 7 天内的视为"时间有效"（与 paper.ts filterPapers 的 7d 窗口一致）。
+    //       其余模块（opensource/enterprise）仍严格当天。
+    const isPaper = evt.category === 'paper';
+    const timeMissing = !evt.time
+      || (reportDate && !isPaper && evt.time !== reportDate)
+      || (reportDate && isPaper && isOutsidePaperWindow(evt.time, reportDate));
     if (timeMissing && !reportDate) {
       // 未指定报告日时，以 added_at 兜底判断：time 必须存在
       evt.status = 'dropped';
@@ -128,9 +135,10 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
 
   // 严格当天过滤：仅保留 reportDate 当天事件（用户硬约束：时间要真）
   // 注意：过滤在排序后、按模块分组前执行，确保 TopN 全部是"今天"的事件
+  // 特例：论文模块（arXiv 主源）——arXiv submittedDate 索引延迟，允许报告日近 7 天（规格 3.4 按日期检索语义）
   let pool = evaluated;
   if (reportDate) {
-    const dayPool = evaluated.filter((e) => e.time === reportDate);
+    const dayPool = evaluated.filter((e) => e.category === 'paper' ? isOutsidePaperWindow(e.time, reportDate) === false : e.time === reportDate);
     if (dayPool.length > 0) {
       pool = dayPool;
     } else {
@@ -167,6 +175,21 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
 
   logger.info(`[evaluator] 评估完成：通过 ${evaluated.length}，丢弃 ${dropped.length}，按模块 TopN ${modules.map((m) => `${m}:${(topNByModule[m] || []).length}`).join(',')}`);
   return { events: evaluated, dropped, topN: topNList, topNByModule };
+}
+
+/**
+ * 论文模块时间窗判定：arXiv 主源按"近 7 天提交窗口"（submittedDate 索引延迟，严格当天必空），
+ * 与 paper.ts filterPapers 的 arXiv 7d 窗口保持一致；超出 7 天视为过期。
+ * @returns true = 超出窗口（应滤掉）；false = 窗口内（时间有效）
+ */
+function isOutsidePaperWindow(time: string, reportDate: string): boolean {
+  if (!time) return true; // 无真实日期 → 视为无效（绝不默认今天）
+  const ref = new Date(`${reportDate}T12:00:00`).getTime();
+  const t = new Date(`${time}T00:00:00`).getTime();
+  if (Number.isNaN(ref) || Number.isNaN(t)) return true;
+  const hours = (ref - t) / 3600_000;
+  // 未来时间（时区/时差导致）与超过 7 天的论文都滤掉
+  return hours < 0 || hours > 7 * 24;
 }
 
 // ========== 06-02 规则过滤（广告/重复/低价值） ==========

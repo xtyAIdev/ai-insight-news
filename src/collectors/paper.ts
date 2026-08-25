@@ -54,24 +54,23 @@ export async function collectPaper(ctx: TaskContext): Promise<PaperRawEvent[]> {
   const all: PaperRawEvent[] = [];
   let degraded = false;
 
-  // 1. OpenAlex 主源：无条件先采，严格当天（report_date 或 date_range.end 当天）
-  //    OpenAlex 无索引延迟（实测当天即 132 篇），是"当天新论文"的可靠来源；
-  //    arXiv submittedDate 有 6-24h 索引延迟（周末更久），当天查询必然扑空。
-  const oa = await collectOpenAlex(ctx);
-  if (oa.ok) {
-    all.push(...oa.items);
-  } else {
-    logger.warn(`[paper] OpenAlex 异常: ${oa.error}`);
-    degraded = true;
-  }
-
-  // 2. arXiv 补充源：7d submittedDate 拉近期提交（索引延迟内可回补），filterPapers 仍严格当天过滤
+  // 1. arXiv 主源：按 PAPER_TOPICS 分类 + 7d submittedDate 检索（cs.AI/CL/LG/CV/IR/MM/MA）
+  //    （需求规格 3.4：arXiv Atom API 按分类+日期检索为主源；论文必须真是 AI 领域）
   const arxiv = await collectArxiv(ctx);
   if (arxiv.ok) {
     all.push(...arxiv.items);
   } else {
     logger.warn(`[paper] arXiv 异常: ${arxiv.error}`);
     degraded = true;
+  }
+
+  // 2. OpenAlex 补充源：严格当天 + 严格 AI 主题检索（arXiv 索引有延迟，OpenAlex 无延迟当天即可用）
+  //    注意：OpenAlex 是补充（搜索可能少/空），失败不降级主流程 —— arXiv 才是主源
+  const oa = await collectOpenAlex(ctx);
+  if (oa.ok) {
+    all.push(...oa.items);
+  } else {
+    logger.warn(`[paper] OpenAlex 补充为空/异常: ${oa.error}`);
   }
 
   // 2b. Hugging Face daily_papers 可选尝试：失败静默（HF 网络不稳，不阻塞主流程）
@@ -276,16 +275,48 @@ function extractInfluenceHint(comment: string): string | undefined {
   return undefined;
 }
 
-// ========== OpenAlex 主源（当天） ==========
+// ========== OpenAlex 补充源（严格 AI 过滤） ==========
+
+/**
+ * OpenAlex 是"宽泛 AI 概念"：concepts.id:C154945302(Artificial Intelligence) 会把大量
+ * 挂靠 AI 的边角论文混入（实测当天 100 篇里含学前教育、乌兹别克语文学、电视播音语言等非 AI 内容）。
+ * 因此这里做两层过滤：
+ *   ① 标题/摘要必须命中 PAPER_TOPICS 的 AI 主题关键词（LLM/推理/RAG/强化学习/多模态/Agent 等）
+ *   ② 命中明显非 AI 信号（纯语言/文学/教育/法律/经济，无任何 AI 术语）直接剔除
+ */
+function isAIPaper(title: string, abstract: string): boolean {
+  const text = `${title} ${abstract}`.toLowerCase();
+  const titleLower = title.toLowerCase();
+  // ① 主题关键词命中（与 filterPapers 同源，确保进 TopN 的论文真实属于 AI 方向）
+  const topicHit = PAPER_TOPICS.some((t) =>
+    t.searchKeywords.some((k) => titleLower.includes(k) || text.includes(k)),
+  );
+  if (!topicHit) return false;
+  // ② 非 AI 信号剔除：标题命中 AI 术语但正文明显是非 AI 学科（教育/语言文学/法律等）的论文
+  //    典型如 "AI 在学前教育中的应用" 标题含 AI 但核心是教育 —— 这类不是"AI 前沿研究"
+  const NON_AI_SIGNALS = [
+    /学前教育|幼儿园|幼儿教育|primary school|kindergarten|preschool/i,
+    /乌兹别克|uzbek|乌尔都|波斯语|persian|literary|文学|小说|poetry|诗歌|戏剧|drama/i,
+    /电视播音|电视节目|主持人|新闻播报|broadcast(ing)? (program|anchor)/i,
+    /法律|律师|litigation|legal proceeding|法庭/i,
+    /税收|税务|taxation|tax /i,
+    /宗教|theolog|神学|church|islamic|quran|bible/i,
+  ];
+  if (NON_AI_SIGNALS.some((re) => re.test(text))) return false;
+  return true;
+}
 
 async function collectOpenAlex(ctx: TaskContext): Promise<{ ok: boolean; items: PaperRawEvent[]; error?: string }> {
   const out: PaperRawEvent[] = [];
   // 严格当天：report_date 优先（日报日期），缺省回退 date_range.end
   const target = ctx.report_date || toISODate(new Date(ctx.date_range.end));
-  // AI 概念 ID（C154945302 = Artificial Intelligence）
-  // 注意：当天论文引用数几乎全为 0，按 cited_by_count 排序无意义且会把 AI 主题论文挤出 top-20，
-  // 因此不排序、per-page=100 全量拉取，交给 filterPapers 做主题过滤（实测 100 篇中含 26 篇主题命中）
-  const url = `https://api.openalex.org/works?filter=from_publication_date:${target},to_publication_date:${target},concepts.id:C154945302&per-page=100`;
+  // 关键修复：OpenAlex 的 concepts.id:C154945302(Artificial Intelligence) 概念极不严谨，
+  // 实测当天 70 篇里大量是乌兹别克语语言文学/学前教育/旅游论文（被错误挂靠 AI 概念）。
+  // → 改用主题关键词 search= 精确检索（与 arXiv 同源：LLM/推理/RAG/强化学习/多模态/Agent），
+  //   让 OpenAlex 只作为"已确认 AI 主题"的当天补充，而非宽泛概念拉取。
+  const topicQueries = PAPER_TOPICS.map((t) => `"${t.searchKeywords[0]}"`).slice(0, 4);
+  const searchQ = topicQueries.join(' OR ');
+  const url = `https://api.openalex.org/works?filter=from_publication_date:${target},to_publication_date:${target}&search=${encodeURIComponent(searchQ)}&per-page=50`;
   const res = await httpGetJson<OpenAlexResponse>(url, { timeoutMs: 15_000, retries: 1, exponential: true });
   if (!res.ok || !res.data?.results) {
     recordSourceFail('openalex', res.error || 'empty');
@@ -293,22 +324,26 @@ async function collectOpenAlex(ctx: TaskContext): Promise<{ ok: boolean; items: 
   }
   recordSourceOk('openalex');
   for (const w of res.data.results) {
+    const title = w.title || '';
+    const abstract = reconstructAbstract(w.abstract_inverted_index || undefined);
+    // 二次校验：仍走 isAIPaper（search 命中的可能是边缘论文）
+    if (!isAIPaper(title, abstract)) continue;
     const authors = (w.authorships || []).map((a) => a.author.display_name).slice(0, 10);
     const institutions = (w.authorships || []).flatMap((a) => (a.institutions || []).map((i) => i.display_name));
     out.push({
       module: 'paper',
       paper_id: `OA:${w.id.split('/').pop()}`,
-      title: w.title || '',
+      title,
       authors,
       institution: institutions[0],
       published_at: sanitizeDate(w.publication_date),
-      abstract: reconstructAbstract(w.abstract_inverted_index || undefined),
+      abstract,
       category: 'cs.AI',
       influence_hint: (w.cited_by_count || 0) > 50 ? `高引用(${w.cited_by_count})` : undefined,
       source_urls: [{ url: w.id, source_type: 'openalex', name: 'OpenAlex', credibility_score: 4.5 }],
     });
   }
-  return { ok: out.length > 0, items: out, error: out.length ? undefined : 'openalex 无结果' };
+  return { ok: out.length > 0, items: out, error: out.length ? undefined : 'openalex 无 AI 主题命中' };
 }
 
 // ========== Hugging Face daily_papers（可选尝试，失败静默） ==========
@@ -370,26 +405,38 @@ function reconstructAbstract(inverted: Record<string, number[]> | undefined): st
 
 function filterPapers(items: PaperRawEvent[], ctx: TaskContext, degraded = false): PaperRawEvent[] {
   // 时间窗口：正常 24h / 降级放宽到 48h（不再 72h/×3 过度放宽——用户硬约束"不随意扩大时间窗口"）
-  // OpenAlex 是当天源（published_at=报告日期）天然通过；arXiv 旧论文会被正确滤掉
+  // 特殊：arXiv 论文走 7d 窗口（submittedDate 语义 = 最近提交，arXiv 索引有延迟，严格当天必空；
+  //       需求规格 3.4 明确 arXiv 按"分类+日期检索"主源；日期取真实 published_at，绝不默认今天）
   const windowHours = degraded ? Math.max(48, ctx.time_window_hours) : Math.max(24, ctx.time_window_hours);
   // 时间基准：report_date 当天正午（回补历史日报时论文 relative 该日期），缺省回退 now
   const ref = ctx.report_date ? new Date(`${ctx.report_date}T12:00:00`) : new Date();
   return items.filter((p) => {
     // ① 时间过滤：允许 [0, windowHours]，过滤未来时间（防时区导致 hours<0）
+    const isArxiv = p.source_urls.some((s) => s.source_type === 'arxiv');
+    const win = isArxiv ? 7 * 24 : windowHours;
     const hours = (ref.getTime() - new Date(p.published_at).getTime()) / 3600_000;
-    if (hours < 0 || hours > windowHours) return false;
+    if (hours < 0 || hours > win) return false;
     // ①b 正文完整性：无摘要（abstract 为空）的论文无法生成中文重述，价值低 → 滤掉
-    //     （OpenAlex 部分条目 abstract_inverted_index 为空；空摘要会导致正文渲染兜底成 low_influence 噪音）
     if (!p.abstract || p.abstract.trim().length < 20) return false;
-    // ② 方向匹配
+    // ② 方向匹配（严格 AI 领域：主题关键词命中，拒绝"随便爬最新几篇"）
     const text = `${p.title} ${p.abstract}`.toLowerCase();
+    const titleLower = p.title.toLowerCase();
     const matched = PAPER_TOPICS.some((t) => {
       // 标题命中或摘要命中
-      const titleLower = p.title.toLowerCase();
       if (t.searchKeywords.some((k) => titleLower.includes(k))) return true;
       return t.searchKeywords.some((k) => text.includes(k));
     });
     if (!matched && !degraded) return false;
+    // ②b 非 AI 学科信号剔除（与 OpenAlex 同源：语言/文学/教育/法律等挂靠 AI 的论文）
+    const NON_AI_SIGNALS = [
+      /学前教育|幼儿园|幼儿教育|primary school|kindergarten|preschool/i,
+      /乌兹别克|uzbek|乌尔都|波斯语|persian|literary|文学|小说|poetry|诗歌|戏剧|drama/i,
+      /电视播音|电视节目|主持人|新闻播报|broadcast(ing)? (program|anchor)/i,
+      /法律|律师|litigation|legal proceeding|法庭/i,
+      /税收|税务|taxation|tax /i,
+      /宗教|theolog|神学|church|islamic|quran|bible/i,
+    ];
+    if (NON_AI_SIGNALS.some((re) => re.test(text)) && !degraded) return false;
     // ③ 影响力判断
     if (!degraded) {
       const hasInfluence = p.influence_hint !== undefined || (p.institution && KNOWN_INSTITUTIONS.some((k) => (p.institution || '').toLowerCase().includes(k.toLowerCase())));

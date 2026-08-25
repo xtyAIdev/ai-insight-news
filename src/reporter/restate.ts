@@ -116,6 +116,16 @@ function ruleRestate(evt: StandardEvent): RestateResult {
     title = `开源项目 ${m[1]} 近期活跃更新${stars}`;
   } else if (isChineseText(title)) {
     // 中文标题保持原样
+  } else if (evt.category === 'paper') {
+    // 论文专用路径：提取核心实体 + 主题方向（不走企业动态的"公司+动作+主题"模板，
+    // 避免 "Retrieval" 被误判成 "RAG领域"、论文标题里的 learning/forecasting 被当成动作）
+    // 实体优先级：insight.what 里的核心词（"MetaCaster 提出..."）> 英文摘要 > 英文标题
+    const whatText = evt.insight?.what && isChineseText(evt.insight.what || '') ? evt.insight.what : '';
+    const entity = (whatText ? extractCjkEntity(whatText) : '') || extractDescEntity(evt.description || '') || extractTitleEntity(title);
+    const direction = paperDirection(title, evt.description || '');
+    title = entity
+      ? (direction ? `${entity}：${direction}` : entity)
+      : (direction ? `${direction}方向研究新进展` : 'AI 学术研究最新动态');
   } else {
     // 英文标题：模板化中文翻译（公司名 + 动作词 + 主题词/产品名）
     // 公司名优先取标准化事件 company 字段（采集端已归属），其次从标题文本提取
@@ -124,12 +134,16 @@ function ruleRestate(evt: StandardEvent): RestateResult {
     const topic = EN_TOPIC_MAP.find(({ re }) => re.test(title))?.zh;
     const product = EN_PRODUCT_MAP.find(({ re }) => re.test(title))?.name;
     const subject = product || topic;
+    // 标题缺信息量时，尝试从正文摘要提取首句核心实体（CamelCase / UPPER 词，如 MetaCaster、Action-Aligned）
+    const descEntity = subject ? '' : extractDescEntity(evt.description || '');
     if (company) {
       title = action
-        ? `${company}${action}${subject ? `${subject}新动态` : '新动态'}`
-        : `${company}发布${subject ? `${subject}新动态` : '最新动态'}`;
+        ? `${company}${action}${subject ? `${subject}新动态` : (descEntity || '新动态')}`
+        : `${company}发布${subject ? `${subject}新动态` : (descEntity || '最新动态')}`;
     } else if (subject) {
       title = action ? `${subject}领域${action}新进展` : `${subject}领域发布最新动态`;
+    } else if (descEntity) {
+      title = descEntity;
     } else {
       // 无公司名无主题词：取英文标题前 3-4 个实义词作为信息量（避免空泛标题）
       const words = title.split(/[^a-zA-Z0-9]+/).filter((w) => w.length >= 3 && !['the', 'and', 'with', 'from', 'that', 'this', 'into', 'your', 'you', 'are', 'for', 'new', 'how', 'what', 'why', 'can', 'not', 'its', 'has', 'had', 'was', 'were', 'will'].includes(w.toLowerCase())).slice(0, 3);
@@ -137,9 +151,97 @@ function ruleRestate(evt: StandardEvent): RestateResult {
         ? `${words.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} 动态`
         : 'AI 行业最新动态';
     }
-    // 正文兜底：英文原文保留（渲染层会以中文标题呈现，正文标注英文原文供核对）
   }
-  return { title, body: '', byLLM: false };
+  // 正文兜底：纯英文正文 → 优先用规则五维洞察 what（中文、信息密度高，如论文的"提出某方法解决某问题"），
+  // 其次规则级粗翻英文摘要（首句 + 主题词中文标注），避免英文摘要原样进日报
+  let body = '';
+  const desc = (evt.description || '').trim();
+  if (desc && !isChineseText(desc)) {
+    const what = evt.insight?.what && evt.insight.what !== evt.title && isChineseText(evt.insight.what)
+      ? evt.insight.what.trim()
+      : '';
+    if (what) {
+      body = what;
+    } else {
+      const zh = ruleTranslateAbstract(desc, title);
+      body = zh || `（原文为英文，LLM 重述失败，正文保留英文原文供核对）\n\n${desc.slice(0, 500)}`;
+    }
+  }
+  return { title, body, byLLM: false };
+}
+
+/** 从英文标题提取核心实体（CamelCase / 连字符 / 冒号前主体） */
+function extractTitleEntity(title: string): string {
+  // "MetaCaster: ..." 冒号前主体
+  const colon = title.split(/[:：]/)[0]?.trim();
+  const candidates: string[] = [];
+  if (colon && /[a-zA-Z]/.test(colon)) {
+    // 取冒号前最后一个词（常是核心方法名）
+    const words = colon.split(/\s+/).filter((w) => /^[A-Z][a-zA-Z0-9-]*$/.test(w));
+    if (words.length > 0) candidates.push(words[words.length - 1]);
+  }
+  const camel: string[] = title.match(/\b[A-Z][a-z]+(?:[A-Z][a-z]+)+\b/g) || [];
+  const dashed: string[] = title.match(/\b[A-Z][A-Za-z]*-[A-Za-z]+\b/g) || [];
+  const all = candidates.concat(camel, dashed).filter((w) => !['AI', 'LLM', 'RAG', 'CV', 'NLP', 'Meta'].includes(w));
+  return all.sort((a, b) => b.length - a.length)[0] || '';
+}
+
+/** 论文主题方向（中文）：标题/摘要命中的 AI 方向关键词，取最具体的 1-2 个 */
+function paperDirection(title: string, abstract: string): string {
+  const text = `${title} ${abstract}`.toLowerCase();
+  const hits: string[] = [];
+  for (const { re, zh } of EN_TOPIC_MAP) {
+    if (re.test(text) && !hits.includes(zh)) hits.push(zh);
+  }
+  // 优先级排序：Agent/大模型/多模态/推理 等具体方向优先；RAG/检索 次之
+  const priority = ['Agent', '大模型', '多模态', '推理', '强化学习', 'RAG', '搜索学习', '机器人', '安全', '边缘部署', '生物医药'];
+  hits.sort((a, b) => {
+    const ia = priority.indexOf(a); const ib = priority.indexOf(b);
+    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+  });
+  return hits.slice(0, 2).join('+') || '';
+}
+
+/** 英文摘要规则级粗翻：截取前 2 句 + 中文主题词标注 + 数字/机构保留（LLM 失败时的可读降级） */
+function ruleTranslateAbstract(abstract: string, zhTitle: string): string {
+  const sentences = abstract.split(/(?<=[.!?])\s+/).filter((s) => s.trim().length > 0);
+  const lead = sentences.slice(0, 2).join(' ').slice(0, 260);
+  if (!lead) return '';
+  // 主题词 → 中文（让粗翻带上领域上下文）
+  const topics: string[] = [];
+  for (const { re, zh } of EN_TOPIC_MAP) {
+    if (re.test(lead)) topics.push(zh);
+  }
+  const topicNote = topics.length > 0 ? `（方向：${Array.from(new Set(topics)).join('/')}）` : '';
+  return `${zhTitle}。${topicNote}论文摘要：${lead}…（LLM 重述失败，以上为规则级粗翻，原文保留供核对）`;
+}
+
+/** 从英文正文提取核心实体（CamelCase / 连字符 / 大写字首），用于规则翻译标题补足信息量。
+ *  全正文扫描（不限首句），并排除形容词化/介词短语里的非核心词 */
+function extractDescEntity(desc: string): string {
+  if (!desc) return '';
+  // 扫描整个正文：优先提取真正的方法/框架名（CamelCase、带连字符、或大写缩写）
+  const camel: string[] = desc.match(/\b[A-Z][a-z]+(?:[A-Z][a-z]+)+\b/g) || [];
+  const dashed: string[] = desc.match(/\b[A-Z][A-Za-z]*-[A-Za-z]+\b/g) || [];
+  const upper: string[] = desc.match(/\b[A-Z]{2,}\b/g) || [];
+  const cand = camel.concat(dashed, upper)
+    .filter((w) => !['AI', 'LLM', 'RAG', 'CV', 'NLP', 'API', 'ML'].includes(w)) // 通用缩写无信息量
+    .filter((w) => !/^(Meta|Self|Cross|Multi|Large)-/.test(w)) // 形容词前缀（Meta-Optimized）非核心实体
+    .sort((a, b) => b.length - a.length);
+  return cand[0] || '';
+}
+
+/** 从中文 insight.what 提取首词核心实体（英文专名/方法名，如 "MetaCaster 提出..." → MetaCaster） */
+function extractCjkEntity(what: string): string {
+  if (!what) return '';
+  // 匹配开头或句中的英文专名（CamelCase / 带连字符 / 大写缩写），取最长
+  const camel: string[] = what.match(/\b[A-Z][a-z]+(?:[A-Z][a-z]+)+\b/g) || [];
+  const dashed: string[] = what.match(/\b[A-Z][A-Za-z]*-[A-Za-z]+\b/g) || [];
+  const upper: string[] = what.match(/\b[A-Z]{2,}\b/g) || [];
+  const cand = camel.concat(dashed, upper)
+    .filter((w) => !['AI', 'LLM', 'RAG', 'CV', 'NLP', 'API', 'ML', 'arXiv'].includes(w))
+    .sort((a, b) => b.length - a.length);
+  return cand[0] || '';
 }
 
 interface LlmRestateItem {

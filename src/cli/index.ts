@@ -59,13 +59,23 @@ async function cmdRun(args: Record<string, string>): Promise<void> {
 async function cmdServe(args: Record<string, string>): Promise<void> {
   const port = parseInt(args.port || '8787', 10);
   ensureConfigDirs();
-  // 启动 HTTP 服务
+  // 启动内部控制台（本地调试：事件/反馈/任务/数据源）
   const { startServer } = await import('./server.js');
   startServer(port);
   // 同时启动调度器
   startScheduler();
-  console.log(`\n✅ Web 查看器已启动: http://localhost:${port}`);
+  console.log(`\n✅ Internal Console 已启动: http://localhost:${port}`);
   console.log(`   每日定时触发: ${config.scheduleTime}（已加载配置）\n`);
+}
+
+/** Public Site（只读：今日日报 + 归档 —— 读者向，与内部控制台分离） */
+async function cmdSite(args: Record<string, string>): Promise<void> {
+  const port = parseInt(args.port || '8899', 10);
+  ensureConfigDirs();
+  const { startSiteServer } = await import('./site.js');
+  startSiteServer(port);
+  console.log(`\n✅ Public Site 已启动: http://127.0.0.1:${port}`);
+  console.log(`   只读展示（今日日报 + 归档），不启动调度器\n`);
 }
 
 async function cmdDbInit(): Promise<void> {
@@ -132,7 +142,7 @@ async function cmdListRuns(): Promise<void> {
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
   const cmd = args[0] || 'run';
-  const isLongRunning = cmd === 'serve';
+  const isLongRunning = cmd === 'serve' || cmd === 'site';
 
   // 全局兜底：unhandledRejection / uncaughtException 不静默崩溃（否则 Actions 里 exit 1 且无日志）
   process.on('unhandledRejection', (reason) => {
@@ -150,6 +160,9 @@ async function main(): Promise<void> {
     }
     case 'serve':
       await cmdServe(parseArgs(args.slice(1)));
+      break;
+    case 'site':
+      await cmdSite(parseArgs(args.slice(1)));
       break;
     case 'db:init':
       await cmdDbInit();
