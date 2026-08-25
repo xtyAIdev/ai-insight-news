@@ -1,103 +1,250 @@
-# AI Insight Agent — Market Intelligence Agent
+<div align="center">
 
-一个单体 **Market Intelligence Agent**（内部模块化流程），每日自动采集 AI 行业情报（开源技术 / 学术研究 / 企业动态），经标准化 → 五维洞察（仅用于评估排序）→ 真实性核验 → 质量评分，产出**新闻简报模板化日报**（Markdown + HTML 网页版双归档），并支持邮件推送。
+# AI Insight Agent
 
-## 架构总览
+**An autonomous market-intelligence agent that reads the AI industry for you every day.**
 
-```
-┌────────────────────────── 调度器（每日 08:00 / 手动触发）──────────────────────────┐
-│                                                                                  │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────────┐              │
-│  │ 开源技术采集  │  │ 学术研究采集  │  │ 企业动态采集（单模块双分支）     │              │
-│  │ GitHub→Trend│  │ arXiv→S2    │  │  分支A投融资(WebSearch)      │              │
-│  │ ModelScope→HF│  │ OpenReview→ │  │  分支B产品战略(aihot+RSS)    │              │
-│  │ →Gitee→Web  │  │ OpenAlex    │  │  （企业池9家，按公司≤2条）     │              │
-│  └──────┬──────┘  └──────┬──────┘  └──────────┬──────────────────┘              │
-│         └──────────┬─────┘  RawEvent（原始事件池）                               │
-│  ┌──────────────────▼──────────────────┐                                        │
-│  │ 统一处理层：标准化→实体抽取→分类校验→  │                                        │
-│  │ 去重→冲突合并→五维洞察 → StandardEvent │  （并行处理，8 并发）                   │
-│  └──────────────────┬──────────────────┘                                        │
-│  ┌──────────────────▼──────────────────┐                                        │
-│  │ 评估层：规则粗评→TopN×2候选 LLM 精评  │                                        │
-│  │ →真实性/Reflection→评分→按模块TopN   │                                        │
-│  └──────────────────┬──────────────────┘                                        │
-│  ┌──────────────────▼──────────────────┐                                        │
-│  │ 报告层：新闻简报模板→LLM内容生成→QC  │                                        │
-│  │ →Markdown+HTML归档→邮件推送(失败入库) │                                        │
-│  └─────────────────────────────────────┘                                        │
-│  数据层：SQLite（事件库/高质量库/报告库/企业池/反馈集）+ trace_log 全链路           │
-│  缓存层：data/cache/<模块>/latest.json（实时源全失败时 stale 降级）                │
-└──────────────────────────────────────────────────────────────────────────────────┘
-```
+It crawls open-source momentum, cutting-edge papers, and company moves from dozens of live sources — then verifies, ranks, and distills them into a concise, readable daily briefing (Markdown + HTML + email), fully automatically.
 
-## 快速开始
+[Live Daily Report](https://xtyAIdev.github.io/ai-insight-news/) · [中文版](README_CN.md) · [GitHub](https://github.com/xtyAIdev/ai-insight-news)
 
-要求：Node.js ≥ 22.13（内置 `node:sqlite`，无需安装任何数据库）
+![Node](https://img.shields.io/badge/Node-%3E%3D22.13-339933?logo=nodedotjs&logoColor=white)
+![Zero runtime deps](https://img.shields.io/badge/runtime%20deps-0-important)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-```bash
-cd ai-insight-agent
-npm install          # 仅安装 typescript（编译期依赖）
-cp .env.example .env # 可选：填入 LLM_API_KEY 启用真实 LLM
+</div>
 
-npm run             # 一键：编译 + 运行一次完整日报流程
-npm run serve       # 启动本地 Web 查看器 http://localhost:8787（网页版日报预览）
-```
+---
 
-- **无 Key 也能跑**：LLM 未配置/失败时自动降级为内置规则引擎，全流程可离线跑通。
-- **配置 Key 后**：实体抽取、五维洞察、真实性判断、质量评分、报告生成全部走真实 LLM（OpenAI 兼容协议）。
-- **三层兜底**：实时源失败 → WebSearch（Hacker News / DuckDuckGo，免 Key）→ 本地缓存（stale 标注「缓存数据」）。
+## What is this?
 
-## 命令行
+Every morning, an AI industry professional needs to answer three questions in five minutes:
 
-```bash
-node --experimental-sqlite dist/cli/index.js run            # 运行一次完整流程（今日）
-node --experimental-sqlite dist/cli/index.js run --date 2026-08-20
-node --experimental-sqlite dist/cli/index.js run --modules opensource,paper   # 只跑部分模块
-node --experimental-sqlite dist/cli/index.js serve          # 启动本地 Web 查看器（报告/事件/反馈）
-node --experimental-sqlite dist/cli/index.js db:init        # 初始化数据库
-```
+1. **What is moving in open source right now?** — new repos, rising stars, hot communities
+2. **What research actually matters today?** — papers from top institutions on LLM / agent / RAG / RL / multimodal
+3. **What are the key companies doing?** — product launches, strategy shifts, funding rounds
 
-## 配置项（.env）
+AI Insight Agent answers all three. It is a fully autonomous **market-intelligence agent** (not a script that scrapes one feed) that runs a complete pipeline: multi-source collection → normalization → deduplication → fact-checking → quality scoring → ranking → report generation → delivery. It runs once a day, and it runs even without an LLM API key — a built-in rule engine keeps the whole pipeline alive offline.
 
-| 变量 | 默认 | 说明 |
+> The daily report is generated every day by GitHub Actions and published to GitHub Pages — you can read it at [xtyAIdev.github.io/ai-insight-news](https://xtyAIdev.github.io/ai-insight-news).
+
+---
+
+## Why it exists
+
+- **The problem:** AI moves too fast for manual tracking. RSS folders overflow, Twitter/X timelines are noisy, arXiv dumps hundreds of papers a day, and "what actually matters" gets buried.
+- **The gap:** Most news aggregators just re-publish. They don't verify, rank, or explain *why* something matters.
+- **The answer:** An agent that treats each event like an analyst would — check if it's real, score how important it is for *this* audience, keep only the top few per domain, and write each one up in a language humans actually read (Chinese), with source links for every claim.
+
+---
+
+## Features
+
+### 🧭 Three domains, one daily briefing
+| Domain | What it tracks | Primary sources |
 |---|---|---|
-| `LLM_API_KEY` | 空 | OpenAI 兼容 Key（DeepSeek/OpenAI 等）；空则规则引擎降级 |
-| `LLM_BASE_URL` | `https://api.deepseek.com/v1` | API 端点 |
-| `LLM_MODEL` | `deepseek-chat` | 模型名 |
-| `SCHEDULE_TIME` | `08:00` | 每日自动触发时间 |
-| `GLOBAL_TIMEOUT_MIN` | `30` | 全局硬超时（分钟），超时输出已完成部分 |
-| `MODULE_TIMEOUT_MIN` | `20` | 采集模块超时（分钟） |
-| `TIME_WINDOW_HOURS` | `24` | 默认采集窗口；无结果自动扩展 48/72h |
-| `TOP_N` | `5` | 每模块默认 TopN |
-| `MAIL_*` | 关 | 邮件推送（可选，演示环境默认入库） |
+| **Open Source** | LLM / Agent / RAG / MCP / AI Infra / open-weight models | GitHub Search API, ModelScope, Hugging Face, Gitee |
+| **Papers** | LLM, reasoning, RAG, RL, multimodal, agents | arXiv (primary), OpenAlex (same-day), Hugging Face daily papers |
+| **Enterprise** | Product launches, strategy, funding rounds | OpenAI/Anthropic/Google RSS + DeepSeek/Kimi blogs + TechCrunch/36Kr + aihot |
 
-## 自动化与在线日报（GitHub Actions + Pages）
+### ✅ Fact-checking before publishing
+Every candidate event passes a **two-stage credibility check**:
+1. **Rule engine** scores source credibility (S/A/B/C/D source-level table, multi-source cross-validation, missing-date penalty).
+2. **LLM judge** re-scores authenticity (0–5). Low-scoring events trigger **Reflection** — a web search for authoritative corroboration, and if found, the event is upgraded with new evidence; otherwise it's re-judged or dropped. No date, no default-to-today: undated events are rejected, never invented.
 
-本项目已配置 GitHub Actions 每日自动化，并发布到 **GitHub Pages** 公开网页：
+### 🎯 Ranked, not dumped
+Events are scored with **domain-specific importance rubrics** (community momentum for open source, institutional influence for papers, market impact for enterprises) and only the **TopN per module** (default 5) make it into the report — with a one-line *reason* for every pick.
 
-- **在线日报**：https://xtyAIdev.github.io/ai-insight-news/ （日报归档索引 + 每日网页版，含历史归档）
-- **工作流**：`.github/workflows/daily-report.yml` —— 每天 UTC 00:00（北京时间 08:00）自动运行完整日报流程，生成静态站点并部署到 Pages
-- **手动触发**：仓库 **Actions** 页 → **Daily AI Insight Report** → **Run workflow**
-- **LLM 配置（可选）**：在仓库 **Settings → Secrets and variables → Actions** 添加 Secret。**只需配 `LLM_API_KEY` 一个**即可启用真实 LLM（`LLM_BASE_URL` / `LLM_MODEL` 有默认值，可留空）；未配置时自动降级为内置规则引擎（仍可产出日报）
-- **失败告警**：每日定时运行若失败，会自动在仓库 Issues 创建「⚠️ 日报生成失败」告警，避免静默丢失
-- **本地生成**：`npm run` 生成 `reports/YYYY-MM-DD/`（Markdown + HTML 双归档）
+### 🧠 Five-dimensional insight + quick comment
+Each event gets a structured insight (what / why / trend / impact / action) used for ranking, and a human-style **quick comment** in the briefing so readers get the takeaway, not just the headline.
 
-> **Secret 原理**：GitHub Secrets 加密存储于仓库设置中，**从不写入仓库文件**（不进 `.env`、不进 git）。Workflow 运行时通过 `${{ secrets.LLM_API_KEY }}` 注入为进程环境变量，代码自动读取。Secret 值在 Actions 日志中自动打码，无法被输出泄露。
+### 🌏 Chinese-first briefing, sources in English
+TopN events are **restated into Chinese** by the LLM (analytical headline + body + comment), with the original English title kept at the end of the description for verification. A rule-based fallback keeps Chinese output readable even when the LLM flakes.
 
-## 目录结构
+### 🔌 Runs with or without an LLM key
+Configure `LLM_API_KEY` (OpenAI-compatible) and every stage uses a real LLM. Without a key, the built-in **rule engine** drives the entire pipeline — entity extraction, insights, credibility, scoring, even report drafting all have deterministic rule implementations. Zero runtime dependencies; only TypeScript is a dev dependency.
+
+### 🛟 Three-layer resilience
+Live sources fail → **WebSearch fallback** (Hacker News / DuckDuckGo, key-free) → **local cache** (last successful snapshot, marked "stale"). Source health is tracked per source, and failing modules degrade gracefully instead of aborting the run.
+
+### 🗄️ Full auditability
+SQLite (built-in `node:sqlite`, WAL mode) stores every layer: raw events → standard events → high-quality events → reports, plus the enterprise watchlist pool, human feedback, task runs, and source health. Every event carries a **trace log** — which tool scored it, what stage it passed, and why.
+
+### 📬 Delivery & feedback loop
+Reports are archived as Markdown + HTML, optionally emailed via a built-in zero-dependency SMTP client, and published to GitHub Pages by Actions. A feedback endpoint records human scores vs. agent scores and computes weekly/monthly quality metrics (consistency rate, satisfaction rate, low-score reasons).
+
+---
+
+## Architecture
+
+```
+┌───────────────────────────────────────────────────────────────────────┐
+│                        Scheduler (daily 08:00 / manual)                │
+└──────────────────────────────┬────────────────────────────────────────┘
+                               ▼
+┌───────────────────────────────────────────────────────────────────────┐
+│  Collectors — 3 modules in parallel (Promise.all)                      │
+│                                                                        │
+│  Open Source        Papers                 Enterprise                  │
+│  GitHub Search ────► arXiv (primary) ─────► Branch A: company moves   │
+│  ModelScope          OpenAlex (same-day)     official RSS/HTML →       │
+│  Hugging Face        HF daily papers         media RSS → WebSearch     │
+│  Gitee               WebSearch fallback   ┌─ Branch B: funding rounds  │
+│  WebSearch fallback                        │   aihot → WebSearch        │
+│                                            └─ enterprise pool (9 cos)  │
+└──────────────────────────────┬────────────────────────────────────────┘
+                               ▼
+┌───────────────────────────────────────────────────────────────────────┐
+│  Processor — normalize → entity extraction → classify → 5-dim insight │
+│  → cross-source dedup (dual channel) → StandardEvent    (8 concurrent)│
+└──────────────────────────────┬────────────────────────────────────────┘
+                               ▼
+┌───────────────────────────────────────────────────────────────────────┐
+│  Evaluator — Phase 1: rule filter & rough score                        │
+│              Phase 2: LLM fact-check (TopN×2 candidates)              │
+│                       → Reflection (websearch corroboration if <3)    │
+│              Phase 3: strict same-day filter → per-module TopN + rank │
+└──────────────────────────────┬────────────────────────────────────────┘
+                               ▼
+┌───────────────────────────────────────────────────────────────────────┐
+│  Reporter — Chinese restate → narrative (summary/future/watchlist)     │
+│  → QC checklist & auto-fix → Markdown + HTML → archive → email push    │
+└──────────────────────────────┬────────────────────────────────────────┘
+                               ▼
+                  SQLite (raw → standard → HQ events,
+                  reports, pool, feedback, runs, source health)
+                  + JSON cache layer (stale fallback)
+```
+
+### Agent workflow
+
+```mermaid
+flowchart LR
+    T[Trigger: daily 08:00 / manual] --> C[Collect 3 modules in parallel]
+    C -->|RawEvent| P[Process: normalize + entities + 5-dim insight + dedup]
+    P -->|StandardEvent| E1[Phase 1: rule filter + rough score]
+    E1 --> E2[Phase 2: LLM fact-check 0-5]
+    E2 -->|score < 3| R[Reflection: websearch for authoritative proof]
+    R -->|evidence found| E2
+    R -->|still low| D[Dropped]
+    E2 -->|score >= 3| E3[Phase 3: same-day filter + per-module TopN]
+    E3 --> RP[Reporter: Chinese restate + narrative + QC]
+    RP --> OUT[Markdown + HTML + email + GitHub Pages]
+```
+
+---
+
+## Tech stack
+
+| Layer | Choice | Why |
+|---|---|---|
+| Language | **TypeScript** (strict, ESM) | Type safety across the whole pipeline |
+| Runtime | **Node.js ≥ 22.13** | Built-in `node:sqlite` + `fetch` — no native deps |
+| Storage | **SQLite (WAL)** | Zero-ops embedded DB for events, reports, feedback |
+| LLM | **OpenAI-compatible API** (DeepSeek/OpenAI/…), `temperature` 0.1 scoring / 0.3 generation | Drop-in provider, configurable via `.env` |
+| Fallback | **Built-in rule engine** | Deterministic implementations for every LLM stage |
+| Scheduling | `node:cron`-style internal scheduler + **GitHub Actions** daily | Cron at home, Actions in CI |
+| Delivery | Markdown + self-contained HTML + zero-dep SMTP + **GitHub Pages** | Reader-friendly everywhere |
+| Deps | **0 runtime dependencies** (`typescript` dev-only) | Auditable, portable, tiny |
+
+---
+
+## Project structure
 
 ```
 src/
-├── cli/            # CLI 入口（run/serve/db:init）
-├── config/         # 配置中心（.env 加载 + 默认值）
-├── types/          # 统一事件 Schema（RawEvent/StandardEvent/DailyReport）
-├── db/             # SQLite 数据层（建表 + 仓储）
-├── utils/          # trace_log / retry / fetch / 归一化 / 信源等级
-├── llm/            # LLM Provider（OpenAI 兼容 + 规则引擎降级）
-├── collectors/     # 三大采集模块（opensource/paper/enterprise）
-├── processor/      # 统一处理层（标准化/实体抽取/去重/五维洞察）
-├── evaluator/      # 评估层（规则过滤/真实性/评分/排序）
-├── reporter/       # 报告层（生成/质量检查/推送/反馈）
-└── orchestrator/   # 调度器 + 编排器 + 异常矩阵
+├── cli/            # CLI: run / serve / site / db:init / feedback / metrics / list:*
+├── config/         # .env loading + defaults; keyword libs, source tables, thresholds
+├── types/          # Unified event schema (Raw / Standard / Report / Feedback)
+├── db/             # SQLite layer: schema + repositories + source health
+├── utils/          # http (retry/timeout), websearch, cache, normalize, trace, logger
+├── llm/            # Provider (OpenAI-compatible) + rule engine fallback
+├── collectors/     # opensource.ts / paper.ts / enterprise.ts (dual-branch)
+├── processor/      # Standardize → entities → classify → insight → dedup (8× concurrency)
+├── evaluator/      # Rule filter → LLM fact-check → Reflection → per-module TopN
+├── reporter/       # Chinese restate → narrative → QC → Markdown/HTML → email → feedback
+└── orchestrator/   # Pipeline (parallel modules, global/module timeouts) + scheduler
 ```
+
+---
+
+## Quick start
+
+**Requirements:** Node.js ≥ 22.13 (no database, no native modules)
+
+```bash
+git clone https://github.com/xtyAIdev/ai-insight-news.git
+cd ai-insight-news
+
+npm install                # installs only typescript (compile-time)
+cp .env.example .env       # optional: set LLM_API_KEY to enable real LLM
+
+npm run                    # compile + run one full daily-report pipeline
+npm run serve              # local web viewer at http://localhost:8787
+npm run site               # public-style site at http://localhost:8899 (today + archive)
+```
+
+**Runs with zero configuration.** Without `LLM_API_KEY` the pipeline degrades to the built-in rule engine and still produces a complete report. Set the key and every stage (entity extraction, insights, fact-checking, scoring, Chinese restating, narrative) uses a real LLM.
+
+### CLI
+
+```bash
+npm run -- run                          # full pipeline for today
+npm run -- run --date 2026-08-20        # backfill a specific date
+npm run -- run --modules opensource,paper   # run only some modules
+npm run -- feedback --event <id> --score 4 --tags low-quality   # record human feedback
+npm run -- metrics --period weekly      # quality metrics from feedback
+```
+
+### Environment variables
+
+| Variable | Default | Description |
+|---|---|---|
+| `LLM_API_KEY` | *(empty)* | OpenAI-compatible key; empty → rule-engine mode |
+| `LLM_BASE_URL` | `https://api.deepseek.com/v1` | API endpoint |
+| `LLM_MODEL` | `deepseek-chat` | Model name |
+| `SCHEDULE_TIME` | `08:00` | Daily auto-run time |
+| `GLOBAL_TIMEOUT_MIN` | `30` | Hard timeout for the whole pipeline |
+| `MODULE_TIMEOUT_MIN` | `20` | Per-module collection timeout |
+| `TIME_WINDOW_HOURS` | `24` | Collection window; auto-expands on empty results |
+| `TOP_N` | `5` | Events per module in the report |
+| `MAIL_*` | off | Optional email push (zero-dep SMTP) |
+
+> **GitHub Actions:** the repo ships `.github/workflows/daily-report.yml` — daily at UTC 00:00 (Beijing 08:00) it runs the full pipeline and deploys a static site to Pages. Add only `LLM_API_KEY` to **Settings → Secrets and variables → Actions** to enable the real LLM in CI (optional). Failed runs open a ⚠️ issue automatically.
+
+---
+
+## Example output
+
+> A daily report generated automatically from live data — [read the real thing](https://xtyAIdev.github.io/ai-insight-news/).
+
+````markdown
+# AI 行业市场洞察日报
+> 日期：2026-08-25 ｜ 报告编号：report_20260825
+
+## 📌 今日要闻速览
+今日AI行业动态显示，开源工具链持续完善，Ragas、Dify、unsloth和CopilotKit
+等项目的更新显著降低了开发门槛……整体来看，AI技术正从模型性能竞赛转向
+易用性与生态整合，开源与商业化并进成为关键趋势。
+
+## AI 开源技术
+### 1. Ragas更新：开源LLM/RAG评估框架集成LangChain与LlamaIndex
+Ragas是一个开源的Python评估框架，专为LLM和RAG（检索增强生成）应用设计……
+**时间**：2026-08-25
+**主体**：api-evangelist ｜ **标签**：ai-evaluation / llm / metrics
+**来源**：[GitHub](https://github.com/api-evangelist/ragas)
+---
+### 2. Dify更新：一站式Agent工作流与RAG管道，云/VPC/自托管灵活部署
+……
+## AI 学术研究 / AI 企业动态（略）
+## 🔭 未来关注建议 / 👀 观察名单
+````
+
+Every item shows: a **Chinese analytical title**, a **human-style quick comment**, the real **date**, the **company/project**, **tags**, and clickable **source links**. No claim without a source, no date invented.
+
+---
+
+## License
+
+MIT
