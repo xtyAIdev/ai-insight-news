@@ -1,12 +1,15 @@
 /**
  * 生成 GitHub Pages 静态站点（workflow 内运行）
  * 输出到 site/ 目录：
- *   - index.html    当日日报全文 + 归档导航（浅色高雅科技风）
+ *   - index.html    当日日报全文（卡片式分模块）+ 顶部归档入口
+ *   - archive.html  独立历史归档页（全部日期）
  *   - <date>/<report_id>.html  每日日报网页版
  * 随后由 workflow 将 site/ 上传并部署到 GitHub Pages。
  *
  * 设计原则：浅色、克制的科技感 —— 白/浅灰底 + 单一强调色（靛蓝），
  * 细线分隔、留白充足、衬线标题与无衬线正文搭配，避免深色霓虹"AI 味"。
+ * 2026-08-25：同步 site.ts 的卡片式分模块 —— 每板块独立卡片有边界，
+ * 不再整段内嵌成"一篇文章"；首页底部历史归档移入独立 archive.html。
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -34,13 +37,30 @@ function collectReports() {
   return out.sort((a, b) => b.date.localeCompare(a.date));
 }
 
-/** 从日报 HTML 中提取正文（去掉 header/footer，保留正文区） */
-function extractBody(htmlFile) {
+/** 从日报 HTML 拆分速览 + 各模块（卡片式分模块，与 site.ts splitModules 同语义） */
+function splitModules(htmlFile) {
   const html = fs.readFileSync(htmlFile, 'utf-8');
-  const body = html.match(/<div class="wrap">([\s\S]*?)<\/div>\s*<\/body>/i);
-  if (!body) return html;
-  // 去掉 header（标题区），保留 summary + 各模块
-  return body[1].replace(/<header[\s\S]*?<\/header>/, '');
+  const result = { summary: '', modules: [] };
+  const summaryMatch = html.match(/<section class="summary">([\s\S]*?)<\/section>/);
+  if (summaryMatch) result.summary = summaryMatch[1];
+  const moduleRegex = /(<section class="module"[^>]*>)([\s\S]*?)<\/section>/g;
+  let m;
+  while ((m = moduleRegex.exec(html)) !== null) {
+    result.modules.push(`${m[1]}${m[2]}</section>`);
+  }
+  return result;
+}
+
+/** 把最新一期日报渲染成独立卡片序列（速览卡 + 每模块卡），模块间有独立边界 */
+function buildLatestCards(latest) {
+  const parts = [];
+  const split = splitModules(latest.htmlFile);
+  if (split.summary) parts.push(`<div class="card summary-card">${split.summary}</div>`);
+  for (const mod of split.modules) {
+    parts.push(`<div class="card module-card">${mod}</div>`);
+  }
+  if (parts.length === 0) return '<p class="empty-note">暂无日报内容</p>';
+  return parts.join('\n');
 }
 
 /** 解析日报标题（HTML 版 h1） */
@@ -106,36 +126,48 @@ body {
 .hero .lead { font-size:15.5px; color:var(--text-2); margin-top:6px; }
 .hero .meta { display:flex; gap:18px; margin-top:14px; font-size:12.5px; color:var(--muted); flex-wrap:wrap; }
 
-/* 报告正文（reporter 渲染的 HTML 内嵌） */
-.report-body { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:36px 40px; }
+/* 报告正文（卡片式分模块：每模块独立卡片，有独立边界） */
+.report-body { display:flex; flex-direction:column; gap:18px; }
+.report-body .card {
+  background:var(--card); border:1px solid var(--border); border-radius:14px;
+  padding:24px 28px; box-shadow:0 1px 3px rgba(15,23,42,0.05);
+}
+.report-body .module-card section.module {
+  background:transparent; border:none; border-radius:0; padding:0; margin:0;
+}
 .report-body h2 {
-  font-family:var(--serif); font-size:21px; font-weight:700; margin:30px 0 14px;
-  padding-bottom:8px; border-bottom:2px solid var(--accent); display:inline-block;
+  font-family:var(--serif); font-size:19px; font-weight:700; margin:0 0 14px;
+  padding-left:11px; border-left:4px solid var(--accent); line-height:1.4;
 }
-.report-body h3 { font-size:16.5px; font-weight:650; margin:22px 0 8px; color:var(--text); }
-.report-body .summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:10px; padding:16px 20px; margin-bottom:24px; }
-.report-body .summary h2 { border:none; margin:0 0 6px; padding:0; }
-.report-body .summary p { color:var(--text-2); font-size:14.5px; }
-.report-body .news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.report-body h3 { font-size:16px; font-weight:650; margin:0 0 6px; color:var(--text); line-height:1.5; }
+.report-body .summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:10px; padding:16px 20px; margin-bottom:0; }
+.report-body .summary-card h2 { border:none; margin:0 0 8px; padding:0; font-size:16px; }
+.report-body .summary-card p { color:var(--text-2); font-size:14px; margin:0; }
+.report-body .news-item { padding:14px 0; border-bottom:1px solid var(--border); }
 .report-body .news-item:last-child { border-bottom:none; }
-.report-body .news-body { color:var(--text-2); font-size:14.5px; margin:6px 0 10px; }
+.report-body .news-body { color:var(--text-2); font-size:14px; margin:0 0 8px; line-height:1.75; }
 .report-body .comment {
-  color:var(--text-2); font-size:13.5px; font-style:italic;
-  border-left:3px solid var(--accent-border); background:var(--accent-soft);
-  padding:8px 14px; border-radius:8px; margin:6px 0 12px; line-height:1.65;
+  color:#8a4baf; font-size:13px; font-style:italic;
+  border-left:3px solid #c084fc; background:#f8f2fc;
+  padding:7px 12px; border-radius:6px; margin:8px 0; line-height:1.65;
 }
-.report-body .meta { margin-bottom:8px; }
+.report-body .meta { display:flex; flex-wrap:wrap; gap:6px 12px; align-items:center; margin:0 0 8px; }
 .report-body .tag {
-  display:inline-block; background:var(--accent-soft); color:var(--accent);
-  border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500;
+  display:inline-flex; align-items:center; gap:4px; background:var(--accent-soft); color:var(--accent);
+  border-radius:5px; padding:1px 9px; font-size:12px; margin:0; font-weight:500; line-height:1.6;
 }
-.report-body .tag-gray { background:#f1f3f7; color:var(--muted); }
+.report-body .tag-gray { background:#f1f5f9; color:var(--muted); font-weight:400; }
+.report-body .tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
 .report-body .source { font-size:12.5px; color:var(--muted); }
-.report-body .source a { color:var(--accent); text-decoration:none; }
+.report-body .source a { color:var(--accent); text-decoration:none; margin-right:8px; }
 .report-body .source a:hover { text-decoration:underline; }
 .report-body .empty-note { color:var(--muted); font-style:italic; }
-.report-body .watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
-.report-body .module { margin-bottom:28px; }
+.report-body .watch-item { padding:8px 0; font-size:13.5px; border-bottom:1px solid var(--border); }
+.report-body .watch-item:last-child { border-bottom:none; }
+.report-body .module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:0 0 4px; }
+.report-body .module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.report-body .module-nav a:hover { background:var(--accent); color:#fff; }
+.report-body .module-nav .sep { color:var(--muted); align-self:center; }
 
 /* 归档 */
 .section-title { font-family:var(--serif); font-size:19px; font-weight:700; margin:40px 0 16px; letter-spacing:0.3px; }
@@ -151,21 +183,14 @@ body {
 
 footer { text-align:center; color:var(--muted-2); font-size:12px; margin-top:56px; border-top:1px solid var(--border); padding-top:22px; }
 footer a { color:var(--accent); text-decoration:none; }
+.fade-in { animation:fadeIn .35s ease both; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; z-index:10; }
+.back-top:hover { opacity:1; text-decoration:none; }
 `;
 
-function renderIndex(reports, latest, latestBody, latestTitle) {
+function renderIndex(reports, latest, latestCards, latestTitle) {
   const today = latest ? latest.date : (reports[0]?.date || '');
-  const archiveHtml = reports
-    .map((r) => {
-      const isToday = r.date === today;
-      return `<a href="./${r.date}/${r.reportId}.html" class="${isToday ? 'today' : ''}">
-  <div class="d">${r.date}</div>
-  <div class="t">${isToday ? '今日日报' : '归档'}</div>
-</a>`;
-    })
-    .join('');
-
-  const bodyHtml = latestBody || '<p class="empty-note">暂无日报，等待首次自动运行…</p>';
 
   return `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -186,36 +211,79 @@ function renderIndex(reports, latest, latestBody, latestTitle) {
     </div>
   </div>
   <nav class="nav">
+    <a href="archive.html">历史归档（${reports.length} 期）</a>
     <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener">GitHub 仓库</a>
-    <a href="#archive">历史归档</a>
   </nav>
 </header>
 
-${reports.length === 0 ? '' : `
+${reports.length === 0 ? '<div class="report-body"><p class="empty-note">暂无日报，等待首次自动运行…</p></div>' : `
 <section class="hero">
   <div class="date-line"><span class="dot"></span><span class="date">${today} 更新</span></div>
   <h1>${esc(latestTitle)}</h1>
   <div class="meta">
-    <span>日报编号 ${esc(latest?.reportId || '')}</span>
     <span>由 AI Insight Agent 自动生成</span>
     <span>共 ${reports.length} 期归档</span>
   </div>
 </section>
-`}
 
 <div class="report-body">
-${bodyHtml}
+${latestCards}
 </div>
+`}
 
-<h2 class="section-title" id="archive">📁 历史归档（${reports.length} 期）</h2>
+<footer>
+  AI 行业市场洞察日报 · 由 AI Insight Agent 自动生成 · 每日更新
+</footer>
+</div>
+<a href="#" class="back-top" title="返回顶部">↑ 顶部</a>
+</body>
+</html>`;
+}
+
+/** 独立历史归档页（从首页移出 —— 对应 site.ts /reports 语义） */
+function renderArchive(reports, latestDate) {
+  const cards = reports
+    .map((r) => `<a href="./${r.date}/${r.reportId}.html" class="${r.date === latestDate ? 'today' : ''}">
+  <div class="d">${r.date}</div>
+  <div class="t">${r.date === latestDate ? '今日日报' : '归档'}</div>
+</a>`)
+    .join('');
+
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>历史归档 · AI 行业市场洞察</title>
+<style>${PAGE_CSS}</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">◈</div>
+    <div>
+      <div class="name">AI 行业市场洞察</div>
+      <div class="sub">Market Intelligence · 每日报告</div>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html">今日日报</a>
+    <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener">GitHub 仓库</a>
+  </nav>
+</header>
+
+<h1 style="margin-bottom:6px">🗂 历史归档</h1>
+<p class="muted" style="margin-bottom:22px">共 ${reports.length} 期日报</p>
 <div class="archive">
-${archiveHtml}
+${cards || '<p class="empty-note">暂无日报</p>'}
 </div>
 
 <footer>
   AI 行业市场洞察日报 · 由 AI Insight Agent 自动生成 · 每日更新
 </footer>
 </div>
+<a href="#" class="back-top" title="返回顶部">↑ 顶部</a>
 </body>
 </html>`;
 }
@@ -234,13 +302,16 @@ const reports = collectReports();
 if (fs.existsSync(siteDir)) fs.rmSync(siteDir, { recursive: true, force: true });
 fs.mkdirSync(siteDir, { recursive: true });
 
-// 当日 = 最新一期；首页嵌入其正文
+// 当日 = 最新一期；首页嵌入其正文（卡片式分模块）
 const latest = reports[0] || null;
 const latestTitle = latest ? extractTitle(latest.htmlFile, latest.date) : 'AI 行业市场洞察日报';
-const latestBody = latest ? extractBody(latest.htmlFile) : '';
+const latestCards = latest ? buildLatestCards(latest) : '';
 
-// 首页
-fs.writeFileSync(path.join(siteDir, 'index.html'), renderIndex(reports, latest, latestBody, latestTitle), 'utf-8');
+// 首页（今日日报，卡片式 + 无底部归档）
+fs.writeFileSync(path.join(siteDir, 'index.html'), renderIndex(reports, latest, latestCards, latestTitle), 'utf-8');
+
+// 独立归档页
+fs.writeFileSync(path.join(siteDir, 'archive.html'), renderArchive(reports, latest?.date || ''), 'utf-8');
 
 // 每日独立页
 for (const r of reports) {

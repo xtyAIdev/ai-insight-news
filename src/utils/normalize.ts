@@ -43,6 +43,14 @@ export function daysAgoISO(days: number): string {
   return new Date(Date.now() - days * 86_400_000).toISOString();
 }
 
+// RSS/Atom 标准日期格式（pubDate/updated），例：
+//   Tue, 25 Aug 2026 00:30:00 GMT / Mon, 24 Aug 2026 17:00:00 +0800
+// 这是 OpenAI/Google/36氪/机器之心/TechCrunch 等 RSS 的默认 pubDate 格式。
+// 此前缺失该格式 → 官方/媒体 RSS 事件 published_at 解析失败 → time 为空 →
+// 评估层 Phase 3 严格当天过滤会把企业动态整模块滤空（2026-08-25 事故根因）。
+const RFC822_DAY = '(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)';
+const RFC822_MONTH = '(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)';
+
 export function parseFlexibleDate(s: string): string | null {
   if (!s) return null;
   // YYYY-MM-DD
@@ -54,6 +62,12 @@ export function parseFlexibleDate(s: string): string | null {
   // ISO datetime
   m = s.match(/^(\d{4}-\d{2}-\d{2})T/);
   if (m) return m[1];
+  // RFC822/RFC2822（RSS pubDate）："Tue, 25 Aug 2026 00:30:00 GMT"
+  m = s.match(new RegExp(`^\\s*(?:${RFC822_DAY},\\s*)?(\\d{1,2})\\s+(${RFC822_MONTH})\\s+(\\d{4})\\b`));
+  if (m) {
+    const MONTH_INDEX: Record<string, string> = { Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06', Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12' };
+    return `${m[3]}-${MONTH_INDEX[m[2]]}-${String(+m[1]).padStart(2, '0')}`;
+  }
   // 相对表达：x 小时前 / x 天前
   m = s.match(/(\d+)\s*(小时|天|周|个月)前/);
   if (m) {

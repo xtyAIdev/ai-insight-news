@@ -44,14 +44,17 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
       continue;
     }
     // 日期真实性：time 为空或已过期（非报告当天）→ date_missing（禁止未知日期默认今天）
-    // 特例：论文模块（arXiv 主源）——arXiv submittedDate 索引有 6-24h 延迟，严格当天必空，
-    //       需求规格 3.4 明确论文按"分类+日期检索"（近 7 天提交窗口）而非严格当天；
-    //       → 论文事件在报告日 7 天内的视为"时间有效"（与 paper.ts filterPapers 的 7d 窗口一致）。
-    //       其余模块（opensource/enterprise）仍严格当天。
-    const isPaper = evt.category === 'paper';
-    const timeMissing = !evt.time
-      || (reportDate && !isPaper && evt.time !== reportDate)
-      || (reportDate && isPaper && isOutsidePaperWindow(evt.time, reportDate));
+    // 时间窗策略（2026-08-25 完善，解决企业模块当天无新闻导致整模块为空/旧闻混入）：
+    //   - paper：近 7 天提交窗口（arXiv submittedDate 索引延迟，需求规格 3.4 按分类+日期检索）
+    //   - enterprise：近 3 天窗口（官方源发布有 1-3 天延迟，当天往往无新动态；但超过 3 天的旧闻不混入日报）
+    //   - opensource：严格当天（GitHub pushed_at 是实时的，不存在延迟）
+    // 日报每条仍显式标注真实时间（如 8-24），绝不把历史事件标成"今天"。
+    const windowOk = !reportDate ? true : evt.category === 'paper'
+      ? !isOutsideWindow(evt.time, reportDate, 7)
+      : evt.category === 'enterprise'
+        ? !isOutsideWindow(evt.time, reportDate, 3)
+        : evt.time === reportDate;
+    const timeMissing = !evt.time || !windowOk;
     if (timeMissing && !reportDate) {
       // 未指定报告日时，以 added_at 兜底判断：time 必须存在
       evt.status = 'dropped';
@@ -133,16 +136,19 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
   // ---- Phase 3：排序 + 严格当天过滤 + 按模块 TopN（规格 Sheet06 06-09） ----
   evaluated.sort((a, b) => b.importance_score - a.importance_score);
 
-  // 严格当天过滤：仅保留 reportDate 当天事件（用户硬约束：时间要真）
-  // 注意：过滤在排序后、按模块分组前执行，确保 TopN 全部是"今天"的事件
-  // 特例：论文模块（arXiv 主源）——arXiv submittedDate 索引延迟，允许报告日近 7 天（规格 3.4 按日期检索语义）
+  // 时间窗过滤：paper 近 7 天 / enterprise 近 3 天 / opensource 严格当天（与 Phase 1 一致）
+  // 注意：过滤在排序后、按模块分组前执行，确保 TopN 都在各自窗口内且日期真实标注
   let pool = evaluated;
   if (reportDate) {
-    const dayPool = evaluated.filter((e) => e.category === 'paper' ? isOutsidePaperWindow(e.time, reportDate) === false : e.time === reportDate);
+    const dayPool = evaluated.filter((e) => e.category === 'paper'
+      ? !isOutsideWindow(e.time, reportDate, 7)
+      : e.category === 'enterprise'
+        ? !isOutsideWindow(e.time, reportDate, 3)
+        : e.time === reportDate);
     if (dayPool.length > 0) {
       pool = dayPool;
     } else {
-      logger.warn(`[evaluator] 报告日 ${reportDate} 当天无事件通过评估（共 ${evaluated.length} 条跨期），TopN 将为空 → 显示'今日无重大动态'`);
+      logger.warn(`[evaluator] 报告日 ${reportDate} 各模块窗口内均无事件通过评估（共 ${evaluated.length} 条跨期），TopN 将为空 → 显示'今日无重大动态'`);
     }
   }
 
@@ -178,18 +184,18 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
 }
 
 /**
- * 论文模块时间窗判定：arXiv 主源按"近 7 天提交窗口"（submittedDate 索引延迟，严格当天必空），
- * 与 paper.ts filterPapers 的 arXiv 7d 窗口保持一致；超出 7 天视为过期。
- * @returns true = 超出窗口（应滤掉）；false = 窗口内（时间有效）
+ * 时间窗判定：事件时间是否超出报告日指定天数窗口（用于 paper 7d / enterprise 3d）。
+ * 超窗 = true（应滤掉）；窗口内 = false（时间有效）。
+ * - 未来时间（时区/时差导致）一律滤掉
+ * - 无日期一律视为超窗（绝不默认今天）
  */
-function isOutsidePaperWindow(time: string, reportDate: string): boolean {
+function isOutsideWindow(time: string, reportDate: string, days: number): boolean {
   if (!time) return true; // 无真实日期 → 视为无效（绝不默认今天）
   const ref = new Date(`${reportDate}T12:00:00`).getTime();
   const t = new Date(`${time}T00:00:00`).getTime();
   if (Number.isNaN(ref) || Number.isNaN(t)) return true;
   const hours = (ref - t) / 3600_000;
-  // 未来时间（时区/时差导致）与超过 7 天的论文都滤掉
-  return hours < 0 || hours > 7 * 24;
+  return hours < 0 || hours > days * 24;
 }
 
 // ========== 06-02 规则过滤（广告/重复/低价值） ==========
