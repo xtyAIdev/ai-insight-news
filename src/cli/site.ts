@@ -145,6 +145,41 @@ code { font-family:var(--mono); background:var(--accent-soft); padding:1px 6px; 
 .archive .t { font-size:11.5px; color:var(--muted); margin-top:3px; }
 .archive a.today { border-color:var(--accent); box-shadow:0 0 0 1px var(--accent); }
 .inner-report .module-nav a { color:var(--accent); border-color:var(--accent-border); }
+
+/* ===== 今日日报卡片式分模块（用户要求：每板块独立卡片、有分隔边界） ===== */
+.module-card { margin-bottom:18px; padding:22px 26px; }
+/* 内嵌归档 section.module 自带的背景/圆角/内边距与外层卡片冲突 → 归零，让卡片样式接管 */
+.module-card section.module { background:transparent; border:none; border-radius:0; padding:0; margin:0; }
+.module-card h2 {
+  font-size:17px; font-weight:700; margin:0 0 14px; padding-left:11px;
+  border-left:4px solid var(--accent); line-height:1.4;
+}
+.module-card h3 { font-size:15.5px; font-weight:650; margin:0 0 6px; line-height:1.5; color:var(--text); }
+.module-card .news-body { font-size:14px; color:#334155; margin:0 0 8px; line-height:1.75; }
+.module-card .comment {
+  font-size:13px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc;
+  padding:7px 12px; border-radius:6px; margin:8px 0; line-height:1.65;
+}
+/* 元信息：时间/公司/标签 作为标题下小字内嵌（用户要求"内嵌小字体跟之前一样"） */
+.module-card .meta { display:flex; flex-wrap:wrap; gap:6px 12px; align-items:center; margin:0 0 8px; }
+.module-card .meta .tag {
+  display:inline-flex; align-items:center; gap:4px; background:var(--accent-soft);
+  color:var(--accent); border-radius:5px; padding:1px 9px; font-size:12px; font-weight:500; line-height:1.6;
+}
+.module-card .meta .tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; font-weight:500; }
+.module-card .meta .tag-gray { background:#f1f5f9; color:var(--muted); font-weight:400; }
+.module-card .source { font-size:12.5px; color:var(--muted); }
+.module-card .source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.module-card .source a:hover { text-decoration:underline; }
+.module-card .news-item { padding:14px 0; border-bottom:1px solid var(--card-border); }
+.module-card .news-item:last-child { border-bottom:none; }
+.module-card .empty-note { color:var(--muted); font-style:italic; font-size:13.5px; }
+.summary-card { background:var(--accent-soft); border-color:var(--accent-border); }
+.summary-card h2 { font-size:16px; margin-bottom:8px; }
+.summary-card p { color:#334155; font-size:14px; margin:0; }
+.watch-item { padding:8px 0; font-size:13.5px; border-bottom:1px solid var(--card-border); color:var(--text); }
+.watch-item:last-child { border-bottom:none; }
+.watch-item b { color:var(--text); }
 footer { text-align:center; color:var(--muted2); font-size:12px; margin-top:36px; border-top:1px solid var(--card-border); padding-top:20px; }
 .fade-in { animation:fadeIn .35s ease both; }
 @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
@@ -189,7 +224,7 @@ ${body}
 
 // ========== 页面 ==========
 
-/** 主页 = 今日日报全文（最新一份）+ 归档入口 */
+/** 主页 = 今日日报全文（最新一份），卡片式分模块展示 */
 function renderHome(): string {
   const reports = listReports();
   const latest = reports[0]; // listReports 按 date DESC
@@ -198,22 +233,21 @@ function renderHome(): string {
   if (latest) {
     const htmlPath = latest.markdown_path ? latest.markdown_path.replace(/\.md$/, '.html') : '';
     if (htmlPath && fs.existsSync(htmlPath)) {
+      // 解析归档 HTML：按 <section class="module"> 拆成独立卡片（每个模块有自己的边界）
+      // 保留 速览(summary) 整块；观察名单也独立成卡片 —— 不整段内嵌导致"像一篇文章"
       const raw = fs.readFileSync(htmlPath, 'utf-8');
-      // 内嵌归档 HTML 正文区（去骨架）
-      const contentMatch = raw.match(/<div class="wrap">([\s\S]*?)<footer>/);
-      reportHtml = contentMatch ? `<div class="inner-report">${contentMatch[1]}</div>` : raw;
+      const modules = splitModules(raw);
+      const parts: string[] = [];
+      if (modules.summary) parts.push(`<div class="card summary-card">${modules.summary}</div>`);
+      for (const m of modules.list) {
+        parts.push(`<div class="card module-card">${m}</div>`);
+      }
+      reportHtml = parts.join('\n');
     } else {
       const detail = getReport(latest.report_id);
       if (detail) reportHtml = `<div class="card"><pre>${escapeHtml(detail.content)}</pre></div>`;
     }
   }
-
-  const archiveHtml = reports.slice(0, 12).map((r) => {
-    const isToday = r.date === (latest?.date || '');
-    return `<a href="/reports/${r.report_id}" class="${isToday ? 'today' : ''}">
-      <div class="d">${r.date}</div><div class="t">${isToday ? '今日日报' : '归档'}</div>
-    </a>`;
-  }).join('');
 
   const backTop = '<a href="#" class="back-top" title="返回顶部">↑ 顶部</a>';
 
@@ -224,15 +258,33 @@ ${latest ? `
   <h1>📰 今日日报 <span class="muted" style="font-size:13px">${latest.date} ｜ ${latest.report_id}</span></h1>
   <span><a href="/reports/${latest.report_id}" class="badge badge-blue">网页版</a></span>
 </div>
-<div class="card" style="padding:8px 6px">${reportHtml}</div>
+${reportHtml}
 ` : '<div class="card"><p class="muted">暂无日报，运行 <code>npm run</code> 生成</p></div>'}
-
-<h2>📁 历史归档（共 ${reports.length} 期）</h2>
-<div class="archive">${archiveHtml || '<p class="muted">暂无归档</p>'}</div>
 </div>
 ${backTop}
 `;
   return layout('今日日报', body, 'home');
+}
+
+/**
+ * 从归档 HTML 中拆分各 <section class="module"> 区块与速览 summary。
+ * 返回 { summary, list }：summary = 速览块（原始 HTML），list = 各模块块（含观察名单）。
+ * 拆分后保留 section 的 id 锚点（module-opensource/paper/enterprise），供顶部模块导航跳转；
+ * 并用 site 的卡片样式重新包裹，模块间有独立边界。
+ */
+function splitModules(raw: string): { summary: string; list: string[] } {
+  const result: { summary: string; list: string[] } = { summary: '', list: [] };
+  // 速览块：<section class="summary">...</section>
+  const summaryMatch = raw.match(/<section class="summary">([\s\S]*?)<\/section>/);
+  if (summaryMatch) result.summary = summaryMatch[1];
+  // 模块块：<section class="module" id="...">...</section>（含观察名单）——保留开标签的 id 锚点
+  const moduleRegex = /(<section class="module"[^>]*>)([\s\S]*?)<\/section>/g;
+  let m: RegExpExecArray | null;
+  while ((m = moduleRegex.exec(raw)) !== null) {
+    // 只保留模块开标签（含 id），内容原样 —— 卡片样式由外层 .module-card 控制
+    result.list.push(`${m[1]}${m[2]}</section>`);
+  }
+  return result;
 }
 
 /** 归档列表（简单分页） */
