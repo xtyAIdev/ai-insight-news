@@ -216,7 +216,15 @@ function layout(title: string, body: string, active: string): string {
   <nav>${nav}</nav>
 </header>
 ${body}
-<footer class="fade-in">AI 行业市场洞察日报 · 由 AI Insight Agent 自动生成 · 每日更新</footer>
+<footer class="fade-in">
+  <div>AI 行业市场洞察日报 · 由 AI Insight Agent 自动生成 · 每日更新</div>
+  <div style="margin-top:10px">
+    <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:13px;text-decoration:none;transition:color .15s" onmouseover="this.style.color='#1a56db'" onmouseout="this.style.color=''">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub · xtyAIdev/ai-insight-news
+    </a>
+  </div>
+</footer>
 </div>
 </body>
 </html>`;
@@ -254,9 +262,8 @@ function renderHome(): string {
   const body = `
 <div class="fade-in">
 ${latest ? `
-<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:8px">
-  <h1>📰 今日日报 <span class="muted" style="font-size:13px">${latest.date} ｜ ${latest.report_id}</span></h1>
-  <span><a href="/reports/${latest.report_id}" class="badge badge-blue">网页版</a></span>
+<div style="display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:8px">
+  <h1>📰 今日日报 <span class="muted" style="font-size:13px">${latest.date}</span></h1>
 </div>
 ${reportHtml}
 ` : '<div class="card"><p class="muted">暂无日报，运行 <code>npm run</code> 生成</p></div>'}
