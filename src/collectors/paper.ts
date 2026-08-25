@@ -11,7 +11,7 @@ import { webSearch } from '../utils/websearch.js';
 import { writeJsonCache, readJsonCache } from '../utils/cache.js';
 import { logger } from '../utils/logger.js';
 import { recordSourceOk, recordSourceFail } from '../db/index.js';
-import { toISODate, parseFlexibleDate } from '../utils/normalize.js';
+import { toISODate, parseFlexibleDate, sanitizeDate } from '../utils/normalize.js';
 
 const CACHE_SCOPE = 'paper';
 const CACHE_KEY = 'latest';
@@ -113,17 +113,20 @@ export async function collectPaper(ctx: TaskContext): Promise<PaperRawEvent[]> {
   // 4. 去重（arXiv ID / DOI）
   const deduped = dedupPapers(filtered);
 
+  // 4b. 影响力排序（低影响力论文排后，进入 TopN 时天然靠后；用户重点⑤：关注影响不只是最新）
+  const ranked = sortPapersByInfluence(deduped);
+
   // 5. 成功后写缓存
-  if (deduped.length > 0) {
-    writeJsonCache(CACHE_SCOPE, CACHE_KEY, deduped, {
+  if (ranked.length > 0) {
+    writeJsonCache(CACHE_SCOPE, CACHE_KEY, ranked, {
       windowHours: ctx.time_window_hours,
       sources: [oa.ok ? 'openalex' : null, arxiv.ok ? 'arxiv' : null, hf.ok ? 'huggingface' : null].filter(Boolean) as string[],
       degraded,
     });
   }
 
-  logger.info(`[paper] 采集完成：原始 ${all.length}，过滤 ${filtered.length}，去重 ${deduped.length}${degraded ? '（已降级）' : ''}，耗时 ${((Date.now() - start) / 1000).toFixed(1)}s`);
-  return deduped;
+  logger.info(`[paper] 采集完成：原始 ${all.length}，过滤 ${filtered.length}，去重 ${ranked.length}${degraded ? '（已降级）' : ''}，耗时 ${((Date.now() - start) / 1000).toFixed(1)}s`);
+  return ranked;
 }
 
 /** 缓存条目转 stale 标记（追加缓存来源证据） */
@@ -151,7 +154,8 @@ async function collectPaperWebSearch(ctx: TaskContext): Promise<{ ok: boolean; i
         paper_id: `WS:${r.url}`,
         title: r.title,
         authors: [],
-        published_at: r.published_at || toISODate(new Date()),
+        // 未知日期不默认今天（WebSearch 结果多无日期，缺失时留空，评估层 date_missing 拦截）
+        published_at: sanitizeDate(r.published_at),
         abstract: r.snippet.slice(0, 300),
         category: 'cs.AI',
         influence_hint: undefined,
@@ -193,7 +197,7 @@ async function collectArxiv(ctx: TaskContext): Promise<{ ok: boolean; items: Pap
       recordSourceOk('arxiv');
       const entries = parseArxivAtom(res.text);
       for (const e of entries.slice(0, 10)) {
-        const published = parseFlexibleDate(e.published) || toISODate(new Date());
+        const published = parseFlexibleDate(e.published) || sanitizeDate(e.updated) || '';
         out.push({
           module: 'paper',
           paper_id: e.id.replace('http://arxiv.org/abs/', 'arXiv:').replace('https://arxiv.org/abs/', 'arXiv:'),
@@ -297,7 +301,7 @@ async function collectOpenAlex(ctx: TaskContext): Promise<{ ok: boolean; items: 
       title: w.title || '',
       authors,
       institution: institutions[0],
-      published_at: parseFlexibleDate(w.publication_date || '') || toISODate(new Date()),
+      published_at: sanitizeDate(w.publication_date),
       abstract: reconstructAbstract(w.abstract_inverted_index || undefined),
       category: 'cs.AI',
       influence_hint: (w.cited_by_count || 0) > 50 ? `高引用(${w.cited_by_count})` : undefined,
@@ -332,7 +336,7 @@ async function collectHuggingFacePapers(ctx: TaskContext): Promise<{ ok: boolean
     for (const p of res.data.slice(0, 15)) {
       const title = (p.title || '').trim();
       if (!title) continue;
-      const publishedAt = p.publishedAt ? parseFlexibleDate(p.publishedAt) || toISODate(new Date()) : toISODate(new Date());
+      const publishedAt = p.publishedAt ? parseFlexibleDate(p.publishedAt) || '' : '';
       out.push({
         module: 'paper',
         paper_id: `HF:${p.paper?.id || title.slice(0, 40).replace(/\s+/g, '-')}`,
@@ -391,11 +395,32 @@ function filterPapers(items: PaperRawEvent[], ctx: TaskContext, degraded = false
       const hasInfluence = p.influence_hint !== undefined || (p.institution && KNOWN_INSTITUTIONS.some((k) => (p.institution || '').toLowerCase().includes(k.toLowerCase())));
       if (!hasInfluence) {
         p.influence_hint = 'low_influence';
-        return true; // 保留但标记
+        // 低影响力论文：标记但不删除（由评估层按影响力降权，避免彻底滤掉导致当天论文为空）
+        return true;
       }
     }
     return true;
   });
+}
+
+/** 论文影响力信号排序：低影响力论文排后（供采集后排序用） */
+export function sortPapersByInfluence(items: PaperRawEvent[]): PaperRawEvent[] {
+  return [...items].sort((a, b) => {
+    const infA = influenceRank(a);
+    const infB = influenceRank(b);
+    return infB - infA;
+  });
+}
+
+function influenceRank(p: PaperRawEvent): number {
+  // 机构声望 / 顶会 / SOTA / 热议 / 高引用
+  let rank = 0;
+  if (p.institution && KNOWN_INSTITUTIONS.some((k) => (p.institution || '').toLowerCase().includes(k.toLowerCase()))) rank += 2;
+  const hint = p.influence_hint || '';
+  if (/顶会|sota|热议/i.test(hint)) rank += 2;
+  if (/高引用/.test(hint)) rank += 1;
+  if (p.influence_hint === 'low_influence') rank -= 1;
+  return rank;
 }
 
 // ========== 去重（arXiv ID / DOI） ==========

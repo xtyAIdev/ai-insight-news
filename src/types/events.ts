@@ -29,6 +29,7 @@ export interface SourceEvidence {
   source_type: string;        // github / arxiv / rss / media / websearch ...
   name: string;
   credibility_score?: number; // 信源等级换算分（S=5 A=4.5 B=4 C=3 D=1-2）
+  published_at?: string;      // 该来源的发布时间（用于真实性日期校验，可选）
 }
 
 // ========== 采集层原始事件（RawEvent） ==========
@@ -42,10 +43,13 @@ export interface OpenSourceRawEvent {
   stars: number;
   star_growth_week?: number;
   star_growth_day?: number;
+  /** 社区活跃度：forks / open issues / contributors（社区热度，Sheet02 优化） */
+  forks?: number;
+  open_issues?: number;
+  contributors?: number;
   primary_language?: string;
   updated_at?: string;
   commit_activity_7d?: number;
-  contributors?: number;
   tech_tags: string[];
   description: string;
   source_urls: SourceEvidence[];
@@ -106,7 +110,9 @@ export interface StandardEvent {
   company?: string;
   product?: string;
   source: SourceEvidence[];
-  time: string;                // ISO 8601 YYYY-MM-DD
+  time: string;                // ISO 8601 YYYY-MM-DD（真实日期；未知日期为空串，绝不默认今天）
+  /** 事件入库日期（YYYY-MM-DD，处理层写入；评估层用于校验 time 真实性/一致性） */
+  added_at: string;
   description: string;
   entities: Record<string, unknown>;
   insight: Partial<Insight> | null;
@@ -115,6 +121,9 @@ export interface StandardEvent {
   status: EventStatus;
   trace_log: TraceEntry[];
   raw_event?: RawEvent;        // 保留原始事件快照（便于溯源）
+  /** 快评（日报"发生了什么+快评"结构；由报告层生成，评估层不写入） */
+  quick_comment?: string;
+  quick_comment_by?: 'llm' | 'rule';
 }
 
 // ========== 报告（DailyReport，Sheet09 R51-R59） ==========

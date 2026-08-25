@@ -7,7 +7,9 @@
 import type { StandardEvent } from '../types/events.js';
 import { getLLM, withLLMFallback, accuracyByRule, importanceByRule } from '../llm/index.js';
 import { logger } from '../utils/logger.js';
-import { saveHighQuality, updateEventStatus } from '../db/index.js';
+import { saveHighQuality, updateEventStatus, recordSourceOk } from '../db/index.js';
+import { webSearch } from '../utils/websearch.js';
+import { sourceCredibility } from '../config/constants.js';
 import { config } from '../config/index.js';
 
 export interface EvalResult {
@@ -41,6 +43,16 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
       dropped.push(evt);
       continue;
     }
+    // 日期真实性：time 为空或已过期（非报告当天）→ date_missing（禁止未知日期默认今天）
+    const timeMissing = !evt.time || (reportDate ? evt.time !== reportDate : false);
+    if (timeMissing && !reportDate) {
+      // 未指定报告日时，以 added_at 兜底判断：time 必须存在
+      evt.status = 'dropped';
+      updateEventStatus(evt.event_id, 'dropped');
+      dropped.push(evt);
+      logger.debug(`[evaluator] 丢弃日期未知事件: ${evt.title}`);
+      continue;
+    }
     const accuracy = accuracyByRule(evt.source);
     const importance = importanceByRule({
       accuracy: accuracy.score,
@@ -48,6 +60,7 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
       sub_tags: evt.sub_tags,
       category: evt.category,
       hasInsight: !!evt.insight?.what,
+      hasDate: !!evt.time,
     });
     rough.push({ evt, accuracy, importance });
   }
@@ -65,7 +78,14 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
       if (!isCandidate) {
         // 非候选：直接用规则分（不浪费 LLM 调用）
         evt.accuracy_score = ruleAcc.score;
-        evt.importance_score = ruleAcc.score > 0 ? Math.round(Math.min(5, ruleAcc.score) * 10) / 10 : 0;
+        evt.importance_score = importanceByRule({
+          accuracy: ruleAcc.score,
+          source: evt.source,
+          sub_tags: evt.sub_tags,
+          category: evt.category,
+          hasInsight: !!evt.insight?.what,
+          hasDate: !!evt.time,
+        });
         evt.status = 'evaluated';
         updateEventStatus(evt.event_id, 'evaluated', evt.importance_score);
         return evt;
@@ -97,8 +117,7 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
       evt.status = 'evaluated';
       updateEventStatus(evt.event_id, 'evaluated', importance.score);
       return evt;
-    }));
-    for (const s of settled) {
+    }));    for (const s of settled) {
       if (s.status === 'fulfilled' && s.value) evaluated.push(s.value);
       else if (s.status === 'rejected') logger.warn(`[evaluator] 评估异常: ${s.reason instanceof Error ? s.reason.message : s.reason}`);
     }
@@ -199,7 +218,10 @@ async function judgeAccuracy(evt: StandardEvent, ruleAcc?: { score: number; reas
   return result;
 }
 
-// ========== 06-06 Reflection（局部修正，最多 2 次） ==========
+// ========== 06-06 Reflection（搜索补证优先 + LLM 重判兜底，不再简单重评） ==========
+// 优化（2026-08-25）：低可信事件 → ① webSearch 补证（命中权威源则追加证据+重算真实性）
+//   → ② 搜索无权威源命中时，降级为 LLM 基于上下文重判（避免免费搜索源受限时误杀真实事件）
+//   → ③ 仍低于阈值 → 丢弃
 
 async function reflection(
   evt: StandardEvent,
@@ -209,30 +231,112 @@ async function reflection(
   let reason = current.reason;
   let tool = current.tool;
 
-  for (let attempt = 0; attempt < 2; attempt++) {
-    // 规则路径：补充来源后重新计算（无 WebSearch 时使用现有证据重估）
-    const ruleResult = accuracyByRule(evt.source);
-    if (ruleResult.score >= 3) {
-      return { ...ruleResult, tool: 'reflection-rule' };
-    }
-    // LLM 路径：让 LLM 基于上下文重新判断
-    if (getLLM().available()) {
-      const prompt = `重新评估该事件真实性（这是第 ${attempt + 1} 次修正）。事件：${evt.title}。来源：${evt.source.map((s) => s.url).join('; ')}。当前分 ${score}。规则参考分：${ruleResult.score}（${ruleResult.reason}）。注意：来源 URL 陌生不代表假新闻，若内容合理且来源有基本可信度应给 3 分以上。请判断是否可信，输出 JSON {"score":0.0,"reason":"..."}`;
-      const r = await getLLM().completeJson<{ score: number; reason: string }>(prompt, 'judge');
-      if (r && typeof r.score === 'number') {
-        score = Math.max(0, Math.min(5, r.score));
-        reason = r.reason || reason;
-        tool = 'reflection-llm';
-        if (score >= 3) return { score, reason, tool };
+  // ① 搜索补证：用事件核心信息构造查询，寻找权威源佐证
+  const query = buildReflectionQuery(evt);
+  const search = await webSearch(query, { limit: 5, maxAgeHours: 24 * 7 });
+  if (search.ok && search.results.length > 0) {
+    const credibleHits = search.results.filter((r) => sourceCredibilityOf(r.url) >= 4);
+    if (credibleHits.length > 0) {
+      const added: StandardEvent['source'] = credibleHits.slice(0, 3).map((r) => ({
+        url: r.url,
+        source_type: r.source === 'hackernews' ? 'hackernews' : 'websearch',
+        name: r.source === 'hackernews' ? 'Hacker News' : r.title.slice(0, 40),
+        credibility_score: sourceCredibilityOf(r.url),
+        published_at: r.published_at,
+      }));
+      const existingUrls = new Set(evt.source.map((s) => s.url));
+      const fresh = added.filter((s) => !existingUrls.has(s.url));
+      if (fresh.length > 0) {
+        evt.source.push(...fresh);
+        recordSourceOk('reflection_websearch');
+        const newAcc = accuracyByRule(evt.source);
+        score = newAcc.score;
+        reason = `${reason}；Reflection 搜索补证 ${fresh.length} 个权威来源，真实性重算为 ${newAcc.score}`;
+        tool = 'reflection-search';
+        if (score >= 3) {
+          evt.trace_log.push({ stage: 'reflection', timestamp: new Date().toISOString(), tool: 'websearch', detail: `补证来源: ${fresh.map((s) => s.url).join(', ')}` });
+          return { score, reason, tool };
+        }
       }
-    } else {
-      break;
+    }
+    // ② 无权威源命中：记录已查证，降级为 LLM 重判
+    reason = `${reason}；Reflection 搜索 ${search.results.length} 条但无权威源佐证`;
+    tool = 'reflection-searched';
+  } else {
+    reason = `${reason}；Reflection 搜索无结果（${search.error || 'empty'}）`;
+    tool = 'reflection-noresult';
+  }
+
+  // ②③ LLM 重判兜底（避免免费搜索源受限时误杀真实事件）
+  if (getLLM().available()) {
+    const prompt = `重新评估该事件真实性（Reflection 查证后第 2 次判断）。事件：${evt.title}。来源：${evt.source.map((s) => s.url).join('; ')}。当前分 ${score}。规则参考分：${accuracyByRule(evt.source).score}（${accuracyByRule(evt.source).reason}）。注意：来源 URL 陌生不代表假新闻，若内容合理且来源有基本可信度应给 3 分以上。请判断是否可信，输出 JSON {"score":0.0,"reason":"..."}`;
+    const r = await getLLM().completeJson<{ score: number; reason: string }>(prompt, 'judge');
+    if (r && typeof r.score === 'number') {
+      score = Math.max(0, Math.min(5, r.score));
+      reason = r.reason || reason;
+      tool = 'reflection-llm';
+      if (score >= 3) return { score, reason, tool };
     }
   }
-  return { score: Math.min(score, 2.9), reason: `${reason}；经 ${2} 次修正仍低于阈值`, tool };
+
+  // ③ 仍低于阈值 → 丢弃（低可信）
+  score = Math.min(score, 2.9);
+  return { score, reason: `${reason}；经 Reflection 补证/重判仍低于阈值`, tool };
 }
 
-// ========== 06-07 质量评分 ==========
+/** 构造 Reflection 搜索查询：公司 + 核心名词 + 动作 */
+function buildReflectionQuery(evt: StandardEvent): string {
+  const parts: string[] = [];
+  if (evt.company && /[\u4e00-\u9fa5A-Za-z]/.test(evt.company)) parts.push(evt.company);
+  // 英文标题核心词（前 3 个实义词）或中文核心片段
+  const words = (evt.title.match(/[a-z0-9][a-z0-9-]*/gi) || []).filter((w) => !['the', 'and', 'for', 'with', 'from', 'this', 'that', 'new', 'how', 'why', 'what', 'are', 'was', 'were', 'has', 'had', 'its', 'into', 'you', 'your', 'can', 'not', 'will', 'announces', 'introduces', 'launching', 'releases'].includes(w.toLowerCase())).slice(0, 3);
+  if (words.length > 0) parts.push(words.join(' '));
+  if (parts.length === 0) parts.push(evt.title.slice(0, 40));
+  return parts.join(' ');
+}
+
+/** 来源可信度（供 Reflection 判断命中是否为权威源） */
+function sourceCredibilityOf(url: string): number {
+  return sourceCredibility(url, '');
+}
+
+// ========== 06-07 质量评分（领域差异化判断，用户重点①） ==========
+// 优化（2026-08-25）：不同领域采用不同判断标准，不再用固定 Importance prompt：
+//   - opensource：社区热度（star 增长/forks/issues/contributors/讨论活跃）
+//   - paper：影响力（机构/引用/顶会/SOTA/热议）
+//   - enterprise：行业影响力（公司地位/市场影响/融资规模/竞争格局）
+
+/** 各领域的评分 prompt（差异化标准） */
+function importancePromptFor(evt: StandardEvent): string {
+  const base = `事件：${evt.title}\n描述：${evt.description.slice(0, 300)}\n来源数：${evt.source.length} 真实性分：${evt.accuracy_score}`;
+  switch (evt.category) {
+    case 'opensource':
+      return `你是 AI 开源生态分析师。评估该开源项目的社区热度与影响力，只输出 JSON：{"importance":0.0,"reason":"一句话理由"}
+评分维度（0-5）：
+- star 增长/总量（近期是否有显著增长）
+- 社区活跃（forks/issues/contributors/讨论/PR）
+- 技术方向热度（LLM/Agent/RAG/MCP 等当前热点）
+- 潜在生态影响（是否可能成为事实标准/关键依赖）
+${base}`;
+    case 'paper':
+      return `你是 AI 学术研究评审。评估该论文的学术影响力，只输出 JSON：{"importance":0.0,"reason":"一句话理由"}
+评分维度（0-5）：
+- 机构/作者声望（OpenAI/Anthropic/DeepMind/顶校等）
+- 方法贡献（是否提出新方法/新架构/理论突破）
+- 主题热度（LLM/Agent/多模态/推理 等当前热点）
+- 潜在引用/应用影响（可能被大量跟进或产业化）
+${base}`;
+    case 'enterprise':
+    default:
+      return `你是 AI 行业市场分析师。评估该企业动态的行业重要性，只输出 JSON：{"importance":0.0,"reason":"一句话理由"}
+评分维度（0-5）：
+- 主体地位（OpenAI/Anthropic/Google/国内大厂等头部 vs 创业公司）
+- 事件性质（产品发布/融资/战略合作/组织调整 vs 一般动态）
+- 市场影响（可能改变竞争格局/行业标准/价格体系）
+- 融资规模/产品体量（如有）
+${base}`;
+  }
+}
 
 async function scoreImportance(evt: StandardEvent): Promise<{ score: number; tool: string }> {
   const ruleScore = importanceByRule({
@@ -241,22 +345,18 @@ async function scoreImportance(evt: StandardEvent): Promise<{ score: number; too
     sub_tags: evt.sub_tags,
     category: evt.category,
     hasInsight: !!evt.insight?.what,
+    hasDate: !!evt.time,
   });
 
   if (!getLLM().available()) {
     return { score: ruleScore, tool: 'rule-score' };
   }
 
-  const prompt = `你是 AI 行业情报质量评分员。基于以下事件，从 4 个维度评分（每维 0-5）：时效性、重要性、洞察质量、信息完整度。
-只输出 JSON：{"importance":0.0}
-事件：${evt.title}
-描述：${evt.description.slice(0, 300)}
-五维洞察：${evt.insight ? JSON.stringify(evt.insight).slice(0, 400) : '无'}
-来源数：${evt.source.length} 真实性分：${evt.accuracy_score}`;
+  const prompt = importancePromptFor(evt);
 
   const result = await withLLMFallback(
     async () => {
-      const r = await getLLM().completeJson<{ importance?: number }>(prompt, 'score');
+      const r = await getLLM().completeJson<{ importance?: number; reason?: string }>(prompt, 'score');
       if (!r || typeof r.importance !== 'number') return null;
       const s = Math.max(0, Math.min(5, r.importance));
       return { score: Math.round(s * 10) / 10, tool: 'llm-score' };

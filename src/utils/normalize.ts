@@ -65,6 +65,32 @@ export function parseFlexibleDate(s: string): string | null {
   return null;
 }
 
+/**
+ * 日期真实性守卫（用户硬约束：禁止"未知日期默认今天"）。
+ * 解析日期，失败/为空时返回 fallback（缺省 ''，绝不默认今天）。
+ * 会把带时间戳的日期规整为纯日期（YYYY-MM-DD）。
+ * 调用方（采集/处理层）必须显式决定：无真实日期的事件应标记 date_missing，
+ * 由评估层扣分并阻止进入 TopN，而不是静默标成"今天"。
+ */
+export function sanitizeDate(s: string | undefined | null, fallback: string = ''): string {
+  if (!s) return fallback;
+  const parsed = parseFlexibleDate(s);
+  if (!parsed) return fallback;
+  // 规整为纯日期（去掉时间部分）
+  return parsed.slice(0, 10);
+}
+
+/** 判断来源证据是否携带真实日期（URL 路径日期 / pubDate / 已知一手源类型） */
+const OFFICIAL_TYPES = new Set(['official', 'official_rss', 'github_repo', 'arxiv', 'openalex', 'modelscope', 'huggingface', 'domestic_official']);
+export function sourceHasDate(src: { url?: string; source_type?: string; published_at?: string }): boolean {
+  if (src.published_at) return true;
+  // 已知一手源类型（官方/仓库/论文库）：采集层保证日期，或本身即一手源 → 视为有日期
+  if (src.source_type && OFFICIAL_TYPES.has(src.source_type)) return true;
+  // URL 含 /YYYY/MM/DD/ 日期路径
+  if (src.url && /\/(20\d{2})\/(\d{1,2})\/(\d{1,2})\//.test(src.url)) return true;
+  return false;
+}
+
 // ========== 金额归一化（统一人民币万元，Sheet05 05-02②） ==========
 
 /**
@@ -138,6 +164,35 @@ export function similarity(a: string, b: string): number {
   let inter = 0;
   for (const x of setA) if (setB.has(x)) inter++;
   return inter / (setA.size + setB.size - inter);
+}
+
+/**
+ * 从标题提取"核心名词"（去重归一化用）：
+ * 英文取最长连续 token（通常是项目/产品名），中文取连续中文片段中最长一段。
+ * 例： "Introducing Claude Opus 5" → "claude opus"；"通义千问 Qwen3 发布" → "通义千问"
+ */
+export function extractCoreNoun(title: string): string {
+  if (!title) return '';
+  const lower = title.toLowerCase();
+  // 英文：剔除动作/发布词后，取最长的连续实体 token 序列（>=2 词）
+  const STOP = new Set(['the', 'and', 'for', 'with', 'from', 'this', 'that', 'new', 'how', 'why', 'what', 'are', 'was', 'were', 'has', 'had', 'its', 'into', 'you', 'your', 'can', 'not', 'will', 'introducing', 'introduces', 'announcing', 'announces', 'launching', 'launches', 'launched', 'releasing', 'releases', 'released', 'updating', 'updates', 'updated', 'unveils', 'unveiling', 'debuted', 'debuts', 'opens', 'opensourcing']);
+  const enWords = lower.match(/[a-z0-9][a-z0-9-]*/g) || [];
+  let bestEn = '';
+  for (let i = 0; i < enWords.length; i++) {
+    if (STOP.has(enWords[i])) continue; // 跳过动作/停用词
+    for (let j = i + 2; j <= Math.min(i + 5, enWords.length); j++) {
+      const seq = enWords.slice(i, j);
+      const joined = seq.join(' ');
+      if (joined.length > bestEn.length) bestEn = joined;
+    }
+  }
+  if (bestEn.length >= 6) return bestEn;
+  // 中文：取最长连续中文片段
+  const zhSeq = (title.match(/[\u4e00-\u9fa5]{2,}/g) || []);
+  let bestZh = '';
+  for (const s of zhSeq) if (s.length > bestZh.length) bestZh = s;
+  if (bestZh.length >= 2) return bestZh;
+  return bestEn;
 }
 
 // ========== UUID / ID 生成 ==========

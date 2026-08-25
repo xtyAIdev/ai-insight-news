@@ -49,6 +49,7 @@ function initSchema(d: DatabaseSync): void {
     product          TEXT,
     source           TEXT,
     time             TEXT,
+    added_at         TEXT,
     description      TEXT,
     entities         TEXT,
     insight          TEXT,
@@ -117,6 +118,11 @@ function initSchema(d: DatabaseSync): void {
     updated_at  TEXT
   );
   `);
+
+  // 兼容迁移：旧库无 added_at 列 → ALTER 补列（列缺失时执行）
+  try {
+    d.exec('ALTER TABLE standard_events ADD COLUMN added_at TEXT');
+  } catch { /* 列已存在则忽略 */ }
 }
 
 export function closeDb(): void {

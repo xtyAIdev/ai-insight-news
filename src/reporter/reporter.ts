@@ -102,7 +102,7 @@ function buildSections(input: ReportInput): ReportSection[] {
 /** 把重述结果就地应用到 TopN 事件（sections 内引用的是同一批 StandardEvent 对象） */
 function applyRestate(
   topN: Array<{ event: StandardEvent; reason: string }>,
-  restated: Map<string, { title: string; body: string; byLLM: boolean }>,
+  restated: Map<string, { title: string; body: string; byLLM: boolean; comment?: string }>,
 ): number {
   let applied = 0;
   for (const t of topN) {
@@ -121,6 +121,17 @@ function applyRestate(
     }
     if (r.body && !isChineseBody(t.event.description)) {
       t.event.description = r.body;
+    }
+    // 快评：LLM 生成的 comment 优先，否则用规则五维洞察的 what（发生了什么）
+    if (r.comment) {
+      t.event.quick_comment = r.comment;
+      t.event.quick_comment_by = 'llm';
+    } else if (!t.event.quick_comment) {
+      const what = t.event.insight?.what;
+      if (what && what !== t.event.title) {
+        t.event.quick_comment = what;
+        t.event.quick_comment_by = 'rule';
+      }
     }
   }
   return applied;
@@ -258,6 +269,12 @@ export function renderMarkdown(report: DailyReport): string {
         lines.push(body);
         lines.push('');
       }
+      // 快评（"发生了什么+快评"结构，阶段 4）：LLM 生成或规则五维洞察 what 兜底
+      const comment = evt.quick_comment || (evt.insight?.what && evt.insight.what !== evt.title ? evt.insight.what : '');
+      if (comment) {
+        lines.push(`> 💬 快评：${comment}`);
+        lines.push('');
+      }
       // 时间（用户要求时间要真：每条事件显式标注发生日期）
       if (evt.time) {
         lines.push(`**时间**：${evt.time}`);
@@ -343,6 +360,7 @@ export function renderHtml(report: DailyReport): string {
         const bodyText = evt.description && evt.description !== evt.title
           ? evt.description
           : (evt.raw_event ? rawEventBody(evt) : '');
+        const comment = evt.quick_comment || (evt.insight?.what && evt.insight.what !== evt.title ? evt.insight.what : '');
         const meta = [];
         if (evt.time) meta.push(`<span class="tag tag-time">🕐 ${esc(evt.time)}</span>`);
         if (evt.company) meta.push(`<span class="tag">${esc(evt.company)}</span>`);
@@ -356,6 +374,7 @@ export function renderHtml(report: DailyReport): string {
         <article class="news-item">
           <h3>${idx + 1}. ${esc(evt.title)}</h3>
           ${bodyText ? `<p class="news-body">${esc(bodyText)}</p>` : ''}
+          ${comment ? `<p class="comment">💬 快评：${esc(comment)}</p>` : ''}
           ${meta.length ? `<div class="meta">${meta.join(' ')}</div>` : ''}
           ${sourceHtml}
         </article>`;
@@ -396,6 +415,7 @@ header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
 .news-item:last-child { border-bottom:none; }
 .news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
 .news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
 .meta { margin-bottom:8px; }
 .tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
 .tag-gray { background:#f1f3f7; color:var(--muted); }

@@ -22,6 +22,8 @@ export interface RestateResult {
   body: string;
   /** 是否由 LLM 重述（false = 规则兜底） */
   byLLM: boolean;
+  /** 快评（"发生了什么+快评"结构）；LLM 重述时生成，规则兜底可空 */
+  comment?: string;
 }
 
 const CJK_RE = /[\u4e00-\u9fa5]/;
@@ -193,7 +195,8 @@ async function restateOne(item: LlmRestateItem): Promise<RestateResult | null> {
   const prompt = `你是 AI 行业市场洞察编辑。将以下英文事件改写成中文，要求：
 1. 标题：信息密度高的分析式中文标题（10-25 字），保留关键主体与动作，不要机械直译，不要加引号
 2. 正文：2-3 句中文重述，保留事实、数字、产品名（产品名可保留英文原名），不要逐字翻译
-只输出 JSON：{"title":"中文标题","body":"中文正文"}
+3. 快评：1-2 句"点评"（解读这件事为什么值得关注、影响是什么、预示什么趋势），要有观点、拒绝空泛套话（禁止"值得关注""具有重要意义"这类），不要复述标题内容
+只输出 JSON：{"title":"中文标题","body":"中文正文","comment":"快评"}
 
 模块：${item.module}
 原标题：${item.title}
@@ -201,12 +204,13 @@ async function restateOne(item: LlmRestateItem): Promise<RestateResult | null> {
 
   return withLLMFallback(
     async () => {
-      const r = await getLLM().completeJson<{ title?: string; body?: string }>(prompt, 'generate', { maxTokens: 600, retries: 1 });
+      const r = await getLLM().completeJson<{ title?: string; body?: string; comment?: string }>(prompt, 'generate', { maxTokens: 700, retries: 1 });
       if (!r) return null;
       const title = (r.title || '').trim();
       const body = (r.body || '').trim();
+      const comment = (r.comment || '').trim();
       if (!title || !isChineseText(title)) return null; // 标题无中文视为失败
-      return { title, body: body || '', byLLM: true };
+      return { title, body: body || '', byLLM: true, comment: comment || undefined };
     },
     async () => null,
     `中文重述(${item.title.slice(0, 30)})`,

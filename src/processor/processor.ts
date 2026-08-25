@@ -7,7 +7,7 @@
 import type { RawEvent, StandardEvent, TraceEntry } from '../types/events.js';
 import { getLLM, withLLMFallback, extractEntitiesByRule, generateInsightByRule } from '../llm/index.js';
 import { logger } from '../utils/logger.js';
-import { cleanText, genEventId, normalizeCompany, parseFlexibleDate, similarity, toISODate } from '../utils/normalize.js';
+import { cleanText, genEventId, normalizeCompany, parseFlexibleDate, sanitizeDate, similarity, extractCoreNoun, toISODate } from '../utils/normalize.js';
 import { sourceCredibility } from '../config/constants.js';
 import { saveStandardEvent, saveRawEvent } from '../db/index.js';
 import { config } from '../config/index.js';
@@ -75,7 +75,8 @@ async function standardize(
 
   let title = '';
   let description = '';
-  let time = taskDate;
+  // 日期真实性：未知日期默认空字符串（绝不默认今天）；由评估层对 date_missing 事件扣分并阻止进入 TopN
+  let time = '';
   let company: string | undefined;
   let product: string | undefined;
   let subTags: string[] = [];
@@ -84,7 +85,7 @@ async function standardize(
     case 'opensource': {
       title = `开源项目 ${raw.project_name} 更新`;
       description = cleanText(raw.description || `${raw.project_name}（${raw.owner}）近期活跃更新`);
-      time = parseFlexibleDate(raw.updated_at || '') || taskDate;
+      time = sanitizeDate(raw.updated_at);
       company = raw.owner;
       product = raw.project_name;
       subTags = raw.tech_tags || [];
@@ -93,7 +94,7 @@ async function standardize(
     case 'paper': {
       title = raw.title;
       description = cleanText(raw.abstract || '').slice(0, 300);
-      time = raw.published_at || taskDate;
+      time = sanitizeDate(raw.published_at);
       company = raw.institution;
       product = raw.paper_id;
       subTags = [raw.category];
@@ -102,7 +103,7 @@ async function standardize(
     case 'enterprise': {
       title = raw.title;
       description = cleanText(raw.content || '');
-      time = raw.published_at || taskDate;
+      time = sanitizeDate(raw.published_at);
       company = normalizeCompany(raw.company);
       subTags = [raw.sub_type === 'investment' ? '投融资' : '产品战略'];
       if (raw.fields?.product) product = String(raw.fields.product);
@@ -110,7 +111,7 @@ async function standardize(
     }
   }
 
-  addTrace('standardize', raw.module === 'opensource' ? 'rule+clean' : raw.module === 'paper' ? 'arxiv/openalex' : 'rss+rule', `title=${title.slice(0, 50)}`);
+  addTrace('standardize', raw.module === 'opensource' ? 'rule+clean' : raw.module === 'paper' ? 'arxiv/openalex' : 'rss+rule', `title=${title.slice(0, 50)}${time ? '' : '，日期未知(未默认今天)'}`);
 
   return {
     event_id: genEventId(taskDate, Math.floor(Math.random() * 900) + 100),
@@ -122,6 +123,7 @@ async function standardize(
     product,
     source,
     time,
+    added_at: taskDate,
     description,
     entities: {},
     insight: null,
@@ -211,26 +213,44 @@ async function generateInsight(
 }
 
 // ========== 05-07 跨来源去重（Embedding 阈值 0.85，无 Embedding 时精确去重） ==========
+// 优化（2026-08-25）：双通道去重 ——
+//   ① 归一化键通道：category + normalizeCompany + 核心名词（提取产品/项目名），同键必合并
+//   ② 相似度通道：正文/标题 Jaccard 阈值降至 0.72（原 0.85 过高，同一事实不同措辞漏合并）
+// 合并取"信息更全者"（较长 description 优先），source 证据合并去重，trace 追加合并记录。
 
 function dedupStandardEvents(events: StandardEvent[]): StandardEvent[] {
   const result: StandardEvent[] = [];
-  const seen: Array<{ key: string; title: string }> = [];
+  const seen: Array<{ normKey: string; title: string; desc: string }> = [];
 
   for (const evt of events) {
-    // 精确键：category + company + product + time
-    const exactKey = `${evt.category}|${evt.company || ''}|${evt.product || ''}|${evt.time}`;
-    const exactMatch = seen.find((s) => s.key === exactKey);
-    if (exactMatch) continue;
+    // 归一化键：
+    //   - opensource：直接用 product（repo 名）作强键（机械标题"开源项目 X 更新"的 coreNoun 会误提取成"开源项目"，必须跳过）
+    //   - 其他模块：category + 公司 + 核心名词
+    const coreNoun = evt.category === 'opensource' ? (evt.product || '') : (extractCoreNoun(evt.title) || evt.product || '');
+    const normKey = [evt.category, normalizeCompany(evt.company || ''), coreNoun].filter(Boolean).join('|');
 
-    // 语义近似（无 Embedding，用相似度近似，阈值 0.85）
-    const nearMatch = seen.find((s) => s.key.startsWith(evt.category) && similarity(s.title, evt.title) >= 0.85);
-    if (nearMatch) {
-      // 合并来源证据
-      evt.source = mergeStdSources(evt.source, nearMatch.key === '' ? [] : evt.source);
+    // ① 归一化键强匹配：同公司同核心名词 → 必合并（跨源同事实）
+    const normMatch = normKey.length > 0 ? seen.find((s) => s.normKey === normKey) : undefined;
+    // ② 相似度匹配：标题 Jaccard >= 0.55 → 合并（同事实不同措辞，Jaccard 对中文偏严，阈值保守）
+    //    开源模块跳过相似度通道（机械标题"开源项目 X 更新"彼此高度相似，只能靠 product 强键区分）
+    const nearMatch = evt.category === 'opensource'
+      ? undefined
+      : seen.find((s) => s.normKey.split('|')[0] === evt.category && similarity(s.title, evt.title) >= 0.55);
+
+    const dup = normMatch || nearMatch;
+    if (dup) {
+      // 合并来源证据 + 取信息更全者（较长 description 优先）
+      const existing = result[seen.indexOf(dup)];
+      existing.source = mergeStdSources(existing.source, evt.source);
+      if ((evt.description || '').length > (existing.description || '').length) {
+        existing.description = evt.description;
+      }
+      if (!existing.entities || Object.keys(existing.entities).length === 0) existing.entities = evt.entities || {};
+      existing.trace_log.push({ stage: 'dedup', timestamp: new Date().toISOString(), tool: 'rule', detail: `合并重复事件: ${evt.title} → ${existing.title}` });
       continue;
     }
 
-    seen.push({ key: exactKey, title: evt.title });
+    seen.push({ normKey, title: evt.title, desc: evt.description || '' });
     result.push(evt);
   }
   return result;

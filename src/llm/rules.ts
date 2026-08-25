@@ -91,16 +91,38 @@ export function generateInsightByRule(evt: {
 }
 
 // ========== 真实性判断（信源等级换算，Sheet06 06-04） ==========
+// 优化（2026-08-25）：按信源等级分级加权，而非 max/avg 混合；
+//   - S/A 级官方源主导可信度（权重高）
+//   - B/C 级媒体源权重低，不能单独拉高
+//   - 多源交叉验证加分（上限 0.5）
+//   - 未知日期（无 URL 日期路径 / 无 published_at）强制扣 1.5 —— 用户硬约束"禁止未知日期默认今天"
+
+import { sourceHasDate } from '../utils/normalize.js';
 
 export function accuracyByRule(source: SourceEvidence[]): { score: number; reason: string } {
   if (!source || source.length === 0) return { score: 1, reason: '无来源证据，无法溯源' };
-  const scores = source.map((s) => s.credibility_score ?? sourceCredibility(s.url, s.source_type));
-  const max = Math.max(...scores);
-  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-  // 信息一致性：多源交叉加分
-  const multiSourceBonus = source.length >= 2 ? Math.min(0.5, (source.length - 1) * 0.25) : 0;
-  const score = Math.min(5, Math.round((max * 0.7 + avg * 0.3 + multiSourceBonus) * 10) / 10);
-  return { score, reason: `规则计算：最高信源分 ${max}，${source.length >= 2 ? '多源交叉验证' : '单源'}，最终 ${score}` };
+
+  // 主导等级制：最高等级信源决定基础分，其余作为佐证
+  //   S/A（官方/权威，cred>=4.5）：基础 5
+  //   B（媒体，cred>=4）：基础 4
+  //   C（社区/聚合，cred>=3）：基础 3
+  let base = 1;
+  const levels = source.map((s) => s.credibility_score ?? sourceCredibility(s.url, s.source_type));
+  const max = Math.max(...levels);
+  if (max >= 4.5) base = 5;
+  else if (max >= 4) base = 4;
+  else if (max >= 3) base = 3;
+
+  let score = base;
+  const hasDate = source.some((s) => sourceHasDate({ url: s.url, source_type: s.source_type, published_at: s.published_at }));
+  // 多源交叉验证加分（上限 0.5）
+  if (source.length >= 2) score += Math.min(0.5, (source.length - 1) * 0.25);
+  // 未知日期惩罚（用户硬约束：禁止未知日期默认今天）
+  if (!hasDate) score -= 1.5;
+
+  score = Math.max(1, Math.min(5, Math.round(score * 10) / 10));
+  const reason = `规则计算：最高信源等级 ${base}（${source.length} 源），多源交叉 ${source.length >= 2 ? '+' + Math.min(0.5, (source.length - 1) * 0.25) : '无'}${hasDate ? '' : '，日期缺失 -1.5'}，最终 ${score}`;
+  return { score, reason };
 }
 
 // ========== 质量评分（Sheet06 06-07） ==========
@@ -111,15 +133,29 @@ export function importanceByRule(evt: {
   sub_tags: string[];
   category: string;
   hasInsight: boolean;
+  hasDate?: boolean; // 事件是否携带真实日期；缺失时降权（禁止未知日期默认今天）
 }): number {
   let score = evt.accuracy * 0.6;
   // 信源丰富度
   score += Math.min(1, evt.source.length * 0.3);
-  // 赛道热度
+  // 赛道热度（领域差异化权重）
   const hotTags = ['大模型', 'Agent', 'RAG', 'MCP', '多模态', 'AI Infra', '开源模型'];
   score += evt.sub_tags.filter((t) => hotTags.includes(t)).length * 0.2;
+  // 领域差异：不同 category 的加分项不同（用户重点①：不固定 Importance 公式）
+  if (evt.category === 'opensource') {
+    // 开源：社区热度标签（star 增长 / fork / contributor）
+    score += evt.sub_tags.filter((t) => /star|fork|contributor|community/i.test(t)).length * 0.3;
+  } else if (evt.category === 'paper') {
+    // 论文：机构声望 / 顶会 / SOTA / 热议
+    score += evt.sub_tags.filter((t) => /顶会|sota|热议|机构|影响力/i.test(t)).length * 0.3;
+  } else if (evt.category === 'enterprise') {
+    // 企业：投融资/战略/头部主体
+    score += evt.sub_tags.filter((t) => /投融资|战略|头部/i.test(t)).length * 0.3;
+  }
   // 洞察完整
   if (evt.hasInsight) score += 0.3;
+  // 日期缺失降权（用户硬约束：未知日期不默认今天，且不进入 TopN）
+  if (evt.hasDate === false) score -= 1.5;
   return Math.min(5, Math.round(score * 10) / 10);
 }
 

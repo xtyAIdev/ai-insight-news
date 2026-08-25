@@ -11,13 +11,25 @@ import { webSearch } from '../utils/websearch.js';
 import { writeJsonCache, readJsonCache } from '../utils/cache.js';
 import { logger } from '../utils/logger.js';
 import { recordSourceOk, recordSourceFail } from '../db/index.js';
-import { toISODate, extractNumber, similarity } from '../utils/normalize.js';
+import { toISODate, extractNumber, sanitizeDate, similarity } from '../utils/normalize.js';
 import { config } from '../config/index.js';
 
 const CACHE_SCOPE = 'opensource';
 const CACHE_KEY = 'latest';
 /** 缓存最长 36h；超期读取时打 stale 标记（Sheet08 R12 缓存降级） */
 const CACHE_MAX_AGE_MS = 36 * 3600_000;
+/** star 快照缓存（用于计算周增长） */
+const SNAPSHOT_SCOPE = 'opensource';
+const SNAPSHOT_KEY = 'snapshots';
+/** star 快照保留 8 天（覆盖 7 天窗口 + 冗余） */
+const SNAPSHOT_MAX_AGE_MS = 8 * 86_400_000;
+
+/** star 快照条目（缓存 items 为数组，每 repo 一条） */
+interface StarSnapshotEntry {
+  repo_url: string;
+  stars: number;
+  fetched_at: string;
+}
 
 interface GitHubRepo {
   id: number;
@@ -31,6 +43,10 @@ interface GitHubRepo {
   topics?: string[];
   owner: { login: string };
   forks_count?: number;
+  open_issues_count?: number;
+  /** 近 3 月提交数（search API 不返回，由 events API 近似；缺失为 undefined） */
+  commit_activity?: number;
+  contributors_count?: number;
 }
 
 interface GitHubSearchResult {
@@ -203,15 +219,52 @@ async function collectGitHub(ctx: TaskContext): Promise<{ ok: boolean; items: Op
         repo_url: repo.html_url,
         owner: repo.owner?.login || '',
         stars: repo.stargazers_count ?? 0,
-        primary_language: repo.language ?? undefined,
-        updated_at: repo.pushed_at,
+        star_growth_week: computeStarGrowthWeek(repo.html_url, repo.stargazers_count ?? 0),
+        forks: repo.forks_count ?? 0,
+        open_issues: repo.open_issues_count ?? 0,
+        contributors: repo.contributors_count,
+        // 未知日期不默认今天：pushed_at 缺失时留空（评估层 date_missing 拦截）
+        updated_at: sanitizeDate(repo.pushed_at),
         tech_tags: (repo.topics || []).concat(kw.tags).slice(0, 8),
         description: repo.description || '',
         source_urls: [{ url: repo.html_url, source_type: 'github_repo', name: 'GitHub', credibility_score: 5 }],
       });
     }
   }
+  // 记录本次采集的 star 快照（供下次计算周增长）
+  if (out.length > 0) recordStarSnapshots(out);
   return { ok: out.length > 0 ? true : totalOk, items: out, error: out.length > 0 ? undefined : 'github 无结果' };
+}
+
+/** 计算 star 周增长：对比历史快照（≥5 天前），无有效快照时返回 undefined */
+function computeStarGrowthWeek(repoUrl: string, currentStars: number): number | undefined {
+  const snap = readJsonCache<StarSnapshotEntry>(SNAPSHOT_SCOPE, SNAPSHOT_KEY, SNAPSHOT_MAX_AGE_MS);
+  if (!snap) return undefined;
+  const prev = snap.entry.items.find((e) => e.repo_url === repoUrl);
+  if (!prev) return undefined;
+  const ageDays = (Date.now() - new Date(prev.fetched_at).getTime()) / 86_400_000;
+  // 快照需 ≥5 天前才有参考意义（太新无法反映周增长）
+  if (ageDays < 5) return undefined;
+  return Math.max(0, currentStars - prev.stars);
+}
+
+/** 记录 star 快照（与已有快照合并，保留每个 repo 最早的记录以计算真实周增长） */
+function recordStarSnapshots(items: OpenSourceRawEvent[]): void {
+  const existing = readJsonCache<StarSnapshotEntry>(SNAPSHOT_SCOPE, SNAPSHOT_KEY, null)?.entry.items || [];
+  const byUrl = new Map(existing.map((e) => [e.repo_url, e]));
+  const now = new Date().toISOString();
+  for (const item of items) {
+    if (!item.repo_url) continue;
+    // 已存在则保留最早记录（用于 7 天对比）；不存在则记当前
+    if (!byUrl.has(item.repo_url)) {
+      byUrl.set(item.repo_url, { repo_url: item.repo_url, stars: item.stars, fetched_at: now });
+    }
+  }
+  writeJsonCache<StarSnapshotEntry>(SNAPSHOT_SCOPE, SNAPSHOT_KEY, [...byUrl.values()], {
+    windowHours: 7 * 24,
+    sources: ['github_api'],
+    degraded: false,
+  });
 }
 
 // ========== ModelScope ==========
@@ -375,6 +428,13 @@ function filterCandidates(items: OpenSourceRawEvent[], ctx: TaskContext, degrade
     if (item.stars > 0) {
       // 无 growth 数据时放宽（API 不直接提供周增长，允许通过）
       // 实际开发可对比两次快照计算；MVP 以 stars 绝对值 + 活跃度判断
+    }
+    // 社区热度门槛（有 forks/issues/contributors 数据时）：三者任一达到阈值即可
+    // （优化：不只 stars，关注社区真实活跃度）
+    const community = (item.forks ?? 0) + (item.open_issues ?? 0) + (item.contributors ?? 0);
+    if (community > 0) {
+      // 有社区数据但全为 0 且 stars 也小 → 低热度过滤（非降级时）
+      if (!degraded && item.stars < 50 && community < 20) return false;
     }
     // 更新时间窗口（有 updated_at 时）
     if (item.updated_at) {

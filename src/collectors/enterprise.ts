@@ -32,7 +32,7 @@ import { webSearch } from '../utils/websearch.js';
 import { writeJsonCache, readJsonCache } from '../utils/cache.js';
 import { logger } from '../utils/logger.js';
 import { recordSourceOk, recordSourceFail } from '../db/index.js';
-import { normalizeCompany, parseFlexibleDate, similarity, toISODate } from '../utils/normalize.js';
+import { normalizeCompany, parseFlexibleDate, sanitizeDate, similarity, toISODate } from '../utils/normalize.js';
 import { classifyByRule } from '../llm/rules.js';
 import { upsertEnterprisePool, listEnterprisePool } from '../db/index.js';
 
@@ -274,7 +274,7 @@ async function fetchOfficialSource(t: { name: string; url: string; type: 'rss' |
       recordSourceFail(`official_${t.name.toLowerCase()}`, `http_${res.status}`);
       return [];
     }
-    const events = t.type === 'rss' ? parseRssEvents(res.text, t.name) : parseHtmlNewsEvents(res.text, t.name);
+    const events = t.type === 'rss' ? await parseRssEvents(res.text, t.name) : parseHtmlNewsEvents(res.text, t.name);
     if (events.length > 0) {
       recordSourceOk(`official_${t.name.toLowerCase()}`);
       logger.info(`[enterprise] ${t.name} 官方源 ${events.length} 条`);
@@ -290,7 +290,7 @@ async function fetchOfficialSource(t: { name: string; url: string; type: 'rss' |
 }
 
 /** RSS 解析：OpenAI/Google/Meta/Microsoft/TechCrunch/36氪/机器之心 共用 */
-function parseRssEvents(xml: string, company: string, sourceType = 'official_rss'): EnterpriseRawEvent[] {
+async function parseRssEvents(xml: string, company: string, sourceType = 'official_rss'): Promise<EnterpriseRawEvent[]> {
   const items: EnterpriseRawEvent[] = [];
   const itemRe = /<(?:item|entry)[^>]*>([\s\S]*?)<\/(?:item|entry)>/gi;
   let m: RegExpExecArray | null;
@@ -303,15 +303,17 @@ function parseRssEvents(xml: string, company: string, sourceType = 'official_rss
     // 时间取真实发布日期：URL 含日期路径（/YYYY/MM/DD/）时以 URL 日期为准，
     // 因为 RSS pubDate 常是"最近更新时间"（旧文被重新推送/更新时 pubDate 会变新），
     // 会导致日报时间不真实（如微软 7/28 旧文被标成 8/24）。URL 无日期时回退 pubDate。
+    // 用户硬约束：未知日期不默认今天 —— 无 URL 日期且无 pubDate 时留空（评估层 date_missing 拦截）
     const urlDate = urlDateOf(link);
-    const published = urlDate || parseFlexibleDate(rawDate) || toISODate(new Date());
+    const published = urlDate || parseFlexibleDate(rawDate) || '';
     items.push({
       module: 'enterprise',
       sub_type: 'product',
       company: normalizeCompany(company),
       title,
       published_at: published,
-      content: title,
+      // 正文：优先抓详情页正文（真正行业事件，不是博客搬运）；抓取失败回退标题
+      content: '',
       fields: {},
       related_event_ids: [],
       source_urls: [{
@@ -319,10 +321,38 @@ function parseRssEvents(xml: string, company: string, sourceType = 'official_rss
         source_type: sourceType,
         name: `${company} 官方 Blog`,
         credibility_score: 5,
+        published_at: published || undefined,
       }],
     });
   }
+  // 详情页正文抓取（并行，失败静默）：让官方事件有实质内容而非只标题
+  await Promise.allSettled(items.slice(0, 4).map(async (it) => {
+    const srcUrl = it.source_urls[0]?.url;
+    if (!srcUrl || srcUrl.startsWith('http') === false) return;
+    try {
+      const res = await httpGetJson<unknown>(srcUrl, { timeoutMs: 8000, retries: 0 });
+      if (!res.ok || !res.text) return;
+      const body = extractArticleBody(res.text);
+      if (body && body.length > it.content.length) it.content = body;
+    } catch { /* 详情页抓取失败不影响主流程 */ }
+  }));
   return items;
+}
+
+/** 从 HTML 提取文章正文（H1/标题 + 段落文本；粗略提取，够生成快评即可） */
+function extractArticleBody(html: string): string {
+  const h1 = stripTags((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || '').slice(0, 150);
+  // 取正文主要段落（p 标签）
+  const paras: string[] = [];
+  const pRe = /<p[^>]*>([\s\S]*?)<\/p>/gi;
+  let m: RegExpExecArray | null;
+  let count = 0;
+  while ((m = pRe.exec(html)) && count < 6) {
+    const t = stripTags(m[1]);
+    if (t.length > 40) { paras.push(t); count++; }
+  }
+  const body = [h1, ...paras].filter(Boolean).join(' ').slice(0, 500);
+  return body;
 }
 
 /** 从 URL 路径提取日期（/YYYY/MM/DD/），如 blogs.microsoft.com/blog/2026/07/28/... → 2026-07-28 */
@@ -373,8 +403,11 @@ function parseHtmlNewsEvents(html: string, company: string): EnterpriseRawEvent[
       .replace(/\s+(Opus \d|Claude \d(\.\d+)?)\s+(is a|are a|represents|marks|delivers|sets|comes)\b.*$/i, '$1')
       .trim()
       .slice(0, 150);
-    if (!title || title.length < 8) continue;
-    const published = dateStr ? parseFlexibleDate(dateStr) || toISODate(new Date()) : toISODate(new Date());
+    // 清理后若只剩分类词/无实质内容（如 "Announcements" 单独成块）→ 跳过
+    const RESIDUAL = /^(Announcements|Product|Economic Research|Research|Engineering|News|Press Release|Updates?|Blog)$/i;
+    if (!title || title.length < 8 || RESIDUAL.test(title.trim())) continue;
+    // 未知日期不默认今天：HTML 卡片无日期 → 留空（评估层拦截）
+    const published = dateStr ? parseFlexibleDate(dateStr) || '' : '';
     out.push({
       module: 'enterprise',
       sub_type: 'product',
@@ -421,7 +454,8 @@ async function fetchDeepSeekNews(): Promise<EnterpriseRawEvent[]> {
     const h1 = stripTags((detail.text.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || '');
     if (!h1) continue;
     const dateM = detail.text.match(/20\d\d[-/]\d{1,2}[-/]\d{1,2}/);
-    const published = dateM ? toISODate(dateM[0].replace(/\//g, '-')) : toISODate(new Date());
+    // 未知日期不默认今天：详情页无日期 → 留空（评估层拦截）
+    const published = dateM ? toISODate(dateM[0].replace(/\//g, '-')) : '';
     out.push({
       module: 'enterprise',
       sub_type: 'product',
@@ -463,7 +497,8 @@ async function fetchKimiBlog(): Promise<EnterpriseRawEvent[]> {
     const h1 = stripTags((detail.text.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || '');
     if (!h1) continue;
     const dateM = detail.text.match(/20\d\d-\d{1,2}-\d{1,2}/);
-    const published = dateM ? toISODate(dateM[0]) : toISODate(new Date());
+    // 未知日期不默认今天
+    const published = dateM ? toISODate(dateM[0]) : '';
     out.push({
       module: 'enterprise',
       sub_type: 'product',
@@ -536,6 +571,11 @@ async function fetchMediaSource(t: { name: string; url: string; lang: 'en' | 'zh
           .some((n) => n.length >= 2 && text.includes(n.toLowerCase())),
       );
       if (!matched) continue; // 媒体源只采集企业池相关事件
+      // 噪音过滤：命中行情/招聘/榜单类信号直接跳过（36氪会把含「腾讯」的恒指新闻误配给企业池）
+      if (MEDIA_NOISE_PATTERNS.some((re) => re.test(text))) {
+        logger.debug(`[enterprise] 媒体源 ${t.name} 噪音跳过: ${item.title.slice(0, 60)}`);
+        continue;
+      }
       // 时间取真实发布日期：URL 含日期路径（/YYYY/MM/DD/）时以 URL 日期为准（RSS pubDate 常是更新时间）
       const urlDate = urlDateOf(item.link);
       events.push({
@@ -543,7 +583,8 @@ async function fetchMediaSource(t: { name: string; url: string; lang: 'en' | 'zh
         sub_type: 'product',
         company: normalizeCompany(matched.company),
         title: item.title.slice(0, 200),
-        published_at: urlDate || parseFlexibleDate(item.date) || toISODate(new Date()),
+        // 未知日期不默认今天（媒体源无日期 → 留空）
+        published_at: urlDate || parseFlexibleDate(item.date) || '',
         content: item.snippet,
         fields: {},
         related_event_ids: [],
@@ -605,7 +646,8 @@ async function collectWebSearchFallback(ctx: TaskContext, pool: PoolProfile[]): 
         sub_type: 'product',
         company: normalizeCompany(q.company),
         title: r.title.slice(0, 200),
-        published_at: r.published_at || toISODate(new Date()),
+        // 未知日期不默认今天（WebSearch 兜底结果多无日期）
+        published_at: r.published_at || '',
         content: r.snippet.slice(0, 300),
         fields: {},
         related_event_ids: [],
@@ -669,7 +711,8 @@ async function collectInvestmentFromAihot(): Promise<EnterpriseRawEvent[]> {
     const isInv = INVESTMENT_KEYWORDS.some((k) => text.includes(k));
     if (!isInv) continue;
     const company = extractCompanyName(item.title || '') || 'AI 企业';
-    const published = parseFlexibleDate(item.publishedAt || item.discoveredAt || '') || toISODate(new Date());
+    // 未知日期不默认今天（aihot 7d 窗口条目缺发布时间时留空）
+    const published = parseFlexibleDate(item.publishedAt || item.discoveredAt || '') || '';
     out.push({
       module: 'enterprise',
       sub_type: 'investment',
@@ -714,7 +757,8 @@ async function collectInvestmentFromWebSearch(ctx: TaskContext): Promise<Enterpr
         sub_type: 'investment',
         company: normalizeCompany(extractCompanyName(r.title) || 'AI 企业'),
         title: r.title.slice(0, 200),
-        published_at: r.published_at || toISODate(new Date()),
+        // 未知日期不默认今天
+        published_at: r.published_at || '',
         content: r.snippet.slice(0, 300),
         fields: {},
         related_event_ids: [],
@@ -751,6 +795,14 @@ function extractCompanyName(title: string): string | null {
 
 /** 低区分度别名（避免误配） */
 const LOW_DISCRIMINATIVE_ALIASES = new Set(['seed', '阿里', 'facebook']);
+
+/** 媒体源噪音信号：命中即跳过（股市行情/招聘面经/榜单合集等非行业事件） */
+const MEDIA_NOISE_PATTERNS = [
+  /恒指|恒生指数|上证|深证|创业板|A股|港股|美股|开盘|收盘|涨跌幅|涨幅|跌幅|涨停|跌停|股指|大盘|行情|股价|市值蒸发|盘中/i,
+  /面经|秋招|春招|校招|社招|内推|offer|笔试|面试|简历|hr|hrbp/i,
+  /招聘|招人|扩招|裁员|降薪|年终奖/i,
+  /AI设计日报|AI 设计日报|每日精选|今日精选|合集|盘点|盘点|top10|top 10|榜单/i,
+];
 
 /** 取企业官方源 URL（RSS 条目缺 link 时的兜底溯源） */
 function officialUrlOf(company: string): string {

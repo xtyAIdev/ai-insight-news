@@ -35,9 +35,9 @@ export function saveStandardEvent(evt: StandardEvent): void {
   db.prepare(
     `INSERT OR REPLACE INTO standard_events
      (event_id, module, title, category, sub_type, sub_tags, company, product, source,
-      time, description, entities, insight, accuracy_score, importance_score, status,
+      time, added_at, description, entities, insight, accuracy_score, importance_score, status,
       trace_log, raw_event, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
   ).run(
     evt.event_id,
     evt.category,
@@ -49,6 +49,7 @@ export function saveStandardEvent(evt: StandardEvent): void {
     evt.product ?? null,
     JSON.stringify(evt.source),
     evt.time,
+    evt.added_at,
     evt.description,
     JSON.stringify(evt.entities),
     evt.insight ? JSON.stringify(evt.insight) : null,
@@ -106,6 +107,7 @@ function rowToEvent(row: Record<string, unknown>): StandardEvent {
     product: row.product ? String(row.product) : undefined,
     source: JSON.parse(String(row.source)) as StandardEvent['source'],
     time: String(row.time),
+    added_at: row.added_at ? String(row.added_at) : String(row.time),
     description: String(row.description),
     entities: JSON.parse(String(row.entities)) as Record<string, unknown>,
     insight: row.insight ? JSON.parse(String(row.insight)) : null,
