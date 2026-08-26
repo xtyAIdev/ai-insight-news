@@ -86,7 +86,7 @@ function buildSections(input: ReportInput): ReportSection[] {
   for (const module of input.modules) {
     const moduleEvents = input.topN
       .filter((t) => t.event.category === module)
-      .map((t) => t.event);
+      .map((t) => ({ ...t.event, pick_reason: t.reason }));
     sections.push({
       module,
       module_label: MODULE_LABELS[module],
@@ -142,6 +142,24 @@ function isChineseBody(s: string): boolean {
   if (!s) return false;
   const cjk = (s.match(/[\u4e00-\u9fa5]/g) || []).length;
   return cjk / Math.max(s.length, 1) > 0.4;
+}
+
+/**
+ * 快评选取（2026-08-26 去噪）：规则引擎的 insight.what 是"事件为「标题」。正文截断"的复述拼接，
+ * 与标题/正文完全重复，渲染出来是废话。此处统一过滤：
+ *  - 模板复述（"事件为「"开头）→ 丢弃
+ *  - 与正文前 50 字重复 → 丢弃
+ */
+function pickComment(evt: StandardEvent): string {
+  const c = evt.quick_comment
+    || (evt.insight?.what && evt.insight.what !== evt.title ? evt.insight.what : '')
+    || '';
+  if (!c) return '';
+  if (/^事件为「/.test(c.trim())) return '';
+  const body = (evt.description || '').trim();
+  const head = c.trim().slice(0, Math.min(c.trim().length, 50));
+  if (body && head && body.startsWith(head)) return '';
+  return c;
 }
 
 // ========== 07-03 内容生成（LLM + 规则降级） ==========
@@ -269,8 +287,8 @@ export function renderMarkdown(report: DailyReport): string {
         lines.push(body);
         lines.push('');
       }
-      // 快评（"发生了什么+快评"结构，阶段 4）：只留内容不显示"快评"字样（视觉用斜体引用区分）
-      const comment = evt.quick_comment || (evt.insight?.what && evt.insight.what !== evt.title ? evt.insight.what : '');
+      // 快评（"发生了什么+快评"结构，阶段 4）：pickComment 过滤规则模板复述噪音
+      const comment = pickComment(evt);
       if (comment) {
         lines.push(`> *${comment}*`);
         lines.push('');
@@ -284,9 +302,18 @@ export function renderMarkdown(report: DailyReport): string {
       const meta = [];
       if (evt.company) meta.push(`**主体**：${evt.company}`);
       if (evt.product && evt.category === 'enterprise') meta.push(`**产品**：${evt.product}`);
+      // 开源项目统一展示 star 数（此前仅规则标题路径带 ⭐，LLM 路径丢失）
+      if (evt.category === 'opensource' && evt.raw_event?.module === 'opensource' && evt.raw_event.stars > 0) {
+        meta.push(`⭐ ${evt.raw_event.stars.toLocaleString()}`);
+      }
       if (evt.sub_tags.length > 0) meta.push(`**标签**：${evt.sub_tags.slice(0, 4).join(' / ')}`);
       if (meta.length) {
         lines.push(meta.join(' ｜ '));
+        lines.push('');
+      }
+      // 入选理由（可解释排序：为什么是它上榜、为什么排这个位置）
+      if ((evt as { pick_reason?: string }).pick_reason) {
+        lines.push(`**入选理由**：${(evt as { pick_reason?: string }).pick_reason!}`);
         lines.push('');
       }
       // 来源（可点击）
@@ -360,22 +387,27 @@ export function renderHtml(report: DailyReport): string {
         const bodyText = evt.description && evt.description !== evt.title
           ? evt.description
           : (evt.raw_event ? rawEventBody(evt) : '');
-        const comment = evt.quick_comment || (evt.insight?.what && evt.insight.what !== evt.title ? evt.insight.what : '');
+        const comment = pickComment(evt);
         const meta = [];
         if (evt.time) meta.push(`<span class="tag tag-time">🕐 ${esc(evt.time)}</span>`);
         if (evt.company) meta.push(`<span class="tag">${esc(evt.company)}</span>`);
         if (evt.product && evt.category === 'enterprise') meta.push(`<span class="tag">${esc(evt.product)}</span>`);
+        if (evt.category === 'opensource' && evt.raw_event?.module === 'opensource' && evt.raw_event.stars > 0) {
+          meta.push(`<span class="tag tag-star">⭐ ${esc(evt.raw_event.stars.toLocaleString())}</span>`);
+        }
         if (evt.sub_tags.length > 0) meta.push(`<span class="tag tag-gray">${esc(evt.sub_tags.slice(0, 4).join(' / '))}</span>`);
         const urls = evt.source.filter((s) => s.url);
         const sourceHtml = urls.length > 0
           ? `<div class="source">来源：${urls.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join(' ｜ ')}</div>`
           : '';
+        const reason = (evt as { pick_reason?: string }).pick_reason;
         return `
         <article class="news-item">
           <h3>${idx + 1}. ${esc(evt.title)}</h3>
           ${bodyText ? `<p class="news-body">${esc(bodyText)}</p>` : ''}
           ${comment ? `<p class="comment">${esc(comment)}</p>` : ''}
           ${meta.length ? `<div class="meta">${meta.join(' ')}</div>` : ''}
+          ${reason ? `<div class="pick-reason"><b>入选理由</b>：${esc(reason)}</div>` : ''}
           ${sourceHtml}
         </article>`;
       }).join('');
@@ -419,7 +451,9 @@ header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
 .meta { margin-bottom:8px; }
 .tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
 .tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
 .tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
 .module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
 .module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
 .module-nav a:hover { background:var(--accent); color:#fff; }

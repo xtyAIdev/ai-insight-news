@@ -49,18 +49,18 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
     //   - enterprise：近 3 天窗口（官方源发布有 1-3 天延迟，当天往往无新动态；但超过 3 天的旧闻不混入日报）
     //   - opensource：严格当天（GitHub pushed_at 是实时的，不存在延迟）
     // 日报每条仍显式标注真实时间（如 8-24），绝不把历史事件标成"今天"。
-    const windowOk = !reportDate ? true : evt.category === 'paper'
+    // （2026-08-26 成本修复：窗口判定从 Phase 3 前置到此 —— Phase 3 本就不使用出窗事件作回退，
+    //   先前让它们走完 LLM 精评再丢弃纯属浪费；reportDate 未指定时保留旧行为仅要求 time 非空。）
+    const windowOk = !reportDate ? !!evt.time : evt.category === 'paper'
       ? !isOutsideWindow(evt.time, reportDate, 7)
       : evt.category === 'enterprise'
         ? !isOutsideWindow(evt.time, reportDate, 3)
         : evt.time === reportDate;
-    const timeMissing = !evt.time || !windowOk;
-    if (timeMissing && !reportDate) {
-      // 未指定报告日时，以 added_at 兜底判断：time 必须存在
+    if (!windowOk) {
       evt.status = 'dropped';
       updateEventStatus(evt.event_id, 'dropped');
       dropped.push(evt);
-      logger.debug(`[evaluator] 丢弃日期未知事件: ${evt.title}`);
+      logger.debug(`[evaluator] 丢弃日期未知/超窗事件: ${evt.title}`);
       continue;
     }
     const accuracy = accuracyByRule(evt.source);
@@ -81,10 +81,14 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
   const evaluated: StandardEvent[] = [];
 
   const BATCH = 6;
+  let globalIdx = 0;
   for (let i = 0; i < rough.length; i += BATCH) {
     const batch = rough.slice(i, i + BATCH);
     const settled = await Promise.allSettled(batch.map(async ({ evt, accuracy: ruleAcc }) => {
-      const isCandidate = i < candidateCount && getLLM().available();
+      // 候选边界（2026-08-26 修复）：按全局序号判断（原实现用批起点 i<candidateCount，
+      // 导致第 7-12 名整批多跑 LLM）；globalIdx++ 在 map 内同步执行，序号与排序一致
+      const rank = globalIdx++;
+      const isCandidate = rank < candidateCount && getLLM().available();
       if (!isCandidate) {
         // 非候选：直接用规则分（不浪费 LLM 调用）
         evt.accuracy_score = ruleAcc.score;
@@ -334,10 +338,42 @@ function sourceCredibilityOf(url: string): number {
 //   - opensource：社区热度（star 增长/forks/issues/contributors/讨论活跃）
 //   - paper：影响力（机构/引用/顶会/SOTA/热议）
 //   - enterprise：行业影响力（公司地位/市场影响/融资规模/竞争格局）
+// 优化（2026-08-26 实证驱动）：原 prompt 只传 title+description，却要求 LLM 评估 star/引用等
+//   量化维度 —— "盲评"。现从 raw_event 提取结构化 facts 注入 prompt，评审有据可依。
 
-/** 各领域的评分 prompt（差异化标准） */
+/** 从原始事件提取量化事实串（供 LLM 评分与重述使用） */
+export function buildFacts(evt: StandardEvent): string {
+  const raw = evt.raw_event;
+  if (!raw) return '';
+  const parts: string[] = [];
+  if (raw.module === 'opensource') {
+    if (raw.stars > 0) parts.push(`stars=${raw.stars.toLocaleString()}`);
+    if (raw.star_growth_week !== undefined) parts.push(`周增长=+${raw.star_growth_week}`);
+    if (raw.forks) parts.push(`forks=${raw.forks}`);
+    if (raw.open_issues) parts.push(`open_issues=${raw.open_issues}`);
+    if (raw.contributors) parts.push(`contributors=${raw.contributors}`);
+    if (raw.primary_language) parts.push(`语言=${raw.primary_language}`);
+    return parts.length ? `（社区数据：${parts.join('，')}）` : '';
+  }
+  if (raw.module === 'paper') {
+    if (raw.institution) parts.push(`机构=${raw.institution}`);
+    const cite = raw.influence_hint?.match(/高引用\((\d+)\)/);
+    if (cite) parts.push(`被引=${cite[1]}`);
+    if (raw.influence_hint && !/low_influence/.test(raw.influence_hint)) parts.push(`影响力信号=${raw.influence_hint}`);
+    if (raw.authors.length > 0) parts.push(`作者数=${raw.authors.length}`);
+    return parts.length ? `（论文数据：${parts.join('，')}）` : '';
+  }
+  // enterprise
+  const f = raw.fields || {};
+  for (const [k, v] of Object.entries(f)) {
+    if (v !== null && v !== undefined && v !== '') parts.push(`${k}=${Array.isArray(v) ? v.join('/') : String(v)}`);
+  }
+  return parts.length ? `（事件数据：${parts.join('，')}）` : '';
+}
+
+/** 各领域的评分 prompt（差异化标准 + 量化事实注入） */
 function importancePromptFor(evt: StandardEvent): string {
-  const base = `事件：${evt.title}\n描述：${evt.description.slice(0, 300)}\n来源数：${evt.source.length} 真实性分：${evt.accuracy_score}`;
+  const base = `事件：${evt.title}\n描述：${evt.description.slice(0, 300)}\n${buildFacts(evt)}\n来源数：${evt.source.length} 真实性分：${evt.accuracy_score}`;
   switch (evt.category) {
     case 'opensource':
       return `你是 AI 开源生态分析师。评估该开源项目的社区热度与影响力，只输出 JSON：{"importance":0.0,"reason":"一句话理由"}
@@ -400,7 +436,8 @@ async function scoreImportance(evt: StandardEvent): Promise<{ score: number; too
 
 async function rankReason(evt: StandardEvent, rank: number): Promise<string> {
   if (getLLM().available()) {
-    const prompt = `一句话说明为什么该事件应入选 AI 行业日报 Top${config.topN}（第${rank}名）：${evt.title}。只输出理由本身。`;
+    const facts = buildFacts(evt);
+    const prompt = `一句话说明为什么该事件应入选 AI 行业日报 Top${config.topN}（第${rank}名）：${evt.title}${facts ? ' ' + facts : ''}。只输出理由本身，须引用具体数据（如有）。`;
     try {
       const r = await getLLM().complete(prompt, 'generate', { maxTokens: 100 });
       return r.slice(0, 120);
@@ -408,5 +445,7 @@ async function rankReason(evt: StandardEvent, rank: number): Promise<string> {
       return `综合评分 ${evt.importance_score}，真实性与质量经 LLM 校验通过`;
     }
   }
-  return `综合评分 ${evt.importance_score}，真实性与质量经规则校验通过`;
+  // 规则模式：理由带上关键量化数据（可解释性）
+  const facts = buildFacts(evt).replace(/[（）]/g, '');
+  return `综合评分 ${evt.importance_score}（真实性 ${evt.accuracy_score}）${facts ? '；' + facts : ''}`;
 }

@@ -5,30 +5,59 @@
  */
 
 import type { OpenSourceRawEvent, SourceEvidence, TaskContext } from '../types/events.js';
-import { OPEN_SOURCE_KEYWORDS, OPEN_SOURCE_FILTER, sourceCredibility } from '../config/constants.js';
+import { OPEN_SOURCE_KEYWORDS, type OpenSourceKeyword } from '../config/constants.js';
 import { httpGetJson, runWithTimeout } from '../utils/http.js';
 import { webSearch } from '../utils/websearch.js';
 import { writeJsonCache, readJsonCache } from '../utils/cache.js';
 import { logger } from '../utils/logger.js';
 import { recordSourceOk, recordSourceFail } from '../db/index.js';
-import { toISODate, extractNumber, sanitizeDate, similarity } from '../utils/normalize.js';
+import { toISODate, sanitizeDate } from '../utils/normalize.js';
 import { config } from '../config/index.js';
 
 const CACHE_SCOPE = 'opensource';
 const CACHE_KEY = 'latest';
 /** 缓存最长 36h；超期读取时打 stale 标记（Sheet08 R12 缓存降级） */
 const CACHE_MAX_AGE_MS = 36 * 3600_000;
-/** star 快照缓存（用于计算周增长） */
-const SNAPSHOT_SCOPE = 'opensource';
-const SNAPSHOT_KEY = 'snapshots';
-/** star 快照保留 8 天（覆盖 7 天窗口 + 冗余） */
-const SNAPSHOT_MAX_AGE_MS = 8 * 86_400_000;
 
-/** star 快照条目（缓存 items 为数组，每 repo 一条） */
+/**
+ * star 快照持久化（2026-08-26 重构）：
+ * 存储从 data/cache（gitignore，CI 每日清零 → 周增长永远 undefined）迁移到
+ * state/star_snapshots.json —— 随仓库提交，跨 CI 运行积累，
+ * 使"star 周增长"这一核心动向信号在生产环境真正可用（workflow 中 git add -f state/）。
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+
 interface StarSnapshotEntry {
   repo_url: string;
   stars: number;
   fetched_at: string;
+}
+
+function snapshotFile(): string {
+  return path.join(config.dbPath, '..', '..', 'state', 'star_snapshots.json');
+}
+
+function readSnapshots(): StarSnapshotEntry[] {
+  try {
+    const raw = fs.readFileSync(snapshotFile(), 'utf-8');
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeSnapshots(entries: StarSnapshotEntry[]): void {
+  try {
+    const file = snapshotFile();
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    const tmp = `${file}.tmp`;
+    fs.writeFileSync(tmp, JSON.stringify(entries), 'utf-8');
+    fs.renameSync(tmp, file);
+  } catch (err) {
+    logger.warn(`[opensource] star 快照写入失败: ${err instanceof Error ? err.message : err}`);
+  }
 }
 
 interface GitHubRepo {
@@ -38,6 +67,7 @@ interface GitHubRepo {
   html_url: string;
   stargazers_count: number;
   pushed_at: string;
+  created_at?: string;
   language: string | null;
   description: string | null;
   topics?: string[];
@@ -99,7 +129,7 @@ export async function collectOpenSource(ctx: TaskContext): Promise<OpenSourceRaw
   const errors: string[] = [];
   let degraded = false;
 
-  // 1. GitHub Search API（主源）
+  // 1. GitHub Search API（主源，双轨：成熟活跃 + 新星）
   const githubResult = await collectGitHub(ctx);
   if (githubResult.ok) {
     all.push(...githubResult.items.map((r) => ({ raw: r, sortKey: r.stars ?? 0 })));
@@ -107,35 +137,28 @@ export async function collectOpenSource(ctx: TaskContext): Promise<OpenSourceRaw
     errors.push(`github: ${githubResult.error}`);
   }
 
-  // 2. GitHub Trending（通过 Web 抓取 fallback 逻辑；此处以 GitHub API 的 star 排序补充）
-  //   实际开发中可接入 github-trending-cn 技能；此处保留占位，若主源成功则跳过
+  // 2. Gitee（国内备用，真实仓库带 star）
+  const gitee = await collectGitee(ctx);
+  if (gitee.ok) {
+    all.push(...gitee.items.map((r) => ({ raw: r, sortKey: 0 })));
+  } else {
+    errors.push(`gitee: ${gitee.error}`);
+  }
 
-  // 3. ModelScope
-  if (all.length < 30) {
+  // 3. ModelScope / HuggingFace（模型目录，非事件语义 —— 仅作全源失败时的最后兜底）
+  if (all.length === 0) {
     const ms = await collectModelScope(ctx);
     if (ms.ok) {
       all.push(...ms.items.map((r) => ({ raw: r, sortKey: 0 })));
     } else {
       errors.push(`modelscope: ${ms.error}`);
     }
-  }
-
-  // 4. HuggingFace
-  if (all.length < 40) {
     const hf = await collectHuggingFace(ctx);
     if (hf.ok) {
       all.push(...hf.items.map((r) => ({ raw: r, sortKey: 0 })));
     } else {
       errors.push(`huggingface: ${hf.error}`);
     }
-  }
-
-  // 5. Gitee（国内备用）
-  const gitee = await collectGitee(ctx);
-  if (gitee.ok) {
-    all.push(...gitee.items.map((r) => ({ raw: r, sortKey: 0 })));
-  } else {
-    errors.push(`gitee: ${gitee.error}`);
   }
 
   if (all.length === 0) {
@@ -196,51 +219,91 @@ async function collectGitHub(ctx: TaskContext): Promise<{ ok: boolean; items: Op
   let totalOk = true;
   const dateStr = toISODate(new Date(ctx.date_range.start));
 
+  // 查询策略（2026-08-26 重构，实测驱动）：
+  //   原查询 `topic:X pushed:>DATE sort=updated` 是"最近几小时恰好 push 过"的随机抽样器
+  //   （实测 topic:llm 前 15 名混着大量 0★ 个人仓库），不是动向探测。
+  //   现拆双轨：
+  //   A. 活跃成熟项目：topic + pushed:>DATE + stars:>100（push 但有社区基本盘，可能有大动作）
+  //   B. 新星项目：(topic 组合) created:>DATE-14d stars:>30（真正的新发布/新崛起——这才是新闻）
+  //   合计 ≤8 次/分钟请求（GitHub 匿名 search 限额 10/min）
+  const seenUrls = new Set<string>();
   for (const kw of OPEN_SOURCE_KEYWORDS) {
-    const query = kw.githubQuery.replace('{date}', dateStr);
-    const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=updated&order=desc&per_page=30`;
-    const res = await httpGetJson<GitHubSearchResult>(url, { timeoutMs: 15_000, retries: 1, exponential: true });
-    if (!res.ok || !res.data) {
+    // 先替换 {date} 占位符（pushed:>{date}/created:>{date}），再剥离 in:name,description 限定
+    const expanded = kw.githubQuery.replace(/\{date\}/g, dateStr);
+    const base = expanded.split(' in:')[0].trim();
+    // A 轨：成熟活跃项目（star 门槛过滤掉 push 即采的零信号仓库；模板自带 stars 限定时不重复追加）
+    const queryA = /stars:>\d+/.test(base) ? base : `${base} stars:>100`;
+    const urlA = `https://api.github.com/search/repositories?q=${encodeURIComponent(queryA)}&sort=updated&order=desc&per_page=20`;
+    const resA = await httpGetJson<GitHubSearchResult>(urlA, { timeoutMs: 15_000, retries: 1, exponential: true });
+    if (!resA.ok || !resA.data) {
       totalOk = false;
-      recordSourceFail('github_api', res.error || 'empty');
-      logger.warn(`[opensource][github] ${kw.topic} 失败: ${res.error}`);
-      continue;
-    }
-    recordSourceOk('github_api');
-    const now = Date.now();
-    for (const repo of res.data.items.slice(0, 15)) {
-      const pushed = new Date(repo.pushed_at).getTime();
-      const pushedHours = (now - pushed) / 3600_000;
-      const inWindow = pushedHours <= Math.max(72, ctx.time_window_hours * 3);
-      if (!inWindow) continue;
-      out.push({
-        module: 'opensource',
-        project_name: repo.name,
-        repo_url: repo.html_url,
-        owner: repo.owner?.login || '',
-        stars: repo.stargazers_count ?? 0,
-        star_growth_week: computeStarGrowthWeek(repo.html_url, repo.stargazers_count ?? 0),
-        forks: repo.forks_count ?? 0,
-        open_issues: repo.open_issues_count ?? 0,
-        contributors: repo.contributors_count,
-        // 未知日期不默认今天：pushed_at 缺失时留空（评估层 date_missing 拦截）
-        updated_at: sanitizeDate(repo.pushed_at),
-        tech_tags: (repo.topics || []).concat(kw.tags).slice(0, 8),
-        description: repo.description || '',
-        source_urls: [{ url: repo.html_url, source_type: 'github_repo', name: 'GitHub', credibility_score: 5 }],
-      });
+      recordSourceFail('github_api', resA.error || 'empty');
+      logger.warn(`[opensource][github] ${kw.topic} 失败: ${resA.error}`);
+    } else {
+      recordSourceOk('github_api');
+      collectGithubRepos(resA.data.items, kw, out, seenUrls);
     }
   }
+
+  // B 轨：新星项目（一次组合查询覆盖全部主题；created 在近 14 天且有初始社区认可）
+  const risingDate = toISODate(new Date(Date.now() - 14 * 86_400_000));
+  const topicsOr = OPEN_SOURCE_KEYWORDS.map((kw) => `topic:${kw.topic.toLowerCase().replace(/[^a-z]/g, '')}`).filter((t) => t.length > 6).slice(0, 4).join(' OR ');
+  if (topicsOr) {
+    const queryB = `(${topicsOr}) created:>${risingDate} stars:>30`;
+    const urlB = `https://api.github.com/search/repositories?q=${encodeURIComponent(queryB)}&sort=stars&order=desc&per_page=20`;
+    const resB = await httpGetJson<GitHubSearchResult>(urlB, { timeoutMs: 15_000, retries: 1, exponential: true });
+    if (resB.ok && resB.data) {
+      recordSourceOk('github_api');
+      collectGithubRepos(resB.data.items, null, out, seenUrls);
+    } else {
+      logger.warn(`[opensource][github] 新星查询失败: ${resB.error}`);
+    }
+  }
+
   // 记录本次采集的 star 快照（供下次计算周增长）
   if (out.length > 0) recordStarSnapshots(out);
   return { ok: out.length > 0 ? true : totalOk, items: out, error: out.length > 0 ? undefined : 'github 无结果' };
 }
 
+/** GitHub repo 列表 → RawEvent（去重 + 时间窗过滤）；kw 非空时附加主题标签 */
+function collectGithubRepos(repos: GitHubRepo[], kw: OpenSourceKeyword | null, out: OpenSourceRawEvent[], seenUrls: Set<string>): void {
+  const now = Date.now();
+  for (const repo of repos.slice(0, 15)) {
+    const key = repo.html_url.toLowerCase().replace(/\/+$/, '');
+    if (seenUrls.has(key)) continue;
+    const pushed = new Date(repo.pushed_at).getTime();
+    const pushedHours = (now - pushed) / 3600_000;
+    const inWindow = pushedHours <= Math.max(72, ctxWindowHours() * 3);
+    if (!inWindow) continue;
+    seenUrls.add(key);
+    out.push({
+      module: 'opensource',
+      project_name: repo.name,
+      repo_url: repo.html_url,
+      owner: repo.owner?.login || '',
+      stars: repo.stargazers_count ?? 0,
+      star_growth_week: computeStarGrowthWeek(repo.html_url, repo.stargazers_count ?? 0),
+      forks: repo.forks_count ?? 0,
+      open_issues: repo.open_issues_count ?? 0,
+      contributors: repo.contributors_count,
+      created_at: sanitizeDate(repo.created_at),
+      // 未知日期不默认今天：pushed_at 缺失时留空（评估层 date_missing 拦截）
+      updated_at: sanitizeDate(repo.pushed_at),
+      tech_tags: ((repo.topics || []).concat(kw ? kw.tags : [])).slice(0, 8),
+      description: repo.description || '',
+      source_urls: [{ url: repo.html_url, source_type: 'github_repo', name: 'GitHub', credibility_score: 5 }],
+    });
+  }
+}
+
+/** 当前配置的时间窗口小时数（供 collectGithubRepos 使用） */
+function ctxWindowHours(): number {
+  return config.timeWindowHours;
+}
+
 /** 计算 star 周增长：对比历史快照（≥5 天前），无有效快照时返回 undefined */
 function computeStarGrowthWeek(repoUrl: string, currentStars: number): number | undefined {
-  const snap = readJsonCache<StarSnapshotEntry>(SNAPSHOT_SCOPE, SNAPSHOT_KEY, SNAPSHOT_MAX_AGE_MS);
-  if (!snap) return undefined;
-  const prev = snap.entry.items.find((e) => e.repo_url === repoUrl);
+  const prev = readSnapshots().find((e) => e.repo_url === repoUrl);
   if (!prev) return undefined;
   const ageDays = (Date.now() - new Date(prev.fetched_at).getTime()) / 86_400_000;
   // 快照需 ≥5 天前才有参考意义（太新无法反映周增长）
@@ -248,10 +311,9 @@ function computeStarGrowthWeek(repoUrl: string, currentStars: number): number | 
   return Math.max(0, currentStars - prev.stars);
 }
 
-/** 记录 star 快照（与已有快照合并，保留每个 repo 最早的记录以计算真实周增长） */
+/** 记录 star 快照（与已有快照合并，保留每个 repo 最早的记录以计算真实周增长；清理 >8 天旧条目） */
 function recordStarSnapshots(items: OpenSourceRawEvent[]): void {
-  const existing = readJsonCache<StarSnapshotEntry>(SNAPSHOT_SCOPE, SNAPSHOT_KEY, null)?.entry.items || [];
-  const byUrl = new Map(existing.map((e) => [e.repo_url, e]));
+  const byUrl = new Map(readSnapshots().map((e) => [e.repo_url, e]));
   const now = new Date().toISOString();
   for (const item of items) {
     if (!item.repo_url) continue;
@@ -260,11 +322,9 @@ function recordStarSnapshots(items: OpenSourceRawEvent[]): void {
       byUrl.set(item.repo_url, { repo_url: item.repo_url, stars: item.stars, fetched_at: now });
     }
   }
-  writeJsonCache<StarSnapshotEntry>(SNAPSHOT_SCOPE, SNAPSHOT_KEY, [...byUrl.values()], {
-    windowHours: 7 * 24,
-    sources: ['github_api'],
-    degraded: false,
-  });
+  const eightDaysAgo = Date.now() - 8 * 86_400_000;
+  const entries = [...byUrl.values()].filter((e) => new Date(e.fetched_at).getTime() >= eightDaysAgo);
+  writeSnapshots(entries);
 }
 
 // ========== ModelScope ==========
@@ -415,26 +475,46 @@ async function collectWebSearch(ctx: TaskContext): Promise<{ ok: boolean; items:
 // ========== 过滤（Sheet02 R31-R37） ==========
 
 function filterCandidates(items: OpenSourceRawEvent[], ctx: TaskContext, degraded = false): OpenSourceRawEvent[] {
-  const f = OPEN_SOURCE_FILTER;
-  const starWeek = degraded ? f.starGrowthWeekDegraded : f.starGrowthWeek;
-  const starDay = degraded ? f.starGrowthDayDegraded : f.starGrowthDay;
-  const commit = degraded ? f.commit7dDegraded : f.commit7d;
-  const contributors = degraded ? f.contributorsDegraded : f.contributors;
+  // 真实准入门槛（2026-08-26 接线：此前阈值表定义了但从未执行，导致 0★ 仓库进日报）
+  //   - 成熟项目：stars ≥ 100（降级 ≥50）
+  //   - 新星项目：创建 ≤14 天且 stars ≥ 30（降级 ≥10）—— 新发布本身就是新闻
+  const minStars = degraded ? 50 : 100;
+  const risingMaxAgeDays = 14;
+  const risingMinStars = degraded ? 10 : 30;
+  // AI 相关性门控（2026-08-26 实测驱动）：topic:agent 会命中 APM agent 等非 AI 仓库
+  //   （实测 pinpoint-apm/pinpoint 入选日报）。要求 tags+description 命中强 AI 信号；
+  //   刻意不含裸词 "agent"（歧义太大），含具体产品名与领域词。
+  const OPEN_AI_SIGNALS = /\b(ai|aigc|llms?|gpt|rag|mcp|generative|agentic|inference|transformers?|diffusion|neural|machine[- ]?learning|deep[- ]?learning|nlp|computer[- ]?vision|claude|openai|gemini|llama|qwen|mistral|chatbot|copilot|embeddings?|fine[- ]?tun\w*|prompt|deepseek|kimi)\b/i;
 
   return items.filter((item) => {
     // 无来源证据的项目（如 fallback 说明）直接保留标记
     if (item.source_urls.length === 0) return true;
-    // star 门槛（有 star 数据时）
-    if (item.stars > 0) {
-      // 无 growth 数据时放宽（API 不直接提供周增长，允许通过）
-      // 实际开发可对比两次快照计算；MVP 以 stars 绝对值 + 活跃度判断
+
+    const isGithub = item.source_urls.some((s) => s.source_type === 'github_repo');
+    if (isGithub && !degraded) {
+      const text = `${(item.tech_tags || []).join(' ')} ${item.description}`;
+      if (!OPEN_AI_SIGNALS.test(text)) {
+        logger.debug(`[opensource] 过滤非 AI 仓库: ${item.project_name} (${item.description.slice(0, 50)})`);
+        return false;
+      }
     }
-    // 社区热度门槛（有 forks/issues/contributors 数据时）：三者任一达到阈值即可
-    // （优化：不只 stars，关注社区真实活跃度）
+
+    const ageDays = item.created_at
+      ? (Date.now() - new Date(item.created_at).getTime()) / 86_400_000
+      : undefined;
+    const isRising = ageDays !== undefined && ageDays <= risingMaxAgeDays && item.stars >= risingMinStars;
+
+    // star 准入（GitHub 主源有真实数据时执行；ModelScope/HF/Gitee/WebSearch 兜底源 stars=0 走社区热度通道）
+    if (isGithub) {
+      if (item.stars < minStars && !isRising) {
+        logger.debug(`[opensource] 过滤低信号仓库: ${item.project_name} stars=${item.stars} age=${ageDays?.toFixed(1) ?? '?'}d`);
+        return false;
+      }
+    }
+    // 社区热度兜底门槛（非 GitHub 源）：forks/issues/contributors 任一有值即可通过，全零则过滤
     const community = (item.forks ?? 0) + (item.open_issues ?? 0) + (item.contributors ?? 0);
-    if (community > 0) {
-      // 有社区数据但全为 0 且 stars 也小 → 低热度过滤（非降级时）
-      if (!degraded && item.stars < 50 && community < 20) return false;
+    if (!isGithub && community === 0 && item.stars === 0) {
+      return false;
     }
     // 更新时间窗口（有 updated_at 时）
     if (item.updated_at) {

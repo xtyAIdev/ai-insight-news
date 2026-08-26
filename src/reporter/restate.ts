@@ -13,6 +13,7 @@
 
 import type { StandardEvent } from '../types/events.js';
 import { getLLM, withLLMFallback } from '../llm/index.js';
+import { buildFacts } from '../evaluator/evaluator.js';
 import { logger } from '../utils/logger.js';
 
 export interface RestateResult {
@@ -248,6 +249,7 @@ interface LlmRestateItem {
   title: string;
   body: string;
   module: string;
+  facts?: string;
 }
 
 /**
@@ -272,7 +274,7 @@ export async function restateEvents(events: StandardEvent[]): Promise<Map<string
   // 2. 并发执行 LLM 重述
   const tasks: Array<{ evt: StandardEvent; item: LlmRestateItem }> = needRestate.map((e) => ({
     evt: e,
-    item: { title: e.title, body: (e.description || '').slice(0, 400), module: e.category },
+    item: { title: e.title, body: (e.description || '').slice(0, 400), module: e.category, facts: buildFacts(e) || undefined },
   }));
 
   let cursor = 0;
@@ -294,14 +296,18 @@ export async function restateEvents(events: StandardEvent[]): Promise<Map<string
 
 /** 单条 LLM 重述；失败返回 null（调用方规则兜底） */
 async function restateOne(item: LlmRestateItem): Promise<RestateResult | null> {
-  const prompt = `你是 AI 行业市场洞察编辑。将以下英文事件改写成中文，要求：
+  const prompt = `你是 AI 行业市场洞察编辑。将以下事件改写成中文，要求：
 1. 标题：信息密度高的分析式中文标题（10-25 字），保留关键主体与动作，不要机械直译，不要加引号
 2. 正文：2-3 句中文重述，保留事实、数字、产品名（产品名可保留英文原名），不要逐字翻译
 3. 快评：1-2 句"点评"（解读这件事为什么值得关注、影响是什么、预示什么趋势），要有观点、拒绝空泛套话（禁止"值得关注""具有重要意义"这类），不要复述标题内容
+【事实红线】只允许陈述给定材料中出现的事实：
+- 原材料未提及发布/更新/版本变更时，严禁使用"发布了""更新了""新版本""此次更新"等表述（仓库近期有 push 不等于发布了新版本）
+- 严禁编造性能数据、合作方、时间线等任何原材料没有的细节
+- 快评中的判断须标注为推断（如"若…则可能…"），不得写成既成事实
 只输出 JSON：{"title":"中文标题","body":"中文正文","comment":"快评"}
 
 模块：${item.module}
-原标题：${item.title}
+${item.facts ? `量化数据：${item.facts}\n` : ''}原标题：${item.title}
 原正文：${item.body || '（无）'}`;
 
   return withLLMFallback(

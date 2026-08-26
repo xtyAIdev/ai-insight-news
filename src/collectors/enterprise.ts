@@ -260,6 +260,21 @@ async function collectOverseasOfficial(): Promise<EnterpriseRawEvent[]> {
   return out;
 }
 
+/**
+ * 多元业务公司的官方 RSS 强 AI 信号门控（2026-08-26 实测驱动）：
+ * Google 的 innovation-and-ai feed 会混入家居装饰等消费产品文
+ * （实测 2026-08-26 "Google Search 五种新招助力家居装饰" 入选日报）。
+ * 纯 AI 公司（OpenAI/Anthropic/DeepSeek/Kimi 等）全站皆 AI，豁免；
+ * 多元公司（Google/Meta/Microsoft/NVIDIA/Amazon）条目必须命中强 AI 信号词。
+ */
+const DIVERSIFIED_COMPANIES = new Set(['Google', 'Meta', 'Microsoft', 'NVIDIA', 'Amazon', 'Apple', '阿里巴巴', '腾讯', '字节跳动', '百度']);
+const STRONG_AI_SIGNALS = /\b(llm|llms|large language model|gemini|gpt|copilot|deepmind|alpha(?:fold|proof)|model|agent(?:s|ic)?|inference|token[s]?|open[- ]?source[d]?|api|sdk|chip|tpu|gpu|tensor|transformer|multimodal|rag\b|fine-?tun|benchmark|reasoning|foundation model|ai model|genai|generative ai)\b/i;
+
+function isAIRelevant(company: string, title: string, content: string): boolean {
+  if (!DIVERSIFIED_COMPANIES.has(company)) return true;
+  return STRONG_AI_SIGNALS.test(`${title} ${content}`);
+}
+
 /** 抓取单个官方源并转事件（RSS 或 HTML 卡片） */
 async function fetchOfficialSource(t: { name: string; url: string; type: 'rss' | 'html' }): Promise<EnterpriseRawEvent[]> {
   try {
@@ -275,13 +290,18 @@ async function fetchOfficialSource(t: { name: string; url: string; type: 'rss' |
       return [];
     }
     const events = t.type === 'rss' ? await parseRssEvents(res.text, t.name) : parseHtmlNewsEvents(res.text, t.name);
-    if (events.length > 0) {
+    // 多元公司强 AI 信号过滤（家居装饰/消费功能文不入 AI 日报）
+    const gated = events.filter((e) => isAIRelevant(e.company, e.title, e.content));
+    if (gated.length < events.length) {
+      logger.info(`[enterprise] ${t.name} 官方源过滤 ${events.length - gated.length} 条非 AI 主题`);
+    }
+    if (gated.length > 0) {
       recordSourceOk(`official_${t.name.toLowerCase()}`);
-      logger.info(`[enterprise] ${t.name} 官方源 ${events.length} 条`);
+      logger.info(`[enterprise] ${t.name} 官方源 ${gated.length} 条`);
     } else {
       recordSourceFail(`official_${t.name.toLowerCase()}`, 'no_items');
     }
-    return events;
+    return gated;
   } catch (err) {
     logger.warn(`[enterprise] ${t.name} 官方源异常: ${err instanceof Error ? err.message : err}`);
     recordSourceFail(`official_${t.name.toLowerCase()}`, err instanceof Error ? err.message : String(err));

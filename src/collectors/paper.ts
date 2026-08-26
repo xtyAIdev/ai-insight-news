@@ -474,14 +474,27 @@ function influenceRank(p: PaperRawEvent): number {
 
 function dedupPapers(items: PaperRawEvent[]): PaperRawEvent[] {
   const seen = new Map<string, PaperRawEvent>();
+  const titleNorm = (s: string) => s.toLowerCase().replace(/[^a-z0-9\u4e00-\u9fa5]+/g, ' ').trim();
+  const byTitle = new Map<string, PaperRawEvent>();
   for (const p of items) {
+    // 键①：arXiv ID / DOI（精确）
     const key = p.paper_id.toLowerCase().replace(/^arxiv:/, '');
-    if (seen.has(key)) {
-      const existing = seen.get(key)!;
-      existing.source_urls = mergePaperSources(existing.source_urls, p.source_urls);
-    } else {
-      seen.set(key, { ...p });
+    // 键②：归一化标题 —— 治本 OpenAlex 同文异 ID 重复（实测同一论文以两个 work ID 出现两次）。
+    //   标题精确相同 → 必为同一论文，合并来源证据（在 ID 去重之前拦截，避免重复条目流入 processor）
+    const tKey = titleNorm(p.title);
+    const dup = seen.get(key) || (tKey ? byTitle.get(tKey) : undefined);
+    if (dup) {
+      // 同题 = 同一篇论文（OpenAlex 常以多个 work ID 收录同一 zenodo/预印本记录）。
+      // 只补充"不同域名"的来源 —— 同域重复链接（OpenAlex|OpenAlex）对读者是噪音
+      const hostOf = (u: string) => { try { return new URL(u).host; } catch { return u; } };
+      const existingUrls = new Set(dup.source_urls.map((s) => s.url));
+      const existingHosts = new Set(dup.source_urls.map((s) => hostOf(s.url)));
+      const fresh = p.source_urls.filter((s) => s.url && !existingUrls.has(s.url) && !existingHosts.has(hostOf(s.url)));
+      dup.source_urls = mergePaperSources(dup.source_urls, fresh);
+      continue;
     }
+    if (tKey) byTitle.set(tKey, p);
+    seen.set(key, p);
   }
   return Array.from(seen.values());
 }

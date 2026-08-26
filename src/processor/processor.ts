@@ -83,8 +83,18 @@ async function standardize(
 
   switch (raw.module) {
     case 'opensource': {
-      title = `开源项目 ${raw.project_name} 更新`;
-      description = cleanText(raw.description || `${raw.project_name}（${raw.owner}）近期活跃更新`);
+      // 诚实标题（2026-08-26 反幻觉）：废弃"开源项目 X 更新"模板 —— push≠发布，
+      //   模板化断言"更新"会诱导下游 LLM 编造更新细节（实测 Milvus 案例被写出"此次更新进一步优化了…"）。
+      //   改用中性结构：`项目名：描述首句`（描述是仓库自述，事实安全）；截断按词边界，避免切出半个单词。
+      const descClean = cleanText(raw.description || '');
+      const firstClause = descClean.split(/[。.;；!！?\n]/)[0] || '';
+      const clipped = firstClause.length > 60
+        ? firstClause.slice(0, 60).replace(/\s+\S*$/, '')
+        : firstClause;
+      title = firstClause
+        ? `${raw.project_name}：${clipped}`
+        : `${raw.project_name} 开源项目`;
+      description = descClean || `${raw.project_name}（${raw.owner}）近期活跃更新`;
       time = sanitizeDate(raw.updated_at);
       company = raw.owner;
       product = raw.project_name;
@@ -225,17 +235,27 @@ function dedupStandardEvents(events: StandardEvent[]): StandardEvent[] {
   for (const evt of events) {
     // 归一化键：
     //   - opensource：直接用 product（repo 名）作强键（机械标题"开源项目 X 更新"的 coreNoun 会误提取成"开源项目"，必须跳过）
+    //   - paper：禁用标题派生强键 —— 不同论文常共享主题短语（如 "large language model"），
+    //     coreNoun 撞车会误合并两篇不同论文；论文唯一性由 paper_id 保证，重复记录已在采集层按归一化标题去重
     //   - 其他模块：category + 公司 + 核心名词
-    const coreNoun = evt.category === 'opensource' ? (evt.product || '') : (extractCoreNoun(evt.title) || evt.product || '');
-    const normKey = [evt.category, normalizeCompany(evt.company || ''), coreNoun].filter(Boolean).join('|');
+    const strongNoun = evt.category === 'opensource'
+      ? (evt.product || '')
+      : evt.category === 'paper'
+        ? ''
+        : (extractCoreNoun(evt.title) || evt.product || '');
+    // 论文强通道仅允许同 paper_id 命中（product 存的是 paper_id）
+    const normKey = [evt.category, normalizeCompany(evt.company || ''), strongNoun || (evt.category === 'paper' ? evt.product || '' : '')]
+      .filter(Boolean).join('|');
 
     // ① 归一化键强匹配：同公司同核心名词 → 必合并（跨源同事实）
     const normMatch = normKey.length > 0 ? seen.find((s) => s.normKey === normKey) : undefined;
-    // ② 相似度匹配：标题 Jaccard >= 0.55 → 合并（同事实不同措辞，Jaccard 对中文偏严，阈值保守）
+    // ② 相似度匹配：标题 Jaccard 阈值 —— 通用 0.55；论文 0.72（论文标题模板化程度高，
+    //    低阈值易把"不同实验、同模板"的两篇误合并，宁可漏合不可错合）
     //    开源模块跳过相似度通道（机械标题"开源项目 X 更新"彼此高度相似，只能靠 product 强键区分）
+    const simThreshold = evt.category === 'paper' ? 0.72 : 0.55;
     const nearMatch = evt.category === 'opensource'
       ? undefined
-      : seen.find((s) => s.normKey.split('|')[0] === evt.category && similarity(s.title, evt.title) >= 0.55);
+      : seen.find((s) => s.normKey.split('|')[0] === evt.category && similarity(s.title, evt.title) >= simThreshold);
 
     const dup = normMatch || nearMatch;
     if (dup) {

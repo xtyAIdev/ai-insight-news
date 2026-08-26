@@ -14,7 +14,7 @@ import { runPipeline } from '../orchestrator/pipeline.js';
 import { startScheduler } from '../orchestrator/scheduler.js';
 import { collectFeedback, getQualityMetrics } from '../reporter/index.js';
 import { getDb } from '../db/index.js';
-import { listStandardEvents, listReports, listTaskRuns } from '../db/index.js';
+import { listStandardEvents, listReports, listTaskRuns, getStandardEvent } from '../db/index.js';
 import { logger } from '../utils/logger.js';
 import { config, ensureDirs as ensureConfigDirs } from '../config/index.js';
 
@@ -92,15 +92,17 @@ async function cmdFeedback(args: Record<string, string>): Promise<void> {
     console.error('用法: feedback --event <event_id> --score <0-5> [--tags a,b] [--suggestion <text>]');
     process.exit(1);
   }
+  // agentScore 回查事件库（原实现写死 0，导致一致率统计全错）
+  const evt = getStandardEvent(eventId);
   collectFeedback({
     eventId,
-    reportId: args.report || '',
-    agentScore: 0, // 由系统查库填入
+    reportId: evt?.status === 'reported' ? `report_${(evt.added_at || '').replace(/-/g, '')}` : (args.report || ''),
+    agentScore: evt ? evt.importance_score : 0,
     humanScore: score,
     problemTags: tags,
     suggestion: args.suggestion,
   });
-  console.log(`✅ 反馈已记录: event=${eventId} human_score=${score} tags=${tags.join(',')}`);
+  console.log(`✅ 反馈已记录: event=${eventId} agent=${evt?.importance_score ?? 0} human_score=${score} tags=${tags.join(',')}`);
 }
 
 async function cmdMetrics(args: Record<string, string>): Promise<void> {

@@ -49,6 +49,8 @@ export interface OpenSourceRawEvent {
   contributors?: number;
   primary_language?: string;
   updated_at?: string;
+  /** 仓库创建时间（YYYY-MM-DD；新星项目判定用） */
+  created_at?: string;
   commit_activity_7d?: number;
   tech_tags: string[];
   description: string;
@@ -131,7 +133,8 @@ export interface StandardEvent {
 export interface ReportSection {
   module: ModuleName;
   module_label: string;
-  events: StandardEvent[];
+  /** 事件 + 入选理由（评估层生成，报告层渲染；理由缺失时仅展示事件） */
+  events: Array<StandardEvent & { pick_reason?: string }>;
   empty_note?: string; // 无数据时标注「今日无重大动态」
 }
 
