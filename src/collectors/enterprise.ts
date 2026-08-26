@@ -82,13 +82,24 @@ export async function collectEnterprise(ctx: TaskContext): Promise<EnterpriseRaw
   const pool = resolvePool();
   logger.info(`[enterprise] 开始采集，企业池 ${pool.length} 家，双分支并行，时间窗口 ${ctx.time_window_hours}h`);
 
-  // 分支 A（企业动态）与 分支 B（投融资）并行执行
-  const [branchA, branchB] = await Promise.all([
-    withBudget(collectCompanyBranch(ctx, pool), BRANCH_BUDGET_MS, '企业动态分支'),
-    withBudget(collectInvestmentBranch(ctx), BRANCH_BUDGET_MS, '投融资分支'),
+  // 分支 A（企业动态）、分支 B（投融资）、分支 C（AI 垂媒）并行执行
+  const [branchA, branchB, mediaAI] = await Promise.all([
+    withBudget(
+      collectCompanyBranch(ctx, pool),
+      BRANCH_BUDGET_MS,
+      '企业动态分支',
+      () => ({ events: [] as EnterpriseRawEvent[], sourceUsed: [], errors: [`企业动态分支 超时(>${BRANCH_BUDGET_MS / 1000}s)`], degraded: false }),
+    ),
+    withBudget(
+      collectInvestmentBranch(ctx),
+      BRANCH_BUDGET_MS,
+      '投融资分支',
+      () => ({ events: [] as EnterpriseRawEvent[], sourceUsed: [], errors: [`投融资分支 超时(>${BRANCH_BUDGET_MS / 1000}s)`], degraded: false }),
+    ),
+    withBudget(collectMediaAIRss(ctx), BRANCH_BUDGET_MS, 'AI垂媒分支', () => [] as EnterpriseRawEvent[]),
   ]);
 
-  const all = [...branchA.events, ...branchB.events];
+  const all = [...branchA.events, ...branchB.events, ...mediaAI];
   const errors = [...branchA.errors, ...branchB.errors];
   let degraded = branchA.degraded || branchB.degraded;
 
@@ -126,17 +137,18 @@ export async function collectEnterprise(ctx: TaskContext): Promise<EnterpriseRaw
   logger.info(
     `[enterprise] 采集完成：分支A(企业动态) ${branchA.events.length} 条[${branchA.sourceUsed.join('/') || '无'}]，` +
     `分支B(投融资) ${branchB.events.length} 条[${branchB.sourceUsed.join('/') || '无'}]，` +
+    `分支C(AI垂媒) ${mediaAI.length} 条，` +
     `去重后 ${deduped.length}，按公司裁剪后 ${capped.length}（每家≤2条）` +
     `${errors.length ? '（异常: ' + errors.join(';') + '）' : ''}，耗时 ${((Date.now() - start) / 1000).toFixed(1)}s`,
   );
   return capped;
 }
 
-/** 分支执行预算包装：超时返回空结果 + 降级标记，不抛异常 */
-async function withBudget(fn: Promise<BranchResult>, ms: number, label: string): Promise<BranchResult> {
+/** 分支执行预算包装：超时返回兜底值 + 不抛异常（泛型，兼容各分支返回类型） */
+async function withBudget<T>(fn: Promise<T>, ms: number, label: string, onTimeout: () => T): Promise<T> {
   let timer: ReturnType<typeof setTimeout> | undefined;
-  const timeout = new Promise<BranchResult>((resolve) => {
-    timer = setTimeout(() => resolve({ events: [], sourceUsed: [], errors: [`${label} 超时(>${ms / 1000}s)`], degraded: false }), ms);
+  const timeout = new Promise<T>((resolve) => {
+    timer = setTimeout(() => resolve(onTimeout()), ms);
   });
   try {
     const r = await Promise.race([fn, timeout]);
@@ -362,14 +374,16 @@ async function parseRssEvents(xml: string, company: string, sourceType = 'offici
 /** 从 HTML 提取文章正文（H1/标题 + 段落文本；粗略提取，够生成快评即可） */
 function extractArticleBody(html: string): string {
   const h1 = stripTags((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || '').slice(0, 150);
-  // 取正文主要段落（p 标签）
+  // 取正文主要段落（p 标签），剔除导航/登录/页脚垃圾
+  // （实测 openai.com 详情页抓到 "Research Products Business Developers ... Log in" 导航串）
+  const NAV_JUNK = /\(opens in a new window\)|log in|sign up|try \w+|subscribe|newsletter|cookie|skip to (main )?content|all rights reserved/i;
   const paras: string[] = [];
   const pRe = /<p[^>]*>([\s\S]*?)<\/p>/gi;
   let m: RegExpExecArray | null;
   let count = 0;
   while ((m = pRe.exec(html)) && count < 6) {
     const t = stripTags(m[1]);
-    if (t.length > 40) { paras.push(t); count++; }
+    if (t.length > 40 && !NAV_JUNK.test(t)) { paras.push(t); count++; }
   }
   const body = [h1, ...paras].filter(Boolean).join(' ').slice(0, 500);
   return body;
@@ -591,8 +605,8 @@ async function fetchMediaSource(t: { name: string; url: string; lang: 'en' | 'zh
           .some((n) => n.length >= 2 && text.includes(n.toLowerCase())),
       );
       if (!matched) continue; // 媒体源只采集企业池相关事件
-      // 噪音过滤：命中行情/招聘/榜单类信号直接跳过（36氪会把含「腾讯」的恒指新闻误配给企业池）
-      if (MEDIA_NOISE_PATTERNS.some((re) => re.test(text))) {
+      // 噪音过滤只看标题：snippet 会误触发 offer/行情 等规则（实测误杀 OpenAI Jalapeño 报道）
+      if (MEDIA_NOISE_PATTERNS.some((re) => re.test(item.title))) {
         logger.debug(`[enterprise] 媒体源 ${t.name} 噪音跳过: ${item.title.slice(0, 60)}`);
         continue;
       }
@@ -678,6 +692,146 @@ async function collectWebSearchFallback(ctx: TaskContext, pool: PoolProfile[]): 
   return out;
 }
 
+// ========== AI 垂媒专版 RSS（2026-08-26 新增：全行业覆盖，无需企业池匹配） ==========
+//
+// 结构性背景：原媒体源必须先命中企业池别名才收录 —— 整个企业模块本质是"9 家大厂监控器"，
+// 池外创业公司的融资/产品天然进不来。TechCrunch AI / VentureBeat AI 频道 feed 天然覆盖：
+// 产品发布、融资收购、长尾创业公司（实测一期 20 条含 Stability AI $76M、Generalist $3B 估值等）。
+
+interface RawRssItem { title: string; link: string; date: string; snippet: string; }
+
+/** 通用 RSS 条目解析（official/media 共用结构） */
+function parseRssItems(xml: string, max = 20): RawRssItem[] {
+  const raw: RawRssItem[] = [];
+  const itemRe = /<(?:item|entry)[^>]*>([\s\S]*?)<\/(?:item|entry)>/gi;
+  let m: RegExpExecArray | null;
+  while ((m = itemRe.exec(xml)) && raw.length < max) {
+    const block = m[1];
+    const title = stripTags((block.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1] || '');
+    if (!title) continue;
+    const link = (block.match(/<link[^>]*href="([^"]+)"/i) || block.match(/<link[^>]*>([^<]+)<\/link>/i) || [])[1] || '';
+    const date = (block.match(/<pubDate[^>]*>([^<]+)<\/pubDate>/i) || block.match(/<updated[^>]*>([^<]+)<\/updated>/i) || [])[1] || '';
+    const snippet = stripTags((block.match(/<description[^>]*>([\s\S]*?)<\/description>/i) || block.match(/<summary[^>]*>([\s\S]*?)<\/summary>/i) || [])[1] || '').slice(0, 220);
+    raw.push({ title: title.slice(0, 250), link: link.trim(), date: date.trim(), snippet });
+  }
+  return raw;
+}
+
+/**
+ * 公司归属链（池外公司也要有主体）：
+ * ① 企业池别名匹配 → ② 已知 AI 机构库 → ③ 英文动作句式主语
+ *     （"Stability AI raises $76M" → Stability AI；"Gamma acquires ..." → Gamma）
+ * → ④ 中文动作句式主语 → ⑤ 空串（日报不显示主体行，绝不硬编）
+ */
+function resolveCompany(title: string, text: string): string {
+  const lower = `${title} ${text}`.toLowerCase();
+  const poolHit = ENTERPRISE_POOL.find((p) => [p.company, ...p.aliases].some((n) => n.length >= 2 && lower.includes(n.toLowerCase())));
+  if (poolHit) return normalizeCompany(poolHit.company);
+  const known = KNOWN_AI_ORGS.find((n) => lower.includes(n));
+  if (known) return known.charAt(0).toUpperCase() + known.slice(1);
+  const enM = title.match(/([A-Z][A-Za-z0-9&\-]+(?:\s+[A-Z][A-Za-z0-9&\-]+){0,2})\s+(?:raises?|secured?|gets?|lands?|closes?|acquires?|acquisition|reaches|valued|launches|unveils?|debuts?|backs?|backing|banks?|rolls?)/);
+  if (enM && !['The', 'This', 'It'].includes(enM[1])) return enM[1];
+  const zhM = title.match(/^([\u4e00-\u9fa5A-Za-z0-9]{2,20}?)(?:完成|宣布|获得|启动|发布|推出)/);
+  if (zhM) return zhM[1];
+  return '';
+}
+
+/** 投融资信号（英文标题级判断，垂媒条目分流 sub_type 用） */
+const INV_TITLE_RE = /(raises?\b|raised\b|funding|series [a-z]\b|valuation|valued at|acquires?\b|acquisition|backing|backed by|ipo\b|files for|merger|acquires)/i;
+
+/** AI 垂媒专版采集：TechCrunch AI + VentureBeat AI */
+async function collectMediaAIRss(ctx: TaskContext): Promise<EnterpriseRawEvent[]> {
+  const feeds = [
+    { name: 'TechCrunch AI', url: 'https://techcrunch.com/category/artificial-intelligence/feed/' },
+    { name: 'VentureBeat AI', url: 'https://venturebeat.com/category/ai/feed/' },
+  ];
+  const results = await Promise.allSettled(feeds.map(async (f) => {
+    const res = await httpGetJson<unknown>(f.url, { timeoutMs: SOURCE_TIMEOUT_MS, retries: 1, exponential: true });
+    if (!res.ok || !res.text) {
+      recordSourceFail(`media_ai_${f.name}`, res.error || 'empty');
+      return [] as RawRssItem[];
+    }
+    return parseRssItems(res.text, 25);
+  }));
+
+  const out: EnterpriseRawEvent[] = [];
+  const ref = ctx.report_date ? new Date(`${ctx.report_date}T12:00:00`).getTime() : Date.now();
+  for (let i = 0; i < feeds.length; i++) {
+    const r = results[i];
+    if (r.status !== 'fulfilled') continue;
+    let count = 0;
+    for (const item of r.value) {
+      if (out.length >= 14) break;
+      // 时间窗：仅保留近 3 天（垂媒 feed 偶有旧文混入，实测 VentureBeat 掺数月前旧闻）；
+      // 无日期条目直接丢弃（垂媒必有日期，缺失即异常）
+      const published = urlDateOf(item.link) || parseFlexibleDate(item.date) || '';
+      if (!published) continue;
+      const hours = (ref - new Date(published).getTime()) / 3600_000;
+      if (hours < 0 || hours > 72) continue;
+      // 噪音过滤只看标题：snippet 会误触发 offer/行情 等规则（实测误杀 OpenAI Jalapeño 报道）
+      if (MEDIA_NOISE_PATTERNS.some((re) => re.test(item.title))) continue;
+      const text = `${item.title} ${item.snippet}`;
+      // AI 相关性：垂媒体也有跑偏条目（实测混入搜索框改版、SpaceX 股票等非 AI 文）。
+      // 此处主体未知，直接用强 AI 信号判断（不能用 isAIRelevant —— 空公司名恒豁免）
+      if (!STRONG_AI_SIGNALS.test(text)) continue;
+      const isInv = INV_TITLE_RE.test(item.title) || INVESTMENT_KEYWORDS.some((k) => text.includes(k));
+      out.push({
+        module: 'enterprise',
+        sub_type: isInv ? 'investment' : 'product',
+        company: resolveCompany(item.title, text),
+        title: item.title.slice(0, 200),
+        published_at: published,
+        content: item.snippet,
+        fields: {},
+        related_event_ids: [],
+        source_urls: [{ url: item.link, source_type: 'media', name: feeds[i].name, credibility_score: 4 }],
+      });
+      count++;
+    }
+    if (count > 0) {
+      recordSourceOk(`media_ai_${feeds[i].name}`);
+      logger.info(`[enterprise] AI 垂媒 ${feeds[i].name} ${count} 条`);
+    }
+  }
+  return out;
+}
+
+// ========== Google News RSS 查询通道（免费稳定、覆盖长尾；CI 美区可达，本地受限时静默跳过） ==========
+
+async function collectGoogleNews(query: string, lang: 'en' | 'zh'): Promise<EnterpriseRawEvent[]> {
+  const hl = lang === 'zh' ? 'hl=zh-CN&gl=CN&ceid=CN:zh-Hans' : 'hl=en-US&gl=US&ceid=US:en';
+  const url = `https://news.google.com/rss/search?q=${encodeURIComponent(`${query} when:7d`)}&${hl}`;
+  try {
+    const res = await httpGetJson<unknown>(url, { timeoutMs: SOURCE_TIMEOUT_MS, retries: 0 });
+    if (!res.ok || !res.text) return [];
+    const out: EnterpriseRawEvent[] = [];
+    for (const item of parseRssItems(res.text, 12)) {
+      // Google News 无 URL 日期路径，依赖 pubDate；缺失即丢
+      const published = parseFlexibleDate(item.date) || '';
+      if (!published) continue;
+      if (MEDIA_NOISE_PATTERNS.some((re) => re.test(item.title))) continue;
+      const text = `${item.title} ${item.snippet}`;
+      if (!STRONG_AI_SIGNALS.test(text)) continue;
+      const isInv = INV_TITLE_RE.test(item.title) || INVESTMENT_KEYWORDS.some((k) => text.includes(k));
+      out.push({
+        module: 'enterprise',
+        sub_type: isInv ? 'investment' : 'product',
+        company: resolveCompany(item.title, text),
+        title: item.title.replace(/\s+-\s+[^-]+$/, '').slice(0, 200), // 去尾部 " - Publisher" 后缀
+        published_at: published,
+        content: item.snippet,
+        fields: {},
+        related_event_ids: [],
+        source_urls: [{ url: item.link, source_type: 'google_news', name: 'Google News', credibility_score: 3 }],
+      });
+      if (out.length >= 6) break;
+    }
+    return out;
+  } catch {
+    return []; // 静默：网络不可达时由其他源兜底
+  }
+}
+
 // ========== 分支 B：投融资 Agent（Sheet04 04-05 分支A） ==========
 
 /**
@@ -708,6 +862,17 @@ async function collectInvestmentBranch(ctx: TaskContext): Promise<BranchResult> 
     if (search.length > 0) {
       out.push(...search);
       sourceUsed.push('websearch');
+    }
+  }
+
+  // ③ Google News RSS 兜底（免费稳定、覆盖长尾创业公司融资；网络不可达时静默跳过）
+  if (out.length < 4) {
+    const gnEn = await collectGoogleNews('AI startup funding OR "raises" OR "series A" OR "series B"', 'en');
+    const gnZh = gnEn.length < 3 ? await collectGoogleNews('AI 融资', 'zh') : [];
+    const gn = [...gnEn, ...gnZh].filter((e) => e.sub_type === 'investment');
+    if (gn.length > 0) {
+      out.push(...gn);
+      sourceUsed.push('google_news');
     }
   }
 
@@ -885,10 +1050,14 @@ function capByCompany(events: EnterpriseRawEvent[], maxPerCompany: number): Ente
   const counts = new Map<string, number>();
   const result: EnterpriseRawEvent[] = [];
   for (const evt of events) {
-    const company = evt.company || '未知';
-    const count = counts.get(company) || 0;
+    // 无主体的长尾条目不参与"每公司≤2条"计数（否则全部归入"未知"桶被误裁剪）
+    if (!evt.company) {
+      result.push(evt);
+      continue;
+    }
+    const count = counts.get(evt.company) || 0;
     if (count >= maxPerCompany) continue;
-    counts.set(company, count + 1);
+    counts.set(evt.company, count + 1);
     result.push(evt);
   }
   return result;

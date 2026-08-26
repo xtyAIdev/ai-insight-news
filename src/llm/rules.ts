@@ -10,6 +10,9 @@ import { similarity, cleanText } from '../utils/normalize.js';
 // ========== 事件分类（Sheet04 04-04 / Sheet05 05-06） ==========
 
 const INVESTMENT_WORDS = ['融资', '投资', '并购', '上市', '股权', '定增', 'IPO', '估值', '收购', '轮'];
+// 英文信号（2026-08-26 补充：垂媒条目多为英文，原中文词表把 "Ringg raises $10M Series A"
+// 判成产品动态；英文融资词歧义低，加权计分）
+const INVESTMENT_WORDS_EN = ['funding', 'raises', 'raised', 'series a', 'series b', 'series c', 'valuation', 'valued at', 'acquisition', 'acquires', 'backing', 'backed by', 'ipo', 'merger'];
 const PRODUCT_WORDS = ['发布', '更新', '上线', '产品', '版本', '合作', '战略', '开源', 'API', '定价', '模型', '推出', '宣布'];
 
 export function classifyByRule(title: string, content: string): 'investment' | 'product' {
@@ -17,6 +20,9 @@ export function classifyByRule(title: string, content: string): 'investment' | '
   let inv = 0;
   let prod = 0;
   for (const w of INVESTMENT_WORDS) if (text.includes(w)) inv++;
+  for (const w of INVESTMENT_WORDS_EN) {
+    if (new RegExp(`\\b${w}\\b`, 'i').test(text)) inv += 2;
+  }
   for (const w of PRODUCT_WORDS) if (text.includes(w)) prod++;
   if (inv > prod) return 'investment';
   return 'product';
