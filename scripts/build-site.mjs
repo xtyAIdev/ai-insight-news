@@ -37,30 +37,76 @@ function collectReports() {
   return out.sort((a, b) => b.date.localeCompare(a.date));
 }
 
-/** 从日报 HTML 拆分速览 + 各模块（卡片式分模块，与 site.ts splitModules 同语义） */
+/** 从日报 HTML 拆分速览 + 各模块（卡片式分模块，与 site.ts splitModules 同语义）。
+ *  2026-08-27 双语化：reporter 生成的 HTML 含 data-lang-block="en/zh" 两份内容，
+ *  返回 { en: {summary, modules}, zh: {summary, modules} }。 */
 function splitModules(htmlFile) {
   const html = fs.readFileSync(htmlFile, 'utf-8');
-  const result = { summary: '', modules: [] };
-  const summaryMatch = html.match(/<section class="summary">([\s\S]*?)<\/section>/);
-  if (summaryMatch) result.summary = summaryMatch[1];
-  const moduleRegex = /(<section class="module"[^>]*>)([\s\S]*?)<\/section>/g;
-  let m;
-  while ((m = moduleRegex.exec(html)) !== null) {
-    result.modules.push(`${m[1]}${m[2]}</section>`);
+  const result = { en: { summary: '', modules: [] }, zh: { summary: '', modules: [] } };
+
+  function extractLang(lang) {
+    // 取 data-lang-block="<lang>" 的内容（若无则整页，兼容旧版 HTML）。
+    // 结束边界：独占一行的 </div> 后紧跟下一个 data-lang-block 或 <footer> ——
+    // 日报内容内部嵌套 <section>/<div> 卡片，不能简单取第一个 </div>。
+    const startTag = `<div data-lang-block="${lang}"`;
+    const start = html.indexOf(startTag);
+    let block = '';
+    if (start !== -1) {
+      const contentStart = html.indexOf('>', start) + 1;
+      // 结束边界：闭合 </div> 后紧跟下一个 data-lang-block 或 <footer>（容忍有无换行/空白）
+      const endMatch = html.slice(contentStart).match(/<\/div>\s*(?=<div data-lang-block|<footer)/);
+      block = endMatch ? html.slice(contentStart, contentStart + endMatch.index) : html.slice(contentStart);
+    } else if (lang === 'en') {
+      block = html; // 旧版整页仅英文
+    }
+    const out = { summary: '', modules: [] };
+    if (!block) return out;
+    const summaryMatch = block.match(/<section class="summary">([\s\S]*?)<\/section>/);
+    if (summaryMatch) out.summary = summaryMatch[1];
+    const moduleRegex = /(<section class="module"[^>]*>)([\s\S]*?)<\/section>/g;
+    let m;
+    while ((m = moduleRegex.exec(block)) !== null) {
+      out.modules.push(`${m[1]}${m[2]}</section>`);
+    }
+    return out;
+  }
+
+  // 新版：双 data-lang-block；旧版：整页仅英文（兼容）
+  const hasLangBlocks = html.includes('data-lang-block="en"') && html.includes('data-lang-block="zh"');
+  if (hasLangBlocks) {
+    result.en = extractLang('en');
+    result.zh = extractLang('zh');
+  } else {
+    const summaryMatch = html.match(/<section class="summary">([\s\S]*?)<\/section>/);
+    if (summaryMatch) result.en.summary = summaryMatch[1];
+    const moduleRegex = /(<section class="module"[^>]*>)([\s\S]*?)<\/section>/g;
+    let m;
+    while ((m = moduleRegex.exec(html)) !== null) {
+      result.en.modules.push(`${m[1]}${m[2]}</section>`);
+    }
   }
   return result;
 }
 
-/** 把最新一期日报渲染成独立卡片序列（速览卡 + 每模块卡），模块间有独立边界 */
+/** 把最新一期日报渲染成双语卡片序列（速览卡 + 每模块卡 × 中英两份，data-lang 切换） */
 function buildLatestCards(latest) {
-  const parts = [];
   const split = splitModules(latest.htmlFile);
-  if (split.summary) parts.push(`<div class="card summary-card">${split.summary}</div>`);
-  for (const mod of split.modules) {
-    parts.push(`<div class="card module-card">${mod}</div>`);
-  }
-  if (parts.length === 0) return '<p class="empty-note">暂无日报内容</p>';
-  return parts.join('\n');
+  const buildLang = (lang) => {
+    const parts = [];
+    const data = split[lang] || { summary: '', modules: [] };
+    if (data.summary) parts.push(`<div class="card summary-card">${data.summary}</div>`);
+    for (const mod of data.modules) {
+      parts.push(`<div class="card module-card">${mod}</div>`);
+    }
+    return parts.length > 0 ? parts.join('\n') : '';
+  };
+  const en = buildLang('en');
+  const zh = buildLang('zh');
+  if (!en && !zh) return '<p class="empty-note">暂无日报内容</p>';
+  // 双语：en 默认显示，zh 隐藏；按钮切换
+  return `
+<div data-lang-block="en" class="lang-active">${en || '<p class="empty-note">No content</p>'}</div>
+<div data-lang-block="zh" style="display:none">${zh || '<p class="empty-note">暂无日报内容</p>'}</div>`;
 }
 
 /** 解析日报标题（HTML 版 h1） */
@@ -187,17 +233,22 @@ footer a { color:var(--accent); text-decoration:none; }
 @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
 .back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; z-index:10; }
 .back-top:hover { opacity:1; text-decoration:none; }
+/* 语言切换（右上角） */
+.lang-switch { display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; font-family:var(--sans); }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
 `;
 
 function renderIndex(reports, latest, latestCards, latestTitle) {
   const today = latest ? latest.date : (reports[0]?.date || '');
 
   return `<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${esc(latestTitle)} · AI 行业市场洞察</title>
+<title>${esc(latestTitle)} · AI Industry Market Intelligence</title>
 <style>${PAGE_CSS}</style>
 </head>
 <body>
@@ -206,23 +257,27 @@ function renderIndex(reports, latest, latestCards, latestTitle) {
   <div class="brand">
     <div class="logo">◈</div>
     <div>
-      <div class="name">AI 行业市场洞察</div>
-      <div class="sub">Market Intelligence · 每日报告</div>
+      <div class="name">AI Industry Market Intelligence</div>
+      <div class="sub">Market Intelligence · Daily Report</div>
     </div>
   </div>
   <nav class="nav">
-    <a href="archive.html">历史归档（${reports.length} 期）</a>
-    <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener">GitHub 仓库</a>
+    <span class="lang-switch">
+      <button type="button" data-lang-btn="en" class="on">En</button>
+      <button type="button" data-lang-btn="zh">中文</button>
+    </span>
+    <a href="archive.html">Archive（${reports.length}）</a>
+    <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener">GitHub</a>
   </nav>
 </header>
 
-${reports.length === 0 ? '<div class="report-body"><p class="empty-note">暂无日报，等待首次自动运行…</p></div>' : `
+${reports.length === 0 ? '<div class="report-body"><p class="empty-note">No reports yet — waiting for first scheduled run…</p></div>' : `
 <section class="hero">
-  <div class="date-line"><span class="dot"></span><span class="date">${today} 更新</span></div>
+  <div class="date-line"><span class="dot"></span><span class="date">${today} Updated</span></div>
   <h1>${esc(latestTitle)}</h1>
   <div class="meta">
-    <span>由 AI Insight Agent 自动生成</span>
-    <span>共 ${reports.length} 期归档</span>
+    <span>Generated by AI Insight Agent</span>
+    <span>${reports.length} archived editions</span>
   </div>
 </section>
 
@@ -232,10 +287,32 @@ ${latestCards}
 `}
 
 <footer>
-  AI 行业市场洞察日报 · 由 AI Insight Agent 自动生成 · 每日更新
+  AI Industry Market Intelligence Daily · Generated by AI Insight Agent · Updated daily
 </footer>
 </div>
-<a href="#" class="back-top" title="返回顶部">↑ 顶部</a>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) {
+      var show = b.getAttribute('data-lang-block') === lang;
+      b.classList.toggle('lang-active', show);
+      b.style.display = show ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
 </body>
 </html>`;
 }
@@ -250,11 +327,11 @@ function renderArchive(reports, latestDate) {
     .join('');
 
   return `<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>历史归档 · AI 行业市场洞察</title>
+<title>Archive · AI Industry Market Intelligence</title>
 <style>${PAGE_CSS}</style>
 </head>
 <body>
@@ -263,27 +340,46 @@ function renderArchive(reports, latestDate) {
   <div class="brand">
     <div class="logo">◈</div>
     <div>
-      <div class="name">AI 行业市场洞察</div>
-      <div class="sub">Market Intelligence · 每日报告</div>
+      <div class="name">AI Industry Market Intelligence</div>
+      <div class="sub">Market Intelligence · Daily Report</div>
     </div>
   </div>
   <nav class="nav">
-    <a href="index.html">今日日报</a>
-    <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener">GitHub 仓库</a>
+    <span class="lang-switch">
+      <button type="button" data-lang-btn="en" class="on">En</button>
+      <button type="button" data-lang-btn="zh">中文</button>
+    </span>
+    <a href="index.html">Today</a>
+    <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener">GitHub</a>
   </nav>
 </header>
 
-<h1 style="margin-bottom:6px">🗂 历史归档</h1>
-<p class="muted" style="margin-bottom:22px">共 ${reports.length} 期日报</p>
+<h1 style="margin-bottom:6px">🗂 Archive</h1>
+<p class="muted" style="margin-bottom:22px">${reports.length} editions</p>
 <div class="archive">
-${cards || '<p class="empty-note">暂无日报</p>'}
+${cards || '<p class="empty-note">No reports yet</p>'}
 </div>
 
 <footer>
-  AI 行业市场洞察日报 · 由 AI Insight Agent 自动生成 · 每日更新
+  AI Industry Market Intelligence Daily · Generated by AI Insight Agent · Updated daily
 </footer>
 </div>
-<a href="#" class="back-top" title="返回顶部">↑ 顶部</a>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  setLang(saved === 'zh' ? 'zh' : 'en');
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+})();
+</script>
 </body>
 </html>`;
 }
@@ -299,7 +395,17 @@ function renderDaily(report, indexTitle) {
 // ========== 主流程 ==========
 
 const reports = collectReports();
-if (fs.existsSync(siteDir)) fs.rmSync(siteDir, { recursive: true, force: true });
+// 清空 site 目录（逐项删除；个别系统/沙箱环境 trash 偶发失败时跳过，旧文件会被覆盖，不影响产物正确性）
+if (fs.existsSync(siteDir)) {
+  for (const e of fs.readdirSync(siteDir)) {
+    const p = path.join(siteDir, e);
+    try {
+      fs.rmSync(p, { recursive: true, force: true });
+    } catch (err) {
+      console.warn(`[site] 清理旧产物跳过 ${p}: ${err.message}`);
+    }
+  }
+}
 fs.mkdirSync(siteDir, { recursive: true });
 
 // 当日 = 最新一期；首页嵌入其正文（卡片式分模块）

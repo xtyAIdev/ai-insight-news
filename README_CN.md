@@ -35,7 +35,7 @@ AI Insight Agent 一次回答三个问题。它不是"抓一个源就完事"的�
 
 - **痛点：** AI 行业变化太快，手动跟踪根本追不上。RSS 订阅爆满、社交媒体噪声大、arXiv 每天几百篇论文，真正重要的信息被淹没。
 - **缺口：** 大多数资讯聚合器只是"转发"，不核验、不排序、不解释**为什么重要**。
-- **答案：** 一个像分析师一样对待每一条事件的 Agent——先判断真伪，再评估对目标读者有多重要，每个领域只保留 TopN，然后用人类真正读得下去的语言（中文）写出来，每条都附可点击的来源链接。
+- **答案：** 一个像分析师一样对待每一条事件的 Agent——先判断真伪，再评估对目标读者有多重要，每个领域只保留 TopN，然后写成一份读得下去的简报（**默认英文、可一键切换中文**），每条都附可点击的来源链接。
 
 ---
 
@@ -59,8 +59,8 @@ AI Insight Agent 一次回答三个问题。它不是"抓一个源就完事"的�
 ### 🧠 五维洞察 + 快评
 每条事件生成结构化洞察（是什么 / 为什么 / 趋势 / 影响 / 建议）用于排序，日报里再配一句人类口吻的**快评**——读者拿到的是结论，不只是标题。
 
-### 🌏 中文日报，英文溯源
-TopN 事件由 LLM **重述为中文**（分析式标题 + 正文 + 快评），英文原标题保留在描述末尾便于核对；LLM 偶发抽风时，规则级兜底仍能产出可读中文。
+### 🌏 双语日报，默认英文
+TopN 事件由 LLM **重述为中文**（分析式标题 + 正文 + 快评）并存为双语字段；日报**默认英文**（面向全球读者），页面右上角 **En / 中文** 一键切换。原始英文与中文重述并行保留，英文标题与来源链接完整溯源；LLM 偶发抽风时，规则级兜底仍能产出可读中文。
 
 ### 🔌 有 Key 无 Key 都能跑
 配置 `LLM_API_KEY`（OpenAI 兼容协议）后，实体抽取、洞察、核验、评分、重述、叙述全部走真实 LLM。不配 Key 时**内置规则引擎**接管全部环节——每个 LLM 环节都有确定性的规则实现。零运行时依赖，仅 TypeScript 一个编译期依赖。
@@ -217,30 +217,34 @@ npm run -- metrics --period weekly      # 查看周质量指标
 ## 输出示例
 
 > 以下为真实采集数据自动生成的日报——[在线查看完整版](https://xtyAIdev.github.io/ai-insight-news/)。
+>
+> 日报支持**中英双语**：默认英文（Markdown + HTML 网页版），HTML 视图右上角一键切换中文（中文版同时归档为 `.zh.md`）。每条包含真实**时间**、**主体**、**标签**、一句**快评**和可点击的**来源链接**——每条都有出处，日期绝不虚构。
 
 ````markdown
-# AI 行业市场洞察日报
-> 日期：2026-08-25 ｜ 报告编号：report_20260825
+# AI Industry Market Intelligence Daily
+> Date：2026-08-27 ｜ Report ID：report_20260827
 
-## 📌 今日要闻速览
-今日AI行业动态显示，开源工具链持续完善，Ragas、Dify、unsloth和CopilotKit
-等项目的更新显著降低了开发门槛……整体来看，AI技术正从模型性能竞赛转向
-易用性与生态整合，开源与商业化并进成为关键趋势。
+## 📌 Today at a Glance
+Today's AI landscape highlights three major trends: the open-source stack
+continues to thrive with dify, RAGFlow, unsloth, pydantic-ai advancing agent
+workflows and RAG; academic research focuses on multimodal retrieval and
+multi-agent orchestration; on the corporate front, ByteDance launched
+QueryStory to enhance AI trustworthiness, Meta agreed to sweeping child-safety
+restrictions, and Amazon tripled its Nvidia chip orders.
 
-## AI 开源技术
-### 1. Ragas更新：开源LLM/RAG评估框架集成LangChain与LlamaIndex
-Ragas是一个开源的Python评估框架，专为LLM和RAG（检索增强生成）应用设计……
-**时间**：2026-08-25
-**主体**：api-evangelist ｜ **标签**：ai-evaluation / llm / metrics
-**来源**：[GitHub](https://github.com/api-evangelist/ragas)
+## AI Open Source
+### 1. dify：Build Agentic workflows, RAG pipelines, with rich AI model
+Build Agentic workflows, RAG pipelines, with rich AI model and tool support…
+**Time**：2026-08-27
+**Entity**：langgenius ｜ ⭐ 153,612 ｜ **Tags**：agent / rag / workflow
+**Why picked**：Dify leads AI app dev frameworks with 153.6k stars and 24k forks…
+**Source**：[GitHub](https://github.com/langgenius/dify)
 ---
-### 2. Dify更新：一站式Agent工作流与RAG管道，云/VPC/自托管灵活部署
-……
 ## AI 学术研究 / AI 企业动态（略）
-## 🔭 未来关注建议 / 👀 观察名单
+## 🔭 Future watch / 👀 Watchlist
 ````
 
-每条日报都包含：**中文分析式标题**、一句**快评**、真实**时间**、**主体**、**标签**和可点击的**来源链接**。每条都有出处，日期绝不虚构。
+任一日报页面右上角点击 **En / 中文** 即可切换语言。
 
 ---
 

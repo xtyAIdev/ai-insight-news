@@ -126,6 +126,12 @@ export interface StandardEvent {
   /** 快评（日报"发生了什么+快评"结构；由报告层生成，评估层不写入） */
   quick_comment?: string;
   quick_comment_by?: 'llm' | 'rule';
+  /** 双语字段（报告层重述产物，仅内存态，不落库）：中文重述版标题/正文/快评。
+   *  原始英文保留在 title/description/quick_comment；*_zh 存中文重述。
+   *  渲染时 lang='zh' 优先用 *_zh，lang='en' 用原始字段。 */
+  title_zh?: string;
+  description_zh?: string;
+  quick_comment_zh?: string;
 }
 
 // ========== 报告（DailyReport，Sheet09 R51-R59） ==========
@@ -133,8 +139,8 @@ export interface StandardEvent {
 export interface ReportSection {
   module: ModuleName;
   module_label: string;
-  /** 事件 + 入选理由（评估层生成，报告层渲染；理由缺失时仅展示事件） */
-  events: Array<StandardEvent & { pick_reason?: string }>;
+  /** 事件 + 入选理由（评估层生成，报告层渲染；理由缺失时仅展示事件）。reason 中文，reason_en 英文（双语日报） */
+  events: Array<StandardEvent & { pick_reason?: string; pick_reason_en?: string }>;
   empty_note?: string; // 无数据时标注「今日无重大动态」
 }
 
@@ -146,10 +152,16 @@ export interface WatchItem {
 export interface DailyReport {
   report_id: string;      // report_YYYYMMDD
   date: string;           // YYYY-MM-DD
-  summary: string;        // 今日趋势总结
+  summary: string;        // 今日趋势总结（中文）
+  /** 英文版速览（2026-08-27 双语化；无 LLM 时规则降级） */
+  summary_en?: string;
   sections: ReportSection[];
   future_watch: string;
+  /** 英文版未来关注建议 */
+  future_watch_en?: string;
   watchlist: WatchItem[];
+  /** 英文版观察名单 */
+  watchlist_en?: WatchItem[];
   files: { markdown_path?: string; html_path?: string };
   push_status: { channel: string; status: string; sent_at?: string };
 }

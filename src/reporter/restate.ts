@@ -274,7 +274,8 @@ export async function restateEvents(events: StandardEvent[]): Promise<Map<string
   // 2. 并发执行 LLM 重述
   const tasks: Array<{ evt: StandardEvent; item: LlmRestateItem }> = needRestate.map((e) => ({
     evt: e,
-    item: { title: e.title, body: (e.description || '').slice(0, 400), module: e.category, facts: buildFacts(e) || undefined },
+    // 2026-08-27 修复截断：正文输入从 400 提到 1500 字符（论文摘要常 800-2000 字，400 截断导致重述信息不全）
+    item: { title: e.title, body: (e.description || '').slice(0, 1500), module: e.category, facts: buildFacts(e) || undefined },
   }));
 
   let cursor = 0;
@@ -298,7 +299,7 @@ export async function restateEvents(events: StandardEvent[]): Promise<Map<string
 async function restateOne(item: LlmRestateItem): Promise<RestateResult | null> {
   const prompt = `你是 AI 行业市场洞察编辑。将以下事件改写成中文，要求：
 1. 标题：信息密度高的分析式中文标题（10-25 字），保留关键主体与动作，不要机械直译，不要加引号
-2. 正文：2-3 句中文重述，保留事实、数字、产品名（产品名可保留英文原名），不要逐字翻译
+2. 正文：3-5 句中文重述，完整覆盖原文核心事实（方法/数据/结论/意义），保留数字、产品名（产品名可保留英文原名），不要逐字翻译，不要遗漏原文关键信息
 3. 快评：1-2 句"点评"（解读这件事为什么值得关注、影响是什么、预示什么趋势），要有观点、拒绝空泛套话（禁止"值得关注""具有重要意义"这类），不要复述标题内容
 【事实红线】只允许陈述给定材料中出现的事实：
 - 原材料未提及发布/更新/版本变更时，严禁使用"发布了""更新了""新版本""此次更新"等表述（仓库近期有 push 不等于发布了新版本）
@@ -312,7 +313,7 @@ ${item.facts ? `量化数据：${item.facts}\n` : ''}原标题：${item.title}
 
   return withLLMFallback(
     async () => {
-      const r = await getLLM().completeJson<{ title?: string; body?: string; comment?: string }>(prompt, 'generate', { maxTokens: 700, retries: 1 });
+      const r = await getLLM().completeJson<{ title?: string; body?: string; comment?: string }>(prompt, 'generate', { maxTokens: 1000, retries: 1 });
       if (!r) return null;
       const title = (r.title || '').trim();
       const body = (r.body || '').trim();

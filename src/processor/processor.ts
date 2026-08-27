@@ -103,7 +103,9 @@ async function standardize(
     }
     case 'paper': {
       title = raw.title;
-      description = cleanText(raw.abstract || '').slice(0, 300);
+      // 2026-08-27 修复截断：论文摘要从 300 提到 1500 字符（arXiv 摘要常 800-2000 字，
+      // 300 截断导致日报正文/LLM 重述都信息不全——此前是"论文显示不全"的根本原因）
+      description = cleanText(raw.abstract || '').slice(0, 1500);
       time = sanitizeDate(raw.published_at);
       company = raw.institution;
       product = raw.paper_id;

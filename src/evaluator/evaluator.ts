@@ -15,7 +15,7 @@ import { config } from '../config/index.js';
 export interface EvalResult {
   events: StandardEvent[];        // 通过评估的事件（按 importance_score 降序）
   dropped: StandardEvent[];       // 被丢弃的事件
-  topN: Array<{ event: StandardEvent; reason: string }>;
+  topN: Array<{ event: StandardEvent; reason: string; reason_en?: string }>;
   topNByModule: Record<string, Array<{ event: StandardEvent; reason: string }>>;
 }
 
@@ -171,13 +171,13 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
       }
     }
     moduleEvents = moduleEvents.slice(0, topN);
-    const moduleTop: Array<{ event: StandardEvent; reason: string }> = [];
+    const moduleTop: Array<{ event: StandardEvent; reason: string; reason_en?: string }> = [];
     for (let i = 0; i < moduleEvents.length; i++) {
       const evt = moduleEvents[i];
-      const reason = await rankReason(evt, i + 1);
-      saveHighQuality(evt.event_id, evt.category, i + 1, reason);
+      const reasonPair = await rankReason(evt, i + 1);
+      saveHighQuality(evt.event_id, evt.category, i + 1, reasonPair.zh);
       updateEventStatus(evt.event_id, 'reported');
-      moduleTop.push({ event: evt, reason });
+      moduleTop.push({ event: evt, reason: reasonPair.zh, reason_en: reasonPair.en });
     }
     topNByModule[module] = moduleTop;
     topNList.push(...moduleTop);
@@ -434,18 +434,32 @@ async function scoreImportance(evt: StandardEvent): Promise<{ score: number; too
 
 // ========== 06-08 排序理由 ==========
 
-async function rankReason(evt: StandardEvent, rank: number): Promise<string> {
+async function rankReason(evt: StandardEvent, rank: number): Promise<{ zh: string; en: string }> {
+  const facts = buildFacts(evt);
+  // 规则兜底（中英双语模板，带量化数据避免千篇一律）
+  const zhFallback = `综合评分 ${evt.importance_score}，真实性与质量经 LLM 校验通过${facts ? '；' + facts.replace(/[（）]/g, '') : ''}`;
+  const enFallback = `Composite score ${evt.importance_score}, verified for authenticity and quality${facts ? '; ' + facts.replace(/[（）]/g, '') : ''}`;
   if (getLLM().available()) {
-    const facts = buildFacts(evt);
-    const prompt = `一句话说明为什么该事件应入选 AI 行业日报 Top${config.topN}（第${rank}名）：${evt.title}${facts ? ' ' + facts : ''}。只输出理由本身，须引用具体数据（如有）。`;
+    // 一次调用同时产出中英理由（JSON），英文版供全球读者，中文版供国内读者
+    const prompt = `一句话说明为什么该事件应入选 AI 行业日报 Top${config.topN}（第${rank}名）：${evt.title}${facts ? ' ' + facts : ''}。
+只输出 JSON，勿输出其他内容：
+{"zh":"中文理由（30-80字，须引用具体数据，不要空泛套话）","en":"English reason (1-2 sentences, cite concrete data, idiomatic not literal translation)"}`;
     try {
-      const r = await getLLM().complete(prompt, 'generate', { maxTokens: 100 });
-      return r.slice(0, 120);
+      const r = await getLLM().completeJson<{ zh?: string; en?: string }>(prompt, 'generate', { maxTokens: 300, retries: 1 });
+      const zh = (r?.zh || '').trim();
+      const en = (r?.en || '').trim();
+      // 不再硬截断到 120；仅当输出异常长（>400）时截断，避免异常输出撑爆卡片
+      return {
+        zh: zh && zh.length > 400 ? zh.slice(0, 400) : (zh || zhFallback),
+        en: en && en.length > 400 ? en.slice(0, 400) : (en || enFallback),
+      };
     } catch {
-      return `综合评分 ${evt.importance_score}，真实性与质量经 LLM 校验通过`;
+      return { zh: zhFallback, en: enFallback };
     }
   }
   // 规则模式：理由带上关键量化数据（可解释性）
-  const facts = buildFacts(evt).replace(/[（）]/g, '');
-  return `综合评分 ${evt.importance_score}（真实性 ${evt.accuracy_score}）${facts ? '；' + facts : ''}`;
+  return {
+    zh: `综合评分 ${evt.importance_score}（真实性 ${evt.accuracy_score}）${facts ? '；' + facts.replace(/[（）]/g, '') : ''}`,
+    en: `Composite score ${evt.importance_score} (authenticity ${evt.accuracy_score})${facts ? '; ' + facts.replace(/[（）]/g, '') : ''}`,
+  };
 }

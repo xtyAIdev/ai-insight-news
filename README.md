@@ -35,7 +35,7 @@ AI Insight Agent answers all three. It is a fully autonomous **market-intelligen
 
 - **The problem:** AI moves too fast for manual tracking. RSS folders overflow, Twitter/X timelines are noisy, arXiv dumps hundreds of papers a day, and "what actually matters" gets buried.
 - **The gap:** Most news aggregators just re-publish. They don't verify, rank, or explain *why* something matters.
-- **The answer:** An agent that treats each event like an analyst would — check if it's real, score how important it is for *this* audience, keep only the top few per domain, and write each one up in a language humans actually read (Chinese), with source links for every claim.
+- **The answer:** An agent that treats each event like an analyst would — check if it's real, score how important it is for *this* audience, keep only the top few per domain, and write each one up as a readable briefing (English-first, Chinese available), with source links for every claim.
 
 ---
 
@@ -59,8 +59,8 @@ Events are scored with **domain-specific importance rubrics** (community momentu
 ### 🧠 Five-dimensional insight + quick comment
 Each event gets a structured insight (what / why / trend / impact / action) used for ranking, and a human-style **quick comment** in the briefing so readers get the takeaway, not just the headline.
 
-### 🌏 Chinese-first briefing, sources in English
-TopN events are **restated into Chinese** by the LLM (analytical headline + body + comment), with the original English title kept at the end of the description for verification. A rule-based fallback keeps Chinese output readable even when the LLM flakes.
+### 🌏 Bilingual briefing, English-first
+TopN events are **restated into Chinese** by the LLM (analytical headline + body + comment) and kept alongside the original English. The report renders **in English by default** with an **En / 中文** toggle in the top-right corner. Both languages are generated per item, original titles and sources stay intact, and a rule-based fallback keeps Chinese output readable even when the LLM flakes.
 
 ### 🔌 Runs with or without an LLM key
 Configure `LLM_API_KEY` (OpenAI-compatible) and every stage uses a real LLM. Without a key, the built-in **rule engine** drives the entire pipeline — entity extraction, insights, credibility, scoring, even report drafting all have deterministic rule implementations. Zero runtime dependencies; only TypeScript is a dev dependency.
@@ -218,30 +218,34 @@ npm run -- metrics --period weekly      # quality metrics from feedback
 ## Example output
 
 > A daily report generated automatically from live data — [read the real thing](https://xtyAIdev.github.io/ai-insight-news/).
+>
+> Reports are **bilingual**: English by default (Markdown + HTML web view), with a one-click switch to Chinese in the HTML view (`.zh.md` archived alongside). Each item shows the real date, entity, tags, a human-style quick comment, and clickable source links — no claim without a source, no date invented.
 
 ````markdown
-# AI 行业市场洞察日报
-> 日期：2026-08-25 ｜ 报告编号：report_20260825
+# AI Industry Market Intelligence Daily
+> Date：2026-08-27 ｜ Report ID：report_20260827
 
-## 📌 今日要闻速览
-今日AI行业动态显示，开源工具链持续完善，Ragas、Dify、unsloth和CopilotKit
-等项目的更新显著降低了开发门槛……整体来看，AI技术正从模型性能竞赛转向
-易用性与生态整合，开源与商业化并进成为关键趋势。
+## 📌 Today at a Glance
+Today's AI landscape highlights three major trends: the open-source stack
+continues to thrive with dify, RAGFlow, unsloth, pydantic-ai advancing agent
+workflows and RAG; academic research focuses on multimodal retrieval and
+multi-agent orchestration; on the corporate front, ByteDance launched
+QueryStory to enhance AI trustworthiness, Meta agreed to sweeping child-safety
+restrictions, and Amazon tripled its Nvidia chip orders.
 
-## AI 开源技术
-### 1. Ragas更新：开源LLM/RAG评估框架集成LangChain与LlamaIndex
-Ragas是一个开源的Python评估框架，专为LLM和RAG（检索增强生成）应用设计……
-**时间**：2026-08-25
-**主体**：api-evangelist ｜ **标签**：ai-evaluation / llm / metrics
-**来源**：[GitHub](https://github.com/api-evangelist/ragas)
+## AI Open Source
+### 1. dify：Build Agentic workflows, RAG pipelines, with rich AI model
+Build Agentic workflows, RAG pipelines, with rich AI model and tool support…
+**Time**：2026-08-27
+**Entity**：langgenius ｜ ⭐ 153,612 ｜ **Tags**：agent / rag / workflow
+**Why picked**：Dify leads AI app dev frameworks with 153.6k stars and 24k forks…
+**Source**：[GitHub](https://github.com/langgenius/dify)
 ---
-### 2. Dify更新：一站式Agent工作流与RAG管道，云/VPC/自托管灵活部署
-……
 ## AI 学术研究 / AI 企业动态（略）
-## 🔭 未来关注建议 / 👀 观察名单
+## 🔭 Future watch / 👀 Watchlist
 ````
 
-Every item shows: a **Chinese analytical title**, a **human-style quick comment**, the real **date**, the **company/project**, **tags**, and clickable **source links**. No claim without a source, no date invented.
+Toggle **En / 中文** in the top-right corner of any report page to switch languages.
 
 ---
 
