@@ -2,7 +2,7 @@ name: Daily AI Insight Report
 
 on:
   schedule:
-    - cron: '0 0 * * *'   # 每天 UTC 00:00（北京时间 08:00）
+    - cron: '17 0 * * *'   # 每天 UTC 00:17（北京时间 08:17）——避开整点峰值负载，降低 schedule 被静默跳过概率
   workflow_dispatch:      # 支持手动触发
 
 permissions:
