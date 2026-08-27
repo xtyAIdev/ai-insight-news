@@ -109,10 +109,11 @@ function buildLatestCards(latest) {
 <div data-lang-block="zh" style="display:none">${zh || '<p class="empty-note">暂无日报内容</p>'}</div>`;
 }
 
-/** 解析日报标题（HTML 版 h1） */
+/** 解析日报标题（HTML 版 h1）——2026-08-27 双语：优先取 data-lang-title="en"（英文默认），回退通用 <title> */
 function extractTitle(htmlFile, date) {
   const html = fs.readFileSync(htmlFile, 'utf-8');
-  const m = html.match(/<title>([^<]*)<\/title>/);
+  const m = html.match(/<title[^>]*data-lang-title="en"[^>]*>([^<]*)<\/title>/)
+    || html.match(/<title>([^<]*)<\/title>/);
   return m ? m[1].trim() : `AI 行业市场洞察日报 ${date}`;
 }
 

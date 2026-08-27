@@ -34,15 +34,17 @@ export async function generateReport(input: ReportInput): Promise<DailyReport> {
   const start = Date.now();
   logger.info(`[reporter] 生成日报 ${reportId}`);
 
-  // 按模块组织 TopN
-  const sections = buildSections(input);
-
   // 07-02b 中文重述（TopN 事件英文标题/正文 → 中文；无 LLM 规则兜底）
+  // 注意：必须先重述、后 buildSections —— buildSections 用 {...event} 浅拷贝，
+  // 若在其之前执行，title_zh/description_zh 等重述字段不会进入 sections 的拷贝。
   const restated = await restateEvents(input.topN.map((t) => t.event));
   if (restated.size > 0) {
     const applied = applyRestate(input.topN, restated);
     logger.info(`[reporter] 中文重述应用 ${applied} 条（LLM 可用: ${getLLM().available()}）`);
   }
+
+  // 按模块组织 TopN（在重述应用之后，确保拷贝携带 title_zh/description_zh 等双语字段）
+  const sections = buildSections(input);
 
   // 07-03 LLM 内容生成（含降级）——中英双语速览/观察名单
   const { summary, futureWatch, watchlist, summary_en, futureWatch_en, watchlist_en } = await generateNarrative(input, sections);
@@ -564,7 +566,7 @@ export function renderHtml(report: DailyReport): string {
           ${bodyText ? `<p class="news-body">${esc(bodyText)}</p>` : ''}
           ${comment ? `<p class="comment">${esc(comment)}</p>` : ''}
           ${meta.length ? `<div class="meta">${meta.join(' ')}</div>` : ''}
-          ${reason ? `<div class="pick-reason"><b>${lang === 'zh' ? '入选理由' : 'Why picked'}</b>：${esc(reason)}</div>` : ''}
+          ${reason ? `<div class="pick-reason">${esc(reason)}</div>` : ''}
           ${sourceHtml}
         </article>`;
       }).join('');
@@ -610,7 +612,8 @@ export function renderHtml(report: DailyReport): string {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Industry Market Intelligence Daily ${esc(report.date)}</title>
+<title data-lang-title="en">AI Industry Market Intelligence Daily ${esc(report.date)}</title>
+<title data-lang-title="zh">AI 行业市场洞察日报 ${esc(report.date)}</title>
 <style>
 :root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
 * { box-sizing:border-box; margin:0; padding:0; }
@@ -661,8 +664,10 @@ footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px;
 <div class="wrap">
 <header>
 ${langSwitch}
-<h1>AI Industry Market Intelligence Daily</h1>
-<div class="sub">${esc(report.date)} ｜ ${esc(report.report_id)}</div>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">${esc(report.date)} ｜ ${esc(report.report_id)}</div>
+<div class="sub" data-lang-title="zh">${esc(report.date)} ｜ ${esc(report.report_id)}</div>
 </header>
 ${navHtml}
 <div data-lang-block="en" class="active">
@@ -681,6 +686,9 @@ ${contentZh}
   function setLang(lang) {
     btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
     blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
     try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
   }
