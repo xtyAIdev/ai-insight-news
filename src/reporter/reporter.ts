@@ -10,7 +10,7 @@ import type { DailyReport, ModuleName, ReportSection, StandardEvent, WatchItem }
 import { getLLM, withLLMFallback } from '../llm/index.js';
 import { restateEvents } from './restate.js';
 import { logger } from '../utils/logger.js';
-import { saveReport, saveFeedback, computeQualityMetrics } from '../db/index.js';
+import { saveReport, saveFeedback, computeQualityMetrics, appendFeedbackToFile } from '../db/index.js';
 import { config } from '../config/index.js';
 import { genReportId } from '../utils/normalize.js';
 
@@ -782,6 +782,8 @@ export function collectFeedback(input: {
     created_at: new Date().toISOString(),
   };
   saveFeedback(fb);
+  // 反馈闭环（2026-08-31 批3 任务⑥）：同步持久化到 data/feedback.json（跨 CI 留存，metrics 合并读）
+  appendFeedbackToFile(fb);
   logger.info(`[reporter] 反馈已沉淀: event=${input.eventId} human=${input.humanScore} tags=${input.problemTags.join(',')}`);
 }
 

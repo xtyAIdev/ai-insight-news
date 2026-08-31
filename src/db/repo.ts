@@ -4,6 +4,7 @@
 
 import type { DailyReport, FeedbackRecord, QualityMetrics } from '../types/events.js';
 import { getDb } from './schema.js';
+import { listFeedbackFromFile, computeQualityMetricsFromDbAndFile } from './feedbackFile.js';
 
 // ========== Reports ==========
 
@@ -96,7 +97,7 @@ export function saveFeedback(fb: FeedbackRecord): void {
 export function listFeedback(): FeedbackRecord[] {
   const db = getDb();
   const rows = db.prepare('SELECT * FROM feedback ORDER BY created_at DESC').all();
-  return (rows as Array<Record<string, unknown>>).map((r) => ({
+  const dbRows = (rows as Array<Record<string, unknown>>).map((r) => ({
     id: String(r.id),
     event_id: String(r.event_id),
     report_id: r.report_id ? String(r.report_id) : '',
@@ -106,47 +107,28 @@ export function listFeedback(): FeedbackRecord[] {
     suggestion: String(r.suggestion),
     created_at: String(r.created_at),
   }));
+  // 合并文件反馈（feedback.json，2026-08-31 批3 任务⑥ 反馈闭环）：DB 优先，文件补充，按 id 去重
+  const merged = new Map<string, FeedbackRecord>();
+  for (const r of [...dbRows, ...listFeedbackFromFile()]) merged.set(r.id, r);
+  return Array.from(merged.values()).sort((a, b) => b.created_at.localeCompare(a.created_at));
 }
 
-/** 质量指标统计（Sheet07 07-14：一致性、满意度、低分原因分布） */
+/** 质量指标统计（Sheet07 07-14：一致性、满意度、低分原因分布）
+ *  2026-08-31 批3 任务⑥：合并 DB + feedback.json 文件反馈（文件为 GitHub Issue 闭环持久化源） */
 export function computeQualityMetrics(period: 'weekly' | 'monthly'): QualityMetrics {
   const db = getDb();
-  const since = new Date();
-  since.setDate(since.getDate() - (period === 'weekly' ? 7 : 30));
-  const sinceStr = since.toISOString();
-  const rows = db.prepare('SELECT * FROM feedback WHERE created_at >= ?').all(sinceStr) as Array<Record<string, unknown>>;
-  const total = rows.length;
-  let agentSum = 0;
-  let humanSum = 0;
-  let humanCount = 0;
-  let consistent = 0;
-  let satisfied = 0;
-  const lowScoreReasons: Record<string, number> = {};
-  for (const r of rows) {
-    agentSum += Number(r.agent_score);
-    const h = r.human_score;
-    if (h !== null && h !== undefined) {
-      const hv = Number(h);
-      humanSum += hv;
-      humanCount++;
-      const av = Number(r.agent_score);
-      if (Math.abs(av - hv) <= 0.5) consistent++;
-      if (hv >= 4) satisfied++;
-      const tags = JSON.parse(String(r.problem_tags)) as string[];
-      for (const t of tags) {
-        if (t) lowScoreReasons[t] = (lowScoreReasons[t] ?? 0) + 1;
-      }
-    }
-  }
-  return {
-    period,
-    total_feedback: total,
-    avg_agent_score: total ? Number((agentSum / total).toFixed(2)) : 0,
-    avg_human_score: humanCount ? Number((humanSum / humanCount).toFixed(2)) : 0,
-    consistency_rate: humanCount ? Number((consistent / humanCount * 100).toFixed(1)) : 0,
-    satisfaction_rate: humanCount ? Number((satisfied / humanCount * 100).toFixed(1)) : 0,
-    low_score_reasons: lowScoreReasons,
-  };
+  const dbRows = db.prepare('SELECT * FROM feedback').all() as Array<Record<string, unknown>>;
+  const mapped: FeedbackRecord[] = dbRows.map((r) => ({
+    id: String(r.id),
+    event_id: String(r.event_id),
+    report_id: r.report_id ? String(r.report_id) : '',
+    agent_score: Number(r.agent_score),
+    human_score: r.human_score !== null && r.human_score !== undefined ? Number(r.human_score) : null,
+    problem_tags: JSON.parse(String(r.problem_tags)) as string[],
+    suggestion: String(r.suggestion),
+    created_at: String(r.created_at),
+  }));
+  return computeQualityMetricsFromDbAndFile(mapped, listFeedbackFromFile(), period);
 }
 
 // ========== Task Runs ==========

@@ -1,6 +1,6 @@
 /**
  * 学术研究采集（Sheet03）
- * 主源：arXiv API（按分类拆分）；可选：OpenReview / Semantic Scholar；兜底：OpenAlex
+ * 主源：arXiv API（按分类拆分）；补充：OpenAlex（严格当天）；可选尝试：Hugging Face daily_papers；兜底：WebSearch
  * 三门槛过滤（Sheet03 R26-R30）：时间 / 方向匹配 / 影响力
  */
 

@@ -67,13 +67,13 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 - [x] 5. `sendMailSMTP` 支持多收件人（MAIL_TO 逗号分隔）
 
 **批 3 · 反馈闭环 + 文档对齐**
-- [ ] 6. GitHub Pages 日报底部"反馈/纠错"按钮 → issue/Serverless → 写 feedback 表
-- [ ] 7. README/.env.example 删未实现功能（OpenReview/Semantic Scholar 等）
+- [x] 6. GitHub Pages 日报底部"反馈/纠错"按钮 → issue → 写 feedback.json 持久化（metrics 合并读）
+- [x] 7. README/.env.example 删未实现功能（OpenReview/Semantic Scholar 等）
 
 **测试（贯穿）**
 - [x] 批1 完成：`node:test` 冒烟测试覆盖 buildFacts / normDedupKey / dedupCrossSource（`npm test`，11 用例）
 - [x] 批2 完成：新增 `src/collectors/opensource.test.ts` 覆盖 filterCandidates 新星豁免（`npm test`，累计 14 用例）
-- [ ] 批3：给反馈闭环/文档相关被改动函数补冒烟测试
+- [x] 批3 完成：新增 `src/db/feedbackFile.test.ts` 覆盖反馈文件读写/合并（`npm test`，累计 18 用例）
 
 ### 每条改动的执行纪律（新会话务必遵守）
 1. 只改与上述清单相关的最小代码；不重构、不格式化无关代码、不改已正确行为。
@@ -141,3 +141,25 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 - `dfe4838 chore: daily report 2026-08-31` — 本地运行生成的最新报告（`git add -f`，与 CI 风格一致）
 - 均已推送 origin/main。本地与远端同步。
 - 备注：`reports/` 在 .gitignore 但历史已跟踪，需 `git add -f` 才能更新报告文件；`state/star_snapshots.json` 已跟踪（跨 CI 积累 star 周增长数据）。
+
+### 2026-08-31 · 批3 完成（反馈闭环 + 文档对齐）
+**任务⑥ 反馈闭环**（用户拍板：按钮→Issue→反馈持久化到仓库文件）：
+- 架构约束：GitHub Pages 纯静态无法写 SQLite；CI 的 DB 每次 checkout 重置不持久。方案：读者反馈持久化到 `data/feedback.json`（git add -f 提交回仓库，跨 CI 留存，类似 reports/ 与 state/）。
+- 前端（`scripts/build-site.mjs`）：`feedbackLink(date)` 生成页脚"💬 反馈 / 纠错"按钮 → GitHub Issue 新建页预填结构化模板（日报日期/反馈类型/涉及事件/评分/具体说明）。首页 index.html + 每日独立页 renderDaily 均有。
+- 持久化（新增 `src/db/feedbackFile.ts`）：`listFeedbackFromFile` / `appendFeedbackToFile`（按 id 去重、created_at 降序、原子写 tmp+rename）/ `computeQualityMetricsFromDbAndFile`（DB+文件合并统计）。路径 = `data/feedback.json`（与 DB 同目录）。
+- 合并（`src/db/repo.ts`）：`listFeedback` 与 `computeQualityMetrics` 均合并 DB + 文件反馈（id 去重，DB 优先）。
+- 落盘（`src/reporter/reporter.ts`）：`collectFeedback` 同步 `appendFeedbackToFile`（CLI feedback 与 server /api/feedback 都自动持久化）。
+- CLI（`src/cli/index.ts`）：新增 `feedback:issue` 子命令（--event/--score/--tags/--suggestion），读者反馈无需精确 event_id（event 存标题文本，agent_score=0），事件可空。
+- workflow（新增 `.github/workflows/feedback-collect.yml`）：`issues: opened` 触发，`startsWith(title,'[日报反馈]')` 才收集（普通 issue/告警不动）。github-script 解析模板字段 → `feedback:issue` 写文件 → git add -f data/feedback.json 提交 → 关闭 issue。无评分且无说明视为无效（保留 issue 人工跟进）。
+
+**任务⑦ 文档对齐**：
+- `src/collectors/paper.ts:3` 注释删"可选：OpenReview / Semantic Scholar"（源码未实现该采集）。
+- README.md / README_CN.md webSearch 兜底描述补 Google News（批2 已加第三档，原文档过时）。
+- `constants.ts:119` A_DOMAINS 保留 openreview.net / semanticscholar.org（功能性信源评分白名单，非功能声明；websearch 结果指向它们时给合理可信分，不删）。
+- README 全文复查无其它"声称已实现但实际没有"的功能描述（零依赖 SMTP✅ / Pages✅ / feedback✅ / metrics✅ / 规则引擎✅ / 双语✅）。
+
+**测试**：新增 `src/db/feedbackFile.test.ts`（4 用例：写入读取降序 / id 去重 / 无文件返回空 / DB+文件合并统计）。`package.json` test script 加入 `dist/db/*.test.js`。
+**端到端验证**：`feedback:issue --event "..." --score 2 --tags "不准确,标题党"` → data/feedback.json 生成 → `metrics --period weekly` 正确读到（低分原因：不准确1/标题党1）。build-site.mjs 生成站点含反馈按钮（index.html + 每日页）。
+**验证**：`npm run typecheck` ✅；`npm test` 18/18 ✅。
+**改动文件**：`scripts/build-site.mjs`、`src/db/feedbackFile.ts`（新）、`src/db/feedbackFile.test.ts`（新）、`src/db/repo.ts`、`src/db/index.ts`、`src/reporter/reporter.ts`、`src/cli/index.ts`、`src/collectors/paper.ts`、`README.md`、`README_CN.md`、`package.json`、`.github/workflows/feedback-collect.yml`（新）。
+**未提交**：本批代码未 commit，待用户 review 后提交。

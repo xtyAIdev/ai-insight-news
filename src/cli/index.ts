@@ -117,6 +117,36 @@ async function cmdMetrics(args: Record<string, string>): Promise<void> {
   console.log(`低分原因分布: ${JSON.stringify(m.low_score_reasons, null, 2)}`);
 }
 
+/**
+ * feedback:issue —— 读者反馈闭环（2026-08-31 批3 任务⑥）。
+ * 由 .github/workflows/feedback-collect.yml 调用：解析 GitHub Issue 反馈 → 写入
+ * data/feedback.json（appendFeedbackToFile）。event 传读者填写的标题文本（非 event_id），
+ * agent_score 记 0（无法回查标准事件时），human_score 为读者评分。
+ * 用法: feedback:issue --event <标题或id> --score <0-5> --tags <a,b> [--suggestion <s>]
+ */
+async function cmdFeedbackIssue(args: Record<string, string>): Promise<void> {
+  const { appendFeedbackToFile } = await import('../db/feedbackFile.js');
+  const event = (args.event || '').trim();
+  const score = parseFloat(args.score || '');
+  const tags = args.tags ? args.tags.split(',').map((t) => t.trim()).filter(Boolean) : [];
+  const suggestion = (args.suggestion || '').trim();
+  if (Number.isNaN(score) || (!event && !suggestion)) {
+    console.error('用法: feedback:issue [--event <标题或id>] --score <0-5> [--tags a,b] [--suggestion <text>]');
+    process.exit(1);
+  }
+  const count = appendFeedbackToFile({
+    id: `fb_issue_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
+    event_id: event.slice(0, 200) || '(未指明事件)',
+    report_id: '',
+    agent_score: 0,
+    human_score: score,
+    problem_tags: tags,
+    suggestion,
+    created_at: new Date().toISOString(),
+  });
+  console.log(`✅ 读者反馈已持久化: event=${event.slice(0, 40) || '(未指明事件)'} score=${score} tags=${tags.join(',')}（文件共 ${count} 条）`);
+}
+
 async function cmdListEvents(args: Record<string, string>): Promise<void> {
   const events = listStandardEvents(args.date && args.date !== 'true' ? { date: args.date } : {});
   console.log(`\n===== 标准化事件（${events.length} 条） =====`);
@@ -171,6 +201,9 @@ async function main(): Promise<void> {
       break;
     case 'feedback':
       await cmdFeedback(parseArgs(args.slice(1)));
+      break;
+    case 'feedback:issue':
+      await cmdFeedbackIssue(parseArgs(args.slice(1)));
       break;
     case 'metrics':
       await cmdMetrics(parseArgs(args.slice(1)));

@@ -66,7 +66,7 @@ TopN events are **restated into Chinese** by the LLM (analytical headline + body
 Configure `LLM_API_KEY` (OpenAI-compatible) and every stage uses a real LLM. Without a key, the built-in **rule engine** drives the entire pipeline — entity extraction, insights, credibility, scoring, even report drafting all have deterministic rule implementations. Zero runtime dependencies; only TypeScript is a dev dependency.
 
 ### 🛟 Three-layer resilience
-Live sources fail → **WebSearch fallback** (Hacker News / DuckDuckGo, key-free) → **local cache** (last successful snapshot, marked "stale"). Source health is tracked per source, and failing modules degrade gracefully instead of aborting the run.
+Live sources fail → **WebSearch fallback** (Hacker News / DuckDuckGo / Google News, key-free) → **local cache** (last successful snapshot, marked "stale"). Source health is tracked per source, and failing modules degrade gracefully instead of aborting the run.
 
 ### 🗄️ Full auditability
 SQLite (built-in `node:sqlite`, WAL mode) stores every layer: raw events → standard events → high-quality events → reports, plus the enterprise watchlist pool, human feedback, task runs, and source health. Every event carries a **trace log** — which tool scored it, what stage it passed, and why.

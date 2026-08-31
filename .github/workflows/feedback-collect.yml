@@ -1,0 +1,103 @@
+name: Feedback Collect
+
+# 反馈闭环（2026-08-31 批3 任务⑥）：
+# 读者在日报页脚点"反馈/纠错" → 预填 GitHub Issue（标题 [日报反馈]）→ 本 workflow 在
+# issue 打开时解析结构化 body → 调用 `feedback:issue` 命令写入 data/feedback.json
+# （appendFeedbackToFile，git add -f 提交回仓库持久化，跨 CI 留存）。
+#
+# 只有标题以 [日报反馈] 开头且含可解析评分/事件的 issue 才会被收集；
+# 其余 issue（普通讨论/告警）不动，避免误收集。
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.issue.title, '[日报反馈]')
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: 解析 issue 结构化字段
+        id: parse
+        uses: actions/github-script@v7
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        with:
+          script: |
+            // 模板字段：日报日期 / 反馈类型 / 涉及事件 / 评分(0-5) / 具体说明
+            const body = process.env.ISSUE_BODY || '';
+            const getField = (label) => {
+              const m = body.match(new RegExp(`\\*\\*${label}\\*\\*：([\\s\\S]*?)(?:\\n\\n|$)`));
+              return m ? m[1].trim() : '';
+            };
+            const event = getField('涉及事件');
+            const score = getField('评分').match(/\d(?:\.\d)?/)?.[0] || '';
+            const suggestion = getField('具体说明');
+            const types = getField('反馈类型');
+            // 反馈类型去默认占位，取勾选项（不含"可多选"提示）
+            const tags = types
+              .replace(/（可多选）/, '')
+              .split(/[、,，/]/)
+              .map((t) => t.trim())
+              .filter((t) => t && /不准确|标题党|重复|来源不可靠|缺事件|其他/.test(t));
+
+            const fs = require('fs');
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `event=${encodeURIComponent(event)}\n`);
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `score=${score}\n`);
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `tags=${tags.join(',')}\n`);
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `suggestion=${encodeURIComponent(suggestion)}\n`);
+            console.log(`[feedback] issue #${context.issue.number} | 事件 ${event || '(空)'} | 评分 ${score || '(空)'} | 类型 ${tags.join(',') || '(空)'}`);
+
+      - name: 校验有效反馈
+        id: validate
+        run: |
+          SCORE="${{ steps.parse.outputs.score }}"
+          SUGGESTION="${{ steps.parse.outputs.suggestion }}"
+          if [ -z "$SCORE" ] && [ -z "$SUGGESTION" ]; then
+            echo "无评分且无说明 → 无效反馈，保留 issue 供人工跟进"
+            echo "valid=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "valid=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 写入 feedback.json 并提交
+        if: steps.validate.outputs.valid == 'true'
+        run: |
+          EVENT="${{ steps.parse.outputs.event }}"
+          SCORE="${{ steps.parse.outputs.score }}"
+          TAGS="${{ steps.parse.outputs.tags }}"
+          SUGGESTION="${{ steps.parse.outputs.suggestion }}"
+          npm run build >/dev/null 2>&1
+          node --experimental-sqlite dist/cli/index.js feedback:issue \
+            --event "$EVENT" --score "$SCORE" --tags "$TAGS" --suggestion "$SUGGESTION"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/feedback.json
+          git diff --cached --quiet || git commit -m "chore: collect feedback issue #${{ github.event.issue.number }}"
+          git push
+
+      - name: 关闭已收集的反馈 issue
+        if: steps.validate.outputs.valid == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+            });
+            console.log(`已关闭反馈 issue #${context.issue.number}`);
