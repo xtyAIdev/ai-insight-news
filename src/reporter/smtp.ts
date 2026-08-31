@@ -31,7 +31,7 @@ export interface SmtpOptions {
   timeoutMs?: number;
   /** DNS 解析重试次数（默认 3，GitHub Actions 环境对 smtp.qq.com 偶发 EAI_AGAIN） */
   dnsRetries?: number;
-  /** 预解析的服务器 IP（GitHub Actions 传入）。提供时跳过 DNS 解析，直接用 IP + servername 连接 */
+  /** 预解析的服务器 IP（GitHub Actions 传入，逗号分隔可多个）。提供时跳过 DNS 解析，逐个 IP 尝试连接 */
   hostIp?: string;
 }
 
@@ -65,11 +65,28 @@ async function sendMailSMTP(opts: SmtpOptions): Promise<void> {
   const rejectUnauthorized = opts.rejectUnauthorized ?? false;
   const dnsRetries = opts.dnsRetries ?? 3;
 
-  // 优先用外部预解析的 IP（GitHub Actions 传 MAIL_SMTP_HOST_IP，绕过 runner DNS 对 smtp.qq.com 的封锁）；
-  // 否则本地解析（带重试），用 IP + servername 连接
-  const ip = opts.hostIp || (await resolveHost(opts.host, dnsRetries));
+  // 候选连接地址：优先外部预解析 IP（逗号分隔可多个，GitHub Actions 传，绕过 runner DNS 封锁）；
+  // 否则本地解析（带重试）。逐个 IP 尝试完整 SMTP 会话，直到成功。
+  const candidates = opts.hostIp
+    ? opts.hostIp.split(',').map((s) => s.trim()).filter(Boolean)
+    : [await resolveHost(opts.host, dnsRetries)];
 
-  await new Promise<void>((resolve, reject) => {
+  let lastErr: Error | undefined;
+  for (const ip of candidates) {
+    try {
+      await smtpSession(opts, ip, timeoutMs, rejectUnauthorized);
+      return; // 该 IP 会话成功
+    } catch (err) {
+      lastErr = err as Error;
+      // 记录失败 IP，继续尝试下一个
+    }
+  }
+  throw lastErr ?? new Error(`SMTP 连接失败: ${opts.host}`);
+}
+
+/** 对单个 IP 执行完整 SMTP 会话（连接 → EHLO → AUTH → MAIL → RCPT → DATA → QUIT） */
+function smtpSession(opts: SmtpOptions, ip: string, timeoutMs: number, rejectUnauthorized: boolean): Promise<void> {
+  return new Promise<void>((resolve, reject) => {
     const connect = opts.port === 465 ? tls.connect : net.connect;
     const sock = (connect as (o: unknown, cb: () => void) => ReturnType<typeof net.connect>)(
       { host: ip, port: opts.port, rejectUnauthorized, servername: opts.host },
