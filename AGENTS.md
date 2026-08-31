@@ -176,6 +176,11 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 - `aae6877 fix(feedback): 实测修正反馈闭环解析（正则 + 模板）`
 - 均已推送 origin/main。
 
-**未能完成的验证**（环境限制）：
-- 真实 GitHub 闭环（读者建 issue → `issues: opened` workflow 触发 → 解析 → 提交 → 关闭）**未在真实仓库验证**：本机无 GitHub token 且 HTTPS 443 被网络阻断（SSH 仅用于 git 传输，不能建 issue）。
-- 待补：用户在 GitHub 手动建一个 `[日报反馈]` 前缀的 issue（用日报页脚按钮预填模板），观察 workflow 是否触发并正确收集。workflow 需在真实 Actions 环境首次运行验证。
+### 2026-08-31 · 批3 真实闭环验证成功 + 编码 bug 修复（已提交推送）
+**用户手动建 issue 验证真实闭环**：
+- issue #2（标题含日报反馈，body 填模板：事件 mempalace 报道 / 评分 2 / 不准确 / 说明 star 数写错了）→ `Feedback Collect` workflow 触发 → 写 feedback.json → commit `01c743c chore: collect feedback issue #2` → 关闭 issue。**真实 GitHub 闭环全部走通**。
+- 中途问题①：手动建的 issue 标题无 `[日报反馈]` 前缀被 job if 跳过 → 放宽识别为"标题前缀 **或** body 含 `**日报日期**` 模板特征字段"（commit `e2f49f7`）。
+- 中途问题②（真实数据暴露）：workflow 经 encodeURIComponent 写 GITHUB_OUTPUT 后未解码就传给 `feedback:issue`，导致 feedback.json 存了 URL 编码值（`mempalace%20...`）→ 修复：写入步骤用 node decodeURIComponent 解码 EVENT/SUGGESTION 再传参（commit `1e48e14`），并同步修正已入库编码值为明文。
+- 修正后 feedback.json 为干净真实数据（mempalace 报道 / score=2 / 不准确 / star 数写错了），metrics 正确合并读取（不准确:1）。
+
+**待观察**：后续真实读者反馈（带中文事件/建议）应正确解码入库。
