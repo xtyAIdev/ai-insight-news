@@ -167,13 +167,19 @@ export function extractNumber(input: string): number | null {
 
 // ========== 相似度（简单 Jaccard / 字符重叠，供去重与融合使用） ==========
 
+/**
+ * 英文 Jaccard 相似度（2026-08-31 批4 测试发现修复）：
+ * 原实现 `replace(/[^\u4e00-\u9fa5a-z0-9]/g, '')` 把空格也删掉，英文标题被压成单个单词
+ * （"cursor launches ai agent" → "cursorlaunchesaiagent"），导致两个相似英文标题的 Jaccard=0，
+ * 相似度通道去重完全失效。修复：连续非中英数字替换为单个空格，保留词边界。
+ */
 export function similarity(a: string, b: string): number {
   if (!a || !b) return 0;
   const la = a.toLowerCase();
   const lb = b.toLowerCase();
   if (la === lb) return 1;
-  const setA = new Set(la.replace(/[^\u4e00-\u9fa5a-z0-9]/g, '').match(/[\u4e00-\u9fa5]|[a-z0-9]+/g) || []);
-  const setB = new Set(lb.replace(/[^\u4e00-\u9fa5a-z0-9]/g, '').match(/[\u4e00-\u9fa5]|[a-z0-9]+/g) || []);
+  const setA = new Set(la.replace(/[^\u4e00-\u9fa5a-z0-9]+/g, ' ').trim().split(/\s+/).filter(Boolean));
+  const setB = new Set(lb.replace(/[^\u4e00-\u9fa5a-z0-9]+/g, ' ').trim().split(/\s+/).filter(Boolean));
   if (setA.size === 0 || setB.size === 0) return 0;
   let inter = 0;
   for (const x of setA) if (setB.has(x)) inter++;

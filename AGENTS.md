@@ -74,6 +74,7 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 - [x] 批1 完成：`node:test` 冒烟测试覆盖 buildFacts / normDedupKey / dedupCrossSource（`npm test`，11 用例）
 - [x] 批2 完成：新增 `src/collectors/opensource.test.ts` 覆盖 filterCandidates 新星豁免（`npm test`，累计 14 用例）
 - [x] 批3 完成：新增 `src/db/feedbackFile.test.ts` 覆盖反馈文件读写/合并（`npm test`，累计 18 用例）
+- [x] 批4 完成：新增 `src/utils/normalize.test.ts` + `src/llm/rules.test.ts` 覆盖日期/评分/实体/相似度（`npm test`，累计 53 用例）；修复 3 个历史 bug
 
 ### 每条改动的执行纪律（新会话务必遵守）
 1. 只改与上述清单相关的最小代码；不重构、不格式化无关代码、不改已正确行为。
@@ -184,3 +185,16 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 - 修正后 feedback.json 为干净真实数据（mempalace 报道 / score=2 / 不准确 / star 数写错了），metrics 正确合并读取（不准确:1）。
 
 **待观察**：后续真实读者反馈（带中文事件/建议）应正确解码入库。
+
+### 2026-08-31 · 批4 补充冒烟测试（发现并修复 3 个历史 bug）
+**新增测试**（`npm test` 累计 53 用例）：
+- `src/utils/normalize.test.ts`（15 用例）：日期解析（YYYY-MM-DD/RFC822/中文/ISO/相对时间）、sanitizeDate 不默认今天、金额归一、公司归一、similarity、extractCoreNoun。
+- `src/llm/rules.test.ts`（15 用例）：classifyByRule 中英融资、accuracyByRule 信源等级/多源/日期缺失、importanceByRule 领域差异化/日期降权、extractEntitiesByRule 金额/轮次/投资方/star、五维洞察。
+
+**测试发现并修复 3 个历史 bug**（均非本次引入，属历史遗留）：
+1. **`similarity` 空格吞并**（`src/utils/normalize.ts`）：原 `replace(/[^\u4e00-\u9fa5a-z0-9]/g, '')` 把空格也删掉，英文标题被压成一个词（"cursor launches ai agent"→"cursorlaunchesaiagent"），导致相似英文标题 Jaccard=0，**processor/enterprise 的相似度通道去重完全失效**（批1 Cursor 案例靠归一化键通道，相似度通道一直是死代码）。修复：连续非中英数字替换为单个空格保留词边界。修复后 "Cursor launches AI agent" vs "Cursor releases AI agent" Jaccard=0.6。
+2. **金额正则 bug**（`rules.ts:47` + `enterprise.ts:1009`）：`\s*元?人民币?` 写成 `元?人民币`，"X亿元"（无"人民币"后缀）匹配失败，只有"X亿元人民币"才命中。修复：`\s*(?:元)?(?:人民币)?`。
+3. **轮次正则 bug**（`rules.ts:55` + `enterprise.ts:1016`）：`B\+?轮` 不匹配"B 轮"（中文常带空格）。修复：允许 `\s*`（`B\s*\+?\s*轮`），轮次值保留原文含空格。
+
+**影响**：修复后相似度去重通道恢复可用（英文同新闻多版本更易合并）、企业融资事件金额/轮次提取更全。53 测试全绿 + typecheck 通过。
+**未提交**：本批代码未 commit，待 review。

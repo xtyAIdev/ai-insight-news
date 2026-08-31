@@ -1006,13 +1006,15 @@ function classifyAndExtract(e: EnterpriseRawEvent): EnterpriseRawEvent {
   const fields: Record<string, unknown> = {};
 
   if (subType === 'investment') {
-    const amountM = text.match(/(\d+(?:\.\d+)?)\s*亿\s*元?人民币?/) || text.match(/(\d+(?:\.\d+)?)\s*万\s*元?人民币?/) || text.match(/\$\s*(\d+(?:\.\d+)?)\s*(M|B)/i);
+    // 2026-08-31 批4 测试发现修复：原 `元?人民币?` 无法匹配"X亿元"（只有"X亿元人民币"才命中），改为元/人民币各自可选
+    const amountM = text.match(/(\d+(?:\.\d+)?)\s*亿\s*(?:元)?(?:人民币)?/) || text.match(/(\d+(?:\.\d+)?)\s*万\s*(?:元)?(?:人民币)?/) || text.match(/\$\s*(\d+(?:\.\d+)?)\s*(M|B)/i);
     if (amountM) {
       if (text.includes('亿')) fields.amount_wan = Math.round(+amountM[1] * 10000);
       else if (text.includes('万')) fields.amount_wan = Math.round(+amountM[1]);
       else fields.amount_wan = amountM[2].toUpperCase() === 'B' ? Math.round(+amountM[1] * 10000) : Math.round(+amountM[1] * 100);
     }
-    const roundM = text.match(/(天使轮|种子轮|A\+?轮|B\+?轮|C\+?轮|D\+?轮|E\+?轮|Pre-?A轮|Pre-?B轮|Pre-?IPO轮|战略融资|IPO|并购)/);
+    // 2026-08-31 批4 测试发现修复：允许 "B 轮" 中间空格（与 rules.ts 同步）
+    const roundM = text.match(/(天使轮|种子轮|A\s*\+?\s*轮|B\s*\+?\s*轮|C\s*\+?\s*轮|D\s*\+?\s*轮|E\s*\+?\s*轮|Pre-?A\s*轮|Pre-?B\s*轮|Pre-?IPO\s*轮|战略融资|IPO|并购)/);
     if (roundM) fields.round = roundM[1];
     const investorM = text.match(/由(.{2,30}?)(?:领投|参投|投资|注资)/);
     if (investorM) fields.investors = investorM[1].split(/、|,|，|和|及/).map((s) => s.trim()).filter(Boolean).slice(0, 5);
