@@ -52,6 +52,8 @@ jobs:
               MAIL_SMTP_HOST_IP="183.47.120.204,183.47.101.192"
             fi
             echo "SMTP IPs: $MAIL_SMTP_HOST_IP"
+            # export 让当前步骤的 node 进程能读到；同时写 GITHUB_ENV 供后续步骤
+            export MAIL_SMTP_HOST_IP
             echo "MAIL_SMTP_HOST_IP=$MAIL_SMTP_HOST_IP" >> "$GITHUB_ENV"
           fi
           npm run build && node --experimental-sqlite dist/cli/index.js run --date "$(date +%F)"
