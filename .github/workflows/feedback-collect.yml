@@ -1,12 +1,13 @@
 name: Feedback Collect
 
 # 反馈闭环（2026-08-31 批3 任务⑥）：
-# 读者在日报页脚点"反馈/纠错" → 预填 GitHub Issue（标题 [日报反馈]）→ 本 workflow 在
-# issue 打开时解析结构化 body → 调用 `feedback:issue` 命令写入 data/feedback.json
+# 读者在日报页脚点"反馈/纠错" → 预填 GitHub Issue（标题 [日报反馈] + 结构化 body 模板）→
+# 本 workflow 在 issue 打开时解析结构化 body → 调用 `feedback:issue` 命令写入 data/feedback.json
 # （appendFeedbackToFile，git add -f 提交回仓库持久化，跨 CI 留存）。
 #
-# 只有标题以 [日报反馈] 开头且含可解析评分/事件的 issue 才会被收集；
-# 其余 issue（普通讨论/告警）不动，避免误收集。
+# 识别条件（2026-08-31 实测修正）：标题以 [日报反馈] 开头 **或** body 含模板特征字段 `**日报日期**`
+# 才触发；两者都不含（普通讨论/告警/随手测试）不触发，避免误收集。
+# 注意：GitHub Actions 的 job if 里 `contains(body, '**日报日期**')` 的 `**` 需按字符串比较处理。
 
 on:
   issues:
@@ -19,7 +20,9 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    if: startsWith(github.event.issue.title, '[日报反馈]')
+    if: >-
+      startsWith(github.event.issue.title, '[日报反馈]') ||
+      contains(github.event.issue.body, '**日报日期**')
     steps:
       - uses: actions/checkout@v4
 
