@@ -44,7 +44,7 @@ AI Insight Agent 一次回答三个问题。它不是"抓一个源就完事"的�
 ### 🧭 三大领域，一份日报
 | 领域 | 追踪什么 | 主要数据源 |
 |---|---|---|
-| **AI 开源** | LLM / Agent / RAG / MCP / AI Infra / 开源模型 | GitHub Search API、ModelScope、Hugging Face、Gitee |
+| **AI 开源** | LLM / Agent / RAG / MCP / AI Infra / 开源模型 | GitHub Search API（双轨：成熟活跃 + 新星，新星独立于 push 窗口）、ModelScope、Hugging Face、Gitee |
 | **AI 论文** | 大模型 / 推理 / RAG / 强化学习 / 多模态 / Agent | arXiv（主源）、OpenAlex（当天补充）、HF daily papers |
 | **AI 企业** | 产品发布、战略动态、投融资 | OpenAI/Anthropic/Google 官方 RSS + DeepSeek/Kimi 官方博客 + TechCrunch/36氪 + aihot |
 
@@ -54,7 +54,7 @@ AI Insight Agent 一次回答三个问题。它不是"抓一个源就完事"的�
 2. **LLM 审核员**二次判定真实性（0-5 分）。低分事件触发 **Reflection 补证**——自动联网搜索权威佐证，找到则追加证据重新计分；找不到再交由 LLM 重判，仍不达标才丢弃。**日期必须真实**：未知日期一律拒绝，绝不默认"今天"。
 
 ### 🎯 排序而非倾倒
-事件按**领域差异化评分标准**打分（开源看社区热度、论文看机构影响力、企业看市场影响），每模块只保留 **TopN**（默认 5 条）进日报，且每条都附一句**入选理由**。
+事件按**领域差异化评分标准**打分（开源看社区热度、论文看机构影响力、企业看市场影响），每模块只保留 **TopN**（默认 5 条）进日报，且每条都附一句**入选理由**。评估层还会做一次**跨源去重**（归一化标题 + 公司 + 时间窗），同一新闻被多家媒体报道时只保留一条并合并全部来源。
 
 ### 🧠 五维洞察 + 快评
 每条事件生成结构化洞察（是什么 / 为什么 / 趋势 / 影响 / 建议）用于排序，日报里再配一句人类口吻的**快评**——读者拿到的是结论，不只是标题。
@@ -72,7 +72,7 @@ TopN 事件由 LLM **重述为中文**（分析式标题 + 正文 + 快评）并
 SQLite（Node 内置 `node:sqlite`，WAL 模式）分层存储：原始事件 → 标准化事件 → 高质量事件 → 报告，外加企业池、人工反馈、任务记录、源健康状态。每条事件带 **trace_log 全链路日志**——哪个工具打的分、过了哪些阶段、为什么这么判，一目了然。
 
 ### 📬 推送与反馈闭环
-日报归档为 Markdown + HTML 双格式，可选邮件推送（内置零依赖 SMTP），Actions 自动发布到 GitHub Pages。反馈接口记录人工评分与 Agent 评分的差异，输出周/月质量指标（评分一致率、满意度、低分原因分布）。
+日报归档为 Markdown + HTML 双格式，可选邮件推送（内置零依赖 SMTP，`MAIL_TO` 支持多收件人），Actions 自动发布到 GitHub Pages。**反馈闭环**：日报页脚"💬 反馈 / 纠错"按钮 → 预填 GitHub Issue → Actions workflow 解析写入 `data/feedback.json`（提交回仓库，跨 CI 持久化）。质量指标（评分一致率、满意度、低分原因分布）同时统计本地 SQLite 反馈表与 issue 来源的文件数据。本地 `npm run serve` 的内部控制台也有反馈表单与同款指标。
 
 ---
 
@@ -153,10 +153,10 @@ flowchart LR
 
 ```
 src/
-├── cli/            # CLI：run / serve / site / db:init / feedback / metrics / list:*
+├── cli/            # CLI：run / serve / site / db:init / feedback / feedback:issue / metrics / list:*
 ├── config/         # .env 加载 + 默认值；关键词库、信源等级表、过滤阈值
 ├── types/          # 统一事件 Schema（原始 / 标准化 / 报告 / 反馈）
-├── db/             # SQLite 数据层：建表 + 仓储 + 源健康
+├── db/             # SQLite 数据层：建表 + 仓储 + 源健康 + feedback.json 文件存储
 ├── utils/          # http（重试/超时）、websearch、缓存、归一化、trace、日志
 ├── llm/            # Provider（OpenAI 兼容）+ 规则引擎降级
 ├── collectors/     # opensource.ts / paper.ts / enterprise.ts（双分支）
@@ -193,6 +193,7 @@ npm run -- run                          # 今日完整流程
 npm run -- run --date 2026-08-20        # 回补指定日期
 npm run -- run --modules opensource,paper   # 只跑部分模块
 npm run -- feedback --event <id> --score 4 --tags 低质量   # 记录人工反馈
+npm run -- feedback:issue --event "<标题>" --score 2 --tags 不准确 --suggestion "..."  # 读者反馈（issue→feedback.json）
 npm run -- metrics --period weekly      # 查看周质量指标
 ```
 

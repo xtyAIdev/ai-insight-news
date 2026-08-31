@@ -55,6 +55,12 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 
 ## 进行中 / 下一步
 
+### 2026-08-31 · 全部批次收官（暂告一段落）
+- 批1（质量核心）、批2（采集与可回溯）、批3（反馈闭环+文档对齐）、批4（补测+修复历史 bug）、最终文档对齐 **全部完成并推送 origin/main**。
+- 当前 main 与 origin/main 同步，工作树干净；`npm test` 53/53 全绿，`npm run typecheck` 通过。
+- **无未完成任务**。暂缓项（评分去通胀/官方源降权/event_id 哈希/报告ID 时间戳/scheduler cron 化/渲染统一）仍按决策记录"用户明确不做"留档，勿主动实现。
+- 已知待观察：`feedback-collect.yml` 首次真实读者反馈验证已通过（issue #2）；后续真实中文反馈应正确解码入库。
+
 ### 待办任务清单（逐批，每批一个 PR）
 
 **批 1 · 质量核心（改 evaluator）**
@@ -198,3 +204,17 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 
 **影响**：修复后相似度去重通道恢复可用（英文同新闻多版本更易合并）、企业融资事件金额/轮次提取更全。53 测试全绿 + typecheck 通过。
 **未提交**：本批代码未 commit，待 review。
+
+### 2026-08-31 · 最终文档对齐 + 收官（已提交推送）
+**README.md / README_CN.md 对齐**（使文档与实际功能一致）：
+- 📬 推送与反馈闭环：新增"反馈/纠错按钮 → GitHub Issue → feedback.json 持久化（跨 CI）"闭环说明，替换旧的"feedback endpoint 记录人工评分"；补充 MAIL_TO 多收件人、本地 console 反馈表单。
+- 🎯 排序：补充评估层二次跨源去重（归一化标题+公司+时间窗，多源证据合并）。
+- 🧭 开源源：补充 GitHub 双轨（成熟+新星，新星独立于 push 窗口）。
+- 项目结构：`cli/` 补 `feedback:issue`；`db/` 补 feedback.json 文件存储。
+- CLI 命令：补 `feedback:issue` 用法示例。
+
+**AGENTS.md**：标题"进行中/下一步"加收官状态（全部批次完成、工作树干净、测试全绿、暂缓项留档）。追加本日志。
+
+**验证**：`npm run typecheck` ✅；`npm test` 53/53 ✅（文档改动不影响代码）。
+**改动文件**：`README.md`、`README_CN.md`、`AGENTS.md`。
+**状态**：全部 4 批 + 最终文档对齐完成，已推送 origin/main，工作树干净。

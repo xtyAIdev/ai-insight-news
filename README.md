@@ -44,7 +44,7 @@ AI Insight Agent answers all three. It is a fully autonomous **market-intelligen
 ### 🧭 Three domains, one daily briefing
 | Domain | What it tracks | Primary sources |
 |---|---|---|
-| **Open Source** | LLM / Agent / RAG / MCP / AI Infra / open-weight models | GitHub Search API, ModelScope, Hugging Face, Gitee |
+| **Open Source** | LLM / Agent / RAG / MCP / AI Infra / open-weight models | GitHub Search API (dual-track: established + rising stars, rising independent of push window), ModelScope, Hugging Face, Gitee |
 | **Papers** | LLM, reasoning, RAG, RL, multimodal, agents | arXiv (primary), OpenAlex (same-day), Hugging Face daily papers |
 | **Enterprise** | Product launches, strategy, funding rounds | OpenAI/Anthropic/Google RSS + DeepSeek/Kimi blogs + TechCrunch/36Kr + aihot |
 
@@ -54,7 +54,7 @@ Every candidate event passes a **two-stage credibility check**:
 2. **LLM judge** re-scores authenticity (0–5). Low-scoring events trigger **Reflection** — a web search for authoritative corroboration, and if found, the event is upgraded with new evidence; otherwise it's re-judged or dropped. No date, no default-to-today: undated events are rejected, never invented.
 
 ### 🎯 Ranked, not dumped
-Events are scored with **domain-specific importance rubrics** (community momentum for open source, institutional influence for papers, market impact for enterprises) and only the **TopN per module** (default 5) make it into the report — with a one-line *reason* for every pick.
+Events are scored with **domain-specific importance rubrics** (community momentum for open source, institutional influence for papers, market impact for enterprises) and only the **TopN per module** (default 5) make it into the report — with a one-line *reason* for every pick. A second **cross-source dedup** pass runs inside the evaluator (normalized title + company + time window), so the same news reported by multiple outlets appears once with all its sources merged.
 
 ### 🧠 Five-dimensional insight + quick comment
 Each event gets a structured insight (what / why / trend / impact / action) used for ranking, and a human-style **quick comment** in the briefing so readers get the takeaway, not just the headline.
@@ -72,7 +72,7 @@ Live sources fail → **WebSearch fallback** (Hacker News / DuckDuckGo / Google 
 SQLite (built-in `node:sqlite`, WAL mode) stores every layer: raw events → standard events → high-quality events → reports, plus the enterprise watchlist pool, human feedback, task runs, and source health. Every event carries a **trace log** — which tool scored it, what stage it passed, and why.
 
 ### 📬 Delivery & feedback loop
-Reports are archived as Markdown + HTML, optionally emailed via a built-in zero-dependency SMTP client, and published to GitHub Pages by Actions. A feedback endpoint records human scores vs. agent scores and computes weekly/monthly quality metrics (consistency rate, satisfaction rate, low-score reasons).
+Reports are archived as Markdown + HTML, optionally emailed via a built-in zero-dependency SMTP client (multi-recipient via `MAIL_TO`), and published to GitHub Pages by Actions. A **feedback loop** lets readers report errors from the report footer (a "💬 反馈 / 纠错" button) — it opens a pre-filled GitHub Issue which an Actions workflow parses into `data/feedback.json` (committed back to the repo, persisted across CI). Quality metrics (consistency rate, satisfaction rate, low-score reasons) are computed from both the local SQLite feedback table and the issue-derived file. Locally, `npm run serve` exposes a console with a feedback form and the same metrics.
 
 ---
 
@@ -154,10 +154,10 @@ flowchart LR
 
 ```
 src/
-├── cli/            # CLI: run / serve / site / db:init / feedback / metrics / list:*
+├── cli/            # CLI: run / serve / site / db:init / feedback / feedback:issue / metrics / list:*
 ├── config/         # .env loading + defaults; keyword libs, source tables, thresholds
 ├── types/          # Unified event schema (Raw / Standard / Report / Feedback)
-├── db/             # SQLite layer: schema + repositories + source health
+├── db/             # SQLite layer: schema + repositories + source health + feedback.json file store
 ├── utils/          # http (retry/timeout), websearch, cache, normalize, trace, logger
 ├── llm/            # Provider (OpenAI-compatible) + rule engine fallback
 ├── collectors/     # opensource.ts / paper.ts / enterprise.ts (dual-branch)
@@ -194,6 +194,7 @@ npm run -- run                          # full pipeline for today
 npm run -- run --date 2026-08-20        # backfill a specific date
 npm run -- run --modules opensource,paper   # run only some modules
 npm run -- feedback --event <id> --score 4 --tags low-quality   # record human feedback
+npm run -- feedback:issue --event "<title>" --score 2 --tags 不准确 --suggestion "..."  # reader feedback from issue → feedback.json
 npm run -- metrics --period weekly      # quality metrics from feedback
 ```
 
