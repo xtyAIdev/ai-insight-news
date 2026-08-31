@@ -13,10 +13,10 @@
     "run": "npm run build && node --experimental-sqlite dist/cli/index.js run",
     "run:ts": "node --experimental-sqlite --no-warnings dist/cli/index.js run",
     "run:today": "npm run build && node --experimental-sqlite dist/cli/index.js run --date \"$(date +%F)\"",
-    "dev": "node --experimental-sqlite --no-warnings --experimental-strip-types src/cli/index.ts run",
-    "serve": "node --experimental-sqlite --no-warnings --experimental-strip-types src/cli/index.ts serve",
+    "dev": "npm run build && node --experimental-sqlite --no-warnings dist/cli/index.js run",
+    "serve": "npm run build && node --experimental-sqlite --no-warnings dist/cli/index.js serve",
     "serve:built": "node --experimental-sqlite --no-warnings dist/cli/index.js serve",
-    "mail:test": "node --experimental-sqlite --no-warnings --experimental-strip-types src/cli/mail-test.ts",
+    "mail:test": "npm run build && node --experimental-sqlite --no-warnings dist/cli/mail-test.js",
     "mail:test:built": "node --experimental-sqlite --no-warnings dist/cli/mail-test.js",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

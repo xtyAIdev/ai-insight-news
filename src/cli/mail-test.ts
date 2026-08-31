@@ -36,10 +36,10 @@ AI Insight News
   console.log(`✅ 邮件发送成功：${config.mail.to}`);
 }
 
-// 直接运行：node --experimental-strip-types src/cli/mail-test.ts
-if (import.meta.url === `file://${process.argv[1]?.replace(/\\/g, '/')}`) {
-  runMailTest().catch((err) => {
-    console.error('❌ 邮件发送失败：', err instanceof Error ? err.message : err);
-    process.exit(1);
-  });
-}
+// 直接运行（npm run mail:test / node dist/cli/mail-test.js 都是入口）
+// 注：不做 import.meta.url 守卫 —— mail-test.ts 只作为独立 CLI 入口，
+// 被 index.ts import 时只取 runMailTest，不会走到这里。
+runMailTest().catch((err) => {
+  console.error('❌ 邮件发送失败：', err instanceof Error ? err.message : err);
+  process.exit(1);
+});
