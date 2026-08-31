@@ -26,7 +26,7 @@ const siteDir = path.join(projectRoot, 'site');
 // data/feedback.json（git add -f 持久化到仓库，跨 CI 留存）。
 const FEEDBACK_TEMPLATE = (date) => `**日报日期**：${date}
 
-**反馈类型**（可多选）：不准确 / 标题党 / 重复 / 来源不可靠 / 缺事件 / 其他
+**反馈类型**（请填写，可多选，用逗号分隔。如：不准确、标题党、重复、来源不可靠、缺事件、其他）：
 
 **涉及事件**（可选，填事件标题或 event_id）：
 （请填写日报中具体条目）

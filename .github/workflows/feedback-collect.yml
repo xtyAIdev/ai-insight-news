@@ -39,20 +39,22 @@ jobs:
           script: |
             // 模板字段：日报日期 / 反馈类型 / 涉及事件 / 评分(0-5) / 具体说明
             const body = process.env.ISSUE_BODY || '';
+            // 字段名后允许带括号说明（如 "**评分**（0-5...）："），正则匹配到冒号为止
             const getField = (label) => {
-              const m = body.match(new RegExp(`\\*\\*${label}\\*\\*：([\\s\\S]*?)(?:\\n\\n|$)`));
+              const m = body.match(new RegExp(`\\*\\*${label}\\*\\*[^\\n]*：([\\s\\S]*?)(?:\\n\\n|$)`));
               return m ? m[1].trim() : '';
             };
             const event = getField('涉及事件');
             const score = getField('评分').match(/\d(?:\.\d)?/)?.[0] || '';
             const suggestion = getField('具体说明');
             const types = getField('反馈类型');
-            // 反馈类型去默认占位，取勾选项（不含"可多选"提示）
+            // 反馈类型：逗号分隔，去掉"如："示例说明与占位提示
             const tags = types
-              .replace(/（可多选）/, '')
+              .replace(/如：.*/, '')
+              .replace(/（请填写[^）]*）/g, '')
               .split(/[、,，/]/)
               .map((t) => t.trim())
-              .filter((t) => t && /不准确|标题党|重复|来源不可靠|缺事件|其他/.test(t));
+              .filter((t) => t && t.length > 0);
 
             const fs = require('fs');
             fs.appendFileSync(process.env.GITHUB_OUTPUT, `event=${encodeURIComponent(event)}\n`);
