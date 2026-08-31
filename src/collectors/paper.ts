@@ -158,7 +158,7 @@ async function collectPaperWebSearch(ctx: TaskContext): Promise<{ ok: boolean; i
         abstract: r.snippet.slice(0, 300),
         category: 'cs.AI',
         influence_hint: undefined,
-        source_urls: [{ url: r.url, source_type: 'websearch', name: r.source === 'hackernews' ? 'Hacker News' : 'DuckDuckGo', credibility_score: 3 }],
+        source_urls: [{ url: r.url, source_type: 'websearch', name: r.source === 'hackernews' ? 'Hacker News' : r.source === 'googlenews' ? 'Google News' : 'DuckDuckGo', credibility_score: 3 }],
       });
     }
     if (out.length >= 6) break;

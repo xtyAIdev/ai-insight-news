@@ -395,7 +395,7 @@ async function reflection(
       const added: StandardEvent['source'] = credibleHits.slice(0, 3).map((r) => ({
         url: r.url,
         source_type: r.source === 'hackernews' ? 'hackernews' : 'websearch',
-        name: r.source === 'hackernews' ? 'Hacker News' : r.title.slice(0, 40),
+        name: r.source === 'hackernews' ? 'Hacker News' : r.source === 'googlenews' ? 'Google News' : r.title.slice(0, 40),
         credibility_score: sourceCredibilityOf(r.url),
         published_at: r.published_at,
       }));

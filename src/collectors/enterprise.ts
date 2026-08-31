@@ -685,7 +685,7 @@ async function collectWebSearchFallback(ctx: TaskContext, pool: PoolProfile[]): 
         content: r.snippet.slice(0, 300),
         fields: {},
         related_event_ids: [],
-        source_urls: [{ url: r.url, source_type: 'websearch', name: r.source === 'hackernews' ? 'Hacker News' : 'DuckDuckGo', credibility_score: 3 }],
+        source_urls: [{ url: r.url, source_type: 'websearch', name: r.source === 'hackernews' ? 'Hacker News' : r.source === 'googlenews' ? 'Google News' : 'DuckDuckGo', credibility_score: 3 }],
       });
     }
   }
@@ -947,7 +947,7 @@ async function collectInvestmentFromWebSearch(ctx: TaskContext): Promise<Enterpr
         content: r.snippet.slice(0, 300),
         fields: {},
         related_event_ids: [],
-        source_urls: [{ url: r.url, source_type: 'websearch', name: r.source === 'hackernews' ? 'Hacker News' : 'DuckDuckGo', credibility_score: 3 }],
+        source_urls: [{ url: r.url, source_type: 'websearch', name: r.source === 'hackernews' ? 'Hacker News' : r.source === 'googlenews' ? 'Google News' : 'DuckDuckGo', credibility_score: 3 }],
       });
     }
     if (out.length >= 6) break;

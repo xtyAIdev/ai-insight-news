@@ -22,7 +22,7 @@
     "mail:test": "npm run build && node --experimental-sqlite --no-warnings dist/cli/mail-test.js",
     "mail:test:built": "node --experimental-sqlite --no-warnings dist/cli/mail-test.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run build && node --experimental-sqlite --test dist/evaluator/*.test.js"
+    "test": "npm run build && node --experimental-sqlite --test dist/evaluator/*.test.js dist/collectors/*.test.js"
   },
   "dependencies": {},
   "devDependencies": {

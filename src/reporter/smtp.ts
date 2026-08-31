@@ -22,7 +22,8 @@ export interface SmtpOptions {
   port: number;
   user: string;
   pass: string;
-  to: string;
+  /** 收件人列表（单个或多个；兼容逗号分隔字符串，sendMailSMTP 入口统一解析为数组） */
+  to: string | string[];
   subject: string;
   body: string;
   /** 是否校验证书（默认 false 兼容自签/内网；生产建议 true） */
@@ -64,6 +65,11 @@ async function sendMailSMTP(opts: SmtpOptions): Promise<void> {
   const timeoutMs = opts.timeoutMs ?? 15_000;
   const rejectUnauthorized = opts.rejectUnauthorized ?? false;
   const dnsRetries = opts.dnsRetries ?? 3;
+  // 收件人归一化：逗号分隔字符串 → 数组（去空白去空）
+  const to = Array.isArray(opts.to)
+    ? opts.to.map((s) => s.trim()).filter(Boolean)
+    : opts.to.split(',').map((s) => s.trim()).filter(Boolean);
+  if (to.length === 0) throw new Error('SMTP 收件人为空（MAIL_TO）');
 
   // 候选连接地址：优先外部预解析 IP（逗号分隔可多个，GitHub Actions 传，绕过 runner DNS 封锁）；
   // 否则本地解析（带重试）。逐个 IP 尝试完整 SMTP 会话，直到成功。
@@ -74,7 +80,7 @@ async function sendMailSMTP(opts: SmtpOptions): Promise<void> {
   let lastErr: Error | undefined;
   for (const ip of candidates) {
     try {
-      await smtpSession(opts, ip, timeoutMs, rejectUnauthorized);
+      await smtpSession({ ...opts, to }, ip, timeoutMs, rejectUnauthorized);
       return; // 该 IP 会话成功
     } catch (err) {
       lastErr = err as Error;
@@ -86,6 +92,10 @@ async function sendMailSMTP(opts: SmtpOptions): Promise<void> {
 
 /** 对单个 IP 执行完整 SMTP 会话（连接 → EHLO → AUTH → MAIL → RCPT → DATA → QUIT） */
 function smtpSession(opts: SmtpOptions, ip: string, timeoutMs: number, rejectUnauthorized: boolean): Promise<void> {
+  // 归一化收件人为数组（与 sendMailSMTP 一致；smtpSession 内恒为 string[]，便于 RCPT 逐条/join）
+  const to = Array.isArray(opts.to)
+    ? opts.to.map((s) => s.trim()).filter(Boolean)
+    : opts.to.split(',').map((s) => s.trim()).filter(Boolean);
   return new Promise<void>((resolve, reject) => {
     const connect = opts.port === 465 ? tls.connect : net.connect;
     const sock = (connect as (o: unknown, cb: () => void) => ReturnType<typeof net.connect>)(
@@ -97,7 +107,7 @@ function smtpSession(opts: SmtpOptions, ip: string, timeoutMs: number, rejectUna
 
     let buffer = '';
     // 请求计数：0=等待服务器 banner；1=EHLO 后；2=AUTH LOGIN；3=发 user；4=发 pass；
-    // 5=MAIL FROM；6=RCPT TO；7=DATA；8=等待 . 结束；9=QUIT
+    // 5=MAIL FROM；6..6+n-1=各收件人 RCPT TO；6+n=DATA；之后等待 . 结束；最后 QUIT
     let step = 0;
     // 注：无需 inData 标记 —— SMTP 响应是严格的一问一答（354→250→221），
     // step 计数足够。DATA 后服务器回执 250 就是 step 9（QUIT）的触发。
@@ -147,16 +157,24 @@ function smtpSession(opts: SmtpOptions, ip: string, timeoutMs: number, rejectUna
             send(`MAIL FROM:<${opts.user}>`);
             break;
           case 6:
-            send(`RCPT TO:<${opts.to}>`);
+            send(`RCPT TO:<${to[0]}>`);
             break;
-          case 7:
-            send('DATA');
+          // 多收件人（MAIL_TO 逗号分隔，2026-08-31 批2 任务⑤）：每个 RCPT 都是独立 SMTP 请求，
+          // 各回一个 250 响应推进 step。step 6..6+n-1 分别发收件人，最后一个 RCPT 响应后进入 step 6+n（DATA）。
+          case 7: {
+            const idx = step - 6; // 已收响应的收件人数
+            if (idx < to.length) {
+              send(`RCPT TO:<${to[idx]}>`);
+            } else {
+              send('DATA');
+            }
             break;
+          }
           case 8: {
             // DATA 的 354 响应 → 发送头部 + 正文 + '.'（正文结束标记）
             const headers = [
               `From: ${opts.user}`,
-              `To: ${opts.to}`,
+              `To: ${to.join(', ')}`,
               `Subject: =?UTF-8?B?${Buffer.from(opts.subject, 'utf-8').toString('base64')}?=`,
               `MIME-Version: 1.0`,
               `Content-Type: text/plain; charset=utf-8`,

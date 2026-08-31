@@ -254,7 +254,8 @@ async function collectGitHub(ctx: TaskContext): Promise<{ ok: boolean; items: Op
     const resB = await httpGetJson<GitHubSearchResult>(urlB, { timeoutMs: 15_000, retries: 1, exponential: true });
     if (resB.ok && resB.data) {
       recordSourceOk('github_api');
-      collectGithubRepos(resB.data.items, null, out, seenUrls);
+      // B 轨（新星）：rising=true —— 独立于 push 窗口，防止"创建≤14天但最近未 push"的新星被统一 push 过滤误杀
+      collectGithubRepos(resB.data.items, null, out, seenUrls, true);
     } else {
       logger.warn(`[opensource][github] 新星查询失败: ${resB.error}`);
     }
@@ -265,8 +266,10 @@ async function collectGitHub(ctx: TaskContext): Promise<{ ok: boolean; items: Op
   return { ok: out.length > 0 ? true : totalOk, items: out, error: out.length > 0 ? undefined : 'github 无结果' };
 }
 
-/** GitHub repo 列表 → RawEvent（去重 + 时间窗过滤）；kw 非空时附加主题标签 */
-function collectGithubRepos(repos: GitHubRepo[], kw: OpenSourceKeyword | null, out: OpenSourceRawEvent[], seenUrls: Set<string>): void {
+/** GitHub repo 列表 → RawEvent（去重 + 时间窗过滤）；kw 非空时附加主题标签。
+ *  rising=true（B 轨新星）：跳过 push 窗口过滤 —— 新星仓库由 created_at+star 门槛（查询层已加）
+ *  保证时效，不要求最近 push（创建 2-8 天、最近未 push 的新星不应被误杀）。 */
+function collectGithubRepos(repos: GitHubRepo[], kw: OpenSourceKeyword | null, out: OpenSourceRawEvent[], seenUrls: Set<string>, rising = false): void {
   const now = Date.now();
   for (const repo of repos.slice(0, 15)) {
     const key = repo.html_url.toLowerCase().replace(/\/+$/, '');
@@ -274,7 +277,8 @@ function collectGithubRepos(repos: GitHubRepo[], kw: OpenSourceKeyword | null, o
     const pushed = new Date(repo.pushed_at).getTime();
     const pushedHours = (now - pushed) / 3600_000;
     const inWindow = pushedHours <= Math.max(72, ctxWindowHours() * 3);
-    if (!inWindow) continue;
+    // A 轨要求 push 窗口内；B 轨新星独立于 push 窗口（只有 pushed_at 缺失时才过滤）
+    if (!inWindow && !rising) continue;
     seenUrls.add(key);
     out.push({
       module: 'opensource',
@@ -464,7 +468,7 @@ async function collectWebSearch(ctx: TaskContext): Promise<{ ok: boolean; items:
         updated_at: r.published_at,
         tech_tags: q.split(' ').filter((t) => t.length > 2).slice(0, 3),
         description: r.snippet.slice(0, 200) || r.title,
-        source_urls: [{ url: r.url, source_type: 'websearch', name: r.source === 'hackernews' ? 'Hacker News' : 'DuckDuckGo', credibility_score: 3 }],
+        source_urls: [{ url: r.url, source_type: 'websearch', name: r.source === 'hackernews' ? 'Hacker News' : r.source === 'googlenews' ? 'Google News' : 'DuckDuckGo', credibility_score: 3 }],
       });
     }
     if (out.length >= 8) break;
@@ -516,8 +520,9 @@ function filterCandidates(items: OpenSourceRawEvent[], ctx: TaskContext, degrade
     if (!isGithub && community === 0 && item.stars === 0) {
       return false;
     }
-    // 更新时间窗口（有 updated_at 时）
-    if (item.updated_at) {
+    // 更新时间窗口（有 updated_at 时）：新星豁免（2026-08-31 批2 任务③ —— 新星轨道独立于
+    // push/更新时间窗口，创建≤14天+stars≥30 即为有效新发布，不要求最近有 push/更新）
+    if (item.updated_at && !isRising) {
       const hours = (Date.now() - new Date(item.updated_at).getTime()) / 3600_000;
       const maxHours = Math.max(72, ctx.time_window_hours * 3);
       if (hours > maxHours) return false;

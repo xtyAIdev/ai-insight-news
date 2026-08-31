@@ -62,9 +62,9 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 - [x] 2. 评估层二次跨源去重：按"归一化标题 + 公司 + 时间窗"合并跨源重复（Cursor 三条合并成一条，多源证据合并）
 
 **批 2 · 采集与可回溯（改 collectors + smtp + websearch）**
-- [ ] 3. 开源过滤：新星轨道独立于 push 窗口（created_at+star 门槛），不误杀新星
-- [ ] 4. webSearch 加免费档（如 Google News RSS / Brave 免费档），提升 reflection 命中率
-- [ ] 5. `sendMailSMTP` 支持多收件人（MAIL_TO 逗号分隔）
+- [x] 3. 开源过滤：新星轨道独立于 push 窗口（created_at+star 门槛），不误杀新星
+- [x] 4. webSearch 加免费档（Google News RSS），提升 reflection 命中率
+- [x] 5. `sendMailSMTP` 支持多收件人（MAIL_TO 逗号分隔）
 
 **批 3 · 反馈闭环 + 文档对齐**
 - [ ] 6. GitHub Pages 日报底部"反馈/纠错"按钮 → issue/Serverless → 写 feedback 表
@@ -72,7 +72,8 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 
 **测试（贯穿）**
 - [x] 批1 完成：`node:test` 冒烟测试覆盖 buildFacts / normDedupKey / dedupCrossSource（`npm test`，11 用例）
-- [ ] 后续批：给被改动函数（评分/日期解析等）继续补冒烟测试
+- [x] 批2 完成：新增 `src/collectors/opensource.test.ts` 覆盖 filterCandidates 新星豁免（`npm test`，累计 14 用例）
+- [ ] 批3：给反馈闭环/文档相关被改动函数补冒烟测试
 
 ### 每条改动的执行纪律（新会话务必遵守）
 1. 只改与上述清单相关的最小代码；不重构、不格式化无关代码、不改已正确行为。
@@ -102,4 +103,25 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 
 **验证**：`npm run typecheck` ✅；`npm test` 11/11 ✅。
 **改动文件**：`src/evaluator/evaluator.ts`、`src/evaluator/evaluator.test.ts`（新）、`package.json`（test script）。
+**未提交**：本批代码未 commit，待用户 review 后由用户/后续决定 PR。
+
+### 2026-08-31 · 批2 完成（改 collectors + smtp + websearch）
+**任务③ 开源新星轨道独立于 push/更新时间窗**（`src/collectors/opensource.ts`）：
+- 根因：A/B 双轨共用的 `collectGithubRepos` 有统一 `pushedHours <= max(72, 3×窗口)` push 窗口过滤，B 轨新星（created≤14d + stars≥30）若最近未 push 即被误杀；且 `filterCandidates` 末段的 `updated_at` 时间窗也会二次误杀。
+- 改动：`collectGithubRepos` 加 `rising=false` 参数，B 轨调用传 `true` 跳过 push 窗口过滤；`filterCandidates` 中 `isRising`（created≤14d + stars≥门槛）豁免 updated_at 时间窗。A 轨（成熟活跃）行为不变。
+- 已确认 B 轨查询本身带 `created:>DATE-14d stars:>30` 门槛，豁免安全。
+
+**任务④ webSearch 加 Google News RSS 免费档**（`src/utils/websearch.ts`）：
+- 在 HN + DDG 之后新增第三档 `searchGoogleNews`（news.google.com/rss/search，无需 key，`when:7d` + maxAgeHours 过滤，解析 pubDate 为 published_at）。
+- `WebSearchResult.source` 类型扩展 `'googlenews'`；paper/opensource/enterprise/evaluator 的 `r.source === 'hackernews' ? ... : 'DuckDuckGo'` 三元补 `googlenews → 'Google News'`（6 处名称显示修正，非逻辑改动）。
+- enterprise.ts 已有独立的投融资 `collectGoogleNews`（source_type=`google_news`），与本通用通道（`googlenews`）互不冲突。
+
+**任务⑤ sendMailSMTP 多收件人**（`src/reporter/smtp.ts`）：
+- `SmtpOptions.to` 类型放宽为 `string | string[]`；`sendMailSMTP` 入口与 `smtpSession` 内均归一化为数组（逗号分隔解析）。
+- RCPT 步进重构：step 6 发第 1 个收件人，step 7 按 `idx = step-6` 继续发剩余 RCPT，全部收件人响应后进 DATA（step 8 起）。DATA 头部 `To:` 用 `to.join(', ')`。
+- 兼容：reporter.ts `sendMail`、cli/mail-test.ts 传字符串 `to`，入口解析后数组化，无需改调用方。`.env.example` 已注明 MAIL_TO 可逗号分隔多个。
+
+**测试**：新增 `src/collectors/opensource.test.ts`（3 用例：新星超窗保留 / 成熟超窗滤掉 / 新星 star 门槛）。`package.json` test script 扩展为 `dist/evaluator/*.test.js dist/collectors/*.test.js`。
+**验证**：`npm run typecheck` ✅；`npm test` 14/14 ✅。
+**改动文件**：`src/collectors/opensource.ts`、`src/collectors/opensource.test.ts`（新）、`src/collectors/paper.ts`、`src/collectors/enterprise.ts`、`src/utils/websearch.ts`、`src/evaluator/evaluator.ts`、`src/reporter/smtp.ts`、`package.json`。
 **未提交**：本批代码未 commit，待用户 review 后由用户/后续决定 PR。
