@@ -42,7 +42,15 @@ jobs:
           MAIL_PASS: ${{ secrets.MAIL_PASS }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
         # --date 显式传入运行日期（runner 为 UTC，与 cron 自洽，避免手动触发时漂移）
-        run: npm run build && node --experimental-sqlite dist/cli/index.js run --date "$(date +%F)"
+        # MAIL_SMTP_HOST_IP：runner 对 smtp.qq.com 的 DNS 解析被 GitHub 网络阻断（EAI_AGAIN），
+        # 先 dig 出 IP 传给客户端，客户端用 IP + servername 直连绕过
+        run: |
+          if [ -n "$MAIL_ENABLED" ] && [ -n "$MAIL_SMTP_HOST" ]; then
+            MAIL_SMTP_HOST_IP="$(dig +short "$MAIL_SMTP_HOST" A | head -1)"
+            echo "SMTP 解析: $MAIL_SMTP_HOST -> $MAIL_SMTP_HOST_IP"
+            echo "MAIL_SMTP_HOST_IP=$MAIL_SMTP_HOST_IP" >> "$GITHUB_ENV"
+          fi
+          npm run build && node --experimental-sqlite dist/cli/index.js run --date "$(date +%F)"
 
       - name: 检查日报是否生成
         id: check

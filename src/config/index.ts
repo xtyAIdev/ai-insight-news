@@ -37,6 +37,7 @@ export interface AppConfig {
   mail: {
     enabled: boolean;
     host: string;
+    hostIp: string;   // 预解析 IP（GitHub Actions 传，绕过 runner DNS 对 smtp.qq.com 的封锁）
     port: number;
     user: string;
     pass: string;
@@ -116,6 +117,7 @@ export const config: AppConfig = {
   mail: {
     enabled: str('MAIL_ENABLED', 'false') === 'true',
     host: str('MAIL_SMTP_HOST', ''),
+    hostIp: str('MAIL_SMTP_HOST_IP', ''),
     port: num('MAIL_SMTP_PORT', 465),
     user: str('MAIL_USER', ''),
     pass: str('MAIL_PASS', ''),

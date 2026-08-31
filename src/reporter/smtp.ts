@@ -31,6 +31,8 @@ export interface SmtpOptions {
   timeoutMs?: number;
   /** DNS 解析重试次数（默认 3，GitHub Actions 环境对 smtp.qq.com 偶发 EAI_AGAIN） */
   dnsRetries?: number;
+  /** 预解析的服务器 IP（GitHub Actions 传入）。提供时跳过 DNS 解析，直接用 IP + servername 连接 */
+  hostIp?: string;
 }
 
 const CRLF = '\r\n';
@@ -63,8 +65,9 @@ async function sendMailSMTP(opts: SmtpOptions): Promise<void> {
   const rejectUnauthorized = opts.rejectUnauthorized ?? false;
   const dnsRetries = opts.dnsRetries ?? 3;
 
-  // 先解析主机名（带重试），用 IP 连接 —— 避免 socket 层 DNS 失败导致 EAI_AGAIN 静默失败
-  const ip = await resolveHost(opts.host, dnsRetries);
+  // 优先用外部预解析的 IP（GitHub Actions 传 MAIL_SMTP_HOST_IP，绕过 runner DNS 对 smtp.qq.com 的封锁）；
+  // 否则本地解析（带重试），用 IP + servername 连接
+  const ip = opts.hostIp || (await resolveHost(opts.host, dnsRetries));
 
   await new Promise<void>((resolve, reject) => {
     const connect = opts.port === 465 ? tls.connect : net.connect;

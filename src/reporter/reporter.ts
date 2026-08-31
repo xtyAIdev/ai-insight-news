@@ -750,6 +750,7 @@ async function sendMail(report: DailyReport): Promise<boolean> {
       user: config.mail.user,
       pass: config.mail.pass,
       to: config.mail.to,
+      hostIp: config.mail.hostIp || undefined,
       subject: `AI 行业市场洞察日报 ${report.date}`,
       body: fs.readFileSync(report.files.markdown_path!, 'utf-8'),
     });
