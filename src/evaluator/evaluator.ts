@@ -11,6 +11,7 @@ import { saveHighQuality, updateEventStatus, recordSourceOk } from '../db/index.
 import { webSearch } from '../utils/websearch.js';
 import { sourceCredibility } from '../config/constants.js';
 import { config } from '../config/index.js';
+import { normalizeCompany } from '../utils/normalize.js';
 
 export interface EvalResult {
   events: StandardEvent[];        // 通过评估的事件（按 importance_score 降序）
@@ -34,9 +35,18 @@ export interface EvalResult {
 export async function evaluateEvents(events: StandardEvent[], topN: number, reportDate?: string): Promise<EvalResult> {
   const dropped: StandardEvent[] = [];
 
+  // ---- Phase 0：评估层二次跨源去重（2026-08-31 批1 任务②） ----
+  // processor 已做一次去重，但 Jaccard 阈值挡不住"同一新闻的中英文不同标题/不同措辞多版本"。
+  // 这里按"归一化标题 + 公司 + 时间窗"再合并一次：多源证据并入主事件，被吞并事件不再走后续评估。
+  // 合并不改 DB、不改状态（被吞事件保持 processed，可回溯）；reportDate 未指定时同 7 天窗合并。
+  const deduped = dedupCrossSource(events, reportDate);
+  if (deduped.length !== events.length) {
+    logger.info(`[evaluator] 二次跨源去重：${events.length} → ${deduped.length}（合并 ${events.length - deduped.length} 条重复多版本）`);
+  }
+
   // ---- Phase 1：规则过滤 + 规则粗评 ----
   const rough: Array<{ evt: StandardEvent; accuracy: { score: number; reason: string }; importance: number }> = [];
-  for (const evt of events) {
+  for (const evt of deduped) {
     if (!ruleFilter(evt)) {
       evt.status = 'dropped';
       updateEventStatus(evt.event_id, 'dropped');
@@ -204,6 +214,113 @@ function isOutsideWindow(time: string, reportDate: string, days: number): boolea
 
 // ========== 06-02 规则过滤（广告/重复/低价值） ==========
 
+/**
+ * 归一化标题 → 去重键片段（2026-08-31 批1 任务②）。
+ * 英文：转小写、去掉发布类动作词与标点，保留实义词；中文：保留连续中文字符片段。
+ * 中英文并存时（"通义千问发布 Qwen3"）两者都进 key，避免中文核心片段被英文词挤掉。
+ * 空串表示无标题信息（不进键）。
+ * 刻意不引入词序归一/n-gram/相似度：阈值类模糊合并错并风险高；
+ * 跨源同新闻的标题差异通常在动作词/格式层，词序打乱的标题宁可不合并（保守）。
+ */
+export function normDedupKey(title: string): string {
+  if (!title) return '';
+  const t = title.toLowerCase();
+  // 中文连续片段（2 字以上，最多 4 段）
+  const zh = (t.match(/[\u4e00-\u9fa5]{2,}/g) || []).slice(0, 4).join(' ').trim();
+  // 英文：剔除发布/报道类高频动作词与介词（"Cursor launches X" 与 "X launched by Cursor" 归一后一致）
+  const words = (t.replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/))
+    .filter((w) => !DEDUP_STOP_WORDS.has(w) && /[a-z0-9]/.test(w));
+  const en = words.join(' ');
+  const parts = [zh, en].filter(Boolean);
+  return parts.join(' ').slice(0, 80);
+}
+
+const DEDUP_STOP_WORDS = new Set([
+  'the', 'a', 'an', 'and', 'or', 'of', 'for', 'with', 'from', 'to', 'in', 'on', 'at', 'by', 'as', 'its', 'into',
+  'launches', 'launch', 'launched', 'launching', 'introduces', 'introduce', 'introduced', 'introducing',
+  'announces', 'announce', 'announced', 'announcing', 'unveils', 'unveil', 'unveiled', 'unveiling',
+  'releases', 'release', 'released', 'releasing', 'debuted', 'debuts', 'debut', 'rolling', 'rolls', 'outs',
+  'opens', 'open', 'opening', 'raises', 'raise', 'raised', 'raising', 'secures', 'secure', 'secured',
+  'sets', 'set', 'reaches', 'reach', 'valued', 'files', 'file', 'backs', 'back', 'backed', 'acquires',
+  'acquire', 'acquired', 'new', 'first', 'latest', 'today',
+]);
+
+/** 时间窗桶（2026-08-31 批1 任务②）：以 reportDate 当天为基准分桶，跨源重复必须发生在同一时间窗才合并。
+ *  reportDate 未指定时以本机今天为基准。未来时间（时区/时差）统一进 0 桶，防误并。
+ *  opensource 走 product 强键通道（repo 名唯一，不依赖时间窗），此处桶值恒为 ''。 */
+function timeBucketOf(time: string, reportDate: string | undefined, category: string): string {
+  if (category === 'opensource') return '';
+  if (!time) return 'no-date';
+  const ref = reportDate ? new Date(`${reportDate}T12:00:00`) : new Date();
+  const t = new Date(`${time}T00:00:00`);
+  if (Number.isNaN(ref.getTime()) || Number.isNaN(t.getTime())) return 'no-date';
+  const diffDays = Math.floor((ref.getTime() - t.getTime()) / 86_400_000);
+  if (diffDays < 0) return '0'; // 未来 → 0 桶
+  return String(Math.min(7, diffDays)); // 0-7 天；>7 天统一 7 桶（跨 7 天窗的旧闻不进 TopN，无需精细区分）
+}
+
+/**
+ * 评估层二次跨源去重（2026-08-31 批1 任务②）。
+ * 键 = category | normalizeCompany(company) | 归一化标题 | 时间窗桶。
+ * 命中即视为同一事件的多个报道版本：
+ *  - 保留"信息更全者"（较长 description 优先；与 processor 合并语义一致）
+ *  - 多源证据合并去重（同 URL 只留一条）
+ *  - 被吞并事件保持原 status 不写 DB（可回溯：合并动作仅记录在存活事件的 trace_log）
+ * 特殊通道：
+ *  - opensource：直接用 product（repo 名）作强键 —— 同名仓库必为同一项目，跨源（GitHub/WebSearch）合并
+ *  - paper：同标题且同时间窗必为同一篇论文（采集层已按归一化标题去重，此处兜底跨源重拉）
+ */
+export function dedupCrossSource(events: StandardEvent[], reportDate?: string): StandardEvent[] {
+  const result: StandardEvent[] = [];
+  const seen = new Map<string, StandardEvent>();
+
+  for (const evt of events) {
+    let key = '';
+    if (evt.category === 'opensource') {
+      const repo = (evt.product || evt.raw_event && (evt.raw_event as { repo_url?: string }).repo_url || '').trim().toLowerCase();
+      key = repo ? `opensource|${repo}` : '';
+    } else {
+      const titleKey = normDedupKey(evt.title);
+      const companyKey = normalizeCompany(evt.company || '');
+      const bucket = timeBucketOf(evt.time, reportDate, evt.category);
+      if (titleKey) key = `${evt.category}|${companyKey}|${titleKey}|${bucket}`;
+    }
+    if (!key) {
+      result.push(evt); // 无键（空标题等）：不进合并，原样保留
+      continue;
+    }
+
+    const existing = seen.get(key);
+    if (!existing) {
+      seen.set(key, evt);
+      result.push(evt);
+      continue;
+    }
+
+    // 命中重复：合并到存活事件（信息更全者优先）
+    if ((evt.description || '').length > (existing.description || '').length) {
+      existing.description = evt.description;
+      existing.raw_event = evt.raw_event;
+    }
+    existing.source = mergeStdSources(existing.source, evt.source);
+    // 缺失字段补全：entities / insight / company / product
+    if (!existing.entities || Object.keys(existing.entities).length === 0) existing.entities = evt.entities || {};
+    if (!existing.insight) existing.insight = evt.insight || null;
+    if (!existing.company && evt.company) existing.company = evt.company;
+    if (!existing.product && evt.product) existing.product = evt.product;
+    existing.trace_log.push({ stage: 'dedup', timestamp: new Date().toISOString(), tool: 'rule', detail: `评估层跨源合并重复版本: ${evt.event_id} → ${existing.event_id}（${evt.title}）` });
+    logger.debug(`[evaluator] 跨源合并: ${evt.title}（${evt.event_id}） → ${existing.title}（${existing.event_id}）`);
+  }
+  return result;
+}
+
+/** 来源证据合并（同 URL 去重保留前者；与 processor 的 mergeStdSources 语义一致） */
+function mergeStdSources(a: StandardEvent['source'], b: StandardEvent['source']): StandardEvent['source'] {
+  const map = new Map<string, StandardEvent['source'][number]>();
+  for (const s of [...a, ...b]) if (s.url) map.set(s.url, s);
+  return Array.from(map.values());
+}
+
 function ruleFilter(evt: StandardEvent): boolean {
   const text = `${evt.title} ${evt.description}`.toLowerCase();
   // 广告检测
@@ -225,6 +342,10 @@ async function judgeAccuracy(evt: StandardEvent, ruleAcc?: { score: number; reas
     return { ...ruleResult, tool: 'rule-credibility' };
   }
 
+  // 真实性判断注入量化事实（2026-08-31 批1 任务①）：star/引用/金额等结构化数据随 prompt 给 LLM，
+  // 让"信息具体可查证"有据可依，避免无数据时凭空评估（与 scoreImportance/rankReason 的 buildFacts 用法一致）
+  const facts = buildFacts(evt);
+
   const prompt = `你是情报真实性审核员。基于以下事件及其来源证据，判断真实性并输出 0-5 分 JSON：
 {"score":0.0,"reason":"一句话理由"}
 评分标准：
@@ -237,6 +358,7 @@ async function judgeAccuracy(evt: StandardEvent, ruleAcc?: { score: number; reas
 规则参考分：${ruleResult.score}（${ruleResult.reason}）
 事件：${evt.title}
 描述：${evt.description.slice(0, 400)}
+${facts ? `量化数据：${facts}` : ''}
 来源：${evt.source.map((s) => `${s.name}(${s.source_type}):${s.url}`).join('; ')}`;
 
   const result = await withLLMFallback(

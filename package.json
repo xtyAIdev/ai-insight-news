@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Market Intelligence Agent — AI 行业市场洞察日报系统（单体 Agent + 模块化内部流程）",
   "private": true,
+  "agent": {
+    "instructions": ["AGENTS.md"]
+  },
   "type": "module",
   "engines": {
     "node": ">=22.13.0"
@@ -18,7 +21,8 @@
     "serve:built": "node --experimental-sqlite --no-warnings dist/cli/index.js serve",
     "mail:test": "npm run build && node --experimental-sqlite --no-warnings dist/cli/mail-test.js",
     "mail:test:built": "node --experimental-sqlite --no-warnings dist/cli/mail-test.js",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --experimental-sqlite --test dist/evaluator/*.test.js"
   },
   "dependencies": {},
   "devDependencies": {
