@@ -164,8 +164,13 @@ function smtpSession(opts: SmtpOptions, ip: string, timeoutMs: number, rejectUna
               '',
             ].join(CRLF);
             // 正文按 base64 编码（避免中文/特殊字符被 SMTP 逐字节破坏，兼容 7bit 通道）
-            const bodyB64 = Buffer.from(opts.body, 'utf-8').toString('base64');
-            // 手动拼接：头部 + 空行 + base64 正文 + '.' 结束行（服务器会回 250 OK）
+            const rawB64 = Buffer.from(opts.body, 'utf-8').toString('base64');
+            // RFC 2045：base64 每 76 字符折行。若不折行，整个正文是单行，
+            // 超 RFC 5321 的 998-octet 行限制，服务器回 500 Line too long（QQ 实测）。
+            const lines: string[] = [];
+            for (let i = 0; i < rawB64.length; i += 76) lines.push(rawB64.slice(i, i + 76));
+            const bodyB64 = lines.join(CRLF);
+            // 手动拼接：头部 + 空行 + 折行后的 base64 正文 + '.' 结束行（服务器会回 250 OK）
             sock.write(headers + CRLF + CRLF + bodyB64 + CRLF + '.' + CRLF);
             break;
           }
