@@ -124,4 +124,20 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 **测试**：新增 `src/collectors/opensource.test.ts`（3 用例：新星超窗保留 / 成熟超窗滤掉 / 新星 star 门槛）。`package.json` test script 扩展为 `dist/evaluator/*.test.js dist/collectors/*.test.js`。
 **验证**：`npm run typecheck` ✅；`npm test` 14/14 ✅。
 **改动文件**：`src/collectors/opensource.ts`、`src/collectors/opensource.test.ts`（新）、`src/collectors/paper.ts`、`src/collectors/enterprise.ts`、`src/utils/websearch.ts`、`src/evaluator/evaluator.ts`、`src/reporter/smtp.ts`、`package.json`。
-**未提交**：本批代码未 commit，待用户 review 后由用户/后续决定 PR。
+
+### 2026-08-31 · 批2 完整本地运行验证 + 已提交
+**本地完整运行**：`npm run run`（无 .env → 规则引擎模式，无 LLM 成本，真实采集）：
+- raw=103 → std=103 → TopN=12（opensource 5 + paper 5 + enterprise 2），耗时 60.5s，无降级。
+- opensource 采集 62 → 过滤 55 → 去重 55。paper 143 → 81 → 44。enterprise 4（官方源多数 403/超时 + 投融资 aihot 4 + 垂媒 1）。
+- 网络观察：本地 google.com / DDG / gitee / meta 超时（CI 可达）；Google News 免费档本地不可达，降级链正常。
+
+**效果验证（批2 任务③）**：
+- opensource TopN 从"高星老仓库霸榜"（dify 153k / ragflow / open-webui）变为"新星崛起"（mempalace 58k / Peekaboo 5k / kody 514 / rome 411 / LambChat 218）——新星轨道独立于 push/updated 窗口真正生效。
+- 批1 跨源去重：本次数据无重复命中（enterprise 仅 4 条，无同新闻多版本），逻辑执行无副作用。
+- 非本批范围观察：enterprise 里 OpenAI-Cursor 事件 authenticity=1 仍进 TopN（当天企业数据少 + 投资保底逻辑），与批1/2 无关。
+
+**提交**：
+- `d54f47a feat(collectors): 新星轨道独立于push窗口 + webSearch Google News 免费档 + SMTP 多收件人（批2）` — 代码 + 测试 + AGENTS.md + star_snapshots.json
+- `dfe4838 chore: daily report 2026-08-31` — 本地运行生成的最新报告（`git add -f`，与 CI 风格一致）
+- 均已推送 origin/main。本地与远端同步。
+- 备注：`reports/` 在 .gitignore 但历史已跟踪，需 `git add -f` 才能更新报告文件；`state/star_snapshots.json` 已跟踪（跨 CI 积累 star 周增长数据）。
