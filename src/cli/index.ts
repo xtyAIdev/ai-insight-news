@@ -184,8 +184,13 @@ async function main(): Promise<void> {
     case 'list:runs':
       await cmdListRuns();
       break;
+    case 'mail:test': {
+      const { runMailTest } = await import('./mail-test.js');
+      await runMailTest();
+      break;
+    }
     default:
-      console.log(`未知命令: ${cmd}\n可用命令: run / serve / db:init / feedback / metrics / list:events / list:reports / list:runs`);
+      console.log(`未知命令: ${cmd}\n可用命令: run / serve / db:init / feedback / metrics / list:events / list:reports / list:runs / mail:test`);
       process.exit(1);
   }
 

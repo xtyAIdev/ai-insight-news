@@ -34,6 +34,13 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          # 邮件推送（可选）：未配置 secrets 时 MAIL_ENABLED 为空 → 不启用，仅归档
+          MAIL_ENABLED: ${{ secrets.MAIL_ENABLED }}
+          MAIL_SMTP_HOST: ${{ secrets.MAIL_SMTP_HOST }}
+          MAIL_SMTP_PORT: ${{ secrets.MAIL_SMTP_PORT }}
+          MAIL_USER: ${{ secrets.MAIL_USER }}
+          MAIL_PASS: ${{ secrets.MAIL_PASS }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
         # --date 显式传入运行日期（runner 为 UTC，与 cron 自洽，避免手动触发时漂移）
         run: npm run build && node --experimental-sqlite dist/cli/index.js run --date "$(date +%F)"
 
