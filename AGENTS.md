@@ -162,4 +162,20 @@ AI 行业市场洞察日报系统（Market Intelligence Agent）。
 **端到端验证**：`feedback:issue --event "..." --score 2 --tags "不准确,标题党"` → data/feedback.json 生成 → `metrics --period weekly` 正确读到（低分原因：不准确1/标题党1）。build-site.mjs 生成站点含反馈按钮（index.html + 每日页）。
 **验证**：`npm run typecheck` ✅；`npm test` 18/18 ✅。
 **改动文件**：`scripts/build-site.mjs`、`src/db/feedbackFile.ts`（新）、`src/db/feedbackFile.test.ts`（新）、`src/db/repo.ts`、`src/db/index.ts`、`src/reporter/reporter.ts`、`src/cli/index.ts`、`src/collectors/paper.ts`、`README.md`、`README_CN.md`、`package.json`、`.github/workflows/feedback-collect.yml`（新）。
-**未提交**：本批代码未 commit，待用户 review 后提交。
+
+### 2026-08-31 · 批3 实测 + 修复（已提交推送）
+**实际测试（本地模拟 workflow 解析真实模板 body）**：
+- 暴露 bug①：workflow github-script `getField` 正则 `\*\*label\*\*：` 无法匹配带括号说明的字段（模板是 `**评分**（0-5...）：`），导致 event/score 解析为空。
+- 暴露 bug②：反馈类型模板预填全部 6 个选项（"不准确 / 标题党 / ..."），workflow 把整行当 tags，解析出全量 tags。
+- 修复：正则改 `\*\*${label}\*\*[^\n]*：`（匹配字段名到冒号，含括号说明）；模板改为读者自行填写反馈类型（逗号分隔），workflow 去"如："示例与占位后按分隔符解析。
+- 修复后模拟验证：event=标题文本、score=2、tags=["不准确"]、suggestion 正确解析。
+- 完整链路实测：`feedback:issue --event ... --score 2 --tags "不准确"` → data/feedback.json 生成 → `metrics --period weekly` 读到（不准确:1）。build-site 生成站点含更新后的模板按钮。
+
+**提交**：
+- `f899c8e feat(feedback): 反馈闭环持久化到仓库文件 + 文档对齐（批3）`
+- `aae6877 fix(feedback): 实测修正反馈闭环解析（正则 + 模板）`
+- 均已推送 origin/main。
+
+**未能完成的验证**（环境限制）：
+- 真实 GitHub 闭环（读者建 issue → `issues: opened` workflow 触发 → 解析 → 提交 → 关闭）**未在真实仓库验证**：本机无 GitHub token 且 HTTPS 443 被网络阻断（SSH 仅用于 git 传输，不能建 issue）。
+- 待补：用户在 GitHub 手动建一个 `[日报反馈]` 前缀的 issue（用日报页脚按钮预填模板），观察 workflow 是否触发并正确收集。workflow 需在真实 Actions 环境首次运行验证。
