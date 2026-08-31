@@ -81,10 +81,11 @@ jobs:
       - name: 写入 feedback.json 并提交
         if: steps.validate.outputs.valid == 'true'
         run: |
-          EVENT="${{ steps.parse.outputs.event }}"
+          # GITHUB_OUTPUT 经 encodeURIComponent 写入，这里用 node 解码回明文再传参
+          EVENT="$(node -e "process.stdout.write(decodeURIComponent(process.argv[1] || ''))" "${{ steps.parse.outputs.event }}")"
           SCORE="${{ steps.parse.outputs.score }}"
           TAGS="${{ steps.parse.outputs.tags }}"
-          SUGGESTION="${{ steps.parse.outputs.suggestion }}"
+          SUGGESTION="$(node -e "process.stdout.write(decodeURIComponent(process.argv[1] || ''))" "${{ steps.parse.outputs.suggestion }}")"
           npm run build >/dev/null 2>&1
           node --experimental-sqlite dist/cli/index.js feedback:issue \
             --event "$EVENT" --score "$SCORE" --tags "$TAGS" --suggestion "$SUGGESTION"

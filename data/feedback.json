@@ -1,14 +1,14 @@
 [
   {
     "id": "fb_issue_1788159123343_0erg",
-    "event_id": "mempalace%20%E6%8A%A5%E9%81%93",
+    "event_id": "mempalace 报道",
     "report_id": "",
     "agent_score": 0,
     "human_score": 2,
     "problem_tags": [
       "不准确"
     ],
-    "suggestion": "star%20%E6%95%B0%E5%86%99%E9%94%99%E4%BA%86",
+    "suggestion": "star 数写错了",
     "created_at": "2026-08-31T06:52:03.343Z"
   }
 ]
