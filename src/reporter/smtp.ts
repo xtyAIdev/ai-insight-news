@@ -12,6 +12,10 @@
 
 import net from 'node:net';
 import tls from 'node:tls';
+import dns from 'node:dns';
+import { promisify } from 'node:util';
+
+const lookupAsync = promisify(dns.lookup);
 
 export interface SmtpOptions {
   host: string;
@@ -25,6 +29,8 @@ export interface SmtpOptions {
   rejectUnauthorized?: boolean;
   /** 连接/响应超时 ms（默认 15s） */
   timeoutMs?: number;
+  /** DNS 解析重试次数（默认 3，GitHub Actions 环境对 smtp.qq.com 偶发 EAI_AGAIN） */
+  dnsRetries?: number;
 }
 
 const CRLF = '\r\n';
@@ -36,14 +42,34 @@ function parseResponseLine(line: string): { code: number; multiline: boolean } {
   return { code: Number.isFinite(code) ? code : -1, multiline };
 }
 
+/** 解析主机名（带重试）：GitHub Actions runner 对 smtp.qq.com 偶发 EAI_AGAIN，重试可缓解 */
+async function resolveHost(host: string, retries: number): Promise<string> {
+  let lastErr: Error | undefined;
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const { address } = await lookupAsync(host);
+      return address;
+    } catch (err) {
+      lastErr = err as Error;
+      // 短暂退避后重试（250ms × 递增）
+      await new Promise((r) => setTimeout(r, 250 * (i + 1)));
+    }
+  }
+  throw lastErr ?? new Error(`DNS 解析失败: ${host}`);
+}
+
 async function sendMailSMTP(opts: SmtpOptions): Promise<void> {
   const timeoutMs = opts.timeoutMs ?? 15_000;
   const rejectUnauthorized = opts.rejectUnauthorized ?? false;
+  const dnsRetries = opts.dnsRetries ?? 3;
+
+  // 先解析主机名（带重试），用 IP 连接 —— 避免 socket 层 DNS 失败导致 EAI_AGAIN 静默失败
+  const ip = await resolveHost(opts.host, dnsRetries);
 
   await new Promise<void>((resolve, reject) => {
     const connect = opts.port === 465 ? tls.connect : net.connect;
     const sock = (connect as (o: unknown, cb: () => void) => ReturnType<typeof net.connect>)(
-      { host: opts.host, port: opts.port, rejectUnauthorized },
+      { host: ip, port: opts.port, rejectUnauthorized, servername: opts.host },
       () => {
         // connected
       },
