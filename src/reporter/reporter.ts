@@ -105,6 +105,40 @@ function buildSections(input: ReportInput): ReportSection[] {
 
 // ========== 07-02b 中文重述应用 ==========
 
+/** 标题相关性校验：LLM 重述的中文标题必须与原事件相关，否则丢弃（防错配/串扰）。
+ *  2026-09-03 修复：9-02 日报出现"阿里 Qwen 事件的中文标题被写成腾讯混元"——
+ *  LLM 并发重述偶发返回他条标题，原实现只校验"含中文"，错配标题被写入 title_zh。
+ *  判据（满足任一即视为相关）：
+ *   1) 重述标题含 evt.company（英文名或其 CJK 片段，如 腾讯/阿里巴巴）
+ *   2) 重述标题含原 title 的英文产品名/专名（如 Qwen3.8-Max、Gemini）
+ *   3) 原 title 与重述标题有公共 CJK 词（≥2 字，排除通用词）
+ */
+function isTitleRelated(evt: StandardEvent, restatedTitle: string): boolean {
+  if (!restatedTitle) return false;
+  const rt = restatedTitle;
+  // 1) 公司名：英文原名（大小写不敏感）或 CJK 名称片段
+  const company = evt.company || '';
+  if (company) {
+    if (/[a-zA-Z]/.test(company) && rt.toLowerCase().includes(company.toLowerCase())) return true;
+    const cjkName = company.match(/[\u4e00-\u9fa5]{2,}/g);
+    if (cjkName && cjkName.some((n) => rt.includes(n))) return true;
+    // 别名（如 腾讯云 含 腾讯）：原公司 CJK 名是重述标题 CJK 名的子串或反之
+    const rtCjk: string[] = rt.match(/[\u4e00-\u9fa5]{2,}/g) || [];
+    if (cjkName && rtCjk.some((r) => cjkName!.some((c) => r.includes(c) || c.includes(r)))) return true;
+  }
+  // 2) 原 title 中的英文专名（产品名/方法名，≥3 字母的 CamelCase/UPPER/数字型号）
+  const origTitle = evt.title || '';
+  const enTerms: string[] = origTitle.match(/\b[A-Za-z][A-Za-z0-9]*[-_.]?[A-Za-z0-9]*\b/g) || [];
+  const keyTerms = enTerms.filter((w) => w.length >= 3 && !['the', 'and', 'for', 'with', 'from', 'new', 'how', 'what', 'why', 'you', 'your', 'are', 'its', 'has', 'had', 'was', 'were', 'will', 'not', 'can'].includes(w.toLowerCase()));
+  if (keyTerms.some((t) => rt.toLowerCase().includes(t.toLowerCase()))) return true;
+  // 3) 公共 CJK 词（2-4 字滑动窗口，排除"今日/最新/发布/更新/推出/上线"等通用动作词）
+  const origCjk: string[] = origTitle.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
+  const COMMON = new Set(['今日', '最新', '发布', '更新', '推出', '上线', '领域', '行业', '公司', '企业', '产品', '模型', '平台', '服务', '宣布', '公布', '成为', '推出', '正式', '相关', '以及']);
+  const rtCjkAll: string[] = rt.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
+  if (origCjk.some((o) => !COMMON.has(o) && rtCjkAll.includes(o))) return true;
+  return false;
+}
+
 /** 把重述结果就地应用到 TopN 事件（sections 内引用的是同一批 StandardEvent 对象）。
  *  2026-08-27 双语化：中文重述写入 *_zh 字段，原始英文保留在 title/description ——
  *  日报渲染默认英文（原始字段），切换中文时用 *_zh（无则回退原始）。 */
@@ -119,7 +153,7 @@ function applyRestate(
     if (r.title && r.title !== t.event.title) {
       // 原文溯源：若原始标题为英文，把重述中文挂 title_zh，原始英文保留在 title
       if (r.byLLM) {
-        if (isChineseText(r.title) && !isChineseText(t.event.title)) {
+        if (isChineseText(r.title) && !isChineseText(t.event.title) && isTitleRelated(t.event, r.title)) {
           t.event.title_zh = r.title;
         }
       } else if (isChineseText(r.title)) {
