@@ -1,0 +1,157 @@
+{
+ "2026-09-01": {
+  "opensource": [
+   "opensource|ragflow ragflow is leading source retrieval augmented",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|omniroute never stop coding",
+   "opensource|tradingagents tradingagents multi agents llm financial trading framework",
+   "opensource|hyperframes write html"
+  ],
+  "paper": [
+   "paper|ontoaligner ensemble voting based fusion across heterogeneous ontology alignment",
+   "paper|identity conditioned latent consistency distillation face synthesis",
+   "paper|hirs agent hierarchical multi agent system reliable long horizon remote sensing ",
+   "paper|physwave physics guided latent diffusion models controllable spatial audio gener",
+   "paper|harness rl black box reinforcement learning action args decoupling central agent"
+  ],
+  "enterprise": [
+   "enterprise|tencent s large model iteration speeds up hunyuan hy4 preview version doubles pa",
+   "enterprise|nvidia s 3 5b mediatek bet reveals plan tackling big tech 8217 s ai chip buildou",
+   "enterprise|上线自定义模型功能 支持接入 智谱 等主流模型 marvis kimi glm",
+   "enterprise|腾讯混元宣布推出 轻量版 hy4 preview",
+   "enterprise|idea team ai qwen creative agent teams all one screenwriting directing art aibas"
+  ]
+ },
+ "2026-09-02": {
+  "opensource": [
+   "opensource|cohub living space where people agents create play",
+   "opensource|oryxos oryxos is source distributed ai agent os",
+   "opensource|hermes agent agent that grows you",
+   "opensource|langchain agent engineering platform",
+   "opensource|ragflow ragflow is leading source retrieval augmented"
+  ],
+  "paper": [
+   "paper|scaling near optimal sft rl annotation budget allocation small large llms",
+   "paper|autoconcept training free concept guided reranking metadata available composed i",
+   "paper|swaprec warming up cold items through training time swaps",
+   "paper|staged linguistic seeding grounded query expansion verified unit qa ai contact c",
+   "paper|em 2mem event centric multimodal memory large language models"
+  ],
+  "enterprise": [
+   "enterprise|afterquery reportedly becomes y combinator 8217 s fastest ever unicorn now 3 2b",
+   "enterprise|ai news we august 2026",
+   "enterprise|nvidia s 3 5b mediatek bet reveals plan tackling big tech 8217 s ai chip buildou",
+   "enterprise|腾讯云 腾讯混元生视频部分接口下线及服务调整",
+   "enterprise|阿里更新旗舰模型 qwen3 8 max"
+  ]
+ },
+ "2026-09-03": {
+  "opensource": [
+   "opensource|langchain agent engineering platform",
+   "opensource|ragflow ragflow is leading source retrieval augmented",
+   "opensource|worldmonitor real time global intelligence dashboard",
+   "opensource|lobehub lobehub is your chief agent operator organizing your",
+   "opensource|milvus milvus is high performance cloud native vector database"
+  ],
+  "paper": [
+   "paper|discosign discourse aware text sign language gloss translation",
+   "paper|hyperstyler low resource authorship style transfer via context aware style navig",
+   "paper|towards trustworthy autonomous robots explainable ai based decision framework",
+   "paper|counter geo bench evaluating defenses against information distorting generative ",
+   "paper|group aware adaptive retrieval evidence navigation"
+  ],
+  "enterprise": [
+   "enterprise|afterquery reportedly becomes y combinator 8217 s fastest ever unicorn now 3 2b",
+   "enterprise|ai news we august 2026",
+   "enterprise|hiddenlayer nabs 100m enterprises rush their ai deployments",
+   "enterprise|取消员工 使用量与绩效挂钩机制 测试推动 消耗上升 meta ai hatch token",
+   "enterprise|atv big air tour turned 3 days work 3 hours chatgpt"
+  ]
+ },
+ "2026-09-04": {
+  "opensource": [
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|headroom compress tool outputs logs rag chunks before",
+   "opensource|hyperframes write html",
+   "opensource|pdfmathtranslate emnlp 2025 demo pdf scientific paper translation"
+  ],
+  "paper": [
+   "paper|knowledge acquisition during pre training large language models learn better aux",
+   "paper|para pipe exploiting hierarchical operator parallelism ml computational graphs s",
+   "paper|grasp graph retrieval automated scoring pipeline label free multi topic essay gr",
+   "paper|zero shot novel depth synthesis using 3d foundation models scene representations",
+   "paper|transfer safety awareness cross modal safety drift multimodal large language mod"
+  ],
+  "enterprise": [
+   "enterprise|meta is paying peek how you use their ai model",
+   "enterprise|sameness problem behind those unappetizing ai generated menus",
+   "enterprise|hiddenlayer nabs 100m enterprises rush their ai deployments",
+   "enterprise|daybreak frontline defenders 1b protect essential services",
+   "enterprise|宣布收购 黄仁勋称开放模型将受益于这桩联姻 nvidia hugging face"
+  ]
+ },
+ "2026-09-05": {
+  "opensource": [
+   "opensource|claude mem persistent context across sessions every agent",
+   "opensource|headroom compress tool outputs logs rag chunks before",
+   "opensource|lightrag emnlp2025 lightrag simple fast retrieval augmented",
+   "opensource|sglang sglang is high performance serving framework large",
+   "opensource|qwen code source ai coding agent that lives your terminal"
+  ],
+  "paper": [
+   "paper|para pipe exploiting hierarchical operator parallelism ml computational graphs s",
+   "paper|knowledge acquisition during pre training large language models learn better aux",
+   "paper|legibility is not interpretability comparing judged actual importance chain thou",
+   "paper|robust pac learning concurrent stochastic games",
+   "paper|sequential beats joint interplay between policy distillation rlvr"
+  ],
+  "enterprise": [
+   "enterprise|推迟至中期选举前 最早 月中旬启动路演 目标估值 anthropic ipo 10 2",
+   "enterprise|sameness problem behind those unappetizing ai generated menus",
+   "enterprise|meta is paying peek how you use their ai model",
+   "enterprise|playco cut manual fixes 50 prototyping games gpt 6 astra",
+   "enterprise|宣布以 亿美元收购 nvidia 129 303 hugging face"
+  ]
+ },
+ "2026-09-06": {
+  "opensource": [
+   "opensource|lobehub lobehub is your chief agent operator organizing your",
+   "opensource|cowagent source super ai assistant agent harness",
+   "opensource|lightrag emnlp2025 lightrag simple fast retrieval augmented",
+   "opensource|deepseek reasonix deepseek native ai coding agent your terminal",
+   "opensource|sim sim is collaborative workspace build deploy"
+  ],
+  "paper": [
+   "paper|knowledge acquisition during pre training large language models learn better aux",
+   "paper|para pipe exploiting hierarchical operator parallelism ml computational graphs s",
+   "paper|grasp graph retrieval automated scoring pipeline label free multi topic essay gr",
+   "paper|zero shot novel depth synthesis using 3d foundation models scene representations",
+   "paper|transfer safety awareness cross modal safety drift multimodal large language mod"
+  ],
+  "enterprise": [
+   "enterprise|推迟至中期选举前 最早 月中旬启动路演 目标估值 anthropic ipo 10 2"
+  ]
+ },
+ "2026-09-07": {
+  "opensource": [
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|awesome mcp servers collection mcp servers",
+   "opensource|ragflow ragflow is leading source retrieval augmented",
+   "opensource|awesome claude code hand picked collection finest resources",
+   "opensource|lightrag emnlp2025 lightrag simple fast retrieval augmented"
+  ],
+  "paper": [
+   "paper|multi step tool calling over korean public apis benchmark data synthesis recipe",
+   "paper|distill globally adapt locally reasoning distillation product type test time tra",
+   "paper|online change point detection cooperative multi agent reinforcement learning",
+   "paper|embedding surgery localized updates adaptive ranking correction dense retrieval",
+   "paper|leveraging low level symbolic competences unsupervised grounding hallucination d"
+  ],
+  "enterprise": [
+   "enterprise|全球首款 智能体手机将于 日正式发布 ai 9 16",
+   "enterprise|research acceleration view inside openai",
+   "enterprise|alien mind"
+  ]
+ }
+}

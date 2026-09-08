@@ -228,3 +228,37 @@ export function genReportId(date: string): string {
 export function genTaskId(): string {
   return `task_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 }
+
+// ========== 标题去重键（2026-08-31 评估层跨源去重 / 2026-09-08 跨天去重共用） ==========
+
+/** 停用词：发布/报道类动作词 + 介词冠词（归一后 "Cursor launches X" 与 "X launched by Cursor" 一致） */
+export const DEDUP_STOP_WORDS = new Set([
+  'the', 'a', 'an', 'and', 'or', 'of', 'for', 'with', 'from', 'to', 'in', 'on', 'at', 'by', 'as', 'its', 'into',
+  'launches', 'launch', 'launched', 'launching', 'introduces', 'introduce', 'introduced', 'introducing',
+  'announces', 'announce', 'announced', 'announcing', 'unveils', 'unveil', 'unveiled', 'unveiling',
+  'releases', 'release', 'released', 'releasing', 'debuted', 'debuts', 'debut', 'rolling', 'rolls', 'outs',
+  'opens', 'open', 'opening', 'raises', 'raise', 'raised', 'raising', 'secures', 'secure', 'secured',
+  'sets', 'set', 'reaches', 'reach', 'valued', 'files', 'file', 'backs', 'back', 'backed', 'acquires',
+  'acquire', 'acquired', 'new', 'first', 'latest', 'today',
+]);
+
+/**
+ * 归一化标题 → 去重键片段。
+ * 英文：转小写、去掉发布类动作词与标点，保留实义词；中文：保留连续中文字符片段。
+ * 中英文并存时（"通义千问发布 Qwen3"）两者都进 key，避免中文核心片段被英文词挤掉。
+ * 空串表示无标题信息（不进键）。
+ * 刻意不引入词序归一/n-gram/相似度：阈值类模糊合并错并风险高；
+ * 跨源同新闻的标题差异通常在动作词/格式层，词序打乱的标题宁可不合并（保守）。
+ */
+export function normDedupKey(title: string): string {
+  if (!title) return '';
+  const t = title.toLowerCase();
+  // 中文连续片段（2 字以上，最多 4 段）
+  const zh = (t.match(/[\u4e00-\u9fa5]{2,}/g) || []).slice(0, 4).join(' ').trim();
+  // 英文：剔除发布/报道类高频动作词与介词
+  const words = (t.replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/))
+    .filter((w) => !DEDUP_STOP_WORDS.has(w) && /[a-z0-9]/.test(w));
+  const en = words.join(' ');
+  const parts = [zh, en].filter(Boolean);
+  return parts.join(' ').slice(0, 80);
+}

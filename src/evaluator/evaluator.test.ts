@@ -8,7 +8,8 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildFacts, dedupCrossSource, normDedupKey } from './evaluator.js';
+import { buildFacts, dedupCrossSource, extractNumbersFromText, numbersTraceable } from './evaluator.js';
+import { normDedupKey } from '../utils/normalize.js';
 import type { RawEvent, StandardEvent } from '../types/events.js';
 
 function mkEvent(over: Partial<StandardEvent> & { category: StandardEvent['category'] }, raw?: RawEvent): StandardEvent {
@@ -173,4 +174,35 @@ test('dedupCrossSource: 无日期事件与有日期事件同标题近窗不误�
   const out = dedupCrossSource([a, b], '2026-08-31');
   // no-date 桶与有日期桶不同 → 不合并；两条件都成立时符合预期（保守不并）
   assert.ok(out.length >= 1, '无日期事件不应误合并到有日期桶');
+});
+
+// ========== P0-F1 幻觉数字拦截（2026-09-08） ==========
+
+test('numbersTraceable: 引用材料中的真实数字通过', () => {
+  const allowed = extractNumbersFromText('（社区数据：stars=154,670，周增长=+1,200）GitHub Copilot 2026');
+  const res = numbersTraceable('该仓库 154,670 星，周增长 1200，值得关注', allowed);
+  assert.equal(res.ok, true, `真实数字不应被拦: ${res.bad.join(',')}`);
+});
+
+test('numbersTraceable: 编造材料外数字被拦截（幻觉防护）', () => {
+  const allowed = extractNumbersFromText('（社区数据：stars=154,670）');
+  const res = numbersTraceable('该仓库讨论量达 120 万次，训练效率提升 28%，MMLU 得分 89.2%', allowed);
+  assert.equal(res.ok, false, '编造数字必须被识别');
+  assert.ok(res.bad.includes('120'), '120 万 中的 120 应列入');
+  assert.ok(res.bad.includes('28%') || res.bad.includes('28'), '28% 应列入');
+  assert.ok(res.bad.includes('89.2%') || res.bad.includes('89.2'), '89.2% 应列入');
+});
+
+test('numbersTraceable: 千分位/单位形态转换不误拦（154,670 与 154670 等价）', () => {
+  const allowed = extractNumbersFromText('stars=154,670');
+  // 材料是 154,670，LLM 写 154670（去逗号）应放行
+  const res = numbersTraceable('star 数 154670 的项目', allowed);
+  assert.equal(res.ok, true, `去千分位形态应放行: ${res.bad.join(',')}`);
+});
+
+test('extractNumbersFromText: 提取含单位与纯数字形态', () => {
+  const s = extractNumbersFromText('估值 12 亿美元，占比 28.5%，共 154,670 stars，2026 年');
+  for (const expect of ['12', '28.5', '28.5%', '154670', '154,670', '2026']) {
+    assert.ok(s.has(expect), `应包含 ${expect}`);
+  }
 });

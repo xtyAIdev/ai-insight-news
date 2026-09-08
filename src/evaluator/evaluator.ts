@@ -7,11 +7,12 @@
 import type { StandardEvent } from '../types/events.js';
 import { getLLM, withLLMFallback, accuracyByRule, importanceByRule } from '../llm/index.js';
 import { logger } from '../utils/logger.js';
-import { saveHighQuality, updateEventStatus, recordSourceOk } from '../db/index.js';
+import { filterAlreadyReported, recordReportedTitles } from '../utils/reportMemory.js';
+import { saveHighQuality, updateEventStatus, recordSourceOk, listReports } from '../db/index.js';
 import { webSearch } from '../utils/websearch.js';
 import { sourceCredibility } from '../config/constants.js';
 import { config } from '../config/index.js';
-import { normalizeCompany } from '../utils/normalize.js';
+import { normalizeCompany, normDedupKey } from '../utils/normalize.js';
 
 export interface EvalResult {
   events: StandardEvent[];        // 通过评估的事件（按 importance_score 降序）
@@ -170,6 +171,35 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
   const modules = Array.from(new Set(pool.map((e) => e.category)));
   const topNList: Array<{ event: StandardEvent; reason: string }> = [];
 
+  // ---- 跨天去重（2026-09-08 P0-F2）：剔除近 N 天已上报的重复事件 ----
+  // 问题实证：9-04/05/06 arXiv 2609.04180/04168 连续 3 天入选学术 Top5（7 天提交窗口 +
+  // evaluator 无"已报道"记忆）；企业官方源 3 天窗口也会把前日旧闻再报一次。
+  // 记忆存 state/reported_titles.json（随仓库提交，workflow git add -f state/ 持久化），
+  // 与 star_snapshots.json 同模式；仅当有历史记忆且报告日明确时才过滤。
+  // 过滤后若某模块被清空，允许保留最高分 1 条兜底（避免"昨日唯一大新闻"今天整模块空置）。
+  const dedupStats: Array<{ module: string; dropped: number }> = [];
+  if (reportDate && modules.length > 0) {
+    for (const module of modules) {
+      const moduleEventsAll = pool.filter((e) => e.category === module);
+      const { kept, dropped: droppedHist } = filterAlreadyReported(moduleEventsAll, reportDate);
+      if (droppedHist.length > 0) {
+        dedupStats.push({ module, dropped: droppedHist.length });
+        if (kept.length === 0 && moduleEventsAll.length > 0) {
+          // 全被历史记忆挡住：保留最高分 1 条（宁可当日重复一条，不让整模块空置）
+          pool = [...pool.filter((e) => e.category !== module), moduleEventsAll[0]];
+          logger.info(`[evaluator] 跨天去重：${module} 候选全为已报道（${droppedHist.length} 条），保留最高分 1 条兜底「${moduleEventsAll[0].title}」`);
+        } else {
+          const keptIds = new Set(kept.map((e) => e.event_id));
+          pool = [...pool.filter((e) => e.category !== module || keptIds.has(e.event_id)), ...kept];
+        }
+      }
+    }
+    if (dedupStats.length > 0) {
+      logger.info(`[evaluator] 跨天去重：剔除历史已报道 ${dedupStats.map((s) => `${s.module}-${s.dropped}`).join(',')} 条`);
+    }
+  }
+  pool.sort((a, b) => b.importance_score - a.importance_score);
+
   for (const module of modules) {
     let moduleEvents = pool.filter((e) => e.category === module);
     // 企业动态模块：投融资与产品动态是双分支，保底 1 席投融资（避免被产品事件完全挤出）
@@ -193,6 +223,11 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
     topNList.push(...moduleTop);
   }
 
+  // 记录"今日已上报"标题记忆（跨天去重的数据源；reportDate 为空时跳过 —— 无日期无意义）
+  if (reportDate && topNList.length > 0) {
+    recordReportedTitles(reportDate, topNByModule);
+  }
+
   logger.info(`[evaluator] 评估完成：通过 ${evaluated.length}，丢弃 ${dropped.length}，按模块 TopN ${modules.map((m) => `${m}:${(topNByModule[m] || []).length}`).join(',')}`);
   return { events: evaluated, dropped, topN: topNList, topNByModule };
 }
@@ -214,36 +249,7 @@ function isOutsideWindow(time: string, reportDate: string, days: number): boolea
 
 // ========== 06-02 规则过滤（广告/重复/低价值） ==========
 
-/**
- * 归一化标题 → 去重键片段（2026-08-31 批1 任务②）。
- * 英文：转小写、去掉发布类动作词与标点，保留实义词；中文：保留连续中文字符片段。
- * 中英文并存时（"通义千问发布 Qwen3"）两者都进 key，避免中文核心片段被英文词挤掉。
- * 空串表示无标题信息（不进键）。
- * 刻意不引入词序归一/n-gram/相似度：阈值类模糊合并错并风险高；
- * 跨源同新闻的标题差异通常在动作词/格式层，词序打乱的标题宁可不合并（保守）。
- */
-export function normDedupKey(title: string): string {
-  if (!title) return '';
-  const t = title.toLowerCase();
-  // 中文连续片段（2 字以上，最多 4 段）
-  const zh = (t.match(/[\u4e00-\u9fa5]{2,}/g) || []).slice(0, 4).join(' ').trim();
-  // 英文：剔除发布/报道类高频动作词与介词（"Cursor launches X" 与 "X launched by Cursor" 归一后一致）
-  const words = (t.replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/))
-    .filter((w) => !DEDUP_STOP_WORDS.has(w) && /[a-z0-9]/.test(w));
-  const en = words.join(' ');
-  const parts = [zh, en].filter(Boolean);
-  return parts.join(' ').slice(0, 80);
-}
-
-const DEDUP_STOP_WORDS = new Set([
-  'the', 'a', 'an', 'and', 'or', 'of', 'for', 'with', 'from', 'to', 'in', 'on', 'at', 'by', 'as', 'its', 'into',
-  'launches', 'launch', 'launched', 'launching', 'introduces', 'introduce', 'introduced', 'introducing',
-  'announces', 'announce', 'announced', 'announcing', 'unveils', 'unveil', 'unveiled', 'unveiling',
-  'releases', 'release', 'released', 'releasing', 'debuted', 'debuts', 'debut', 'rolling', 'rolls', 'outs',
-  'opens', 'open', 'opening', 'raises', 'raise', 'raised', 'raising', 'secures', 'secure', 'secured',
-  'sets', 'set', 'reaches', 'reach', 'valued', 'files', 'file', 'backs', 'back', 'backed', 'acquires',
-  'acquire', 'acquired', 'new', 'first', 'latest', 'today',
-]);
+// normDedupKey / DEDUP_STOP_WORDS 已下沉至 utils/normalize.ts（2026-09-08 跨天去重共用，避免循环依赖）
 
 /** 时间窗桶（2026-08-31 批1 任务②）：以 reportDate 当天为基准分桶，跨源重复必须发生在同一时间窗才合并。
  *  reportDate 未指定时以本机今天为基准。未来时间（时区/时差）统一进 0 桶，防误并。
@@ -556,6 +562,42 @@ async function scoreImportance(evt: StandardEvent): Promise<{ score: number; too
 
 // ========== 06-08 排序理由 ==========
 
+/**
+ * 从"材料"（facts + title + description）提取可引用的数字集合。
+ * 跨天去重 P0-F1（2026-09-08）：rankReason 的 LLM 输出曾编造"讨论 120 万次/效率提升 28%/MMLU 89.2%"等
+ * 无出处数字（9-05 日报实证）。此处做输出数字溯源：LLM 理由里的数字必须能在材料中找到，
+ * 找不到即视为幻觉 → 丢弃该理由回退规则模板（宁可朴素，不可造假）。
+ */
+export function extractNumbersFromText(text: string): Set<string> {
+  const set = new Set<string>();
+  if (!text) return set;
+  // 匹配数字（含小数/百分号/千分位），去格式后收录：28、28%、89.2、120 万 等
+  for (const m of text.matchAll(/(\d+(?:[.,]\d+)?)(万|亿|%|％|k|m|K|M)?/g)) {
+    const num = m[1].replace(/[.,]/g, ''); // 千分位 154,670 → 154670；小数 89.2 → 892（保精度另存）
+    set.add(num);
+    set.add(m[0]); // 原文片段（含单位/百分号）
+    if (m[2]) set.add(`${num}${m[2].toLowerCase()}`); // 28% / 120万 的合并形
+  }
+  // 纯小数原样保留一份（89.2 → 也存 "89.2"，与输出比对更准）
+  for (const m of text.matchAll(/\d+[.,]\d+/g)) set.add(m[0].replace(',', '.'));
+  return set;
+}
+
+/** 检查文本中出现的数字是否都能在材料数字集合中找到（找得到 = 可溯源 = 非幻觉） */
+export function numbersTraceable(text: string, allowed: Set<string>): { ok: boolean; bad: string[] } {
+  const bad: string[] = [];
+  for (const m of text.matchAll(/\d+(?:[.,]\d+)?(?:万|亿|%|％|k|m|K|M)?/g)) {
+    const token = m[0];
+    if (!token) continue;
+    // 允许集合匹配：原文 token、去格式数字、单位合并形、纯小数形
+    const num = token.replace(/[.,]/g, '');
+    const unit = token.match(/(万|亿|%|％|k|m|K|M)$/)?.[1]?.toLowerCase() || '';
+    const forms = [token, num, unit ? `${num}${unit}` : '', token.replace(',', '.')];
+    if (!forms.some((f) => f && allowed.has(f))) bad.push(token);
+  }
+  return { ok: bad.length === 0, bad };
+}
+
 async function rankReason(evt: StandardEvent, rank: number): Promise<{ zh: string; en: string }> {
   const facts = buildFacts(evt);
   // 规则兜底（中英双语模板，带量化数据避免千篇一律）
@@ -564,16 +606,28 @@ async function rankReason(evt: StandardEvent, rank: number): Promise<{ zh: strin
   if (getLLM().available()) {
     // 一次调用同时产出中英理由（JSON），英文版供全球读者，中文版供国内读者
     const prompt = `一句话说明为什么该事件应入选 AI 行业日报 Top${config.topN}（第${rank}名）：${evt.title}${facts ? ' ' + facts : ''}。
+【事实红线】只允许引用上面材料中出现的数字与事实，严禁编造任何数据（如讨论量、性能提升百分比、得分、估值等）；材料没有的数字一律不得出现。
 只输出 JSON，勿输出其他内容：
-{"zh":"中文理由（30-80字，须引用具体数据，不要空泛套话）","en":"English reason (1-2 sentences, cite concrete data, idiomatic not literal translation)"}`;
+{"zh":"中文理由（30-80字，须引用材料中的具体数据，不要空泛套话）","en":"English reason (1-2 sentences, cite concrete data from the material, idiomatic not literal translation)"}`;
     try {
       const r = await getLLM().completeJson<{ zh?: string; en?: string }>(prompt, 'generate', { maxTokens: 300, retries: 1 });
       const zh = (r?.zh || '').trim();
       const en = (r?.en || '').trim();
+      // P0-F1 幻觉拦截：材料中的可引用数字集合（评分/排名属系统注入，一并放行）
+      const material = `${facts} ${evt.title} ${(evt.description || '').slice(0, 300)} ${evt.importance_score} ${rank} ${config.topN}`;
+      const allowed = extractNumbersFromText(material);
+      const zhCheck = zh ? numbersTraceable(zh, allowed) : { ok: true, bad: [] as string[] };
+      const enCheck = en ? numbersTraceable(en, allowed) : { ok: true, bad: [] as string[] };
+      if (!zhCheck.ok || !enCheck.ok) {
+        const badZh = zhCheck.bad.join(',');
+        const badEn = enCheck.bad.join(',');
+        logger.warn(`[evaluator] rankReason 幻觉拦截（回退规则理由）: 编造数字 zh=[${badZh}] en=[${badEn}] 「${evt.title.slice(0, 40)}」`);
+        return { zh: zhFallback, en: enFallback };
+      }
       // 不再硬截断到 120；仅当输出异常长（>400）时截断，避免异常输出撑爆卡片
       return {
-        zh: zh && zh.length > 400 ? zh.slice(0, 400) : (zh || zhFallback),
-        en: en && en.length > 400 ? en.slice(0, 400) : (en || enFallback),
+        zh: zh.length > 400 ? zh.slice(0, 400) : (zh || zhFallback),
+        en: en.length > 400 ? en.slice(0, 400) : (en || enFallback),
       };
     } catch {
       return { zh: zhFallback, en: enFallback };
