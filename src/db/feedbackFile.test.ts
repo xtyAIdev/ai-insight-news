@@ -18,6 +18,18 @@ import path from 'node:path';
 const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'fb-test-'));
 process.env.DB_PATH = path.join(tmpDir, 'test.db');
 
+// 动态日期（相对 now 往前推 days 天、UTC hour 点）：修复存量 bug——原硬编码
+// 2026-08-30/31 日期，随时间推移超出 weekly(7天) 窗口导致合并统计测试必失败。
+const isoDaysAgo = (days: number, hour = 10): string => {
+  const d = new Date();
+  d.setUTCDate(d.getUTCDate() - days);
+  d.setUTCHours(hour, 0, 0, 0);
+  return d.toISOString();
+};
+// 测试数据全部落在近 7 天窗口内：fb_issue_1 = 3 天前(老)、fb_issue_2 = 1 天前(新)
+const D1 = isoDaysAgo(3);
+const D2 = isoDaysAgo(1);
+
 const { appendFeedbackToFile, listFeedbackFromFile, computeQualityMetricsFromDbAndFile } = await import('./feedbackFile.js');
 const fbFile = path.join(tmpDir, 'feedback.json');
 
@@ -30,7 +42,7 @@ test('appendFeedbackToFile: 写入并读取，按 created_at 降序', () => {
     human_score: 4,
     problem_tags: ['不准确'],
     suggestion: '时间不对',
-    created_at: '2026-08-30T10:00:00.000Z',
+    created_at: D1,
   };
   const fb2 = {
     id: 'fb_issue_2',
@@ -40,7 +52,7 @@ test('appendFeedbackToFile: 写入并读取，按 created_at 降序', () => {
     human_score: 2,
     problem_tags: ['标题党'],
     suggestion: '标题夸大',
-    created_at: '2026-08-31T10:00:00.000Z',
+    created_at: D2,
   };
   appendFeedbackToFile(fb1);
   appendFeedbackToFile(fb2);
@@ -60,7 +72,7 @@ test('appendFeedbackToFile: 同 id 去重替换（可回溯）', () => {
     human_score: 5,
     problem_tags: ['其他'],
     suggestion: '改分',
-    created_at: '2026-08-31T12:00:00.000Z',
+    created_at: isoDaysAgo(1, 12),
   };
   const count = appendFeedbackToFile(fb);
   const all = listFeedbackFromFile();
@@ -78,11 +90,11 @@ test('listFeedbackFromFile: 文件不存在返回空数组', () => {
   // 恢复文件（后续测试依赖 2 条数据）
   const fb1 = {
     id: 'fb_issue_1', event_id: 'Cursor 新闻', report_id: '', agent_score: 0, human_score: 4,
-    problem_tags: ['不准确'], suggestion: '', created_at: '2026-08-30T10:00:00.000Z',
+    problem_tags: ['不准确'], suggestion: '', created_at: D1,
   };
   const fb2 = {
     id: 'fb_issue_2', event_id: 'OpenAI 新闻', report_id: '', agent_score: 0, human_score: 2,
-    problem_tags: ['标题党'], suggestion: '', created_at: '2026-08-31T10:00:00.000Z',
+    problem_tags: ['标题党'], suggestion: '', created_at: D2,
   };
   appendFeedbackToFile(fb1);
   appendFeedbackToFile(fb2);
@@ -90,7 +102,7 @@ test('listFeedbackFromFile: 文件不存在返回空数组', () => {
 
 test('computeQualityMetricsFromDbAndFile: 合并 DB+文件统计', () => {
   const dbRows = [
-    { id: 'fb_db_1', event_id: 'A', report_id: '', agent_score: 4, human_score: 4, problem_tags: ['不准确'], suggestion: '', created_at: '2026-08-30T00:00:00.000Z' },
+    { id: 'fb_db_1', event_id: 'A', report_id: '', agent_score: 4, human_score: 4, problem_tags: ['不准确'], suggestion: '', created_at: isoDaysAgo(3, 0) },
   ];
   const fileRows = listFeedbackFromFile();
   const weekly = computeQualityMetricsFromDbAndFile(dbRows, fileRows, 'weekly');
