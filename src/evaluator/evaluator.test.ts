@@ -8,9 +8,24 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildFacts, dedupCrossSource, extractNumbersFromText, numbersTraceable } from './evaluator.js';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { buildFacts, dedupCrossSource, extractNumbersFromText, numbersTraceable, applyCrossDayDedup } from './evaluator.js';
 import { normDedupKey } from '../utils/normalize.js';
+import { recordReportedTitles } from '../utils/reportMemory.js';
 import type { RawEvent, StandardEvent } from '../types/events.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const stateFile = path.resolve(__dirname, '..', '..', 'state', 'reported_titles.json');
+const stateBackup = `${stateFile}.dedup.bak`;
+
+function backupState() {
+  if (fs.existsSync(stateFile)) fs.renameSync(stateFile, stateBackup);
+}
+function restoreState() {
+  if (fs.existsSync(stateBackup)) fs.renameSync(stateBackup, stateFile);
+}
 
 function mkEvent(over: Partial<StandardEvent> & { category: StandardEvent['category'] }, raw?: RawEvent): StandardEvent {
   const base: StandardEvent = {
@@ -205,4 +220,91 @@ test('extractNumbersFromText: 提取含单位与纯数字形态', () => {
   for (const expect of ['12', '28.5', '28.5%', '154670', '154,670', '2026']) {
     assert.ok(s.has(expect), `应包含 ${expect}`);
   }
+});
+
+// ========== applyCrossDayDedup（P0-F2 pool 重构，2026-09-08 bugfix 回归） ==========
+
+function mkOS(title: string, imp: number, id?: string): StandardEvent {
+  return mkEvent({
+    event_id: id || ('os_' + Math.random().toString(36).slice(2, 8)),
+    title,
+    category: 'opensource',
+    importance_score: imp,
+    time: '2026-09-08',
+  });
+}
+
+test('applyCrossDayDedup: 剔除历史已报道，kept 事件不被复制（当日重复回归）', () => {
+  backupState();
+  try {
+    // 9-07 已上报 lobehub（标题归一化后与 9-08 候选一致）→ 9-08 候选里 lobehub 应被剔除
+    recordReportedTitles('2026-09-07', {
+      opensource: [{ event: { title: 'lobehub：chief agent operator organizing agents', category: 'opensource' } }],
+    });
+    // 9-08 当天 pool：一条历史 lobehub（会被剔除）+ hermes/unsloth 两条新事件（kept）
+    const lobe = mkOS('lobehub：chief agent operator organizing agents', 95);
+    const hermes = mkOS('hermes webui best way to use hermes agent', 90);
+    const unsloth = mkOS('unsloth local ui to run train llms', 85);
+    const pool = [lobe, hermes, unsloth];
+    const { pool: out, stats } = applyCrossDayDedup(pool, '2026-09-08');
+    // 只剔除 lobehub（历史已报道）；hermes/unsloth 是 kept，必须各保留恰好 1 份
+    assert.equal(stats.length, 1, '仅 opensource 有剔除');
+    assert.equal(stats[0].dropped, 1, '剔除 1 条历史 lobehub');
+    assert.equal(out.length, 2, '保留 hermes + unsloth 各 1 份，不复制');
+    const titles = out.map((e) => e.title);
+    assert.equal(titles.filter((t) => t.includes('hermes')).length, 1, 'hermes 恰好 1 条（防复制回归）');
+    assert.equal(titles.filter((t) => t.includes('unsloth')).length, 1, 'unsloth 恰好 1 条');
+    assert.ok(!titles.some((t) => t.includes('lobehub')), 'lobehub 已被剔除');
+  } finally {
+    restoreState();
+  }
+});
+
+test('applyCrossDayDedup: kept 事件在 pool 中不被复制（即使同模块有事件被剔除）', () => {
+  backupState();
+  try {
+    // 真实 bug 场景：9-08 模块内同时有「历史已报道的 A」与「新事件 B/C」，
+    // 旧实现 filter 保留 B/C + 追加 B/C → B/C 复制成两份。此处验证 B 只留 1 份。
+    recordReportedTitles('2026-09-07', {
+      opensource: [{ event: { title: 'old repo reported yesterday', category: 'opensource' } }],
+    });
+    const oldRepo = mkOS('old repo reported yesterday', 50);
+    const b = mkOS('brand new repo B shines today', 88);
+    const c = mkOS('brand new repo C shines today', 86);
+    const { pool: out, stats } = applyCrossDayDedup([oldRepo, b, c], '2026-09-08');
+    assert.equal(stats[0].dropped, 1, '仅剔除 oldRepo');
+    assert.equal(out.length, 2, 'B/C 各 1 份');
+    assert.equal(out.filter((e) => e.title.includes('B')).length, 1, 'B 不被复制');
+    assert.equal(out.filter((e) => e.title.includes('C')).length, 1, 'C 不被复制');
+  } finally {
+    restoreState();
+  }
+});
+
+test('applyCrossDayDedup: 模块全被历史挡住时保留最高分 1 条兜底', () => {
+  backupState();
+  try {
+    // 9-07 两条都已上报 → 9-08 同标题两条候选全命中历史
+    recordReportedTitles('2026-09-07', {
+      opensource: [
+        { event: { title: 'A repo', category: 'opensource' } },
+        { event: { title: 'A repo variant', category: 'opensource' } },
+      ],
+    });
+    const a = mkOS('A repo', 80);
+    const b = mkOS('A repo variant', 70);
+    const { pool: out, stats } = applyCrossDayDedup([a, b], '2026-09-08');
+    assert.equal(stats[0].dropped, 2, '两条都是历史已报道');
+    assert.equal(out.length, 1, '兜底保留 1 条');
+    assert.equal(out[0].importance_score, 80, '保留最高分者');
+  } finally {
+    restoreState();
+  }
+});
+
+test('applyCrossDayDedup: 无 reportDate 时不过滤（保持原池）', () => {
+  const a = mkOS('whatever repo', 80);
+  const { pool: out, stats } = applyCrossDayDedup([a], undefined);
+  assert.equal(stats.length, 0);
+  assert.equal(out.length, 1);
 });

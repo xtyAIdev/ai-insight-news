@@ -184,26 +184,10 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
   // 记忆存 state/reported_titles.json（随仓库提交，workflow git add -f state/ 持久化），
   // 与 star_snapshots.json 同模式；仅当有历史记忆且报告日明确时才过滤。
   // 过滤后若某模块被清空，允许保留最高分 1 条兜底（避免"昨日唯一大新闻"今天整模块空置）。
-  const dedupStats: Array<{ module: string; dropped: number }> = [];
-  if (reportDate && modules.length > 0) {
-    for (const module of modules) {
-      const moduleEventsAll = pool.filter((e) => e.category === module);
-      const { kept, dropped: droppedHist } = filterAlreadyReported(moduleEventsAll, reportDate);
-      if (droppedHist.length > 0) {
-        dedupStats.push({ module, dropped: droppedHist.length });
-        if (kept.length === 0 && moduleEventsAll.length > 0) {
-          // 全被历史记忆挡住：保留最高分 1 条（宁可当日重复一条，不让整模块空置）
-          pool = [...pool.filter((e) => e.category !== module), moduleEventsAll[0]];
-          logger.info(`[evaluator] 跨天去重：${module} 候选全为已报道（${droppedHist.length} 条），保留最高分 1 条兜底「${moduleEventsAll[0].title}」`);
-        } else {
-          const keptIds = new Set(kept.map((e) => e.event_id));
-          pool = [...pool.filter((e) => e.category !== module || keptIds.has(e.event_id)), ...kept];
-        }
-      }
-    }
-    if (dedupStats.length > 0) {
-      logger.info(`[evaluator] 跨天去重：剔除历史已报道 ${dedupStats.map((s) => `${s.module}-${s.dropped}`).join(',')} 条`);
-    }
+  const { pool: dedupPool, stats: dedupStats } = applyCrossDayDedup(pool, reportDate);
+  pool = dedupPool;
+  if (dedupStats.length > 0) {
+    logger.info(`[evaluator] 跨天去重：剔除历史已报道 ${dedupStats.map((s) => `${s.module}-${s.dropped}`).join(',')} 条`);
   }
   pool.sort((a, b) => b.importance_score - a.importance_score);
 
@@ -237,6 +221,46 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
 
   logger.info(`[evaluator] 评估完成：通过 ${evaluated.length}，丢弃 ${dropped.length}，按模块 TopN ${modules.map((m) => `${m}:${(topNByModule[m] || []).length}`).join(',')}`);
   return { events: evaluated, dropped, topN: topNList, topNByModule };
+}
+
+/**
+ * 跨天去重（P0-F2 的 pool 重构逻辑，抽成纯函数便于单测）。
+ *
+ * 对每个模块：剔除"回看窗口内已上报"的历史重复事件；若某模块被全清，
+ * 保留该模块最高分 1 条兜底（避免"昨日唯一大新闻"今日整模块空置）。
+ *
+ * @returns pool 过滤后的事件池 + 各模块剔除统计。
+ *
+ * 2026-09-08 bugfix：原实现 `pool = [...pool.filter(keptIds 命中), ...kept]` 会把 kept（新事件，
+ * 本就在 pool 中）复制成两份 → 当天日报同模块出现两条相同条目且双双写入去重记忆
+ * （9-08 开源 lobehub/Hermes、企业阿里/字节均中招）。现改为只剔除 droppedIds，kept 保持原位。
+ */
+export function applyCrossDayDedup<T extends StandardEvent>(
+  pool: T[],
+  reportDate?: string,
+): { pool: T[]; stats: Array<{ module: string; dropped: number }> } {
+  if (!reportDate) return { pool, stats: [] };
+  const modules = Array.from(new Set(pool.map((e) => e.category)));
+  if (modules.length === 0) return { pool, stats: [] };
+
+  let cur = pool;
+  const stats: Array<{ module: string; dropped: number }> = [];
+  for (const module of modules) {
+    const moduleEventsAll = cur.filter((e) => e.category === module);
+    const { kept, dropped: droppedHist } = filterAlreadyReported(moduleEventsAll, reportDate);
+    if (droppedHist.length === 0) continue;
+    stats.push({ module, dropped: droppedHist.length });
+    if (kept.length === 0 && moduleEventsAll.length > 0) {
+      // 全被历史记忆挡住：保留最高分 1 条（宁可当日重复一条，不让整模块空置）
+      cur = [...cur.filter((e) => e.category !== module), moduleEventsAll[0]];
+      logger.info(`[evaluator] 跨天去重：${module} 候选全为已报道（${droppedHist.length} 条），保留最高分 1 条兜底「${moduleEventsAll[0].title}」`);
+    } else {
+      // 只剔除 dropped；kept 本就在 cur 中，保持原位不复制（防同模块当天重复）
+      const droppedIds = new Set(droppedHist.map((e) => e.event_id));
+      cur = cur.filter((e) => e.category !== module || !droppedIds.has(e.event_id));
+    }
+  }
+  return { pool: cur, stats };
 }
 
 /**
