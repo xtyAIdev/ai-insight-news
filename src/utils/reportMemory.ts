@@ -27,10 +27,11 @@ import { config } from '../config/index.js';
 import { logger } from './logger.js';
 import { normDedupKey } from './normalize.js';
 
-/** 模块回看窗口（天）：与 evaluator 时间窗一致，控制"多久内的已报道算重复" */
+/** 模块回看窗口（天）：与 evaluator Phase 3 展示窗口一致，控制"多久内的已报道算重复"
+ *  - enterprise 2026-09-08 P2-2：展示窗放宽到 5 天后，回看也 3→5，避免 3-5 天前事件隔天重报 */
 const LOOKBACK_DAYS: Record<string, number> = {
   paper: 7,
-  enterprise: 3,
+  enterprise: 5,
   opensource: 1,
 };
 

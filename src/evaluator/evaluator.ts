@@ -57,7 +57,8 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
     // 日期真实性：time 为空或已过期（非报告当天）→ date_missing（禁止未知日期默认今天）
     // 时间窗策略（2026-08-25 完善，解决企业模块当天无新闻导致整模块为空/旧闻混入）：
     //   - paper：近 7 天提交窗口（arXiv submittedDate 索引延迟，需求规格 3.4 按分类+日期检索）
-    //   - enterprise：近 3 天窗口（官方源发布有 1-3 天延迟，当天往往无新动态；但超过 3 天的旧闻不混入日报）
+    //   - enterprise：近 5 天窗口（官方源发布有 1-3 天延迟，当天往往无新动态；2026-09-08 P2-2
+    //     从 3 天放宽到 5 天 —— Phase 3 仍优先 3 天、不足 2 条才扩 5 天，这里多留候选不浪费 LLM）
     //   - opensource：严格当天（GitHub pushed_at 是实时的，不存在延迟）
     // 日报每条仍显式标注真实时间（如 8-24），绝不把历史事件标成"今天"。
     // （2026-08-26 成本修复：窗口判定从 Phase 3 前置到此 —— Phase 3 本就不使用出窗事件作回退，
@@ -65,7 +66,7 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
     const windowOk = !reportDate ? !!evt.time : evt.category === 'paper'
       ? !isOutsideWindow(evt.time, reportDate, 7)
       : evt.category === 'enterprise'
-        ? !isOutsideWindow(evt.time, reportDate, 3)
+        ? !isOutsideWindow(evt.time, reportDate, 5)
         : evt.time === reportDate;
     if (!windowOk) {
       evt.status = 'dropped';
@@ -155,11 +156,17 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
   // 注意：过滤在排序后、按模块分组前执行，确保 TopN 都在各自窗口内且日期真实标注
   let pool = evaluated;
   if (reportDate) {
-    const dayPool = evaluated.filter((e) => e.category === 'paper'
-      ? !isOutsideWindow(e.time, reportDate, 7)
-      : e.category === 'enterprise'
-        ? !isOutsideWindow(e.time, reportDate, 3)
-        : e.time === reportDate);
+    // 企业"低量扩窗"（2026-09-08 P2-2）：先按近 3 天取；若企业候选不足 2 条（9-05/9-06 当天仅 0-1 条），
+    // 放宽到近 5 天补足——日报每条显式标注真实时间（**时间**字段），扩窗≠伪装当天，符合用户时间真实性硬约束。
+    const paperPool = evaluated.filter((e) => e.category === 'paper' && !isOutsideWindow(e.time, reportDate, 7));
+    const osPool = evaluated.filter((e) => e.category === 'opensource' && e.time === reportDate);
+    const ent3d = evaluated.filter((e) => e.category === 'enterprise' && !isOutsideWindow(e.time, reportDate, 3));
+    const ent5d = evaluated.filter((e) => e.category === 'enterprise' && !isOutsideWindow(e.time, reportDate, 5));
+    const entPool = ent3d.length >= 2 ? ent3d : ent5d;
+    if (ent3d.length < 2 && ent5d.length > ent3d.length) {
+      logger.info(`[evaluator] 企业低量扩窗：近3天仅 ${ent3d.length} 条 <2，扩至近5天取 ${ent5d.length} 条候选（时间仍真实标注）`);
+    }
+    const dayPool = [...paperPool, ...osPool, ...entPool];
     if (dayPool.length > 0) {
       pool = dayPool;
     } else {
@@ -600,13 +607,20 @@ export function numbersTraceable(text: string, allowed: Set<string>): { ok: bool
 
 async function rankReason(evt: StandardEvent, rank: number): Promise<{ zh: string; en: string }> {
   const facts = buildFacts(evt);
-  // 规则兜底（中英双语模板，带量化数据避免千篇一律）
-  const zhFallback = `综合评分 ${evt.importance_score}，真实性与质量经 LLM 校验通过${facts ? '；' + facts.replace(/[（）]/g, '') : ''}`;
-  const enFallback = `Composite score ${evt.importance_score}, verified for authenticity and quality${facts ? '; ' + facts.replace(/[（）]/g, '') : ''}`;
+  // 规则兜底（中英双语模板，直接引用量化事实，不带"入选"套话）
+  const zhFallback = facts
+    ? `综合评分 ${evt.importance_score}${facts.replace(/[（）]/g, '')}`
+    : `综合评分 ${evt.importance_score}，真实性 ${evt.accuracy_score}，质量经校验通过`;
+  const enFallback = facts
+    ? `Composite score ${evt.importance_score}${facts.replace(/[（）]/g, '')}`
+    : `Composite score ${evt.importance_score}, authenticity ${evt.accuracy_score}, quality verified`;
   if (getLLM().available()) {
     // 一次调用同时产出中英理由（JSON），英文版供全球读者，中文版供国内读者
-    const prompt = `一句话说明为什么该事件应入选 AI 行业日报 Top${config.topN}（第${rank}名）：${evt.title}${facts ? ' ' + facts : ''}。
+    // P2-1 去模板化：引导语不再出现"应入选 TopN"（LLM 会复述该句，形成"应入选日报Top5"模板尾巴）；
+    // 显式要求"直接讲价值、不要入选结论句"。
+    const prompt = `用一句话说明这条事件在 AI 行业里的价值或看点（第${rank}名候选）：${evt.title}${facts ? ' ' + facts : ''}。
 【事实红线】只允许引用上面材料中出现的数字与事实，严禁编造任何数据（如讨论量、性能提升百分比、得分、估值等）；材料没有的数字一律不得出现。
+【去模板】直接陈述事件价值（里程碑/数据亮点/行业影响/趋势信号），禁止"应入选/值得入选/入选TopN/进日报"这类结论套话，禁止重复排名。
 只输出 JSON，勿输出其他内容：
 {"zh":"中文理由（30-80字，须引用材料中的具体数据，不要空泛套话）","en":"English reason (1-2 sentences, cite concrete data from the material, idiomatic not literal translation)"}`;
     try {

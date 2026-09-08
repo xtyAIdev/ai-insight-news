@@ -270,7 +270,21 @@ function extractInstitution(authorStr: string, comment?: string): string | undef
 }
 
 function extractInfluenceHint(comment: string): string | undefined {
-  if (/accepted|accept/i.test(comment)) return '顶会录用';
+  // P2-1 去模板化：原实现一律标"顶会录用"，arXiv 评论大量含 accepted → 5 天 43 次重复模板。
+  // 改进：优先提取具体会议/期刊名（accepted by ACL 2026 → "ACL 2026 录用"），信息量更高且天然去重；
+  // 提取不到会议名才退回通用"顶会录用"。
+  if (/accepted|accept/i.test(comment)) {
+    // ① 已知会议名单（含可选年份）优先 —— arXiv 评论绝大多数是 "Accepted by ACL 2026" 这类
+    const KNOWN = /((?:ACL|EMNLP|NAACL|ICML|ICLR|NeurIPS|CVPR|ICCV|ECCV|AAAI|IJCAI|KDD|SIGIR|ACMMM|COLING|CoRL|RSS|WWW|CIKM|WSDM)\s*(?:20\d{2}|'\d{2})?)/i;
+    const known = comment.match(KNOWN);
+    if (known) return `${known[1].trim()} 录用`;
+    // ② 兜底简单场景：accepted for/in/by/to + 出版形态短语（避免 "to appear"、"for publication" 误抓）
+    const m = comment.match(/accepted\s+(?:by|to|at|for|in)\s+(?:(?:the|a)\s+)?([A-Z][A-Za-z0-9+\-.]{2,})/);
+    if (m && !/^(appear|publication|proceedings|conference|journal|workshop)$/i.test(m[1])) {
+      return `${m[1].trim()} 录用`;
+    }
+    return '顶会录用';
+  }
   if (/sota|state-of-the-art|state of the art/i.test(comment)) return '疑似 SOTA';
   return undefined;
 }

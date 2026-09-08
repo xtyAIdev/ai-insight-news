@@ -346,14 +346,20 @@ async function parseRssEvents(xml: string, company: string, sourceType = 'offici
     // 用户硬约束：未知日期不默认今天 —— 无 URL 日期且无 pubDate 时留空（评估层 date_missing 拦截）
     const urlDate = urlDateOf(link);
     const published = urlDate || parseFlexibleDate(rawDate) || '';
+    // P2-4 空壳防护（2026-09-08）：9-07 OpenAI 两条空壳正文源于详情页 403 → content 留空 →
+    // reporter 规则兜底只能复述标题。先取 RSS description/摘要作 content 初值（多数官方 feed 带摘要），
+    // 详情页抓取成功会覆盖（下方已有 length 比较保护）；彻底无摘要无详情时 content 为空，评估层仍能拦截。
+    const descSnippet = stripTags((block.match(/<description[^>]*>([\s\S]*?)<\/description>/i) || [])[1] || '')
+      .replace(/<!\[CDATA\[|\]\]>/g, '')
+      .slice(0, 400);
     items.push({
       module: 'enterprise',
       sub_type: 'product',
       company: normalizeCompany(company),
       title,
       published_at: published,
-      // 正文：优先抓详情页正文（真正行业事件，不是博客搬运）；抓取失败回退标题
-      content: '',
+      // 正文：RSS 摘要打底 → 详情页正文抓取覆盖（真正行业事件，不是博客搬运）；都失败则留空由下游拦截
+      content: descSnippet || '',
       fields: {},
       related_event_ids: [],
       source_urls: [{
@@ -613,6 +619,17 @@ async function fetchMediaSource(t: { name: string; url: string; lang: 'en' | 'zh
           .some((n) => n.length >= 2 && text.includes(n.toLowerCase())),
       );
       if (!matched) continue; // 媒体源只采集企业池相关事件
+      // P2-3 标题级相关性二次校验（2026-09-08）：摘要/正文顺带提及公司名 ≠ 该事件属这家公司。
+      // 归属仅凭"标题+摘要"命中会张冠李戴（机器之心/TechCrunch 摘要常提及多家公司）。
+      // 强校验：标题本身必须命中公司别名（区分大小写放宽、容忍英文品牌名大小写变体），否则丢弃。
+      const titleText = item.title.toLowerCase();
+      const titleHit = [matched.company, ...matched.aliases]
+        .filter((n) => !LOW_DISCRIMINATIVE_ALIASES.has(n.toLowerCase()))
+        .some((n) => n.length >= 2 && titleText.includes(n.toLowerCase()));
+      if (!titleHit) {
+        logger.debug(`[enterprise] 媒体源 ${t.name} 标题无关跳过（仅摘要提及）: ${item.title.slice(0, 60)} → 归属 ${matched.company}`);
+        continue;
+      }
       // 噪音过滤只看标题：snippet 会误触发 offer/行情 等规则（实测误杀 OpenAI Jalapeño 报道）
       if (MEDIA_NOISE_PATTERNS.some((re) => re.test(item.title))) {
         logger.debug(`[enterprise] 媒体源 ${t.name} 噪音跳过: ${item.title.slice(0, 60)}`);
