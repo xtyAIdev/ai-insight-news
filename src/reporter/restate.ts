@@ -250,6 +250,8 @@ interface LlmRestateItem {
   body: string;
   module: string;
   facts?: string;
+  /** P3-2 洞察层唤醒：insight.why/trend/impact 拼接（评估阶段已生成的分析，零额外成本传入重述） */
+  insight?: string;
 }
 
 /**
@@ -275,7 +277,15 @@ export async function restateEvents(events: StandardEvent[]): Promise<Map<string
   const tasks: Array<{ evt: StandardEvent; item: LlmRestateItem }> = needRestate.map((e) => ({
     evt: e,
     // 2026-08-27 修复截断：正文输入从 400 提到 1500 字符（论文摘要常 800-2000 字，400 截断导致重述信息不全）
-    item: { title: e.title, body: (e.description || '').slice(0, 1500), module: e.category, facts: buildFacts(e) || undefined },
+    item: {
+      title: e.title,
+      body: (e.description || '').slice(0, 1500),
+      module: e.category,
+      facts: buildFacts(e) || undefined,
+      // P3-2 洞察层唤醒：五维洞察 why/trend/impact 已在评估阶段生成（原仅用于排序后丢弃），
+      // 拼接传入重述 prompt，让正文自然带上"为什么重要"层——零额外 LLM 成本。
+      insight: insightSummary(e),
+    },
   }));
 
   let cursor = 0;
@@ -295,6 +305,20 @@ export async function restateEvents(events: StandardEvent[]): Promise<Map<string
   return result;
 }
 
+/**
+ * P3-2 洞察层唤醒：把五维洞察 why/trend/impact 拼成一行参考材料。
+ * 全部为空/纯英文（中文重述场景无法直接用）时返回 undefined。
+ */
+function insightSummary(evt: StandardEvent): string | undefined {
+  const i = evt.insight;
+  if (!i) return undefined;
+  const parts = [i.why, i.trend, i.impact]
+    .map((s) => (s || '').trim())
+    .filter((s) => s.length > 0 && isChineseText(s));
+  const joined = parts.join('；');
+  return joined.length > 0 ? joined.slice(0, 300) : undefined;
+}
+
 /** 单条 LLM 重述；失败返回 null（调用方规则兜底） */
 async function restateOne(item: LlmRestateItem): Promise<RestateResult | null> {
   const prompt = `你是 AI 行业市场洞察编辑。将以下事件改写成中文，要求：
@@ -305,15 +329,18 @@ async function restateOne(item: LlmRestateItem): Promise<RestateResult | null> {
 - 原材料未提及发布/更新/版本变更时，严禁使用"发布了""更新了""新版本""此次更新"等表述（仓库近期有 push 不等于发布了新版本）
 - 严禁编造性能数据、合作方、时间线等任何原材料没有的细节
 - 快评中的判断须标注为推断（如"若…则可能…"），不得写成既成事实
+【影响层】若提供了"影响分析"材料，在正文末尾用 1 句自然融入"这件事为什么重要/意味着什么"（不要照抄，不要以"影响分析："开头）；材料空洞或与事实冲突时忽略，严禁因此编造。
 只输出 JSON：{"title":"中文标题","body":"中文正文","comment":"快评"}
 
 模块：${item.module}
-${item.facts ? `量化数据：${item.facts}\n` : ''}原标题：${item.title}
+${item.facts ? `量化数据：${item.facts}\n` : ''}${item.insight ? `影响分析（供参考，须服从事实红线）：${item.insight}\n` : ''}原标题：${item.title}
 原正文：${item.body || '（无）'}`;
 
   return withLLMFallback(
     async () => {
-      const r = await getLLM().completeJson<{ title?: string; body?: string; comment?: string }>(prompt, 'generate', { maxTokens: 1000, retries: 1 });
+      // P3-1：maxTokens 1000 → 1500。根因：标题+3-5句正文+快评的 JSON 在长正文时被 1000 截断，
+      // JSON.parse 失败 → 整条降级规则重述（日报变薄的直接根因）。1500 提供安全余量。
+      const r = await getLLM().completeJson<{ title?: string; body?: string; comment?: string }>(prompt, 'generate', { maxTokens: 1500, retries: 1 });
       if (!r) return null;
       const title = (r.title || '').trim();
       const body = (r.body || '').trim();

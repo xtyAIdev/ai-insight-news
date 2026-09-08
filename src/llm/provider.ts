@@ -95,11 +95,48 @@ class OpenAICompatibleProvider implements LLMProvider {
       // 尝试提取第一个 { ... } 块
       const m = raw.match(/\{[\s\S]*\}/);
       if (m) {
-        try { return JSON.parse(m[0]) as T; } catch { return null; }
+        try { return JSON.parse(m[0]) as T; } catch { /* fallthrough */ }
+      }
+      // 截断修复（2026-09-08 P3-1）：max_tokens 截断导致 JSON 缺尾（右引号/右括号），
+      // 逐层补齐引号+括号后重试解析；仍失败才返回 null（上层规则兜底）。
+      const repaired = repairTruncatedJson(raw);
+      if (repaired) {
+        try { return JSON.parse(repaired) as T; } catch { /* fallthrough */ }
       }
       return null;
     }
   }
+}
+
+/**
+ * 截断 JSON 修复（P3-1）：检测字符串/对象未闭合并补齐尾部。
+ * 策略：扫描字符流跟踪字符串内/转义状态与括号栈；到末尾时按需补 `"}`/`]`/`}`。
+ * 只做结构修复，不猜内容——修复后 parse 仍失败则放弃（调用方兜底）。
+ */
+export function repairTruncatedJson(raw: string): string | null {
+  const s = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
+  const start = s.indexOf('{');
+  if (start < 0) return null;
+  const body = s.slice(start);
+  // 末尾已是完整 JSON 就不需要修复
+  try { JSON.parse(body); return body; } catch { /* continue */ }
+
+  let inStr = false;
+  let escaped = false;
+  const stack: string[] = [];
+  for (const ch of body) {
+    if (escaped) { escaped = false; continue; }
+    if (ch === '\\') { escaped = true; continue; }
+    if (ch === '"') { inStr = !inStr; continue; }
+    if (inStr) continue;
+    if (ch === '{' || ch === '[') stack.push(ch === '{' ? '}' : ']');
+    else if (ch === '}' || ch === ']') stack.pop();
+  }
+  let fixed = body;
+  if (inStr) fixed += '"';           // 补未闭合的字符串
+  // 补齐未闭合括号（栈序）
+  while (stack.length > 0) fixed += stack.pop();
+  return fixed;
 }
 
 // ========== 规则引擎降级实现 ==========

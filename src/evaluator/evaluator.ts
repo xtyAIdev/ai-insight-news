@@ -116,7 +116,8 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
         updateEventStatus(evt.event_id, 'evaluated', evt.importance_score);
         return evt;
       }
-      // 候选：LLM 真实性判断 → 不足则 Reflection → LLM 评分
+      // 候选：LLM 单次合并评估（P3-3：原 judge→score 两次串行调用合并为一次 JSON 输出，
+      // 省 ~1/2 候选 LLM 往返；真实性与重要性共享同一份材料 title+desc+facts+sources）
       const accuracy = await judgeAccuracy(evt, ruleAcc);
       evt.accuracy_score = accuracy.score;
       evt.trace_log.push({ stage: 'accuracy', timestamp: new Date().toISOString(), tool: accuracy.tool, detail: accuracy.reason });
@@ -136,14 +137,15 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
         return null;
       }
 
-      const importance = await scoreImportance(evt);
+      const importance = await scoreImportance(evt, accuracy.importance, accuracy.importanceReason);
       evt.importance_score = importance.score;
       evt.trace_log.push({ stage: 'score', timestamp: new Date().toISOString(), tool: importance.tool, detail: `importance=${importance.score}` });
 
       evt.status = 'evaluated';
       updateEventStatus(evt.event_id, 'evaluated', importance.score);
       return evt;
-    }));    for (const s of settled) {
+    }));
+    for (const s of settled) {
       if (s.status === 'fulfilled' && s.value) evaluated.push(s.value);
       else if (s.status === 'rejected') logger.warn(`[evaluator] 评估异常: ${s.reason instanceof Error ? s.reason.message : s.reason}`);
     }
@@ -191,6 +193,10 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
   }
   pool.sort((a, b) => b.importance_score - a.importance_score);
 
+  // P3-6 rankReason 并发化（2026-09-08）：原实现逐条串行 await（TopN 15 条 = 15 次串行 LLM 往返，
+  // 报告阶段平白多几十秒）。先收集全部 (evt, rank) 任务（rank 已定，顺序无关），再用 worker 池并发
+  // （同 restate 4 并发模式）。saveHighQuality/updateEventStatus 在结果回收时按模块写入，保持原语义。
+  const reasonTasks: Array<{ module: string; evt: StandardEvent; rank: number }> = [];
   for (const module of modules) {
     let moduleEvents = pool.filter((e) => e.category === module);
     // 企业动态模块：投融资与产品动态是双分支，保底 1 席投融资（避免被产品事件完全挤出）
@@ -202,13 +208,30 @@ export async function evaluateEvents(events: StandardEvent[], topN: number, repo
       }
     }
     moduleEvents = moduleEvents.slice(0, topN);
-    const moduleTop: Array<{ event: StandardEvent; reason: string; reason_en?: string }> = [];
     for (let i = 0; i < moduleEvents.length; i++) {
-      const evt = moduleEvents[i];
-      const reasonPair = await rankReason(evt, i + 1);
-      saveHighQuality(evt.event_id, evt.category, i + 1, reasonPair.zh);
-      updateEventStatus(evt.event_id, 'reported');
-      moduleTop.push({ event: evt, reason: reasonPair.zh, reason_en: reasonPair.en });
+      reasonTasks.push({ module, evt: moduleEvents[i], rank: i + 1 });
+    }
+  }
+
+  const reasonResults = new Map<string, { zh: string; en: string }>();
+  let reasonCursor = 0;
+  async function reasonWorker() {
+    while (reasonCursor < reasonTasks.length) {
+      const task = reasonTasks[reasonCursor++];
+      const reasonPair = await rankReason(task.evt, task.rank);
+      saveHighQuality(task.evt.event_id, task.evt.category, task.rank, reasonPair.zh);
+      updateEventStatus(task.evt.event_id, 'reported');
+      reasonResults.set(task.evt.event_id, reasonPair);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(4, reasonTasks.length) }, reasonWorker));
+
+  for (const module of modules) {
+    const moduleTop: Array<{ event: StandardEvent; reason: string; reason_en?: string }> = [];
+    for (const task of reasonTasks.filter((t) => t.module === module)) {
+      const reasonPair = reasonResults.get(task.evt.event_id);
+      if (!reasonPair) continue;
+      moduleTop.push({ event: task.evt, reason: reasonPair.zh, reason_en: reasonPair.en });
     }
     topNByModule[module] = moduleTop;
     topNList.push(...moduleTop);
@@ -372,7 +395,14 @@ function ruleFilter(evt: StandardEvent): boolean {
 
 // ========== 06-04 真实性判断 ==========
 
-async function judgeAccuracy(evt: StandardEvent, ruleAcc?: { score: number; reason: string }): Promise<{ score: number; reason: string; tool: string }> {
+/**
+ * 真实性判断 + 重要性评估合并单次调用（P3-3）：
+ * 原实现 judge→score 两次串行 LLM 往返（材料几乎相同），合并为一次 JSON 输出。
+ * importance 在调用方通过 accuracy.importance 消费——真实性不足被丢弃时浪费的只是
+ * JSON 里几个 token，远比多一次完整往返便宜。LLM 失败/无 LLM 时 importance 为 undefined，
+ * scoreImportance 回退规则分。
+ */
+async function judgeAccuracy(evt: StandardEvent, ruleAcc?: { score: number; reason: string }): Promise<{ score: number; reason: string; tool: string; importance?: number; importanceReason?: string }> {
   const ruleResult = ruleAcc ?? accuracyByRule(evt.source);
 
   if (!getLLM().available()) {
@@ -382,17 +412,21 @@ async function judgeAccuracy(evt: StandardEvent, ruleAcc?: { score: number; reas
   // 真实性判断注入量化事实（2026-08-31 批1 任务①）：star/引用/金额等结构化数据随 prompt 给 LLM，
   // 让"信息具体可查证"有据可依，避免无数据时凭空评估（与 scoreImportance/rankReason 的 buildFacts 用法一致）
   const facts = buildFacts(evt);
+  const dimensionGuide = importanceDimensionFor(evt);
 
-  const prompt = `你是情报真实性审核员。基于以下事件及其来源证据，判断真实性并输出 0-5 分 JSON：
-{"score":0.0,"reason":"一句话理由"}
-评分标准：
+  const prompt = `你是 AI 行业情报审核员，对以下事件同时完成两项评估，只输出一个 JSON：
+{"accuracy":0.0,"accuracyReason":"真实性一句话理由","importance":0.0,"importanceReason":"重要性一句话理由"}
+【第一项：真实性】0-5 分：
 - 5 分：官方公告/一手原文，信息具体可查证
 - 4 分：权威媒体（TechCrunch/The Verge/路透/新华社等）报道
 - 3 分：一般媒体报道，信息合理可信
 - 2 分：来源不明或信息模糊
 - 0-1 分：明显编造/谣言/标题党无实质内容
-重要规则：以下"规则参考分"基于来源可信度自动计算，若规则分 >= 3，说明来源有基本可信度，除非信息本身明显矛盾或荒谬，否则不应判为 0-1 分（来源 URL 陌生不代表假新闻）。
-规则参考分：${ruleResult.score}（${ruleResult.reason}）
+重要规则：规则参考分基于来源可信度自动计算，若规则分 >= 3，说明来源有基本可信度，除非信息本身明显矛盾或荒谬，否则不应判为 0-1 分（来源 URL 陌生不代表假新闻）。
+【第二项：重要性】0-5 分：
+${dimensionGuide}
+评分时参考真实性：真实性 <2 的事件重要性不应超过 2。
+规则参考分：真实性 ${ruleResult.score}（${ruleResult.reason}）、重要性 ${importanceByRule({ accuracy: ruleResult.score, source: evt.source, sub_tags: evt.sub_tags, category: evt.category, hasInsight: !!evt.insight?.what, hasDate: !!evt.time })}（规则仅参考，可推翻但需说明）
 事件：${evt.title}
 描述：${evt.description.slice(0, 400)}
 ${facts ? `量化数据：${facts}` : ''}
@@ -400,12 +434,18 @@ ${facts ? `量化数据：${facts}` : ''}
 
   const result = await withLLMFallback(
     async () => {
-      const r = await getLLM().completeJson<{ score: number; reason: string }>(prompt, 'judge');
-      if (!r || typeof r.score !== 'number') return null;
-      return { score: Math.max(0, Math.min(5, r.score)), reason: r.reason || '', tool: 'llm' };
+      const r = await getLLM().completeJson<{ accuracy?: number; accuracyReason?: string; importance?: number; importanceReason?: string }>(prompt, 'judge', { maxTokens: 400, retries: 1 });
+      if (!r || typeof r.accuracy !== 'number') return null;
+      return {
+        score: Math.max(0, Math.min(5, r.accuracy)),
+        reason: r.accuracyReason || '',
+        tool: 'llm-combined',
+        importance: typeof r.importance === 'number' ? Math.max(0, Math.min(5, r.importance)) : undefined,
+        importanceReason: r.importanceReason || '',
+      };
     },
     async () => ({ ...ruleResult, tool: 'rule-fallback' }),
-    '真实性判断',
+    '真实性+重要性合并评估',
   );
   return result;
 }
@@ -460,8 +500,18 @@ async function reflection(
   }
 
   // ②③ LLM 重判兜底（避免免费搜索源受限时误杀真实事件）
+  // P3-5 误杀修复（2026-09-08）：原重判 prompt 只给标题+URL，无描述无量化数据 —— LLM 无从判断
+  // 内容合理性，导致陌生域名真实新闻被误杀。现注入描述（400 字）+ buildFacts 量化事实，与首轮同规格。
   if (getLLM().available()) {
-    const prompt = `重新评估该事件真实性（Reflection 查证后第 2 次判断）。事件：${evt.title}。来源：${evt.source.map((s) => s.url).join('; ')}。当前分 ${score}。规则参考分：${accuracyByRule(evt.source).score}（${accuracyByRule(evt.source).reason}）。注意：来源 URL 陌生不代表假新闻，若内容合理且来源有基本可信度应给 3 分以上。请判断是否可信，输出 JSON {"score":0.0,"reason":"..."}`;
+    const facts = buildFacts(evt);
+    const ruleAcc = accuracyByRule(evt.source);
+    const prompt = `重新评估该事件真实性（Reflection 查证后第 2 次判断）。
+事件：${evt.title}
+描述：${evt.description.slice(0, 400)}
+${facts ? `量化数据：${facts}` : ''}
+来源：${evt.source.map((s) => `${s.name}(${s.source_type}):${s.url}`).join('; ')}
+当前分 ${score}。规则参考分：${ruleAcc.score}（${ruleAcc.reason}）。
+注意：来源 URL 陌生不代表假新闻，若内容合理且来源有基本可信度应给 3 分以上；结合描述内容与量化数据判断信息是否自洽合理。输出 JSON {"score":0.0,"reason":"..."}`;
     const r = await getLLM().completeJson<{ score: number; reason: string }>(prompt, 'judge');
     if (r && typeof r.score === 'number') {
       score = Math.max(0, Math.min(5, r.score));
@@ -530,39 +580,42 @@ export function buildFacts(evt: StandardEvent): string {
   return parts.length ? `（事件数据：${parts.join('，')}）` : '';
 }
 
-/** 各领域的评分 prompt（差异化标准 + 量化事实注入） */
-function importancePromptFor(evt: StandardEvent): string {
-  const base = `事件：${evt.title}\n描述：${evt.description.slice(0, 300)}\n${buildFacts(evt)}\n来源数：${evt.source.length} 真实性分：${evt.accuracy_score}`;
+/** 各领域的评分维度说明（P3-3：合并评估与独立评分共用） */
+function importanceDimensionFor(evt: StandardEvent): string {
   switch (evt.category) {
     case 'opensource':
-      return `你是 AI 开源生态分析师。评估该开源项目的社区热度与影响力，只输出 JSON：{"importance":0.0,"reason":"一句话理由"}
-评分维度（0-5）：
+      return `【第二项：重要性（开源维度）】0-5 分：
 - star 增长/总量（近期是否有显著增长）
 - 社区活跃（forks/issues/contributors/讨论/PR）
 - 技术方向热度（LLM/Agent/RAG/MCP 等当前热点）
-- 潜在生态影响（是否可能成为事实标准/关键依赖）
-${base}`;
+- 潜在生态影响（是否可能成为事实标准/关键依赖）`;
     case 'paper':
-      return `你是 AI 学术研究评审。评估该论文的学术影响力，只输出 JSON：{"importance":0.0,"reason":"一句话理由"}
-评分维度（0-5）：
+      return `【第二项：重要性（学术维度）】0-5 分：
 - 机构/作者声望（OpenAI/Anthropic/DeepMind/顶校等）
 - 方法贡献（是否提出新方法/新架构/理论突破）
 - 主题热度（LLM/Agent/多模态/推理 等当前热点）
-- 潜在引用/应用影响（可能被大量跟进或产业化）
-${base}`;
+- 潜在引用/应用影响（可能被大量跟进或产业化）`;
     case 'enterprise':
     default:
-      return `你是 AI 行业市场分析师。评估该企业动态的行业重要性，只输出 JSON：{"importance":0.0,"reason":"一句话理由"}
-评分维度（0-5）：
+      return `【第二项：重要性（行业维度）】0-5 分：
 - 主体地位（OpenAI/Anthropic/Google/国内大厂等头部 vs 创业公司）
 - 事件性质（产品发布/融资/战略合作/组织调整 vs 一般动态）
 - 市场影响（可能改变竞争格局/行业标准/价格体系）
-- 融资规模/产品体量（如有）
-${base}`;
+- 融资规模/产品体量（如有）`;
   }
 }
 
-async function scoreImportance(evt: StandardEvent): Promise<{ score: number; tool: string }> {
+/** 各领域的独立评分 prompt（保留给无合并结果的路径：LLM 合并调用失败后的兜底重试） */
+function importancePromptFor(evt: StandardEvent): string {
+  const base = `事件：${evt.title}\n描述：${evt.description.slice(0, 300)}\n${buildFacts(evt)}\n来源数：${evt.source.length} 真实性分：${evt.accuracy_score}`;
+  const dims = importanceDimensionFor(evt);
+  return `你是 AI 行业分析师。评估该事件的重要性，只输出 JSON：{"importance":0.0,"reason":"一句话理由"}
+评分维度：
+${dims}
+${base}`;
+}
+
+async function scoreImportance(evt: StandardEvent, llmImportance?: number, llmReason?: string): Promise<{ score: number; tool: string }> {
   const ruleScore = importanceByRule({
     accuracy: evt.accuracy_score,
     source: evt.source,
@@ -574,6 +627,11 @@ async function scoreImportance(evt: StandardEvent): Promise<{ score: number; too
 
   if (!getLLM().available()) {
     return { score: ruleScore, tool: 'rule-score' };
+  }
+
+  // P3-3：真实性合并调用已产出 importance —— 直接复用，省一次 LLM 往返
+  if (llmImportance !== undefined) {
+    return { score: llmImportance, tool: 'llm-combined' };
   }
 
   const prompt = importancePromptFor(evt);

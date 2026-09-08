@@ -157,9 +157,13 @@ async function extractEntities(
   const ruleEntities = extractEntitiesByRule(text, std.category);
   addTrace('extract', 'llm+rule', '实体抽取');
 
-  // 有 LLM 时用 LLM 补充（规则结果兜底）
-  if (getLLM().available()) {
-    const prompt = `从以下 AI 行业事件中抽取实体，只输出 JSON：{"investors":[],"amount":null,"round":null,"people":[],"tech_tags":[],"product":null,"star_count":null}
+  // P3-4 实体抽取降级（2026-09-08）：原实现每条事件 1 次 LLM 实体抽取，但 entities 下游
+  // 无任何消费（评分用 buildFacts(raw_event)、重述用 title/description、insight 独立生成、
+  // 仅 DB 落库）——每期 ~70 次无效 LLM 调用。现仅企业投融资类保留 LLM 抽取
+  // （investors/amount/round 结构化入库有价值），其余类别规则抽取即可。
+  const isInvestment = std.category === 'enterprise' && std.sub_type === 'investment';
+  if (isInvestment && getLLM().available()) {
+    const prompt = `从以下 AI 投融资事件中抽取实体，只输出 JSON：{"investors":[],"amount":null,"round":null,"people":[],"tech_tags":[],"product":null,"star_count":null}
 事件：${text.slice(0, 800)}
 要求：金额统一为人民币万元数值；无则 null。`;
     const llmResult = await withLLMFallback(
@@ -168,6 +172,9 @@ async function extractEntities(
       '实体抽取',
     );
     return { ...ruleEntities, ...(llmResult || {}) };
+  }
+  if (!isInvestment) {
+    addTrace('extract', 'rule-only', '非投融资事件跳过 LLM 实体抽取（结果无下游消费，P3-4 省调用）');
   }
   return ruleEntities as unknown as Record<string, unknown>;
 }
