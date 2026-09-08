@@ -31,7 +31,7 @@ import { httpGetJson } from '../utils/http.js';
 import { webSearch } from '../utils/websearch.js';
 import { writeJsonCache, readJsonCache } from '../utils/cache.js';
 import { logger } from '../utils/logger.js';
-import { recordSourceOk, recordSourceFail } from '../db/index.js';
+import { recordSourceOk, recordSourceFail, isSourceTripped } from '../db/index.js';
 import { normalizeCompany, parseFlexibleDate, sanitizeDate, similarity, toISODate } from '../utils/normalize.js';
 import { classifyByRule } from '../llm/rules.js';
 import { upsertEnterprisePool, listEnterprisePool } from '../db/index.js';
@@ -258,13 +258,21 @@ async function collectCompanyBranch(ctx: TaskContext, pool: PoolProfile[]): Prom
 /** ① 海外官方 RSS/HTML 采集（规格 Sheet06 海外官方 Blog RSS） */
 async function collectOverseasOfficial(): Promise<EnterpriseRawEvent[]> {
   const out: EnterpriseRawEvent[] = [];
+  // F4 熔断：连败≥10 的官方源直接跳过（如 Meta 超时 27 次、Microsoft 403），不浪费请求也不刷 WARN
   const tasks = [
     { name: 'OpenAI', url: 'https://openai.com/news/rss.xml', type: 'rss' as const },
     { name: 'Anthropic', url: 'https://www.anthropic.com/news', type: 'html' as const },
     { name: 'Google', url: 'https://blog.google/innovation-and-ai/technology/ai/rss/', type: 'rss' as const },
     { name: 'Meta', url: 'https://ai.meta.com/blog/rss/', type: 'rss' as const },
     { name: 'Microsoft', url: 'https://blogs.microsoft.com/feed/', type: 'rss' as const },
-  ];
+  ].filter((t) => {
+    const key = `official_${t.name.toLowerCase()}`;
+    if (isSourceTripped(key)) {
+      logger.info(`[enterprise] ${t.name} 官方源已熔断（连续失败≥10），本次跳过`);
+      return false;
+    }
+    return true;
+  });
   const results = await Promise.allSettled(tasks.map((t) => fetchOfficialSource(t)));
   for (const r of results) {
     if (r.status === 'fulfilled' && r.value.length > 0) out.push(...r.value);

@@ -180,3 +180,21 @@ export function listSourceHealth(): Array<Record<string, unknown>> {
   const db = getDb();
   return db.prepare('SELECT * FROM source_health ORDER BY updated_at DESC').all() as Array<Record<string, unknown>>;
 }
+
+// ========== 源熔断器（2026-09-08 F4）==========
+
+/** 熔断阈值：连续失败 ≥10 次跳过该源（成功 1 次即清零恢复，见 recordSourceOk）。
+ *  背景：gitee 连败 100 次、modelscope 404 连错 10 次仍每天全量重试——
+ *  source_health 表早已记录 fail_count，但一直没有消费方。 */
+const CIRCUIT_BREAK_THRESHOLD = 10;
+
+/** 查询某源是否已被熔断（fail_count >= 阈值）。 */
+export function isSourceTripped(sourceKey: string): boolean {
+  try {
+    const db = getDb();
+    const row = db.prepare('SELECT fail_count FROM source_health WHERE source_key = ?').get(sourceKey) as { fail_count: number } | undefined;
+    return !!row && row.fail_count >= CIRCUIT_BREAK_THRESHOLD;
+  } catch {
+    return false; // 查询失败不熔断（宁可多试也别漏采）
+  }
+}

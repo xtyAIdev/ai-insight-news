@@ -10,7 +10,7 @@ import { httpGetJson, runWithTimeout } from '../utils/http.js';
 import { webSearch } from '../utils/websearch.js';
 import { writeJsonCache, readJsonCache } from '../utils/cache.js';
 import { logger } from '../utils/logger.js';
-import { recordSourceOk, recordSourceFail } from '../db/index.js';
+import { recordSourceOk, recordSourceFail, isSourceTripped } from '../db/index.js';
 import { toISODate, sanitizeDate } from '../utils/normalize.js';
 import { config } from '../config/index.js';
 
@@ -335,6 +335,11 @@ function recordStarSnapshots(items: OpenSourceRawEvent[]): void {
 
 async function collectModelScope(ctx: TaskContext): Promise<{ ok: boolean; items: OpenSourceRawEvent[]; error?: string }> {
   const out: OpenSourceRawEvent[] = [];
+  // F4 熔断：modelscope 接口 404 连错 10 次（配置失效），熔断后跳过
+  if (isSourceTripped('modelscope')) {
+    logger.info('[opensource] modelscope 已熔断（连续失败≥10），本次跳过');
+    return { ok: false, items: [], error: 'modelscope 熔断跳过' };
+  }
   for (const kw of OPEN_SOURCE_KEYWORDS) {
     if (!kw.modelscopeKeyword) continue;
     const url = `https://modelscope.cn/api/v1/studios?SortBy=downloads&Search=${encodeURIComponent(kw.modelscopeKeyword)}&Page=1&PageSize=20`;
@@ -368,6 +373,11 @@ async function collectModelScope(ctx: TaskContext): Promise<{ ok: boolean; items
 
 async function collectHuggingFace(ctx: TaskContext): Promise<{ ok: boolean; items: OpenSourceRawEvent[]; error?: string }> {
   const out: OpenSourceRawEvent[] = [];
+  // F4 熔断：huggingface 曾连败 12 次（aborted），熔断后跳过
+  if (isSourceTripped('huggingface')) {
+    logger.info('[opensource] huggingface 已熔断（连续失败≥10），本次跳过');
+    return { ok: false, items: [], error: 'huggingface 熔断跳过' };
+  }
   const keywords = ['llm', 'agent', 'rag', 'mcp', 'inference', 'multimodal'];
   for (const kw of keywords) {
     const url = `https://huggingface.co/api/models?search=${encodeURIComponent(kw)}&sort=downloads&direction=-1&limit=10`;
@@ -399,13 +409,19 @@ async function collectHuggingFace(ctx: TaskContext): Promise<{ ok: boolean; item
 
 async function collectGitee(ctx: TaskContext): Promise<{ ok: boolean; items: OpenSourceRawEvent[]; error?: string }> {
   const out: OpenSourceRawEvent[] = [];
+  // F4 熔断：连败 ≥10 次的源直接跳过（gitee 曾连败 100 次仍每天 4×10s 串行重试）
+  if (isSourceTripped('gitee')) {
+    logger.info('[opensource] gitee 已熔断（连续失败≥10），本次跳过');
+    return { ok: false, items: [], error: 'gitee 熔断跳过' };
+  }
   const keywords = ['llm', 'agent', 'rag', 'mcp'];
   for (const kw of keywords) {
     const url = `https://gitee.com/api/v5/search/repositories?q=${encodeURIComponent(kw)}&sort=stars_count&order=desc&page=1&per_page=10`;
-    const res = await httpGetJson<GiteeRepo[]>(url, { timeoutMs: 10_000, retries: 0 });
+    // F4：gitee 常年超时，10s→5s；失败即 break 当日剩余关键词（连第一个词都不通，后面的词大概率也不通）
+    const res = await httpGetJson<GiteeRepo[]>(url, { timeoutMs: 5_000, retries: 0 });
     if (!res.ok || !Array.isArray(res.data)) {
       recordSourceFail('gitee', res.error || 'empty');
-      continue;
+      break;
     }
     recordSourceOk('gitee');
     for (const r of res.data.slice(0, 6)) {

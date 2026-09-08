@@ -105,43 +105,55 @@ function buildSections(input: ReportInput): ReportSection[] {
 
 // ========== 07-02b 中文重述应用 ==========
 
-/** 标题相关性校验：LLM 重述的中文标题必须与原事件相关，否则丢弃（防错配/串扰）。
+/** 文本相关性校验：LLM 重述产物（标题/正文/快评）必须与原事件相关，否则丢弃（防错配/串扰）。
  *  2026-09-03 修复：9-02 日报出现"阿里 Qwen 事件的中文标题被写成腾讯混元"——
  *  LLM 并发重述偶发返回他条标题，原实现只校验"含中文"，错配标题被写入 title_zh。
+ *  2026-09-08 升级（F3）：从"仅标题校验"扩展为通用文本校验，覆盖正文/快评——
+ *  9-07 日报出现"开源 #5 标题是 LightRAG（RAG 工具）、正文却是幻觉检测论文"的张冠李戴，
+ *  证明串扰不止发生在标题；正文/快评错配比标题更隐蔽，必须同关同卡。
  *  判据（满足任一即视为相关）：
- *   1) 重述标题含 evt.company（英文名或其 CJK 片段，如 腾讯/阿里巴巴）
- *   2) 重述标题含原 title 的英文产品名/专名（如 Qwen3.8-Max、Gemini）
- *   3) 原 title 与重述标题有公共 CJK 词（≥2 字，排除通用词）
+ *   1) 文本含 evt.company（英文名或其 CJK 片段，如 腾讯/阿里巴巴）
+ *   2) 文本含原 title/description 的英文专名（产品名/方法名/数据集名，如 Qwen3.8-Max、RAGTruth）
+ *   3) 原 title+description 与文本有公共 CJK 词（≥2 字，排除通用词）
+ *  注：正文版判据 3 对 description 也做公共词比对（长文本词更多，命中率更高），
+ *      但判据 1/2 是主力——正文重述会保留公司名与产品名（prompt 已要求）。
  */
-function isTitleRelated(evt: StandardEvent, restatedTitle: string): boolean {
-  if (!restatedTitle) return false;
-  const rt = restatedTitle;
+function isTextRelated(evt: StandardEvent, text: string): boolean {
+  if (!text) return false;
+  const rt = text;
   // 1) 公司名：英文原名（大小写不敏感）或 CJK 名称片段
   const company = evt.company || '';
   if (company) {
     if (/[a-zA-Z]/.test(company) && rt.toLowerCase().includes(company.toLowerCase())) return true;
     const cjkName = company.match(/[\u4e00-\u9fa5]{2,}/g);
     if (cjkName && cjkName.some((n) => rt.includes(n))) return true;
-    // 别名（如 腾讯云 含 腾讯）：原公司 CJK 名是重述标题 CJK 名的子串或反之
+    // 别名（如 腾讯云 含 腾讯）：原公司 CJK 名是重述文本 CJK 名的子串或反之
     const rtCjk: string[] = rt.match(/[\u4e00-\u9fa5]{2,}/g) || [];
     if (cjkName && rtCjk.some((r) => cjkName!.some((c) => r.includes(c) || c.includes(r)))) return true;
   }
-  // 2) 原 title 中的英文专名（产品名/方法名，≥3 字母的 CamelCase/UPPER/数字型号）
-  const origTitle = evt.title || '';
-  const enTerms: string[] = origTitle.match(/\b[A-Za-z][A-Za-z0-9]*[-_.]?[A-Za-z0-9]*\b/g) || [];
-  const keyTerms = enTerms.filter((w) => w.length >= 3 && !['the', 'and', 'for', 'with', 'from', 'new', 'how', 'what', 'why', 'you', 'your', 'are', 'its', 'has', 'had', 'was', 'were', 'will', 'not', 'can'].includes(w.toLowerCase()));
+  // 2) 原 title+description 中的英文专名（产品名/方法名/数据集名）
+  const origText = `${evt.title || ''} ${evt.description || ''}`;
+  const enTerms: string[] = origText.match(/\b[A-Za-z][A-Za-z0-9]*[-_.]?[A-Za-z0-9]*\b/g) || [];
+  const STOP = new Set(['the', 'and', 'for', 'with', 'from', 'new', 'how', 'what', 'why', 'you', 'your', 'are', 'its', 'has', 'had', 'was', 'were', 'will', 'not', 'can', 'that', 'this', 'into', 'than', 'then', 'when', 'which', 'their', 'there', 'these', 'those', 'been', 'were', 'also', 'more', 'most', 'such', 'only', 'over', 'under', 'between', 'through', 'during', 'before', 'after', 'above', 'below', 'both', 'each', 'few', 'other', 'some', 'own', 'same', 'too', 'very', 'just', 'one', 'two', 'three', 'first', 'second', 'third']);
+  const keyTerms = enTerms.filter((w) => w.length >= 4 && !STOP.has(w.toLowerCase()));
   if (keyTerms.some((t) => rt.toLowerCase().includes(t.toLowerCase()))) return true;
-  // 3) 公共 CJK 词（2-4 字滑动窗口，排除"今日/最新/发布/更新/推出/上线"等通用动作词）
-  const origCjk: string[] = origTitle.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
-  const COMMON = new Set(['今日', '最新', '发布', '更新', '推出', '上线', '领域', '行业', '公司', '企业', '产品', '模型', '平台', '服务', '宣布', '公布', '成为', '推出', '正式', '相关', '以及']);
+  // 3) 公共 CJK 词（2-4 字滑动窗口，排除通用动作词）
+  const origCjk: string[] = origText.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
+  const COMMON = new Set(['今日', '最新', '发布', '更新', '推出', '上线', '领域', '行业', '公司', '企业', '产品', '模型', '平台', '服务', '宣布', '公布', '成为', '正式', '相关', '以及', '研究', '论文', '方法', '系统', '技术', '数据', '结果', '实验', '提出', '使用', '通过', '进行', '可以', '一个', '这个', '问题', '任务', '能力', '效果', '性能', '目前', '已经', '其中', '同时', '此外', '这些', '针对', '基于', '通过', '用于', '需要']);
   const rtCjkAll: string[] = rt.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
   if (origCjk.some((o) => !COMMON.has(o) && rtCjkAll.includes(o))) return true;
   return false;
 }
 
+// 兼容别名：标题场景沿用旧名（call site 在 applyRestate）
+const isTitleRelated = isTextRelated;
+
 /** 把重述结果就地应用到 TopN 事件（sections 内引用的是同一批 StandardEvent 对象）。
  *  2026-08-27 双语化：中文重述写入 *_zh 字段，原始英文保留在 title/description ——
- *  日报渲染默认英文（原始字段），切换中文时用 *_zh（无则回退原始）。 */
+ *  日报渲染默认英文（原始字段），切换中文时用 *_zh（无则回退原始）。
+ *  2026-09-08 F3 升级：正文/快评同样过相关性校验（isTextRelated），防张冠李戴
+ *  （9-07 开源 #5 标题 LightRAG、正文却是幻觉检测论文）；LLM 重述正文 <40 字符视为
+ *  空壳不写入（保留原文，避免"该内容聚焦…"式空洞条目）。 */
 function applyRestate(
   topN: Array<{ event: StandardEvent; reason: string }>,
   restated: Map<string, { title: string; body: string; byLLM: boolean; comment?: string }>,
@@ -165,13 +177,34 @@ function applyRestate(
       applied++;
     }
     if (r.body && !isChineseBody(t.event.description)) {
-      // 中文重述正文 → description_zh；原始英文保留在 description
-      t.event.description_zh = r.body;
+      // F3 空洞拦截：LLM 重述正文过短（<40 字符）不写入——避免"该内容聚焦…"式空壳
+      // （规则兜底 body 由 insight.what/ruleTranslateAbstract 生成，来源可靠不受此限）
+      const tooShort = r.byLLM && r.body.replace(/\s/g, '').length < 40;
+      // F3 相关性校验：LLM 重述正文必须与原事件相关，串扰正文整条丢弃（保留英文原文）
+      const related = !r.byLLM || isTextRelated(t.event, r.body);
+      if (tooShort || !related) {
+        if (r.byLLM) {
+          t.event.trace_log = t.event.trace_log || [];
+          t.event.trace_log.push({
+            stage: 'restate_filter',
+            timestamp: new Date().toISOString(),
+            tool: 'rule',
+            detail: `重述正文被拦截（${tooShort ? `空洞: ${r.body.length}字符` : '与原事件不相关'}）: ${r.body.slice(0, 50)}`,
+          });
+        }
+      } else {
+        // 中文重述正文 → description_zh；原始英文保留在 description
+        t.event.description_zh = r.body;
+      }
     }
     // 快评：LLM 生成的 comment（中文）挂 quick_comment_zh；原始 quick_comment 保持英文（如有）
+    // F3：快评同样过相关性校验（快评错配同样误导读者）
     if (r.comment) {
-      t.event.quick_comment_zh = r.comment;
-      t.event.quick_comment_by = 'llm';
+      const commentOk = !r.byLLM || (isTextRelated(t.event, r.comment) && r.comment.replace(/\s/g, '').length >= 15);
+      if (commentOk) {
+        t.event.quick_comment_zh = r.comment;
+        t.event.quick_comment_by = 'llm';
+      }
     } else if (!t.event.quick_comment_zh) {
       const what = t.event.insight?.what;
       if (what && what !== t.event.title) {

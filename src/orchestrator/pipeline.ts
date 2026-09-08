@@ -179,6 +179,18 @@ async function execute(ctx: TaskContext, date: string): Promise<OrchestratorResu
 
   // 01-11 任务完成汇总
   const finishedAt = new Date();
+  // F5 质量度量（2026-09-08）：各模块条数 + 全流程降级标记，供 Actions 日志观测质量趋势
+  const perModule: Record<string, number> = {};
+  for (const m of moduleResults) perModule[m.module] = m.raw_count ?? 0;
+  const quality = {
+    per_module_raw: perModule,
+      topN_by_module: topNList.reduce<Record<string, number>>((acc, t) => {
+        acc[t.event.category] = (acc[t.event.category] || 0) + 1;
+        return acc;
+      }, {}),
+    degraded,
+    empty_modules: moduleResults.filter((m) => (m.raw_count ?? 0) === 0).map((m) => m.module),
+  };
   const summary = {
     date,
     raw_count: totalRaw,
@@ -186,7 +198,14 @@ async function execute(ctx: TaskContext, date: string): Promise<OrchestratorResu
     topN: topNList.length,
     report_id: reportId,
     module_results: moduleResults,
+    quality,
   };
+  logger.info(
+    `[quality] ${date} 质量摘要: raw=${totalRaw} std=${totalStandard} topN=${topNList.length} | ` +
+    Object.entries(quality.per_module_raw).map(([k, v]) => `${k}=${v}`).join(' ') +
+    (quality.empty_modules.length ? ` | 空模块: ${quality.empty_modules.join(',')}` : '') +
+    (degraded ? ' | ⚠降级' : ''),
+  );
 
   saveTaskRun({
     task_id: ctx.task_id,
