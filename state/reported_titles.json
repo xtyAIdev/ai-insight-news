@@ -153,5 +153,28 @@
    "enterprise|research acceleration view inside openai",
    "enterprise|alien mind"
   ]
+ },
+ "2026-09-08": {
+  "paper": [
+   "paper|think verify revise neuro symbolic visual reasoning vision language models dynam",
+   "paper|towards neuro symbolic procedural reasoning long horizon vision language action ",
+   "paper|unimate one unified model animate diverse skeletons",
+   "paper|adaptive gated deepfake detection low resolution resource constrained environmen",
+   "paper|optimal rates agentic networked information aggregation"
+  ],
+  "opensource": [
+   "opensource|lobehub lobehub is your chief agent operator organizing your",
+   "opensource|lobehub lobehub is your chief agent operator organizing your",
+   "opensource|hermes webui hermes webui best way use hermes agent web",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|hermes webui hermes webui best way use hermes agent web"
+  ],
+  "enterprise": [
+   "enterprise|alibaba s qwen source model autonomous driving technode",
+   "enterprise|bytedance founder joins ai elite race perfect world models edge malaysia",
+   "enterprise|alibaba s qwen source model autonomous driving technode",
+   "enterprise|bytedance founder joins ai elite race perfect world models edge malaysia",
+   "enterprise|supporting independent journalism ukraine"
+  ]
  }
 }
