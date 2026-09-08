@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # 全历史：归档步骤 rebase 需要共同祖先（shallow 会失败）
 
       - uses: actions/setup-node@v4
         with:
@@ -76,8 +78,25 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # state/：star 快照等跨日状态（周增长计算依赖历史快照，必须随仓库持久化）
           git add -f reports/ state/ 2>/dev/null || git add -f reports/
-          git diff --cached --quiet || git commit -m "chore: daily report $(date +%F)"
-          git push
+          if git diff --cached --quiet; then
+            echo "无新变更，跳过提交"
+            exit 0
+          fi
+          git commit -m "chore: daily report $(date +%F)"
+          # 并发容错：本地代码更新（如手动推送 P0/P1/P2 修复）先于本 run 到达远端时，
+          # 直接 push 会 non-fast-forward 被拒 → 先 rebase 到最新 main 再推。
+          # 若 rebase 冲突（极少：仅当手动改过同一份日报），放弃本次推送，
+          # 日报文件已在本 job 内继续用于部署，下次 schedule 会携带补齐。
+          if ! git pull --rebase origin main 2>/tmp/rebase.err; then
+            echo "::warning::归档 push 前 rebase 失败，放弃推送（下次 schedule 自愈）"
+            cat /tmp/rebase.err
+            exit 0
+          fi
+          git push 2>/tmp/push.err || {
+            echo "::warning::归档 push 失败：$(cat /tmp/push.err)"
+            # 二次容错：可能是 rebase 后又有人先推，再 rebase 一次重推
+            git pull --rebase origin main 2>/dev/null && git push || echo "::warning::归档二次推送仍失败，放弃（下次 schedule 自愈）"
+          }
 
       - name: 生成静态站点（当日日报全文 + 全量归档）
         run: node scripts/build-site.mjs
