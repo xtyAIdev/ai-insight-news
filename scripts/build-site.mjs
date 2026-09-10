@@ -547,7 +547,8 @@ function renderDaily(report, indexTitle) {
   const html = fs.readFileSync(report.htmlFile, 'utf-8');
   // 注入返回链接 + 反馈按钮到 body 开头
   const navHtml = `<div style="margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-    <a href="../index.html" style="color:#2f54eb;text-decoration:none;font-size:13px">← 返回归档首页</a>
+    <a href="../archive.html" style="color:#2f54eb;text-decoration:none;font-size:13px">← 返回归档目录</a>
+    <a href="../index.html" style="color:#2f54eb;text-decoration:none;font-size:13px">今日日报 →</a>
     <a href="https://github.com/xtyAIdev/ai-insight-news/issues/new?title=${encodeURIComponent(`[日报反馈] ${report.date} 内容纠错/建议`)}&body=${encodeURIComponent(FEEDBACK_TEMPLATE(report.date))}" target="_blank" rel="noopener" style="color:#2f54eb;text-decoration:none;font-size:13px">💬 反馈 / 纠错</a>
   </div>`;
   const injected = html.replace('<div class="wrap">', `<div class="wrap">\n${navHtml}`);

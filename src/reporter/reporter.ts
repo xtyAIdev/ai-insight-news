@@ -667,12 +667,13 @@ export function renderHtml(report: DailyReport): string {
     ? `<section class="module"><h2>👀 观察名单</h2>${report.watchlist.map((w) => `<div class="watch-item"><b>${esc(w.title)}</b> — ${esc(w.reason)}</div>`).join('')}</section>`
     : ''}`;
 
-  // 右上角语言切换：En / 中文（默认英文）
+  // 右上角语言切换 + 昼夜切换（P4-5 升级：手动开关，默认跟随系统）
   const langSwitch = `
   <div class="lang-switch" role="group" aria-label="Language">
     <button type="button" data-lang-btn="en" class="on">En</button>
     <button type="button" data-lang-btn="zh">中文</button>
-  </div>`;
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -702,10 +703,13 @@ header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--b
 header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
 header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
 /* 语言切换按钮：右上角 */
-.lang-switch { position:absolute; top:24px; right:0; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
 .lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
 .lang-switch button.on { background:var(--accent); color:#fff; }
 .lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
 /* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
    JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
 [data-lang-block] { display:block; }
@@ -739,16 +743,25 @@ html.js [data-lang-block].active { display:block; }
 .empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
 .watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
 footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
-/* P4-5 暗色模式：跟随系统 prefers-color-scheme */
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
 @media (prefers-color-scheme: dark) {
-  :root { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
-  .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
-  .tag { background:var(--accent-soft); color:var(--accent); }
-  .tag-gray { background:#232b3d; color:var(--muted); }
-  .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
-  .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
-  .pick-reason { background:var(--accent-soft); color:var(--accent); }
-  .lang-switch { background:var(--card); }
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
 }
 /* P4-5 移动端断点：窄屏收紧留白与字号 */
 @media (max-width: 640px) {
@@ -783,6 +796,30 @@ ${contentZh}
 </div>
 <a href="#" class="back-top" title="Back to top">↑ Top</a>
 <script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
 <script>
 (function () {
   var btns = document.querySelectorAll('[data-lang-btn]');

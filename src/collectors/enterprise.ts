@@ -1020,7 +1020,23 @@ function officialUrlOf(company: string): string {
   return p?.officialSources?.[0] || p?.domesticSources?.[0] || '';
 }
 
-const stripTags = (s: string) => s.replace(/<!\[CDATA\[|\]\]>/g, '').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#39;|&#x27;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
+/** RSS/HTML 片段清洗（2026-09-10 修复双重转义）：Google News 的 description 常把整段 HTML
+ *  实体化后嵌入（&lt;a href=...），单轮"剥标签+解码"会把 &lt; 还原成 < 却不再剥标签，
+ *  日报正文遂出现 <a href>...&nbsp;<font> 乱码且超宽。改为"解码→剥标签"循环至稳定。 */
+const stripTags = (s: string): string => {
+  let prev: string;
+  do {
+    prev = s;
+    s = s.replace(/<!\[CDATA\[|\]\]>/g, '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+      .replace(/&#39;|&#x27;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;/g, ' ')
+      .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+      .replace(/[\r\n\t]+/g, ' ')
+      .replace(/\s+/g, ' ');
+  } while (s !== prev);
+  return s.trim();
+};
 
 // ========== 双分支分流 + 实体抽取（Sheet04 04-04/04-05/04-06） ==========
 
