@@ -424,6 +424,7 @@ function renderArchive(reports, latestDate) {
       <button type="button" data-lang-btn="zh">中文</button>
     </span>
     <a href="index.html">Today</a>
+    <a href="feed.xml" title="RSS 订阅">RSS</a>
     <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener">GitHub</a>
   </nav>
 </header>
