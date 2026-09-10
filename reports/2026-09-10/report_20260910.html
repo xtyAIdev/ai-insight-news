@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-10</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today’s AI landscape is rich with developments. In open-source technology, multiple practical tools have emerged, including AI agent SDKs, LLM training UIs, and">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-10">
+<meta property="og:description" content="Today’s AI landscape is rich with developments. In open-source technology, multiple practical tools have emerged, including AI agent SDKs, LLM training UIs, and MCP servers, lowering barriers for deve">
+<meta property="og:url" content="./report_20260910.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-10">
+<meta name="twitter:description" content="Today’s AI landscape is rich with developments. In open-source technology, multiple practical tools have emerged, including AI agent SDKs, LLM training UIs, and MCP servers, lowering barriers for deve">
+<link rel="canonical" href="./report_20260910.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-10 ｜ report_20260910</div>
+<div class="sub" data-lang-title="zh">2026-09-10 ｜ report_20260910</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today’s AI landscape is rich with developments. In open-source technology, multiple practical tools have emerged, including AI agent SDKs, LLM training UIs, and MCP servers, lowering barriers for developers building AI applications. On the academic front, several papers focus on cutting-edge issues like LLM interaction, multimodal benchmarking, and diffusion model robustness, offering new perspectives for the field. From an enterprise perspective, Alibaba is reportedly leading a funding round for AI startup UniPat, OpenAI released its next-generation work intelligence model GPT-6 Astra and called for AI policy action, while top firms show signs of a decline in AI spend per employee.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. software-agent-sdk：A clean, modular SDK for building AI agents with OpenHands</h3>
+          <p class="news-body">A clean, modular SDK for building AI agents with OpenHands V1.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">OpenHands</span> <span class="tag tag-star">⭐ 1,079</span> <span class="tag tag-gray">agent / sdk / Agent / 智能体</span></div>
+          <div class="pick-reason">The software-agent-sdk, a clean, modular SDK for building AI agents with OpenHands, has 1,079 stars, 501 forks and 486 open issues, offering practical support for AI agent development.</div>
+          <div class="source">Source：<a href="https://github.com/OpenHands/software-agent-sdk" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. freecad-mcp：FreeCAD MCP(Model Context Protocol) server</h3>
+          <p class="news-body">FreeCAD MCP(Model Context Protocol) server</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">neka-nat</span> <span class="tag tag-star">⭐ 2,144</span> <span class="tag tag-gray">claude / freecad / mcp / MCP</span></div>
+          <div class="pick-reason">This FreeCAD MCP server project, an AI-integrated open-source CAD tool, has secured 2,144 stars, 279 forks and 36 open issues in its community, making it a notable project in the AI industry</div>
+          <div class="source">Source：<a href="https://github.com/neka-nat/freecad-mcp" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. AgentCompass：[EMNLP 2026] AgentCompass is an extensible open-source</h3>
+          <p class="news-body">[EMNLP 2026] AgentCompass is an extensible open-source evaluation infrastructure for systematically assessing LLM/VLM agent capabilities.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">open-compass</span> <span class="tag tag-star">⭐ 127</span> <span class="tag tag-gray">agent / benchmark-framework / evaluation-framework / harness</span></div>
+          <div class="pick-reason">AgentCompass, an extensible open-source project from EMNLP 2026, has gained 127 stars, 27 forks and 17 open issues in the community, providing open-source support for the AI field.</div>
+          <div class="source">Source：<a href="https://github.com/open-compass/AgentCompass" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. unsloth：Local UI to run and train LLMs and diffusion models</h3>
+          <p class="news-body">Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4, MiniMax-H3, Gemma 4, FLUX and more.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 75,962</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">Unsloth is a UI tool for locally running and training LLMs and diffusion models, with impressive community data in the AI industry, boasting 75,962 stars, 6,915 forks, and 1,316 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. headroom：Compress tool outputs, logs, files, and RAG chunks before</h3>
+          <p class="news-body">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 71,135</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">Headroom, an AI compression tool that can compress tool outputs, logs, files and RAG chunks, has gained 71,135 stars, 5,454 forks and 646 open issues, drawing community attention.</div>
+          <div class="source">Source：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Should I Be Polite to My LLM Relevance Judge? Tone as a Severity Operating-Point Shift</h3>
+          <p class="news-body">Large language models are increasingly used as relevance judges, yet their labels can shift with prompt surface form. We study one such feature -- tone -- on 3,498 TREC DL19/DL20 query-passage pairs, across eight judge models, five classifier-calibrated politeness levels, and three paraphrases per level. Effects are strongly model-dependent: one judge shows a structured U-shaped response, whereas most show only small changes. Where tone changes agreement, the results are more consistent with a shift in the judge's severity operating point -- its overall scoring leniency -- than with improved judgment. Agreement rises or falls as this shift moves the judge toward or away from human annotators' strictness. A query-disjoint cross-fit retains the expected association (Spearman $ρ= -0.683$; exact model-block permutation $p = 0.019$). Tone affects calibration-based agreement more than ranking outcomes: across 32 model-tone contrasts, the largest absolute mean change in NDCG@10 is 0.011, although Kendall's $τ$ as low as 0.743 shows that reordering is reduced, not absent. The account reconciles prior contradictory findings and identifies prompt tone as a potential validity threat when absolute relevance labels matter.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">This paper titled &quot;Should I Be Polite to My LLM Relevance Judge? Tone as a Severity Operating-Point Shift&quot; has been accepted by a top conference (as influence signal) with only 2 authors, serving as a valuable exploration in LLM relevance judgment.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.09703v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. AVSRBench: A Multi-Condition AVSR Benchmark</h3>
+          <p class="news-body">While AVSR has achieved sub-1% word error rates on the standard LRS3 benchmark, its reliance on broadcast speech obscures whether this reflects true generalization or just domain adaptation. To investigate this gap, we evaluate three AVSR architectures across six conditions: controlled broadcast speech, fixed-grammar utterances, hyper-articulated Lombard speech, read speech from professional lipspeakers and non-professional speakers, and spontaneous multi-party video conversations. We find that visual-only performance deteriorates rapidly beyond broadcast domains, and audio-video fusion mainly benefits Lombard speech environments. Visual understanding degrades sharply at 90° profile views, with multimodal systems relying largely on acoustic fallback. Additionally, speaker articulation proves more critical than minor camera shifts, and LLM-based architectures suffer from poor out-of-domain generalization. Our work highlights a significant generalization gap in current AVSR research. To address this, we also introduce RoomReader-AV as a new benchmark for AVSR and release a unified data preprocessing pipeline to make comprehensive multi-condition evaluation accessible.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">eess.AS</span></div>
+          <div class="pick-reason">AVSRBench, a multi-condition AVSR benchmark, is the 2nd candidate, accepted at a top conference with 2 authors, offering a reference for AVSR evaluation in the AI field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.10366v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Interpreting Object-Dependent Concept Brittleness in Text-to-Image Diffusion Models</h3>
+          <p class="news-body">Although text-to-image diffusion models generally exhibit strong prompt-following ability, we identify a persistent and previously underexplored failure pattern in which a small subset of prompts differing only in the object consistently fails to realize the same target concept under identical generation settings. We term this phenomenon object-dependent concept brittleness. Such cases suggest systematic internal blind spots rather than random sampling noise. In this paper, we present an interpretability-oriented framework to audit and minimally correct these failures. Our key idea is to analyze denoising trajectories in a step-wise sparse autoencoder (SAE) space, where abstract style and attribute concepts become more separable than in the raw denoising representation. This sparse space enables us to compare successful and failed generations, identify concept dimensions whose evidence is missing, weakened, or temporally delayed, and construct class-level concept prototypes from reliable class-consistent samples. Based on this audit process, we introduce a lightweight inference-time correction strategy that interpolates denoising features toward the corresponding prototype in SAE space. Rather than serving as a task-specific retraining method, this intervention acts as a validation of the diagnosed concept deficiency. We evaluate the proposed framework on style and attribute failure cases across multiple diffusion backbones, with significant improvements in concept consistenc</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">This AI research paper, with 8 authors, has been accepted by a top conference, focusing on interpreting object-dependent concept brittleness in text-to-image diffusion models, providing research references for related model improvements.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.09909v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. EEGBind: Detecting Source-Level Interictal Epileptiform Discharges via EEG-Centric Multimodal Binding</h3>
+          <p class="news-body">Source-level analysis of interictal epileptiform discharges (IEDs) is relevant to presurgical evaluation and treatment planning because it helps characterize where epileptiform activity is likely to arise. Beyond detecting whether an IED is present, this setting requires assigning IED-positive activity to clinically meaningful brain-region categories. This setting is challenging because source-region evidence in short electroencephalography (EEG) windows can be subtle, partial, and affected by subject variability, class imbalance, and imperfect multimodal context. We present EEGBind, an EEG-centric multimodal binding framework for five-class source-level IED classification. EEGBind treats EEG as the primary modality and binds synchronized video-context features around an EEG-centric representation. Instead of relying on early or overly strong multimodal fusion, which may perturb the source-sensitive EEG representation, EEGBind uses video context as auxiliary evidence for robust classification. A view-consistent repair stage is further used to improve hidden-set robustness while preserving the learned source-class boundary. On the NeuroMM 2026 Grand Challenge Track 3 NMM-Source-IED benchmark, EEGBind achieves 0.8395 on weighted-F1 and outperforms strong competitors. These results support EEG-centric multimodal binding as a practical strategy for source-level IED classification. The open-source code is available at https://github.com/HKUSTGZ-ML4Health-Lab/NeuroMM2026_IED_Detect</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">The AI study EEGBind, which detects source-level interictal epileptiform discharges via EEG-centric multimodal binding, has been accepted by a top conference with 5 authors, providing a new technical direction for AI in EEG medical analysis.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.09728v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. JarvisGUI: Towards Cross-Device GUI Agents with Dynamic Task Composition</h3>
+          <p class="news-body">Real-world GUI usage frequently involves workflows that span multiple devices and platforms, requiring the transfer of intermediate results, maintenance of shared state, and coordination across heterogeneous environments. However, existing GUI benchmarks overwhelmingly evaluate agents on single-device, statically defined tasks, thus leaving such cross-device capabilities largely unexamined, resulting in an overly optimistic assessment of agents' readiness for real-world usage. We introduce JarvisGUI, a dynamic benchmark that evaluates GUI agents on cross-device workflows requiring coordinated interaction across heterogeneous platforms, including Android, Windows, and Ubuntu. Specifically, JarvisGUI formulates GUI tasks as input-output transformations under a lightweight type system, which allows us to automatically compose multi-step, cross-device workflows and dynamically evaluate agent performance within a unified framework. By evaluating agents in virtual environments spanning multiple operating systems, JarvisGUI reveals that state-of-the-art open-source GUI agents struggle with the state-transfer awareness, cross-platform contextual reasoning, and long-horizon dependency management required for real-world workflows, exposing a critical capability gap invisible to existing benchmarks.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">JarvisGUI, a paper with 10 authors, has been accepted by EMNLP 2026, focusing on dynamic task composition for cross-device GUI agents, bringing new exploration to the AI field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.10451v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. 阿里巴巴据悉将领投人工智能初创公司UniPat</h3>
+          <p class="news-body">阿里巴巴据悉将领投人工智能初创公司UniPat，对其估值25亿美元。（财联社）</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 2.4事件数据：amount_wan=250000</div>
+          <div class="source">Source：<a href="https://www.36kr.com/newsflashes/3977057932358152" target="_blank" rel="noopener">36氪</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. GPT-6 Astra: The next generation in intelligence for work</h3>
+          <p class="news-body">Meet GPT-6 Astra, OpenAI’s most capable model for business, with advanced reasoning, computer use, and stronger writing and design judgment.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">GPT-6 Astra, the 2nd candidate in the AI industry, is the next-generation intelligence for work, providing a trend signal for the upgrade of work intelligence in the sector.</div>
+          <div class="source">Source：<a href="https://openai.com/index/gpt-6-astra-next-generation-work" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. The AI policy window is open. We need to act.</h3>
+          <p class="news-body">Chris Lehane argues that stronger AI capabilities require stronger safety evidence, shared standards, and durable policy action while the policy window remains open.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">The AI policy window is open, which serves as a clear trend signal for the AI industry to take action promptly.</div>
+          <div class="source">Source：<a href="https://openai.com/index/ai-policy-window" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Viral AI assistant Instinct now has its own email address</h3>
+          <p class="news-body">Instinct’s new email feature lets the AI agent create and manage accounts, contact businesses, handle support requests, and do more on users' behalf.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">The viral AI assistant Instinct now has its own email address, which is a concrete step in expanding interaction channels for AI assistants and provides a new direction for extending their application scenarios.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/09/viral-ai-assistant-instinct-now-has-its-own-email-address/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AI spend per employee slumped at top firms in August — summer doldrums or a warning sign?</h3>
+          <p class="news-body">Falling token costs, cheaper models, and less spend per employee — AI adoption isn't playing out the way hyperscalers hoped.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/09/ai-spend-per-employee-slumped-at-top-firms-in-august-summer-doldrums-or-a-warning-sign/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>OpenHands Launches Modular SDK for AI Agents</b> — This SDK provides a clear, modular framework for building AI agents, lowering technical barriers for developers creating AI applications; its future community iterations are worth monitoring.</div><div class="watch-item"><b>JarvisGUI: A New Direction for Cross-Device GUI Agent Research</b> — The paper’s proposed dynamic task composition method for cross-device GUI agents offers new technical insights for AI applications in multi-device interaction scenarios, potentially driving upgrades to smart assistants’ cross-device capabilities.</div><div class="watch-item"><b>Alibaba Reportedly Leading Funding Round for AI Startup UniPat</b> — This investment move reflects leading enterprises’ AI sector strategies, particularly their support for startups, which may accelerate the commercialization of AI technologies.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域动态丰富，开源技术方向涌现多款实用工具，涵盖AI agent SDK、LLM训练UI及MCP服务器等，降低开发者构建AI应用的门槛。学术研究方面，多份论文聚焦LLM交互、多模态基准测试、扩散模型鲁棒性等前沿问题，为领域发展提供新视角。企业端，阿里巴巴拟领投AI初创公司UniPat，OpenAI发布下一代工作智能模型GPT-6 Astra并呼吁AI政策行动，同时头部企业AI人均支出出现下滑迹象。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. OpenHands开源模块化AI智能体开发SDK</h3>
+          <p class="news-body">OpenHands提供一款用于构建AI智能体的模块化SDK（V1）。该开源仓库社区数据显示，其stars达1079，forks为501，open issues共486个。这款SDK将AI智能体开发拆解为可复用模块，开发者无需从零搭建基础框架，可快速聚焦业务逻辑。它代表AI开发向模块化、标准化方向演进，简化大模型应用开发流程，推动智能体生态构建。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">OpenHands</span> <span class="tag tag-star">⭐ 1,079</span> <span class="tag tag-gray">agent / sdk / Agent / 智能体</span></div>
+          <div class="pick-reason">software-agent-sdk是构建带OpenHands的AI智能体的干净模块化SDK，获1079星、501分支、486开放问题，为AI智能体开发提供实用工具。</div>
+          <div class="source">来源：<a href="https://github.com/OpenHands/software-agent-sdk" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. FreeCAD MCP服务器搭建开源CAD与AI交互桥梁</h3>
+          <p class="news-body">FreeCAD MCP是基于Model Context Protocol的服务器。该开源项目社区数据显示，stars达2144，forks为279，open issues共36个。它打通了开源CAD工具与AI大模型的上下文交互，填补了开源领域AI-CAD集成的空白。这件事意味着开源CAD领域AI辅助设计的门槛正被降低，惠及创客与小型设计团队。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">neka-nat</span> <span class="tag tag-star">⭐ 2,144</span> <span class="tag tag-gray">claude / freecad / mcp / MCP</span></div>
+          <div class="pick-reason">这条FreeCAD MCP server项目作为AI与开源CAD结合的工具，社区获2144星、279复刻、36个待解决问题，是AI行业受关注的开源项目</div>
+          <div class="source">来源：<a href="https://github.com/neka-nat/freecad-mcp" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. AgentCompass：EMNLP2026开源智能体评估框架</h3>
+          <p class="news-body">AgentCompass是EMNLP2026相关的可扩展开源评估基础设施。该工具用于系统评估LLM与VLM智能体的能力。其开源社区当前拥有stars=127、forks=27、open_issues=17。它填补了LLM/VLM智能体领域缺乏标准化可扩展评估框架的空白。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">open-compass</span> <span class="tag tag-star">⭐ 127</span> <span class="tag tag-gray">agent / benchmark-framework / evaluation-framework / harness</span></div>
+          <div class="pick-reason">AgentCompass是EMNLP2026的可扩展开源项目，社区获127星、27个分支、17个开放议题，为AI领域提供开源工具支撑。</div>
+          <div class="source">来源：<a href="https://github.com/open-compass/AgentCompass" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 开源工具Unsloth提供本地UI运行训练大模型与扩散模型</h3>
+          <p class="news-body">开源项目Unsloth的社区数据显示，其stars达75962，forks为6915，open issues共1316个。该项目提供本地UI，支持运行与训练大语言模型（LLM）及扩散模型，兼容GGUF、MLX、Qwen3.8、DeepSeek-V4等多种模型。它大幅降低普通开发者本地部署、微调AI模型的技术门槛，减少对云端算力的依赖，推动开源AI工具的普及。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 75,962</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">Unsloth是可本地运行、训练大语言模型及扩散模型的UI工具，在AI社区数据亮眼，获75962星、6915次复刻，开放问题1316个</div>
+          <div class="source">来源：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 开源headroom工具压缩LLM输入数据 降本提效</h3>
+          <p class="news-body">开源工具headroom为支持库、代理、MCP服务器形态的产品，其社区数据为stars71135、forks5454、open_issues646。该工具可在工具输出、日志、文件、RAG块等内容进入LLM前进行压缩处理。它能使编码代理的输入token减少20%，JSON格式内容的输入token减少60%-95%，且输出结果保持一致。这类压缩工具可显著降低AI应用的运行成本与响应延迟，对高频调用的编码、RAG场景价值突出。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 71,135</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">headroom是AI领域的压缩工具，可压缩工具输出、日志、文件及RAG chunks，获71135星、5454复刻、646个开放议题，受社区关注。</div>
+          <div class="source">来源：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Should I Be Polite to My LLM Relevance Judge? Tone as a Severity Operating-Point Shift</h3>
+          <p class="news-body">大型语言模型（LLM）正被广泛用作相关性判断工具，但其输出标签会随提示的表面形式变化。该顶会录用论文（作者数2）以TREC DL19/DL20的3498组查询-段落对为样本，涉及8个判断模型、5个礼貌度等级及每个等级的3个改写句。研究发现语气对判断的影响因模型而异，部分模型呈U型响应，多数仅小幅变化，且这种影响更对应判断严格度的偏移而非判断质量提升。语气对校准后的一致性影响大于排序结果，NDCG@10最大绝对均值变化为0.011，Kendall’s τ低至0.743；该研究调和了过往矛盾发现，指出当绝对相关性标签重要时，提示语气是潜在有效性威胁，这意味着在依赖LLM相关性判断的场景中，需警惕语气带来的结果偏差。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">该论文以语气作为严重程度操作点转变，获顶会录用（影响力信号），仅2位作者，是AI行业LLM相关性判断方向的有价值探索。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.09703v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. AVSR多条件基准揭示模型泛化差距</h3>
+          <p class="news-body">该顶会录用论文作者共2人，研究发现现有AVSR在标准基准LRS3（广播语音）上词错误率低于1%，但该结果可能源于领域适配而非真实泛化。研究人员引入RoomReader-AV基准，评估三种AVSR架构在6种场景下的表现，涵盖广播语音、固定语法语句等类型。研究显示纯视觉性能在非广播场景骤降，音视频融合仅对Lombard语音环境有帮助，90度侧脸视觉理解大幅下降，LLM架构域外泛化能力差。该基准填补了多场景评估空白，对AVSR技术落地至关重要。</p>
+          <p class="comment">若该基准成为AVSR领域主流评估标准，则可能推动研究者减少对特定数据集的过拟合，提升模型实用价值。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">eess.AS</span></div>
+          <div class="pick-reason">AVSRBench是多条件AVSR基准，作为顶会录用的第2名候选，作者数为2，为AI行业提供了多条件下的AVSR评测基准参考</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.10366v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Interpreting Object-Dependent Concept Brittleness in Text-to-Image Diffusion Models</h3>
+          <p class="news-body">Although text-to-image diffusion models generally exhibit strong prompt-following ability, we identify a persistent and previously underexplored failure pattern in which a small subset of prompts differing only in the object consistently fails to realize the same target concept under identical generation settings. We term this phenomenon object-dependent concept brittleness. Such cases suggest systematic internal blind spots rather than random sampling noise. In this paper, we present an interpretability-oriented framework to audit and minimally correct these failures. Our key idea is to analyze denoising trajectories in a step-wise sparse autoencoder (SAE) space, where abstract style and attribute concepts become more separable than in the raw denoising representation. This sparse space enables us to compare successful and failed generations, identify concept dimensions whose evidence is missing, weakened, or temporally delayed, and construct class-level concept prototypes from reliable class-consistent samples. Based on this audit process, we introduce a lightweight inference-time correction strategy that interpolates denoising features toward the corresponding prototype in SAE space. Rather than serving as a task-specific retraining method, this intervention acts as a validation of the diagnosed concept deficiency. We evaluate the proposed framework on style and attribute failure cases across multiple diffusion backbones, with significant improvements in concept consistenc</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">这篇AI领域研究论文获顶会录用，共8位作者，聚焦解读文本到图像扩散模型中依赖对象的概念脆性，为相关模型改进提供研究参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.09909v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. EEGBind获顶会录用 多模态绑定解决癫痫源级IED检测难题</h3>
+          <p class="news-body">EEGBind是针对五类源级癫痫间期放电（IED）分类的EEG为核心的多模态绑定框架，作者共5人，获顶会录用。该框架以EEG为主模态，绑定同步视频上下文特征，采用视图一致性修复提升隐藏集鲁棒性，避免干扰源敏感的EEG表示。在NeuroMM2026挑战赛Track3的NMM-Source-IED基准上，EEGBind加权F1达0.8395，优于强竞争对手。源级IED分析对癫痫术前评估和治疗规划至关重要，EEGBind的方法有望解决现有技术难以精准定位短EEG窗口中微弱源区域证据的临床痛点。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">EEGBind用于检测源级间期癫痫样放电的AI研究获顶会录用，作者数5，为AI在EEG医疗分析领域提供了新的技术方向</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.09728v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. JarvisGUI填补跨设备GUI代理基准空白 登EMNLP2026</h3>
+          <p class="news-body">现有GUI代理评估多基于单设备静态任务，导致对其实际应用能力的评估失真。JarvisGUI是跨设备动态基准，支持Android、Windows、Ubuntu等异构平台，通过轻量类型系统自动组合多步骤跨设备工作流，动态评估代理性能。该研究获EMNLP2026录用，作者共10人。测试发现现有开源GUI代理在跨设备状态转移感知等能力上存在关键缺口。这件事填补了跨设备GUI代理基准的空白，能更准确衡量代理的实用价值。</p>
+          <p class="comment">若JarvisGUI基准被行业采用，则可能推动AI GUI代理研发更聚焦真实跨设备工作流场景</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">JarvisGUI论文获EMNLP 2026录用，共10位作者，聚焦跨设备GUI代理的动态任务组合，为AI行业相关方向提供新探索。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.10451v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. 阿里巴巴据悉将领投人工智能初创公司UniPat</h3>
+          <p class="news-body">阿里巴巴据悉将领投人工智能初创公司UniPat，对其估值25亿美元。（财联社）</p>
+          <p class="comment">阿里巴巴据悉将领投估值25亿美元的人工智能初创公司UniPat，该消息来自财联社。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 2.4事件数据：amount_wan=250000</div>
+          <div class="source">来源：<a href="https://www.36kr.com/newsflashes/3977057932358152" target="_blank" rel="noopener">36氪</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI推出面向企业的高能力模型GPT-6 Astra</h3>
+          <p class="news-body">OpenAI的GPT-6 Astra是其面向企业的高能力模型。该模型具备高级推理、计算机使用等功能。它的写作与设计判断能力更强。它能填补企业在复杂业务场景中的AI工具缺口，提升企业AI应用的落地深度与效率。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">GPT-6 Astra作为AI行业第2名候选，是面向工作场景的下一代智能产品，为行业工作智能升级提供了趋势信号。</div>
+          <div class="source">来源：<a href="https://openai.com/index/gpt-6-astra-next-generation-work" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. The AI policy window is open. We need to act.</h3>
+          <p class="news-body">Chris Lehane提出，在当前AI政策窗口仍开放的阶段，更强的AI能力需要配套更强的安全证据。同时，还需建立共享的行业标准，并采取持久的政策行动。这一观点直击AI发展与监管的时间窗口机遇，若错过将提升AI安全风险、增加行业标准制定成本，影响AI产业的合规性与可持续发展。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">AI政策窗口已开启，这一信号为AI行业提供了明确的行动指引，是行业需把握的关键政策趋势信号。</div>
+          <div class="source">来源：<a href="https://openai.com/index/ai-policy-window" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. AI助手Instinct新增邮箱功能 可代用户处理多类事务</h3>
+          <p class="news-body">Viral旗下AI助手Instinct新增邮箱功能。该功能允许AI代理代用户创建和管理账户、联系商家、处理支持请求等事务。这一变化标志着AI助手从信息交互工具向实体事务代理进阶，大幅降低用户处理繁琐事务的门槛，对企业级用户的效率提升价值显著。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">这款走红的AI助手Instinct拥有了专属邮箱地址，是AI助手交互渠道拓展的具体进展，为AI助手的应用延伸提供了新方向。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/09/viral-ai-assistant-instinct-now-has-its-own-email-address/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AI spend per employee slumped at top firms in August — summer doldrums or a warning sign?</h3>
+          <p class="news-body">8月头部企业AI人均支出出现下滑。伴随token成本降低、模型价格更亲民，企业AI落地情况与超大规模厂商的预期不符。这一趋势反映企业级AI部署更注重成本控制，而非初期盲目扩张，对AI行业商业化路径有参考价值。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/09/ai-spend-per-employee-slumped-at-top-firms-in-august-summer-doldrums-or-a-warning-sign/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>OpenHands推出AI Agent模块化SDK</b> — 该SDK为构建AI智能体提供了清晰模块化的框架，可降低开发者开发AI应用的技术门槛，值得关注其后续社区迭代情况。</div><div class="watch-item"><b>JarvisGUI：跨设备GUI智能体研究新方向</b> — 该论文提出的跨设备GUI智能体动态任务组合方法，为多设备交互场景下的AI应用提供了新的技术思路，有望推动智能助手的跨设备能力升级。</div><div class="watch-item"><b>阿里巴巴拟领投AI初创公司UniPat</b> — 此次投资动作显示头部企业在AI领域的布局动向，尤其是针对初创公司的支持，可能加速AI技术的商业化落地进程。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-10T04:50:25.510Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
