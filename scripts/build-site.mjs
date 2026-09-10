@@ -113,28 +113,13 @@ function splitModules(htmlFile) {
   return result;
 }
 
-/** 把最新一期日报渲染成双语卡片序列（速览卡 + 每模块卡 × 中英两份，data-lang 切换）。
- *  P4-4：拆卡会丢弃 reporter 页内的 module-nav（它位于 data-lang-block 之外），
- *  这里重建一条模块锚点导航（锚点 id="module-xxx" 在模块 section 上，拆卡后仍在）。 */
+/** 把最新一期日报渲染成双语卡片序列（速览卡 + 每模块卡 × 中英两份，data-lang 切换） */
 function buildLatestCards(latest) {
   const split = splitModules(latest.htmlFile);
-  const MODULE_LABELS = [
-    { id: 'module-opensource', en: 'AI Open Source', zh: 'AI 开源技术' },
-    { id: 'module-paper', en: 'AI Research', zh: 'AI 学术研究' },
-    { id: 'module-enterprise', en: 'AI Enterprise', zh: 'AI 企业动态' },
-  ];
-  const buildNav = (lang) => `
-  <nav class="module-nav">
-    ${MODULE_LABELS.filter((m) => split[lang].modules.some((mod) => mod.includes(`id="${m.id}"`)))
-      .map((m) => `<a href="#${m.id}">${lang === 'zh' ? m.zh : m.en}</a>`)
-      .join('<span class="sep">｜</span>')}
-  </nav>`;
   const buildLang = (lang) => {
     const parts = [];
     const data = split[lang] || { summary: '', modules: [] };
     if (data.summary) parts.push(`<div class="card summary-card">${data.summary}</div>`);
-    const nav = buildNav(lang);
-    if (nav.includes('</a>')) parts.push(`<div class="card" style="padding:12px 16px">${nav}</div>`);
     for (const mod of data.modules) {
       parts.push(`<div class="card module-card">${mod}</div>`);
     }
@@ -406,40 +391,14 @@ ${latestCards}
 </html>`;
 }
 
-/** 独立历史归档页（P4-7：月份分组 + 卡片显示条目数 + 关键词过滤） */
+/** 独立历史归档页（从首页移出 —— 对应 site.ts /reports 语义） */
 function renderArchive(reports, latestDate) {
-  // 按月分组（YYYY-MM）
-  const byMonth = new Map();
-  for (const r of reports) {
-    const month = r.date.slice(0, 7);
-    if (!byMonth.has(month)) byMonth.set(month, []);
-    byMonth.get(month).push(r);
-  }
-  // 从每日 HTML 提取条目数（news-item 出现次数，双语页会双倍——除以 2 取单语数量）
-  const itemCounts = new Map();
-  for (const r of reports) {
-    try {
-      const html = fs.readFileSync(r.htmlFile, 'utf-8');
-      const count = Math.round((html.match(/<article class="news-item">/g) || []).length / 2);
-      itemCounts.set(r.reportId, count);
-    } catch { itemCounts.set(r.reportId, 0); }
-  }
-  // 静态关键词索引：每期条目标题拼入卡片 data 属性，前端 input 过滤（无后端）
-  const archiveCards = [];
-  for (const [month, items] of [...byMonth.entries()].sort((a, b) => String(b[0]).localeCompare(String(a[0])))) {
-    archiveCards.push(`<div class="month-group" data-month="${month}">
-  <h3 class="month-title">${month}</h3>
-  <div class="archive">
-  ${items.map((r) => {
-    const kw = getReportKeywords(r);
-    return `<a href="./${r.date}/${r.reportId}.html" class="${r.date === latestDate ? 'today' : ''}" data-keywords="${esc(kw.toLowerCase())}">
+  const cards = reports
+    .map((r) => `<a href="./${r.date}/${r.reportId}.html" class="${r.date === latestDate ? 'today' : ''}">
   <div class="d">${r.date}</div>
-  <div class="t">${itemCounts.get(r.reportId) || 0} items${r.date === latestDate ? ' · 今日日报' : ''}</div>
-</a>`;
-  }).join('\n')}
-  </div>
-</div>`);
-  }
+  <div class="t">${r.date === latestDate ? '今日日报' : '归档'}</div>
+</a>`)
+    .join('');
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -447,17 +406,7 @@ function renderArchive(reports, latestDate) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Archive · AI Industry Market Intelligence</title>
-<style>${PAGE_CSS}
-/* P4-7 归档升级样式 */
-.month-title { font-family:var(--serif); font-size:16px; color:var(--text-2); margin:26px 0 10px; letter-spacing:0.5px; }
-.archive-filter { display:flex; gap:10px; align-items:center; margin:0 0 20px; flex-wrap:wrap; }
-.archive-filter input {
-  flex:1; min-width:220px; padding:9px 14px; border:1px solid var(--border); border-radius:10px;
-  background:var(--card); color:var(--text); font-size:14px; font-family:var(--sans); outline:none;
-}
-.archive-filter input:focus { border-color:var(--accent-border); box-shadow:0 0 0 3px var(--accent-soft); }
-.no-match { color:var(--muted); font-style:italic; display:none; }
-</style>
+<style>${PAGE_CSS}</style>
 </head>
 <body>
 <div class="wrap">
@@ -475,20 +424,15 @@ function renderArchive(reports, latestDate) {
       <button type="button" data-lang-btn="zh">中文</button>
     </span>
     <a href="index.html">Today</a>
-    <a href="feed.xml" title="RSS 订阅">RSS</a>
     <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener">GitHub</a>
   </nav>
 </header>
 
 <h1 style="margin-bottom:6px">🗂 Archive</h1>
-<p class="muted" style="margin-bottom:16px">${reports.length} editions</p>
-<div class="archive-filter">
-  <input type="search" id="archive-search" placeholder="按标题关键词过滤（如 agent / 融资 / RAG）…" aria-label="搜索归档">
+<p class="muted" style="margin-bottom:22px">${reports.length} editions</p>
+<div class="archive">
+${cards || '<p class="empty-note">No reports yet</p>'}
 </div>
-<div id="archive-list">
-${archiveCards.join('\n')}
-</div>
-<p class="no-match" id="no-match">没有匹配的期数</p>
 
 <footer>
   AI Industry Market Intelligence Daily · Generated by AI Insight Agent · Updated daily
@@ -497,25 +441,6 @@ ${archiveCards.join('\n')}
 <a href="#" class="back-top" title="Back to top">↑ Top</a>
 <script>
 (function () {
-  // P4-7 关键词过滤：匹配卡片 data-keywords（含当期条目标题），无匹配隐藏月份组
-  var input = document.getElementById('archive-search');
-  var noMatch = document.getElementById('no-match');
-  input.addEventListener('input', function () {
-    var q = input.value.trim().toLowerCase();
-    var groups = document.querySelectorAll('.month-group');
-    var total = 0;
-    groups.forEach(function (g) {
-      var visible = 0;
-      g.querySelectorAll('a[data-keywords]').forEach(function (a) {
-        var hit = !q || (a.getAttribute('data-keywords') || '').indexOf(q) !== -1;
-        a.style.display = hit ? '' : 'none';
-        if (hit) visible++;
-      });
-      g.style.display = visible > 0 ? '' : 'none';
-      total += visible;
-    });
-    noMatch.style.display = total === 0 ? 'block' : 'none';
-  });
   var btns = document.querySelectorAll('[data-lang-btn]');
   function setLang(lang) {
     btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
@@ -531,15 +456,6 @@ ${archiveCards.join('\n')}
 </script>
 </body>
 </html>`;
-}
-
-/** P4-7：从每日 HTML 提取条目标题串（供归档关键词过滤） */
-function getReportKeywords(report) {
-  try {
-    const html = fs.readFileSync(report.htmlFile, 'utf-8');
-    const titles = [...html.matchAll(/<h3>([^<]+)<\/h3>/g)].map((m) => m[1]);
-    return titles.join(' ').slice(0, 3000);
-  } catch { return ''; }
 }
 
 /** 每日独立页：复用日报 HTML（浅色样式由 reporter 渲染，这里仅补一个归档返回链接 + 反馈按钮） */
