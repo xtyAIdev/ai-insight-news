@@ -304,6 +304,25 @@ footer a { color:var(--accent); text-decoration:none; }
 .lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; font-family:var(--sans); }
 .lang-switch button.on { background:var(--accent); color:#fff; }
 .lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜模式（通用组件：首页/归档页与日报页同款按钮 + 同名记忆键） */
+.nav { align-items:center; }
+.theme-toggle { width:34px; height:32px; flex:none; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --border-strong:#3a4a75; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --muted-2:#98a1b3; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; --green:#34d399; --green-soft:#123527; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .lang-switch, html[data-theme="dark"] .theme-toggle { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#ffffff; --border:#e5e8ee; --border-strong:#d3d9e3; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --muted-2:#98a1b3; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --green:#0e8a5f; --green-soft:#e6f6ef; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --border-strong:#3a4a75; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --muted-2:#98a1b3; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; --green:#34d399; --green-soft:#123527; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .lang-switch, html:not([data-theme]) .theme-toggle { background:var(--card); }
+}
 /* 反馈/纠错按钮（页脚） */
 .feedback-link {
   display:inline-block; margin-top:10px; padding:7px 16px; border-radius:999px;
@@ -339,6 +358,7 @@ function renderIndex(reports, latest, latestCards, latestTitle) {
       <button type="button" data-lang-btn="en" class="on">En</button>
       <button type="button" data-lang-btn="zh">中文</button>
     </span>
+    <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">☀️</button>
     <a href="archive.html">Archive（${reports.length}）</a>
     <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener">GitHub</a>
   </nav>
@@ -387,6 +407,29 @@ ${latestCards}
   setLang(initial);
 })();
 </script>
+<script>
+(function () {
+  // 昼夜模式（通用组件，与日报页共用记忆键 ai-daily-theme）
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
 </body>
 </html>`;
 }
@@ -423,6 +466,7 @@ function renderArchive(reports, latestDate) {
       <button type="button" data-lang-btn="en" class="on">En</button>
       <button type="button" data-lang-btn="zh">中文</button>
     </span>
+    <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">☀️</button>
     <a href="index.html">Today</a>
     <a href="feed.xml" title="RSS 订阅">RSS</a>
     <a href="https://github.com/xtyAIdev/ai-insight-news" target="_blank" rel="noopener">GitHub</a>
@@ -452,6 +496,29 @@ ${cards || '<p class="empty-note">No reports yet</p>'}
   setLang(saved === 'zh' ? 'zh' : 'en');
   btns.forEach(function (b) {
     b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+})();
+</script>
+<script>
+(function () {
+  // 昼夜模式（通用组件，与日报页共用记忆键 ai-daily-theme）
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
   });
 })();
 </script>
