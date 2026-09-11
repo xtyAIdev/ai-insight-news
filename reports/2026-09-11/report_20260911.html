@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-11</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today’s AI landscape is rich with developments. The open-source space has seen new practical tools emerge, including an agent runtime layer, AI coworker suites,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-11">
+<meta property="og:description" content="Today’s AI landscape is rich with developments. The open-source space has seen new practical tools emerge, including an agent runtime layer, AI coworker suites, and memory management kits, with Tencen">
+<meta property="og:url" content="./report_20260911.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-11">
+<meta name="twitter:description" content="Today’s AI landscape is rich with developments. The open-source space has seen new practical tools emerge, including an agent runtime layer, AI coworker suites, and memory management kits, with Tencen">
+<link rel="canonical" href="./report_20260911.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-11 ｜ report_20260911</div>
+<div class="sub" data-lang-title="zh">2026-09-11 ｜ report_20260911</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today’s AI landscape is rich with developments. The open-source space has seen new practical tools emerge, including an agent runtime layer, AI coworker suites, and memory management kits, with Tencent introducing a skill that lets AI agents use logged-in browsers. Academically, multiple high-quality papers were released on arXiv, covering cutting-edge topics like retrospective thinking in speech LLMs, efficient RAG, and multi-agent e-commerce decision-making. On the enterprise front, legal AI startup Harvey reached a $15.5B valuation, DeepSeek launched its V4.1-Flash model, and OpenAI rolled out related tool updates.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. trueforge：The open-source agent harness - the runtime layer that</h3>
+          <p class="news-body">The open-source agent harness - the runtime layer that turns an LLM into a working agent.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">truefoundry</span> <span class="tag tag-star">⭐ 5,374</span> <span class="tag tag-gray">agent / agentic-ai / agents / harness</span></div>
+          <div class="pick-reason">TrueForge, an open-source agent harness runtime layer in the AI sector, has secured 5,374 stars, 401 forks and 87 open issues, offering a practical runtime solution for open-source AI tools.</div>
+          <div class="source">Source：<a href="https://github.com/truefoundry/trueforge" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenBot：Open-source AI coworkers that each get a computer of their</h3>
+          <p class="news-body">Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">CopilotKit</span> <span class="tag tag-star">⭐ 4,637</span> <span class="tag tag-gray">ag-ui / agent-governance / ai-agents / browser-automation</span></div>
+          <div class="pick-reason">OpenBot is an open-source AI coworker project that has drawn attention in the AI industry. It has gained 4,637 stars, 582 forks and 31 open issues on GitHub, providing a reference for similar open-source projects.</div>
+          <div class="source">Source：<a href="https://github.com/CopilotKit/OpenBot" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. ReMe：ReMe: Memory Management Kit for Agents - Remember Me,</h3>
+          <p class="news-body">ReMe: Memory Management Kit for Agents - Remember Me, Refine Me.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">agentscope-ai</span> <span class="tag tag-star">⭐ 3,445</span> <span class="tag tag-gray">agent / ai-agents / dsh-plugin / memory</span></div>
+          <div class="pick-reason">ReMe is a memory management kit for AI agents, with notable community metrics: 3445 stars, 296 forks and 29 open issues, offering a practical tool for agent memory management.</div>
+          <div class="source">Source：<a href="https://github.com/agentscope-ai/ReMe" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. BrowserSkill：Let AI agents use your real, logged-in browser without</h3>
+          <p class="news-body">Let AI agents use your real, logged-in browser without interrupting your work. CLI + extension for browser automation across any shell-capable AI agent.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">Tencent</span> <span class="tag tag-star">⭐ 1,927</span> <span class="tag tag-gray">agent / browser-use / dsh-plugin / Agent</span></div>
+          <div class="pick-reason">BrowserSkill enables AI agents to use real, logged-in browsers. It boasts impressive community metrics: 1,927 stars, a weekly growth of +210, 146 forks, and 39 open issues, serving as a practical tool in the AI agent space.</div>
+          <div class="source">Source：<a href="https://github.com/Tencent/BrowserSkill" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. mcp-remote：Connect an MCP Client that only supports local (stdio)</h3>
+          <p class="news-body">Connect an MCP Client that only supports local (stdio) servers to a Remote MCP Server.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">punkpeye</span> <span class="tag tag-star">⭐ 1,585</span> <span class="tag tag-gray">mcp / MCP / 模型上下文协议</span></div>
+          <div class="pick-reason">The mcp-remote connects MCP clients that only support local stdio, has gained 1,585 stars and 287 forks, offering a practical solution for cross-client adaptation of AI tools.</div>
+          <div class="source">Source：<a href="https://github.com/punkpeye/mcp-remote" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. RetroThinker: Enabling Retrospective Thinking in Speech LLMs</h3>
+          <p class="news-body">Speech large language models (SpeechLLMs) offer reduced latency and retain paralinguistic nuances that are typically lost in cascaded automatic speech recognition (ASR) and text-based LM architectures. However, they continue to lag behind text-only LLMs on complex reasoning tasks, while real-time spoken interaction imposes strict latency constraints. Although prior works employ Chain-of-Thought (CoT) and concurrent reasoning to enhance reasoning capabilities without inducing prohibitive delays, an inherent accuracy-latency trade-off persists. In this paper, we investigate whether a streaming SpeechLLM can dynamically revise its reasoning traces on the fly. We introduce RetroThinker, a multi-stage post-training framework that equips the Moshi model to self-verify and forward-correct CoT steps during inference. RetroThinker combines supervised fine-tuning (SFT) on curated retrospective thinking data with length-based direct preference optimization (DPO) to optimize retrospective during early reasoning (i.e., reasoning concurrently while the user speaks). Evaluated on the GSM8K benchmark, RetroThinker significantly improves the accuracy-latency trade-off over non-retrospective baselines, achieving an 11% absolute accuracy gain at a comparable latency.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">eess.AS</span></div>
+          <div class="pick-reason">RetroThinker, a top-1 candidate paper accepted by a top conference, enables speech LLMs to have retrospective thinking with 4 authors, offering a new research direction for speech LLMs.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.11864v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. REVA: Reusable Evidence View Aggregation for Context-Efficient RAG Serving</h3>
+          <p class="news-body">Retrieval-augmented generation (RAG) improves knowledge-intensive large language model (LLM) applications by conditioning generation on retrieved documents, but longer contexts increase latency, key-value (KV) cache memory, and token cost. Post-retrieval compression can reduce this cost, yet existing compressors often operate independently for each query, rely on auxiliary models or rewriting, and introduce online overhead that can offset the benefit of shorter prompts. We revisit RAG compression from a data-mining perspective by aggregating historical query--document--model interactions into reusable evidence views. We first show that modern compressors have unstable gains over simple truncation and can add substantial inference-time latency. We then propose Reusable Evidence View Aggregation (REVA), a framework that mines the target generator's historical attention traces into a document-keyed, budget-agnostic score store. REVA maps token-level attention to readable word units, aggregates importance across repeated document accesses, and renders budget-specific plain-text views that preserve document order and the standard RAG interface. Across four representative benchmarks and modern LLMs, REVA improves generation quality by 1.0--5.8 points over existing advances, while reducing compression overhead by a factor of 5.3 to 15.6, adding less than 40 ms of latency.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">REVA, the 2nd candidate accepted by top conferences with 6 authors, proposes a reusable evidence view aggregation scheme, offering a new direction for context-efficient RAG serving.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.11209v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Agentic Share-of-Search: A Multi-Agent AI System for Competitive Decision-Making in LLM-Mediated E-Commerce</h3>
+          <p class="news-body">AI shopping assistants increasingly redirect consumer discovery, creating an urgent need for tools that support seller-side competitive decision-making. We present a multi-agent AI system that automates competitive visibility measurement and root cause diagnosis in LLM-mediated ecommerce. The system introduces Agentic Share-of-Search (ASoS) as the decision target, deploys query agents across leading AI platforms, and uses a ReAct-based diagnostic agent to recommend prioritized merchandising interventions. A 100-trial ablation study, presented as a feasibility evaluation of this prototype, shows the agent recovers the ablated signal in 39% of trials (95% CI: 30.0% - 48.8%, 5.5x over chance), rising to 63.9% among high-correlation ablations.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">This paper is accepted by a top conference, has 1 author, and centers on the Agentic Share-of-Search: a multi-agent AI system for competitive decision-making in LLM-mediated e-commerce, acting as a candidate in the AI field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.11190v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. MultiHuSE: A Multimodal Dataset for Humour Styles and Emotions</h3>
+          <p class="news-body">Computational recognition of verbal humour remains a challenging task, requiring an understanding of language, delivery style, emotions, and cultural context. Most existing approaches focus on binary classification and lack datasets that capture psychological dimensions of humour alongside variations in expression. We introduce MultiHuSE, a multimodal dataset comprising 2,407 high-definition videos of 50 demographically diverse actors performing 1,463 text samples across four psychological humour styles (affiliative, aggressive, self-enhancing, and self-deprecating), as well as neutral content. A subset is additionally annotated for underlying emotions. The dataset uniquely captures multiple actor interpretations of the same texts, enabling systematic analysis of expressive diversity. Baseline experiments show that multimodal fusion outperforms unimodal approaches (80.1% vs. 77.4% accuracy) in humour style classification, with particularly strong gains for affiliative humour (66% to 74%). While text provides the strongest individual signal, fusion models deliver meaningful improvements. We hope that MultiHuSE provides empirical support for psychological theories linking humour and emotion, while also opening new avenues for research in human communication, well-being, and AI-driven interaction. The dataset is available for academic use under an End-User Licence Agreement.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">MultiHuSE is a multimodal dataset for humour styles and emotions, proposed in a top conference accepted paper with 3 authors, which provides important data support for relevant AI research.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.11322v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ReGround: Grounding Reviewer Comments in Multimodal Evidence</h3>
+          <p class="news-body">Reviewer comments naturally relate to specific parts of the reviewed paper, yet grounding these comments to the underlying evidence is difficult due to long multimodal documents. Existing benchmarks do not capture this setting and largely focus on explicit, information-seeking queries. We introduce ReGround, a large-scale dataset for reviewer comment grounding that links 10,267 reviewer comments to 16,274 evidence in the original anonymous submission of 3,656 papers. We build on a simple observation: author rebuttals often include explicit references to content of the submission used to address reviewer comments, providing a high-precision annotation source. We cast grounding as a retrieval task and evaluate a wide range of retrieval methods. Results show that retrieval over the entire paper content performs poorly, evidence-type inference is a major bottleneck, and multimodal evidence provides complementary signals that text alone misses. Our dataset exposes grounding reviewer comments as a difficult and practically important problem for scientific document understanding.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">The paper ReGround: Grounding Reviewer Comments in Multimodal Evidence has been accepted by EMNLP 2026 with 3 authors, which is an important academic achievement in the relevant AI field focusing on grounding reviewer comments in multimodal evidence.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.11460v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Legal AI startup Harvey reaches $15.5 billion valuation in new funding round - Reuters</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiwgFBVV95cUxNdlB6ckhOUjNOZ3VfSVNXTVBvQWlkLTRiWUwxLU1KZG9fT0t3QVI5U043NS1pdGp6UHpCM0hjTHFzZm5OelhkWVdZbkY3RnBBbEdCVnFTXzhJNl8yTW4tOHo5UzU3SEU5VW0xNFZnQkhCNjJzWVVWTmZEQUhsUVNYalpYNnpIZUo1S0UxNEF0MHFtalVablBwWFF1ZDE5V25OSDIzd2tadlZqdU9xdDFQc1YwR1FxNW9</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.8事件数据：amount_wan=155000</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxNdlB6ckhOUjNOZ3VfSVNXTVBvQWlkLTRiWUwxLU1KZG9fT0t3QVI5U043NS1pdGp6UHpCM0hjTHFzZm5OelhkWVdZbkY3RnBBbEdCVnFTXzhJNl8yTW4tOHo5UzU3SEU5VW0xNFZnQkhCNjJzWVVWTmZEQUhsUVNYalpYNnpIZUo1S0UxNEF0MHFtalVablBwWFF1ZDE5V25OSDIzd2tadlZqdU9xdDFQc1YwR1FxNW91aDJKeHNaeF9iQQ?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. How a researcher uses Codex and ChatGPT to search for new antimicrobial molecules</h3>
+          <p class="news-body">César de la Fuente’s lab uses Codex and ChatGPT to search living and extinct genomes for antimicrobial candidates to fight drug-resistant infections.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event shows a researcher using Codex and ChatGPT to explore new antimicrobial molecules, providing a specific case for AI applications in drug development.</div>
+          <div class="source">Source：<a href="https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Now everyone can put data to work</h3>
+          <p class="news-body">Meet the Data agent in ChatGPT Work. Connect company data, uncover insights, and build interactive dashboards with AI using natural language.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As the 3rd candidate, this event signals a trend in the AI industry that data application is no longer restricted to professionals, as everyone can now use AI to put data to practical work.</div>
+          <div class="source">Source：<a href="https://openai.com/index/put-data-to-work" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. DeepSeek-V4.1-Flash: Smarter, Faster, More Efficient</h3>
+          <p class="news-body">DeepSeek-V4.1-Flash: Smarter, Faster, More Efficient</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">DeepSeek</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">DeepSeek's V4.1-Flash model, which is smarter, faster and more efficient, brings a new option for the AI industry that balances performance and efficiency.</div>
+          <div class="source">Source：<a href="https://api-docs.deepseek.com/news/news260910" target="_blank" rel="noopener">DeepSeek News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Recreating a 70-year love story frame by frame</h3>
+          <p class="news-body">Recreating a 70-year love story frame by frame Discover how filmmakers and Google DeepMind used AI to recreate a couple's unrecorded past in the short film &quot;Love, Rendered.&quot; Your browser does not support the audio element. “Love, Rendered,” a new documentary short, explores memory loss and the power of storytelling — and it showcases how technology can help rekindle memories that have begun to fade. The film follows Burt and Ethelle Shatz, a couple married for over 70 years, as they navigate Bur</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event uses AI to recreate a 70-year love story frame by frame, demonstrating AI's capability in precisely restoring long-term emotional narrative content and offering a new direction for AI applications in humanistic content creation.</div>
+          <div class="source">Source：<a href="https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Tencent launches BrowserSkill: Enabling AI agents to use logged-in browsers</b> — Addresses the pain point of AI agents being unable to access real user browser data, expands their practical application scenarios, and enhances interaction practicality.</div><div class="watch-item"><b>Legal AI startup Harvey secures $15.5B funding valuation</b> — Reflects a significant rise in market recognition for vertical AI solutions, signaling that the legal AI sector will enter a period of rapid development.</div><div class="watch-item"><b>DeepSeek releases V4.1-Flash model: Smarter, Faster, More Efficient</b> — Highlights optimizations in intelligence, speed, and efficiency of the model, which is expected to drive widespread adoption of AI models in low-resource or high-real-time scenarios.</div><div class="watch-item"><b>arXiv publishes RetroThinker paper: Enabling retrospective thinking in speech LLMs</b> — Expands the cognitive boundaries of speech large language models (LLMs), allowing them to review past conversation content and improving the coherence and accuracy of user interactions.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域动态丰富：开源方向涌现多个实用工具，包括智能代理运行层、AI同事套件、记忆管理工具等，腾讯还推出了让AI代理使用已登录浏览器的技能。学术上，arXiv发布多篇高质量论文，涉及语音LLM的回溯思考、高效RAG、多代理电商决策等前沿主题。企业端，法律AI初创Harvey获155亿美元估值，DeepSeek发布V4.1-Flash模型，OpenAI也有相关工具更新。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. TrueForge：开源代理运行时工具助力LLM转工作代理</h3>
+          <p class="news-body">TrueForge是一款开源代理工具，作为运行时层可将LLM转化为可工作的代理。其社区数据显示，获得5374个star、401个fork，开放议题共87个。该工具填补了LLM从模型到实际代理应用的运行时空白，降低开发者构建智能代理的技术门槛。这一工具的出现，推动AI代理落地，也预示AI开发正从聚焦模型本身转向重视代理运行时基础设施的趋势。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">truefoundry</span> <span class="tag tag-star">⭐ 5,374</span> <span class="tag tag-gray">agent / agentic-ai / agents / harness</span></div>
+          <div class="pick-reason">TrueForge是AI行业的开源智能体harness运行时层，获5374星标、401个复刻、87个开放议题，为开源AI工具领域提供实用运行时支撑</div>
+          <div class="source">来源：<a href="https://github.com/truefoundry/trueforge" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenBot：开源AI同事配专属环境 动作可追溯</h3>
+          <p class="news-body">OpenBot是一款开源AI同事项目，隶属于opensource模块。该项目为每个AI同事配备专属计算机环境，包含浏览器、文件及工具，可接入任意AG-UI代理，且AI动作提前决策、事后可记录。其社区数据显示，stars达4637，forks为582，open_issues共31。它为开源AI协作工具提供标准化运行框架，降低开发者构建可控AI工作伙伴的门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">CopilotKit</span> <span class="tag tag-star">⭐ 4,637</span> <span class="tag tag-gray">ag-ui / agent-governance / ai-agents / browser-automation</span></div>
+          <div class="pick-reason">OpenBot是开源AI同事项目，在AI行业受关注，GitHub获4637星标、582次复刻，开放议题31个，为同类开源项目提供参考。</div>
+          <div class="source">来源：<a href="https://github.com/CopilotKit/OpenBot" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 开源智能体记忆管理工具ReMe填补开发空白</h3>
+          <p class="news-body">ReMe是一款面向智能体的记忆管理工具，属于开源模块。其社区数据显示，获得3445颗星标、296个复刻分支，开放议题共29个。该工具填补了智能体记忆模块开发的细分工具空白，降低开发者搭建相关功能的技术门槛。这一情况反映出AI智能体生态正从基础模型能力建设向配套工具链完善延伸。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">agentscope-ai</span> <span class="tag tag-star">⭐ 3,445</span> <span class="tag tag-gray">agent / ai-agents / dsh-plugin / memory</span></div>
+          <div class="pick-reason">ReMe是面向智能体的记忆管理工具包，社区数据亮眼，获3445星、296次复刻，开放议题29个，为AI智能体记忆管理提供实用工具</div>
+          <div class="source">来源：<a href="https://github.com/agentscope-ai/ReMe" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 开源BrowserSkill工具支持AI代理使用真实登录浏览器</h3>
+          <p class="news-body">开源BrowserSkill是一款CLI与扩展结合的浏览器自动化工具，适配所有支持shell的AI代理。其社区数据显示，当前stars达1927，周增长210，forks146，open_issues39。该工具可让AI代理使用用户已登录的真实浏览器，无需手动介入，降低了AI代理浏览器自动化的门槛。这件事意味着AI代理正逐步向用户真实环境融合，开源工具在简化其落地应用。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">Tencent</span> <span class="tag tag-star">⭐ 1,927</span> <span class="tag tag-gray">agent / browser-use / dsh-plugin / Agent</span></div>
+          <div class="pick-reason">BrowserSkill可让AI agents使用真实登录的浏览器，其社区数据亮眼：stars=1927，周增长+210，forks=146，open_issues=39，是AI agent领域的实用工具</div>
+          <div class="source">来源：<a href="https://github.com/Tencent/BrowserSkill" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. mcp-remote工具实现本地MCP客户端连接远程服务器</h3>
+          <p class="news-body">mcp-remote是一款开源工具，其社区数据显示stars达1585，forks为287。该工具可实现仅支持本地（stdio）的MCP客户端与远程MCP服务器的连接。它解决了MCP客户端与远程服务器的连接兼容性痛点，扩展了MCP生态的部署灵活性，降低了开发者使用远程MCP服务的技术门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">punkpeye</span> <span class="tag tag-star">⭐ 1,585</span> <span class="tag tag-gray">mcp / MCP / 模型上下文协议</span></div>
+          <div class="pick-reason">mcp-remote可连接仅支持本地stdio的MCP客户端，获1585星标、287次复刻，为AI工具跨客户端适配提供实用方案</div>
+          <div class="source">来源：<a href="https://github.com/punkpeye/mcp-remote" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. 语音大模型推理优化新方案RetroThinker提升精度延迟平衡</h3>
+          <p class="news-body">语音大模型兼具低延迟与保留副语言特征的优势，但复杂推理能力弱于文本大模型，此前链式、并发推理仍存在精度与延迟的权衡问题。一篇顶会录用的论文（作者共4人）提出RetroThinker多阶段后训练框架，适配Moshi模型，可在推理时自我验证并修正思维链步骤。该框架结合精选回溯思维数据的监督微调与长度导向的直接偏好优化，在GSM8K基准测试中，较非回溯基线实现11%的绝对精度提升且延迟相当。这一技术优化了语音大模型的推理性能，为其落地高价值应用场景提供支撑。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">eess.AS</span></div>
+          <div class="pick-reason">RetroThinker作为第1名候选，是顶会录用的研究，可让语音大模型具备回溯思考能力，作者共4人，为语音LLM的能力拓展提供新方向</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.11864v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. REVA优化RAG服务 提升效率并降低压缩开销</h3>
+          <p class="news-body">这篇顶会录用的论文（共6位作者）聚焦RAG现有压缩方案的缺陷展开研究。现有RAG压缩多针对每个查询独立处理，存在在线开销抵消短prompt成本优势的问题。论文提出REVA框架，通过聚合历史查询-文档-模型交互生成可重用证据视图，平衡压缩效果与服务性能。实验显示，REVA在4个基准测试中，比现有方法提升生成质量1.0-5.8分，压缩开销降低5.3-15.6倍，延迟增加不足40ms，提升了RAG服务的效率与经济性，对企业级LLM应用落地有实际价值。</p>
+          <p class="comment">若中小团队采用REVA方案，则可能降低RAG部署的计算与内存成本，提升高效RAG应用的落地可行性。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">REVA是顶会录用的第2名候选，作者共6人，提出可复用证据视图聚合方案，为上下文高效RAG服务提供新方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.11209v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Agentic Share-of-Search: A Multi-Agent AI System for Competitive Decision-Making in LLM-Mediated E-Commerce</h3>
+          <p class="news-body">AI购物助手分流消费者后，LLM介导电商的卖家亟需竞争决策工具。研究提出多智能体AI系统Agentic Share-of-Search（ASoS），用于自动化测量竞争可见性与诊断根因。该系统部署查询代理至主流AI平台，结合ReAct诊断代理推荐优先商品干预措施。100次消融实验显示，系统在39%（95%CI：30.0%-48.8%）的试验中恢复消融信号，高相关消融场景下提升至63.9%，性能为随机水平的5.5倍。这项技术填补了LLM电商场景下卖家竞争决策工具的空白，为卖家应对AI搜索主导的流量环境提供了可落地的技术路径。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">该论文为顶会录用，作者数1，聚焦多智能体AI系统在LLM介导电商竞争决策中的Agentic Share-of-Search方向，是AI行业的候选研究</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.11190v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. MultiHuSE数据集填补幽默AI多模态心理维度数据空白</h3>
+          <p class="news-body">现有言语幽默计算识别多聚焦二元分类，缺少结合心理维度（情绪、风格）与多模态的数据集。MultiHuSE是一款多模态数据集，包含2407条高清视频（来自50名不同人口统计特征的演员）、1463个文本样本，涵盖4种幽默风格及中性内容，还有情绪标注子集。基线实验显示，多模态融合在幽默风格分类上准确率优于单模态（80.1% vs77.4%），其中亲和型幽默提升显著。该数据集供学术使用，能支撑幽默与情绪的心理理论研究，拓展人机交互等方向，还能推动计算幽默识别等细分领域模型发展，优化人机交互等场景体验。</p>
+          <p class="comment">若MultiHuSE数据集被广泛应用于AI模型训练，则可能推动多模态情感AI向心理维度深化，为通用情感模型构建提供支撑。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">MultiHuSE是顶会录用论文提出的多模态幽默风格与情感数据集，作者共3人，为AI领域相关研究提供了重要数据支撑。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.11322v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ReGround数据集获EMNLP2026录用 聚焦论文评审证据关联</h3>
+          <p class="news-body">现有学术基准多聚焦显式信息查询，未覆盖评审意见与论文证据关联的实际评审场景。推出的ReGround是大规模数据集，关联了10267条评审意见与16274条证据，涉及3656篇论文的匿名投稿。该数据集利用作者反驳中的明确引用作为高精度标注源，将评审意见关联视为检索任务并评估了多种检索方法。这为论文评审自动化领域提供关键训练数据，推动相关工具发展。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">ReGround论文被EMNLP 2026录用，作者共3人，聚焦多模态证据中的评审意见定位，是AI领域相关方向的重要学术成果。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.11460v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. 法律AI初创Harvey估值155亿美元 创赛道融资新高</h3>
+          <p class="news-body">法律AI初创公司Harvey在融资轮中估值达155亿美元。这一估值刷新了法律AI赛道的融资纪录。资本对企业级AI在专业服务领域的商业化潜力高度认可。专业服务类AI工具正从辅助角色向核心决策支撑工具升级，带动会计、咨询等领域AI初创的估值预期提升。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.8事件数据：amount_wan=155000</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxNdlB6ckhOUjNOZ3VfSVNXTVBvQWlkLTRiWUwxLU1KZG9fT0t3QVI5U043NS1pdGp6UHpCM0hjTHFzZm5OelhkWVdZbkY3RnBBbEdCVnFTXzhJNl8yTW4tOHo5UzU3SEU5VW0xNFZnQkhCNjJzWVVWTmZEQUhsUVNYalpYNnpIZUo1S0UxNEF0MHFtalVablBwWFF1ZDE5V25OSDIzd2tadlZqdU9xdDFQc1YwR1FxNW91aDJKeHNaeF9iQQ?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 研究团队用Codex及ChatGPT挖掘抗菌分子应对耐药感染</h3>
+          <p class="news-body">César de la Fuente的实验室借助Codex与ChatGPT，从现存及已灭绝的基因组中筛选抗菌候选分子。这些候选分子旨在应对耐药性感染这一全球公共卫生重大挑战。AI辅助基因组挖掘可突破传统抗菌分子筛选的效率瓶颈，为解决临床抗菌药物短缺提供新路径。这一实践代表AI技术正深度融入生物医药研发早期环节，AI与基因组学的融合将加速创新药物发现周期。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件呈现了研究者借助Codex与ChatGPT探索新抗菌分子的实践，为AI在药物研发领域的应用提供了具体案例。</div>
+          <div class="source">来源：<a href="https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. ChatGPT Work的Data agent可让全员自主处理企业数据</h3>
+          <p class="news-body">ChatGPT Work内置Data agent功能。用户可通过自然语言连接企业数据，挖掘数据洞察并构建交互式仪表盘。该功能打破企业数据应用对专业技术人员的依赖，提升企业数据利用效率，推动数字化转型落地。这一变化预示AI向企业级生产场景深度渗透，利好缺乏专业数据团队的中小微企业，也将倒逼传统BI工具厂商加快智能化升级。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">作为第3名候选，这条事件传递AI行业新趋势：数据应用不再局限于专业群体，如今所有人都能借助相关AI技术将数据转化为实际价值。</div>
+          <div class="source">来源：<a href="https://openai.com/index/put-data-to-work" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. DeepSeek-V4.1-Flash具备更智能更快更高效特性</h3>
+          <p class="news-body">DeepSeek-V4.1-Flash具备更智能、更快、更高效的特性。该模型填补了企业级AI应用中对高性价比、低延迟模型的需求空白。它能显著降低企业部署AI的技术与成本门槛，利好中小企业快速落地AI应用。这反映了大模型向轻量化、场景化优化的行业趋势，推动行业加大轻量化模型的研发投入。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">DeepSeek</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">DeepSeek推出的V4.1-Flash版本，具备更智能、更快速、更高效的特性，为AI行业带来了兼具性能与效率的模型新方向</div>
+          <div class="source">来源：<a href="https://api-docs.deepseek.com/news/news260910" target="_blank" rel="noopener">DeepSeek News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Google DeepMind与电影人用AI重制70年爱情故事</h3>
+          <p class="news-body">纪录片《Love, Rendered》由电影人与Google DeepMind合作打造。该片围绕结婚超70年的Burt和Ethelle夫妇展开，探讨记忆衰退与叙事的力量。创作过程中运用AI技术重制两人未被记录的过往。这一实践为老年群体的记忆留存提供了可落地的技术方案，也验证了AI在人文关怀场景的实用价值。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-09</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件通过AI逐帧重现一段持续70年的爱情故事，展现了AI在精细还原长期情感叙事内容方面的能力，为AI在人文内容创作领域的应用提供了新方向。</div>
+          <div class="source">来源：<a href="https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>腾讯推出BrowserSkill：让AI代理使用已登录浏览器</b> — 解决AI代理无法访问真实用户浏览器数据的痛点，拓展代理的实际应用场景，提升交互实用性。</div><div class="watch-item"><b>法律AI初创Harvey获155亿美元融资估值</b> — 反映垂直领域AI解决方案的市场认可度大幅提升，预示法律AI赛道将迎来快速发展期。</div><div class="watch-item"><b>DeepSeek发布V4.1-Flash模型：更智能、更快、更高效</b> — 强调模型在智能性、速度和效率上的优化，有望推动AI模型在低资源或高实时性场景的广泛应用。</div><div class="watch-item"><b>arXiv发布RetroThinker论文：实现语音LLM的回溯思考</b> — 拓展了语音大模型的认知边界，让模型可回顾过往对话内容，提升与用户交互的连贯性和准确性。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-11T04:48:53.242Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
