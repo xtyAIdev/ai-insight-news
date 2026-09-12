@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-12</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today’s AI landscape features key updates in open-source tools, academic research, and enterprise adoption. On the open-source front, new AI Agent and RAG tools">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-12">
+<meta property="og:description" content="Today’s AI landscape features key updates in open-source tools, academic research, and enterprise adoption. On the open-source front, new AI Agent and RAG tools launched, including awesome-llm-apps ag">
+<meta property="og:url" content="./report_20260912.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-12">
+<meta name="twitter:description" content="Today’s AI landscape features key updates in open-source tools, academic research, and enterprise adoption. On the open-source front, new AI Agent and RAG tools launched, including awesome-llm-apps ag">
+<link rel="canonical" href="./report_20260912.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-12 ｜ report_20260912</div>
+<div class="sub" data-lang-title="zh">2026-09-12 ｜ report_20260912</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today’s AI landscape features key updates in open-source tools, academic research, and enterprise adoption. On the open-source front, new AI Agent and RAG tools launched, including awesome-llm-apps aggregating over 100 open-source AI apps and OpenHands focused on AI-driven development. Academically, arXiv published cutting-edge studies on transformer positional encoding, causal discovery benchmarks, and more. For enterprises, AI sales tool Clay raised $115M, Meta’s AI Agent Muse became the No.2 app in the US, and OpenAI is scaling storage to support over 1B ChatGPT users.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. awesome-llm-apps：100+ AI Agents, Agent Skills and RAG Apps - Free and Open</h3>
+          <p class="news-body">100+ AI Agents, Agent Skills and RAG Apps - Free and Open Source.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-12</span> <span class="tag">Shubhamsaboo</span> <span class="tag tag-star">⭐ 137,265</span> <span class="tag tag-gray">agents / llms / python / rag</span></div>
+          <div class="pick-reason">This is a free and open collection in the AI industry, featuring over 100 AI Agents, Agent Skills and RAG Apps, with 137,265 stars, 20,196 forks and only 10 open issues from the community.</div>
+          <div class="source">Source：<a href="https://github.com/Shubhamsaboo/awesome-llm-apps" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-12</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 244,663</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">Hermes-agent, an AI agent, has achieved notable community metrics with 244,663 stars, 50,725 forks and 42,194 open issues, making it a standout in the AI sector.</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. vllm：A high-throughput and memory-efficient inference and</h3>
+          <p class="news-body">A high-throughput and memory-efficient inference and serving engine for LLMs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-12</span> <span class="tag">vllm-project</span> <span class="tag tag-star">⭐ 91,530</span> <span class="tag tag-gray">amd / blackwell / cuda / deepseek</span></div>
+          <div class="pick-reason">vllm is a high-throughput and memory-efficient inference tool in the AI industry, which has gained 91530 stars, 22081 forks and 7882 open issues in the community, attracting wide attention from developers.</div>
+          <div class="source">Source：<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. OpenHands：🙌 OpenHands: AI-Driven Development</h3>
+          <p class="news-body">🙌 OpenHands: AI-Driven Development</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-12</span> <span class="tag">OpenHands</span> <span class="tag tag-star">⭐ 87,575</span> <span class="tag tag-gray">agent / artificial-intelligence / chatgpt / claude-ai</span></div>
+          <div class="pick-reason">As an AI-driven development project, OpenHands has attracted notable community attention with 87,575 stars, 11,468 forks and 764 open issues, making it a standout in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/OpenHands/OpenHands" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Fusion：Your Software Factory - build faster and better with multi</h3>
+          <p class="news-body">Your Software Factory - build faster and better with multi node agents that work 24/7</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-12</span> <span class="tag">Runfusion</span> <span class="tag tag-star">⭐ 1,219</span> <span class="tag tag-gray">agent / agentic-workflow / agents / llm</span></div>
+          <div class="pick-reason">Fusion, a top 5 candidate in the AI industry, boasts notable community metrics: 1,219 stars, 157 forks, and 71 open issues, standing as a prominent candidate for AI-related software factory projects.</div>
+          <div class="source">Source：<a href="https://github.com/Runfusion/Fusion" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Distance generalization in transformers: why bother with positional encoding?</h3>
+          <p class="news-body">Out-of-distribution length generalization, namely to extrapolate a task from short to longer context, has been studied intensively for transformers. Here we focus on distance generalization, which probes performance when inter-token distances are changed between training and inference, while keeping a fixed context length. We construct two synthetic delay copy tasks, both involving finite distances between source and recall, where tokens are copied either fully or selectively, and test models on delays unseen during training. We address three questions: (A) Do positional encoding schemes such as RoPE and ALiBi improve distance resolution relative to no positional encoding (NoPE)? (B) How does data diversity, the number of inter-token distances seen in training, affect performance? (C) When is distance transfer learning positive or negative? We present a thorough investigation, finding that it is paramount to improve our understanding of the underlying mechanisms.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">This paper, written by 2 authors, focuses on distance generalization in transformers, explores the possibility of not using positional encoding, and provides a new direction for optimizing transformer structures in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.11913v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. MindTopo: Can Foundation Models Reason in Topological Space?</h3>
+          <p class="news-body">Spatial reasoning depends not only on metric properties such as distance, angle, and shape, but also on topological relations that remain invariant under continuous deformation. Cognitive science identifies these relations as foundational to spatial understanding, yet foundation-model evaluations largely focus on metric or viewpoint-dependent relations. We introduce MindTopo, a benchmark of topological intuition across five properties grounded in cognitive science and formal topology: continuity, separation, order, enclosure, and knots. MindTopo evaluates each property at two cognitive levels. Reasoning asks a model to identify topological relations or infer how they change. Planning instantiates a foundation model as a closed-loop agent whose policy selects environment actions. MindTopo contains 11,030 instances across 13 procedurally generated task types with controllable difficulty. We benchmark 14 MLLMs and study agent configurations augmented with image and video generation, including 3 video generative models in planning settings. Every MLLM performs better on reasoning than on planning, and the best-performing model remains far below observed human performance. On Qwen3-VL-2B-Instruct, supervised fine-tuning and reinforcement learning improve reasoning more than planning. Generated observations retain local cues and reach plausible endpoints, but audited rollouts do not reliably follow environment dynamics or preserve topology across transitions. Our website is at http</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">This paper, as the 2nd candidate in the AI industry, investigates whether foundation models can reason in topological space, with 10 authors, offering a new research perspective for AI reasoning.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.11900v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Nuha-Speech: Building General-Purpose Arabic Speech-LLMs</h3>
+          <p class="news-body">As Speech Large Language Models (speech-LLMs) become increasingly multilingual, Arabic remains significantly underrepresented, highlighting the need for dedicated infrastructure to train and evaluate Arabic speech-LLMs. To address this gap, we introduce Nuha-Speech, a comprehensive initiative to develop general-purpose Arabic speech-LLMs spanning dataset construction, model training, and systematic evaluation. Specifically, we constructed a large-scale Arabic Speech Question-Answering (SQA) corpus comprising over 1.5 million training samples to allow instruction tuning over a broad range of core speech tasks. Then, the corpus was used for supervised fine-tuning based on Qwen-Omni model variants at different scales. Finally, we designed an evaluation framework featuring diverse tasks and tailored metrics. Through this work, we aim to establish foundational infrastructures for Arabic Speech-LLMs under constraints imposed by limited Arabic speech resources.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Nuha-Speech is a project building general-purpose Arabic speech large language models. The paper has 3 authors, contributing relevant research content to the field of Arabic speech LLMs.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.11892v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Domain-Specific Hallucination Detection in Large Language Models</h3>
+          <p class="news-body">Large language models generate fluent text that can contain unfaithful claims -- a phenomenon known as hallucination. We present a multi-signal detection pipeline combining fine-tuned DeBERTa-v3 classification, Monte Carlo (MC) Dropout uncertainty quantification, and temperature-scaled calibration for response-level hallucination detection. Evaluated on the HaluEval benchmark, our pipeline achieves F1=0.915 and AUROC=0.977 on general-domain tasks, with per-task F1 scores of 0.97 (QA), 0.96 (Summarization), and 0.82 (Dialogue). MC Dropout inference further improves accuracy to 93.2%. A context ablation study confirms the model performs genuine entailment reasoning rather than exploiting surface patterns, with summarization F1 dropping 24% when knowledge context is removed. Learning curve analysis reveals that 25% of training data captures 77% of full-data performance. Beyond detection, we apply Direct Preference Optimization (DPO) to a Qwen2.5-0.5B generator, reducing its hallucination rate from 85.5% to 37.7% (55.9% relative reduction) as measured by our detector. Cross-domain evaluation on the SciFact biomedical benchmark shows that general-domain training transfers poorly (F1=0.52), motivating domain-specific fine-tuning. PubMedBERT fine-tuned on SciFact achieves F1=0.63 and AUROC=0.81, demonstrating that domain-matched pre-training is the strongest adaptation strategy. Code and models are available at https://github.com/varunteja99/hallucination-detection-nlp</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">This is the 4th candidate research focusing on domain-specific hallucination detection in large language models, completed by 2 authors, offering relevant exploration directions for the AI industry to tackle hallucination problems in specific domains of LLMs.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.11878v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. CausalArena: Benchmarking Causal Discovery in the Foundation Model Era</h3>
+          <p class="news-body">Causal discovery aims to uncover causal structures from data and is fundamental to scientific reasoning and intervention-based decision making. Its evaluation relies heavily on structural causal models (SCMs), which specify a causal graph together with the mechanisms that generate data, yet existing studies differ substantially in graph families, mechanisms, and evaluation protocols. The emergence of causal discovery foundation models (CDFMs) further complicates evaluation: performance may reflect not only causal discovery ability, but also overlap between pretraining environments and test SCMs, making results on fixed synthetic benchmarks difficult to interpret. We introduce CausalArena, a unified and evolvable benchmark for causal discovery under a common protocol. Synthetic SCMs supply controlled breadth over structures and mechanisms; semantic operational SCMs provide human-auditable, semantically grounded environments beyond standard synthetic generators; and formula-grounded SCMs test discovery under explicit scientific mechanisms. Public real-world datasets provide an additional external-validity check. Experiments across classical, neural, and pretrained methods reveal substantial ranking shifts across SCM families and protocols, showing that strong performance in one benchmark regime does not reliably transfer to others. These results highlight benchmark diversity and pretraining--evaluation overlap as central challenges for evaluating causal discovery in the foundat</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">This paper is a benchmarking work for causal discovery in the foundation model era, with 4 authors, offering relevant benchmark references for the AI industry's causal discovery field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.11897v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Clay, an A.I. Sales Tool Provider, Raises $115 Million - The New York Times</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMigwFBVV95cUxOTUFZbkl2OElXUy0xdnpYdnZCY3dMNDlwd0pGMUd0anBrd0VZYzJIQjd5SEk1UWRCY0d4QkYxbVU2aTM3dVozRkhPdzJzb2ZvLVZuVUtuSEY1bFBYZU1sNXhHMlgxSEttV0gzZXRqNzREWndySGVVOUVXd0poM3FSaU5SOA?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Clay, an A.I. Sales Tool Provider, Raises $</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.8事件数据：amount_wan=11500</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOTUFZbkl2OElXUy0xdnpYdnZCY3dMNDlwd0pGMUd0anBrd0VZYzJIQjd5SEk1UWRCY0d4QkYxbVU2aTM3dVozRkhPdzJzb2ZvLVZuVUtuSEY1bFBYZU1sNXhHMlgxSEttV0gzZXRqNzREWndySGVVOUVXd0poM3FSaU5SOA?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Rapidly scaling online storage to serve over 1 billion ChatGPT users</h3>
+          <p class="news-body">Learn how OpenAI evolved Habitat from a Python library into a globally distributed storage platform serving 1 billion ChatGPT users and 22M requests per second.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 5, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/index/scaling-storage-one-billion-users-part-one" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Kimi-maker Moonshot AI targets $2B in annual revenue</h3>
+          <p class="news-body">While K3's usage figures have declined slightly in recent months, OpenRouter data currently shows as many as 300 billion tokens being generated each day by K3 models on the system.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">月之暗面</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/11/kimi-maker-moonshot-ai-targets-2-billion-in-annual-revenue/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta’s AI agent Muse is now the No. 2 app in the US</h3>
+          <p class="news-body">Meta's newest app Muse is off to a slower start than the company's other apps, like Meta AI or Threads.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta’s AI agent Muse has become the No.2 app in the US, which is a notable indicator of the market acceptance of AI agent applications in the industry.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/10/metas-ai-agent-muse-is-now-the-no-2-app-in-the-us/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AI agents are flooding public services with new requests</h3>
+          <p class="news-body">“The vast majority of cases we find are people who are entitled to claim for something, claiming for that thing,” the researcher told TechCrunch.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event indicates that AI agents are flooding public services with new requests, acting as a key trend signal for AI applications in public service scenarios and reflecting the penetration of AI agents in this domain.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/10/ai-agents-are-flooding-public-services-with-new-requests/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>awesome-llm-apps: Aggregates Over 100 Open-Source AI Agents &amp; RAG Apps</b> — This project provides developers with a rich set of AI tools, accelerating the implementation and innovation of open-source AI applications.</div><div class="watch-item"><b>Meta’s AI Agent Muse Ranks No.2 in US App Store</b> — Meta’s AI Agent product has achieved a breakthrough in user growth, potentially accelerating the adoption of AI Agents in consumer segments.</div><div class="watch-item"><b>Clay Raises $115M in Funding</b> — The large funding round in the AI sales tool sector reflects the sustained strong demand for AI-enabled sales solutions among enterprises.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域动态集中在开源技术、学术研究及企业落地三大方向。开源侧推出多款AI Agent与RAG应用工具，如awesome-llm-apps聚合超百款开源AI应用，OpenHands聚焦AI驱动开发。学术上，arXiv发布多篇关于transformers位置编码、因果发现基准等前沿研究。企业端，Clay获1.15亿美元融资，Meta的AI Agent Muse登顶美国应用榜第二，OpenAI推进百亿级ChatGPT用户的存储扩容。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. awesome-llm-apps开源百款AI Agents与RAG应用</h3>
+          <p class="news-body">awesome-llm-apps是一款开源项目，包含100+AI Agents、Agent技能及RAG应用。该项目的GitHub社区数据为stars137265，forks20196，open_issues10。它为AI开发者提供现成的模块化应用模板，大幅降低Agent与RAG技术的落地门槛。这件事意味着AI开发正从单一模型调用转向模块化、可复用的Agent与RAG组合应用，开源生态成为AI技术快速落地的核心载体。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-12</span> <span class="tag">Shubhamsaboo</span> <span class="tag tag-star">⭐ 137,265</span> <span class="tag tag-gray">agents / llms / python / rag</span></div>
+          <div class="pick-reason">awesome-llm-apps是AI行业免费开源资源集合，含100+ AI Agents、Agent Skills及RAG Apps，社区获137265星、20196叉，仅10个未解决问题，为行业提供丰富开源应用资源</div>
+          <div class="source">来源：<a href="https://github.com/Shubhamsaboo/awesome-llm-apps" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 开源hermes-agent主打随用户成长 填补适配空白</h3>
+          <p class="news-body">hermes-agent是一款开源智能体，其GitHub社区数据显示stars达244663，forks为50725，open issues共42194。该智能体主打&quot;随用户成长&quot;的特性，填补了现有开源agent在长期个性化适配场景的空白。它为开发者构建定制化AI工具提供了新路径，推动开源智能体向个性化、可迭代成长方向演进，这一变化对AI开发者社区及开源工具生态产生直接影响。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-12</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 244,663</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">hermes-agent这款AI agent社区表现亮眼，获244663个star、50725个fork，open issues达42194，是AI行业受关注的项目</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. vllm为高吞吐低内存LLM推理引擎 社区星标超9万</h3>
+          <p class="news-body">vllm是面向大语言模型（LLMs）的高吞吐、低内存推理与服务引擎。其GitHub社区数据显示，当前stars达91530，forks为22081，open issues共7882。该工具针对大模型部署中吞吐量不足、内存占用高的痛点，可降低部署门槛、提升推理效率。这一特性助力大模型在更多场景实现落地应用。</p>
+          <p class="comment">若更多开发者采用vllm优化推理方案，则可能推动大模型应用向更多细分场景渗透</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-12</span> <span class="tag">vllm-project</span> <span class="tag tag-star">⭐ 91,530</span> <span class="tag tag-gray">amd / blackwell / cuda / deepseek</span></div>
+          <div class="pick-reason">vllm是AI领域高吞吐量、内存高效的推理工具，社区获91530星标、22081个复刻、7882个开放议题，受开发者广泛关注。</div>
+          <div class="source">来源：<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 开源AI开发工具OpenHands社区星标达87575</h3>
+          <p class="news-body">OpenHands是一款AI驱动的开源开发工具。其GitHub社区数据显示，拥有87575个star、11468个fork及764个开放议题。它填补了开源领域AI开发工具的细分空白，降低开发者接入AI辅助开发的门槛，推动AI在开发场景的普及，这将改变开发者使用AI辅助开发的方式，提升开发效率。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-12</span> <span class="tag">OpenHands</span> <span class="tag tag-star">⭐ 87,575</span> <span class="tag tag-gray">agent / artificial-intelligence / chatgpt / claude-ai</span></div>
+          <div class="pick-reason">OpenHands作为AI驱动开发项目，社区数据亮眼，拥有87575星、11468个fork、764个开放issue，是AI行业值得关注的项目。</div>
+          <div class="source">来源：<a href="https://github.com/OpenHands/OpenHands" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 开源工具Fusion结合多节点代理优化软件开发流水线</h3>
+          <p class="news-body">开源工具Fusion的社区数据为stars1219、forks157、open_issues71。该工具将多节点代理与软件开发流水线结合，支持全天候运行。其开源属性可加速社区层面的功能迭代与优化，还能降低企业搭建高效开发体系的技术门槛。这代表AI驱动的软件开发工具正朝着分布式自动化、开源协作方向演进，多节点代理成为提升开发效能的核心载体，尤其降低中小团队或初创企业使用高效开发流水线的成本与技术壁垒。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-12</span> <span class="tag">Runfusion</span> <span class="tag tag-star">⭐ 1,219</span> <span class="tag tag-gray">agent / agentic-workflow / agents / llm</span></div>
+          <div class="pick-reason">Fusion作为AI行业第5名候选项目，其社区数据亮眼，获1219个star、157个fork，还有71个开放议题，是AI领域软件工厂类项目的优质候选。</div>
+          <div class="source">来源：<a href="https://github.com/Runfusion/Fusion" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Distance generalization in transformers: why bother with positional encoding?</h3>
+          <p class="news-body">现有研究已深入探讨Transformer的分布外长度泛化，即从短上下文外推至长上下文的任务，而该研究聚焦于距离泛化，即训练与推理时token间距改变但上下文长度固定的场景。该研究由2位作者完成，构建了两个合成延迟复制任务，测试模型在训练未见过的延迟下的表现。研究探究了RoPE、ALiBi等位置编码方案相比无位置编码（NoPE）对距离分辨率的影响，以及训练中token间距数据多样性、距离迁移学习正负性的问题。这项研究明确了位置编码在可变token间距场景下的作用，填补了Transformer泛化能力中距离维度的研究空白，为长文本处理等需处理可变token间距任务的模型设计提供关键参考。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该论文由2位作者完成，聚焦Transformer的距离泛化问题，探讨无需位置编码的可能性，为AI行业优化Transformer结构提供新方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.11913v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. MindTopo基准填补AI基础模型拓扑推理评估空白</h3>
+          <p class="news-body">空间推理不仅依赖距离、角度等度量属性，还需拓扑关系，但现有AI基础模型评估多侧重度量或视角依赖关系。由10位作者推出的MindTopo基准，基于认知科学与形式拓扑，涵盖连续性等5种拓扑属性，设推理、规划两类任务，含11030个实例及13种可控难度的任务类型。对14个多模态大模型（MLLMs）及3种视频生成模型的规划设置测试发现，模型推理表现优于规划，但仍远低于人类水平；微调对Qwen3-VL-2B-Instruct的推理提升更显著，生成观测难保证拓扑一致性。这一基准解决了当前基础模型评估中空间推理维度缺失的问题，对衡量模型通用空间认知能力有关键价值。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">该论文是AI行业中探索基础模型在拓扑空间推理的研究，作者数为10，作为第2名候选，为AI推理方向提供了拓扑空间维度的新研究视角。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.11900v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Nuha-Speech构建阿拉伯语通用语音大模型基础设施</h3>
+          <p class="news-body">随着语音大模型多语言化发展，阿拉伯语在该领域的代表性严重不足，亟需专门的训练与评估基础设施。为填补这一缺口，Nuha-Speech是涵盖数据集构建、模型训练、系统评估的综合项目。该项目构建了含150万余训练样本的阿拉伯语语音问答语料，用于多核心语音任务的指令调优。项目基于不同规模的Qwen-Omni模型变体开展监督微调，并设计了多任务、定制化指标的评估框架。这件事意味着阿拉伯语语音大模型领域的资源缺口得到填补，为后续研究提供核心支撑。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Nuha-Speech是构建通用阿拉伯语语音大语言模型的项目，该论文的作者数为3，为阿拉伯语语音大模型领域贡献了相关研究内容</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.11892v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Domain-Specific Hallucination Detection in Large Language Models</h3>
+          <p class="news-body">大语言模型存在生成不忠实内容的幻觉现象，研究团队提出结合DeBERTa-v3分类、MC Dropout不确定性量化及温度缩放校准的多信号检测流水线，用于响应级幻觉检测。该方案在HaluEval基准测试中，通用任务F1值达0.915、AUROC为0.977，细分任务F1分别为QA0.97、摘要0.96、对话0.82，经MC Dropout推理后准确率提升至93.2%。研究还将Direct Preference Optimization（DPO）应用于Qwen2.5-0.5B生成器，使其幻觉率从85.5%降至37.7%；跨域评估显示通用训练迁移效果差，领域匹配预训练是最优适配策略。该方案为解决AI生成内容可信度问题提供了可落地技术，降低了LLM在专业场景应用的风险。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">这是第4名候选的研究，主题为大语言模型的领域特定幻觉检测，由2位作者完成，为AI行业解决领域内大模型幻觉问题提供了探索方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.11878v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. CausalArena构建大模型时代因果发现统一基准</h3>
+          <p class="news-body">因果发现是科学推理与干预决策的核心基础，现有评估依赖结构因果模型（SCM），但不同研究的图族、机制及评估协议差异显著，该研究作者共4人。因果发现基础模型（CDFMs）的出现让评估更复杂，结果可能受预训练环境与测试SCM重叠影响，固定合成基准的结果难解读。研究推出CausalArena，是统一可演化的因果发现基准，涵盖三类SCM及公开真实数据集。实验显示不同方法在不同基准的排名差异大，凸显基准多样性与预训练-评估重叠是核心挑战，该基准填补了因果发现评估标准的空白，助力领域标准化发展。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">该论文是基础模型时代因果发现的基准测试工作，作者数为4，为AI行业因果发现领域提供了相关基准参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.11897v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. AI销售工具提供商Clay获1.15亿美元融资</h3>
+          <p class="news-body">Clay是一家AI销售工具提供商，近期完成了1.15亿美元的融资。这笔融资体现资本市场对AI销售工具赛道的高认可度。该事件验证了企业级AI应用在销售场景的商业化潜力，也代表企业级AI工具正从单点功能向全流程销售赋能升级。大额融资持续向垂直场景的AI解决方案倾斜，将推动更多资源向AI销售工具的研发和落地集中。</p>
+          <p class="comment">若该领域竞争加剧，或加速AI销售工具在企业端的普及。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.8事件数据：amount_wan=11500</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOTUFZbkl2OElXUy0xdnpYdnZCY3dMNDlwd0pGMUd0anBrd0VZYzJIQjd5SEk1UWRCY0d4QkYxbVU2aTM3dVozRkhPdzJzb2ZvLVZuVUtuSEY1bFBYZU1sNXhHMlgxSEttV0gzZXRqNzREWndySGVVOUVXd0poM3FSaU5SOA?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI Habitat存储平台支撑ChatGPT服务亿级用户</h3>
+          <p class="news-body">OpenAI将Habitat从Python库演进为全球分布式存储平台，用于支撑ChatGPT服务。该平台可服务超10亿ChatGPT用户，每秒处理2200万请求。这一进展解决了大模型服务超大规模用户时的存储瓶颈，验证了AI基础设施可支撑亿级用户的高并发需求，是大模型规模化落地的关键支撑，也推动行业对高并发存储方案的需求升级。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 5，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/index/scaling-storage-one-billion-users-part-one" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Moonshot AI定年营收20亿美元目标 K3模型日生成3000亿token</h3>
+          <p class="news-body">开发Kimi的Moonshot AI设定了年营收20亿美元的目标。旗下K3模型近月使用量略有下降。第三方平台OpenRouter的数据显示，当前K3模型每日生成token达3000亿。这一目标及K3模型的token生成规模，反映出国内AI大模型创业公司正明确商业化方向，其探索对行业盈利路径有参考价值。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">月之暗面</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/11/kimi-maker-moonshot-ai-targets-2-billion-in-annual-revenue/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta AI助手Muse登美国应用榜第二 起步慢于旗下产品</h3>
+          <p class="news-body">Meta旗下AI助手类应用Muse目前位列美国应用榜第二名。该应用的起步节奏慢于Meta旗下其他应用，包括Meta AI、Threads。这一情况折射出海外用户对AI助手类应用的需求持续攀升，也暴露Meta新应用的冷启动策略需优化以匹配用户获取节奏。</p>
+          <p class="comment">若Meta不优化Muse的冷启动策略，其在美国移动应用市场的AI应用矩阵竞争力可能会被削弱。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta的AI agent Muse目前是美国排名第二的应用，这一市场表现为AI行业展现了AI agent类应用的市场接受度，是值得关注的行业动态</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/10/metas-ai-agent-muse-is-now-the-no-2-app-in-the-us/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AI agents涌入公共服务 处理公民权益申领请求</h3>
+          <p class="news-body">研究者向TechCrunch透露，AI agents处理的绝大多数请求是符合资格的公民提出的权益申领申请。这类AI agents已从测试阶段进入公共服务的实际高频应用。它们正快速渗透至民生类公共服务场景，成为公民与政府交互的常态化工具，可能改变政府福利、补贴等申请的处理流程与响应模式。</p>
+          <p class="comment">若AI agents持续在民生申领场景高频应用，或能优化公民权益申领的落地效率。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-10</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件显示AI agents正大量向公共服务发送新请求，是AI在公共服务场景应用的重要趋势信号，体现AI agents对公共服务领域的渗透态势</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/10/ai-agents-are-flooding-public-services-with-new-requests/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>awesome-llm-apps：聚合超百款开源AI Agent与RAG应用</b> — 该项目为开发者提供丰富的AI工具集合，加速开源AI应用的落地与创新。</div><div class="watch-item"><b>Meta AI Agent Muse登顶美国应用榜第二</b> — Meta的AI Agent产品取得用户增长突破，或预示AI Agent在消费端的普及加速。</div><div class="watch-item"><b>Clay获1.15亿美元融资</b> — AI销售工具领域的大额融资，反映企业对AI赋能销售场景的需求持续旺盛。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-12T04:42:45.453Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

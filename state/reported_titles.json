@@ -245,5 +245,28 @@
    "enterprise|deepseek v4 1 flash smarter faster more efficient",
    "enterprise|recreating 70 year love story frame frame"
   ]
+ },
+ "2026-09-12": {
+  "paper": [
+   "paper|distance generalization transformers why bother positional encoding",
+   "paper|mindtopo can foundation models reason topological space",
+   "paper|nuha speech building general purpose arabic speech llms",
+   "paper|domain specific hallucination detection large language models",
+   "paper|causalarena benchmarking causal discovery foundation model era"
+  ],
+  "opensource": [
+   "opensource|awesome llm apps 100 ai agents agent skills rag apps free",
+   "opensource|hermes agent agent that grows you",
+   "opensource|vllm high throughput memory efficient inference",
+   "opensource|openhands openhands ai driven development",
+   "opensource|fusion your software factory build faster better multi"
+  ],
+  "enterprise": [
+   "enterprise|clay i sales tool provider 115 million york times",
+   "enterprise|rapidly scaling online storage serve over 1 billion chatgpt users",
+   "enterprise|kimi maker moonshot ai targets 2b annual revenue",
+   "enterprise|meta s ai agent muse is now no 2 app us",
+   "enterprise|ai agents are flooding public services requests"
+  ]
  }
 }
