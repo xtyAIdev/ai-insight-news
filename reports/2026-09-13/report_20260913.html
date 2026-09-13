@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-13</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's AI sector features two core dynamics: on the open-source front, practical tools like STS2-Agent (wrapping Slay the Spire 2 into an MCP Server), coding-f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-13">
+<meta property="og:description" content="Today's AI sector features two core dynamics: on the open-source front, practical tools like STS2-Agent (wrapping Slay the Spire 2 into an MCP Server), coding-focused Evener, and a collection of remot">
+<meta property="og:url" content="./report_20260913.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-13">
+<meta name="twitter:description" content="Today's AI sector features two core dynamics: on the open-source front, practical tools like STS2-Agent (wrapping Slay the Spire 2 into an MCP Server), coding-focused Evener, and a collection of remot">
+<link rel="canonical" href="./report_20260913.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-13 ｜ report_20260913</div>
+<div class="sub" data-lang-title="zh">2026-09-13 ｜ report_20260913</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's AI sector features two core dynamics: on the open-source front, practical tools like STS2-Agent (wrapping Slay the Spire 2 into an MCP Server), coding-focused Evener, and a collection of remote MCP servers have emerged; on the enterprise side, multiple AI startups completed fresh funding rounds, and Alibaba released the Qwen3.8-Max API with clear tiered pricing.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. STS2-Agent：杀戮尖塔2的MOD，将杀戮尖塔2的游戏状态与操作暴露为本地 HTTP API 包装成 MCP Server，供支持</h3>
+          <p class="news-body">杀戮尖塔2的MOD，将杀戮尖塔2的游戏状态与操作暴露为本地 HTTP API 包装成 MCP Server，供支持 MCP 的AI客户端直接调用，⭐ 313</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag">CharTyr</span> <span class="tag tag-star">⭐ 313</span> <span class="tag tag-gray">agent / game / mcp / mod</span></div>
+          <div class="pick-reason">STS2-Agent, a Slay the Spire 2 mod that wraps game states and operations into a local HTTP API as an MCP Server, has gained 313 stars, +9 weekly growth, 42 forks and 1 open issue, providing a new practice for AI-game interaction.</div>
+          <div class="source">Source：<a href="https://github.com/CharTyr/STS2-Agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. awesome-remote-mcp-servers：A collection of remote MCP servers</h3>
+          <p class="news-body">A collection of remote MCP servers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag">punkpeye</span> <span class="tag tag-star">⭐ 178</span> <span class="tag tag-gray">mcp / MCP / 模型上下文协议</span></div>
+          <div class="pick-reason">This collection of remote MCP servers has secured 178 stars, 264 forks and 89 open issues in the community, emerging as a notable community resource in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/punkpeye/awesome-remote-mcp-servers" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. nexus：Nexus, the shared context plane where every agent and human</h3>
+          <p class="news-body">Nexus, the shared context plane where every agent and human connect, collaborate, and evolve together.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag">nexi-lab</span> <span class="tag tag-star">⭐ 210</span> <span class="tag tag-gray">ai-memory / context-engineering / context-store / filesystem</span></div>
+          <div class="pick-reason">The third candidate Nexus is a shared context plane connecting AI agents and humans in the AI industry, with community data of 210 stars, 15 forks, and 106 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/nexi-lab/nexus" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. evener：A coding agent: give it a prompt and it reads, writes, runs</h3>
+          <p class="news-body">A coding agent: give it a prompt and it reads, writes, runs commands, and searches code in a loop until the work is done, using native tool-calling across OpenAI, Anthropic, and Google models.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag">prime-radiant-inc</span> <span class="tag tag-star">⭐ 139</span> <span class="tag tag-gray">ai-agent / cli / coding-agent / go</span></div>
+          <div class="pick-reason">The 4th candidate coding agent evener can read, write and run code, with community data including 139 stars, +8 weekly growth, 11 forks and 170 open issues, drawing attention in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/prime-radiant-inc/evener" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. worldmonitor：Real-time global intelligence dashboard</h3>
+          <p class="news-body">Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag">koala73</span> <span class="tag tag-star">⭐ 86,152</span> <span class="tag tag-gray">agent / ai / dashboard / geopolitics</span></div>
+          <div class="pick-reason">The AI industry's 5th candidate project worldmonitor, a real-time global intelligence dashboard, has gained 86,152 stars, a weekly increase of 572 stars, 13,064 forks and 291 open issues, demonstrating strong community popularity.</div>
+          <div class="source">Source：<a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      <div class="empty-note">今日无重大动态</div>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Funding Wrap: Navana.ai, QNu Labs, Swish raise fresh capital - ET Entrepreneur</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMizwFBVV95cUxOTWJaVVRDWUZ6NWxRaUpsY1JDQVBWRVlNVzFyMmcyWHl6ajM2bUJOSl93aTh0RXZNb3AwTFZwb0FQOG14MGpsWW9tUVdYOVlYbkVZTC05MzBlMzIybWtNM0NlNW5fTXdnUnNpcExKUUplUlNIVnYwOG4xdFdwRE5SeDA2SXVzcXFnSWdEWVFZZm1yTFNxMUczQWFjRVFReUJNc3hlMTd3S3FaZEt4eTRJN0RsTzQ0T1h</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">The funding wrap-up reported by ET Entrepreneur indicates that three companies including Navana.ai, QNu Labs and Swish have raised fresh capital, offering the latest dynamics for AI industry startup financing.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMizwFBVV95cUxOTWJaVVRDWUZ6NWxRaUpsY1JDQVBWRVlNVzFyMmcyWHl6ajM2bUJOSl93aTh0RXZNb3AwTFZwb0FQOG14MGpsWW9tUVdYOVlYbkVZTC05MzBlMzIybWtNM0NlNW5fTXdnUnNpcExKUUplUlNIVnYwOG4xdFdwRE5SeDA2SXVzcXFnSWdEWVFZZm1yTFNxMUczQWFjRVFReUJNc3hlMTd3S3FaZEt4eTRJN0RsTzQ0T1hMRXVocXc2R1ltVHJXSk9yWmFSbTRUMjDSAc8BQVVfeXFMTk1iWlVUQ1lGejVsUWlKbGNSQ0FQVkVZTVcxcjJnMlh5emozNm1CTkpfd2k4dEV2TW9wMExWcG9BUDhteDBqbFlvbVFXWDlZWG5FWUwtOTMwZTMyMm1rTTNDZTVuX013Z1JzaXBMSlFKZVJTSFZ2MDhuMXRXcEROUngwNkl1c3FxZ0lnRFlRWWZtckxTcTFHM0FhY0VRUXlCTXN4ZTE3d0txWmRLeHk0STdEbE80NE9YTEV1aHF3NkdZbVRyV0pPclphUm00VDIw?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. How to Use Qwen3.8-Max API: 12 Steps, $2/$6 per 1M [2026] - tech-insider.org</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiaEFVX3lxTE5ZcnkxS29jTHRNcF8tQ1BnMFlnMV9ROVpmZzdKeUh1U2ZwQ3RoNmlIaUlJUloxWmtoX0dwSF9ZR0lUZWxOLUpYWHFwa0dDcnNzOGVDbXAxa0E4LVBKZ2hfb2xxbXhhVGJO?oc=5&quot; target=&quot;_blank&quot;&amp;gt;How to Use Qwen3.8-Max API: 12 Steps, $2/$6 per 1M [2026]&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event clarifies that the Qwen3.8-Max API in 2026 requires 12 steps to use, with pricing at $2 and $6 per 1M respectively, providing specific guidance for AI industry users to utilize this API.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE5ZcnkxS29jTHRNcF8tQ1BnMFlnMV9ROVpmZzdKeUh1U2ZwQ3RoNmlIaUlJUloxWmtoX0dwSF9ZR0lUZWxOLUpYWHFwa0dDcnNzOGVDbXAxa0E4LVBKZ2hfb2xxbXhhVGJO?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>STS2-Agent: Open-Source Tool Wrapping Slay the Spire 2 into MCP Server</b> — This tool bridges AI agents with a well-known roguelike game, creating new scenarios for interactive AI applications.</div><div class="watch-item"><b>Alibaba Releases Qwen3.8-Max API with Tiered Pricing Plans</b> — The clear pricing of $2/$6 per 1M tokens offers developers a cost-effective option for large language model integration.</div><div class="watch-item"><b>Three AI Startups Secure Fresh Funding Rounds</b> — The funding trend reflects investor confidence in AI applications in niche sectors like operations and cybersecurity.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域呈现两大核心动态：一是开源方向涌现多款实用工具，如将《杀戮尖塔2》包装为MCP Server的STS2-Agent、专注代码生成的Evener，以及远程MCP服务器合集；二是企业端，多家AI初创企业完成新一轮融资，同时阿里巴巴发布Qwen3.8-Max API并明确分层定价。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. STS2-Agent：杀戮尖塔2的MOD，将杀戮尖塔2的游戏状态与操作暴露为本地 HTTP API 包装成 MCP Server，供支持</h3>
+          <p class="news-body">杀戮尖塔2的MOD，将杀戮尖塔2的游戏状态与操作暴露为本地 HTTP API 包装成 MCP Server，供支持 MCP 的AI客户端直接调用</p>
+          <p class="comment">CharTyr开发的开源MOD STS2-Agent，将《杀戮尖塔2》的游戏状态与操作封装为本地HTTP API并包装成MCP Server，供支持MCP协议的AI客户端直接调用。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag">CharTyr</span> <span class="tag tag-star">⭐ 313</span> <span class="tag tag-gray">agent / game / mcp / mod</span></div>
+          <div class="pick-reason">STS2-Agent是杀戮尖塔2的MOD，将游戏状态与操作暴露为本地HTTP API包装成MCP Server，获313星、周增9星、42个fork、1个开放issue，为AI与游戏交互提供新实践</div>
+          <div class="source">来源：<a href="https://github.com/CharTyr/STS2-Agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. awesome-remote-mcp-servers为开源远程MCP服务器集合</h3>
+          <p class="news-body">awesome-remote-mcp-servers是一款开源的远程MCP服务器集合。其社区数据显示stars达178，forks为264，open_issues共89个。该集合可降低开发者搭建远程MCP服务的门槛，加速AI应用的工具集成效率。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag">punkpeye</span> <span class="tag tag-star">⭐ 178</span> <span class="tag tag-gray">mcp / MCP / 模型上下文协议</span></div>
+          <div class="pick-reason">awesome-remote-mcp-servers作为远程MCP服务器集合，在AI相关社区获得178颗星、264个复刻、89个未解决问题，是值得关注的社区资源。</div>
+          <div class="source">来源：<a href="https://github.com/punkpeye/awesome-remote-mcp-servers" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Nexus作为共享上下文层 连接AI智能体与人类协作</h3>
+          <p class="news-body">开源项目Nexus是连接AI智能体与人类的共享上下文层。该项目社区数据显示，其stars达210，forks为15，open issues共106个。它为AI智能体与人类协作提供统一基础层，解决了二者协作时上下文割裂的核心痛点。这一项目代表AI领域向多智能体+人类协同的分布式架构演进方向，共享上下文层或成协同生态核心基础设施。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag">nexi-lab</span> <span class="tag tag-star">⭐ 210</span> <span class="tag tag-gray">ai-memory / context-engineering / context-store / filesystem</span></div>
+          <div class="pick-reason">第3名候选的Nexus是AI行业中连接AI agent与人类的共享上下文平面项目，社区数据显示其获210星、15个复刻、106个开放议题</div>
+          <div class="source">来源：<a href="https://github.com/nexi-lab/nexus" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. evener编码智能体整合多模型 开源社区获稳定增长</h3>
+          <p class="news-body">evener是一款编码智能体，接收提示后可循环执行读取、写入、运行命令及代码搜索操作，支持OpenAI、Anthropic、Google模型的原生工具调用。该项目为开源属性，社区数据显示其stars达139，周增长+8，forks为11，开放问题共170个。它整合多模型工具调用能力，降低编码智能体的使用门槛，为开发者提供灵活的自动化编码解决方案。这类多模型兼容的开源编码智能体，代表编码智能体向自动化闭环任务处理方向发展，也为开源社区提供可复用的自动化编码工具框架。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag">prime-radiant-inc</span> <span class="tag tag-star">⭐ 139</span> <span class="tag tag-gray">ai-agent / cli / coding-agent / go</span></div>
+          <div class="pick-reason">第4名候选的coding agent evener可实现读、写、运行代码，其社区数据为stars=139，周增长+8，forks=11，open_issues=170，是AI行业受关注的代码工具。</div>
+          <div class="source">来源：<a href="https://github.com/prime-radiant-inc/evener" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 开源工具worldmonitor提供全球实时多维度情报监测</h3>
+          <p class="news-body">开源工具worldmonitor是一款AI驱动的统一态势感知界面。该工具具备实时全球情报监测功能，整合了新闻聚合、地缘监测与基础设施追踪能力。其社区数据显示，stars达86152，周增长572，forks为13064，open issues共291。它填补了开源领域一站式全球多维度情报监测工具的空白，降低非专业用户获取整合型全球情报的技术门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag">koala73</span> <span class="tag tag-star">⭐ 86,152</span> <span class="tag tag-gray">agent / ai / dashboard / geopolitics</span></div>
+          <div class="pick-reason">AI行业第5名候选项目worldmonitor（实时全球智能仪表盘），获86152星标，周增572星，13064复刻，291开放议题，社区热度高</div>
+          <div class="source">来源：<a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      <div class="empty-note">今日无重大动态</div>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. 三家企业级AI相关企业完成新一轮融资</h3>
+          <p class="news-body">Navana.ai、QNu Labs、Swish三家企业级AI相关企业获得了新一轮融资。这一事件体现出企业级AI细分赛道的资本活跃度较高。垂直场景的AI解决方案具备市场价值，为行业融资信心提供了支撑。资本正从通用AI向落地性强的行业专属AI解决方案倾斜。</p>
+          <p class="comment">若这类垂直场景AI方案的商业化落地持续推进，则可能吸引更多资本布局企业级AI细分赛道</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">ET Entrepreneur发布的融资汇总显示，Navana.ai、QNu Labs、Swish三家企业筹集了新资本，为AI行业提供了初创企业融资的最新动态。</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMizwFBVV95cUxOTWJaVVRDWUZ6NWxRaUpsY1JDQVBWRVlNVzFyMmcyWHl6ajM2bUJOSl93aTh0RXZNb3AwTFZwb0FQOG14MGpsWW9tUVdYOVlYbkVZTC05MzBlMzIybWtNM0NlNW5fTXdnUnNpcExKUUplUlNIVnYwOG4xdFdwRE5SeDA2SXVzcXFnSWdEWVFZZm1yTFNxMUczQWFjRVFReUJNc3hlMTd3S3FaZEt4eTRJN0RsTzQ0T1hMRXVocXc2R1ltVHJXSk9yWmFSbTRUMjDSAc8BQVVfeXFMTk1iWlVUQ1lGejVsUWlKbGNSQ0FQVkVZTVcxcjJnMlh5emozNm1CTkpfd2k4dEV2TW9wMExWcG9BUDhteDBqbFlvbVFXWDlZWG5FWUwtOTMwZTMyMm1rTTNDZTVuX013Z1JzaXBMSlFKZVJTSFZ2MDhuMXRXcEROUngwNkl1c3FxZ0lnRFlRWWZtckxTcTFHM0FhY0VRUXlCTXN4ZTE3d0txWmRLeHk0STdEbE80NE9YTEV1aHF3NkdZbVRyV0pPclphUm00VDIw?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Qwen3.8-Max API使用步骤与2026年定价</h3>
+          <p class="news-body">2026年公开了Qwen3.8-Max API的使用方法，共包含12个步骤。该API设置了每1M token2美元与6美元两个定价档位。这一定价调整重构了企业AI应用的成本结构，降低了中小企业接入顶级大模型的门槛，推动大模型API向分层化、高性价比方向发展。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-11</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件明确2026年Qwen3.8-Max API的使用需12步骤，定价为每1M分别2美元和6美元，为AI行业用户使用该API提供具体指引。</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE5ZcnkxS29jTHRNcF8tQ1BnMFlnMV9ROVpmZzdKeUh1U2ZwQ3RoNmlIaUlJUloxWmtoX0dwSF9ZR0lUZWxOLUpYWHFwa0dDcnNzOGVDbXAxa0E4LVBKZ2hfb2xxbXhhVGJO?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>STS2-Agent：将《杀戮尖塔2》包装为MCP Server的开源工具</b> — 该工具打通AI代理与热门Roguelike游戏的连接，为AI交互应用提供新场景。</div><div class="watch-item"><b>阿里巴巴发布Qwen3.8-Max API及分层定价方案</b> — 明确的$2/$6每1M tokens定价，为开发者提供高性价比的大模型集成选项。</div><div class="watch-item"><b>三家AI初创企业完成新一轮融资</b> — 融资动向反映投资者对AI在运营、网络安全等细分领域应用的信心。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-13T05:02:19.687Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
