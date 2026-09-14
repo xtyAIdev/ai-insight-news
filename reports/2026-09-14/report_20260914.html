@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-14</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today, the AI sector saw active iterations in open-source technologies, with Microsoft, NousResearch and others launching multiple AI agent-related tools, plus ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-14">
+<meta property="og:description" content="Today, the AI sector saw active iterations in open-source technologies, with Microsoft, NousResearch and others launching multiple AI agent-related tools, plus new developments in RAG and AI-driven de">
+<meta property="og:url" content="./report_20260914.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-14">
+<meta name="twitter:description" content="Today, the AI sector saw active iterations in open-source technologies, with Microsoft, NousResearch and others launching multiple AI agent-related tools, plus new developments in RAG and AI-driven de">
+<link rel="canonical" href="./report_20260914.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-14 ｜ report_20260914</div>
+<div class="sub" data-lang-title="zh">2026-09-14 ｜ report_20260914</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today, the AI sector saw active iterations in open-source technologies, with Microsoft, NousResearch and others launching multiple AI agent-related tools, plus new developments in RAG and AI-driven development tools. On the enterprise front, Graph AI secured $13.3 million in Series A funding to expand its AI drug safety platform, while Perplexity adopted OpenAI’s GPT-6 Astra to build end-to-end systems, further enriching the industry ecosystem.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. agent-lightning：The absolute trainer to light up AI agents</h3>
+          <p class="news-body">The absolute trainer to light up AI agents.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">microsoft</span> <span class="tag tag-star">⭐ 18,087</span> <span class="tag tag-gray">agent / agentic-ai / llm / mlops</span></div>
+          <div class="pick-reason">Agent-Lightning, a trainer for AI agents, has attracted notable community attention with 18,087 stars, 1,585 forks and 163 open issues, standing out in the AI agent field.</div>
+          <div class="source">Source：<a href="https://github.com/microsoft/agent-lightning" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ECC：The agent harness performance optimization system</h3>
+          <p class="news-body">The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">affaan-m</span> <span class="tag tag-star">⭐ 257,857</span> <span class="tag tag-gray">ai-agents / anthropic / claude / claude-code</span></div>
+          <div class="pick-reason">ECC (The agent harness performance optimization system), a 2nd-ranked candidate in the AI industry, stands out with notable community metrics: it has 257,857 stars, 38,563 forks and 201 open issues, acting as a typical case of performance optimization systems.</div>
+          <div class="source">Source：<a href="https://github.com/affaan-m/ECC" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 245,223</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">Hermes-agent, an AI agent that grows with users, has gained notable community traction with 245,223 stars, 51,023 forks and 42,796 open issues, standing out in the AI agent space.</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. ragflow：RAGFlow is a leading open-source Retrieval-Augmented</h3>
+          <p class="news-body">RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">infiniflow</span> <span class="tag tag-star">⭐ 90,642</span> <span class="tag tag-gray">agent-harness / agentic-ai / agentic-nagive / agentic-retrieval</span></div>
+          <div class="pick-reason">RAGFlow, a leading open-source Retrieval-Augmented project, boasts remarkable community data: 90,642 stars, 481 weekly growth, 10,721 forks and 1,548 open issues, standing out in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. OpenHands：🙌 OpenHands: AI-Driven Development</h3>
+          <p class="news-body">🙌 OpenHands: AI-Driven Development</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">OpenHands</span> <span class="tag tag-star">⭐ 87,814</span> <span class="tag tag-gray">agent / artificial-intelligence / chatgpt / claude-ai</span></div>
+          <div class="pick-reason">OpenHands, an AI-driven development project, has gained remarkable community traction with 87,814 stars, 11,502 forks, and 784 open issues, demonstrating its influence in the AI development field.</div>
+          <div class="source">Source：<a href="https://github.com/OpenHands/OpenHands" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      <div class="empty-note">今日无重大动态</div>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Graph AI Secures $13.3 Mn Series A To Scale AI Drug Safety Platform - BW Disrupt</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZ2M1UEFoS1FsQnFzSlpfaGU5MksxMGN5cjhmNzlycE5sbnE4Vmp1X0k4VmVSRjFrOFNWOUZuT2ZWbnRKSHBrdnpqRDNwQ1BxQmNSWVA4MlpWSXRiUHc2aFh6Ym9QUlZLdGxPRVhmY1B1enY4VXhrZEJTYm5UR2VfbDRvamZxVndRcVFsNkNoZzZTV2RBdnpRVmdtbmFrTFlWalFvZ1dVRTZJUXc?oc=5&quot; target=&quot;_</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.8事件数据：amount_wan=1330</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZ2M1UEFoS1FsQnFzSlpfaGU5MksxMGN5cjhmNzlycE5sbnE4Vmp1X0k4VmVSRjFrOFNWOUZuT2ZWbnRKSHBrdnpqRDNwQ1BxQmNSWVA4MlpWSXRiUHc2aFh6Ym9QUlZLdGxPRVhmY1B1enY4VXhrZEJTYm5UR2VfbDRvamZxVndRcVFsNkNoZzZTV2RBdnpRVmdtbmFrTFlWalFvZ1dVRTZJUXc?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Perplexity trusts GPT-6 Astra with end-to-end systems</h3>
+          <p class="news-body">Perplexity uses Astra to write communications, change software, and monitor production systems, and checks in much less frequently than with earlier models.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Perplexity has entrusted GPT-6 Astra to build its end-to-end systems, which serves as a concrete practice of AI model implementation in the industry, reflecting the advancement of AI technology in real-world scenarios.</div>
+          <div class="source">Source：<a href="https://openai.com/index/perplexity-improving-accuracy-with-astra" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Microsoft Launches Agent-Lightning: An AI Agent Training Tool</b> — This tool focuses on efficient training of AI agents, expected to lower the threshold for agent development; its technical details and community feedback are worth noting.</div><div class="watch-item"><b>Graph AI Secures $13.3M Series A Funding</b> — The funding will be used to expand its AI drug safety platform; its technical implementation and commercialization path in medical AI are worth tracking.</div><div class="watch-item"><b>Perplexity Adopts GPT-6 Astra to Build End-to-End Systems</b> — This collaboration reflects the application potential of large language models in enterprise end-to-end systems; its impact on industry standards is worth observing.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域开源技术迭代活跃，微软、NousResearch等推出多款AI智能体相关工具，RAG和AI驱动开发工具也有新进展。企业端，Graph AI完成1330万美元A轮融资以拓展药物安全平台，Perplexity选择OpenAI的GPT-6 Astra构建全链路系统，行业生态持续深化。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. 开源AI智能体训练工具agent-lightning获高社区关注度</h3>
+          <p class="news-body">agent-lightning是一款用于AI智能体训练的开源工具。该开源项目社区数据表现亮眼，stars达18087，forks为1585，开放议题共163个。它可降低开发者的技术壁垒，推动AI智能体的广泛应用，属于AI开发工具向轻量化、开源化演进的体现，利好中小开发者与初创团队。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">microsoft</span> <span class="tag tag-star">⭐ 18,087</span> <span class="tag tag-gray">agent / agentic-ai / llm / mlops</span></div>
+          <div class="pick-reason">agent-lightning是用于AI agents的训练工具，社区数据亮眼，获18087星标、1585次复刻，有163个待解决问题，在AI行业受广泛关注</div>
+          <div class="source">来源：<a href="https://github.com/microsoft/agent-lightning" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ECC：The agent harness performance optimization system</h3>
+          <p class="news-body">ECC是一款针对AI代理的性能优化系统，具备技能、本能、记忆、安全及研究优先开发的特性。该系统适配Claude Code、Codex、Opencode、Cursor等多款AI编程工具。作为开源项目，其社区数据显示stars达257857，forks38563，open_issues201。该方案可提升AI代理工具实用性，降低开发者使用高性能AI代理的门槛，推动AI编程工具落地。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">affaan-m</span> <span class="tag tag-star">⭐ 257,857</span> <span class="tag tag-gray">ai-agents / anthropic / claude / claude-code</span></div>
+          <div class="pick-reason">ECC（The agent harness performance optimization system）作为AI行业第2名候选，社区数据表现突出，获257857个stars、38563个forks，open_issues为201，是性能优化系统的典型案例。</div>
+          <div class="source">来源：<a href="https://github.com/affaan-m/ECC" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 开源hermes-agent社区星标超24万 助力AI应用开发</h3>
+          <p class="news-body">开源hermes-agent是一款面向AI应用开发的智能体工具，其社区数据显示星标达245223、复刻51023、开放问题42796。该开源智能体可降低AI应用开发门槛，为开发者提供定制化基础工具。它的影响覆盖AI开发者、初创团队及垂直领域应用方，尤其能降低中小团队开发定制化AI助手的成本与周期。</p>
+          <p class="comment">若hermes-agent这类开源智能体持续优化，可能加速AI工具化、场景化落地的步伐。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 245,223</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">hermes-agent是与用户共同成长的AI agent，社区数据亮眼，获245223个star、51023个fork，open issues达42796，是AI领域受关注的项目</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 开源工具RAGFlow融合RAG与Agent能力获高社区热度</h3>
+          <p class="news-body">RAGFlow是一款领先的开源检索增强生成（RAG）引擎。它融合了前沿的RAG与Agent能力，为大模型构建了更优质的上下文层。其GitHub社区数据显示，stars达90642，周增长481，forks10721，open issues1548。该工具填补了开源领域兼具RAG与Agent能力的工具空白，降低了企业部署定制化LLM上下文方案的门槛。</p>
+          <p class="comment">若这类融合RAG与Agent的开源工具进一步普及，则可能加速企业级LLM应用的场景适配落地</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">infiniflow</span> <span class="tag tag-star">⭐ 90,642</span> <span class="tag tag-gray">agent-harness / agentic-ai / agentic-nagive / agentic-retrieval</span></div>
+          <div class="pick-reason">ragflow是领先开源RAG项目，社区数据亮眼，获90642星标、周增长481、10721分支、1548个开放议题，是AI行业开源领域的重要项目。</div>
+          <div class="source">来源：<a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 开源AI驱动开发工具OpenHands获社区高关注度</h3>
+          <p class="news-body">开源项目OpenHands是一款AI驱动的开发工具。该项目在开源社区拥有87814个星标、11502个复刻及784个未解决问题。它填补了开源领域AI驱动开发工具的细分空白，为中小团队提供低成本、可定制的AI辅助开发方案，降低了开发者使用这类工具的门槛。这反映出AI技术向开发全流程渗透的趋势，开源社区正加速构建可落地的AI开发基础设施。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">OpenHands</span> <span class="tag tag-star">⭐ 87,814</span> <span class="tag tag-gray">agent / artificial-intelligence / chatgpt / claude-ai</span></div>
+          <div class="pick-reason">OpenHands作为AI驱动开发项目，社区数据亮眼，获87814星标、11502次复刻，开放议题784个，体现其在AI开发领域的社区影响力。</div>
+          <div class="source">来源：<a href="https://github.com/OpenHands/OpenHands" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      <div class="empty-note">今日无重大动态</div>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Graph AI获1330万美元A轮融资 扩展AI药物安全平台</h3>
+          <p class="news-body">Graph AI完成1330万美元的A轮融资。该公司的核心产品为AI药物安全平台。这笔融资将助力该技术落地，优化药企的药物安全评估流程，同时带动AI在医疗合规领域的应用拓展。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.8事件数据：amount_wan=1330</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZ2M1UEFoS1FsQnFzSlpfaGU5MksxMGN5cjhmNzlycE5sbnE4Vmp1X0k4VmVSRjFrOFNWOUZuT2ZWbnRKSHBrdnpqRDNwQ1BxQmNSWVA4MlpWSXRiUHc2aFh6Ym9QUlZLdGxPRVhmY1B1enY4VXhrZEJTYm5UR2VfbDRvamZxVndRcVFsNkNoZzZTV2RBdnpRVmdtbmFrTFlWalFvZ1dVRTZJUXc?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Perplexity借助GPT-6 Astra嵌入企业级关键核心生产业务系统</h3>
+          <p class="news-body">Perplexity使用名为GPT-6 Astra的模型开展相关业务操作。该模型可用于撰写通信内容、修改软件以及监控生产系统。相较于此前使用的模型，Perplexity对GPT-6 Astra的检查频率大幅降低。这一应用模式意味着企业级AI正从单点工具向核心生产系统渗透。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Perplexity选用GPT-6 Astra构建端到端系统，这是AI行业中模型落地应用的具体实践，展现了AI技术在实际场景中的应用推进</div>
+          <div class="source">来源：<a href="https://openai.com/index/perplexity-improving-accuracy-with-astra" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>微软推出agent-lightning：AI智能体训练工具</b> — 该工具主打高效训练AI智能体，有望降低智能体开发门槛，值得关注其技术细节和社区反馈。</div><div class="watch-item"><b>Graph AI完成1330万美元A轮融资</b> — 资金将用于拓展AI药物安全平台，关注其在医疗AI领域的技术落地和商业化路径。</div><div class="watch-item"><b>Perplexity选择GPT-6 Astra构建全链路系统</b> — 这一合作体现了大模型在企业级全链路系统中的应用潜力，可观察其对行业标准的影响。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-14T05:05:22.872Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
