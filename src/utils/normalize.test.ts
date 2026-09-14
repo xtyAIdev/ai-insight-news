@@ -11,6 +11,7 @@ import assert from 'node:assert/strict';
 import {
   parseFlexibleDate, sanitizeDate, toISODate, normalizeAmountToWan,
   normalizeCompany, similarity, extractCoreNoun, sourceHasDate,
+  genStableEventId,
 } from './normalize.js';
 
 // ========== parseFlexibleDate ==========
@@ -127,4 +128,29 @@ test('extractCoreNoun: 英文取最长实体序列（可含版本号）', () => 
 
 test('extractCoreNoun: 中文取最长连续片段', () => {
   assert.ok(extractCoreNoun('通义千问 Qwen3 发布').includes('通义千问'));
+});
+
+// ========== genStableEventId（2026-09-14 哈希化） ==========
+
+test('genStableEventId: 同主键重跑 ID 稳定', () => {
+  const a = genStableEventId({ module: 'opensource', primaryKey: 'https://github.com/x/y', title: 'X: a repo' });
+  const b = genStableEventId({ module: 'opensource', primaryKey: 'https://github.com/x/y', title: 'X: a repo' });
+  assert.equal(a, b, '同主键两次生成必须一致');
+  assert.ok(a.startsWith('evt_op_'), `前缀应含模块缩写，实际 ${a}`);
+  assert.ok(a.length <= 20, `ID 应短哈希，实际 ${a}`);
+});
+
+test('genStableEventId: 不同主键不同 ID；标题大小写不影响', () => {
+  const a = genStableEventId({ module: 'paper', primaryKey: '2509.01234', title: 'Attention Revisited' });
+  const b = genStableEventId({ module: 'paper', primaryKey: '2509.99999', title: 'Attention Revisited' });
+  assert.notEqual(a, b);
+  const c = genStableEventId({ module: 'paper', primaryKey: '', title: 'ATTENTION revisited ' });
+  const d = genStableEventId({ module: 'paper', primaryKey: '', title: 'attention revisited' });
+  assert.equal(c, d, '标题兜底时大小写/空格归一');
+});
+
+test('genStableEventId: 主键与标题全空 → 退化为随机（两次不同）', () => {
+  const a = genStableEventId({ module: 'enterprise', primaryKey: '', fallbackDate: '2026-09-14' });
+  const b = genStableEventId({ module: 'enterprise', primaryKey: '', fallbackDate: '2026-09-14' });
+  assert.notEqual(a, b, '全空主键只能随机，不保证一致');
 });

@@ -6,9 +6,7 @@
  */
 
 import type { ModuleName, ModuleResult, RawEvent, StandardEvent, TaskContext } from '../types/events.js';
-import { collectOpenSource } from '../collectors/opensource.js';
-import { collectPaper } from '../collectors/paper.js';
-import { collectEnterprise } from '../collectors/enterprise.js';
+import { getSourcePlugin } from '../collectors/index.js';
 import { processRawEvents } from '../processor/index.js';
 import { evaluateEvents } from '../evaluator/index.js';
 import { generateReport } from '../reporter/index.js';
@@ -237,17 +235,12 @@ async function execute(ctx: TaskContext, date: string): Promise<OrchestratorResu
   };
 }
 
-// ========== 模块调度（带缓存降级，Sheet02 02-09） ==========
+// ========== 模块调度（Source Registry 插件化，2026-09-14） ==========
 
 async function collectModule(module: ModuleName, ctx: TaskContext): Promise<RawEvent[]> {
-  switch (module) {
-    case 'opensource':
-      return collectOpenSource(ctx);
-    case 'paper':
-      return collectPaper(ctx);
-    case 'enterprise':
-      return collectEnterprise(ctx);
-  }
+  const plugin = getSourcePlugin(module);
+  if (!plugin) throw new AgentError('collect', 'config', `未注册的采集模块: ${module}`);
+  return plugin.collect(ctx);
 }
 
 // ========== 查看已生成事件/报告 ==========
