@@ -5,3 +5,4 @@
 export * from './opensource.js';
 export * from './paper.js';
 export * from './enterprise.js';
+export * from './registry.js';

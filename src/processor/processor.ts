@@ -7,7 +7,7 @@
 import type { RawEvent, StandardEvent, TraceEntry } from '../types/events.js';
 import { getLLM, withLLMFallback, extractEntitiesByRule, generateInsightByRule } from '../llm/index.js';
 import { logger } from '../utils/logger.js';
-import { cleanText, genEventId, normalizeCompany, parseFlexibleDate, sanitizeDate, similarity, extractCoreNoun, toISODate } from '../utils/normalize.js';
+import { cleanText, genStableEventId, normalizeCompany, parseFlexibleDate, sanitizeDate, similarity, extractCoreNoun, toISODate } from '../utils/normalize.js';
 import { sourceCredibility } from '../config/constants.js';
 import { saveStandardEvent, saveRawEvent } from '../db/index.js';
 import { config } from '../config/index.js';
@@ -125,8 +125,21 @@ async function standardize(
 
   addTrace('standardize', raw.module === 'opensource' ? 'rule+clean' : raw.module === 'paper' ? 'arxiv/openalex' : 'rss+rule', `title=${title.slice(0, 50)}${time ? '' : '，日期未知(未默认今天)'}`);
 
+  // 稳定事件 ID（2026-09-14）：按模块取天然主键哈希——opensource=repo_url，paper=paper_id，
+  // enterprise=首源 url（缺失时用标题兜底）。重跑同事件 ID 不漂移。
+  const primaryKey =
+    raw.module === 'opensource' ? (raw as { repo_url?: string }).repo_url || ''
+    : raw.module === 'paper' ? (raw as { paper_id?: string }).paper_id || ''
+    : source[0]?.url || '';
+  const eventId = genStableEventId({
+    module: raw.module,
+    primaryKey,
+    title,
+    fallbackDate: taskDate,
+  });
+
   return {
-    event_id: genEventId(taskDate, Math.floor(Math.random() * 900) + 100),
+    event_id: eventId,
     title: cleanText(title) || '未命名事件',
     category: raw.module,
     sub_type: raw.module === 'enterprise' ? (raw as { sub_type: 'investment' | 'product' }).sub_type : undefined,

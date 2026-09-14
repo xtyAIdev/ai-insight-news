@@ -2,6 +2,8 @@
  * 文本/日期/金额/公司别名归一化（规格 Sheet05 05-02 字段标准化）
  */
 
+import { createHash } from 'node:crypto';
+
 import { ENTERPRISE_POOL } from '../config/constants.js';
 
 // ========== 文本清洗 ==========
@@ -219,6 +221,26 @@ export function extractCoreNoun(title: string): string {
 
 export function genEventId(date: string, seq: number, prefix = 'evt'): string {
   return `${prefix}_${date.replace(/-/g, '')}_${String(seq).padStart(3, '0')}`;
+}
+
+/**
+ * 稳定事件 ID（2026-09-14 哈希化）：
+ * 基于模块 + 事件天然主键（repo_url / paper_id / 主源 url）的 SHA-256 短哈希。
+ * 重跑/多源触发同一事件时 ID 不漂移，可做事件级生命周期追踪与跨天关联。
+ * 主键与标题都缺失时退化为随机 ID（极罕见，如 websearch 无 url 事件）。
+ */
+export function genStableEventId(input: {
+  module: string;
+  primaryKey: string;           // opensource=repo_url, paper=paper_id, enterprise=主源 url
+  title?: string;               // primaryKey 缺失时的兜底
+  fallbackDate?: string;        // 全部主键缺失时退化为 日期+随机
+}): string {
+  const deterministic = input.primaryKey || (input.title || '').toLowerCase().trim();
+  const material = deterministic
+    ? `${input.module}|${input.primaryKey || ''}|${(input.title || '').toLowerCase().trim()}`
+    : `${input.module}|${input.fallbackDate || ''}|${Date.now()}-${Math.random()}`;
+  const hash = createHash('sha256').update(material).digest('hex').slice(0, 12);
+  return `evt_${input.module.slice(0, 2)}_${hash}`;
 }
 
 export function genReportId(date: string): string {
