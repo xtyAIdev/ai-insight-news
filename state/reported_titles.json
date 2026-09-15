@@ -294,5 +294,28 @@
    "enterprise|graph ai 13 3 mn series scale ai drug safety platform bw disrupt",
    "enterprise|perplexity trusts gpt 6 astra end end systems"
   ]
+ },
+ "2026-09-15": {
+  "paper": [
+   "paper|universal intelligent document management system using ocr retrieval augmented g",
+   "paper|motion planning urban environments via self play reinforcement learning",
+   "paper|invited editorial preparing students spatially driven business world why locatio",
+   "paper|accelerating pathology report digitization multi engine ocr llm framework health",
+   "paper|explainable multimodal deep learning framework alzheimer s disease classificatio"
+  ],
+  "opensource": [
+   "opensource|vllm high throughput memory efficient inference",
+   "opensource|headroom compress tool outputs logs rag chunks before",
+   "opensource|worldmonitor real time global intelligence dashboard",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|litellm fastest litest ai gateway"
+  ],
+  "enterprise": [
+   "enterprise|superhuman yc notetaker fathom productivity platforms push agentic work",
+   "enterprise|devfest is",
+   "enterprise|how fyxer built ai executive assistant people trust",
+   "enterprise|qwen image 3 0 api setup 12 steps 0 03 image 2026 tech insider org",
+   "enterprise|bytedance doubao phone assistant consumer edition ai agent phone nubia goes sale"
+  ]
  }
 }

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-15</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's AI landscape is dynamic: Open-source tools like vllm and unsloth have updated, focusing on improving inference efficiency and local LLM operation; Acade">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-15">
+<meta property="og:description" content="Today's AI landscape is dynamic: Open-source tools like vllm and unsloth have updated, focusing on improving inference efficiency and local LLM operation; Academic research has yielded notable medical">
+<meta property="og:url" content="./report_20260915.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-15">
+<meta name="twitter:description" content="Today's AI landscape is dynamic: Open-source tools like vllm and unsloth have updated, focusing on improving inference efficiency and local LLM operation; Academic research has yielded notable medical">
+<link rel="canonical" href="./report_20260915.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-15 ｜ report_20260915</div>
+<div class="sub" data-lang-title="zh">2026-09-15 ｜ report_20260915</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's AI landscape is dynamic: Open-source tools like vllm and unsloth have updated, focusing on improving inference efficiency and local LLM operation; Academic research has yielded notable medical AI achievements, covering pathology report digitization, multimodal classification for Alzheimer's disease, etc.; Enterprises are active with moves including Superhuman's acquisition of Fathom and ByteDance's launch of an AI Agent phone assistant.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. vllm：A high-throughput and memory-efficient inference and</h3>
+          <p class="news-body">A high-throughput and memory-efficient inference and serving engine for LLMs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">vllm-project</span> <span class="tag tag-star">⭐ 91,774</span> <span class="tag tag-gray">amd / blackwell / cuda / deepseek</span></div>
+          <div class="pick-reason">As a high-throughput and memory-efficient inference tool in the AI sector, vllm has gained 91,774 stars, 22,208 forks and 7,950 open issues in the community, showing high industry attention.</div>
+          <div class="source">Source：<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. headroom：Compress tool outputs, logs, files, and RAG chunks before</h3>
+          <p class="news-body">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 72,177</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">Headroom, an AI compression tool that compresses tool outputs, logs, files and RAG chunks, is the 2nd candidate, boasting 72,177 stars, 1,042 weekly growth, 5,528 forks and 642 open issues, drawing notable community attention.</div>
+          <div class="source">Source：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. worldmonitor：Real-time global intelligence dashboard</h3>
+          <p class="news-body">Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">koala73</span> <span class="tag tag-star">⭐ 86,285</span> <span class="tag tag-gray">agent / ai / dashboard / geopolitics</span></div>
+          <div class="pick-reason">This real-time global intelligence dashboard for the AI sector has earned 86,285 stars, 13,090 forks and 312 open issues from the community, demonstrating strong attention in the AI field.</div>
+          <div class="source">Source：<a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. unsloth：Local UI to run and train LLMs and diffusion models</h3>
+          <p class="news-body">Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4, MiniMax-H3, Gemma 4, FLUX and more.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 76,177</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">Unsloth, a local UI tool for running and training LLMs and diffusion models, has drawn notable attention in the AI sector, boasting 76,177 stars, 389 weekly growth, 6,944 forks and 1,356 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. litellm：The fastest, litest AI Gateway</h3>
+          <p class="news-body">The fastest, litest AI Gateway. Rust core with Python SDK. Call 100+ LLM APIs in OpenAI (or native) format with cost tracking, guardrails, load balancing, and logging [Bedrock, Azure, OpenAI, Anthropic, OpenAI, VertexAI, vLLM, Nvidia NIM]</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">BerriAI</span> <span class="tag tag-star">⭐ 58,745</span> <span class="tag tag-gray">ai-gateway / anthropic / azure-openai / bedrock</span></div>
+          <div class="pick-reason">As the 5th candidate, litellm is the fastest and lightest AI Gateway, with community data including 58,745 stars, 11,445 forks and 5,066 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/BerriAI/litellm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Universal Intelligent Document Management System Using OCR, Retrieval-Augmented Generation, and Large Language Models</h3>
+          <p class="news-body">Abstract The rapid growth of digital information has significantly increased the need for intelligent systems capable of managing, understanding, and retrieving knowledge from diverse document formats. Traditional document management systems primarily focus on storage and indexing, requiring users to manually search for relevant information, which becomes inefficient when handling large collections of scanned documents, images, and PDFs. This paper presents Universal Doc AI, a multimodal intelligent document management system that integrates Optical Character Recognition (OCR), Retrieval-Augme</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">Mathrusri Ramabai Ambedkar Dental College &amp; Hospital</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">The general intelligent document management system developed by Mathrusri Ramabai Ambedkar Dental College &amp; Hospital, with 2 authors, integrates OCR, Retrieval-Augmented Generation and large language models, providing a practical reference for AI document management.</div>
+          <div class="source">Source：<a href="https://openalex.org/W7211887502" target="_blank" rel="noopener">OpenAlex</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Motion Planning in Urban Environments via Self-Play Reinforcement Learning</h3>
+          <p class="news-body">International audience</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">This paper focuses on motion planning in urban environments via self-play reinforcement learning, has 3 authors and is the 2nd candidate, offering new research ideas for the AI motion planning field.</div>
+          <div class="source">Source：<a href="https://openalex.org/W7163835786" target="_blank" rel="noopener">OpenAlex</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Invited Editorial: Preparing Students for a Spatially Driven Business World: Why Location Analytics Belongs in Every IS Curriculum</h3>
+          <p class="news-body">Location analytics is becoming increasingly important in business practice, yet it remains underdeveloped in many Information Systems (IS) curricula. In many programs, location is treated as a mapping exercise, a visualization feature, or a specialized GIS topic rather than as an important part of analytical thinking and decision-making. This commentary argues that spatial reasoning should be integrated more directly into IS education because business decisions are often shaped by proximity, scale, accessibility, interaction, and geographic context. We discuss how the current fragmented approa</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">California Baptist University</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">This invited editorial, written by 8 authors from California Baptist University, advocates that location analytics should be included in every IS curriculum, providing a reference for curriculum design of AI-related business talents.</div>
+          <div class="source">Source：<a href="https://openalex.org/W7203751078" target="_blank" rel="noopener">OpenAlex</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. ACCELERATING PATHOLOGY REPORT DIGITIZATION: A MULTI-ENGINE OCR AND LLM FRAMEWORK FOR HEALTHCARE APPLICATIONS</h3>
+          <p class="news-body">Digitization and structuring of pathology reports are essential in modern healthcare for enhancing patient care, data analytics, and medical research. This study presents a framework called Dual-integrated Text Extraction using Hybrid OCR Engines (DiText-OCR), which leverages multiple OCR tools and domain-specific dictionaries to accurately digitize diverse text types, including printed text and low-quality scans. The extracted text is further processed using Large Language Models (LLMs) for named entity recognition, relationship extraction, and data structuring. The resulting structured data</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">This paper, the 4th candidate with 1 author, proposes a multi-engine OCR and LLM framework for healthcare applications to accelerate pathology report digitization, providing technical support for AI implementation in medical pathology scenarios.</div>
+          <div class="source">Source：<a href="https://openalex.org/W7118177740" target="_blank" rel="noopener">OpenAlex</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. An Explainable Multimodal Deep Learning Framework for Alzheimer's Disease Classification Using MRI, PET, and Clinical Data</h3>
+          <p class="news-body">Abstract Alzheimer's disease (AD) often remains undetected until memory loss and cognitive decline become clinically apparent, at which point substantial neurological damage has already occurred. Early and reliable diagnosis therefore, remains one of the most pressing challenges in dementia care. This study presents a multimodal, explainable deep learning framework for AD classification that integrates Magnetic Resonance Imaging (MRI), Positron Emission Tomography (PET), and clinical data obtained from the Alzheimer's Disease Neuroimaging Initiative (ADNI). Imaging features are derived from MR</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">Mathrusri Ramabai Ambedkar Dental College &amp; Hospital</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">The 5th candidate is an AI paper with only 2 authors from Mathrusri Ramabai Ambedkar Dental College &amp; Hospital, which proposes an explainable multimodal deep learning framework for Alzheimer's disease classification using MRI, PET and clinical data.</div>
+          <div class="source">Source：<a href="https://openalex.org/W7211874873" target="_blank" rel="noopener">OpenAlex</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Superhuman acquires YC-backed notetaker Fathom as productivity platforms push for agentic work</h3>
+          <p class="news-body">The notetaker offers a generous free plan, and that has resulted in over 400,000 monthly active users. The company said that over 1 million people have recorded meetings until now.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">Superhuman</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Superhuman has acquired Fathom, a YC-backed note-taking tool, as productivity platforms push forward with agentic work.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/14/superhuman-acquires-yc-backed-notetaker-fathom-as-productivity-platforms-push-for-agentic-work/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. DevFest is back</h3>
+          <p class="news-body">DevFest is back DevFest 2026 is here, and from October 1 – December 31, 2026, you can join the nearly 1 million developers expected to participate to build, secure, and scale in the agentic era. Here’s how to join. Your browser does not support the audio element. DevFest season is officially back . From October 1 through December 31, 2026, nearly a million developers and builders will gather for the world’s largest community-led technology conference. Hosted around the world by Google Developer</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">The return of DevFest, a candidate for the 2nd place, is a positive signal for the resumption of offline tech events in the AI industry, providing communication opportunities for practitioners.</div>
+          <div class="source">Source：<a href="https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. How Fyxer built an AI executive assistant people trust</h3>
+          <p class="news-body">Fyxer uses OpenAI models, fine-tuning, memory, and real user feedback to organize inboxes and draft emails in each user’s voice.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As the 3rd candidate, this event demonstrates Fyxer’s practice of building an AI executive assistant that people trust, offering a reference for the AI industry to develop trustworthy AI assistants.</div>
+          <div class="source">Source：<a href="https://openai.com/index/fyxer" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Qwen Image 3.0 API Setup: 12 Steps, $0.03/Image [2026] - tech-insider.org</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiY0FVX3lxTE14MDIwMERBQVNOMUJUdDVfLUJyV09jc1pWeXpoajc0b2xoSWdoRTFZckNmcTQ0TjdmY3hCS1VMM0liV0MzN0c0TVFFNVBaeWZ2WEVwdU82aF9zS2k3Z0VjSG5taw?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Qwen Image 3.0 API Setup: 12 Steps, $0.03/Image [2026]&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;lt</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Qwen Image 3.0 API requires 12 setup steps and is priced at $0.03 per image in 2026, offering a clear cost reference in the AI image API sector.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE14MDIwMERBQVNOMUJUdDVfLUJyV09jc1pWeXpoajc0b2xoSWdoRTFZckNmcTQ0TjdmY3hCS1VMM0liV0MzN0c0TVFFNVBaeWZ2WEVwdU82aF9zS2k3Z0VjSG5taw?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ByteDance Launches Doubao Phone Assistant Consumer Edition; First AI Agent Phone with Nubia Goes on Sale Sept. 16 - finance.biggo.com</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMidkFVX3lxTFAzTE9TYmU5cXJHcDJ3R1VzMG5mVUd6RThoMjJWeXpXejM3SkJnaDFsbkpmYWp0SVJMYlR0c2Q5VC1LMHJpbFlDci1BalpVZEphVnRjUHAwWGRwYmxaNV9hYW4xS01STlJrbjFaSDRiUlVFejVBMHc?oc=5&quot; target=&quot;_blank&quot;&amp;gt;ByteDance Launches Doubao Phone Assistant Consumer Edition; Fi</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">字节跳动</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">ByteDance launches the consumer version of Doubao Phone Assistant, and the first AI Agent phone goes on sale with Nubia on September 16.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFAzTE9TYmU5cXJHcDJ3R1VzMG5mVUd6RThoMjJWeXpXejM3SkJnaDFsbkpmYWp0SVJMYlR0c2Q5VC1LMHJpbFlDci1BalpVZEphVnRjUHAwWGRwYmxaNV9hYW4xS01STlJrbjFaSDRiUlVFejVBMHc?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>ByteDance launches Doubao Phone Assistant Consumer Edition, first AI Agent phone to go on sale tomorrow</b> — This is the world's first consumer phone equipped with an AI Agent, marking the penetration of AI technology from software to hardware terminals, potentially reshaping mobile interaction experiences. Its market response and subsequent iterations are worth watching.</div><div class="watch-item"><b>Superhuman acquires YC-backed note-taking tool Fathom to strengthen its AI productivity ecosystem</b> — The acquisition will integrate Fathom's intelligent note-taking capabilities, perfecting Superhuman's AI-powered productivity toolchain and enhancing user work efficiency, reflecting the integration trend of enterprise-level AI tools.</div><div class="watch-item"><b>Medical AI multimodal research breakthroughs: pathology report digitization and Alzheimer's disease classification</b> — Two academic studies address the pain points of medical document digitization and precise diagnosis of neurological diseases respectively, providing technical support for the compliant implementation of AI in healthcare. Their clinical application prospects are worth attention.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域动态丰富：开源工具方面，vllm、unsloth等项目更新，聚焦推理效率提升与本地LLM运行；学术研究上，医疗AI成果突出，涵盖病理报告数字化、阿尔茨海默病多模态分类等；企业端动作频繁，包括Superhuman收购Fathom、字节跳动推出AI Agent手机助手等。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. vllm：高吞吐量低内存LLM推理服务开源引擎</h3>
+          <p class="news-body">vllm是一款面向大语言模型（LLM）的高吞吐量、低内存占用的推理与服务引擎。其开源社区数据显示，当前获得91774个star，22208个fork，7950个未解决issue。该引擎解决了LLM推理环节吞吐量不足、内存占用高的核心痛点，可大幅降低模型部署成本，加速大模型在各场景的落地应用。这一工具的出现，意味着大语言模型推理正朝着更高效、低成本的方向发展，开源工具也成为降低模型部署门槛、推动技术普及的关键载体。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">vllm-project</span> <span class="tag tag-star">⭐ 91,774</span> <span class="tag tag-gray">amd / blackwell / cuda / deepseek</span></div>
+          <div class="pick-reason">vllm是AI领域高吞吐量且内存高效的推理工具，社区获91774星、22208个分支、7950个开放问题，受行业高关注。</div>
+          <div class="source">来源：<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 开源工具headroom压缩LLM输入内容降低token消耗</h3>
+          <p class="news-body">开源工具headroom可在内容送达LLM前，压缩工具输出、日志、文件及RAG块。使用该工具后，编码代理的token用量可减少20%，压缩JSON时token用量减少60%-95%，且输出答案保持不变。它提供库、代理、MCP服务器三种形式。这件事解决了LLM调用中token成本高、上下文窗口受限的核心痛点，尤其对RAG和编码场景效率提升显著，开源属性降低了技术落地门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 72,177</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">headroom是AI领域压缩工具（压缩工具输出、日志、文件及RAG块），获72177星，周增长1042，forks5528，open issues642，为第2名候选，社区关注度高</div>
+          <div class="source">来源：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 开源工具worldmonitor整合全球多维度情报监测</h3>
+          <p class="news-body">开源项目worldmonitor是一款实时全球情报仪表盘，由AI驱动整合新闻聚合、地缘监测与基建追踪功能。其社区数据显示，stars达86285，forks为13090，open issues共312个。该工具将多维度全球情报整合到开源工具中，填补了开源领域统一情报监测工具的空白，降低了专业机构获取实时全球态势数据的门槛，对小型团队的全球感知需求有重要价值。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">koala73</span> <span class="tag tag-star">⭐ 86,285</span> <span class="tag tag-gray">agent / ai / dashboard / geopolitics</span></div>
+          <div class="pick-reason">这款AI领域的worldmonitor实时全球情报仪表盘，获社区86285星标、13090次复刻，有312个未解决问题，凸显其在AI社区的高关注度</div>
+          <div class="source">来源：<a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 开源项目unsloth支持本地运行训练多类AI模型</h3>
+          <p class="news-body">开源项目unsloth提供本地UI，可用于运行和训练大语言模型及扩散模型。它支持GGUF、MLX、Qwen3.8、DeepSeek-V4、MiniMax-H3、Gemma4、FLUX等多种格式与模型。该项目社区数据亮眼：stars达76177，周增长389，forks6944，open issues1356。它降低了个人开发者和小型团队运行训练AI模型的技术门槛，推动开源AI工具普及。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 76,177</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">Unsloth作为本地UI运行训练LLM与扩散模型的工具，在AI行业受关注，拥有76177星、周增389、6944个fork及1356个开放议题。</div>
+          <div class="source">来源：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. litellm：Rust核心AI网关支持百款LLM API调用</h3>
+          <p class="news-body">litellm是一款AI网关，采用Rust核心并提供Python SDK。它支持以OpenAI或原生格式调用超100款LLM API，覆盖Bedrock、Azure、OpenAI等多个平台。该工具具备成本追踪、防护措施、负载均衡及日志功能。其社区数据显示stars达58745，forks为11445，open issues共5066。它降低了多LLM调用的整合门槛，对开发者和企业降本提效有明确价值。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">BerriAI</span> <span class="tag tag-star">⭐ 58,745</span> <span class="tag tag-gray">ai-gateway / anthropic / azure-openai / bedrock</span></div>
+          <div class="pick-reason">作为第5名候选，litellm是最快最轻的AI网关，社区拥有58745星、11445个fork及5066个未解决问题</div>
+          <div class="source">来源：<a href="https://github.com/BerriAI/litellm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Universal Intelligent Document Management System Using OCR, Retrieval-Augmented Generation, and Large Language Models</h3>
+          <p class="news-body">Mathrusri Ramabai Ambedkar Dental College &amp; Hospital的2位作者发表论文，提出名为Universal Doc AI的多模态智能文档管理系统。该系统整合OCR、检索增强生成（RAG）与大语言模型（LLM）技术，针对非结构化文档管理痛点设计。它能大幅提升知识检索效率，为医疗行业文档智能化转型提供可落地技术路径。这一方案可优化医院病历、影像报告等多类型文档的管理与检索效率，也可拓展至其他需处理复杂文档的垂直行业。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">Mathrusri Ramabai Ambedkar Dental College &amp; Hospital</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">来自Mathrusri Ramabai Ambedkar Dental College &amp; Hospital（作者数2）的通用智能文档管理系统，融合OCR、检索增强生成与大语言模型，为AI文档管理提供实践参考。</div>
+          <div class="source">来源：<a href="https://openalex.org/W7211887502" target="_blank" rel="noopener">OpenAlex</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Motion Planning in Urban Environments via Self-Play Reinforcement Learning</h3>
+          <p class="news-body">International audience</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">该论文聚焦城市环境运动规划的自玩强化学习，作者数为3，作为第2名候选，为AI运动规划领域提供新的研究思路。</div>
+          <div class="source">来源：<a href="https://openalex.org/W7163835786" target="_blank" rel="noopener">OpenAlex</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Invited Editorial: Preparing Students for a Spatially Driven Business World: Why Location Analytics Belongs in Every IS Curriculum</h3>
+          <p class="news-body">Location analytics is becoming increasingly important in business practice, yet it remains underdeveloped in many Information Systems (IS) curricula. In many programs, location is treated as a mapping exercise, a visualization feature, or a specialized GIS topic rather than as an important part of analytical thinking and decision-making. This commentary argues that spatial reasoning should be integrated more directly into IS education because business decisions are often shaped by proximity, scale, accessibility, interaction, and geographic context. We discuss how the current fragmented approa</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">California Baptist University</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">这篇来自加州浸会大学、共8位作者的邀请编辑论文，提出位置分析应纳入所有IS课程，为AI相关商业人才的课程设置提供参考。</div>
+          <div class="source">来源：<a href="https://openalex.org/W7203751078" target="_blank" rel="noopener">OpenAlex</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. DiText-OCR框架助力病理报告数字化 解决医疗文本提取痛点</h3>
+          <p class="news-body">病理报告的数字化与结构化是现代医疗提升患者护理、数据分析及医学研究的核心环节。一项由1位作者完成的研究提出名为DiText-OCR的框架，借助多OCR工具与领域词典处理印刷文本、低质量扫描等不同类型文本，实现精准数字化。该框架进一步通过大语言模型（LLM）对提取文本进行命名实体识别、关系抽取与数据结构化处理，为医疗文档标准化提供可行方案，推动医疗数据结构化进程。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">作为第4名候选的论文（作者数为1），提出用于医疗领域的多引擎OCR与LLM框架，可加速病理报告数字化，为AI在医疗病理场景落地提供技术支撑</div>
+          <div class="source">来源：<a href="https://openalex.org/W7118177740" target="_blank" rel="noopener">OpenAlex</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. An Explainable Multimodal Deep Learning Framework for Alzheimer's Disease Classification Using MRI, PET, and Clinical Data</h3>
+          <p class="news-body">来自Mathrusri Ramabai Ambedkar Dental College &amp; Hospital的2名作者，构建了结合MRI、PET与临床数据的可解释多模态深度学习框架，用于阿尔茨海默病分类。阿尔茨海默病常到出现记忆丧失等临床症状时才被发现，此时已产生大量不可逆神经损伤。该研究依托阿尔茨海默病神经影像倡议（ADNI）获取相关数据，突破单一模态诊断的局限。这一成果为阿尔茨海默病早期筛查提供更可靠工具，对改善痴呆护理现状意义重大。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">Mathrusri Ramabai Ambedkar Dental College &amp; Hospital</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">第5名候选的AI相关论文，仅2位作者，来自Mathrusri Ramabai Ambedkar Dental College &amp; Hospital，构建可解释多模态深度学习框架，用MRI、PET及临床数据做阿尔茨海默病分类</div>
+          <div class="source">来源：<a href="https://openalex.org/W7211874873" target="_blank" rel="noopener">OpenAlex</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Superhuman收购笔记工具Fathom 推进agentic work布局</h3>
+          <p class="news-body">Superhuman收购了由YC支持的垂直笔记工具Fathom。Fathom提供慷慨的免费计划，月活跃用户超40万。截至目前，已有超100万人通过Fathom录制会议。此举将助力Superhuman补全企业会议场景的生产力能力。</p>
+          <p class="comment">若Superhuman整合Fathom的会议笔记能力，或能加速agentic work在企业协作场景的落地。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">Superhuman</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Superhuman收购了YC支持的笔记工具Fathom，这反映了生产力平台推进智能体工作的行业动向</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/14/superhuman-acquires-yc-backed-notetaker-fathom-as-productivity-platforms-push-for-agentic-work/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Google DevFest回归 聚焦智能体时代全球开发者活动</h3>
+          <p class="news-body">Google的DevFest活动重启，将于2026年10月1日至12月31日举办。该活动预计吸引近百万开发者参与，围绕智能体时代开展构建、安全与规模化相关实践。它是全球最大的社区主导技术会议，由Google在全球各地主办。这类活动能推动开发者在企业级AI应用落地的实践交流，助力AI技术普及与开发者生态建设。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">作为AI行业相关的DevFest活动回归，其作为第2名候选，是行业线下技术活动重启的积极信号，为从业者提供交流契机。</div>
+          <div class="source">来源：<a href="https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Fyxer依托OpenAI模型打造可信AI高管助理</h3>
+          <p class="news-body">Fyxer采用OpenAI模型、微调、记忆功能及实时用户反馈机制。该工具可整理用户收件箱，并按用户个人语气撰写邮件。这一实践验证了结合基础大模型、个性化微调与用户反馈闭环，能解决企业级AI助理的信任痛点，填补通用AI工具场景化适配不足的空白。这代表企业级AI工具正从通用功能向&quot;个性化信任型&quot;场景化应用演进，相关组合将成行业标配。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件为第3名候选，展示了Fyxer打造人们信任的AI行政助理的实践，为AI行业构建可信赖AI助手提供了参考方向</div>
+          <div class="source">来源：<a href="https://openai.com/index/fyxer" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Qwen Image 3.0 API以12步部署 单图定价0.03美元</h3>
+          <p class="news-body">Qwen Image 3.0 API的部署流程包含12个明确步骤。该API单图定价为0.03美元。它以标准化步骤和低定价切入企业图像生成市场，填补了部分企业对高性价比、易接入的AI图像能力的需求空白，降低了企业部署AI图像服务的门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Qwen Image 3.0 API的设置需12步，2026年单张图像API价格为0.03美元，为AI图像API领域提供了明确的成本参考。</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE14MDIwMERBQVNOMUJUdDVfLUJyV09jc1pWeXpoajc0b2xoSWdoRTFZckNmcTQ0TjdmY3hCS1VMM0liV0MzN0c0TVFFNVBaeWZ2WEVwdU82aF9zS2k3Z0VjSG5taw?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 字节跳动推出Doubao Phone Assistant消费版 努比亚AI手机9月16日开售</h3>
+          <p class="news-body">字节跳动推出了Doubao Phone Assistant消费版。首款搭载AI Agent的努比亚手机将于9月16日开售。这一产品组合打破了此前AI助手多为系统自带或第三方应用的局限。其直接绑定硬件销售的模式，验证了AI Agent与手机硬件结合的商业可行性。</p>
+          <p class="comment">若AI Agent与手机硬件绑定的模式跑通，则可能推动手机厂商与AI公司的深度绑定成为行业常态，手机或将成为AI能力的核心载体。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-14</span> <span class="tag">字节跳动</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">字节跳动推出豆包手机助手消费版，首款AI Agent手机9月16日随努比亚开售，是AI Agent落地手机端的新实践</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFAzTE9TYmU5cXJHcDJ3R1VzMG5mVUd6RThoMjJWeXpXejM3SkJnaDFsbkpmYWp0SVJMYlR0c2Q5VC1LMHJpbFlDci1BalpVZEphVnRjUHAwWGRwYmxaNV9hYW4xS01STlJrbjFaSDRiUlVFejVBMHc?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>字节跳动推出Doubao手机助手消费版，首款AI Agent手机明日开售</b> — 这是全球首款搭载AI Agent的消费级手机，标志着AI技术从软件向硬件终端渗透，有望重构移动交互体验，值得关注其市场反响与后续迭代。</div><div class="watch-item"><b>Superhuman收购YC-backed笔记工具Fathom，强化AI生产力矩阵</b> — 收购后将整合Fathom的智能笔记能力，完善Superhuman的AI驱动生产力工具链，提升用户的工作效率，反映了企业级AI工具的整合趋势。</div><div class="watch-item"><b>医疗AI多模态研究突破：病理报告数字化与阿尔茨海默病分类</b> — 两项学术研究分别解决医疗文档数字化痛点与神经疾病精准诊断问题，为AI在医疗领域的合规落地提供了技术支撑，关注其临床应用前景。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-15T05:06:12.137Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
