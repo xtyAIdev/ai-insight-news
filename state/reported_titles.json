@@ -1,27 +1,4 @@
 {
- "2026-09-01": {
-  "opensource": [
-   "opensource|ragflow ragflow is leading source retrieval augmented",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|omniroute never stop coding",
-   "opensource|tradingagents tradingagents multi agents llm financial trading framework",
-   "opensource|hyperframes write html"
-  ],
-  "paper": [
-   "paper|ontoaligner ensemble voting based fusion across heterogeneous ontology alignment",
-   "paper|identity conditioned latent consistency distillation face synthesis",
-   "paper|hirs agent hierarchical multi agent system reliable long horizon remote sensing ",
-   "paper|physwave physics guided latent diffusion models controllable spatial audio gener",
-   "paper|harness rl black box reinforcement learning action args decoupling central agent"
-  ],
-  "enterprise": [
-   "enterprise|tencent s large model iteration speeds up hunyuan hy4 preview version doubles pa",
-   "enterprise|nvidia s 3 5b mediatek bet reveals plan tackling big tech 8217 s ai chip buildou",
-   "enterprise|上线自定义模型功能 支持接入 智谱 等主流模型 marvis kimi glm",
-   "enterprise|腾讯混元宣布推出 轻量版 hy4 preview",
-   "enterprise|idea team ai qwen creative agent teams all one screenwriting directing art aibas"
-  ]
- },
  "2026-09-02": {
   "opensource": [
    "opensource|cohub living space where people agents create play",
@@ -316,6 +293,29 @@
    "enterprise|how fyxer built ai executive assistant people trust",
    "enterprise|qwen image 3 0 api setup 12 steps 0 03 image 2026 tech insider org",
    "enterprise|bytedance doubao phone assistant consumer edition ai agent phone nubia goes sale"
+  ]
+ },
+ "2026-09-16": {
+  "paper": [
+   "paper|lace layer wise compression dynamic frame rate codecs",
+   "paper|aura agentic diagnosis refinement production recommender systems scale",
+   "paper|speak city multimodal resolution outside vehicle references",
+   "paper|grounded sound reinforcement learning frozen acoustic judge curb asr insertion h",
+   "paper|diagnosing fact grounding gap multi hop question answering"
+  ],
+  "opensource": [
+   "opensource|hermes agent agent that grows you",
+   "opensource|trueforge source agent harness runtime layer that",
+   "opensource|n8n fair code workflow automation platform native ai",
+   "opensource|catchme catchme make your ai agents truly personal",
+   "opensource|webui user friendly ai interface supports ollama openai api"
+  ],
+  "enterprise": [
+   "enterprise|exclusive manufacturing ai startup caddi 1 2 billion following 114 million serie",
+   "enterprise|meta now lets ai agents handle boring parts whatsapp business setup",
+   "enterprise|meta expands subscription push ai focused plans",
+   "enterprise|ai agents now have place snitch",
+   "enterprise|salesforce nvidia s reasoning model is everything ai labs should fear"
   ]
  }
 }

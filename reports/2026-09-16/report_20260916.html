@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-16</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today’s AI landscape saw a wealth of developments: open-source tools for intelligent agents and workflow platforms launched, academia released papers on AI hall">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-16">
+<meta property="og:description" content="Today’s AI landscape saw a wealth of developments: open-source tools for intelligent agents and workflow platforms launched, academia released papers on AI hallucination mitigation and multimodal reas">
+<meta property="og:url" content="./report_20260916.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-16">
+<meta name="twitter:description" content="Today’s AI landscape saw a wealth of developments: open-source tools for intelligent agents and workflow platforms launched, academia released papers on AI hallucination mitigation and multimodal reas">
+<link rel="canonical" href="./report_20260916.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-16 ｜ report_20260916</div>
+<div class="sub" data-lang-title="zh">2026-09-16 ｜ report_20260916</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today’s AI landscape saw a wealth of developments: open-source tools for intelligent agents and workflow platforms launched, academia released papers on AI hallucination mitigation and multimodal reasoning, while enterprises like manufacturing AI startup CADDi hit unicorn status and Meta expanded AI agent features for WhatsApp and new AI subscriptions.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 245,932</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">As an AI agent that grows with users, hermes-agent has impressive community metrics in the AI industry, including 245932 stars, 51326 forks and 43227 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. trueforge：The open-source agent harness - the runtime layer that</h3>
+          <p class="news-body">The open-source agent harness - the runtime layer that turns an LLM into a working agent.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">truefoundry</span> <span class="tag tag-star">⭐ 5,667</span> <span class="tag tag-gray">agent / agentic-ai / agents / harness</span></div>
+          <div class="pick-reason">Trueforge is an open-source agent harness runtime layer in the AI sector, with community metrics including 5,667 stars, +293 weekly growth, 434 forks and 92 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/truefoundry/trueforge" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. n8n：Fair-code workflow automation platform with native AI</h3>
+          <p class="news-body">Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">n8n-io</span> <span class="tag tag-star">⭐ 204,471</span> <span class="tag tag-gray">ai / apis / automation / cli</span></div>
+          <div class="pick-reason">n8n is a fair-code workflow automation platform with native AI, which has secured 204,471 stars, 60,695 forks and 1,169 open issues in its community, standing out as a notable candidate in the AI industry's workflow automation space.</div>
+          <div class="source">Source：<a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. CatchMe：&quot;CatchMe: Make Your AI Agents Truly Personal&quot;</h3>
+          <p class="news-body">&quot;CatchMe: Make Your AI Agents Truly Personal&quot;</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">HKUDS</span> <span class="tag tag-star">⭐ 498</span> <span class="tag tag-gray">ai-agent / clawdbot-plugin / llm / recall-ai</span></div>
+          <div class="pick-reason">CatchMe, a 4th candidate project aiming to make AI agents truly personalized, has secured 498 stars, 81 forks and only 1 open issue in the community, standing out in the AI sector.</div>
+          <div class="source">Source：<a href="https://github.com/HKUDS/CatchMe" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. open-webui：User-friendly AI Interface (Supports Ollama, OpenAI API,</h3>
+          <p class="news-body">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">open-webui</span> <span class="tag tag-star">⭐ 152,226</span> <span class="tag tag-gray">ai / llm / llm-ui / llm-webui</span></div>
+          <div class="pick-reason">Open-webui, a user-friendly AI interface supporting Ollama and OpenAI API, has gained 152,226 stars, 22,279 forks and 306 open issues, drawing notable attention in the AI community.</div>
+          <div class="source">Source：<a href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. LACE: Layer-Wise Compression for Dynamic Frame Rate Codecs</h3>
+          <p class="news-body">Neural audio codecs are a key component in speech language modeling. However, their high frame rates lead to long sequence lengths, increasing computational costs. Dynamic frame rate codecs mitigate this by reducing the effective frame rate using a compression step to merge multiple frames together. However, most prior methods either operate on single-codebook codecs or apply a single compression step before multi-layer quantization. This forces all quantization layers to share the same segmentation boundaries, despite the residual embeddings at different quantization layers exhibiting different rates of change over time. We propose LACE (Layer-Adaptive Codec Encoding), a dynamic frame rate codec that applies an independent compression step at each quantization layer, enabling layer-specific segmentation boundaries. To use LACE tokens in downstream text-to-speech (TTS), we further introduce union alignment and boundary anchor mechanisms to make durations consistent across layers while preserving compression benefits. Experiments on LibriTTS show that LACE offers a better rate-quality tradeoff than prior dynamic frame rate methods on the reconstruction task and improves TTS inference efficiency while maintaining competitive synthesis quality. Our code is released as part of the ESPnet3 codec recipe.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">cs.SD</span></div>
+          <div class="pick-reason">This paper, written by 4 authors and accepted at a top conference, proposes LACE: Layer-Wise Compression for Dynamic Frame Rate Codecs, offering new research references for dynamic frame rate codec technology in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.17509v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. AURA: Agentic Diagnosis and Refinement for Production Recommender Systems at Scale</h3>
+          <p class="news-body">How and why does a recommender system fail the users it serves? Oftentimes, practitioners are left to improve their algorithms based on a combination of feedback from stakeholder teams, domain expertise, and insights from data analyses. Yet the nuances of how and where recommendations perform well or poorly for end users are difficult to discern from aggregate quantitative metrics. Whereas these metrics provide a high-level and incomplete picture, further granularity into the quality of recommendations and their patterns requires reasoning with domain understanding and objectivity, at scale. We contemplate this complex conundrum and describe a method and implementation that uses the latest AI agentic advances to provide actionable diagnoses and improvements for production recommender systems. We present AURA (Agentic Understanding and Refinement of recommender Algorithms), an end-to-end agentic system that performs qualitative evaluation at scale and can then generate improvements to our algorithms at the code level. Specialized agents read production engagement logs, from thousands of sessions to millions, and surface patterns and examples of how the recommender fails real users. The next step uses those diagnoses and context about the recommender's own code, data, and training pipeline to propose and implement refinements grounded in that codebase. We report the system design, initial tests on production data from two large consumer platforms at a major media-streaming comp</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">This AURA study, accepted by a top conference with 3 authors, focuses on agentic diagnosis and refinement for large-scale production recommender systems, offering references for the industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.16625v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Speak to the City: Multimodal Resolution for Outside-the-Vehicle References</h3>
+          <p class="news-body">As autonomous vehicles and Extended Reality (XR) headsets enable novel in-car interactions, seamlessly querying physical landmarks, known as Outside-the-Vehicle Referencing (OVR), remains challenging due to ego-motion and referential ambiguity. We present a robust, multimodal OVR framework fusing user gaze and natural language to identify Points of Interest (POIs). To address the scarcity of dynamic vehicular data, we developed a VR-based pipeline synchronizing 360-degree transit videos with vehicle GNSS telemetry. Through a user study (N=46) mapping passenger head orientation into a 3D geospatial Digital Twin, we captured authentic gaze-speech behaviors. We subsequently trained a lightweight Transformer network, leveraging LLMs to dynamically align continuous spatial gaze vectors with discrete verbal context. Experimental results demonstrate high accuracy and low computational overhead, achieving an 83.33% Top-1 accuracy (87.72% Top-2) and an average inference time of 24.3 milliseconds. This real-time paradigm effectively resolves referential ambiguity, enabling context-aware spatial retrieval for passengers within the vehicle.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag tag-gray">cs.HC</span></div>
+          <div class="pick-reason">This third-ranked candidate paper focuses on multimodal resolution for outside-the-vehicle references, has been accepted by a top conference, and has 5 authors, providing academic references for the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.14691v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Grounded in Sound: Reinforcement Learning with a Frozen Acoustic Judge to Curb ASR Insertion Hallucinations</h3>
+          <p class="news-body">When reinforcement learning (RL) is used for post-training automatic speech recognition (ASR), the reward almost always lives in the text space: it compares a hypothesis with the reference and never checks whether the hypothesis is supported by the audio. On highly regular speech this licenses a shortcut - guessing from a strong language prior rather than listening. Once the acoustics degrade, the shortcut runs unchecked and emits fluent but ungrounded words, i.e., insertion errors. We propose an acoustic-fidelity reward: a GRPO reward augmented with a separately pretrained, permanently frozen, non-autoregressive character-level wav2vec2-CTC acoustic judge, used strictly at training and absent at inference, where a single model decodes greedily. Trained on LibriSpeech and evaluated across a six-tier difficulty gradient including real AMI meeting speech (33,282 utterance-condition instances), the method reduces insertion errors by 28.3% on close-talking AMI-IHM and 22.3% on far-field AMI-SDM, while lowering WER on AMI-SDM from 35.89% to 34.71% and showing no detectable WER difference on the other five tiers, against a schedule-matched WER-GRPO baseline. The insertion reduction holds under a meeting-level clustered bootstrap. Four prespecified analyses support content-conditioned insertion calibration: output collapses 85-90% on unintelligible audio that preserves energy and voice activity; the gain is not recovered by the evaluated 32-best CTC rescoring configuration, yet RL i</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag tag-gray">cs.SD</span></div>
+          <div class="pick-reason">This paper, accepted at a top conference with 5 authors, proposes reinforcement learning with a frozen acoustic judge to curb ASR insertion hallucinations, bringing a new solution to the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.14455v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Diagnosing the Fact-Grounding Gap in Multi-Hop Question Answering</h3>
+          <p class="news-body">Multi-hop question answering requires combining information from multiple documents to answer complex questions. These systems have grown increasingly capable, yet when they fail, the error is typically attributed to not finding the right documents. Whether this holds at the level of individual reasoning steps remains largely unexamined. We investigate this across three standard multi-hop QA benchmarks and find that failures decompose into two distinct modes: retrieval failures, where the needed passage was not retrieved, and extraction failures, where the passage was retrieved but the needed fact could not be extracted - a phenomenon we term the fact-grounding gap. Extraction failures account for nearly half of all per-hop deficiencies and are invisible to standard retrieval metrics. They remain unresolved by every retrieval intervention we test, establishing a ceiling for retrieval-only improvements. The gap's severity varies across benchmarks and question types, but extraction failures appear on every dataset we measure. Our findings reveal that retrieval failures and extraction failures are fundamentally different bottlenecks requiring different solutions - a distinction absent from current evaluation practice.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">The paper diagnosing the fact-grounding gap in multi-hop question answering has been accepted by EMNLP 2026, with 3 authors, providing an important reference for factuality research on multi-hop question answering in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.17043v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Exclusive: Manufacturing AI startup CADDi valued at $1.2 billion following $114 million Series D funding round - Fortune</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMipAFBVV95cUxOd3FpVERha3hBZnV4MDNqYU5iOVhUUnFwemhmU1h3YUV2dnZFcWF3TEdEd2pHblJiVW1KTUJmMVJXazRoZzFmdmxCSGRlXzVwdG5rdTM3MGM4aEtsRXlCbHdhMVk2OHZsZXFSdHpxNkU0Y3Y4bXVVR2U2dENnZ0xPSVZuSTlwclg5OEsxZ3lqYnNmSGlmeHhtdF9sZk1IVFVsMVFfQg?oc=5&quot; target=&quot;_blank&quot;&amp;gt</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.8事件数据：amount_wan=12000</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOd3FpVERha3hBZnV4MDNqYU5iOVhUUnFwemhmU1h3YUV2dnZFcWF3TEdEd2pHblJiVW1KTUJmMVJXazRoZzFmdmxCSGRlXzVwdG5rdTM3MGM4aEtsRXlCbHdhMVk2OHZsZXFSdHpxNkU0Y3Y4bXVVR2U2dENnZ0xPSVZuSTlwclg5OEsxZ3lqYnNmSGlmeHhtdF9sZk1IVFVsMVFfQg?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Meta now lets AI agents handle the boring parts of WhatsApp Business setup</h3>
+          <p class="news-body">A new WhatsApp Business MCP server lets developers use AI coding agents like Claude, Cursor, Codex, and ChatGPT to handle setup, messaging templates, testing, and troubleshooting.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta now enables AI agents to handle the tedious parts of WhatsApp Business setup, providing a new practical case for simplifying tedious operations in AI commercial applications.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/15/meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-business-setup/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Meta expands subscription push with new AI-focused plans</h3>
+          <p class="news-body">Meta One bundles expanded access to the company’s AI tools with premium features across Facebook, Instagram, and WhatsApp.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta is expanding its subscription push by launching new AI-focused plans, acting as a trend signal for the integration of subscription services and AI in the AI industry.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/15/meta-expands-subscription-push-with-new-ai-focused-plans/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. AI agents now have a place to snitch</h3>
+          <p class="news-body">The AI Contact Hotline is designed to be a discreet place where agents that have witnessed misbehavior can tip off authorities.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event gives AI agents a dedicated place to &quot;snitch&quot;, providing a new practical scenario for their interaction, collaboration or behavior supervision, and marking a new node in the development of AI agents ecosystem.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/15/ai-agents-now-have-a-place-to-snitch/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Salesforce and Nvidia’s new reasoning model is everything the AI labs should fear</h3>
+          <p class="news-body">Salesforce Koa is built on Nvidia's open-weight Nemotron model and is trained to do sales, marketing, and customer-support tasks.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Salesforce and Nvidia’s newly launched reasoning model is something all AI labs should fear, marking a significant development in the AI industry.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/15/salesforce-and-nvidias-new-reasoning-model-is-everything-the-ai-labs-should-fear/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>NousResearch launches hermes-agent, a user-evolving intelligent agent</b> — This open-source intelligent agent is designed to iterate with user needs, marking a key advance in personalized AI agents</div><div class="watch-item"><b>Manufacturing AI startup CADDi valued at $1.2B after $114M Series D</b> — This funding round highlights investor confidence in AI solutions for industrial use cases</div><div class="watch-item"><b>Meta adds AI agent features to WhatsApp Business and expands AI subscriptions</b> — Meta’s moves drive AI agent adoption in enterprise communication and subscription-based AI services</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域动态丰富：开源方向推出多款智能代理工具与工作流平台，学术圈有多篇聚焦AI幻觉抑制、多模态推理等的论文发布，企业端则有制造AI初创公司CADDi获独角兽融资、Meta拓展AI代理在WhatsApp的应用及订阅服务等消息。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. 开源项目hermes-agent打造可自主成长AI智能体</h3>
+          <p class="news-body">开源项目hermes-agent是一款可自主成长型AI智能体。其社区数据显示，stars达245932，forks为51326，open_issues共43227。该项目填补了可自主演进AI智能体的开源领域空白，降低了开发者构建个性化成长型智能体的技术门槛，还推动AI智能体向动态适配、自主成长方向发展，覆盖AI开发细分领域，利好中小开发者和初创团队。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 245,932</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">hermes-agent作为伴随用户成长的AI agent，其社区数据亮眼，获245932颗星、51326个复刻、43227个开放议题，是AI行业受关注的项目</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 开源智能体运行时Trueforge获高增长 降AI开发门槛</h3>
+          <p class="news-body">Trueforge是一款开源智能体运行时，可将LLM转化为可用智能体。该项目社区数据为stars5667，周增长293，forks434，open_issues92。它降低开发者构建智能体的技术门槛，无需从零搭建基础架构，加速AI应用落地。这类工具代表AI开发正从单一LLM调用转向模块化、可复用的智能体运行时生态，开源化成为核心发展趋势，尤其惠及中小开发者与初创团队。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">truefoundry</span> <span class="tag tag-star">⭐ 5,667</span> <span class="tag tag-gray">agent / agentic-ai / agents / harness</span></div>
+          <div class="pick-reason">Trueforge作为AI行业的开源智能体运行层，其社区数据含5667 stars、周增长+293、434 forks、92 open issues，是受关注的开源项目</div>
+          <div class="source">来源：<a href="https://github.com/truefoundry/trueforge" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. n8n：Fair-code workflow automation platform with native AI</h3>
+          <p class="news-body">n8n是一款具备原生AI能力的Fair-code工作流自动化平台，支持可视化构建与自定义代码结合，可选择自托管或云部署，拥有400余种集成。该开源项目社区数据亮眼，获204471颗星、60695个复刻，开放议题共1169个。它结合开源灵活性、AI原生能力与混合部署模式，填补了企业自动化流程中兼顾可控性与AI赋能的需求空白，对自动化工具市场有细分价值。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">n8n-io</span> <span class="tag tag-star">⭐ 204,471</span> <span class="tag tag-gray">ai / apis / automation / cli</span></div>
+          <div class="pick-reason">n8n是带原生AI的公平代码工作流自动化平台，社区获204471星标、60695个复刻、1169个开放议题，是AI行业工作流自动化领域的高关注度候选</div>
+          <div class="source">来源：<a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 开源项目CatchMe助力AI代理实现个性化定制</h3>
+          <p class="news-body">开源项目CatchMe的社区数据为stars=498，forks=81，open_issues=1。该项目旨在让AI代理真正实现个性化。其开源属性降低了个性化AI代理的研发门槛，推动行业向用户定制化方向发展。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">HKUDS</span> <span class="tag tag-star">⭐ 498</span> <span class="tag tag-gray">ai-agent / clawdbot-plugin / llm / recall-ai</span></div>
+          <div class="pick-reason">CatchMe项目主打让AI代理真正个性化，作为第4名候选，社区数据显示其获498星、81个分支，仅1个未解决问题，是AI领域值得关注的方向</div>
+          <div class="source">来源：<a href="https://github.com/HKUDS/CatchMe" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 开源项目open-webui打造支持多AI服务的友好界面</h3>
+          <p class="news-body">开源项目open-webui是一款用户友好型AI界面工具。它支持Ollama、OpenAI API等多种AI服务，社区数据显示其获152226星标、22279次复刻，开放议题共306个。这款工具填补了轻量、兼容多AI服务的开源界面空白，推动AI工具向非技术用户普惠化落地，减少了AI使用的技术壁垒。它聚焦个人及小型团队的低成本AI应用需求，对部分商业AI界面的市场空间形成一定冲击。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">open-webui</span> <span class="tag tag-star">⭐ 152,226</span> <span class="tag tag-gray">ai / llm / llm-ui / llm-webui</span></div>
+          <div class="pick-reason">open-webui是支持Ollama、OpenAI API的用户友好AI界面，获152226星、22279复刻、306个开放议题，在AI社区受高度关注</div>
+          <div class="source">来源：<a href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. LACE分层压缩优化AI音频编解码器效率</h3>
+          <p class="news-body">神经音频编解码器是语音语言建模的关键组件，现有动态帧率编解码器存在单压缩步骤适配多量化层的局限。研究人员提出LACE，这一动态帧率编解码器在各量化层应用独立压缩步骤，还引入联合对齐与边界锚定机制适配下游文本到语音任务，其代码作为ESPnet3的编解码器配方一部分发布。LibriTTS实验显示，LACE在重建任务上的率质权衡优于现有动态帧率方法，能提升文本到语音的推理效率且保持合成质量竞争力。该技术可优化神经音频编解码器效率，助力语音语言建模的性能与成本平衡。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">cs.SD</span></div>
+          <div class="pick-reason">这篇由4位作者完成、获顶会录用的论文提出LACE分层压缩动态帧率编解码器，为AI行业动态帧率编解码技术提供了新的研究参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.17509v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. AURA：顶会录用的大规模推荐系统智能诊断优化方案</h3>
+          <p class="news-body">现有推荐系统优化多依赖聚合指标，难以捕捉用户层面的推荐质量差异。AURA是顶会录用的研究成果，作者共3人，基于最新AI agent技术构建，用于解决生产级推荐系统的诊断与优化问题。它是端到端系统，可对大规模生产级推荐系统做定性评估并生成代码级优化，通过专业agent处理数千到数百万会话的生产交互日志，挖掘推荐系统对真实用户的失效模式。该系统已在两大消费平台的生产数据上完成初始测试，填补了现有优化方法的缺口，能提升推荐系统实际用户体验，推动推荐系统向精细化运营发展。</p>
+          <p class="comment">若AURA的初始测试效果稳定，则可能推动大规模生产级推荐系统从宏观指标优化转向微观用户级精准诊断。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">该AURA相关研究（顶会录用，作者共3人）聚焦大规模生产推荐系统的智能诊断与优化，为行业规模化实践提供参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.16625v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Speak to the City: Multimodal Resolution for Outside-the-Vehicle References</h3>
+          <p class="news-body">自动驾驶与XR技术催生车内新型交互，但车外地标查询（OVR）受自我运动与指代模糊问题困扰。研究提出融合用户 gaze与自然语言的多模态OVR框架，以解决上述难题。为应对动态车辆数据稀缺问题，开发了同步360度交通视频与车辆GNSS遥测的VR管线。经含46名参与者的用户研究捕捉真实 gaze-言语行为，训练轻量Transformer结合LLM对齐空间 gaze向量与语言上下文，实验获Top-1准确率83.33%、Top-2准确率87.72%，平均推理时间24.3毫秒，可实时解决指代模糊，实现车内乘客的上下文空间检索。该研究解决了车外地标查询核心难题，为自动驾驶与XR融合场景下的自然人车交互提供可行技术路径，支撑智能座舱落地。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag tag-gray">cs.HC</span></div>
+          <div class="pick-reason">该第3名候选论文聚焦车外参考的多模态分辨率研究，获顶会录用，作者数为5，为AI行业相关研究提供学术参考</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.14691v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Grounded in Sound: Reinforcement Learning with a Frozen Acoustic Judge to Curb ASR Insertion Hallucinations</h3>
+          <p class="news-body">现有用于ASR后训练的强化学习方案，奖励仅设置在文本空间，声学退化时因缺失音频校验会产生大量插入错误。研究团队提出结合冻结的wav2vec2-CTC声学裁判的GRPO奖励方案，训练阶段使用该校验模块，推理阶段仅用单模型解码。该方案在LibriSpeech数据集及含AMI会议语音的6级难度梯度上测试，近场场景插入错误降低28.3%，远场场景降低22.3%，远场WER从35.89%降至34.71%，其余层级WER无明显差异。这一方案填补了现有RL方法缺失音频维度奖励校验的技术痛点，代表ASR优化正从纯文本导向转向“文本+音频”双维度的强化学习训练，可提升ASR可靠性。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-13</span> <span class="tag tag-gray">cs.SD</span></div>
+          <div class="pick-reason">这篇顶会录用的5位作者的论文，提出用冻结声学评判器的强化学习抑制ASR插入幻觉，为AI行业抑制ASR幻觉提供可行思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.14455v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Diagnosing the Fact-Grounding Gap in Multi-Hop Question Answering</h3>
+          <p class="news-body">Multi-hop question answering requires combining information from multiple documents to answer complex questions. These systems have grown increasingly capable, yet when they fail, the error is typically attributed to not finding the right documents. Whether this holds at the level of individual reasoning steps remains largely unexamined. We investigate this across three standard multi-hop QA benchmarks and find that failures decompose into two distinct modes: retrieval failures, where the needed passage was not retrieved, and extraction failures, where the passage was retrieved but the needed fact could not be extracted - a phenomenon we term the fact-grounding gap. Extraction failures account for nearly half of all per-hop deficiencies and are invisible to standard retrieval metrics. They remain unresolved by every retrieval intervention we test, establishing a ceiling for retrieval-only improvements. The gap's severity varies across benchmarks and question types, but extraction failures appear on every dataset we measure. Our findings reveal that retrieval failures and extraction failures are fundamentally different bottlenecks requiring different solutions - a distinction absent from current evaluation practice.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">诊断多跳问答事实接地差距的论文获EMNLP 2026录用，作者共3人，为AI行业多跳问答的事实性研究提供了重要参考</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.17043v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. 制造AI初创CADDi获1.14亿美元D轮融资 估值达12亿美元</h3>
+          <p class="news-body">制造AI领域初创企业CADDi完成1.14亿美元D轮融资。本次融资后，CADDi的估值达到12亿美元。这一事件体现了资本市场对垂直制造AI技术商业化潜力的认可，将吸引更多资本关注垂直工业AI项目，同时推动制造企业加速AI技术应用落地。</p>
+          <p class="comment">若资本市场对垂直制造AI的认可持续，或会吸引更多初创企业布局该赛道，进而深化制造场景的AI应用</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.8事件数据：amount_wan=12000</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOd3FpVERha3hBZnV4MDNqYU5iOVhUUnFwemhmU1h3YUV2dnZFcWF3TEdEd2pHblJiVW1KTUJmMVJXazRoZzFmdmxCSGRlXzVwdG5rdTM3MGM4aEtsRXlCbHdhMVk2OHZsZXFSdHpxNkU0Y3Y4bXVVR2U2dENnZ0xPSVZuSTlwclg5OEsxZ3lqYnNmSGlmeHhtdF9sZk1IVFVsMVFfQg?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Meta推出WhatsApp Business MCP服务器 支持AI代理处理设置</h3>
+          <p class="news-body">Meta推出一款WhatsApp Business MCP服务器，开发者可借助Claude、Cursor、Codex、ChatGPT等AI编码代理处理相关事务。这些AI代理可完成WhatsApp Business的设置、消息模板、测试及故障排查工作。此举降低了企业使用WhatsApp Business的技术门槛，减少开发者重复劳动，提升中小企业部署该工具的效率。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta推出的AI代理可处理WhatsApp Business设置中的枯燥部分，为AI在商业场景中简化繁琐操作提供了新的实践案例。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/15/meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-business-setup/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Meta推AI整合型订阅服务 拓展社交变现路径</h3>
+          <p class="news-body">Meta推出Meta One服务，整合了该公司AI工具的扩展访问权限。该服务还涵盖Facebook、Instagram、WhatsApp的高级功能。这是社交平台从免费流量变现转向订阅制增值服务的关键动作，AI工具成为付费转化的核心抓手。</p>
+          <p class="comment">若Meta的AI订阅服务表现良好，则可能推动全球主流科技公司将AI作为订阅服务的核心差异化卖点。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta推出新的以AI为重点的订阅计划，在AI行业中推动订阅业务向AI领域拓展，是订阅与AI结合的行业趋势信号</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/15/meta-expands-subscription-push-with-new-ai-focused-plans/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. AI agents now have a place to snitch</h3>
+          <p class="news-body">存在名为AI Contact Hotline的隐秘渠道，是为AI智能体设置的专用举报通道。该通道供目睹违规行为的AI智能体向相关当局进行举报。这一举措填补了AI系统内部违规行为的监督空白，解决了AI智能体违规后难以有效上报的问题，强化了AI伦理与合规的落地机制。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">这条事件让AI agents有了专属的“告密”平台，为AI agents的交互协作或行为监督提供了新的落地场景，是AI agents生态发展的新节点。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/15/ai-agents-now-have-a-place-to-snitch/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Salesforce Koa基于Nemotron适配企业销售营销客服场景</h3>
+          <p class="news-body">Salesforce Koa构建于Nvidia的开源权重模型Nemotron之上。该模型经训练后可完成销售、营销及客户支持类任务。它结合了开源模型的灵活性与企业级场景的精准适配，聚焦企业服务细分领域的销售、营销、客服类AI应用，或将挤压传统AI厂商的垂直解决方案市场空间。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Salesforce与Nvidia推出的新推理模型，是AI行业中值得关注的关键新动向，对现有AI实验室构成潜在挑战，凸显了AI领域的新发展趋势</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/15/salesforce-and-nvidias-new-reasoning-model-is-everything-the-ai-labs-should-fear/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>NousResearch推出hermes-agent，一款随用户成长的智能代理</b> — 该开源智能代理旨在随用户需求迭代，是个性化AI代理领域的重要进展</div><div class="watch-item"><b>制造AI初创公司CADDi获1.14亿美元D轮融资，估值达12亿美元</b> — 这笔融资凸显了投资者对工业场景AI解决方案的信心</div><div class="watch-item"><b>Meta为WhatsApp Business推出AI代理功能并拓展AI订阅服务</b> — Meta的举措推动AI代理在企业通信场景的落地与订阅式AI服务的普及</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-16T04:57:00.758Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
