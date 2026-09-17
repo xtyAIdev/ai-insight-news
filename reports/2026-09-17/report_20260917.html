@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-17</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today’s AI landscape features three key trends: the open-source tech ecosystem continues expanding, with updates to Hugging Face’s Transformers framework, a Rus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-17">
+<meta property="og:description" content="Today’s AI landscape features three key trends: the open-source tech ecosystem continues expanding, with updates to Hugging Face’s Transformers framework, a Rust-based multi-agent coordination server,">
+<meta property="og:url" content="./report_20260917.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-17">
+<meta name="twitter:description" content="Today’s AI landscape features three key trends: the open-source tech ecosystem continues expanding, with updates to Hugging Face’s Transformers framework, a Rust-based multi-agent coordination server,">
+<link rel="canonical" href="./report_20260917.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-17 ｜ report_20260917</div>
+<div class="sub" data-lang-title="zh">2026-09-17 ｜ report_20260917</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today’s AI landscape features three key trends: the open-source tech ecosystem continues expanding, with updates to Hugging Face’s Transformers framework, a Rust-based multi-agent coordination server, and tools like RAGFlow; academic research focuses on critical issues such as cold-start candidate ranking and LLM preference alignment, with new breakthroughs in areas like multimodal sentiment analysis; enterprise dynamics are active, including AI startup Profound hitting unicorn valuation, OpenAI’s push for AI tools for seniors, and Meta adjusting its smart hardware strategy.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. transformers：🤗 Transformers: the model-definition framework for</h3>
+          <p class="news-body">🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag">huggingface</span> <span class="tag tag-star">⭐ 166,263</span> <span class="tag tag-gray">audio / deep-learning / deepseek / gemma</span></div>
+          <div class="pick-reason">This is the 🤗 Transformers model-definition framework, which has remarkable community metrics: 166,263 stars, 34,607 forks, and 2,434 open issues, demonstrating its strong influence in the AI sector.</div>
+          <div class="source">Source：<a href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. mcp_agent_mail_rust：Rust MCP server for multi-agent coordination: 34 tools,</h3>
+          <p class="news-body">Rust MCP server for multi-agent coordination: 34 tools, Git-backed archive, SQLite indexing, advisory file locks, and an interactive TUI console</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag">Dicklesworthstone</span> <span class="tag tag-star">⭐ 167</span> <span class="tag tag-gray">ai-agents / coordination / mcp / rust</span></div>
+          <div class="pick-reason">This Rust-based MCP server for multi-agent coordination has 34 tools. Its community metrics include 167 stars, +6 weekly growth, 36 forks and 13 open issues, serving as a practical tool in AI multi-agent coordination.</div>
+          <div class="source">Source：<a href="https://github.com/Dicklesworthstone/mcp_agent_mail_rust" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. nanolang：A tiny experimental language designed to be targeted by</h3>
+          <p class="news-body">A tiny experimental language designed to be targeted by coding LLMs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag">jordanhubbard</span> <span class="tag tag-star">⭐ 627</span> <span class="tag tag-gray">domain-ai / domain-lang / llm / new-language-design</span></div>
+          <div class="pick-reason">Nanolang, a tiny experimental language candidate ranked 3rd in the AI field, has received 627 stars, 24 forks and 5 open issues from the community, serving as a lightweight AI-related experimental project.</div>
+          <div class="source">Source：<a href="https://github.com/jordanhubbard/nanolang" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. ragflow：RAGFlow is a leading open-source Retrieval-Augmented</h3>
+          <p class="news-body">RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag">infiniflow</span> <span class="tag tag-star">⭐ 90,845</span> <span class="tag tag-gray">agent-harness / agentic-ai / agentic-nagive / agentic-retrieval</span></div>
+          <div class="pick-reason">As a leading open-source Retrieval-Augmented project in the AI industry, RAGFlow has 90,845 stars, 10,751 forks and 1,449 open issues, demonstrating high community attention.</div>
+          <div class="source">Source：<a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. worldmonitor：Real-time global intelligence dashboard</h3>
+          <p class="news-body">Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag">koala73</span> <span class="tag tag-star">⭐ 86,683</span> <span class="tag tag-gray">agent / ai / dashboard / geopolitics</span></div>
+          <div class="pick-reason">As a real-time global intelligence dashboard project in the AI field, worldmonitor has gained 86,683 stars, 13,140 forks and 386 open issues, making it a highly concerned AI real-time intelligence tool.</div>
+          <div class="source">Source：<a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Single-Token Expected-Value Scoring for Cold-Start Candidate Ranking</h3>
+          <p class="news-body">AI-assisted sourcing streamlines candidate review, reducing the administrative burden of manual screening for recruiters. However, deploying language models as production rankers remains challenging. Zero-shot Large Language Models (LLMs) may produce unstable, non-deterministic scores and rank less accurately, while conventional deep neural rankers require millions of logged interactions that a low-traffic, niche sourcing platform does not produce. What is available instead is a few hundred thousand ordinal relevance labels -- small by ranker-training standards, but sufficient when a pretrained language model already encodes the general world knowledge the task depends on. We present single-token expected-value scoring, a ranking primitive that casts candidate-job relevance as an ordinal classification over the grade tokens {1, ..., 5} and reads the relevance score as the expectation of the first-token probability distribution. Because the score comes from a single decoding step rather than open-ended generation, it is a deterministic function of the model's logits, requires no output parsing, and serves at low latency. To learn the non-linear interdependencies of heterogeneous hiring criteria from this supervision alone, we fine-tune a Small Language Model (SLM) with a hybrid ordinal regression loss combining a Mean Squared Error term, which preserves ordinal distance, with a categorical Cross-Entropy term, which sharpens class boundaries. We evaluate along two dimensions --</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">This paper on single-token expected-value scoring for cold-start candidate ranking, with influence signal as top conference acceptance and 10 authors, is an important research advance in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.18188v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Multimodal Aspect-Level Sentiment Analysis Based on Gated Noise Filtering and Emotion-Relevance Interaction</h3>
+          <p class="news-body">Multimodal Aspect-Based Sentiment Analysis (MABSA) infers fine-grained sentiment polarity toward specific aspects by jointly modeling text and images. Despite progress in cross-modal fusion, two challenges remain in multi-aspect settings: (1) multimodal noise, where aspect-irrelevant content distracts sentiment learning; and (2) weak cross-modal sentiment alignment, as visual evidence can be ambiguous and textual--visual sentiments may conflict, limiting multimodal complementarity. To address these issues, we propose a Gated Noise-filtered Sentiment-Relevance Interaction (GNSRI) framework. It employs a gated noise-filtering module to suppress sentiment-irrelevant features and enhance aspect-aware sentiment cues, and a sentiment-relevance interaction module to capture consistent and conflicting cross-modal signals at micro and macro levels. Finally, a learnable decision fusion mechanism adaptively combines predictions from textual, visual, and cross-modal branches at the aspect level. Experiments on public MABSA benchmarks show that GNSRI outperforms state-of-the-art methods, improving accuracy by 1.94\% and 2.06\% on Twitter-2015 and Twitter-2017, respectively.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">cs.MM</span></div>
+          <div class="pick-reason">This paper on multimodal aspect-level sentiment analysis based on gated noise filtering and emotion-relevance interaction has been accepted by a top conference, with 7 authors, offering new directions for relevant research in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.18404v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. PageRecall: Measuring Page Selection in Literature-Grounded Question Answering</h3>
+          <p class="news-body">We describe our system for LitTraceQA (GroundLM @ EMNLP 2026): given a research question, retrieve the relevant papers from a pool of 27,487, cite the page and the table or figure where the answer lives, and answer in a requested format. Our main finding is that evidence grounding is limited by retrieval, not by reading. The page selector put the annotator's page, which we call the gold page, in front of the model that locates evidence only about half the time (52.6% gold-page recall), while that model, given the page, cited the right one in 45 of the 48 locators it emitted (94%). When the page was missing it rarely said so: of 45 such cases it returned nothing 14 times, a wrong page 24 times, and a correct page 7 times, so the pipeline failed quietly almost twice as often as it failed visibly. Since the failure was that the right page was never shown, the fix is to stop choosing: each retrieved paper fits in the model's context, so we show it whole. Page ranking survives only as a fallback inside papers too long to fit, which no test-split paper was, and gold-page recall reaches 100% on the papers we can parse. Separately, questions that identify their target by position rather than content, such as &quot;the first author of the 24th reference&quot;, are served by parsing rather than retrieval: we resolve the bibliography into an addressable list, which also supplies identifiers the evidence metric scores. The final system scores 0.762 paper $F_1$, 0.441 evidence $F_1$ and 0.920 multi</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">This study, a 3rd candidate accepted by EMNLP 2026 with 1 author, focuses on PageRecall for measuring page selection in literature-grounded question answering, which is a relevant exploration in the AI field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.18154v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. A Zeroth-Order Paradigm for LLM Preference Alignment</h3>
+          <p class="news-body">Direct preference alignment methods are widely used to align large language models (LLMs) with human preferences because of their computational and memory efficiency. However, likelihood displacement motivates alternative ways to extract information from preference pairs with small likelihood margins. In this paper, we propose and analyze Comparison-based Preference Optimization (ComPO), a zeroth-order alignment method based on comparison oracles. ComPO extracts directional information from these pairs without directly optimizing a differentiable preference loss on them. We establish a convergence guarantee for its basic offline scheme under smoothness, gradient sparsity, and compatibility between the oracle and a latent objective. We further introduce online ComPO, which retains the offline comparison mechanism and uses unlabeled policy generations for reverse-KL control relative to a reference policy. Following the coverage perspective of preference fine-tuning, we establish a performance guarantee for a basic constrained scheme under local coverage and in-distribution pairwise reward accuracy. Experiments on Mistral, Llama, Gemma-2, Qwen3, and Gemma-3 models demonstrate improvements over existing direct alignment methods, including length-controlled win rates, with pair-level diagnostics providing evidence consistent with mitigating likelihood displacement.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">This paper, a 4-author work focusing on the zeroth-order paradigm for LLM preference alignment and serving as the 4th candidate, provides a new research direction for LLM preference alignment.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.19144v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ScienceIDE: Turning World's Scientific Codebase into Agent Learnable Environments</h3>
+          <p class="news-body">Scientific code repositories encode decades of human knowledge in executable models, methods, and tools. Yet fragmented toolchains, implicit domain conventions, and specialized correctness criteria make this knowledge difficult to convert into reliable learning experience-a challenge we call the scientific experience bottleneck. We introduce ScienceIDE, infrastructure for turning the world's scientific code into programmable environments for scientific agents. Guided by expert-defined scientific cases and acceptance criteria, agents transform repositories into executable environments that support task generation, execution, and scientific verification. These environments provide a shared foundation for supervised fine-tuning, reinforcement learning, and evaluation. Using verified interaction trajectories, we train PhAI-IDE-72B, PhAI-IDE-9B, and PhAI-IDE-4B. The model family shows gains in held-out scientific-code repair and across selected general-purpose benchmarks in code, reasoning, and knowledge, providing evidence of positive transfer from scientific experience to broader capabilities. ScienceIDE lays the foundation for an integrated workspace for agent learning and scientific practice, making humanity's scientific software a shared substrate for developing scientific intelligence. Code: https://github.com/aitofound/ScienceIDE</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">ScienceIDE converts the world’s scientific codebase into agent-learnable environments. With 10 authors, this paper offers a new exploration direction for the AI industry in integrating scientific code and agent learning.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.19134v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. AEO startup Profound hits unicorn valuation, raises $180M Series D 7 months after last round - TechCrunch</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiwwFBVV95cUxNUHR5WFhXd0NtM0ZrR0FwQkJzTXdST2xXWE5YY2VPcTJPb2gtMnE2VVlBWlN3eVlYWWZWWXhEaDR6TmtlR19KYXFHXzJqV0p5SXFJVk9YdDdoRFJ0RnVXSEkxMTZBNEpCYy1nSmNMMENUSGRseEx0TG0wVm9neElIS083VEFuTUtzNzloNGFlQ0tZWklhWS02d0Q1U05NYVAzV1hoYkFCOEk2cVFVZ3FSUzVPLTFWdGF</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.8事件数据：amount_wan=18000</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxNUHR5WFhXd0NtM0ZrR0FwQkJzTXdST2xXWE5YY2VPcTJPb2gtMnE2VVlBWlN3eVlYWWZWWXhEaDR6TmtlR19KYXFHXzJqV0p5SXFJVk9YdDdoRFJ0RnVXSEkxMTZBNEpCYy1nSmNMMENUSGRseEx0TG0wVm9neElIS083VEFuTUtzNzloNGFlQ0tZWklhWS02d0Q1U05NYVAzV1hoYkFCOEk2cVFVZ3FSUzVPLTFWdGFyZkNBTFdxanVJWFk?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Helping older adults use AI in everyday life</h3>
+          <p class="news-body">OpenAI and AARP are bringing free, hands-on ChatGPT workshops to 1,000 older adults across 10 U.S. cities to build practical AI skills safely.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event, as the 2nd candidate in the AI industry, focuses on helping older adults use AI in daily life, providing a directional reference for AI applications serving the elderly.</div>
+          <div class="source">Source：<a href="https://openai.com/index/helping-older-adults-use-ai-in-everyday-life" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. After accusations of selling ‘perv glasses,’ Meta prepares to sell a pair without a camera</h3>
+          <p class="news-body">Can Meta dodge the &quot;pervert glasses&quot; accusations with a new camera-free product?</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">After being accused of selling &quot;perv glasses&quot;, Meta plans to launch a pair of glasses without a camera, providing a reference for AI wearable devices to avoid privacy risks.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/16/after-accusations-of-selling-perv-glasses-meta-prepares-to-sell-a-pair-without-a-camera/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Your startup’s next teammate might be an AI agent: Gusto, Insight Partners, and Leland explain what that changes at TechCrunch Disrupt 2026</h3>
+          <p class="news-body">This session will explore how early-stage companies are building teams where humans and AI agents work alongside each other — and how founders can do that without sacrificing speed, accountability, or culture. Learn more</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">At TechCrunch Disrupt 2026, Gusto, Insight Partners and Leland will explain the changes brought about by the possibility that a startup’s next teammate is an AI agent.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/16/your-startups-next-teammate-might-be-an-ai-agent-gusto-insight-partners-and-leland-explain-what-that-changes-at-techcrunch-disrupt-2026/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AI labs want in-house auditors — but maybe they should shut the front door first</h3>
+          <p class="news-body">There may be a simpler and more effective fix for rogue agents, hiding in plain sight.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event points out that AI labs plan to set up in-house auditors, but maybe they should do self-inspection first, providing a new perspective on the internal self-inspection direction for AI industry supervision.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/16/ai-labs-want-in-house-auditors-but-maybe-they-should-shut-the-front-door-first/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Hugging Face Transformers Framework Update</b> — As a core open-source framework for AI model definition, its iteration will accelerate the development and deployment of more models</div><div class="watch-item"><b>Rust-based Multi-Agent Coordination Server</b> — The multi-agent coordination solution with 34 tools will provide a new technical path for collaboration in complex AI systems</div><div class="watch-item"><b>Profound Reaches Unicorn Valuation</b> — The financing dynamics of this AI startup reflect market enthusiasm in the AEO space, worth monitoring</div><div class="watch-item"><b>OpenAI’s AI Tools for Older Adults</b> — Focusing on AI applications for older adults will expand inclusive use cases for AI and drive social value realization</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域呈现三大核心趋势：开源技术生态持续扩容，Hugging Face Transformers框架迭代、Rust多代理协调服务器及RAGFlow等工具落地；学术研究聚焦冷启动排序、LLM偏好对齐等关键问题，多模态情感分析等方向有新突破；企业端动态活跃，AI创业公司Profound获独角兽估值，OpenAI发力老年AI应用，Meta调整智能硬件策略。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. 🤗 Transformers为多模态等AI模型提供定义框架</h3>
+          <p class="news-body">🤗 Transformers是用于文本、视觉、音频及多模态领域先进机器学习模型的定义框架，支持模型的训练与推理。其社区数据显示，stars达166263，forks为34607，open_issues共2434。它统一了多模态AI模型的定义、训练和推理流程，降低跨领域AI开发的技术门槛，推动AI开发向模块化、跨模态一体化方向演进，成为打通不同AI任务的核心基础设施。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag">huggingface</span> <span class="tag tag-star">⭐ 166,263</span> <span class="tag tag-gray">audio / deep-learning / deepseek / gemma</span></div>
+          <div class="pick-reason">🤗 Transformers作为AI领域的模型定义框架，社区数据亮眼，获166263星、34607次复刻，开放议题2434个，凸显其行业影响力。</div>
+          <div class="source">来源：<a href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Rust多智能体协调MCP服务器集成34款工具</h3>
+          <p class="news-body">一款基于Rust的多智能体协调MCP服务器，集成了34款工具。该服务器具备Git备份存档、SQLite索引、咨询文件锁及交互式TUI控制台等功能。其社区数据显示，stars达167，周增长+6，forks为36，开放问题共13个。这款工具填补了Rust生态中多智能体协调的轻量开源方案空白，为AI开发者提供了高效的智能体协作基础设施。</p>
+          <p class="comment">若AI多智能体领域向Rust等高性能语言迁移的趋势持续，则这类聚焦协作场景的开源工具将影响AI多智能体开发的细分工具市场</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag">Dicklesworthstone</span> <span class="tag tag-star">⭐ 167</span> <span class="tag tag-gray">ai-agents / coordination / mcp / rust</span></div>
+          <div class="pick-reason">该Rust实现的多智能体协调MCP服务器拥有34个工具，社区数据显示stars达167，周增长+6，forks36，open issues13，是AI多智能体协调领域的实用工具。</div>
+          <div class="source">来源：<a href="https://github.com/Dicklesworthstone/mcp_agent_mail_rust" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 专为编码LLMs设计的nanolang获627星社区关注</h3>
+          <p class="news-body">nanolang是一款专为编码LLMs设计的小型实验性语言。该开源项目的社区数据为stars=627，forks=24，open_issues=5。它聚焦AI编码模型的适配需求，填补现有编程语言与LLMs协作的特定场景空白，为优化AI生成代码的效率与准确性提供新实验路径。这意味着编程语言正从服务人类开发者转向适配AI编码模型需求的方向发展，相关影响集中在AI编码工具开发等细分领域，不会对传统编程生态产生全局影响。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag">jordanhubbard</span> <span class="tag tag-star">⭐ 627</span> <span class="tag tag-gray">domain-ai / domain-lang / llm / new-language-design</span></div>
+          <div class="pick-reason">nanolang是AI行业的第3名候选小实验语言，获社区627星、24个复刻、5个未解决问题，是轻量AI相关实验项目</div>
+          <div class="source">来源：<a href="https://github.com/jordanhubbard/nanolang" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. RAGFlow融合Agent能力填补开源RAG领域空白</h3>
+          <p class="news-body">RAGFlow是一款融合前沿RAG与Agent能力的开源检索增强生成引擎。其GitHub社区数据显示，stars达90845，forks为10751，开放议题共1449个。该工具填补了开源领域RAG+Agent融合的空白，能降低企业部署定制化大模型上下文层的技术门槛，加速AI落地。</p>
+          <p class="comment">若开源AI工具向RAG+Agent融合方向发展的趋势持续，将推动更多中小企业低成本部署定制化大模型应用</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag">infiniflow</span> <span class="tag tag-star">⭐ 90,845</span> <span class="tag tag-gray">agent-harness / agentic-ai / agentic-nagive / agentic-retrieval</span></div>
+          <div class="pick-reason">RAGFlow是AI行业领先的开源检索增强生成项目，拥有90845星、10751分支、1449开放问题，社区关注度高。</div>
+          <div class="source">来源：<a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 开源工具worldmonitor提供实时全球情报仪表盘</h3>
+          <p class="news-body">开源工具worldmonitor是一款AI驱动的实时全球情报仪表盘，采用统一态势感知界面。它整合了新闻聚合、地缘政治监测及基础设施追踪等多维度功能。该开源项目当前拥有86683个星标、13140个复刻及386个未解决议题。这款工具填补了开源领域整合多维度全球情报的态势感知平台空白，降低了非专业主体获取实时全球情报的门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag">koala73</span> <span class="tag tag-star">⭐ 86,683</span> <span class="tag tag-gray">agent / ai / dashboard / geopolitics</span></div>
+          <div class="pick-reason">作为AI领域的实时全球智能仪表盘项目，worldmonitor获86683星、13140复刻、386个开放议题，是受高关注的AI实时情报工具</div>
+          <div class="source">来源：<a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Single-Token Expected-Value Scoring for Cold-Start Candidate Ranking</h3>
+          <p class="news-body">低流量小众招聘平台缺乏百万级交互数据，现有零样本LLM评分不稳定、排序不准，传统深度排序器需大量数据。该论文提出single-token expected-value scoring方法，将候选人-岗位相关性转为1-5级序数分类，取首token概率分布的期望，并用混合序数回归损失微调小语言模型（SLM）。该论文获顶会录用，作者数为10。这一成果填补了低数据场景下AI招聘候选人排名的技术空白，能帮助小众招聘平台降低手动筛选的行政负担，提升候选人排序的准确性与稳定性，对AI招聘工具落地有实际指导意义。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">这篇针对冷启动候选排序的单token期望价值评分论文，以顶会录用为影响力信号，作者数共10，是AI行业相关领域的重要研究进展。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.18188v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. GNSRI框架解决MABSA痛点 提升多模态情感分析准确率</h3>
+          <p class="news-body">针对多模态方面级情感分析（MABSA）在多方面任务中存在的多模态噪声、跨模态情感对齐弱的问题，研究人员提出GNSRI框架。该框架包含门控噪声过滤模块与情感关联交互模块，可抑制无关特征、捕捉跨模态信号并自适应融合各分支预测结果。在Twitter-2015和Twitter-2017公开基准上，GNSRI较现有最优方法准确率分别提升1.94%与2.06%，为电商评论等场景的情感挖掘提供更可靠技术支撑。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">cs.MM</span></div>
+          <div class="pick-reason">这篇基于门控噪声过滤与情感相关性交互的多模态方面级情感分析论文，获顶会录用，作者数共7，为AI行业相关研究提供了新方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.18404v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. EMNLP2026录用论文明确文献问答证据定位瓶颈</h3>
+          <p class="news-body">EMNLP2026录用的单作者论文，针对LitTraceQA系统的文献问答页面选择问题，构建了包含27487篇论文的测试数据集。实验结果显示，证据定位的核心瓶颈在于检索环节而非阅读环节：金页召回率仅52.6%，给定金页时证据引用正确率达94%；当页面缺失时，pipeline隐性失败的次数约为显性失败的两倍。据此提出优化方案：展示完整论文替代页面选择，仅过长论文用页面排序作为fallback，此时金页召回率可达100%；针对位置类问题，通过解析参考文献列表而非检索解决。该系统最终得分：论文F1为0.762，证据F1为0.441，多维度指标为0.920，这一发现明确了文献问答中证据定位的核心瓶颈，为相关模型优化提供关键方向。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">该研究是EMNLP 2026录用的第3名候选，作者数1，聚焦文献问答中的页面选择测量（PageRecall），是AI文献问答领域的相关探索</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.18154v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. LLM偏好对齐新方法ComPO填补小似然边际场景空白</h3>
+          <p class="news-body">直接偏好对齐方法因计算与内存效率高被广泛用于LLM人类偏好对齐，但在小似然边际场景下存在信息提取局限。由4位作者完成的论文提出并分析了基于比较预言机的零阶对齐方法ComPO，其无需直接优化可微偏好损失即可提取偏好对的方向信息，还具备收敛保证等理论支撑。实验在Mistral、Llama、Gemma-2、Qwen3、Gemma-3等模型上开展，结果显示ComPO在长度控制胜率等指标上优于现有直接对齐方法，可缓解似然位移问题。该方法填补了小似然边际场景下零阶对齐方法的空白，推动LLM偏好对齐向兼顾效率与场景适配性的方向发展。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该论文为LLM偏好对齐领域的零阶范式研究，作者共4人，作为第4名候选，为LLM偏好对齐提供新的研究思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.19144v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ScienceIDE搭建科学代码转智能体可学习环境的基础设施</h3>
+          <p class="news-body">科学代码仓库承载着数十年人类知识，但碎片化工具链、隐含领域惯例等问题形成“科学体验瓶颈”，阻碍知识转化为AI可靠学习经验。由10位作者推出的ScienceIDE，是将全球科学代码转为科学智能体可编程环境的基础设施，依托专家定义的案例与验收标准运作。基于该环境训练的PhAI-IDE系列模型（72B、9B、4B），在科学代码修复等任务及通用基准测试中表现提升，验证了科学经验向更广泛能力的正向迁移。ScienceIDE为智能体学习与科研实践的集成工作空间奠定基础，填补了科学代码向智能体可学习环境转化的基础设施空白，或推动AI与科研的融合。</p>
+          <p class="comment">若ScienceIDE的模式在科研领域推广，或能加速AI与科研的融合，降低科学代码的使用门槛。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">ScienceIDE将全球科学代码库转化为智能体可学习环境，该论文作者数为10，为AI行业在科学代码与智能体学习结合领域提供了新探索方向</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.19134v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. AEO初创Profound获独角兽估值 完成1.8亿美元D轮融资</h3>
+          <p class="news-body">AEO领域初创企业Profound在距离上一轮融资仅7个月后，完成1.8亿美元D轮融资。该轮融资后，Profound达到独角兽企业的估值标准。这一案例打破了此前企业级AI初创公司融资周期较长的行业惯例。也体现出资本对企业级AI赛道的信心，代表该赛道融资效率有所提升。</p>
+          <p class="comment">若企业级AI赛道后续融资效率持续提升，则可能缩短该领域独角兽的孵化周期。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-15</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.8事件数据：amount_wan=18000</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxNUHR5WFhXd0NtM0ZrR0FwQkJzTXdST2xXWE5YY2VPcTJPb2gtMnE2VVlBWlN3eVlYWWZWWXhEaDR6TmtlR19KYXFHXzJqV0p5SXFJVk9YdDdoRFJ0RnVXSEkxMTZBNEpCYy1nSmNMMENUSGRseEx0TG0wVm9neElIS083VEFuTUtzNzloNGFlQ0tZWklhWS02d0Q1U05NYVAzV1hoYkFCOEk2cVFVZ3FSUzVPLTFWdGFyZkNBTFdxanVJWFk?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI与AARP为美10城老人办ChatGPT实操培训</h3>
+          <p class="news-body">OpenAI与AARP联合开展面向老年人的AI技能培训活动。该活动覆盖美国10个城市，面向1000名老年人。活动提供免费的ChatGPT实操 workshop，帮助老人安全掌握实用AI技能。这一举措为AI服务全年龄段提供了可参考的实践路径。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件作为AI行业第2名候选，聚焦帮助老年人在日常生活中使用AI，为AI服务老年群体的落地应用提供了方向参考</div>
+          <div class="source">来源：<a href="https://openai.com/index/helping-older-adults-use-ai-in-everyday-life" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Meta拟推无摄像头智能眼镜 应对&quot;变态眼镜&quot;指控</h3>
+          <p class="news-body">Meta此前因售卖&quot;变态眼镜&quot;被指控。Meta正准备推出不带摄像头的智能眼镜产品。这一调整体现了智能硬件厂商对隐私风险的应对紧迫性。该调整也将影响相关产品的市场接受度。</p>
+          <p class="comment">若Meta推出该无摄像头智能眼镜，或能缓解消费者对智能硬件隐私风险的担忧，也可能推动行业内其他厂商调整隐私相关硬件设计。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta在被指控售卖“perv glasses”后，计划推出无摄像头的同款产品，为AI可穿戴设备规避隐私风险提供了参考。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/16/after-accusations-of-selling-perv-glasses-meta-prepares-to-sell-a-pair-without-a-camera/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. TechCrunch Disrupt 2026探讨AI agent融入创业团队实操</h3>
+          <p class="news-body">TechCrunch Disrupt 2026将举办相关环节，由Gusto、Insight Partners、Leland参与。该环节聚焦早期创业公司构建人类与AI agent协同工作团队的方式。创始人需在打造这类团队时兼顾速度、问责制与企业文化。这一讨论为行业提供了AI agent融入创业团队的可落地参考框架。</p>
+          <p class="comment">若早期创业公司能落地该模式，则可能推动AI agent从辅助工具向核心团队成员角色转变，重构人机协作模式。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">在TechCrunch Disrupt 2026上，Gusto、Insight Partners与Leland将阐释初创企业下一位队友可能是AI代理所带来的行业变化。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/16/your-startups-next-teammate-might-be-an-ai-agent-gusto-insight-partners-and-leland-explain-what-that-changes-at-techcrunch-disrupt-2026/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AI labs want in-house auditors — but maybe they should shut the front door first</h3>
+          <p class="news-body">There may be a simpler and more effective fix for rogue agents, hiding in plain sight.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件指出AI实验室计划设立内部审计员，但或许应先做好自身自查，为AI行业监管的内部自查方向提供了新的思考维度。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/16/ai-labs-want-in-house-auditors-but-maybe-they-should-shut-the-front-door-first/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Hugging Face Transformers框架迭代</b> — 作为AI模型定义的核心开源框架，其迭代将推动更多模型的快速开发与部署</div><div class="watch-item"><b>Rust多代理协调服务器</b> — 34个工具支持的多代理协调方案，将为复杂AI系统的协作提供新的技术路径</div><div class="watch-item"><b>Profound获独角兽估值</b> — AI创业公司的融资动态反映了AEO领域的市场热度，值得关注</div><div class="watch-item"><b>OpenAI助力老年人使用AI</b> — 聚焦老年群体的AI应用，将拓展AI的普惠性场景，推动社会价值落地</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-17T05:00:54.890Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

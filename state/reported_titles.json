@@ -1,27 +1,4 @@
 {
- "2026-09-02": {
-  "opensource": [
-   "opensource|cohub living space where people agents create play",
-   "opensource|oryxos oryxos is source distributed ai agent os",
-   "opensource|hermes agent agent that grows you",
-   "opensource|langchain agent engineering platform",
-   "opensource|ragflow ragflow is leading source retrieval augmented"
-  ],
-  "paper": [
-   "paper|scaling near optimal sft rl annotation budget allocation small large llms",
-   "paper|autoconcept training free concept guided reranking metadata available composed i",
-   "paper|swaprec warming up cold items through training time swaps",
-   "paper|staged linguistic seeding grounded query expansion verified unit qa ai contact c",
-   "paper|em 2mem event centric multimodal memory large language models"
-  ],
-  "enterprise": [
-   "enterprise|afterquery reportedly becomes y combinator 8217 s fastest ever unicorn now 3 2b",
-   "enterprise|ai news we august 2026",
-   "enterprise|nvidia s 3 5b mediatek bet reveals plan tackling big tech 8217 s ai chip buildou",
-   "enterprise|腾讯云 腾讯混元生视频部分接口下线及服务调整",
-   "enterprise|阿里更新旗舰模型 qwen3 8 max"
-  ]
- },
  "2026-09-03": {
   "opensource": [
    "opensource|langchain agent engineering platform",
@@ -316,6 +293,29 @@
    "enterprise|meta expands subscription push ai focused plans",
    "enterprise|ai agents now have place snitch",
    "enterprise|salesforce nvidia s reasoning model is everything ai labs should fear"
+  ]
+ },
+ "2026-09-17": {
+  "paper": [
+   "paper|single token expected value scoring cold start candidate ranking",
+   "paper|multimodal aspect level sentiment analysis based gated noise filtering emotion r",
+   "paper|pagerecall measuring page selection literature grounded question answering",
+   "paper|zeroth order paradigm llm preference alignment",
+   "paper|scienceide turning world s scientific codebase agent learnable environments"
+  ],
+  "opensource": [
+   "opensource|transformers transformers model definition framework",
+   "opensource|mcp agent mail rust rust mcp server multi agent coordination 34 tools",
+   "opensource|nanolang tiny experimental language designed be targeted",
+   "opensource|ragflow ragflow is leading source retrieval augmented",
+   "opensource|worldmonitor real time global intelligence dashboard"
+  ],
+  "enterprise": [
+   "enterprise|aeo startup profound hits unicorn valuation 180m series d 7 months after last ro",
+   "enterprise|helping older adults use ai everyday life",
+   "enterprise|after accusations selling perv glasses meta prepares sell pair without camera",
+   "enterprise|your startup s next teammate might be ai agent gusto insight partners leland exp",
+   "enterprise|ai labs want house auditors but maybe they should shut front door"
   ]
  }
 }
