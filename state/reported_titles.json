@@ -1,27 +1,4 @@
 {
- "2026-09-03": {
-  "opensource": [
-   "opensource|langchain agent engineering platform",
-   "opensource|ragflow ragflow is leading source retrieval augmented",
-   "opensource|worldmonitor real time global intelligence dashboard",
-   "opensource|lobehub lobehub is your chief agent operator organizing your",
-   "opensource|milvus milvus is high performance cloud native vector database"
-  ],
-  "paper": [
-   "paper|discosign discourse aware text sign language gloss translation",
-   "paper|hyperstyler low resource authorship style transfer via context aware style navig",
-   "paper|towards trustworthy autonomous robots explainable ai based decision framework",
-   "paper|counter geo bench evaluating defenses against information distorting generative ",
-   "paper|group aware adaptive retrieval evidence navigation"
-  ],
-  "enterprise": [
-   "enterprise|afterquery reportedly becomes y combinator 8217 s fastest ever unicorn now 3 2b",
-   "enterprise|ai news we august 2026",
-   "enterprise|hiddenlayer nabs 100m enterprises rush their ai deployments",
-   "enterprise|取消员工 使用量与绩效挂钩机制 测试推动 消耗上升 meta ai hatch token",
-   "enterprise|atv big air tour turned 3 days work 3 hours chatgpt"
-  ]
- },
  "2026-09-04": {
   "opensource": [
    "opensource|dify build agentic workflows rag pipelines rich ai model",
@@ -316,6 +293,29 @@
    "enterprise|after accusations selling perv glasses meta prepares sell pair without camera",
    "enterprise|your startup s next teammate might be ai agent gusto insight partners leland exp",
    "enterprise|ai labs want house auditors but maybe they should shut front door"
+  ]
+ },
+ "2026-09-18": {
+  "paper": [
+   "paper|proposal agentic ai architecture support multi domain decision making brazilian ",
+   "paper|harm laundering gpt models evidence that gender discrimination is transformed ra",
+   "paper|coding agents obstacle aware harness safe robot manipulation",
+   "paper|empirical study harness design coding agents",
+   "paper|retireopd self retiring policy distillation agentic reinforcement learning"
+  ],
+  "opensource": [
+   "opensource|code review fast efficient battle tested alibaba s scale",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|litellm fastest litest ai gateway",
+   "opensource|hyperframes write html",
+   "opensource|langgraph build resilient agents"
+  ],
+  "enterprise": [
+   "enterprise|how cooley is accelerating ipo work chatgpt",
+   "enterprise|astra law",
+   "enterprise|prismml hopes tiny llm will change how we all use ai",
+   "enterprise|fix rogue ai agents could be more ai",
+   "enterprise|huawei plans q1 2027 ai chip it takes nvidia"
   ]
  }
 }
