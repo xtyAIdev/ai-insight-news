@@ -1,27 +1,4 @@
 {
- "2026-09-04": {
-  "opensource": [
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|headroom compress tool outputs logs rag chunks before",
-   "opensource|hyperframes write html",
-   "opensource|pdfmathtranslate emnlp 2025 demo pdf scientific paper translation"
-  ],
-  "paper": [
-   "paper|knowledge acquisition during pre training large language models learn better aux",
-   "paper|para pipe exploiting hierarchical operator parallelism ml computational graphs s",
-   "paper|grasp graph retrieval automated scoring pipeline label free multi topic essay gr",
-   "paper|zero shot novel depth synthesis using 3d foundation models scene representations",
-   "paper|transfer safety awareness cross modal safety drift multimodal large language mod"
-  ],
-  "enterprise": [
-   "enterprise|meta is paying peek how you use their ai model",
-   "enterprise|sameness problem behind those unappetizing ai generated menus",
-   "enterprise|hiddenlayer nabs 100m enterprises rush their ai deployments",
-   "enterprise|daybreak frontline defenders 1b protect essential services",
-   "enterprise|宣布收购 黄仁勋称开放模型将受益于这桩联姻 nvidia hugging face"
-  ]
- },
  "2026-09-05": {
   "opensource": [
    "opensource|claude mem persistent context across sessions every agent",
@@ -316,6 +293,29 @@
    "enterprise|prismml hopes tiny llm will change how we all use ai",
    "enterprise|fix rogue ai agents could be more ai",
    "enterprise|huawei plans q1 2027 ai chip it takes nvidia"
+  ]
+ },
+ "2026-09-19": {
+  "paper": [
+   "paper|demand attention language models know when recall",
+   "paper|don t mask environment observation supervision changes how agents explore under ",
+   "paper|paint anything unified any color control image generation editing",
+   "paper|quantifying overclaiming propensity frontier llm agents",
+   "paper|score centering stabilizes off policy reinforcement learning"
+  ],
+  "opensource": [
+   "opensource|hermes agent agent that grows you",
+   "opensource|openhands openhands ai driven development",
+   "opensource|opencode manager mobile web interface opencode ai agents",
+   "opensource|llama index llamaindex is document processing platform ai",
+   "opensource|siyuan source privacy self hosted knowledge"
+  ],
+  "enterprise": [
+   "enterprise|aventura ai startup 34 million plans add south florida jobs business journals",
+   "enterprise|meta s muse hits mac letting ai take actions your computer",
+   "enterprise|ai hallucination nearly triggers us military operation",
+   "enterprise|world model companies are keeping lot secrets",
+   "enterprise|alibaba qwen qwen3 8 omni flash 1m context omni modal model built around agentic"
   ]
  }
 }
