@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-20</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today’s AI sector has three key developments: On the open-source tool side, multiple AI tools for agent workflows, RAG, and cybersecurity have been released, ex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-20">
+<meta property="og:description" content="Today’s AI sector has three key developments: On the open-source tool side, multiple AI tools for agent workflows, RAG, and cybersecurity have been released, expanding developers’ application toolkits">
+<meta property="og:url" content="./report_20260920.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-20">
+<meta name="twitter:description" content="Today’s AI sector has three key developments: On the open-source tool side, multiple AI tools for agent workflows, RAG, and cybersecurity have been released, expanding developers’ application toolkits">
+<link rel="canonical" href="./report_20260920.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-20 ｜ report_20260920</div>
+<div class="sub" data-lang-title="zh">2026-09-20 ｜ report_20260920</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today’s AI sector has three key developments: On the open-source tool side, multiple AI tools for agent workflows, RAG, and cybersecurity have been released, expanding developers’ application toolkits. In academic research, papers on generative inverse solver evaluation, contact-rich robot control, and LLM reasoning quality optimization deepen the theoretical foundation of core AI technologies. On the enterprise side, AI startup funding, OpenAI’s youth safety blueprint, and Alibaba’s Qwen large model update show the industry’s parallel progress in implementation, safety, and product iteration.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. dify：Build Agentic workflows, RAG pipelines, with rich AI model</h3>
+          <p class="news-body">Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 156,511</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">In the AI industry, Dify, which supports building agentic workflows and RAG pipelines with rich AI models, has drawn notable attention with 156,511 stars, 24,688 forks and 1,098 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. touchdesigner-mcp：MCP server for TouchDesigner</h3>
+          <p class="news-body">MCP server for TouchDesigner</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag">8beeeaaat</span> <span class="tag tag-star">⭐ 541</span> <span class="tag tag-gray">mcp / mcp-server / touchdesigner / MCP</span></div>
+          <div class="pick-reason">As an MCP server for TouchDesigner, touchdesigner-mcp has gained 541 stars and 58 forks in the community, with only 1 open issue, making it a well-recognized practical tool in the field of AI and TouchDesigner integration.</div>
+          <div class="source">Source：<a href="https://github.com/8beeeaaat/touchdesigner-mcp" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. worldmonitor：Real-time global intelligence dashboard</h3>
+          <p class="news-body">Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag">koala73</span> <span class="tag tag-star">⭐ 87,032</span> <span class="tag tag-gray">agent / ai / dashboard / geopolitics</span></div>
+          <div class="pick-reason">As the 3rd candidate, worldmonitor, a real-time global intelligence dashboard, has gained 87,032 stars, 13,211 forks and 430 open issues from the community, showing high community attention.</div>
+          <div class="source">Source：<a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. awesome-agent-native-services：A curated list of agent-native services and infrastructure</h3>
+          <p class="news-body">A curated list of agent-native services and infrastructure for AI agents: email, browsers, memory, sandboxes, payments, and MCP tools. Includes selection criteria and onboarding guides.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag">haoruilee</span> <span class="tag tag-star">⭐ 472</span> <span class="tag tag-gray">agent-infrastructure / agent-native / ai-agents / awesome</span></div>
+          <div class="pick-reason">As the 4th candidate, awesome-agent-native-services is a curated list of agent-native services and infrastructure, boasting 472 stars, 20 forks and only 1 open issue, which reflects its appeal in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/haoruilee/awesome-agent-native-services" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. cyber-harness：AI-driven pi-like agent for cyber security — single binary</h3>
+          <p class="news-body">AI-driven pi-like agent for cyber security — single binary for pentest, red team, bug bounty</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag">chainreactors</span> <span class="tag tag-star">⭐ 301</span> <span class="tag tag-gray">agent / ai / ai-pentesting / pentesting</span></div>
+          <div class="pick-reason">Cyber-harness, an AI-driven pi-like agent for cybersecurity with a single binary, has earned 301 stars, 33 forks and 8 open issues in the community, acting as a reference for lightweight AI cybersecurity solutions.</div>
+          <div class="source">Source：<a href="https://github.com/chainreactors/cyber-harness" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. PosteriorBench: From Point Estimates to Posterior Matching in Evaluating Generative Inverse Solvers</h3>
+          <p class="news-body">Generative models are increasingly used to solve scientific inverse problems, but existing evaluations still focus primarily on whether a method can produce a single plausible reconstruction. This is insufficient for ill-posed problems, where multiple solutions may be consistent with the same sparse or noisy observations. In these settings, a method can achieve strong pointwise accuracy while still failing to capture the true posterior through mode collapse, overconfident uncertainty, or averaging incompatible solutions. We introduce PosteriorBench, a benchmark for evaluating the distributional accuracy of generative inverse solvers. PosteriorBench evaluates four physics-based inverse problems: Darcy flow inversion, Poisson source recovery, carbon capture and storage, and light transport material inference. For each task, we construct high-fidelity reference posteriors using computationally heavy but established procedures such as rejection sampling and Markov chain Monte Carlo, enabling direct assessment of whether solvers recover the full set of solutions rather than the single best sample. We pair these references with a five-metric posterior evaluation suite: posterior-mean error, posterior-standard-deviation error, maximum mean discrepancy, sliced Wasserstein distance, and radially averaged power-spectrum error. These metrics assess pointwise accuracy, marginal uncertainty, distributional alignment, and global frequency fidelity. The benchmark spans sparse sensing, low-r</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">The paper PosteriorBench, with 8 authors, focuses on evaluating generative inverse solvers, shifting from point estimates to posterior matching, offering new approaches for AI industry evaluations.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.20794v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Agile-WAM: An Agile Tactile World Action Model for Contact-Rich Robot Control</h3>
+          <p class="news-body">World Action Models (WAMs) advance beyond conventional visuomotor policies by jointly predicting future world states and robot actions, enabling the policy to learn physical dynamics that support effective control. However, recent tactile WAMs often rely on large-scale pretrained generative backbones to capture contact-rich physical dynamics, which limit their inference efficiency and flexible deployment. In this paper, we present \ABBR{}, an agile tactile World Action Model for contact-rich robot control. \ABBR{} encodes visual and tactile observations into a shared latent that serves as the source of a direct vision-tactile-to-action flow-matching process, which can jointly generate latent representations of action chunks and future visual/tactile latents. A key observation is that vision and tactile signals evolve at inherently different timescales: adjacent visual frames are often highly similar, whereas tactile signals can change abruptly upon contact. We therefore introduce multi-horizon multimodal prediction in \ABBR{}, which provides supervision for visual latent at a larger temporal offset while predicting the tactile latent in the next frame to capture fine-grained contact dynamics. Across nine simulated and five real-world contact-rich manipulation tasks, \ABBR{} demonstrates strong and robust performance, outperforming the strongest baseline in success rate while maintaining low inference latency. In particular, in five real-world experiments, \ABBR{} yields a rel</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">This paper, the 2nd candidate in AI industry, presents Agile-WAM, an Agile Tactile World Action Model for contact-rich robot control, with 7 authors, providing a new approach for contact-rich robot control.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.20761v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision</h3>
+          <p class="news-body">Complex robotic manipulation tasks frequently require a long-term memory of past events and actions. As conditioning on full histories renders policies prone to spurious correlations and degrades performance, many approaches to policy memory involve compressing historical information through expensive VLM queries in-the-loop to process only task-salient information. In this paper, we propose an alternative approach in which computationally intensive VLM queries are made during train-time to learn a lightweight latent memory that can be efficiently queried at deployment time. Our representation, which we call the \textbf{workspace token}, is trained by (1) using a VLM to identify current and historical information necessary for completing a task, then (2) distilling these into the workspace token using a set-reconstruction decoder loss. In both simulation and hardware, we show that the workspace token can be used as a drop-in replacement for observations during deployment, enabling policies to solve memory-intensive tasks without the need for VLM reasoning in-the-loop. Interestingly, we found that workspace tokens are not only more lightweight but also lead to better policy performance.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">This third candidate paper proposes Workspace Models, a lightweight robotic memory via saliency-driven supervision, with 6 authors, offering a reference for lightweight robotic memory solutions in the AI field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.20820v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Reasoning Quality Matters: Combating Reasoning Collapse in LLM-based Embedding Learning</h3>
+          <p class="news-body">Large Language Models (LLMs) have recently shown strong potential for producing context-rich text embeddings for retrieval. Most existing methods either treat embedding learning as passive feature extraction or exploit LLM reasoning through instruction following for better embedding optimization. However, specialization toward embedding objectives can suppress useful reasoning generation or produce retrieval-irrelevant text. We refer to these two forms of degradation as reasoning collapse. To address this issue, we propose CoFree (Collapse-Free Reasoning Embedding), a two-stage framework that progressively integrates LLM reasoning into query and document embedding optimization while preserving reasoning quality. At the first stage, CoFree applies reference-guided supervised fine-tuning to restore the reasoning ability and retain representational strength of the foundation embedding model. At the second stage, we introduce dual rewards, an embedding-oriented reward and a reasoning-oriented reward, to guarantee fine-grained reasoning of the relevance toward the embedding goal in reinforcement learning. This endpoint-coupled optimization transforms embedding learning from static alignment into a high-quality reasoning-guided search process for retrieval. Extensive experiments demonstrate the effectiveness of CoFree, with CoFree-4B achieving an average absolute improvement of 2.8 nDCG@10 points over Qwen3-Embedding-4B across 22 datasets from MTEB and BRIGHT. Online experiments in</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">This paper conducts research on the reasoning collapse problem in LLM-based embedding learning, with 6 authors, providing research ideas for optimizing the reasoning quality of embedding learning in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.20563v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Think Thrice Before Reranking: Multi-perspective Evidence and Reasoning Integration for Text Reranking</h3>
+          <p class="news-body">Reasoning-based reranking with Large Language Models (LLMs) has shown promising improvements in text ranking. However, current methods predominantly rely on a single reasoning trajectory, resulting in rankings that are susceptible to reasoning errors and inherently constrained in modeling the multifaceted signals underlying document relevance. To resolve this dilemma, we propose MERIT-Rank(Multi-perspective Evidence and Reasoning Integration for Text Reranking), a framework that models complementary reasoning trajectories to improve reranking robustness. MERIT-Rank formulates a Multi-Trajectory Reasoning Space (MTRS) that evaluates query-document relevance from multiple perspectives and introduces a joint reranker that consolidates these reasoning paths into a unified ranking decision. We further develop Progressive Rank Policy Optimization (PRPO), a progressive training framework that stabilizes reasoning trajectories while continually improving ranking quality through staged optimization objectives. Experiments on both reasoning-intensive and traditional retrieval benchmarks show that MERIT-Rank consistently achieves superior performance over competitive baselines. The 4B model notably outperforms most 7B and even 32B rerankers on BRIGHT.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">This AI paper focusing on text reranking has 5 authors, proposing a multi-perspective evidence and reasoning integration approach, which provides new research directions for text reranking tasks.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.20131v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. A startup that builds other startups raised $100M and is all-in on physical AI - TechCrunch</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMisgFBVV95cUxQOHZsWXJaaWFuNUhMLTN6aXp4NVpVOFNlUXpzT01iMVNSVW9hdUFfTk1DTUVrRFNrSGNXbm96Vm5PSmprR1EybXhvUm1HcFg2NG1zVkhRbmdISmNvYmV3VC1TUi1kM2VaTUc2UVdhMW91MHhSTmFkS19qb25mTTFOT2hURV8zbWlFUUhGbWJwbFE5QWlpLVIxVTBwM29RalNiNy0zY1RVODUyMmJIVWFrczdn?oc=5&quot;</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-18</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">A startup that builds other startups has raised $100M and is fully committed to physical AI, serving as a key signal of the AI industry's focus on the physical AI sector.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQOHZsWXJaaWFuNUhMLTN6aXp4NVpVOFNlUXpzT01iMVNSVW9hdUFfTk1DTUVrRFNrSGNXbm96Vm5PSmprR1EybXhvUm1HcFg2NG1zVkhRbmdISmNvYmV3VC1TUi1kM2VaTUc2UVdhMW91MHhSTmFkS19qb25mTTFOT2hURV8zbWlFUUhGbWJwbFE5QWlpLVIxVTBwM29RalNiNy0zY1RVODUyMmJIVWFrczdn?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Introducing the Australian Youth Safety Blueprint</h3>
+          <p class="news-body">OpenAI introduces the Australian Youth Safety Blueprint, a six-pillar roadmap for safer AI experiences that protect and empower young people.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-18</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As the 2nd candidate in the AI industry, the introduction of the Australian Youth Safety Blueprint offers a key industry reference for AI applications in youth safety.</div>
+          <div class="source">Source：<a href="https://openai.com/index/australian-youth-safety-blueprint" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Alibaba’s Qwen releases Qwen3.8-Omni-Flash with 1M-token context - TechNode</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMinAFBVV95cUxPTC1FR2JYdFEyUl9KZEQycnktcjFoZ3Jmbkx3SzBiR28yd1V3XzNsMUVXR21lRUsybXo1NVg3djhkNjJjQ0JyNlRUa2tQbE9oanNpZFdid1JLR1BUMVhWcll0R043R0UxelBJaEV0MndXZ2h5LVJyLTdhbWZDTUNPYlBhZW5TOGVIREZsZFpKb04yS2pBbzc0eDZoSkE?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Alibaba’s</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-18</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Alibaba's Qwen has released Qwen3.8-Omni-Flash, which features a 1M-token context window, offering a new model option with ultra-long context capability for the AI industry.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPTC1FR2JYdFEyUl9KZEQycnktcjFoZ3Jmbkx3SzBiR28yd1V3XzNsMUVXR21lRUsybXo1NVg3djhkNjJjQ0JyNlRUa2tQbE9oanNpZFdid1JLR1BUMVhWcll0R043R0UxelBJaEV0MndXZ2h5LVJyLTdhbWZDTUNPYlBhZW5TOGVIREZsZFpKb04yS2pBbzc0eDZoSkE?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Dify Releases Open-Source Tool for Agentic Workflows and RAG Pipelines</b> — Covers two core scenarios: agent development and Retrieval-Augmented Generation, providing developers with a low-threshold and flexible solution for building AI applications.</div><div class="watch-item"><b>PosteriorBench: New Benchmark for Evaluating Generative Inverse Solvers</b> — Shifts from point estimates to posterior matching, offering a more precise method for evaluating generative inverse solvers and improving the AI model evaluation system.</div><div class="watch-item"><b>Alibaba’s Qwen Releases Qwen3.8-Omni-Flash with 1M-Token Context</b> — The ultra-large context window significantly enhances long-text processing capabilities, providing stronger support for scenarios like multi-turn conversations and document analysis, reflecting the rapid iteration of domestic large models.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域迎来三类核心动态：开源工具端，多款覆盖智能体工作流、RAG、网络安全等场景的AI工具发布，拓展了开发者的应用工具箱；学术研究上，生成式逆求解器评估、机器人接触控制、LLM推理质量优化等方向的论文，深化了AI核心技术的理论基础；企业层面，AI初创投资、OpenAI青少年安全蓝图、阿里通义千问大模型更新等动态，展现了产业在落地、安全与产品迭代上的并行推进。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. Dify支持构建Agent工作流与RAG管道 适配多部署场景</h3>
+          <p class="news-body">开源工具Dify的社区数据为stars156511、forks24688、open issues1098。它可在协作工作区借助丰富AI模型与工具支持，构建Agent工作流和RAG管道。支持云、VPC或自托管部署，能让团队从原型到生产无需重构技术栈。这意味着AI应用开发工具正朝着一体化、协作化方向发展，开源工具成为降低开发门槛的核心载体。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 156,511</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">在AI行业，Dify可构建智能体工作流、RAG管道及丰富AI模型，获156511星标、24688次复刻，开放问题1098个，是受关注的相关项目</div>
+          <div class="source">来源：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. TouchDesigner开源MCP服务器降低AI创意创作门槛</h3>
+          <p class="news-body">这是一款针对TouchDesigner的MCP服务器开源项目。该项目社区数据为stars=541、forks=58、open_issues=1。它打通了TouchDesigner与AI模型上下文协议的连接。这件事意味着创意编程工具与AI协议的深度整合正成为趋势。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag">8beeeaaat</span> <span class="tag tag-star">⭐ 541</span> <span class="tag tag-gray">mcp / mcp-server / touchdesigner / MCP</span></div>
+          <div class="pick-reason">touchdesigner-mcp作为TouchDesigner的MCP服务器，在社区获541星、58个fork，仅1个未解决issue，是AI与TouchDesigner结合领域受认可的实用工具。</div>
+          <div class="source">来源：<a href="https://github.com/8beeeaaat/touchdesigner-mcp" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 开源项目worldmonitor提供实时全球情报监测服务</h3>
+          <p class="news-body">开源项目worldmonitor是一款实时全球情报仪表盘，通过AI聚合新闻、地缘监测、基础设施追踪，形成统一的态势感知界面。该项目社区数据显示，stars达87032，forks为13211，open_issues共430个。它填补了开源领域缺乏集成多维度全球实时监测工具的空白，降低非专业主体获取全球关键信息的门槛，对情报分析、应急响应等场景具有实用价值。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag">koala73</span> <span class="tag tag-star">⭐ 87,032</span> <span class="tag tag-gray">agent / ai / dashboard / geopolitics</span></div>
+          <div class="pick-reason">作为第3名候选，worldmonitor（实时全球情报仪表盘）获社区stars87032、forks13211、open_issues430，社区关注度高，在AI行业具参考价值。</div>
+          <div class="source">来源：<a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. awesome-agent-native-services整理AI代理原生服务及基础设施精选列表</h3>
+          <p class="news-body">awesome-agent-native-services是针对AI代理的精选原生服务与基础设施列表。该列表涵盖邮件、浏览器、内存、沙箱、支付及MCP工具等类别，附带选型标准与接入指南。其社区数据显示stars达472，forks为20，开放议题共1个。该列表整合成熟工具，填补了AI代理原生服务选型的信息缺口，降低了开发者搭建代理运行环境的门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag">haoruilee</span> <span class="tag tag-star">⭐ 472</span> <span class="tag tag-gray">agent-infrastructure / agent-native / ai-agents / awesome</span></div>
+          <div class="pick-reason">awesome-agent-native-services是agent-native服务与基础设施的精选列表，作为第4名候选，获472星、20次复刻，仅1个未解决问题，在AI行业具参考价值</div>
+          <div class="source">来源：<a href="https://github.com/haoruilee/awesome-agent-native-services" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. cyber-harness：AI驱动单二进制网络安全测试工具</h3>
+          <p class="news-body">cyber-harness是一款AI驱动的类pi代理，采用单二进制形式，适用于渗透测试、红队及漏洞赏金场景。该项目的GitHub社区数据显示，其stars达301，forks为33，开放问题共8个。它将AI能力与单二进制工具结合，简化网络安全测试流程，降低专业人员使用门槛。该工具覆盖渗透团队、红队人员及漏洞赏金从业者，推动安全测试工具轻量化与智能化发展。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag">chainreactors</span> <span class="tag tag-star">⭐ 301</span> <span class="tag tag-gray">agent / ai / ai-pentesting / pentesting</span></div>
+          <div class="pick-reason">cyber-harness是AI驱动的类Pi网络安全代理，采用单二进制形式，社区获301星、33个复刻、8个开放议题，为AI安全领域提供轻量型项目参考</div>
+          <div class="source">来源：<a href="https://github.com/chainreactors/cyber-harness" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. PosteriorBench：生成式逆求解器评估转向后验匹配</h3>
+          <p class="news-body">生成式模型正被广泛应用于科学逆问题求解，但现有评估多聚焦单点重建精度，难以适配不适定问题的多解特性。8位作者推出PosteriorBench基准，针对达西流反演、泊松源恢复等4类物理逆问题，搭配5项指标评估生成式逆求解器的分布准确性。该基准通过高保真参考后验，可直接评估求解器是否覆盖全部解而非仅最优样本，完善了科学AI评估体系。这意味着科学AI评估正从单点性能指标转向后验分布匹配的全面评估，贴合科学问题多解性的本质。</p>
+          <p class="comment">若PosteriorBench成为科学逆问题领域的通用评估基准，则可能降低相关AI模型的误用风险</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">PosteriorBench论文针对生成逆求解器评估，作者数为8，实现从点估计到后验匹配的评估范式，为AI行业相关评估提供新路径。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.20794v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Agile-WAM模型突破接触型机器人触觉控制效率瓶颈</h3>
+          <p class="news-body">现有触觉世界动作模型（WAMs）多依赖大规模预训练生成主干，导致接触丰富机器人控制的推理效率与灵活部署受限。7位作者提出Agile-WAM模型，通过编码视觉、触觉观测到共享隐空间，结合多模态多horizon预测捕捉接触动态，适配视觉与触觉不同时标特性。该模型在9项模拟及5项真实接触操作任务中表现强劲，成功率优于最强基线且推理延迟低。这一突破填补了接触型机器人控制细分领域的效率缺口，推动该领域从高成本大参数模型转向轻量化高效专用模型，提升协作、服务机器人等接触交互场景的落地可行性。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">该论文是AI行业中针对接触丰富机器人控制的敏捷触觉世界动作模型（Agile-WAM）的研究，作者数为7，作为第2名候选，为接触型机器人控制提供新思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.20761v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision</h3>
+          <p class="news-body">复杂机器人操作任务需长时记忆，全历史输入易产生虚假关联，现有方案依赖昂贵VLM在线查询压缩历史信息。该论文由6位作者完成，提出名为workspace token的轻量记忆表征，训练时通过VLM识别任务关键信息，经解码器蒸馏生成。该token可在部署时替代观测，无需在线VLM推理，更轻量且性能更优。该方案大幅降低机器人长时记忆计算开销、避免推理高延迟，推动机器人系统向高效低延迟演进，降低相关记忆方案部署门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">该第3名候选论文提出基于显著性驱动监督的轻量机器人记忆Workspace Models，作者数为6，为AI领域机器人记忆方向提供轻量方案参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.20820v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. LLM嵌入学习现推理崩溃，CoFree框架解决核心痛点</h3>
+          <p class="news-body">一篇由6位作者完成的论文，针对LLM嵌入学习中的推理崩溃问题展开研究。现有LLM嵌入方法多将嵌入学习视为被动特征提取，或通过指令遵循利用LLM推理优化嵌入，却易抑制有用推理生成，产生推理崩溃。论文提出CoFree两阶段框架，分阶段将LLM推理融入查询与文档嵌入优化，同时保留推理质量。实验显示，CoFree-4B在MTEB和BRIGHT的22个数据集上，较Qwen3-Embedding-4B平均绝对提升2.8 nDCG@10点，该研究首次明确推理崩溃问题，解决了兼顾推理能力与检索性能的核心痛点。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">该论文针对基于大语言模型的嵌入学习中的推理崩溃问题展开研究，作者数为6，为AI行业优化嵌入学习的推理质量提供了研究思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.20563v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. MERIT-Rank多视角整合方案优化LLM文本重排性能</h3>
+          <p class="news-body">一篇由5位作者完成的论文指出，基于LLM的推理式文本重排虽有进展，但现有方法多依赖单一推理路径，易受推理错误影响，难以建模文档相关性的多维度信号。该论文提出MERIT-Rank框架，构建多轨迹推理空间从多视角评估查询文档相关性，引入联合重排器整合推理路径形成统一排序决策。论文还开发了渐进式训练框架PRPO，可稳定推理轨迹并通过分阶段优化目标持续提升排序质量。实验显示，MERIT-Rank在相关基准上性能优于多数竞争基线，其中4B模型在BRIGHT数据集上表现超多数7B甚至32B重排器，这一方案填补了LLM文本重排领域的技术空白，推动该技术向多视角融合方向演进，可优化搜索、推荐等依赖文本排序场景的效果。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-17</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">这篇AI领域的文本重排序论文，作者数为5，提出多视角证据与推理整合方法，为该任务提供了新的研究方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.20131v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. A startup that builds other startups raised $100M and is all-in on physical AI - TechCrunch</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMisgFBVV95cUxQOHZsWXJaaWFuNUhMLTN6aXp4NVpVOFNlUXpzT01iMVNSVW9hdUFfTk1DTUVrRFNrSGNXbm96Vm5PSmprR1EybXhvUm1HcFg2NG1zVkhRbmdISmNvYmV3VC1TUi1kM2VaTUc2UVdhMW91MHhSTmFkS19qb25mTTFOT2hURV8zbWlFUUhGbWJwbFE5QWlpLVIxVTBwM29RalNiNy0zY1RVODUyMmJIVWFrczdn?oc=5&quot;</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-18</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">一家孵化其他初创公司的初创公司融资$100M，全力布局物理AI，为AI行业聚焦实体AI赛道提供了重要信号</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQOHZsWXJaaWFuNUhMLTN6aXp4NVpVOFNlUXpzT01iMVNSVW9hdUFfTk1DTUVrRFNrSGNXbm96Vm5PSmprR1EybXhvUm1HcFg2NG1zVkhRbmdISmNvYmV3VC1TUi1kM2VaTUc2UVdhMW91MHhSTmFkS19qb25mTTFOT2hURV8zbWlFUUhGbWJwbFE5QWlpLVIxVTBwM29RalNiNy0zY1RVODUyMmJIVWFrczdn?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI推出澳大利亚青年AI安全六支柱路线图</h3>
+          <p class="news-body">OpenAI推出Australian Youth Safety Blueprint，这是一项六支柱路线图。该蓝图旨在打造更安全的AI体验，同时保护并赋能澳大利亚青少年。这是头部AI企业首次针对单一国家推出定制化青年AI保护框架，填补了区域层面青少年AI安全标准的空白。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-18</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">作为AI行业的第2名候选，澳大利亚青年安全蓝图的推出，为AI在青少年安全领域的应用提供了关键的行业参考方向。</div>
+          <div class="source">来源：<a href="https://openai.com/index/australian-youth-safety-blueprint" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 阿里Qwen的Qwen3.8-Omni-Flash支持1M-token上下文</h3>
+          <p class="news-body">阿里旗下Qwen的Qwen3.8-Omni-Flash模型具备1M-token的上下文窗口。该模型的长文本处理能力可降低企业处理长文档的技术门槛。这一特性能提升企业多轮复杂交互的效率，推动企业级AI应用落地。相关能力覆盖企业级AI服务、文档智能等细分领域，降低企业部署长文本AI应用的成本与复杂度。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-18</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">阿里通义千问发布Qwen3.8-Omni-Flash，拥有1M-token的上下文窗口，为AI行业带来了具备超长上下文能力的模型新选项</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPTC1FR2JYdFEyUl9KZEQycnktcjFoZ3Jmbkx3SzBiR28yd1V3XzNsMUVXR21lRUsybXo1NVg3djhkNjJjQ0JyNlRUa2tQbE9oanNpZFdid1JLR1BUMVhWcll0R043R0UxelBJaEV0MndXZ2h5LVJyLTdhbWZDTUNPYlBhZW5TOGVIREZsZFpKb04yS2pBbzc0eDZoSkE?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Dify发布面向智能体工作流与RAG管道的开源工具</b> — 覆盖智能体开发与检索增强生成两大核心场景，为开发者提供低门槛、灵活的AI应用搭建方案</div><div class="watch-item"><b>PosteriorBench：生成式逆求解器评估的新基准</b> — 从点估计转向后验匹配，为生成式逆求解器的评估提供更精准的方法，完善AI模型评估体系</div><div class="watch-item"><b>阿里通义千问发布Qwen3.8-Omni-Flash，支持1M-token上下文</b> — 超大上下文窗口大幅提升长文本处理能力，为多轮对话、文档分析等场景提供更强支撑，体现国内大模型快速迭代</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-20T05:00:27.478Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

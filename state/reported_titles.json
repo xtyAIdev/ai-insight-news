@@ -1,27 +1,4 @@
 {
- "2026-09-05": {
-  "opensource": [
-   "opensource|claude mem persistent context across sessions every agent",
-   "opensource|headroom compress tool outputs logs rag chunks before",
-   "opensource|lightrag emnlp2025 lightrag simple fast retrieval augmented",
-   "opensource|sglang sglang is high performance serving framework large",
-   "opensource|qwen code source ai coding agent that lives your terminal"
-  ],
-  "paper": [
-   "paper|para pipe exploiting hierarchical operator parallelism ml computational graphs s",
-   "paper|knowledge acquisition during pre training large language models learn better aux",
-   "paper|legibility is not interpretability comparing judged actual importance chain thou",
-   "paper|robust pac learning concurrent stochastic games",
-   "paper|sequential beats joint interplay between policy distillation rlvr"
-  ],
-  "enterprise": [
-   "enterprise|推迟至中期选举前 最早 月中旬启动路演 目标估值 anthropic ipo 10 2",
-   "enterprise|sameness problem behind those unappetizing ai generated menus",
-   "enterprise|meta is paying peek how you use their ai model",
-   "enterprise|playco cut manual fixes 50 prototyping games gpt 6 astra",
-   "enterprise|宣布以 亿美元收购 nvidia 129 303 hugging face"
-  ]
- },
  "2026-09-06": {
   "opensource": [
    "opensource|lobehub lobehub is your chief agent operator organizing your",
@@ -316,6 +293,27 @@
    "enterprise|ai hallucination nearly triggers us military operation",
    "enterprise|world model companies are keeping lot secrets",
    "enterprise|alibaba qwen qwen3 8 omni flash 1m context omni modal model built around agentic"
+  ]
+ },
+ "2026-09-20": {
+  "paper": [
+   "paper|posteriorbench point estimates posterior matching evaluating generative inverse ",
+   "paper|agile wam agile tactile world action model contact rich robot control",
+   "paper|workspace models lightweight robotic memory via saliency driven supervision",
+   "paper|reasoning quality matters combating reasoning collapse llm based embedding learn",
+   "paper|think thrice before reranking multi perspective evidence reasoning integration t"
+  ],
+  "opensource": [
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|touchdesigner mcp mcp server touchdesigner",
+   "opensource|worldmonitor real time global intelligence dashboard",
+   "opensource|awesome agent native services curated list agent native services infrastructure",
+   "opensource|cyber harness ai driven pi like agent cyber security single binary"
+  ],
+  "enterprise": [
+   "enterprise|startup that builds other startups 100m is all physical ai techcrunch",
+   "enterprise|australian youth safety blueprint",
+   "enterprise|alibaba s qwen qwen3 8 omni flash 1m token context technode"
   ]
  }
 }
