@@ -1,23 +1,4 @@
 {
- "2026-09-06": {
-  "opensource": [
-   "opensource|lobehub lobehub is your chief agent operator organizing your",
-   "opensource|cowagent source super ai assistant agent harness",
-   "opensource|lightrag emnlp2025 lightrag simple fast retrieval augmented",
-   "opensource|deepseek reasonix deepseek native ai coding agent your terminal",
-   "opensource|sim sim is collaborative workspace build deploy"
-  ],
-  "paper": [
-   "paper|knowledge acquisition during pre training large language models learn better aux",
-   "paper|para pipe exploiting hierarchical operator parallelism ml computational graphs s",
-   "paper|grasp graph retrieval automated scoring pipeline label free multi topic essay gr",
-   "paper|zero shot novel depth synthesis using 3d foundation models scene representations",
-   "paper|transfer safety awareness cross modal safety drift multimodal large language mod"
-  ],
-  "enterprise": [
-   "enterprise|推迟至中期选举前 最早 月中旬启动路演 目标估值 anthropic ipo 10 2"
-  ]
- },
  "2026-09-07": {
   "opensource": [
    "opensource|dify build agentic workflows rag pipelines rich ai model",
@@ -314,6 +295,28 @@
    "enterprise|startup that builds other startups 100m is all physical ai techcrunch",
    "enterprise|australian youth safety blueprint",
    "enterprise|alibaba s qwen qwen3 8 omni flash 1m token context technode"
+  ]
+ },
+ "2026-09-21": {
+  "paper": [
+   "paper|autoreclab describe experiment get code",
+   "paper|spoken wikipedia presentation corpus",
+   "paper|bayesian belief layer controllable opinion dynamics llm agents",
+   "paper|predictable failure multi hop retrieval score distributional confidence scoring ",
+   "paper|interpretable memory decision controller llm agents based three signal complemen"
+  ],
+  "opensource": [
+   "opensource|openai agents python lightweight powerful framework multi agent workflows",
+   "opensource|xum desktop app isolated parallel agentic development",
+   "opensource|spectrum ts bring agents any interfaces",
+   "opensource|awesome remote mcp servers collection remote mcp servers",
+   "opensource|cohub living space where people agents create play"
+  ],
+  "enterprise": [
+   "enterprise|singapore s temasek unit xora leads us 53 million funding round ai startup hang ",
+   "enterprise|alibaba qwen team qwen3 8 livetranslate real time interpretation model that cuts",
+   "enterprise|alibaba s weight qwen image 2 1 claims beat closed models image generation just ",
+   "enterprise|bytedance seedance 2 5 ai video model techjuice"
   ]
  }
 }
