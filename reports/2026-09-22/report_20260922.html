@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-22</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's AI sector has witnessed a wave of new developments in open-source technologies, with multiple projects launched across core areas like agent runtime, is">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-22">
+<meta property="og:description" content="Today's AI sector has witnessed a wave of new developments in open-source technologies, with multiple projects launched across core areas like agent runtime, isolated sandboxes, and multi-agent coordi">
+<meta property="og:url" content="./report_20260922.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-22">
+<meta name="twitter:description" content="Today's AI sector has witnessed a wave of new developments in open-source technologies, with multiple projects launched across core areas like agent runtime, isolated sandboxes, and multi-agent coordi">
+<link rel="canonical" href="./report_20260922.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-22 ｜ report_20260922</div>
+<div class="sub" data-lang-title="zh">2026-09-22 ｜ report_20260922</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's AI sector has witnessed a wave of new developments in open-source technologies, with multiple projects launched across core areas like agent runtime, isolated sandboxes, and multi-agent coordination, offering developers richer tool options. In academic research, several papers focus on cutting-edge directions such as open-vocabulary audio-visual event localization and generative social simulator calibration, promoting the deep integration of AI basic theories and practical applications. On the enterprise front, AI startup Cornelis Networks secured $205 million in funding, Meta's AI agent was restricted from using Amazon services, and OpenAI established an advisory group on mathematics and AI, reflecting coexisting competition and collaboration in the industry.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 247,829</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">Hermes-agent, an AI agent project, has attracted massive community attention with 247,829 stars, 52,215 forks and 43,594 open issues, emerging as a widely recognized agent project in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. open-code-review：Secure, fast, efficient, battle-tested at Alibaba's scale</h3>
+          <p class="news-body">Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">alibaba</span> <span class="tag tag-star">⭐ 39,332</span> <span class="tag tag-gray">agent / agent-skills / code-review / code-review-assistant</span></div>
+          <div class="pick-reason">Open-code-review, which is secure, fast, efficient and battle-tested at Alibaba's scale, has gained 39,332 stars, 2,814 forks and 222 open issues in the community, providing a reliable open-source code review solution for the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. trueforge：The open-source agent harness - the runtime layer that</h3>
+          <p class="news-body">The open-source agent harness - the runtime layer that turns an LLM into a working agent.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">truefoundry</span> <span class="tag tag-star">⭐ 5,889</span> <span class="tag tag-gray">agent / agentic-ai / agents / harness</span></div>
+          <div class="pick-reason">Trueforge, an open-source agent harness runtime layer, has 5,889 stars, 462 forks and 96 open issues in the community, serving as a notable candidate in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/truefoundry/trueforge" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. agent-sandbox：agent-sandbox enables easy management of isolated,</h3>
+          <p class="news-body">agent-sandbox enables easy management of isolated, stateful, singleton workloads, ideal for use cases like AI agent runtimes and reinforcement learning (RL).</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">kubernetes-sigs</span> <span class="tag tag-star">⭐ 3,979</span> <span class="tag tag-gray">agent / ai / kubernetes / rl</span></div>
+          <div class="pick-reason">Agent-sandbox enables easy management of isolated environments, with its community data including 3979 stars, 524 forks and 207 open issues, serving as a practical tool in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/kubernetes-sigs/agent-sandbox" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. mcp_agent_mail_rust：Rust MCP server for multi-agent coordination: 34 tools,</h3>
+          <p class="news-body">Rust MCP server for multi-agent coordination: 34 tools, Git-backed archive, SQLite indexing, advisory file locks, and an interactive TUI console</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">Dicklesworthstone</span> <span class="tag tag-star">⭐ 171</span> <span class="tag tag-gray">ai-agents / coordination / mcp / rust</span></div>
+          <div class="pick-reason">This Rust MCP server for multi-agent coordination features 34 tools, and has earned 171 stars, 37 forks and 14 open issues in the community, providing a Rust-based solution for AI multi-agent collaboration.</div>
+          <div class="source">Source：<a href="https://github.com/Dicklesworthstone/mcp_agent_mail_rust" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. If You Hear It, Help Find It: Orthogonal Knowledge Distillation for Open-Vocabulary Audio-Visual Event Localization</h3>
+          <p class="news-body">Open-vocabulary audio-visual event localization (OV-AVEL) grounds a text-queried event in time from video, audio, and language. The supervision sources available to this task can differ in temporal-boundary reliability: on OV-AVEBench, our configured visual teacher gives more reliable boundary cues than the configured audio teacher, although the latter is a strong pretrained audio model and remains semantically informative. This is a setting-specific diagnostic rather than a universal ranking of vision and audio. We formulate the resulting challenge as supervision placement: which teacher signals may shape the localization decision, and which should remain auxiliary. Based on this view, we propose OV-OrthKD, a reliability-aware asymmetric distillation framework. Visual feature transfer shapes a decision-aligned representation, audio feature transfer enriches a complementary auxiliary subspace, a text prototype anchors seen/unseen category semantics, and an orthogonality loss limits directional overlap between the two teacher-specific projections. The student continues to use both modalities through query-aware fusion at inference, while the default training recipe keeps audio-teacher supervision off the segment-logit path. On OV-AVEBench, OV-OrthKD achieves 0.816 segment AP and improves F1@0.5 over the official fine-tuning baseline by 2.7 points overall and 3.4 points on unseen categories. Path-assignment, role-swap, corruption, and transfer analyses consistently support supe</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag tag-gray">cs.MM</span></div>
+          <div class="pick-reason">This paper, accepted by a top conference, focuses on orthogonal knowledge distillation for open-vocabulary audio-visual event localization, with 3 authors, providing new exploration directions for related fields.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.23376v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Testing, not presuming, adequacy: calibrating generative social simulators against emergent network structure</h3>
+          <p class="news-body">Validation of generative social simulators often stops at face validity: emergent network structure is compared descriptively, without quantified parameter uncertainty or an adequacy check. We present an adequacy-aware calibration protocol that couples amortized posterior estimation with a synthetic identifiability assessment, a matched-sample-size adequacy check (prior-predictive reachability plus per-statistic posterior-predictive localization), a diagnosis-guided repair, and a statistic-held-out audit. We demonstrate it on a real second-hand luxury resale market with four channel-by-residency cells, each a bipartite buyer-brand network, using a forward model built from persona profiles elicited once, offline, by a language model. The behavioural parameters are recoverable in all four cells, though calibration is approximate and overconfident for one parameter. The observed summary falls outside the simulator's reachability reference in every cell, with the mean purchased tier as the pervasive discrepancy. The repair meets the value-block criterion in two of four cells but does not restore adequacy, and the held-out audit surfaces a buyer-breadth-dispersion miss no earlier diagnostic detected. A profile-source ablation finds the language-model profiles beat a flat rule baseline in all four cells, yet within-category brand relabelling causes no consistent degradation, so the profiles are a partially validated input whose value rests on structure, not brand identity. Making n</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">This paper, accepted by a top conference with 4 authors, proposes calibrating generative social simulators against emergent network structure through testing rather than presuming, offering new insights into AI social simulation research.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.24012v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Q-TIE: A Lightweight and Generalizable Re-ranking Framework for Temporal Information Retrieval</h3>
+          <p class="news-body">Temporal Information Retrieval (TIR) has been increasingly critical given the rise of Retrieval-Augmented Generation (RAG). Since temporally mismatched evidence can be highly misleading, TIR aims to retrieve documents that are both semantically and temporally relevant to a query. Two TIR paradigms have emerged - temporal retrievers and temporal re-rankers - differing in how temporal relevance is modeled. While these paradigms provide complementary strengths, our analysis reveals that each alone falls short of robust TIR: temporal retrievers provide flexible query understanding via learned representations, but often fail to explicitly account for temporal constraints; temporal re-rankers can enforce such constraints more explicitly, but often rely on predefined re-ranking rules. To address this, we propose Q-TIE, a re-ranking framework based on learned Temporal Intent Extraction (TIE). By introducing a TIE model that maps each query's temporal constraint into a unified interval representation (i.e., $\langle t_{start}, t_{end} \rangle$), Q-TIE generalizes beyond predefined rules via model-based learning while explicitly modeling temporal constraints as a separate signal - jointly achieving what each paradigm typically trades off. Experiments demonstrate that Q-TIE consistently outperforms existing TIR methods with stronger generalizability across temporal query types, and provides a lightweight yet effective add-on for temporally-aware RAG pipelines. Code: https://github.com/s</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Q-TIE, a lightweight and generalizable re-ranking framework for temporal information retrieval, has been accepted by EMNLP 2026 with 4 authors, offering a new solution for this field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.23880v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. onPanda: Efficient Annotation of On-Policy Alignment Data for LLMs and Agents via Token-Level Correction</h3>
+          <p class="news-body">We present onPanda, an interactive tool for efficiently annotating LLM alignment data and agent trajectories. onPanda adopts token-level correction as its core interaction: while reading a model response, the annotator locates the first inappropriate token and either picks a substitute from the model's candidate tokens or types the correct text via free-form editing. The system then truncates everything after that position and continues generation from the corrected prefix, repeating this locate-correct-continue loop until a satisfactory response is obtained. This mechanism lets annotators precisely steer model outputs at low cost: a small controlled study suggests that onPanda reduces median annotation time by 52% over manual post-editing. Since the vast majority of tokens in the final response are generated by the model itself, the resulting data largely preserves the model's sampling distribution and is well suited for constructing on-policy SFT and preference data. Furthermore, the token-level corrections recorded during annotation provide fine-grained supervision with precise positions and naturally paired positive--negative samples. onPanda also connects to external tools and harnesses, enabling interactive trajectory annotation in realistic environments. In addition, we release Panda-CVL, a dataset annotated with onPanda, together with a benchmark for token-level correction.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">This 4th candidate paper is onPanda, which researches efficient annotation of on-policy alignment data for LLMs and agents via token-level correction, with 10 authors, bringing new exploration to related annotation technologies in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.24983v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Harness-Zero: Harness Distillation via Agent-as-Harness</h3>
+          <p class="news-body">Agent harnesses, the external systems that mediate model-environment interaction, can substantially improve agent performance, but their gains remain tied to the harness at deployment. Because the best harness varies across domains, instances, and models, a general-purpose agent must either settle for a suboptimal shared harness or route among an ever-growing set of specialized ones. We therefore study agent harness distillation: using a domain- or instance-optimized harness as training-time guidance and transferring the behaviors it induces into model weights, so that its gains survive under a single fixed target harness. The challenge is that the two harnesses differ in action space and available information, so guidance from the optimized harness cannot serve directly as supervision for the target one. We introduce Harness-Zero, which enables harness distillation through agent-as-harness. Guided by the optimized harness, a harnessing agent corrects student responses before execution in the target harness's action space, turning harness guidance into training demonstrations. Fine-tuning on the resulting trajectories internalizes harness-induced behavior into the model, so the specialized harness can be removed at deployment. Our experiments spanning knowledge work, tool use, and science domains show that: (1) For frontier LLMs using the same evolved harness, agent-as-harness outperforms code-as-harness. (2) With the specialized harness removed at deployment, Harness-Zero im</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Harness-Zero is a distillation method via Agent-as-Harness, whose paper has 5 authors, offering new insights in the AI distillation field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.24974v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Chesterbrook AI Startup Cornelis Networks Raises $205M in Funding - VISTA.Today</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMieEFVX3lxTFA0U1FCRDFneVlWdEh0NjVoaXJHNmc1MFVoNWl5VHdVb2pHNlRDdkY1S3VaTlhWZHVoa1I0aUVXTnhnNU5SNU5Dcno0emZPVU9EdFg2WWRvZ2FDUVhRSEczNFdRYkwwNkttaThrenpsZ29JTnZfRGpaVQ?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Chesterbrook AI Startup Cornelis Networks Raises $205M in F</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.8事件数据：amount_wan=20500</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMieEFVX3lxTFA0U1FCRDFneVlWdEh0NjVoaXJHNmc1MFVoNWl5VHdVb2pHNlRDdkY1S3VaTlhWZHVoa1I0aUVXTnhnNU5SNU5Dcno0emZPVU9EdFg2WWRvZ2FDUVhRSEczNFdRYkwwNkttaThrenpsZ29JTnZfRGpaVQ?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Advisory Group on Mathematics and Artificial Intelligence</h3>
+          <p class="news-body">OpenAI is working with an independent Advisory Group on Mathematics and Artificial Intelligence to guide the review and communication of emerging AI results.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As the 2nd candidate in the AI industry, this Advisory Group on Mathematics and Artificial Intelligence offers key professional support for mathematical applications and industry consulting in the AI field.</div>
+          <div class="source">Source：<a href="https://openai.com/index/advisory-group-on-mathematics-and-ai" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Meta’s Muse is outpacing ChatGPT’s early mobile launch</h3>
+          <p class="news-body">Meta’s new AI agent Muse has racked up more downloads and daily active users in the U.S. and Canada than ChatGPT did over the same period after its mobile debut, according to new estimates from Appfig</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta’s Muse outperforms ChatGPT’s early mobile launch, which serves as a notable trend signal in the AI industry’s mobile product competition.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/21/metas-muse-is-outpacing-chatgpts-early-mobile-launch/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta’s AI agent has been blocked from using Amazon.com</h3>
+          <p class="news-body">Amazon has its own cohort of foundation models, along with one of the most popular inference platforms on the internet. As long as they're under no legal obligation to open the doors to Muse, why woul</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta's AI agent has been blocked from using Amazon.com, this event reveals the permission restrictions when AI tools connect to e-commerce platforms, providing a practical case for the AI industry's external service interaction scenarios.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Where will the next breakout startup come from? Benchmark’s full partnership weighs in at TechCrunch Disrupt 2026</h3>
+          <p class="news-body">Where will the next breakout startup come from? Benchmark’s full partnership weighs in on the main stage at TechCrunch Disrupt 2026. Save up to $200 before September 25 at 11:59 p.m. PT. Register now.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As the 5th candidate, Benchmark’s full partnership will participate in TechCrunch Disrupt 2026 to discuss where the next breakout startup in the AI industry will come from.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/21/where-will-the-next-breakout-startup-come-from-benchmarks-full-partnership-weighs-in-at-techcrunch-disrupt-2026/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>hermes-agent by NousResearch</b> — This project features a companion-growing agent, providing developers with personalized ideas for building agents; its technical features and landing cases are worth following.</div><div class="watch-item"><b>Meta's AI agent restricted from using Amazon services</b> — This event reflects the competitive game between large tech companies in the AI service ecosystem, which may affect the cross-platform application capabilities of agents; follow-up developments need to be tracked.</div><div class="watch-item"><b>Harness-Zero paper on arXiv</b> — This research proposes a new method of distillation via agent-as-harness, offering a new direction for optimizing the performance of LLMs and agents; it has high academic value.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域开源技术赛道迎来多项新进展，涵盖智能体运行时、隔离沙箱、多智能体协调等核心环节，为开发者提供了更丰富的工具选择。学术研究方面，多篇论文聚焦开放词汇视听事件定位、生成式社会模拟器校准等前沿方向，推动AI基础理论与应用落地的深度结合。企业动态层面，AI初创企业Cornelis Networks完成2.05亿美元融资，Meta的AI智能体被限制使用亚马逊服务，OpenAI成立数学与AI咨询小组，行业竞争与合作并存。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. hermes-agent成热门开源智能体项目 获超24万星标</h3>
+          <p class="news-body">hermes-agent是一款主打随用户成长特性的开源智能体项目。其GitHub社区数据显示，当前星标数达247829，复刻数52215，开放议题数43594。该项目打破此前AI智能体多闭源、功能固化的现状，为开发者提供可定制迭代的开源基础，降低相关研发门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 247,829</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">hermes-agent作为AI agent项目，在社区获极高关注度，stars达247829，forks52215，open_issues43594，是AI行业受社区广泛认可的agent类项目</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. open-code-review：Secure, fast, efficient, battle-tested at Alibaba's scale</h3>
+          <p class="news-body">这款hybrid架构代码审查工具配备确定性管道与LLM Agent，支持精确行级注释。它内置多语言安全规则，覆盖NPE、线程安全、XSS、SQL注入等场景，兼容OpenAI与Anthropic。该工具在阿里级规模下经实战验证，GitHub社区数据显示其stars达39332，forks2814，open_issues222。它填补了企业级开源代码审查工具在AI赋能与深度安全检测结合的空白，降低企业代码质量管控成本，推动开发环节安全合规标准化落地。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">alibaba</span> <span class="tag tag-star">⭐ 39,332</span> <span class="tag tag-gray">agent / agent-skills / code-review / code-review-assistant</span></div>
+          <div class="pick-reason">open-code-review具备安全、快速、高效特性，经阿里规模实战检验，社区获39332星、2814复刻、222个开放问题，为AI行业提供高可靠开源代码审查方案</div>
+          <div class="source">来源：<a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Trueforge开源代理运行时可将LLM转化为实用工作代理</h3>
+          <p class="news-body">Trueforge是一款开源代理运行时，核心功能是将LLM转化为可实际工作的代理。其开源社区数据显示，目前获得5889个星标、462个复刻，开放问题共96个。该运行时降低了开发AI代理的技术门槛，助力更多开发者构建基于LLM的实用代理应用。这一开源运行时的普及，推动AI代理技术向更广泛的场景落地。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">truefoundry</span> <span class="tag tag-star">⭐ 5,889</span> <span class="tag tag-gray">agent / agentic-ai / agents / harness</span></div>
+          <div class="pick-reason">Trueforge作为开源智能体harness的运行时层，社区获5889星标、462个复刻、96个开放议题，是AI行业开源领域的重要候选项目</div>
+          <div class="source">来源：<a href="https://github.com/truefoundry/trueforge" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. agent-sandbox简化AI代理与强化学习工作负载管理</h3>
+          <p class="news-body">agent-sandbox可便捷管理隔离、有状态的单例工作负载，适配AI代理运行时、强化学习等场景。该开源工具在社区获得3979星标、524次复刻，开放议题共207个。它填补了Kubernetes生态中AI代理与强化学习场景的专用管理空白，降低了相关开发运维门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">kubernetes-sigs</span> <span class="tag tag-star">⭐ 3,979</span> <span class="tag tag-gray">agent / ai / kubernetes / rl</span></div>
+          <div class="pick-reason">agent-sandbox可实现隔离环境的简易管理，其社区数据达stars=3979、forks=524、open_issues=207，是AI行业的实用工具。</div>
+          <div class="source">来源：<a href="https://github.com/kubernetes-sigs/agent-sandbox" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Rust多智能体协调MCP服务器提供34项工具</h3>
+          <p class="news-body">一款面向多智能体协调的Rust MCP服务器，包含34项工具，基于Git存档，采用SQLite索引，支持咨询文件锁，还具备交互式TUI控制台。该开源项目在社区获得171颗星标、37次复刻，开放问题共14个。它填补了Rust生态中多智能体协调轻量级MCP服务器的空白，为AI开发者提供了性能与易用性兼顾的工具，降低了多智能体系统搭建的技术门槛。</p>
+          <p class="comment">若该工具持续迭代优化，或推动更多AI多智能体协作工具向Rust技术栈迁移，也将降低Rust开发者搭建多智能体系统的技术门槛。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">Dicklesworthstone</span> <span class="tag tag-star">⭐ 171</span> <span class="tag tag-gray">ai-agents / coordination / mcp / rust</span></div>
+          <div class="pick-reason">这款用于多智能体协调的Rust MCP服务器，含34个工具，社区获171星、37个复刻、14个未解决问题，为AI多智能体协作提供Rust实现选项。</div>
+          <div class="source">来源：<a href="https://github.com/Dicklesworthstone/mcp_agent_mail_rust" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. If You Hear It, Help Find It: Orthogonal Knowledge Distillation for Open-Vocabulary Audio-Visual Event Localization</h3>
+          <p class="news-body">顶会录用的开放词汇视听事件定位（OV-AVEL）研究，该任务是从音视频与语言中定位文本查询对应事件的任务。研究在OV-AVEBench数据集上发现，配置的视觉教师模型边界可靠性优于音频教师。据此提出可靠性感知的非对称蒸馏框架OV-OrthKD，该框架在OV-AVEBench上取得0.816的段AP，F1@0.5较官方微调基线整体提升2.7个百分点、未见过类别提升3.4个百分点。这件事为开放词汇视听事件定位的模型优化提供了具体的模态选择与蒸馏策略方向，减少了跨模态监督的无效性。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag tag-gray">cs.MM</span></div>
+          <div class="pick-reason">这篇获顶会录用的论文，围绕开放词汇视听事件定位的正交知识蒸馏展开研究，作者共3人，为该领域相关方向提供了新的探索方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.23376v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Testing, not presuming, adequacy: calibrating generative social simulators against emergent network structure</h3>
+          <p class="news-body">现有生成式社会模拟器的验证常停留在表面有效性，仅对涌现网络结构做描述性对比，未开展量化参数不确定性或充足性检查。顶会录用的该论文提出一种感知充足性的校准协议，整合摊销后验估计、合成可识别性评估等多项技术。研究以二手奢侈品转售市场为案例，设置四个按居住地划分的买方-品牌二部网络，用语言模型生成的persona资料构建前向模型进行验证。验证发现部分参数可恢复，但存在校准近似、过自信等问题，还暴露了前期诊断未察觉的偏差；该协议能提升社会模拟的科学性与可信度，推动生成式AI在社会科学应用从定性验证转向量化校准。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">这篇获顶会录用的论文（作者数4），提出通过测试而非预设来校准生成式社会模拟器，为AI领域的社会模拟研究提供了新的思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.24012v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Q-TIE轻量通用TIR重排序框架登EMNLP2026</h3>
+          <p class="news-body">随着RAG技术兴起，时间信息检索（TIR）成为核心环节，现有TIR范式存在各自缺陷，难以兼顾语义与时间相关性。Q-TIE是基于学习型时间意图提取（TIE）的轻量通用重排序框架，能将查询的时间约束映射为统一区间表示，平衡了两种TIR范式的优势。实验显示Q-TIE泛化性优于现有TIR方法，且轻量适配时间感知RAG管线。该研究获EMNLP2026录用，作者共4人，填补了轻量通用型TIR重排序方案的空白，对提升RAG可靠性至关重要。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-20</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Q-TIE是轻量通用的时序信息检索重排序框架，获EMNLP 2026录用，作者共4人，为该领域提供轻量可泛化的新方案</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.23880v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. onPanda通过token级修正优化LLM对齐数据标注</h3>
+          <p class="news-body">onPanda是一款用于高效标注LLM对齐数据与智能体轨迹的交互式工具，核心采用token级修正交互模式，相关论文由10位作者完成。其标注流程为定位模型响应中首个不当token，选择候选替换或自由编辑后截断后续内容并从修正前缀继续生成，循环至响应达标。小规模对照研究显示，onPanda较手动后编辑可减少52%的中位数标注时间。该工具标注的数据保留模型采样分布，适合构建on-policy SFT与偏好数据，附带标注数据集Panda-CVL及token级修正基准，可解决现有标注工具的交互局限，加速LLM对齐模型迭代。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该第4名候选论文为onPanda，研究LLM与智能体的on-policy对齐数据的高效标注（基于token级修正），作者数共10，为AI行业相关标注技术提供新探索。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.24983v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AI代理蒸馏技术Harness-Zero突破部署适配局限</h3>
+          <p class="news-body">由5位作者完成的研究提出Harness-Zero，通过agent-as-harness实现代理蒸馏，解决现有代理依赖部署专用工具的问题。该方法以领域优化的harness为训练指导，将其诱导的行为内化到模型权重，部署时可移除专用harness。实验覆盖知识工作、工具使用、科学领域，同进化harness下其性能优于code-as-harness。这项研究突破了代理工具通用性与最优性能难以兼顾的局限，为AI代理多场景适配提供新路径，辐射智能客服等AI应用场景。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Harness-Zero是一种通过Agent-as-Harness实现蒸馏的技术，该论文作者数为5，为AI蒸馏领域提供了新的实现思路</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.24974v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Chesterbrook AI初创Cornelis Networks获2.05亿美元融资</h3>
+          <p class="news-body">总部位于Chesterbrook的AI初创企业Cornelis Networks完成一笔大额融资，融资金额达20500万美元。这笔融资印证了资本对企业级AI基础设施赛道的高度认可，反映AI产业底层支撑技术的商业价值正被资本重点关注。该事件代表AI产业发展从上层应用向底层支撑环节延伸，资本开始向能支撑大规模AI部署的核心基础设施技术倾斜。这将吸引更多资本涌入企业级AI基础设施细分赛道，推动赛道技术迭代与落地应用。</p>
+          <p class="comment">若该赛道资本持续倾斜，则可能加速企业级AI基础设施的落地节奏</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.8事件数据：amount_wan=20500</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMieEFVX3lxTFA0U1FCRDFneVlWdEh0NjVoaXJHNmc1MFVoNWl5VHdVb2pHNlRDdkY1S3VaTlhWZHVoa1I0aUVXTnhnNU5SNU5Dcno0emZPVU9EdFg2WWRvZ2FDUVhRSEczNFdRYkwwNkttaThrenpsZ29JTnZfRGpaVQ?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI与数学及AI独立咨询小组合作指导AI成果审查传播</h3>
+          <p class="news-body">OpenAI正与独立的数学与人工智能咨询小组展开合作。这一合作旨在指导新兴AI成果的审查工作。同时负责相关AI成果的传播引导。这一合作意味着AI头部企业正尝试引入跨学科独立咨询机制，强化技术审查的科学性与合规性。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该数学与人工智能咨询小组作为AI行业相关的第2名候选，为AI领域的数学应用及行业咨询提供了关键的专业支撑方向。</div>
+          <div class="source">来源：<a href="https://openai.com/index/advisory-group-on-mathematics-and-ai" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Meta Muse美加下载及日活超ChatGPT同期移动端数据</h3>
+          <p class="news-body">据Appfig最新估算，Meta旗下AI助手Muse在美加地区的下载量与日活用户数，超过ChatGPT移动端上线后同期的表现。这一数据打破了此前OpenAI在AI产品移动端的先发优势。体现Meta在AI产品移动端落地的用户获取效率已领先。反映AI大模型厂商的竞争重心正从功能迭代转向移动端用户规模的快速抢占。</p>
+          <p class="comment">若Meta持续依托社交生态优势推进Muse的移动端扩张，则可能进一步挤压OpenAI在北美AI工具移动端的市场空间。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">在AI行业移动产品赛道，Meta的Muse表现优于ChatGPT的早期移动版发布，为移动AI产品发展提供了关键趋势参考</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/21/metas-muse-is-outpacing-chatgpts-early-mobile-launch/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta AI助手Muse遭亚马逊阻止使用 牵及AI平台控制权博弈</h3>
+          <p class="news-body">Meta的AI助手Muse被亚马逊阻止使用。亚马逊拥有自有基础模型队列，以及互联网上最受欢迎的推理平台之一。亚马逊无法律义务向Muse开放相关使用权限。这一情况体现科技巨头在AI领域的平台控制权博弈。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta的AI代理被禁止使用亚马逊网站，这一事件揭示了AI工具对接电商平台时存在的权限限制，为AI行业的外部服务交互场景提供了实际案例</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Benchmark在TechCrunch Disrupt 2026研讨突破性初创企业来源</h3>
+          <p class="news-body">头部创投机构Benchmark在TechCrunch Disrupt 2026主舞台开展合作研讨，聚焦下一个突破性初创企业的来源。该峰会注册通道开放，9月25日太平洋时间23:59前注册可节省最高200美元。这一研讨折射创投圈对高潜力初创赛道的核心判断，对创业者和投资者具有参考意义。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">作为第5名候选，Benchmark的完整合作方将参与2026年TechCrunch Disrupt，探讨AI行业下一个突破性初创企业的来源。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/21/where-will-the-next-breakout-startup-come-from-benchmarks-full-partnership-weighs-in-at-techcrunch-disrupt-2026/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>NousResearch推出的hermes-agent智能体</b> — 该项目主打伴随式成长的智能体，为开发者提供了个性化的智能体构建思路，值得关注其技术特性与落地案例。</div><div class="watch-item"><b>Meta的AI智能体被限制使用亚马逊服务</b> — 这一事件反映了大型科技公司在AI服务生态中的竞争博弈，可能影响智能体的跨平台应用能力，需跟踪后续发展。</div><div class="watch-item"><b>arXiv发布的Harness-Zero论文</b> — 该研究提出了通过智能体作为harness进行蒸馏的新方法，为LLM与智能体的性能优化提供了新方向，学术价值较高。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-22T05:04:56.874Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

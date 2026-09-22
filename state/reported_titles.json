@@ -1,25 +1,4 @@
 {
- "2026-09-07": {
-  "opensource": [
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|awesome mcp servers collection mcp servers",
-   "opensource|ragflow ragflow is leading source retrieval augmented",
-   "opensource|awesome claude code hand picked collection finest resources",
-   "opensource|lightrag emnlp2025 lightrag simple fast retrieval augmented"
-  ],
-  "paper": [
-   "paper|multi step tool calling over korean public apis benchmark data synthesis recipe",
-   "paper|distill globally adapt locally reasoning distillation product type test time tra",
-   "paper|online change point detection cooperative multi agent reinforcement learning",
-   "paper|embedding surgery localized updates adaptive ranking correction dense retrieval",
-   "paper|leveraging low level symbolic competences unsupervised grounding hallucination d"
-  ],
-  "enterprise": [
-   "enterprise|全球首款 智能体手机将于 日正式发布 ai 9 16",
-   "enterprise|research acceleration view inside openai",
-   "enterprise|alien mind"
-  ]
- },
  "2026-09-08": {
   "paper": [
    "paper|trust aware adaptive disclosure inference privacy preservation multi agent netwo",
@@ -317,6 +296,29 @@
    "enterprise|alibaba qwen team qwen3 8 livetranslate real time interpretation model that cuts",
    "enterprise|alibaba s weight qwen image 2 1 claims beat closed models image generation just ",
    "enterprise|bytedance seedance 2 5 ai video model techjuice"
+  ]
+ },
+ "2026-09-22": {
+  "paper": [
+   "paper|if you hear it help find it orthogonal knowledge distillation vocabulary audio v",
+   "paper|testing not presuming adequacy calibrating generative social simulators against ",
+   "paper|q tie lightweight generalizable re ranking framework temporal information retrie",
+   "paper|onpanda efficient annotation policy alignment data llms agents via token level c",
+   "paper|harness zero harness distillation via agent harness"
+  ],
+  "opensource": [
+   "opensource|hermes agent agent that grows you",
+   "opensource|code review fast efficient battle tested alibaba s scale",
+   "opensource|trueforge source agent harness runtime layer that",
+   "opensource|agent sandbox agent sandbox enables easy management isolated",
+   "opensource|mcp agent mail rust rust mcp server multi agent coordination 34 tools"
+  ],
+  "enterprise": [
+   "enterprise|chesterbrook ai startup cornelis networks 205m funding vista",
+   "enterprise|advisory group mathematics artificial intelligence",
+   "enterprise|meta s muse is outpacing chatgpt s early mobile",
+   "enterprise|meta s ai agent has been blocked using amazon com",
+   "enterprise|where will next breakout startup come benchmark s full partnership weighs techcr"
   ]
  }
 }
