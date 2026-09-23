@@ -1,27 +1,4 @@
 {
- "2026-09-08": {
-  "paper": [
-   "paper|trust aware adaptive disclosure inference privacy preservation multi agent netwo",
-   "paper|tree based rag framework evidence intensive qa via adaptive planning topology aw",
-   "paper|sam d2q aligning multimodal doc2query search demand conversion e commerce",
-   "paper|think verify revise neuro symbolic visual reasoning vision language models dynam",
-   "paper|towards neuro symbolic procedural reasoning long horizon vision language action "
-  ],
-  "opensource": [
-   "opensource|lobehub lobehub is your chief agent operator organizing your",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|tidb tidb is built agentic workloads that grow",
-   "opensource|cua scale computer use 2",
-   "opensource|weknora source llm knowledge platform turn raw documents"
-  ],
-  "enterprise": [
-   "enterprise|字节跳动将推出实时空间视频生成 模型 ai",
-   "enterprise|supporting independent journalism ukraine",
-   "enterprise|alibaba s qwen source model autonomous driving technode",
-   "enterprise|bytedance founder joins ai elite race perfect world models edge malaysia",
-   "enterprise|tencent hunyuan hy4 preview completes special optimization is fully task rounds "
-  ]
- },
  "2026-09-09": {
   "paper": [
    "paper|sequenceo1 end end ultra long 100k sequence modeling recommendation low rank cac",
@@ -319,6 +296,29 @@
    "enterprise|meta s muse is outpacing chatgpt s early mobile",
    "enterprise|meta s ai agent has been blocked using amazon com",
    "enterprise|where will next breakout startup come benchmark s full partnership weighs techcr"
+  ]
+ },
+ "2026-09-23": {
+  "paper": [
+   "paper|refilter bridging embeddings llm filtering similar mobile app retrieval",
+   "paper|measuring serving stack instead model hidden confounds local tool use evaluation",
+   "paper|a2m trace optimized agent hijacking mcp ecosystem",
+   "paper|metric bench exploring context spatial metric reasoning vlms indoor scenes",
+   "paper|flash dllm io aware kv caching parallel decoding fast memory efficient diffusion"
+  ],
+  "opensource": [
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|awesome mcp servers collection mcp servers",
+   "opensource|browserskill let ai agents use your real logged browser without",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|hyperframes write html"
+  ],
+  "enterprise": [
+   "enterprise|chamelio 26 million series replace legacy legal software ai agents calcalistech ",
+   "enterprise|gpt 6 sol luna",
+   "enterprise|better prompt caching gpt 6",
+   "enterprise|meta admits muse s likeness openclaw isn t coincidence",
+   "enterprise|qualcomm two smartphone chips emphasis ai"
   ]
  }
 }

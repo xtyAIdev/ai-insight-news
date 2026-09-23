@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-23</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today’s AI landscape saw a flurry of activity: on the open-source front, Dify launched capabilities to build agentic workflows and RAG pipelines, while Tencent ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-23">
+<meta property="og:description" content="Today’s AI landscape saw a flurry of activity: on the open-source front, Dify launched capabilities to build agentic workflows and RAG pipelines, while Tencent open-sourced BrowserSkill enabling AI ag">
+<meta property="og:url" content="./report_20260923.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-23">
+<meta name="twitter:description" content="Today’s AI landscape saw a flurry of activity: on the open-source front, Dify launched capabilities to build agentic workflows and RAG pipelines, while Tencent open-sourced BrowserSkill enabling AI ag">
+<link rel="canonical" href="./report_20260923.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-23 ｜ report_20260923</div>
+<div class="sub" data-lang-title="zh">2026-09-23 ｜ report_20260923</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today’s AI landscape saw a flurry of activity: on the open-source front, Dify launched capabilities to build agentic workflows and RAG pipelines, while Tencent open-sourced BrowserSkill enabling AI agents to operate on logged-in real browsers; in academic research, multiple arXiv papers focused on areas like agent hijacking in the MCP ecosystem and efficient decoding for diffusion LLMs; on the enterprise side, OpenAI released the GPT-6 series and improved prompt caching, Qualcomm launched two AI-focused smartphone chips, and legal AI firm Chamelio secured $26 million in Series A funding.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. dify：Build Agentic workflows, RAG pipelines, with rich AI model</h3>
+          <p class="news-body">Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-23</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 156,909</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">Dify is an AI tool for building agentic workflows and RAG pipelines, with notable community metrics: 156,909 stars, +694 weekly growth, 24,737 forks, and 1,089 open issues, making it a prominent project in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. awesome-mcp-servers：A collection of MCP servers</h3>
+          <p class="news-body">A collection of MCP servers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-23</span> <span class="tag">punkpeye</span> <span class="tag tag-star">⭐ 95,443</span> <span class="tag tag-gray">ai / mcp / MCP / 模型上下文协议</span></div>
+          <div class="pick-reason">As a community collection of MCP servers in the AI industry, awesome-mcp-servers has 95,443 stars, 16,491 forks and 2,248 open issues, making it a highly active AI-related community project collection.</div>
+          <div class="source">Source：<a href="https://github.com/punkpeye/awesome-mcp-servers" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. BrowserSkill：Let AI agents use your real, logged-in browser without</h3>
+          <p class="news-body">Let AI agents use your real, logged-in browser without interrupting your work. CLI + extension for browser automation across any shell-capable AI agent.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-23</span> <span class="tag">Tencent</span> <span class="tag tag-star">⭐ 6,708</span> <span class="tag tag-gray">agent / browser-use / dsh-plugin / Agent</span></div>
+          <div class="pick-reason">BrowserSkill allows AI agents to use real logged-in browsers. This project has received 6,708 stars, 491 forks and 56 open issues, representing a practical innovation in AI agent tools.</div>
+          <div class="source">Source：<a href="https://github.com/Tencent/BrowserSkill" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. unsloth：Local UI to run and train LLMs and diffusion models</h3>
+          <p class="news-body">Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4, MiniMax-H3, Gemma 4, FLUX and more.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-23</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 76,604</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">Unsloth, a local UI tool in the AI industry that enables running and training large language models (LLMs) and diffusion models, has gained 76,604 stars, 7,013 forks and 1,241 open issues, demonstrating strong community traction.</div>
+          <div class="source">Source：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. hyperframes：Write HTML</h3>
+          <p class="news-body">Write HTML. Render video. Built for agents.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-23</span> <span class="tag">heygen-com</span> <span class="tag tag-star">⭐ 52,457</span> <span class="tag tag-gray">ai / animation / ffmpeg / framework</span></div>
+          <div class="pick-reason">Hyperframes, a tool for writing HTML, stands out in AI-related projects with its community metrics: 52,457 stars, a weekly growth of +1,353, 4,788 forks, and 187 open issues, showing strong momentum.</div>
+          <div class="source">Source：<a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. ReFilter: Bridging Embeddings and LLM Filtering for Similar Mobile App Retrieval</h3>
+          <p class="news-body">Retrieving similar mobile applications (apps) is essential for researchers, developers, and end-users. Researchers use similarity detection to study app ecosystems and trends, developers for competitor analysis, and end-users for focused app recommendations. Existing approaches rely on embedding-based retrieval, which captures semantic similarity but fails to identify functionally similar apps. To our knowledge, no prior work has applied large language model (LLM)-based filtering to this task, due to the high computational cost of evaluating large numbers of app pairs. To address this gap, we propose ReFilter, a hybrid framework that first Retrieves semantically related candidate apps using embeddings and then applies LLM-based contextual Filtering to identify true functionally similar apps with higher precision. This design balances efficiency and accuracy, achieving an F1-score of 90% for retrieving similar apps. By improving the relevance of app alternatives, ReFilter enables more accurate app comparisons and supports improved ecosystem understanding, competitor analysis, and recommendations.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">This ReFilter paper, with 3 authors, has been accepted by a top conference, providing a new solution for similar mobile app retrieval by bridging embeddings and LLM filtering in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.25306v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Measuring the Serving Stack Instead of the Model: Hidden Confounds in Local Tool-Use Evaluation</h3>
+          <p class="news-body">A coding agent must emit a valid tool call--a parseable invocation of a tool in the provided schema--before the harness can execute its chosen action. We study how local serving stacks affect this protocol step and show that measured outcomes can depend on the serving layer rather than model behavior alone. In Ollama, the default tools= request is gated per model by a static template flag: some models are accepted and return calls as text, some return native tool_calls, while Phi-3 and Gemma-3 are rejected before inference. In our harness, rejection and retry exhaustion are not preserved as structured failure metadata, so downstream analysis can misclassify them as model non-calls and naively report 0% fidelity. Adding a text tool list while retaining the native channel recovers much of the measured fidelity for accepted models, whereas a uniform text protocol reduces fidelity for Llama-3.2, which has native tool-call support. Cross-stack probes on Ollama, llama.cpp, vLLM, and SGLang show different handling of the same request. Constrained decoding removes parse failures but can induce non-termination, and turn-pooled versus per-instance estimates differ by up to about 55 points. We conclude with a checklist for treating serving behavior as part of the evaluation protocol.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">This paper, accepted by EMNLP 2026 with 2 authors, focuses on hidden confounds in local tool-use evaluation, proposing to measure the serving stack instead of the model, offering a new perspective for AI tool evaluation.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.26693v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. A2M: Trace-Optimized Agent Hijacking in the MCP Ecosystem</h3>
+          <p class="news-body">Agents using the Model Context Protocol (MCP) rely on semantic matching to select tools from third-party servers, exposing a semantic supply-chain risk through attacker-controlled metadata and outputs. We introduce A2M (Attraction-to-Manipulation), a two-stage black-box framework for hijacking MCP agents. The Attraction phase optimizes tool metadata to increase invocation probability; the Manipulation phase uses execution traces to refine adversarial tool returns that steer agents toward attacker-desired outcomes. On LiveMCPBench, direct attacks optimized and evaluated on GLM-4.6 achieve a macro-average malicious tool invocation rate of 93.6% across four scenarios, increase weighted token costs to 32.4$\times$ the benign baseline under Cognitive Denial of Service, and attain a mean attack success rate of 74.4% across Information Exfiltration, Environment Integrity Compromise, and Reasoning Derailment. Transfer to four other models without re-optimization yields corresponding macro-averages of 63.6%, 2.7$\times$, and 24.5%. These findings motivate stronger tool vetting and runtime isolation in MCP ecosystems. Code is publicly available at https://github.com/Lilaizhen/A2M.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag tag-gray">cs.CR</span></div>
+          <div class="pick-reason">This paper, accepted by ACL and written by 7 authors, centers on Trace-Optimized Agent Hijacking in the MCP ecosystem, offering academic insights for AI security research.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.26761v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Metric-Bench: Exploring In-context Spatial Metric Reasoning in VLMs for Indoor Scenes</h3>
+          <p class="news-body">Metric reasoning is a critical and challenging task for Vision Language Models (VLMs), playing a pivotal role in embodied AI tasks such as robotic manipulation and autonomous navigation. However, current spatial reasoning remains bottlenecked by rigid pixel-level supervision; such localized optimization often compromises general multimodal intelligence, triggering performance degradation or catastrophic forgetting of broad reasoning capabilities. To address these limitations, we introduce Metric-Bench, a focused benchmark designed to guide metric-spatial reasoning using contextual information. By incorporating in-image reference objects with known physical dimensions, Metric-Bench guides models to implicitly learn the 2D-to-3D mapping without camera intrinsics. We further present MetricReasoner, a task-adapted reinforcement fine-tuning recipe for reference-grounded metric reasoning, using structured prompts and verifiable numerical rewards. Extensive experiments on Metric-Bench demonstrate that our approach significantly enhances spatial metric understanding, outperforming existing and even larger proprietary models by 43.1\%, while improving downstream embodied performance over a spatial-specialized counterpart by 30.4\% on RoboSpatial overall accuracy and 9.3\% on ERQA, and additionally delivering consistent gains on general benchmarks (15.9\% on V$\star$Bench, 88.9\% on BLINK), indicating that the proposed adaptation does not necessarily compromise general VLM capabilities</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">This study proposes Metric-Bench to explore in-context spatial metric reasoning in vision-language models (VLMs) for indoor scenes. It is accepted by ECCV with 10 authors, providing a benchmark reference for the relevant field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.25841v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Flash-dLLM: IO-Aware KV Caching and Parallel Decoding for Fast, Memory-Efficient Diffusion LLMs</h3>
+          <p class="news-body">Diffusion Large Language Models (dLLMs) have recently emerged as a promising alternative to autoregressive LLMs by enabling non-autoregressive text generation. However, their practical deployment remains limited by inefficient inference, largely due to the absence of effective Key-Value (KV) caching and scalable parallel decoding mechanisms. Existing acceleration methods typically study KV caching and parallel decoding in isolation, overlooking the I/O bottlenecks that arise when cache reuse and parallel token verification are jointly applied. In this work, we introduce $\textbf{Flash-dLLM}$, a training-free inference acceleration framework for fast and memory-efficient dLLMs. Flash-dLLM first identifies GPU memory I/O as a dominant bottleneck in KV-cache-enabled dLLM inference and addresses it with an I/O-aware fused KV-cache kernel that reduces redundant memory movement. Building on this optimized cache mechanism, Flash-dLLM further proposes an efficient KV-cache-driven draft-and-verify decoding strategy, where the dLLM itself serves as both drafter and verifier without requiring an auxiliary model. This unified design enables faster decoding while preserving generation quality and improving scalability to longer sequences and larger batch size. Extensive experiments on mathematical reasoning and code-generation benchmarks demonstrate that Flash-dLLM consistently outperforms existing state-of-the-art dLLM acceleration methods in both inference speed and memory efficiency. I</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">The Flash-dLLM paper proposes IO-aware KV caching and parallel decoding for diffusion LLMs, with 3 authors, offering a new direction for optimizing fast and memory-efficient diffusion LLMs in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.26796v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Chamelio raises $26 million Series A to replace legacy legal software with AI agents - calcalistech.com</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiaEFVX3lxTFBBYTM2bGFTNVhHb1VRRVdoMUpOUWMxNnVLU090VTBHdUkycDZwSTl2cEJGV3FDdlFsU0ZmRTRwXzd4U1ZzOFVndk8xWW8tVWl2VGFOb1Z4ajE1TXJNNE93R0dnd3M3bjNq?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Chamelio raises $26 million Series A to replace legacy legal software with AI age</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.8事件数据：amount_wan=2600</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFBBYTM2bGFTNVhHb1VRRVdoMUpOUWMxNnVLU090VTBHdUkycDZwSTl2cEJGV3FDdlFsU0ZmRTRwXzd4U1ZzOFVndk8xWW8tVWl2VGFOb1Z4ajE1TXJNNE93R0dnd3M3bjNq?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Introducing GPT-6 Sol and Luna</h3>
+          <p class="news-body">Meet GPT-6 Sol and Luna, two models that bring frontier intelligence to everyday work with different balances of capability and cost.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event introduces two models, Sol and Luna, under GPT-6, which is the 2nd candidate, marking a new development in AI large model iteration.</div>
+          <div class="source">Source：<a href="https://openai.com/index/introducing-gpt-6-sol-and-luna" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Better prompt caching for GPT-6</h3>
+          <p class="news-body">Learn how GPT-6 improves prompt caching with higher cache hit rates, new diagnostics, explicit breakpoints, and controls that reduce latency and costs.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This is an optimized solution for prompt caching targeting GPT-6, as the 3rd candidate, representing an important exploration direction in AI model efficiency optimization.</div>
+          <div class="source">Source：<a href="https://openai.com/index/better-prompt-caching-for-gpt-6" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta admits Muse’s likeness to OpenClaw isn’t a coincidence</h3>
+          <p class="news-body">Meta says Muse was built from scratch, but acknowledges the AI assistant was &quot;heavily inspired&quot; by OpenClaw — down to some of its workspace filenames and content.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta has admitted that the similarity between its Muse and OpenClaw is not a coincidence. As the 4th candidate, this event has sparked relevant discussions in the AI industry.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/22/meta-admits-muses-likeness-to-openclaw-isnt-a-coincidence/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Qualcomm launches two new smartphone chips with emphasis on AI</h3>
+          <p class="news-body">Qualcomm said that its new top chip can run 30B mixture-of-expert model locally.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">Qualcomm</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Qualcomm launches two new smartphone chips with an emphasis on AI, which sends a signal of its focus on integrating AI into mobile hardware, offering new possibilities for AI applications in smartphones.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/22/qualcomm-launches-two-new-smartphone-chips-with-emphasis-on-ai/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>OpenAI Releases GPT-6 Series and Improved Prompt Caching</b> — As OpenAI's next-generation large language model, the release of GPT-6 and its improved prompt caching will significantly enhance the response speed and efficiency of AI applications, making it worth monitoring industry application implementations.</div><div class="watch-item"><b>Tencent Open-Sources BrowserSkill Tool</b> — BrowserSkill enables AI agents to operate on logged-in real browsers, providing new possibilities for AI application interaction with real user scenarios, and is expected to expand the application boundaries of AI agents.</div><div class="watch-item"><b>arXiv Publishes A2M Agent Hijacking Research Paper</b> — The A2M research focuses on agent hijacking in the MCP ecosystem, revealing potential security risks and providing important reference value for AI ecosystem security protection.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域动态丰富：开源工具层面，Dify推出智能工作流与RAG管道构建能力，腾讯开源BrowserSkill让AI代理可操作已登录的真实浏览器；学术研究方面，多份arXiv论文聚焦MCP生态代理劫持、扩散LLM高效解码等方向；企业端，OpenAI发布GPT-6系列及优化的提示缓存，高通推出两款侧重AI的手机芯片，法律AI企业Chamelio获2600万美元A轮融资。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. 开源AI工具Dify覆盖Agent与RAG开发 社区数据亮眼</h3>
+          <p class="news-body">Dify是一款开源AI工具，可在协作工作区构建Agentic workflows与RAG pipelines，支持丰富AI模型及工具。它提供云、VPC、自托管等多种部署选项，助力团队从原型到生产无需重构技术栈。其社区数据表现亮眼，目前stars达156909，周增长694，forks24737，open issues1089。该工具整合AI开发核心环节，降低中小团队AI应用开发门槛，适配企业级灵活部署需求，推动开源AI工具普及。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-23</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 156,909</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">dify是构建智能工作流与RAG管道的AI工具，社区数据亮眼：stars达156909，周增长+694，forks24737，open_issues1089，是AI行业受关注的项目</div>
+          <div class="source">来源：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 开源awesome-mcp-servers聚合MCP服务器资源</h3>
+          <p class="news-body">awesome-mcp-servers是一个MCP服务器的开源集合。它的GitHub社区数据显示，stars达95443，forks为16491，open issues共2248。该集合降低了开发者搭建AI服务时调用MCP的技术门槛。这件事意味着开源社区正聚焦AI工具交互核心协议MCP的资源聚合，推动AI工具链的模块化协同发展。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-23</span> <span class="tag">punkpeye</span> <span class="tag tag-star">⭐ 95,443</span> <span class="tag tag-gray">ai / mcp / MCP / 模型上下文协议</span></div>
+          <div class="pick-reason">awesome-mcp-servers作为AI行业中MCP服务器的社区集合，拥有95443 stars、16491 forks及2248 open_issues，是社区活跃度极高的相关项目集合。</div>
+          <div class="source">来源：<a href="https://github.com/punkpeye/awesome-mcp-servers" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 开源工具BrowserSkill让AI代理用真实登录浏览器不中断</h3>
+          <p class="news-body">开源工具BrowserSkill包含CLI与浏览器扩展，可实现跨支持shell的AI代理的浏览器自动化。该工具支持AI代理使用用户已登录的真实浏览器，不会中断用户工作。其GitHub社区当前数据为6708星、491个复刻、56个开放议题。它打通了AI代理与用户真实浏览器的连接，解决此前AI代理浏览器操作需模拟环境或中断用户的痛点，降低AI应用落地门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-23</span> <span class="tag">Tencent</span> <span class="tag tag-star">⭐ 6,708</span> <span class="tag tag-gray">agent / browser-use / dsh-plugin / Agent</span></div>
+          <div class="pick-reason">BrowserSkill让AI代理可使用真实登录的浏览器，该项目获6708星、491个复刻、56个未解决问题，是AI代理工具领域的实用创新方向。</div>
+          <div class="source">来源：<a href="https://github.com/Tencent/BrowserSkill" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Unsloth开源项目获7.6万星 本地UI支持AI模型运行训练</h3>
+          <p class="news-body">Unsloth是一款开源工具，提供本地UI用于运行和训练大语言模型（LLM）与扩散模型。它支持GGUF、MLX、Qwen3.8、DeepSeek-V4、MiniMax-H3等多种模型格式及产品。该项目在开源社区获得76604星标、7013次复刻，还有1241个未解决问题。这件事意味着普通开发者、研究者能更低门槛地本地部署与微调AI模型，推动开源AI工具向轻量化、易用化落地。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-23</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 76,604</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">Unsloth是AI领域支持运行、训练大语言模型与扩散模型的本地UI工具，获76604星、7013次复刻，开放问题1241个，社区关注度高</div>
+          <div class="source">来源：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 开源项目hyperframes为AI智能体提供HTML及视频渲染能力</h3>
+          <p class="news-body">开源项目hyperframes专为AI智能体构建，具备编写HTML、渲染视频的功能。该项目社区数据表现亮眼，获52457颗星，周增长1353，fork数4788，开放议题187。它填补了智能体生成动态网页及视频内容的开源工具空白，降低了智能体落地的可视化门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-23</span> <span class="tag">heygen-com</span> <span class="tag tag-star">⭐ 52,457</span> <span class="tag tag-gray">ai / animation / ffmpeg / framework</span></div>
+          <div class="pick-reason">用于编写HTML的hyperframes在AI相关项目中表现亮眼，社区数据为stars=52,457，周增长=+1353，forks=4788，open_issues=187，增长势头强劲</div>
+          <div class="source">来源：<a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. ReFilter结合LLM过滤提升移动应用相似检索精度</h3>
+          <p class="news-body">移动应用相似检索对研究者、开发者及用户均有重要价值，现有嵌入式检索仅能捕捉语义相似，无法识别功能相似的应用。针对该领域空白，论文提出ReFilter混合框架，先通过嵌入检索语义相关候选，再采用LLM过滤筛选功能相似应用。该设计兼顾效率与精度，在相似应用检索任务中F1值达90%，可提升应用对比的相关性。这一成果填补了移动应用相似检索领域的技术空白，对应用生态研究、竞品分析及用户推荐均有支撑作用。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-21</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">该ReFilter论文获顶会录用，作者共3人，为AI行业中移动应用相似检索提供了连接嵌入与LLM过滤的新方案。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.25306v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Measuring the Serving Stack Instead of the Model: Hidden Confounds in Local Tool-Use Evaluation</h3>
+          <p class="news-body">这篇获EMNLP2026录用的论文（作者共2人），研究本地服务栈对编码代理工具调用评估的影响，发现评估结果可能依赖服务层而非仅模型行为。以Ollama为例，其默认工具请求受静态模板标志控制，不同模型处理方式不同，Phi-3、Gemma-3会被拒绝推理。现有测试工具未保留拒绝等结构化失败元数据，易误判模型无工具调用；添加文本工具列表可提升部分模型保真度，统一文本协议则会降低Llama-3.2的保真度。跨Ollama、llama.cpp等服务栈测试显示，不同栈处理同一请求的方式不同，约束解码可减少解析失败但可能导致不终止，不同估算方式差异可达约55个百分点，论文还给出将服务行为纳入评估协议的清单。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该EMNLP 2026录用的2位作者论文，聚焦本地工具使用评估的隐藏混淆因素，提出测量服务栈而非模型的思路，为AI工具评估提供新方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.26693v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. A2M: Trace-Optimized Agent Hijacking in the MCP Ecosystem</h3>
+          <p class="news-body">ACL录用的论文作者共7人，提出A2M（Attraction-to-Manipulation），这是针对MCP生态的两阶段黑盒AI代理劫持框架。在LiveMCPBench测试中，针对GLM-4.6优化的攻击，恶意工具调用率达93.6%，还会提升代币成本、实现高攻击成功率。该攻击无需重新优化即可迁移至其他四款模型，对应指标分别为63.6%、2.7倍、24.5%。这一发现表明MCP生态需强化工具审核与运行时隔离，且MCP作为AI代理工具调用核心协议，其语义匹配漏洞会威胁决策安全。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag tag-gray">cs.CR</span></div>
+          <div class="pick-reason">该论文为ACL录用，由7位作者完成，聚焦MCP生态中A2M的Trace优化型Agent劫持研究，为AI安全领域提供相关学术参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.26761v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Metric-Bench提升VLMs室内空间度量推理性能</h3>
+          <p class="news-body">针对VLMs在具身AI中空间度量推理的瓶颈，相关研究推出Metric-Bench基准与MetricReasoner强化微调方案。该研究获ECCV录用，作者共10人，实验显示其方法使模型空间度量理解能力显著提升。对比现有及更大专有模型，性能提升达43.1%，在RoboSpatial等下游任务中也有明显增益，且未损害模型通用能力。这项工作为VLMs在室内具身场景的应用提供了针对性解决方案，意味着能缓解现有空间推理监督瓶颈带来的性能问题。</p>
+          <p class="comment">若该方案能在更多具身场景落地，则可能推动VLMs从泛化向任务专用推理能力演进，也会完善空间推理任务的基准测试体系。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">该研究提出Metric-Bench，探索室内场景视觉语言模型的上下文空间度量推理，获ECCV录用，作者共10人，为相关方向提供基准参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.25841v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Flash-dLLM填补dLLM推理IO瓶颈优化空白</h3>
+          <p class="news-body">扩散大语言模型（dLLM）作为非自回归文本生成的替代方案，近期受关注，但推理效率低限制了其实际部署。现有dLLM加速方法多孤立研究KV缓存与并行解码，忽略了两者联合应用时产生的IO瓶颈。Flash-dLLM是无训练的推理加速框架，通过IO感知融合KV缓存内核解决GPU内存IO瓶颈，还提出KV缓存驱动的draft-and-verify解码策略。实验显示，Flash-dLLM在数学推理和代码生成基准上，推理速度与内存效率均优于现有最优dLLM加速方法。这一优化可降低dLLM内存占用与延迟，推动其从理论走向实际应用。</p>
+          <p class="comment">若Flash-dLLM的方案落地，或推动AI内容生成等依赖高效非自回归模型的场景发展。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Flash-dLLM论文针对扩散LLM提出IO感知KV缓存与并行解码方案，作者数3，为AI行业内存高效、快速的扩散LLM优化提供了新方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.26796v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Chamelio获2600万A轮融资 用AI代理替代传统法律软件</h3>
+          <p class="news-body">Chamelio完成A轮融资，融资金额为2600万。该公司计划用AI代理替代传统法律软件。这一举措瞄准法律行业传统软件的低效痛点。这一事件凸显AI在垂直专业服务领域的落地加速。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.8事件数据：amount_wan=2600</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFBBYTM2bGFTNVhHb1VRRVdoMUpOUWMxNnVLU090VTBHdUkycDZwSTl2cEJGV3FDdlFsU0ZmRTRwXzd4U1ZzOFVndk8xWW8tVWl2VGFOb1Z4ajE1TXJNNE93R0dnd3M3bjNq?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. GPT-6 Sol及Luna 平衡能力成本适配日常办公场景</h3>
+          <p class="news-body">GPT-6系列推出Sol与Luna两款模型，将前沿智能技术应用于日常办公场景。两款模型针对能力与成本采取不同的平衡方案，适配多样化用户需求。这一举措打破了此前大模型要么侧重顶尖性能、要么成本高昂的二元选择困境，为企业级用户提供了更灵活的AI落地路径，也降低了中小团队采用高端AI工具的门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">本次事件是AI行业推出GPT-6系列的Sol与Luna两款模型，作为第2名候选，是大模型迭代的重要新动向。</div>
+          <div class="source">来源：<a href="https://openai.com/index/introducing-gpt-6-sol-and-luna" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. GPT-6优化提示缓存 降本提效适配企业级应用</h3>
+          <p class="news-body">GPT-6优化了提示缓存，实现更高缓存命中率，新增诊断功能、明确断点及相关控制项。这些优化可降低延迟，同时减少相关成本。这类优化对企业级AI应用的规模化落地至关重要。</p>
+          <p class="comment">若GPT-6的提示缓存优化能被企业级场景广泛采用，或推动大模型行业从参数竞争转向部署效率竞争，提示缓存有望成企业级AI标配能力。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">这是针对GPT-6的提示词缓存优化方案，作为第3名候选，是AI模型效率优化领域的重要探索方向。</div>
+          <div class="source">来源：<a href="https://openai.com/index/better-prompt-caching-for-gpt-6" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta承认Muse借鉴OpenClaw 引发AI原创性争议</h3>
+          <p class="news-body">Meta称其AI助手Muse为从零开发的产品，但承认该助手受竞品OpenClaw深度启发。这种借鉴体现在部分工作区文件名及内容层面。这一情况打破了AI开发&quot;完全原创&quot;的行业默认叙事，引发对AI产品原创性界定与知识产权边界的争议。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta承认其Muse与OpenClaw的相似并非巧合，这一作为第4名候选的事件，在AI行业引发关于AI模型相似性的相关讨论</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/22/meta-admits-muses-likeness-to-openclaw-isnt-a-coincidence/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Qualcomm launches two new smartphone chips with emphasis on AI</h3>
+          <p class="news-body">高通推出两款侧重AI的智能手机芯片。其新顶级芯片可本地运行30B mixture-of-expert模型。这一突破缩小了端侧与云端AI的差距，为移动AI应用落地提供关键支撑。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-22</span> <span class="tag">Qualcomm</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">高通推出两款新智能手机芯片，重点聚焦AI，这一举措为AI在移动端智能手机领域的应用提供了硬件层面的新可能，是AI与消费电子硬件结合的行业信号</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/22/qualcomm-launches-two-new-smartphone-chips-with-emphasis-on-ai/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>OpenAI发布GPT-6系列及优化提示缓存</b> — GPT-6是OpenAI新一代大模型，其发布及提示缓存优化将显著提升AI应用的响应速度与效率，值得关注行业应用落地情况。</div><div class="watch-item"><b>腾讯开源BrowserSkill工具</b> — BrowserSkill让AI代理可操作已登录的真实浏览器，为AI应用与用户真实场景交互提供新可能，有望拓展AI代理的应用边界。</div><div class="watch-item"><b>arXiv发布A2M代理劫持研究论文</b> — A2M研究聚焦MCP生态中的代理劫持问题，揭示潜在安全风险，对AI生态安全防护具有重要参考价值。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-23T04:52:38.784Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
