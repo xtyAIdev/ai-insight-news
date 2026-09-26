@@ -1,27 +1,4 @@
 {
- "2026-09-11": {
-  "paper": [
-   "paper|retrothinker enabling retrospective thinking speech llms",
-   "paper|reva reusable evidence view aggregation context efficient rag serving",
-   "paper|agentic share search multi agent ai system competitive decision making llm media",
-   "paper|multihuse multimodal dataset humour styles emotions",
-   "paper|reground grounding reviewer comments multimodal evidence"
-  ],
-  "opensource": [
-   "opensource|trueforge source agent harness runtime layer that",
-   "opensource|openbot source ai coworkers that each get computer their",
-   "opensource|reme reme memory management kit agents remember me",
-   "opensource|browserskill let ai agents use your real logged browser without",
-   "opensource|mcp remote connect mcp client that only supports local stdio"
-  ],
-  "enterprise": [
-   "enterprise|legal ai startup harvey 15 5 billion valuation funding round reuters",
-   "enterprise|how researcher uses codex chatgpt search antimicrobial molecules",
-   "enterprise|now everyone can put data work",
-   "enterprise|deepseek v4 1 flash smarter faster more efficient",
-   "enterprise|recreating 70 year love story frame frame"
-  ]
- },
  "2026-09-12": {
   "paper": [
    "paper|distance generalization transformers why bother positional encoding",
@@ -319,6 +296,29 @@
    "enterprise|google photos clueless inspired virtual closet is now available android ios",
    "enterprise|prismml brings tiny llms qualcomm powered smart glasses",
    "enterprise|ando wants take slack team messaging app that lets humans agents work together"
+  ]
+ },
+ "2026-09-26": {
+  "paper": [
+   "paper|grasp generating revising assessing strategic planning agentic ai",
+   "paper|agentic detection online conspiracies",
+   "paper|poem predicting rl outcomes existing policies",
+   "paper|argus role aware event knowledge graphs u s employment discrimination complaints",
+   "paper|llm agents can easily tamper their own traces"
+  ],
+  "opensource": [
+   "opensource|graphiti build real time knowledge graphs ai agents",
+   "opensource|browserskill let ai agents use your real logged browser without",
+   "opensource|localgpt local ai assistant dreaming explorable worlds",
+   "opensource|awesome agent native services curated list agent native services infrastructure",
+   "opensource|个人 平台应用 提供超强高可控性的 交互 aio hub ai llm vcp"
+  ],
+  "enterprise": [
+   "enterprise|创始人拟在 前谋求投票控制权 anthropic ipo",
+   "enterprise|copilot home code autopilot",
+   "enterprise|meta connect company s smart glasses were everywhere",
+   "enterprise|meta early access program muse features",
+   "enterprise|techcrunch disrupt 2026 ricursive intelligence s anna goldie azalia mirhoseini w"
   ]
  }
 }
