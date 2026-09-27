@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-27</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's AI developments span three key areas: open-source technology, academic research, and enterprise applications. On the open-source front, practical projec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-27">
+<meta property="og:description" content="Today's AI developments span three key areas: open-source technology, academic research, and enterprise applications. On the open-source front, practical projects like the vllm-metal plugin for Apple ">
+<meta property="og:url" content="./report_20260927.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-27">
+<meta name="twitter:description" content="Today's AI developments span three key areas: open-source technology, academic research, and enterprise applications. On the open-source front, practical projects like the vllm-metal plugin for Apple ">
+<link rel="canonical" href="./report_20260927.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-27 ｜ report_20260927</div>
+<div class="sub" data-lang-title="zh">2026-09-27 ｜ report_20260927</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's AI developments span three key areas: open-source technology, academic research, and enterprise applications. On the open-source front, practical projects like the vllm-metal plugin for Apple hardware and local LLM run/train tool unsloth were launched. Academically, multiple papers on robot programming and agent planning were released. For enterprises, Alibaba slashed prices of AI voice tools, Proaction boosted sales with OpenAI Codex, and Meta/YouTube will run ads for the Musk documentary.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. mcphub：Self-hosted MCP gateway and control plane for connecting,</h3>
+          <p class="news-body">Self-hosted MCP gateway and control plane for connecting, controlling, and operating MCP servers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag">samanhappy</span> <span class="tag tag-star">⭐ 2,476</span> <span class="tag tag-gray">mcp / mcp-gateway / mcp-hub / mcp-router</span></div>
+          <div class="pick-reason">This project is a self-hosted MCP gateway and control plane for connection in the AI field, gaining 2,476 stars, 323 forks and 16 open issues, showing certain community attention.</div>
+          <div class="source">Source：<a href="https://github.com/samanhappy/mcphub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. vllm-metal：Community maintained hardware plugin for vLLM on Apple</h3>
+          <p class="news-body">Community maintained hardware plugin for vLLM on Apple Silicon</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag">vllm-project</span> <span class="tag tag-star">⭐ 1,782</span> <span class="tag tag-gray">apple-silicon / llm / macos / metal</span></div>
+          <div class="pick-reason">vllm-metal is a community-maintained hardware plugin for vLLM on Apple devices, boasting 1,782 stars, 269 forks and 31 open issues, representing a community-driven adaptation effort for Apple hardware in the AI sector.</div>
+          <div class="source">Source：<a href="https://github.com/vllm-project/vllm-metal" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 249,278</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">hermes-agent, an AI agent, boasts impressive community metrics: 249,278 stars, a weekly growth of +1,449, 52,949 forks, and 44,217 open issues, making it a notable project in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. lobehub：🤯 LobeHub is your Chief Agent Operator, organizing your</h3>
+          <p class="news-body">🤯 LobeHub is your Chief Agent Operator, organizing your agents into 7×24 operations by hiring, scheduling, and reporting on your entire AI team.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag">lobehub</span> <span class="tag tag-star">⭐ 82,843</span> <span class="tag tag-gray">agent / agent-collaboration / agent-harness / ai</span></div>
+          <div class="pick-reason">LobeHub, acting as an AI Agent Operator, boasts impressive community metrics: 82,843 stars, a weekly growth of +136, 15,923 forks and 948 open issues, making it a highly noticeable project in the AI community.</div>
+          <div class="source">Source：<a href="https://github.com/lobehub/lobehub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. unsloth：Local UI to run and train LLMs and diffusion models</h3>
+          <p class="news-body">Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4, MiniMax-H3, Gemma 4, FLUX and more.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 76,841</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">Unsloth, a tool offering local UI for running and training LLMs and diffusion models, has gained 76,841 stars, 7,054 forks and 1,270 open issues, drawing wide attention in the AI community.</div>
+          <div class="source">Source：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. RAPID: Robot Agentic Programming from Demonstrations</h3>
+          <p class="news-body">Coding agents have demonstrated enormous success in solving complex programming problems. To leverage their potential for robot systems, this work introduces Robot Agentic Programming from Demonstrations (RAPID), which automatically generates, verifies, and refines robot programs, given a single visual human demonstration. The iterative agentic loop of code refinement requires several key ingredients: (i) a testable task specification, (ii) action primitives for robot execution, and (iii) an interactive environment for program execution and verification. RAPID infers all three from the demonstration automatically. To make the resulting program reusable beyond the demonstration setting, RAPID uses an object-centric relational program representation that focuses on the underlying structure of the demonstrated strategy rather than the specific motion per se: it expresses the action primitives as trajectory-optimization programs that realize object-level motion effects, while composing them through relational constraints that capture scene-specific geometry at run time. We evaluated RAPID in simulation on eight challenging contact-rich nonprehensile manipulation tasks as well as general prehensile manipulation tasks in the LIBERO-Pro benchmark. We also successfully deployed it on a real Franka arm and evaluated on all eight nonprehensile tasks. In all experiments, RAPID demonstrated strong performance, with generalization over object pose, shape, material, and environment. Websit</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-24</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">RAPID is a method for robot agentic programming from demonstrations, and its paper has 5 authors, bringing new research directions to the field of AI robot programming.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.30249v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Coding Agents for Generalized Task and Motion Planning Problems</h3>
+          <p class="news-body">Task and motion planning (TAMP) problems remain difficult even with full observability and object-centric states because discrete decisions are tightly coupled to geometric, kinematic, and dynamic constraints. Generalized TAMP addresses this difficulty by exploiting regularities across problem instances to reduce planning effort on new instances. However, existing methods require substantial TAMP-specific engineering. We investigate whether coding agents can automate this process by synthesizing programs that generalize across instances. Given a task description and simulator access, each agent chooses how to interact with the environment while developing a program within a fixed synthesis budget. The program is then frozen and evaluated on unseen instances. We evaluate Claude Code (Opus 5) and Codex (GPT-5.6 Sol and GPT-6 Astra) on 28 simulated environments from KinDER and PDDLStream, with object counts beyond those evaluated in the original benchmark. Across all program synthesis methods, we evaluate 980 generated programs on 100 held-out instances each, 98,000 evaluation episodes in total. Overall, we find that coding agents are surprisingly effective at generalized TAMP: all three agent configurations outperform hand-engineered planners, one-shot generation, and an LLM-based generalized planning baseline in mean success (56% to 95% versus 47% for the planners, on the 16 environments where a planner is available). As object counts grow, the agents' programs maintain higher</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-24</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">This paper studies coding agents for generalized task and motion planning problems, with 7 authors, as the 2nd candidate, offering new ideas for AI industry research.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.30233v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Requirement-Bound Verified Commissioning: A Frozen Four-Billion-Parameter Local Model as a Candidate Generator under an External Acceptance Layer with Verification and Release Authority</h3>
+          <p class="news-body">An acceptance protocol is developed for sensor-coordinate and polarity binding in mechatronic commissioning. Candidate generation is separated from release authority. Requirements unsupported by a deterministic parser are routed to a frozen local language model with four billion parameters. Plans are released only when both facts can be derived by an external gate under a sealed grammar. One canonical answer is requested from a gold-standard user when eligible. The protocol was evaluated once under a criterion fixed before benchmark construction, on 144 tasks written by isolated agent contexts without access to the gate, grammar, or experimental plan. Three contributions are established. First, candidate generation and release decisions were measured separately. Fabricated ready plans were committed on 21 of 22 routed unanswerable tasks, and all were rejected. The same 83 releases were reproduced without model calls. Second, no false release was observed among 83 releases. A one-sided 95% Clopper-Pearson upper bound of 0.0354 was obtained as a diagnostic under an independent-and-identically-distributed assumption, below the sealed 5% threshold. However, one false release was subsequently recorded among 146 releases outside the benchmark at seed 0. Third, protection against incorrect user answers was characterized. Both facts were bound from the original text on 13 of 96 answerable tasks. Incorrect answers were released in 169 of 431 pairings on the remaining tasks, including </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-24</span> <span class="tag tag-gray">cs.SE</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=1</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.30219v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Return or Revise? Learning When Revision Helps Retrieval-Augmented QA</h3>
+          <p class="news-body">We consider the decision of whether to return an existing draft answer or revise it using retrieved evidence, as in answer-revision systems. Draft confidence estimates whether the current answer is correct, but the decision requires estimating the effect of a specified revision. For offline training and evaluation, we grade both the returned draft and its candidate revision under the same correctness judge, which makes repair, harm, and the gap to an oracle observable. We call this paired effect its recoverability, and we train policies to predict it before revision. On 25,870 held-out open-domain questions across three revision setups, a scorer trained on the paired outcome has greater area under the accuracy--revision-rate curve than a matched draft-correctness scorer in all nine Llama setup--seed fits, and gains 0.23--0.68 accuracy points on average at development-selected thresholds, a difference significant across training runs only for dense retrieval. The resulting policy improves on always revising and on average closes more than a third of the oracle gap, although it still applies 38--46% of the harmful revisions. When a draft-free standard-RAG answer is also available, however, choosing between the draft and that answer is stronger by about two points for Llama and four for OLMo, and adding candidate revision as a third option yields no significant gain. Recoverability describes one revision; its value as an available action also depends on the alternatives.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-24</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">This AI paper focuses on the problem of return or revise in retrieval-augmented QA, with 4 authors, providing targeted research ideas for related technical optimization.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.30087v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Advancing Model Research in AgentX: Long-Horizon Autonomy for Industrial Recommender Systems</h3>
+          <p class="news-body">Sustaining industrial recommendation research requires using the results of one experiment to decide what to investigate next. We present AgentX-Model, the next generation of AgentX's model research framework, which connects proposal development and model experimentation within sandboxes defined by business inputs and prediction tasks. AgentX-Model adopts a dual-agent architecture comprising a Research Agent and a Model Agent. The Research Agent develops independently reviewed proposals from papers and experimental findings, while the Model Agent conducts multi-round investigations and returns code, measurements, and unresolved questions. Using the returned results, the Research Agent selects a starting implementation and formulates the next research question, allowing subsequent experiments to build on earlier findings. We organize this continuing research around four actions: Reproduce, Follow-up, Composition, and Diagnose. The first three actions drive routine research, while Diagnose acquires the evidence needed to choose a repair, including for issues raised by business feedback and online evaluation, such as prediction bias measured by PCOC. Across the production evaluation, 560 of 636 completed model-changing experiments recorded AUC above their business baselines. As research continued, some experiments recorded AUC above every comparable ancestor in their lineages. The five latest online A/B evaluations across different business settings reported gains including 10-1</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-24</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">This paper advances model research in AgentX, focusing on long-horizon autonomy for industrial recommender systems, with 10 authors, providing practical references for relevant AI model development.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.30001v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Meta and YouTube say they will run ads for ‘Musk’ documentary after all</h3>
+          <p class="news-body">Two companies now say they will accept advertising for director Alex Gibney’s upcoming documentary about Elon Musk, following earlier reporting that a number of social media platforms had rejected the</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-26</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta and YouTube, two major platforms in the AI industry, will run ads for the Musk documentary, providing a reference for the commercial promotion of AI-related figures' content.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/26/meta-says-it-will-run-ads-for-musk-documentary-after-all/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Proaction boosts sales 60% and saves 75+ hours with Codex</h3>
+          <p class="news-body">With Codex, GPT-Live-1, and GPT-6 Astra, Proaction builds, operates, and sells modern fleet management faster.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-25</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event shows that Proaction achieved a 60% increase in sales and saved over 75 hours with Codex, providing a practical reference case for AI implementation in business scenarios.</div>
+          <div class="source">Source：<a href="https://openai.com/index/proaction" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Alibaba cut the price of AI voice tools by up to 95% in a single release - WION</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMitgFBVV95cUxNNVE0eFRkNGFxN2YyNzV5V1hYd3dnZXdZZVhVRFFzdGdicWlmVzBOcVhUNFc2dUJxcDVQYUxnd3h1Vy1GRXo2ZzlnYUlPYWNhdlhWWnEyZE1NVVA1empVMzFLT0VOVWdEUDFQRUpSY0dzV2NQOTFsZ1pZRktRU2NzNEdfQmVha2NOWk5tb2w4R214ZW9yY2dBdUR1STkteWp2dENVbjVWMTRMc2hxRzZIQU9nQmZBUdI</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-26</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Alibaba cut the price of its AI voice tools by up to 95% in a single release, sending a striking price signal in the AI industry and possibly driving changes in the sector's cost side.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNNVE0eFRkNGFxN2YyNzV5V1hYd3dnZXdZZVhVRFFzdGdicWlmVzBOcVhUNFc2dUJxcDVQYUxnd3h1Vy1GRXo2ZzlnYUlPYWNhdlhWWnEyZE1NVVA1empVMzFLT0VOVWdEUDFQRUpSY0dzV2NQOTFsZ1pZRktRU2NzNEdfQmVha2NOWk5tb2w4R214ZW9yY2dBdUR1STkteWp2dENVbjVWMTRMc2hxRzZIQU9nQmZBUdIBuwFBVV95cUxQak1vNmZUQ0xnb09wdS1HaUI2Y2t4RVh0eHUwMmpYUnJnTllYU2I4TXJPVzNkb1hsclhldVhwYk10SjlOY3N0NG53b19zLUwyTEt6d3J0d3doX0NfSkVHYlFCY3JhV2p4cWdhV182TU12ZkdSc2JFTmQ4SnF3bUtFUDBzRUFleUJQbmYwRXlRRjNpQ2hpX0I0WXZHa0FzT2dKWlg1enY0cVFmZHQ1dDJHa096NE5FaDVHZmcw?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Alibaba Slashes Prices of AI Voice Tools</b> — This move lowers the threshold for small and medium developers to adopt AI voice technology, driving broader market penetration</div><div class="watch-item"><b>RAPID: Robot Agentic Programming from Demonstrations</b> — This research offers a new approach for autonomous robot programming, enhancing the efficiency of industrial robot applications</div><div class="watch-item"><b>vllm-metal: Community-Maintained Hardware Plugin for vLLM on Apple</b> — It fills the gap of efficient vLLM plugins for Apple devices, helping developers deploy large language models in the Apple ecosystem</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域动态涵盖开源技术、学术研究及企业应用三大板块。开源方向推出适配苹果硬件的vllm-metal插件、本地LLM运行训练工具unsloth等实用项目。学术端有多篇关于机器人编程、智能体规划的论文发布。企业层面，阿里巴巴大幅下调AI语音工具价格，Proaction借助OpenAI Codex提升销售效率，Meta与YouTube将为马斯克纪录片投放广告。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. mcphub提供自托管MCP网关及控制平面</h3>
+          <p class="news-body">mcphub是一款用于连接、控制和操作MCP服务器的自托管MCP网关及控制平面。其社区数据显示，stars达2476，forks为323，open issues共16。该工具解决了MCP服务连接中的隐私可控性需求，避免依赖第三方服务，降低数据泄露风险，满足开发者自主管理AI服务的诉求。它代表AI基础设施向开源自托管方向演进，聚焦使用MCP协议的开发者和小型团队，降低其管理AI服务的门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag">samanhappy</span> <span class="tag tag-star">⭐ 2,476</span> <span class="tag tag-gray">mcp / mcp-gateway / mcp-hub / mcp-router</span></div>
+          <div class="pick-reason">该项目是AI领域用于连接的自托管MCP网关与控制平面，获2476星、323复刻、16个开放议题，在社区具备一定关注度。</div>
+          <div class="source">来源：<a href="https://github.com/samanhappy/mcphub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. vllm-metal插件适配苹果硅 填补vLLM苹果硬件支持空白</h3>
+          <p class="news-body">社区维护的vllm-metal插件，是针对苹果硅芯片的vLLM硬件插件。该插件的社区数据为stars=1782，forks=269，open issues=31。它填补了vLLM在苹果硬件上的原生支持空白，降低开发者在苹果设备部署大模型推理的门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag">vllm-project</span> <span class="tag tag-star">⭐ 1,782</span> <span class="tag tag-gray">apple-silicon / llm / macos / metal</span></div>
+          <div class="pick-reason">vllm-metal是社区维护的vLLM在苹果设备上的硬件插件，获1782星、269复刻，有31个开放议题，是AI行业针对苹果硬件的社区适配实践。</div>
+          <div class="source">来源：<a href="https://github.com/vllm-project/vllm-metal" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 开源项目hermes-agent社区数据亮眼 补AI智能体成长空白</h3>
+          <p class="news-body">hermes-agent是一款随用户成长的AI智能体开源项目。其GitHub社区数据显示，stars达249278，周增长+1449，forks为52949，open issues共44217。该项目填补了通用AI智能体在个性化成长能力上的细分空白，降低了开发者构建自适应智能体的技术门槛。它推动开源AI生态工具层完善，代表AI智能体向动态自适应、个性化成长方向演进的趋势。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 249,278</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">hermes-agent这款AI agent社区数据表现突出，stars达249278，周增长+1449，forks为52949，open_issues达44217，是AI行业受关注的项目</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 开源工具LobeHub可实现AI代理7×24协同运营管理</h3>
+          <p class="news-body">LobeHub是一款开源工具，可作为首席代理运营官，通过雇佣、调度、报告等方式组织AI团队实现7×24运营。其开源社区数据显示，stars达82843，周增长136，forks为15923，开放问题共948个。它解决了多AI代理协同运营的痛点，降低了企业或个人管理AI团队的门槛，推动AI应用从单点工具向规模化协同运营升级。</p>
+          <p class="comment">若LobeHub持续保持当前开源社区的增长态势，则可能加速AI代理管理工具的普及，助力AI生产力规模化落地</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag">lobehub</span> <span class="tag tag-star">⭐ 82,843</span> <span class="tag tag-gray">agent / agent-collaboration / agent-harness / ai</span></div>
+          <div class="pick-reason">LobeHub作为AI领域的Agent Operator，社区数据亮眼：stars达82843，周增长+136，forks15923，open_issues948，是AI社区高关注度的工具项目</div>
+          <div class="source">来源：<a href="https://github.com/lobehub/lobehub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Unsloth开源工具获7.6万星 支持多模型本地运行与训练</h3>
+          <p class="news-body">Unsloth是一款开源工具，其社区拥有76841颗星、7054个fork及1270个未解决issue。它提供本地UI，支持运行和训练大语言模型（LLMs）与扩散模型，兼容GGUF、MLX、Qwen3.8、DeepSeek-V4等多种模型类型。该工具大幅降低本地部署和微调AI模型的技术门槛，解决了数据隐私与成本问题，推动开源AI工具的普及。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 76,841</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">unsloth是提供本地UI以运行和训练大语言模型及扩散模型的工具，获76841星、7054个fork，有1270个开放议题，在AI社区受广泛关注</div>
+          <div class="source">来源：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. RAPID实现从演示自动生成可复用机器人程序</h3>
+          <p class="news-body">现有编码智能体在复杂编程问题上表现出色，由5位作者完成的该研究提出RAPID方法，可从单个人类视觉演示自动生成、验证并优化机器人程序，且能自动推断生成程序所需的可测试任务规范、机器人执行动作原语及交互环境。RAPID采用对象中心关系程序表示，使生成的程序可复用，在LIBERO-Pro基准的8个接触式非抓取及抓取任务仿真中表现良好，还成功部署到Franka机械臂，具备泛化性。该方法解决了机器人编程需专业技能的痛点，大幅降低非专业用户操作机器人的技术门槛，推动机器人应用普及。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-24</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">RAPID是从演示中进行机器人智能体编程的方法，该论文作者数为5，为AI行业机器人编程领域提供了新的研究方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.30249v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Coding Agents for Generalized Task and Motion Planning Problems</h3>
+          <p class="news-body">通用任务运动规划（TAMP）因离散决策与多约束耦合，现有方法需大量特定领域工程，落地门槛高。研究人员探索用编码智能体自动化合成通用程序，测试了Claude Code（Opus 5）、Codex（GPT-5.6 Sol、GPT-6 Astra）在KinDER、PDDLStream的28个模拟环境。共评估980个生成程序的98000次测试，结果显示所有智能体配置的平均成功率达56%-95%，优于手工规划器等基准（规划器为47%），且对象数增长时表现更稳定。这一进展可降低通用TAMP技术的应用门槛，推动其从实验室走向更多实际场景。</p>
+          <p class="comment">若该编码智能体方案能适配更多机器人自动化场景，则可能带动中小团队采用通用TAMP方案，加速AI规划领域的轻量化落地</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-24</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">该论文围绕通用任务与运动规划问题的编码智能体展开研究，作者数为7，作为第2名候选，为AI行业相关研究提供了新的思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.30233v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Requirement-Bound Verified Commissioning: A Frozen Four-Billion-Parameter Local Model as a Candidate Generator under an External Acceptance Layer with Verification and Release Authority</h3>
+          <p class="news-body">An acceptance protocol is developed for sensor-coordinate and polarity binding in mechatronic commissioning. Candidate generation is separated from release authority. Requirements unsupported by a deterministic parser are routed to a frozen local language model with four billion parameters. Plans are released only when both facts can be derived by an external gate under a sealed grammar. One canonical answer is requested from a gold-standard user when eligible. The protocol was evaluated once under a criterion fixed before benchmark construction, on 144 tasks written by isolated agent contexts without access to the gate, grammar, or experimental plan. Three contributions are established. First, candidate generation and release decisions were measured separately. Fabricated ready plans were committed on 21 of 22 routed unanswerable tasks, and all were rejected. The same 83 releases were reproduced without model calls. Second, no false release was observed among 83 releases. A one-sided 95% Clopper-Pearson upper bound of 0.0354 was obtained as a diagnostic under an independent-and-identically-distributed assumption, below the sealed 5% threshold. However, one false release was subsequently recorded among 146 releases outside the benchmark at seed 0. Third, protection against incorrect user answers was characterized. Both facts were bound from the original text on 13 of 96 answerable tasks. Incorrect answers were released in 169 of 431 pairings on the remaining tasks, including </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-24</span> <span class="tag tag-gray">cs.SE</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=1</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.30219v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Return or Revise? Learning When Revision Helps Retrieval-Augmented QA</h3>
+          <p class="news-body">该研究针对RAG问答系统中是否返回草稿答案或用检索证据修订的决策问题展开，作者共4人。研究提出&quot;可恢复性&quot;指标量化修订效果，训练策略预测该指标。在25870个开放域问题的测试中，配对结果训练的评分器在多数Llama设置下表现优于草稿正确性评分器，平均提升0.23-0.68准确率。当存在标准RAG答案时，选择草稿与标准答案的组合效果优于加入修订选项，同时该方法仍存在38-46%的有害修订情况。该研究解决了RAG系统修订决策的核心痛点，让决策更具可操作性，能有效提升问答质量。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-24</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该AI领域论文聚焦检索增强QA的返回或修订学习问题，作者数为4，为相关技术优化提供了针对性研究思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.30087v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AgentX-Model衔接工业推荐研究提案与实验环节</h3>
+          <p class="news-body">工业推荐研究需以实验结果指导后续研究方向，AgentX-Model是AgentX的模型研究框架，采用双代理架构（Research Agent与Model Agent）。Research Agent基于论文与实验结果生成经独立审核的提案，Model Agent开展多轮实验并返回代码、指标与未解决问题，两者协同完成Reproduce、Follow-up等四类研究动作。636次模型变更实验中，560次AUC超业务基线，部分实验AUC超所有同类祖先，5次在线A/B测试获增益。这一进展意味着工业推荐研究可实现闭环自主迭代，适配实际需求。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-24</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">该论文聚焦AgentX模型研究，针对工业推荐系统的长时自主问题，作者数达10，为AI行业相关模型研发提供了实践参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.30001v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Meta与YouTube将为马斯克纪录片开放广告投放</h3>
+          <p class="news-body">Meta和YouTube两家公司表示，将接受Alex Gibney执导的关于Elon Musk的纪录片的广告。此前有报道称，多家社交媒体平台曾拒绝该纪录片的广告投放。这一转变反映社交媒体平台对内容审核边界的灵活调整，平衡合规要求与商业变现需求，影响内容创作者的投放渠道选择。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-26</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta和YouTube两大主流平台将为马斯克的纪录片投放广告，这为AI领域相关人物内容的商业推广提供了行业参考。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/26/meta-says-it-will-run-ads-for-musk-documentary-after-all/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Proaction借助Codex等AI工具实现销售增长与工时节省</h3>
+          <p class="news-body">Proaction借助Codex、GPT-Live-1及GPT-6 Astra三款AI工具，加快了现代车队管理的构建、运营与销售节奏。该应用使Proaction的销售业绩提升60%，同时节省了75小时以上的工时。这一案例验证了AI工具在企业核心业务流程中的落地价值，打破了AI仅用于辅助办公的局限，为企业降本提效提供了可复制路径，也推动企业级AI应用向全流程整合方案演进，提升了OpenAI在企业级解决方案市场的竞争力。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-25</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件显示Proaction借助Codex实现销售额提升60%、节省75+小时，为AI在商业场景的落地提供了可参考的实效案例。</div>
+          <div class="source">来源：<a href="https://openai.com/index/proaction" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 阿里AI语音工具降价最高95% 打破行业价格壁垒</h3>
+          <p class="news-body">阿里巴巴将旗下AI语音工具的价格下调，最高降幅达95%。此举打破了AI语音工具领域的价格壁垒，刺激更多中小企业采用AI语音技术。同时，这也推动AI企业服务从技术比拼转向性价比竞争，倒逼同类厂商调整定价策略。此举还降低了中小企业的AI技术应用门槛，加速行业渗透。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-26</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">阿里巴巴在单次发布中将AI语音工具降价最高达95%，这一举措在AI行业释放了极具冲击力的价格信号，有望推动行业成本端的变革</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNNVE0eFRkNGFxN2YyNzV5V1hYd3dnZXdZZVhVRFFzdGdicWlmVzBOcVhUNFc2dUJxcDVQYUxnd3h1Vy1GRXo2ZzlnYUlPYWNhdlhWWnEyZE1NVVA1empVMzFLT0VOVWdEUDFQRUpSY0dzV2NQOTFsZ1pZRktRU2NzNEdfQmVha2NOWk5tb2w4R214ZW9yY2dBdUR1STkteWp2dENVbjVWMTRMc2hxRzZIQU9nQmZBUdIBuwFBVV95cUxQak1vNmZUQ0xnb09wdS1HaUI2Y2t4RVh0eHUwMmpYUnJnTllYU2I4TXJPVzNkb1hsclhldVhwYk10SjlOY3N0NG53b19zLUwyTEt6d3J0d3doX0NfSkVHYlFCY3JhV2p4cWdhV182TU12ZkdSc2JFTmQ4SnF3bUtFUDBzRUFleUJQbmYwRXlRRjNpQ2hpX0I0WXZHa0FzT2dKWlg1enY0cVFmZHQ1dDJHa096NE5FaDVHZmcw?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>阿里巴巴大幅下调AI语音工具价格</b> — 此举降低中小开发者使用AI语音技术的门槛，有望推动市场广泛普及</div><div class="watch-item"><b>RAPID：基于演示的机器人智能体编程研究</b> — 该研究为机器人自主编程提供新路径，可提升工业机器人应用效率</div><div class="watch-item"><b>vllm-metal：适配苹果硬件的vLLM社区插件</b> — 填补苹果设备高效运行vLLM的插件空白，助力开发者在苹果生态部署大模型</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-27T05:24:50.410Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

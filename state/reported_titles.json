@@ -1,27 +1,4 @@
 {
- "2026-09-12": {
-  "paper": [
-   "paper|distance generalization transformers why bother positional encoding",
-   "paper|mindtopo can foundation models reason topological space",
-   "paper|nuha speech building general purpose arabic speech llms",
-   "paper|domain specific hallucination detection large language models",
-   "paper|causalarena benchmarking causal discovery foundation model era"
-  ],
-  "opensource": [
-   "opensource|awesome llm apps 100 ai agents agent skills rag apps free",
-   "opensource|hermes agent agent that grows you",
-   "opensource|vllm high throughput memory efficient inference",
-   "opensource|openhands openhands ai driven development",
-   "opensource|fusion your software factory build faster better multi"
-  ],
-  "enterprise": [
-   "enterprise|clay i sales tool provider 115 million york times",
-   "enterprise|rapidly scaling online storage serve over 1 billion chatgpt users",
-   "enterprise|kimi maker moonshot ai targets 2b annual revenue",
-   "enterprise|meta s ai agent muse is now no 2 app us",
-   "enterprise|ai agents are flooding public services requests"
-  ]
- },
  "2026-09-13": {
   "opensource": [
    "opensource|杀戮尖塔 将杀戮尖塔 的游戏状态与操作暴露为本地 包装成 sts2 agent 2 mod 2 http api mcp server",
@@ -319,6 +296,27 @@
    "enterprise|meta connect company s smart glasses were everywhere",
    "enterprise|meta early access program muse features",
    "enterprise|techcrunch disrupt 2026 ricursive intelligence s anna goldie azalia mirhoseini w"
+  ]
+ },
+ "2026-09-27": {
+  "paper": [
+   "paper|rapid robot agentic programming demonstrations",
+   "paper|coding agents generalized task motion planning problems",
+   "paper|requirement bound verified commissioning frozen four billion parameter local mod",
+   "paper|return revise learning when revision helps retrieval augmented qa",
+   "paper|advancing model research agentx long horizon autonomy industrial recommender sys"
+  ],
+  "opensource": [
+   "opensource|mcphub self hosted mcp gateway control plane connecting",
+   "opensource|vllm metal community maintained hardware plugin vllm apple",
+   "opensource|hermes agent agent that grows you",
+   "opensource|lobehub lobehub is your chief agent operator organizing your",
+   "opensource|unsloth local ui run train llms diffusion models"
+  ],
+  "enterprise": [
+   "enterprise|meta youtube say they will run ads musk documentary after all",
+   "enterprise|proaction boosts sales 60 saves 75 hours codex",
+   "enterprise|alibaba cut price ai voice tools up 95 single wion"
   ]
  }
 }
