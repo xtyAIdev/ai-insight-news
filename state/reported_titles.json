@@ -1,17 +1,4 @@
 {
- "2026-09-13": {
-  "opensource": [
-   "opensource|杀戮尖塔 将杀戮尖塔 的游戏状态与操作暴露为本地 包装成 sts2 agent 2 mod 2 http api mcp server",
-   "opensource|awesome remote mcp servers collection remote mcp servers",
-   "opensource|nexus nexus shared context plane where every agent human",
-   "opensource|evener coding agent give it prompt it reads writes runs",
-   "opensource|worldmonitor real time global intelligence dashboard"
-  ],
-  "enterprise": [
-   "enterprise|funding wrap navana ai qnu labs swish fresh capital et entrepreneur",
-   "enterprise|how use qwen3 8 max api 12 steps 2 6 per 1m 2026 tech insider org"
-  ]
- },
  "2026-09-14": {
   "opensource": [
    "opensource|agent lightning absolute trainer light up ai agents",
@@ -317,6 +304,25 @@
    "enterprise|meta youtube say they will run ads musk documentary after all",
    "enterprise|proaction boosts sales 60 saves 75 hours codex",
    "enterprise|alibaba cut price ai voice tools up 95 single wion"
+  ]
+ },
+ "2026-09-28": {
+  "paper": [
+   "paper|agentworld benchmarking long horizon collaboration multi agent llms",
+   "paper|towards mitigating fabricated consensus active provenance gate multi agent debat",
+   "paper|pricebench diagnostic benchmark price quality brand preferences llm booking agen",
+   "paper|satnav scalable benchmark long horizon uav vision language navigation satellite ",
+   "paper|what improves multimodal misinformation detection answers large scale empirical "
+  ],
+  "opensource": [
+   "opensource|ragflow ragflow is leading source retrieval augmented",
+   "opensource|code review fast efficient battle tested alibaba s scale",
+   "opensource|trueforge source agent harness runtime layer that",
+   "opensource|ecc agent harness performance optimization system",
+   "opensource|n8n fair code workflow automation platform native ai"
+  ],
+  "enterprise": [
+   "enterprise|chesterbrook ai startup cornelis networks 205m funding vista"
   ]
  }
 }
