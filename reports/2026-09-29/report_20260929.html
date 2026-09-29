@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-09-29</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today’s AI ecosystem saw multifaceted progress: practical open-source tools for model management and local training emerged; academia released papers advancing ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-09-29">
+<meta property="og:description" content="Today’s AI ecosystem saw multifaceted progress: practical open-source tools for model management and local training emerged; academia released papers advancing multi-robot systems, personalized genera">
+<meta property="og:url" content="./report_20260929.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-09-29">
+<meta name="twitter:description" content="Today’s AI ecosystem saw multifaceted progress: practical open-source tools for model management and local training emerged; academia released papers advancing multi-robot systems, personalized genera">
+<link rel="canonical" href="./report_20260929.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-09-29 ｜ report_20260929</div>
+<div class="sub" data-lang-title="zh">2026-09-29 ｜ report_20260929</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today’s AI ecosystem saw multifaceted progress: practical open-source tools for model management and local training emerged; academia released papers advancing multi-robot systems, personalized generation, and more; enterprise moves including Meta’s launch of an enterprise AI platform and Modal Labs’ large funding round stood out.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. suna：The open-source AI Management System</h3>
+          <p class="news-body">The open-source AI Management System</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-29</span> <span class="tag">kortix-ai</span> <span class="tag tag-star">⭐ 20,239</span> <span class="tag tag-gray">ai / ai-agents / llm / 大模型</span></div>
+          <div class="pick-reason">This open-source AI Management System has gained 20,239 stars, 3,437 forks and 36 open issues, serving as a notable practice in the AI industry's open-source tools.</div>
+          <div class="source">Source：<a href="https://github.com/kortix-ai/suna" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. magpie：Every agent's model</h3>
+          <p class="news-body">Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-29</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 1,710</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">As the 2nd candidate, magpie's Every agent's model has gained 1710 stars, with a weekly growth of 1482, 102 forks and 13 open issues, showing strong community popularity in the AI agent model field.</div>
+          <div class="source">Source：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. unsloth：Local UI to run and train LLMs and diffusion models</h3>
+          <p class="news-body">Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4, MiniMax-H3, Gemma 4, FLUX and more.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-29</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 76,983</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">Unsloth, a local UI tool for running and training LLMs and diffusion models, has 76,983 stars, a weekly growth of 379, 7,077 forks and 1,230 open issues, offering practical solutions for local deployment and training of AI models.</div>
+          <div class="source">Source：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. OmniRoute：Never stop coding</h3>
+          <p class="news-body">Never stop coding. Free MIT AI gateway: one endpoint, 359 providers (150+ free), 1200+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline &amp; Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by hundreds of contributors</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-29</span> <span class="tag">diegosouzapw</span> <span class="tag tag-star">⭐ 71,136</span> <span class="tag tag-gray">a2a / ai-agents / ai-gateway / anthropic</span></div>
+          <div class="pick-reason">The OmniRoute project associated with &quot;Never stop coding&quot; has gained 71,136 stars, 10,128 forks and 431 open issues in the AI community, being a high-attention coding project for developers.</div>
+          <div class="source">Source：<a href="https://github.com/diegosouzapw/OmniRoute" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. hyperframes：Write HTML</h3>
+          <p class="news-body">Write HTML. Render video. Built for agents.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-29</span> <span class="tag">heygen-com</span> <span class="tag tag-star">⭐ 53,975</span> <span class="tag tag-gray">ai / animation / ffmpeg / framework</span></div>
+          <div class="pick-reason">As the 5th candidate, hyperframes for writing HTML has gained 53,975 stars, 4,921 forks and 209 open issues, being a community-focused AI tool project.</div>
+          <div class="source">Source：<a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Denoising Multi-Robot Trajectories</h3>
+          <p class="news-body">Multi-robot trajectory planning is a fundamental problem in multi-robot coordination but remains computationally challenging due to its nonconvex, multimodal, and high-dimensional nature. This work builds upon D4orm, a dynamics-aware diffusion-denoising framework, and develops a family of planning architectures for diverse operational requirements. Unlike conventional numerical optimization methods, D4orm employs sampling-based optimization to generate solution trajectories through massively parallel sampling, leveraging modern computing architectures such as GPUs. Its diffusion-denoising structure iteratively optimizes \textit{deformations} to candidate control trajectories, providing an efficient and versatile paradigm for generating kinodynamically feasible and conflict-free trajectories. Using D4orm as the building block for advanced planners, we present a decoupled planner for improved scalability, an online receding-horizon planner with feedback control, and a distributed planner for resource-constrained settings. Evaluations with differential-drive and holonomic robots in 2D and 3D environments demonstrate that D4orm-based approaches find high-quality solutions faster and more reliably than other sampling-based optimization methods, such as MPPI, as well as a learned diffusion-model-based method. We further demonstrate zero-shot deployment on ten real quadrotors with obstacles, large-scale deconfliction with 100 simulated robots, and fully onboard distributed `lifelong</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">This paper titled &quot;Denoising Multi-Robot Trajectories&quot; has been accepted by a top conference, with 4 authors, representing an important academic achievement in multi-robot trajectory processing within the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.35651v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models</h3>
+          <p class="news-body">Aligning large language models (LLMs) to diverse user preferences is fundamentally hindered by standard alignment paradigms that optimize for monolithic users. In this work, empirical studies are first used to reveal the existence of a massive, untapped performance headroom for personalized generation through test-time alignment. We demonstrate that personalized generation is uniquely suited for test-time scaling methods like Best-of-N (BoN) because it can be viewed primarily as a candidate matching problem rather than a generator capability bottleneck. While reward models could in principle exploit this headroom, they are poorly calibrated for personalization, and their billion-parameter scale makes scoring large candidate pools prohibitively expensive. To overcome this limitation, we propose a parameter-efficient framework utilizing million-parameter scale multi-layer perceptron (MLP) ranking models. Our personalized ranking model directly reuses the internal embeddings of the base generator with minimal overhead. By scaling train-time data to provide fine-grained personalized preferences, this million-parameter ranking model accurately scores large candidate pools and can seamlessly guide generation to reduce the cost of materializing N candidates. Extensive experiments on nine datasets spanning three personalized generation settings show that our personalized ranking model effectively exploits the discovered headroom, outperforming billion-parameter generalist reward mode</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">This paper, accepted by NeurIPS 2026 with 3 authors, focuses on rethinking personalized generation via test-time alignment using factorized ranking models, providing reference value in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.35695v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Neural Harmonic Measure Operator</h3>
+          <p class="news-body">We introduce Neural Harmonic Measure Operator (NHMO), a neural solver for elliptic PDE problems on variable-shape domains. The harmonic measure of a domain is the boundary probability distribution that, integrated against any boundary data, returns the Dirichlet Laplace solution. It depends only on the geometry, not on the boundary data. NHMO parameterizes the density of this measure as a transformer-based boundary kernel supervised by Walk-on-Spheres exit samples, so one trained kernel handles different boundary values on a shape with no retraining. We extend it to Poisson via a classical decomposition, with an auxiliary network amortizing the source-induced correction and avoiding the singular volume quadrature that breaks direct evaluation. At inference, new boundary values and new sources both yield PDE solutions by re-integration against the fitted kernel and lift, with no retraining. NHMO improves over four prior baselines on the MCB-B 3D variable-shape Poisson benchmark across all five categories, and is competitive with major neural-operator baselines on a controlled 2D testbed.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">As the 3rd candidate, the Neural Harmonic Measure Operator paper is accepted by NeurIPS 2026 with 4 authors, providing an influential new direction for relevant operator research in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.35752v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Re:Cognize -- Open-Set Comic Character Re-Identification</h3>
+          <p class="news-body">A manga reader meets a character on one page and knows them on sight a hundred pages later, without ever being handed a cast list. Re-identifying comic characters demands the same, open-set and sequential: pages arrive as a stream in reading order, new faces appear before anyone names them, and the cast is assembled as the story is read. $\textbf{Re:Cognize}$ evaluates recognition as the story is read, not against a cast handed over in advance: four protocols on one query stream, from closed-set retrieval to a cast the model must build and grow itself. The surprise is where models fail. Recognising is close to solved: one reference image per character already ranks as well as a gallery built in advance. Knowing what to believe is not: a model that adds its own matches makes its cast worse, while the same growth with correct labels would gain over twenty points of top-1 accuracy. The bottleneck is acceptance, not vision, and one comparison decides it: an addition pays exactly when it is right more often than the cast already was on the queries it takes over. The comparison has nothing to fit, and measured on half of a new corpus it calls the other half correctly. $\textbf{ReCast}$ puts it to work with nothing fitted on data: a cast sheet of one running average per character, grown only where the page itself vouches for a crop. It recovers a third to two thirds of what perfect labels would, depending on whether the cast starts from random examples or from first appearances. Re:</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Re:Cognize is an open-source study on open-set comic character re-identification. Its paper has been accepted by NeurIPS 2026 with 4 authors, offering academic reference value in relevant AI areas.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.34032v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Strategically Robust Game-Theoretic Multi-Agent Trajectory Optimization</h3>
+          <p class="news-body">Aviation authorities worldwide expect Advanced Air Mobility (AAM) traffic management to be decentralized among service providers, requiring AAM flights to autonomously plan trajectories by predicting other flights' control inputs rather than relying on centralized coordination. Game-theoretic approaches that formulate multi-agent collision avoidance as an exact dynamic potential game can efficiently find open-loop equilibria, but they assume that agents exactly follow their equilibrium trajectories---an unrealistic assumption given uncertainties in actuation, perception, and computation. We propose a strategically robust formulation where each agent protects against a fictitious adversary that, for each timestep, perturbs other agents' control inputs within a bounded budget to minimize distance at that timestep. We show that, under reasonable assumptions on agents' distance cost and robustness levels, the strategically robust game remains an exact dynamic potential game and admits a quasi-closed-form solution to the inner adversarial problem for linear dynamics, which limits computational overhead. Experiments with up to eight agents using logarithmic distance costs show that strategic robustness selects more robust trajectories in high-collision-risk configurations while leaving low-risk trajectories nearly unchanged, with only a modest increase in runtime.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">eess.SY</span></div>
+          <div class="pick-reason">This paper titled &quot;Strategically Robust Game-Theoretic Multi-Agent Trajectory Optimization&quot; is accepted by CDC, has 4 authors, and provides research references for multi-agent trajectory optimization in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.35142v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Source: Inference provider Modal Labs closing in on $750M round at $15.75B valuation</h3>
+          <p class="news-body">The new financing is expected to more than triples the AI infrastructure startup's valuation from just four months ago.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 3.3事件数据：amount_wan=75000</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/28/source-inference-provider-modal-labs-closing-in-on-750m-round-at-15-75b-valuation/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. How we will do better for Australia</h3>
+          <p class="news-body">OpenAI apologises for incidents involving Australian government websites and outlines stronger safeguards and support to strengthen Australia’s cyber defences.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As the 2nd candidate event in the AI industry focusing on how to better serve Australia, it offers an important reference for the industry's localized service optimization</div>
+          <div class="source">Source：<a href="https://openai.com/index/how-we-will-do-better-for-australia" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Google is killing off Gemini’s Gems in favor of ‘skills’</h3>
+          <p class="news-body">As all-in-one AI agents like Meta's Muse and Instinct take off, Google is opting to end a feature that built task-specific agents.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Google is adjusting the functional design of its Gemini AI model by phasing out Gems in favor of &quot;skills&quot;, offering a new trend signal for the AI industry’s large language model function iteration.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/28/google-is-killing-off-geminis-gems-in-favor-of-skills/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta launches enterprise AI platform, hires MongoDB CEO to lead new initiative</h3>
+          <p class="news-body">Meta says it will focus on bringing its full technology stack, including Muse, Meta Business Agent, Muse API, Muse Code, and more to businesses and developers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta launches an enterprise AI platform and hires the CEO of MongoDB to lead this new initiative, which marks Meta's move to expand into the enterprise AI space.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/28/meta-launches-enterprise-ai-platform-hires-mongodb-ceo-to-lead-new-initiative/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Shopify opens checkout to browser-based AI agents</h3>
+          <p class="news-body">Shopify is expanding WebMCP support to checkout, allowing browser-based AI agents to update order details and complete purchases with a buyer’s authorization.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Shopify opens its checkout function to browser-based AI agents, providing a new path for AI agents to participate in e-commerce transaction processes and expanding the application scope of AI in commercial scenarios.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/28/shopify-opens-checkout-to-browser-based-ai-agents/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Unsloth Launches Local UI for Running and Training LLMs and Diffusion Models</b> — This tool streamlines the process of deploying and training AI models locally, lowering the barrier for developers to build AI apps with local resources and driving the adoption of open-source AI tools.</div><div class="watch-item"><b>Meta Launches Enterprise AI Platform and Hires MongoDB CEO to Lead the Initiative</b> — This move strengthens Meta’s competitiveness in the enterprise AI market and may accelerate the implementation and adoption of enterprise-grade AI solutions.</div><div class="watch-item"><b>Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models</b> — The test-time alignment method proposed in this paper is expected to enhance the personalization of AI-generated content and improve user experience in personalized scenarios.</div><div class="watch-item"><b>Google Discontinues Gemini’s Gems in Favor of “Skills”</b> — This adjustment signals that AI assistant functionality design may shift from general modules to task-specific skills, potentially influencing the functional positioning and development direction of AI assistants in the industry.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域呈现多维度进展：开源工具层面涌现出模型管理、本地训练等实用工具；学术端有多篇论文推进多机器人系统、个性化生成等方向；企业动态方面，Meta推出企业AI平台、Modal Labs获大额融资等动作值得关注。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. 开源AI管理系统suna填补轻量化产品空白</h3>
+          <p class="news-body">suna是一款开源AI管理系统。其社区数据显示，stars达20239，forks为3437，open_issues共36个。该方案填补了AI全生命周期管理的轻量化开源产品空白，大幅降低中小团队部署和管理AI系统的技术与成本门槛。它聚焦AI开发运维细分领域，主要惠及中小团队、初创企业的AI部署环节。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-29</span> <span class="tag">kortix-ai</span> <span class="tag tag-star">⭐ 20,239</span> <span class="tag tag-gray">ai / ai-agents / llm / 大模型</span></div>
+          <div class="pick-reason">这款开源AI管理系统获20239星、3437个fork、36个开放议题，是AI行业开源工具的重要实践，为相关领域提供参考。</div>
+          <div class="source">来源：<a href="https://github.com/kortix-ai/suna" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 开源工具magpie聚合多AI模型实现便捷调用</h3>
+          <p class="news-body">开源项目magpie的社区数据显示，其star数达1710，周增长1482，forks为102，开放问题共13个。该项目可将DeepSeek的Codex、Kimi的Claude Code等不同AI模型整合至一处，支持从菜单栏调用。它解决了用户切换不同AI模型的繁琐操作，降低多模型使用门槛，提升AI工具的易用性。这类聚合多模型的工具，契合用户高效调用AI能力的需求。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-29</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 1,710</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">magpie的Every agent's model作为第2名候选，在AI行业agent模型领域获1710星，周增长1482，forks102，open issues13，社区热度高</div>
+          <div class="source">来源：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. unsloth提供本地UI 支持运行训练多类AI模型</h3>
+          <p class="news-body">unsloth是一款用于运行和训练大语言模型及扩散模型的本地UI工具。它支持GGUF、MLX、Qwen3.8、DeepSeek-V4等多种模型格式与类型。该开源项目社区数据亮眼，获星76983，周增长379，分支7077，开放议题1230。它大幅降低了本地部署、训练AI模型的技术门槛，推动AI应用的本地化落地进程。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-29</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 76,983</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">unsloth是用于运行和训练LLMs及扩散模型的本地UI工具，获76983星，周增379，forks7077，open issues1230，为AI模型本地部署训练提供实用工具</div>
+          <div class="source">来源：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 开源AI网关OmniRoute简化多AI模型调用流程</h3>
+          <p class="news-body">OmniRoute是一款采用MIT协议的开源AI网关，由数百位贡献者构建，在开源社区获71136星标、10128个复刻。它提供单一端点，可调用359家AI提供商（含150+免费）的1200+模型，覆盖Kimi、Claude、GPT等主流产品。该网关适配Claude Code、Cursor等多款编码工具，具备配额感知自动回退、压缩节省15-95% tokens等特性。它解决了开发者调用多AI模型时的碎片化问题，降低了切换成本与复杂度，开源属性支持开发者自由适配需求。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-29</span> <span class="tag">diegosouzapw</span> <span class="tag tag-star">⭐ 71,136</span> <span class="tag tag-gray">a2a / ai-agents / ai-gateway / anthropic</span></div>
+          <div class="pick-reason">OmniRoute（Never stop coding相关）在AI社区获71136星标、10128个复刻，开放议题431个，是受开发者关注的高热度AI代码项目</div>
+          <div class="source">来源：<a href="https://github.com/diegosouzapw/OmniRoute" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 开源工具hyperframes专为智能体打造HTML与视频渲染</h3>
+          <p class="news-body">开源工具hyperframes的GitHub社区数据显示，其stars达53975，forks为4921，open_issues共209。该工具具备编写HTML、渲染视频的功能，专为AI智能体设计。它填补了AI智能体生成可视化内容的工具空白，降低了智能体落地时的内容输出门槛，对AI应用开发有实际推动作用。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-29</span> <span class="tag">heygen-com</span> <span class="tag tag-star">⭐ 53,975</span> <span class="tag tag-gray">ai / animation / ffmpeg / framework</span></div>
+          <div class="pick-reason">作为第5名候选，用于编写HTML的hyperframes在社区获53975星、4921次复刻，开放问题209个，是受关注的AI相关工具项目</div>
+          <div class="source">来源：<a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. 基于D4orm的多机器人轨迹规划研究获顶会录用</h3>
+          <p class="news-body">多机器人轨迹规划是协同领域基础问题，但因非凸、多模态、高维特性计算难度大，该研究由4位作者完成。该研究基于动力学感知扩散去噪框架D4orm，开发适配不同需求的规划架构，采用采样优化结合GPU并行计算生成轨迹。其扩散去噪结构迭代优化候选控制轨迹变形，生成运动学可行且无冲突的轨迹，还推出解耦、在线滚动、分布式等不同规划器。评估显示，基于D4orm的方法比MPPI等采样优化方法及学习扩散模型方法，能更快更可靠找到高质量解，还完成10架四旋翼零样本部署、100模拟机器人大规模去冲突等验证，为多机器人协同核心痛点提供新路径。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">这篇题为《Denoising Multi-Robot Trajectories》的论文获顶会录用，作者共4人，是AI行业多机器人轨迹处理方向的重要学术进展。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.35651v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models</h3>
+          <p class="news-body">Aligning large language models (LLMs) to diverse user preferences is fundamentally hindered by standard alignment paradigms that optimize for monolithic users. In this work, empirical studies are first used to reveal the existence of a massive, untapped performance headroom for personalized generation through test-time alignment. We demonstrate that personalized generation is uniquely suited for test-time scaling methods like Best-of-N (BoN) because it can be viewed primarily as a candidate matching problem rather than a generator capability bottleneck. While reward models could in principle exploit this headroom, they are poorly calibrated for personalization, and their billion-parameter scale makes scoring large candidate pools prohibitively expensive. To overcome this limitation, we propose a parameter-efficient framework utilizing million-parameter scale multi-layer perceptron (MLP) ranking models. Our personalized ranking model directly reuses the internal embeddings of the base generator with minimal overhead. By scaling train-time data to provide fine-grained personalized preferences, this million-parameter ranking model accurately scores large candidate pools and can seamlessly guide generation to reduce the cost of materializing N candidates. Extensive experiments on nine datasets spanning three personalized generation settings show that our personalized ranking model effectively exploits the discovered headroom, outperforming billion-parameter generalist reward mode</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">该论文是NeurIPS 2026录用的AI领域研究，共3位作者，聚焦重新思考个性化生成的测试时因子化排序模型对齐方向，具备行业参考意义。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.35695v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Neural Harmonic Measure Operator登NeurIPS2026 优化PDE求解</h3>
+          <p class="news-body">Neural Harmonic Measure Operator（NHMO）是针对可变形状域椭圆偏微分方程（PDE）问题的神经求解器，该论文共4位作者，影响力信号为NeurIPS2026录用，其利用调和测度仅依赖域几何而非边界数据的特性设计。它以Transformer为基础的边界核参数化调和测度密度，经Walk-on-Spheres出口样本监督，训练好的核可处理同一形状的不同边界值无需重训，还通过经典分解扩展至泊松问题，避免奇异体积积分。在MCB-B 3D可变形状泊松基准的五个类别中，NHMO优于四个现有基线，在受控2D测试平台上与主要神经算子基线相当，且简化了椭圆PDE求解流程，提升了可变形状域问题的求解效率，对计算数学及工程模拟有实际意义。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">作为第3名候选的Neural Harmonic Measure Operator论文获NeurIPS 2026录用，作者数4，为AI行业相关算子研究提供了有影响力的新方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.35752v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Re:Cognize框架登NeurIPS2026 解决漫画角色重识别痛点</h3>
+          <p class="news-body">Re:Cognize是针对漫画角色重识别的开放集、顺序式评估框架，包含4种评估协议。该研究获NeurIPS 2026录用，作者数量为4。实验显示模型瓶颈在于接受度而非视觉识别，ReCast可实现无需拟合数据的角色库构建，恢复33%至67%的完美标签效果。该框架贴合漫画阅读实际场景，为下游任务提供技术基准。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-27</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Re:Cognize是开源开放集漫画人物重识别研究，其论文获NeurIPS2026录用，作者共4位，在AI相关领域具备学术参考价值。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.34032v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Strategically Robust Game-Theoretic Multi-Agent Trajectory Optimization</h3>
+          <p class="news-body">Aviation authorities worldwide expect Advanced Air Mobility (AAM) traffic management to be decentralized among service providers, requiring AAM flights to autonomously plan trajectories by predicting other flights' control inputs rather than relying on centralized coordination. Game-theoretic approaches that formulate multi-agent collision avoidance as an exact dynamic potential game can efficiently find open-loop equilibria, but they assume that agents exactly follow their equilibrium trajectories---an unrealistic assumption given uncertainties in actuation, perception, and computation. We propose a strategically robust formulation where each agent protects against a fictitious adversary that, for each timestep, perturbs other agents' control inputs within a bounded budget to minimize distance at that timestep. We show that, under reasonable assumptions on agents' distance cost and robustness levels, the strategically robust game remains an exact dynamic potential game and admits a quasi-closed-form solution to the inner adversarial problem for linear dynamics, which limits computational overhead. Experiments with up to eight agents using logarithmic distance costs show that strategic robustness selects more robust trajectories in high-collision-risk configurations while leaving low-risk trajectories nearly unchanged, with only a modest increase in runtime.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">eess.SY</span></div>
+          <div class="pick-reason">这篇题为《Strategically Robust Game-Theoretic Multi-Agent Trajectory Optimization》的论文获CDC录用，作者共4位，为AI领域多智能体轨迹优化方向提供博弈论视角的研究参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.35142v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. AI推理服务商Modal Labs获7.5亿美元融资 估值达157.5亿美元</h3>
+          <p class="news-body">AI推理服务提供商Modal Labs正推进一笔7.5亿美元的融资。该融资完成后，其估值将较四个月前提升至157.5亿美元，涨幅超两倍。这一事件凸显AI基础设施赛道推理服务层的资本吸引力，带动更多资本涌入该领域，推动行业技术迭代加速。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 3.3事件数据：amount_wan=75000</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/28/source-inference-provider-modal-labs-closing-in-on-750m-round-at-15-75b-valuation/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI就澳政府网站事件致歉并强化网络安全保障</h3>
+          <p class="news-body">OpenAI因涉及澳大利亚政府网站的事件致歉。该公司提出了更强的安全保障措施与支持方案。这些举措旨在强化澳大利亚的网络防御能力。此举体现了AI厂商对政府级数据安全责任的重视，为其他AI企业处理类似公共部门合作安全问题提供了参考。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">作为AI行业针对澳大利亚服务优化的第2名候选事件，其聚焦如何更好服务澳大利亚的方向，为行业本地化服务提供了重要参考</div>
+          <div class="source">来源：<a href="https://openai.com/index/how-we-will-do-better-for-australia" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Google终止Gemini的Gems功能 转向全合一AI代理布局</h3>
+          <p class="news-body">Meta的Muse、Instinct等全合一AI代理正快速发展。Google决定终止Gemini中构建特定任务代理的Gems功能。Google此举转向&quot;skills&quot;方向。这一调整意味着AI代理赛道正从任务型向整合型演进，头部玩家的布局将影响行业竞争格局。</p>
+          <p class="comment">若全合一AI代理成为企业级应用核心方向，Google的调整将加速行业功能整合竞争。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Google在AI产品Gemini的功能迭代中，停止使用Gems，转而采用“skills”，为行业提供了大模型功能调整的新趋势信号</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/28/google-is-killing-off-geminis-gems-in-favor-of-skills/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta转向企业级AI 聘MongoDB CEO牵头业务</h3>
+          <p class="news-body">Meta计划将自身全技术栈（包括Muse、Meta Business Agent、Muse API、Muse Code等）面向企业及开发者开放。Meta正从消费级AI领域转向企业级市场，借助MongoDB CEO的企业服务经验补齐相关短板。此举将助力Meta抢占企业AI赛道份额，影响全球企业级AI市场竞争格局。</p>
+          <p class="comment">若Meta能依托MongoDB CEO的经验落地企业服务，或能打破现有企业AI服务商的竞争平衡</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta推出企业AI平台，聘请MongoDB CEO领导该新举措，是Meta在AI行业布局企业级服务的重要动作，引入资深行业管理者助力相关业务推进。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/28/meta-launches-enterprise-ai-platform-hires-mongodb-ceo-to-lead-new-initiative/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Shopify扩展WebMCP支持至结账 对接浏览器AI代理</h3>
+          <p class="news-body">Shopify将WebMCP的支持范围扩展至结账环节。该功能允许浏览器端AI代理在获得买家授权后，更新订单详情并完成购买。这一举措打通了AI代理与电商交易流程的直接连接，降低消费者通过AI工具处理购物事务的操作门槛，为电商服务创新提供了新路径。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-28</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Shopify将结账功能开放给基于浏览器的AI代理，为AI代理参与电商交易流程提供了新路径，拓展了AI在商业场景的应用空间。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/28/shopify-opens-checkout-to-browser-based-ai-agents/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Unsloth推出本地UI用于运行和训练大模型及扩散模型</b> — 该工具简化了本地部署与训练AI模型的流程，降低了开发者利用本地资源构建AI应用的门槛，有望推动开源AI工具的普及。</div><div class="watch-item"><b>Meta推出企业级AI平台并聘请MongoDB CEO牵头项目</b> — Meta的这一布局将强化其在企业AI市场的竞争力，可能加速企业级AI解决方案的落地与普及。</div><div class="watch-item"><b>重新思考个性化生成：基于因子分解排序模型的测试时对齐</b> — 该论文提出的测试时对齐方法，有望提升AI生成内容的个性化程度，优化用户在个性化场景下的体验。</div><div class="watch-item"><b>Google停止Gemini的Gems功能，转向“技能”方向</b> — 这一调整预示AI助手功能设计可能从通用模块转向特定任务技能，或将影响行业内AI助手的功能定位与发展方向。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-09-29T05:51:11.106Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

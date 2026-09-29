@@ -1,17 +1,4 @@
 {
- "2026-09-14": {
-  "opensource": [
-   "opensource|agent lightning absolute trainer light up ai agents",
-   "opensource|ecc agent harness performance optimization system",
-   "opensource|hermes agent agent that grows you",
-   "opensource|ragflow ragflow is leading source retrieval augmented",
-   "opensource|openhands openhands ai driven development"
-  ],
-  "enterprise": [
-   "enterprise|graph ai 13 3 mn series scale ai drug safety platform bw disrupt",
-   "enterprise|perplexity trusts gpt 6 astra end end systems"
-  ]
- },
  "2026-09-15": {
   "paper": [
    "paper|universal intelligent document management system using ocr retrieval augmented g",
@@ -323,6 +310,29 @@
   ],
   "enterprise": [
    "enterprise|chesterbrook ai startup cornelis networks 205m funding vista"
+  ]
+ },
+ "2026-09-29": {
+  "paper": [
+   "paper|denoising multi robot trajectories",
+   "paper|rethinking personalized generation test time alignment via factorized ranking mo",
+   "paper|neural harmonic measure operator",
+   "paper|re cognize comic character re identification",
+   "paper|strategically robust game theoretic multi agent trajectory optimization"
+  ],
+  "opensource": [
+   "opensource|suna source ai management system",
+   "opensource|magpie every agent s model",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|omniroute never stop coding",
+   "opensource|hyperframes write html"
+  ],
+  "enterprise": [
+   "enterprise|source inference provider modal labs closing 750m round 15 75b valuation",
+   "enterprise|how we will do better australia",
+   "enterprise|google is killing off gemini s gems favor skills",
+   "enterprise|meta enterprise ai platform hires mongodb ceo lead initiative",
+   "enterprise|shopify checkout browser based ai agents"
   ]
  }
 }
