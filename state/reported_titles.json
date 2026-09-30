@@ -1,27 +1,4 @@
 {
- "2026-09-15": {
-  "paper": [
-   "paper|universal intelligent document management system using ocr retrieval augmented g",
-   "paper|motion planning urban environments via self play reinforcement learning",
-   "paper|invited editorial preparing students spatially driven business world why locatio",
-   "paper|accelerating pathology report digitization multi engine ocr llm framework health",
-   "paper|explainable multimodal deep learning framework alzheimer s disease classificatio"
-  ],
-  "opensource": [
-   "opensource|vllm high throughput memory efficient inference",
-   "opensource|headroom compress tool outputs logs rag chunks before",
-   "opensource|worldmonitor real time global intelligence dashboard",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|litellm fastest litest ai gateway"
-  ],
-  "enterprise": [
-   "enterprise|superhuman yc notetaker fathom productivity platforms push agentic work",
-   "enterprise|devfest is",
-   "enterprise|how fyxer built ai executive assistant people trust",
-   "enterprise|qwen image 3 0 api setup 12 steps 0 03 image 2026 tech insider org",
-   "enterprise|bytedance doubao phone assistant consumer edition ai agent phone nubia goes sale"
-  ]
- },
  "2026-09-16": {
   "paper": [
    "paper|lace layer wise compression dynamic frame rate codecs",
@@ -333,6 +310,29 @@
    "enterprise|google is killing off gemini s gems favor skills",
    "enterprise|meta enterprise ai platform hires mongodb ceo lead initiative",
    "enterprise|shopify checkout browser based ai agents"
+  ]
+ },
+ "2026-09-30": {
+  "paper": [
+   "paper|physics informed multi agent coordination hospital patient flow optimization",
+   "paper|breaking uniformity trap scaling video diffusion model via splitmoe",
+   "paper|imagine3d llm teaching mllms imagine 3d scenes before answering",
+   "paper|pretraining latent information feedback transformers teacher supervision",
+   "paper|learning meta skills agent harness design test time ai4ai"
+  ],
+  "opensource": [
+   "opensource|hermes agent agent that grows you",
+   "opensource|trueforge source agent harness runtime layer that",
+   "opensource|fastmcp typescript framework building mcp servers",
+   "opensource|local rag ingest retrieval augmented generation rag",
+   "opensource|awesome remote mcp servers collection remote mcp servers"
+  ],
+  "enterprise": [
+   "enterprise|据报道洽谈以约 万亿美元估值融资至少 亿美元 openai 1 4 300",
+   "enterprise|gpt 6 1 sol",
+   "enterprise|devday 2026 recap",
+   "enterprise|ai powered app maker wabi pivots messaging experience",
+   "enterprise|meta is expanding ai agent muse small businesses"
   ]
  }
 }
