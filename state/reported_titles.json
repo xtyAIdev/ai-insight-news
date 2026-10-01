@@ -1,27 +1,4 @@
 {
- "2026-09-16": {
-  "paper": [
-   "paper|lace layer wise compression dynamic frame rate codecs",
-   "paper|aura agentic diagnosis refinement production recommender systems scale",
-   "paper|speak city multimodal resolution outside vehicle references",
-   "paper|grounded sound reinforcement learning frozen acoustic judge curb asr insertion h",
-   "paper|diagnosing fact grounding gap multi hop question answering"
-  ],
-  "opensource": [
-   "opensource|hermes agent agent that grows you",
-   "opensource|trueforge source agent harness runtime layer that",
-   "opensource|n8n fair code workflow automation platform native ai",
-   "opensource|catchme catchme make your ai agents truly personal",
-   "opensource|webui user friendly ai interface supports ollama openai api"
-  ],
-  "enterprise": [
-   "enterprise|exclusive manufacturing ai startup caddi 1 2 billion following 114 million serie",
-   "enterprise|meta now lets ai agents handle boring parts whatsapp business setup",
-   "enterprise|meta expands subscription push ai focused plans",
-   "enterprise|ai agents now have place snitch",
-   "enterprise|salesforce nvidia s reasoning model is everything ai labs should fear"
-  ]
- },
  "2026-09-17": {
   "paper": [
    "paper|single token expected value scoring cold start candidate ranking",
@@ -333,6 +310,29 @@
    "enterprise|devday 2026 recap",
    "enterprise|ai powered app maker wabi pivots messaging experience",
    "enterprise|meta is expanding ai agent muse small businesses"
+  ]
+ },
+ "2026-10-01": {
+  "paper": [
+   "paper|image classifiers are efficient self supervised video representation learners",
+   "paper|is weight tying still beneficial decoder only llms private settings under dp sgd",
+   "paper|sqd agent llm driven agentic framework quantum chemistry workflows",
+   "paper|ranking aware prompt optimization multimodal clinical diagnosis",
+   "paper|semifactual credit augmented policy optimization"
+  ],
+  "opensource": [
+   "opensource|hermes webui hermes webui best way use hermes agent web",
+   "opensource|connectonion cli is all you need",
+   "opensource|claude mem persistent context across sessions every agent",
+   "opensource|headroom compress tool outputs logs rag chunks before",
+   "opensource|litellm fastest litest ai gateway"
+  ],
+  "enterprise": [
+   "enterprise|valor atreides sequoia ai startup flow engineering 750m valuation",
+   "enterprise|disrupting coordinated model distillation campaign",
+   "enterprise|helping small businesses put ai work",
+   "enterprise|google gemini 4 argon called most powerful model yet",
+   "enterprise|meta disputes claim that muse read user s private messages without permission"
   ]
  }
 }

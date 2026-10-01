@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-01</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's AI sector saw multi-dimensional progress: open-source tools enhanced AI agent usability and efficiency, academic research advanced video representation ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-01">
+<meta property="og:description" content="Today's AI sector saw multi-dimensional progress: open-source tools enhanced AI agent usability and efficiency, academic research advanced video representation learning, privacy-preserving LLMs and qu">
+<meta property="og:url" content="./report_20261001.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-01">
+<meta name="twitter:description" content="Today's AI sector saw multi-dimensional progress: open-source tools enhanced AI agent usability and efficiency, academic research advanced video representation learning, privacy-preserving LLMs and qu">
+<link rel="canonical" href="./report_20261001.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-01 ｜ report_20261001</div>
+<div class="sub" data-lang-title="zh">2026-10-01 ｜ report_20261001</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's AI sector saw multi-dimensional progress: open-source tools enhanced AI agent usability and efficiency, academic research advanced video representation learning, privacy-preserving LLMs and quantum chemistry. Major players were active: Google launched its most powerful Gemini model, Meta addressed privacy concerns, OpenAI focused on small business AI adoption, and an AI startup secured high-value funding, reflecting strong investor confidence.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. hermes-webui：Hermes WebUI: The best way to use Hermes Agent from the web</h3>
+          <p class="news-body">Hermes WebUI: The best way to use Hermes Agent from the web or from your phone!</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">nesquena</span> <span class="tag tag-star">⭐ 18,704</span> <span class="tag tag-gray">agent / ai-agents / hermes / hermes-agent</span></div>
+          <div class="pick-reason">Hermes WebUI, the best way to use Hermes Agent from the web, has attracted notable community attention with 18,704 stars, 2,659 forks and 928 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/nesquena/hermes-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. connectonion：CLI is all you need</h3>
+          <p class="news-body">CLI is all you need. The agent CLI harness.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">openonion</span> <span class="tag tag-star">⭐ 1,484</span> <span class="tag tag-gray">agent / agentic-ai / llm / openonion</span></div>
+          <div class="pick-reason">The project &quot;CLI is all you need&quot; by connectonion has gained 1,484 stars, 221 forks and 330 open issues in the community, standing out as a notable CLI-focused initiative in the AI field.</div>
+          <div class="source">Source：<a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. claude-mem：Persistent Context Across Sessions for Every Agent –</h3>
+          <p class="news-body">Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">thedotmack</span> <span class="tag tag-star">⭐ 95,040</span> <span class="tag tag-gray">ai / ai-agents / ai-memory / anthropic</span></div>
+          <div class="pick-reason">Claude-mem offers persistent context across sessions for every agent, gaining 95,040 stars, 8,415 forks and 100 open issues, providing a new direction for AI agent context management.</div>
+          <div class="source">Source：<a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. headroom：Compress tool outputs, logs, files, and RAG chunks before</h3>
+          <p class="news-body">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 74,202</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">Headroom, a tool for compressing tool outputs, logs, files and RAG chunks, has 74,202 stars, 538 weekly growth, 5,736 forks and 490 open issues, standing as a notable candidate in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. litellm：The fastest, litest AI Gateway</h3>
+          <p class="news-body">The fastest, litest AI Gateway. Rust core with Python SDK. Call 100+ LLM APIs in OpenAI (or native) format with cost tracking, guardrails, load balancing, and logging [Bedrock, Azure, OpenAI, Anthropic, OpenAI, VertexAI, vLLM, Nvidia NIM]</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">BerriAI</span> <span class="tag tag-star">⭐ 59,949</span> <span class="tag tag-gray">ai-gateway / anthropic / azure-openai / bedrock</span></div>
+          <div class="pick-reason">Litellm, the fastest and lightest AI gateway, has drawn wide attention in the AI gateway space with its community metrics: 59,949 stars, 11,942 forks and 5,480 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/BerriAI/litellm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Image Classifiers are Efficient Self-Supervised Video Representation Learners</h3>
+          <p class="news-body">We introduce VideoMSN, a Masked Siamese Network framework for efficient self-supervised spatio-temporal representation learning in videos. Instead of relying on heavy 3D architectures or reconstruction-based autoencoders for learning with unlabeled data, we repurpose standard image Vision Transformers by representing videos as super images which are grids composed of frames sampled from videos. From each super image, we construct two views: one with spatial patch masking and the other with temporal frame masking, ensuring no information leakage across frames. A shared Vision Transformer (ViT) encoder aligns their embeddings using a masked Siamese loss, capturing both motion and appearance cues without reconstruction. Our decoder-free formulation leverages an image foundation model towards efficient video representation learning. Starting from pretrained DINO-v3 and DeiT-v3 image encoders, VideoMSN achieves state-of-the-art performance on Kinetics-400, UCF101, and HMDB51 while requiring up to $32\times$ fewer and $160\times$ fewer video pretraining epochs compared to prior video self-supervised learning methods. Our proposed approach also shows strong performance in low-shot classification, confirming the transferability of the learned representations in a label-scarce scenario. Project Page: https://cvir.github.io/projects/videomsn.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">This paper, accepted by a top conference with 6 authors, proposes that image classifiers are efficient self-supervised video representation learners, providing a new direction for video representation learning in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.40347v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Is Weight Tying Still Beneficial for Decoder-Only LLMs in Private Settings Under DP-SGD?</h3>
+          <p class="news-body">Differentially Private Stochastic Gradient Descent (DP-SGD) is a leading approach for privacy-preserving fine-tuning of large language models (LLMs). Many decoder-only LLMs employ weight tying between input and output embeddings, a design choice originally introduced for parameter efficiency and improved language modeling performance in the non-private setting. However, the impact of weight tying under differentially private training remains largely unexplored. In this work, we investigate the role of weight tying in the DP setting using GPT2 and DistilGPT2 as representative decoder-only architectures. Interestingly, we find that untied embeddings consistently outperform weight-tied models under DP-SGD, achieving gains of up to 4.74% points in accuracy on SST-2, QNLI, and QQP. Beyond improved utility, untying embeddings enables the use of memory-efficient ghost clipping for DP-SGD. By contrast, weight tying introduces shared-parameter interactions that complicate standard ghost norm computation and largely negate its computational advantages. As a result, untied models achieve over 60% lower memory usage while preserving the benefits of ghost clipping. Our results indicate that untied embeddings provide a more effective and scalable design for differentially private training of decoder-only LLMs and highlight the need to revisit standard LLM architectural choices in the privacy-preserving setting.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">This paper, a 2nd candidate with top conference acceptance (impact signal) and 4 authors, explores whether weight tying remains beneficial for decoder-only LLMs in private settings under DP-SGD, contributing to AI industry research.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.40335v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. SQD-Agent: LLM-driven agentic framework for Quantum Chemistry workflows</h3>
+          <p class="news-body">Quantum algorithms and quantum hardware are advancing towards a promising paradigm for scientific applications. However, translating domain-specific problems into executable hybrid quantum-classical workflows remains a significant barrier for application researchers due to the required expertise in quantum algorithms, nuances in quantum programming, and hardware-aware system integration. At the same time, AI and primarily LLM based agents are increasingly capable of interpreting natural-language intent, reasoning over complex workflows, and translating high-level objectives into executable code and building computational pipelines. In this work, we introduce SQD Agent, an LLM-based agentic framework that translates natural-language user intent into executable workflows for Quantum Chemistry applications where algorithms from the Sample-Based Quantum Diagonalization (SQD) family are used. By automating this translation, SQD Agent reduces the level of human expertise and configuration overhead required, thereby simplifying experimentation in hybrid quantum-classical settings for application researchers new to quantum. SQD Agent adopts a modular and extensible architecture that supports seamless integration of heterogeneous quantum backends, classical solvers, and workflow components, ensuring adaptability to rapidly evolving quantum ecosystems. The framework further incorporates interactive capabilities for on-demand profiling, bottleneck analysis, resource optimization, intell</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag tag-gray">quant-ph</span></div>
+          <div class="pick-reason">SQD-Agent, the 3rd candidate, is an LLM-driven agentic framework for quantum chemistry workflows. It is accepted by a top conference with only 2 authors, offering a new direction for AI in quantum chemistry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.39302v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Ranking-Aware Prompt Optimization for Multimodal Clinical Diagnosis</h3>
+          <p class="news-body">Multimodal large language models (MLLMs) are rapidly advancing clinical diagnosis, yet their adaptation pipelines remain anchored to accuracy-based objectives. Clinical data are heavily class-imbalanced: a constant-majority predictor can score above 90% accuracy while being clinically useless. We therefore evaluate and optimize for AUROC, a threshold-free score that ranks positives above negatives and is invariant to class balance. We focus on prompt optimization in MLLMs. Reflective methods such as GEPA use a binary scores matrix with one row per evaluation instance and one column per candidate prompt; cells record per-instance correctness, so the column average is accuracy and drives candidate selection. We introduce pair-level Pareto prompt evolution (Ranking-PE), which replaces each correctness row with a pairwise-ordering row over (positive, negative) instance pairs: the cell is 1 if the candidate scores the positive higher than the paired negative. The column average then equals empirical AUROC (by the Wilcoxon-Mann-Whitney identity). We apply this swap at all three layers the prompt evolution search reads from - the scores matrix that decides Pareto dominance, the per-example feedback to the reflection LM, and final candidate selection - at no extra model calls and with no surrogate loss. Across three diseases on MIMIC, accuracy-based prompt evolution can degrade ranking; Ranking-PE reverses this, beating the accuracy-based recipe by +5.8 AUROC pp on fine-tuned Qwen3-V</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">This 4th candidate paper focuses on ranking-aware prompt optimization for multimodal clinical diagnosis, with 5 authors, offering a research reference direction for prompt optimization in AI clinical diagnosis</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.40361v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Semifactual Credit-Augmented Policy Optimization</h3>
+          <p class="news-body">Reinforcement learning with verifiable rewards (RLVR) has improved the reasoning capabilities of large language models (LLMs), yet their predictions remain sensitive to task-irrelevant prompt features. We investigate this sensitivity through semifactual prompt interventions that preserve the underlying problem and its answer. Our analysis reveals substantial variation in token-level sensitivity and shows that suppressing high-drift token candidates during decoding improves reasoning accuracy without updating model weights. These findings highlight a limitation of Group Relative Policy Optimization (GRPO), which assigns the same outcome-derived advantage to every response token and may reinforce potential spurious dependence alongside useful reasoning. Motivated by this observation, we introduce Semifactual Credit-Augmented Policy Optimization (SCAPO), a causally inspired variant of GRPO that incorporates semifactual stability into token-level credit assignment. SCAPO measures token probability drift for fixed responses under semifactual interventions and uses normalized stability scores to reduce advantages for relatively unstable tokens during early training, while granting no additional credit for stability alone. On Qwen3-4B-Base and Qwen3-1.7B-Base, SCAPO improves AIME 2024-2026 accuracy over GRPO by 5.63 and 4.17 percentage points, respectively. At both model scales, SCAPO achieves the best results on most evaluated mathematics benchmarks and all evaluated out-of-distrib</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">The paper Semifactual Credit-Augmented Policy Optimization, with 8 authors, acts as the 5th candidate, providing relevant references for AI policy optimization research with semifactual credit augmentation.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2609.40360v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Valor, Atreides, and Sequoia back AI startup Flow Engineering at $750M valuation</h3>
+          <p class="news-body">Flow Engineering, which is bringing AI agents to hardware design, also landed Roelof Botha as an angel investor and board member.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag">Sequoia</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 3.3事件数据：amount_wan=75000</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/30/valor-atreides-and-sequoia-back-ai-startup-flow-engineering-at-750m-valuation/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Disrupting a coordinated model-distillation campaign</h3>
+          <p class="news-body">Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As the 2nd candidate in the AI industry, this event is a disruptive attempt against coordinated model-distillation campaigns, offering new breakthrough directions for the model distillation field.</div>
+          <div class="source">Source：<a href="https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Helping small businesses put AI to work</h3>
+          <p class="news-body">OpenAI is partnering with America’s SBDC to expand hands-on AI training and local support for small businesses, alongside a new report on how small teams are using AI.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As the 3rd candidate, this event focuses on helping small businesses apply AI, offering a feasible direction for the popularization of AI among small and micro entities and holding industry reference value.</div>
+          <div class="source">Source：<a href="https://openai.com/index/helping-small-businesses-put-ai-to-work" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Google releases Gemini 4 Argon, called its most powerful model yet</h3>
+          <p class="news-body">Google has released its latest Gemini model, marketing it as a workhorse for coding and cybersecurity work.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Google releases Gemini 4 Argon, which is claimed to be its most powerful model to date, representing a key development in the AI large model field.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/30/google-releases-gemini-4-argon-called-its-most-powerful-model-yet/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Meta disputes claim that Muse read a user’s private messages without permission</h3>
+          <p class="news-body">Meta says its Muse AI agent cannot access a user’s Messages without explicit permission, disputing a journalist’s account that the agent read his private messages while the required Mac setting was tu</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta disputes the claim that its Muse AI tool read a user’s private messages without permission, a notable event in the AI industry highlighting privacy compliance concerns.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/09/30/meta-disputes-claim-that-muse-read-a-users-private-messages-without-permission/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Google Unveils Gemini 4 Argon, Its Most Powerful Model to Date</b> — As Google's latest flagship AI product, this model will shape the development of enterprise and consumer AI solutions and reshape the competitive landscape of the AI model market.</div><div class="watch-item"><b>SQD-Agent: LLM-Powered Agentic Framework for Quantum Chemistry Workflows</b> — This academic work proposes an LLM-driven agent framework for quantum chemistry, which has the potential to accelerate breakthroughs in drug discovery and material science.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域呈现多维度进展：开源工具持续优化AI代理的易用性与效率，学术研究在视频表征学习、隐私保护大模型及量子化学领域取得突破。头部企业动作频繁，谷歌发布最强Gemini模型，Meta回应隐私争议，OpenAI聚焦中小企业AI落地，同时一家AI初创获高额融资，彰显行业增长信心。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. Hermes WebUI成Hermes Agent多终端便捷调用工具</h3>
+          <p class="news-body">Hermes WebUI是可从网页或手机端使用Hermes Agent的工具。其开源仓库当前获18704颗星、2659次复刻、928个未解决问题。该工具无需复杂部署，降低了Hermes Agent的使用门槛。这对AI Agent的普及起到推动作用。</p>
+          <p class="comment">若更多非技术用户通过该工具接触AI Agent，则可能加速AI Agent从专业开发者工具向大众应用的演进</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">nesquena</span> <span class="tag tag-star">⭐ 18,704</span> <span class="tag tag-gray">agent / ai-agents / hermes / hermes-agent</span></div>
+          <div class="pick-reason">Hermes WebUI是从网页使用Hermes Agent的最佳方式，社区数据显示其获18704星、2659复刻、928个未解决问题，在AI行业社区关注度突出。</div>
+          <div class="source">来源：<a href="https://github.com/nesquena/hermes-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 开源agent CLI填补AI代理命令行场景空白</h3>
+          <p class="news-body">开源领域有一款名为agent CLI的工具，聚焦CLI轻量交互入口。该工具的社区数据为stars1484，forks221，open issues330。它填补了AI代理在命令行场景下的开源工具空白，适配终端环境操作需求。这一工具的出现，意味着AI工具向轻量化、命令行化的细分趋势发展，适配开发者终端工作流。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">openonion</span> <span class="tag tag-star">⭐ 1,484</span> <span class="tag tag-gray">agent / agentic-ai / llm / openonion</span></div>
+          <div class="pick-reason">connectonion推出“CLI is all you need”项目，在社区获1484星、221复刻，有330个开放问题，是AI行业CLI方向的社区热门项目</div>
+          <div class="source">来源：<a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 开源工具claude-mem解决AI代理跨会话上下文断裂问题</h3>
+          <p class="news-body">开源工具claude-mem可实现AI代理跨会话持久上下文，能捕获代理会话期间的所有内容，通过AI压缩后注入未来会话。它支持Claude Code、OpenClaw、Codex、Gemini、Hermes、Copilot、OpenCode等多款AI开发工具。该工具的GitHub社区数据显示，其stars达95040，forks为8415，open issues共100个。该工具解决了AI代理跨会话上下文断裂的核心痛点，降低开发者构建长期记忆型AI应用的技术门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">thedotmack</span> <span class="tag tag-star">⭐ 95,040</span> <span class="tag tag-gray">ai / ai-agents / ai-memory / anthropic</span></div>
+          <div class="pick-reason">claude-mem推出面向每个智能体的跨会话持久上下文功能，获95040星、8415次复刻，开放议题100个，为AI智能体上下文管理提供新方向。</div>
+          <div class="source">来源：<a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. headroom：Compress tool outputs, logs, files, and RAG chunks before</h3>
+          <p class="news-body">这款开源压缩工具可在工具输出、日志、文件及RAG块抵达LLM前完成压缩。它能让编码代理场景的token消耗减少20%，JSON场景则减少60%-95%，且输出答案保持一致。该工具以库、代理、MCP服务器形式存在，可帮助降低AI应用的运行成本，尤其适配高token消耗的编码与JSON处理场景。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 74,202</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">headroom是压缩工具输出、日志、文件及RAG chunks的项目，获74202星、周增538、5736分支、490开放议题，为AI行业受关注的工具类候选</div>
+          <div class="source">来源：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 开源AI网关litellm适配多LLM 社区星标近6万</h3>
+          <p class="news-body">开源AI网关litellm采用Rust核心搭配Python SDK，定位轻量高效。它可调用100+款LLM API，支持多厂商格式，具备成本跟踪、防护栏、负载均衡及日志功能。其GitHub社区数据显示，stars达59949，forks11942，open_issues5480。该工具能解决开发者对接多LLM的格式不统一、管理复杂痛点，降低对接与运维成本。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">BerriAI</span> <span class="tag tag-star">⭐ 59,949</span> <span class="tag tag-gray">ai-gateway / anthropic / azure-openai / bedrock</span></div>
+          <div class="pick-reason">litellm是最快最轻的AI网关，拥有59949星标、11942个分叉及5480个开放问题的社区数据，在AI行业网关领域受广泛关注</div>
+          <div class="source">来源：<a href="https://github.com/BerriAI/litellm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. VideoMSN复用图像预训练模型实现高效视频表征学习</h3>
+          <p class="news-body">VideoMSN是用于高效视频自监督时空表征学习的Masked Siamese Network框架。它不依赖高算力3D架构或重建自编码器，而是复用标准图像Vision Transformer（ViT），将视频转为由帧组成的超图像，构建空间和时间掩码视图。该方案以预训练的DINO-v3和DeiT-v3图像编码器为基础，在Kinetics-400、UCF101、HMDB51数据集上达到当前最优性能，预训练epoch较旧方法少32倍和160倍，少样本分类表现优异。它突破了视频自监督学习依赖高算力3D架构或重建方法的瓶颈，降低了视频表征学习的算力门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">这篇被顶会录用、作者数为6的论文提出图像分类器是高效自监督视频表征学习者，为AI行业视频表征学习提供新方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.40347v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. DP-SGD场景下仅解码器LLM权重绑定的效果研究</h3>
+          <p class="news-body">DP-SGD是当前大语言模型（LLM）隐私微调的主流方法，仅解码器LLM常采用权重绑定设计，该设计原本用于非隐私场景以提升参数效率与语言建模性能。一项研究以GPT2、DistilGPT2为代表的仅解码器架构，探究DP-SGD场景下权重绑定的实际作用。研究发现，DP-SGD下未绑定嵌入的模型在SST-2、QNLI、QQP数据集上准确率最高提升4.74个百分点，内存占用降低超60%，还支持DP-SGD的内存高效ghost clipping。权重绑定会引入共享参数交互，干扰标准ghost norm计算，抵消其计算优势，因此未绑定嵌入是仅解码器LLM隐私微调更有效的架构选择，明确了私有场景下的架构设计方向，填补了相关研究缺口。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">该论文是顶会录用的第2名候选，作者数为4，聚焦私有设置下DP-SGD的仅解码器LLM的权重绑定价值问题，为AI行业相关研究提供参考</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.40335v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. SQD-Agent框架简化量子化学工作流使用</h3>
+          <p class="news-body">量子算法与硬件正推进科学应用，但将领域问题转化为混合量子-经典工作流，对非量子专业研究人员是显著障碍。该顶会录用论文（作者数2）推出基于LLM的代理框架SQD-Agent，可将自然语言意图转化为采用SQD系列算法的量子化学可执行工作流。SQD-Agent采用模块化可扩展架构，支持集成多种量子后端、经典求解器，还具备交互分析、瓶颈排查等能力，降低了专业知识与配置开销。这件事降低了量子化学科研的专业壁垒，加速量子计算在科研领域的落地。</p>
+          <p class="comment">若SQD-Agent框架推广至更多量子化学场景，则可能大幅提升跨学科科研人员参与量子计算研究的效率</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag tag-gray">quant-ph</span></div>
+          <div class="pick-reason">SQD-Agent作为第3名候选，是LLM驱动的量子化学工作流agent框架，获顶会录用，作者数为2，为AI行业量子化学领域提供新框架。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.39302v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Ranking-Aware Prompt Optimization for Multimodal Clinical Diagnosis</h3>
+          <p class="news-body">由5位作者完成的研究指出，多模态大语言模型（MLLMs）在临床诊断中应用广泛，但现有优化多基于准确率指标，而临床数据存在严重类别不平衡问题，高准确率模型可能无实际临床价值。针对这一问题，研究提出Pair-level Pareto Prompt Evolution（Ranking-PE）方法，将原有基于正确率的提示优化矩阵替换为正负样本对排序矩阵，以AUROC为优化目标。该方法在MIMIC数据集的三种疾病上，相比基于准确率的提示优化，在微调后的Qwen3-V模型上提升了5.8个AUROC百分点。该研究解决了AI医疗中MLLMs因类别不平衡数据导致的准确率误导问题，为其临床落地提供了更具实用性的优化路径。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">这条第4名候选的论文聚焦多模态临床诊断的排名感知提示优化，作者数为5，为AI在临床诊断领域的提示优化提供了研究参考方向</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.40361v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 8位作者研究：SCAPO提升RLVR优化LLM推理稳定性</h3>
+          <p class="news-body">8位作者的研究指出，RLVR优化的大语言模型（LLM）虽提升了推理能力，但对无关提示特征敏感；该研究通过半事实提示干预分析敏感性，发现解码阶段抑制高漂移token可提升推理精度且无需更新模型权重，还揭示了GRPO为每个响应token分配相同结果优势的局限。基于此，研究提出SCAPO——GRPO的因果启发变体，将半事实稳定性融入token级信用分配。在Qwen3-4B-Base和Qwen3-1.7B-Base上，SCAPO在AIME2024-2026任务中较GRPO分别提升5.63和4.17个百分点，在多数数学基准及分布外任务表现最优。这解决了RLVR优化LLM推理稳定性的关键痛点，也代表大语言模型技术从侧重推理能力提升转向优化稳定性的趋势。</p>
+          <p class="comment">若该方法在更多模型上验证有效，或能推动RLVR优化LLM在精准推理场景的落地。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Semifactual Credit-Augmented Policy Optimization论文有8位作者，作为第5名候选，为AI领域策略优化研究提供带半事实信用增强的相关参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2609.40360v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. 顶级风投押注AI硬件设计初创Flow Engineering 估值7.5亿</h3>
+          <p class="news-body">Flow Engineering正将AI代理引入硬件设计领域。该公司获得Valor、Atreides、Sequoia等顶级风投的投资，估值达7.5亿美元。Roelof Botha以天使投资人身份加入，并担任其董事会成员。这件事意味着AI技术正从软件应用向硬件设计等实体工程领域延伸，风投机构开始布局AI与传统制造业结合的赛道。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag">Sequoia</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 3.3事件数据：amount_wan=75000</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/30/valor-atreides-and-sequoia-back-ai-startup-flow-engineering-at-750m-valuation/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI干扰模型蒸馏窃取活动并强化防御机制</h3>
+          <p class="news-body">OpenAI已干扰了一起窃取其受保护模型推理的活动。该机构正强化针对对抗性模型蒸馏的防御措施。这一举措回应了AI安全领域攻击者通过蒸馏窃取模型核心能力的关键风险，为企业级AI模型的知识产权与安全防护提供了实操参考。这也预示着AI厂商正从被动防御转向主动阻断对抗性模型蒸馏攻击的趋势。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件作为AI行业第2名候选，是针对协同模型蒸馏活动的颠覆性尝试，为模型蒸馏领域提供了新的突破方向。</div>
+          <div class="source">来源：<a href="https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. OpenAI联合美国SBDC拓展小企业AI实操培训与支持</h3>
+          <p class="news-body">OpenAI正与美国SBDC展开合作，为小企业拓展实操类AI培训及本地支持服务。双方同步推出一份报告，聚焦小型团队运用AI的实际情况。该合作填补了小企业AI应用的实操指导缺口，解决了中小企缺乏AI落地路径的核心痛点，推动AI技术向非科技类主体渗透。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">作为第3名候选，该事件聚焦帮助小企业落地应用AI，为AI在中小微主体的普及提供了可行方向，具备行业参考价值。</div>
+          <div class="source">来源：<a href="https://openai.com/index/helping-small-businesses-put-ai-to-work" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Google推出Gemini 4 Argon 主打编码与网络安全场景</h3>
+          <p class="news-body">Google推出最新Gemini模型Gemini 4 Argon，将其营销为编码与网络安全工作的主力工具。该模型被称为Google目前最强的Gemini模型。它聚焦企业核心刚需场景，将强化Google在企业级AI应用赛道的竞争力。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Google发布Gemini 4 Argon，称其为迄今最强大的AI模型，是AI行业大模型领域的重要进展</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/30/google-releases-gemini-4-argon-called-its-most-powerful-model-yet/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Meta回应Muse AI代理隐私访问权限争议</h3>
+          <p class="news-body">有记者指控Meta旗下的Muse AI代理在符合Mac设置要求的情况下读取了其私人消息。Meta反驳该指控，称其Muse AI agent在未获得明确权限时无法访问用户信息。这一争议聚焦企业AI工具的隐私权限边界，关乎用户对AI产品的信任，也关联AI行业的数据合规监管方向。该事件或推动企业AI工具隐私权限形成统一标准。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-09-30</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta反驳旗下Muse未经许可读取用户私信的说法，作为AI行业相关争议事件，反映AI工具隐私合规的行业关注点</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/09/30/meta-disputes-claim-that-muse-read-a-users-private-messages-without-permission/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>谷歌发布最强Gemini模型Gemini 4 Argon</b> — 该模型是谷歌最新旗舰AI产品，将影响企业与消费级AI解决方案的发展方向，重塑AI模型市场竞争格局。</div><div class="watch-item"><b>SQD-Agent：面向量子化学工作流的LLM驱动代理框架</b> — 这项学术研究提出针对量子化学的LLM代理框架，有望加速药物研发与材料科学领域的突破。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-01T06:04:06.608Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
