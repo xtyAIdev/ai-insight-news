@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-02</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today’s AI landscape sees three key trends: The open-source sector has released multiple tools for agents, local LLMs, and workflow building, accelerating the d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-02">
+<meta property="og:description" content="Today’s AI landscape sees three key trends: The open-source sector has released multiple tools for agents, local LLMs, and workflow building, accelerating the democratization of AI adoption. Academic ">
+<meta property="og:url" content="./report_20261002.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-02">
+<meta name="twitter:description" content="Today’s AI landscape sees three key trends: The open-source sector has released multiple tools for agents, local LLMs, and workflow building, accelerating the democratization of AI adoption. Academic ">
+<link rel="canonical" href="./report_20261002.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-02 ｜ report_20261002</div>
+<div class="sub" data-lang-title="zh">2026-10-02 ｜ report_20261002</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today’s AI landscape sees three key trends: The open-source sector has released multiple tools for agents, local LLMs, and workflow building, accelerating the democratization of AI adoption. Academic research focuses on frontier areas like distributed agent systems and multi-agent control, expanding AI applications in industrial and aerospace scenarios. On the enterprise front, AI startup Halluminate secured $30 million in funding, while giants like OpenAI, Google, and Amazon continue integrating AI into retail, aerospace, and decision-making use cases.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 250,648</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">As a growing AI agent, hermes-agent has gained remarkable community traction with 250,648 stars, 53,663 forks and 48,250 open issues, standing out as a notable project in the AI agent field.</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. vibing-steampunk：vs-punk: ADT to MCP bridge - Vibe code in ABAP / AMDP</h3>
+          <p class="news-body">vs-punk: ADT to MCP bridge - Vibe code in ABAP / AMDP</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">oisee</span> <span class="tag tag-star">⭐ 494</span> <span class="tag tag-gray">abap / adt / mcp / vibe-coding</span></div>
+          <div class="pick-reason">This AI-related project, an ADT-to-MCP bridge with vibe code in ABAP/AMDP by vibing-steampunk, has secured 494 stars, 120 forks, and 43 open issues in the community.</div>
+          <div class="source">Source：<a href="https://github.com/oisee/vibing-steampunk" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. plur：Shared memory for AI agents</h3>
+          <p class="news-body">Shared memory for AI agents</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">plur-ai</span> <span class="tag tag-star">⭐ 296</span> <span class="tag tag-gray">agent-memory / ai-agents / ai-memory / context-engine</span></div>
+          <div class="pick-reason">Plur, a shared memory solution for AI agents, has gained 296 stars and 36 forks in the community, with 425 open issues, offering a new attempt for AI agents to collaborate via shared memory.</div>
+          <div class="source">Source：<a href="https://github.com/plur-ai/plur" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. dify：Build Agentic workflows, RAG pipelines, with rich AI model</h3>
+          <p class="news-body">Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 157,708</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">As an AI tool for building agentic workflows and RAG pipelines, Dify has gained extensive industry attention, with notable community data: 157,708 stars, 24,885 forks, and 919 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. unsloth：Local UI to run and train LLMs and diffusion models</h3>
+          <p class="news-body">Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4, MiniMax-H3, Gemma 4, FLUX and more.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 77,124</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">Unsloth, a local UI for running and training LLMs and diffusion models, has attracted strong community interest with 77,124 stars, 7,097 forks, and 1,140 open issues, serving as a notable tool in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Managing Context and Communication in Distributed Agentic UAV Swarms</h3>
+          <p class="news-body">Unmanned aerial vehicle (UAV) swarms increasingly rely on language-model agents to provide adaptive mission-level reasoning in uncertain environments. Fully distributed control, in which each UAV hosts an independent Small Language Model (SLM), removes reliance on a centralized coordinator but introduces an information-management problem: long-running interaction histories can degrade the reasoning context, while indiscriminate information dissemination increases communication and inference overhead. We address these challenges with a distributed UAV-agent architecture that enables continuous local SLM control through an event-driven reason-act-observe lifecycle. Runtime knowledge is represented as structured atomic notes and organized into core, local, and peer-specific memory. A deterministic interest-aware gossip engine selectively disseminates these notes according to recipient-specific semantic novelty and recency. We evaluate the architecture using ten UAVs in a simulated search-and-rescue mission. Our approach completes all experimental runs, whereas unrestricted flooding messages completes only 70-85\%, and delegating forwarding decisions to the SLM prevents mission completion in every run. Compared with unrestricted flooding, our approach approximately halves inference-token consumption, reduces transmitted data, and achieves lower survivor-count error.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">This paper on managing context and communication in distributed agentic UAV swarms, with 5 authors and accepted by a top conference as its impact signal, is an important research achievement in the field of AI for UAV swarms.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.01569v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. LLM-Driven Multi-Agent Control for Skill-Based Smart Manufacturing</h3>
+          <p class="news-body">Factories are shifting toward smaller lot sizes with high product customization, requiring frequent re-programming of flexible and reconfigurable automation systems. LLM-based agents can be deployed in two complementary roles: Offline, they generate deterministic production sequences, reducing programming effort; online, they operate live machines and handle unforeseen runtime faults that static programs cannot anticipate. We propose a solution in which each factory module is paired with a dedicated LLM-based agent and an MCP tool server that exposes the module's skills via OPC UA method calls, with agents coordinating over MQTT and grounded by real-time updates of the factory state. We compare three agent architectures (orchestrator, peer-to-peer, and monolithic) across nine production challenges of increasing complexity in a simulation of a physical six-module hexagonal factory, including silent hardware fault detection. The monolithic and peer-to-peer architectures both achieve the highest mean solve rate (93\%), while the orchestrator uniquely resolves a silent conveyor-belt fault in all ten runs by autonomously rerouting plates around the blocked segment. All architectures exhibit emergent fault-diagnosis behavior without any explicit failure-handling logic, establishing standardized MCP tooling, MQTT-based inter-agent communication, and real-time state injection as a viable and reproducible foundation for LLM-programmed smart manufacturing.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">As the 2nd candidate, this paper, accepted by a top conference and written by 4 authors, explores LLM-driven multi-agent control for skill-based smart manufacturing, providing a new direction for AI applications in manufacturing.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.01364v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. SILSA: Sliding-Window Slice Latents for Topology-Preserving High-Resolution 3D Generation</h3>
+          <p class="news-body">High-resolution 3D generation increasingly relies on voxel latents and multi-stage pipelines that first predict active structure and then synthesize local geometry. While effective, this design fragments continuous surfaces into many local tokens, inflates generation cost, and often weakens topological consistency for thin or highly connected shapes. We introduce SILSA, a topology-aware 3D generation framework that represents shapes with compact sliding-window slice latents. Instead of generating expensive voxel tokens, SILSA uses a fixed set of overlapping slices along the three canonical axes, where each token summarizes a local depth window to preserve cross-sectional continuity and support single-stage rectified-flow generation. A Slice VAE encodes oriented surface samples into multi-axis slice latents and reconstructs them with a sparse volumetric decoder, while a Volumetric Anchor Lattice coordinates directional slice streams through a shared 3D workspace. To preserve structural correctness, we introduce slice-level topology supervision that matches persistence diagrams and aligns Betti transitions across neighboring slices. Experiments show that SILSA improves structural fidelity while substantially reducing generation cost. SILSA improves PSNR by $8.7\%$, coverage by $5.96$ absolute points, and Betti error by $9.2\%$ over the strongest baseline, while using $70.0\%$ fewer tokens than the next-most compact baseline and over $98\%$ fewer tokens than sparse or hierarchic</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">The SILSA paper, with 7 authors and accepted by NeurIPS 2026, focuses on topology-preserving high-resolution 3D generation, bringing new research insights to the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.02201v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. From Rules to Neural Graphs: Scalable Structured Prediction for Patent Prior Art Search</h3>
+          <p class="news-body">Patent search requires processing documents routinely exceeding tens of thousands of tokens. Most neural retrieval approaches operate on truncated inputs, limiting their effectiveness. Graph-based retrieval addresses this by representing each patent as a structured invention graph, but constructing these graphs relies on brittle rule-based parsers. We present the neural parser, which adapts biaffine attention from dependency parsing to predict invention graphs directly from patent text. Our local biaffine attention restricts pairwise scoring to a sliding window, reducing complexity from $O(n^2)$ to $O(n \cdot w)$. Since local and global scoring share the same weights, the model trains on short sequences and deploys on documents exceeding 40,000 tokens without retraining. Distilled from 1 million rule-parsed documents, it surpasses its teacher at 3$\times$ lower inference cost: neural graphs improve citation recall by 0.5% on short queries and 1.1% on full documents in a downstream Graph Transformer retrieval system.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">This paper, accepted by KDD 2026 with 2 authors, proposes a scalable structured prediction approach from rules to neural graphs for patent prior art search, offering valuable insights for the field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.01553v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Do Multilingual Encoders Produce Language-Consistent Semantic IDs?</h3>
+          <p class="news-body">Semantic IDs (SIDs) compress item embeddings into discrete code sequences used in generative retrieval. We ask whether a multilingual encoder is sufficient for different-language renderings of the same product to receive language-consistent SIDs. Using Amazon ESCI listings rendered in English, Spanish, and Japanese, we test whether translations remain close to their English source, whether residual quantization is unusually sensitive to translation-induced movement, and whether multilingual or language-balanced quantizer fitting improves SID agreement. Multilingual E5 places translations measurably apart: under an English-heavy fit, a Japanese translation preserves the first SID code of its English counterpart in only 7.7% of cases, compared with 89.0% for an English rewording. Distance-matched product-directed controls produce nearly the same full-SID mismatch as translation, providing no evidence that the quantizer selectively amplifies language directions. Balancing the fitting mixture makes codebook use more uniform but further reduces cross-lingual prefix agreement: Spanish first-code consistency falls from 28.3% to 6.6%, while an English-only fit preserves it for 67.6% of Spanish translations. These results show that multilingual exposure and balanced codebook use alone do not guarantee language-consistent SIDs.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">This paper, accepted by EMNLP 2026 with only 2 authors, focuses on whether multilingual encoders produce language-consistent semantic IDs, offering a new direction for multilingual AI semantic consistency research.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.01139v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Exclusive: Nine-person Halluminate raises $30 million, counts four top U.S. AI labs as customers - Fortune</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMihgFBVV95cUxQeWNxS0luM2lwc0k5OVlQSFd4Sy1XN01sdnZGV2FZV3BxbHBZWV9PNzg3U1JKTHZSNDd0UkJBRERob1Vkb3NJZDNhVEdpQ3N2LWROdS1DajUwQkNzSEpyUDhNLXRuY043emZjSldEb1MwcDM1YmJsTWNrelBvSFJJSnptaC1EZw?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Exclusive: Nine-person Halluminate rais</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.8事件数据：amount_wan=3000</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxQeWNxS0luM2lwc0k5OVlQSFd4Sy1XN01sdnZGV2FZV3BxbHBZWV9PNzg3U1JKTHZSNDd0UkJBRERob1Vkb3NJZDNhVEdpQ3N2LWROdS1DajUwQkNzSEpyUDhNLXRuY043emZjSldEb1MwcDM1YmJsTWNrelBvSFJJSnptaC1EZw?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. The eternal complement</h3>
+          <p class="news-body">Advanced AI may matter most for the routine work behind breakthrough ideas. Explore why execution could shape the next economy and the pace of progress.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As the 2nd candidate in the AI sector, its identity as &quot;The eternal complement&quot; offers a reference for the industry's complementary direction, acting as a notable trend signal.</div>
+          <div class="source">Source：<a href="https://openai.com/index/the-eternal-complement" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. How Albertsons Companies is reimagining retail from the inside out</h3>
+          <p class="news-body">Albertsons Cos. is using ChatGPT Enterprise and the OpenAI API to help teams work faster and make grocery shopping easier for millions of customers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As the 3rd candidate, this event focuses on Albertsons Companies' practice of reimagining retail from the inside out, offering a reference case for the industry on AI-enabled retail transformation.</div>
+          <div class="source">Source：<a href="https://openai.com/index/albertsons-reimagining-retail" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Google thinks SpaceX’s Starship has to launch 1,800 times before space data centers get off the ground</h3>
+          <p class="news-body">Google launched its first advanced chip into orbit to pave the way for space data centers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Google holds that SpaceX’s Starship needs to make 1,800 launches before space data centers can be established, which sets a core launch requirement for the AI industry’s space data center deployment</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/01/google-thinks-spacexs-starship-has-to-launch-1600-times-before-space-data-centers-get-off-the-ground/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Amazon releases its own Jev clone as decision models flood the web</h3>
+          <p class="news-body">Amazon Web Services' Strand Labs has released the latest Jevalike decision model, Strands Decider 2B.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">Amazon</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Amazon has released its own Jev clone, and decision models are flooding the web, indicating the development trend of decision models in the AI industry</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/01/amazon-releases-its-own-jev-clone-as-decision-models-flood-the-web/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>NousResearch releases hermes-agent, an open-source agent designed to grow with users</b> — This project fills the gap in agent tools that iterate with user interactions, offering developers a new option to build adaptive AI assistants</div><div class="watch-item"><b>arXiv publishes research on context and communication management in distributed agentic UAV swarms</b> — This research addresses key technical challenges in multi-UAV swarm collaboration, providing theoretical support for AI applications in aerospace scenarios</div><div class="watch-item"><b>AI startup Halluminate raises $30 million with four top U.S. AI labs as customers</b> — This funding and top-tier customer resources will help it accelerate technological iteration and market expansion, marking a key development in the AI startup space</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域呈现三大核心动向：开源侧涌现多款面向智能体、本地LLM及工作流构建的工具，加速AI落地的民主化；学术端聚焦分布式智能体系统、多智能体控制等前沿方向，拓展AI在工业与航天场景的应用；企业层面，AI初创Halluminate获3000万美元融资，OpenAI、Google、Amazon等巨头持续推进AI与零售、航天、决策场景的融合。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. hermes-agent是适配用户成长型AI智能体 社区数据亮眼</h3>
+          <p class="news-body">hermes-agent是一款随用户成长的AI智能体。其GitHub社区数据显示，stars达250648，forks为53663，open issues共48250。这类成长型AI智能体填补了开源领域适配用户长期需求的空白，降低了开发者获取定制化AI工具的门槛。它代表开源AI智能体正从静态功能型向动态适配型演进，未来将更侧重满足用户个性化、长期化的AI协作需求。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 250,648</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">hermes-agent作为成长型AI agent，在社区获得亮眼数据：stars达250648，forks为53663，open_issues达48250，是AI agent领域受关注的标杆项目</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. vs-punk工具实现ABAP生态与MCP协议桥接</h3>
+          <p class="news-body">vs-punk是一款ADT到MCP的桥接工具，基于ABAP/AMDP开发。其GitHub社区数据显示，stars为494，forks达120，开放issues共43个。该工具打通ABAP生态与MCP协议的连接，降低ABAP开发者接入AI相关服务的技术门槛，对企业级ABAP应用智能化改造有实际价值。它反映了传统企业技术栈与AI协议融合的趋势，开源工具正成为连接传统开发与AI能力的关键桥梁。</p>
+          <p class="comment">若这类开源桥接工具在ABAP细分领域持续普及，可能加速依赖ABAP系统的企业AI应用落地进程</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">oisee</span> <span class="tag tag-star">⭐ 494</span> <span class="tag tag-gray">abap / adt / mcp / vibe-coding</span></div>
+          <div class="pick-reason">该AI相关项目（vibing-steampunk打造的ADT到MCP桥，采用ABAP/AMDP的vibe code）在社区获494星、120复刻，有43个开放问题，是AI行业的实践案例。</div>
+          <div class="source">来源：<a href="https://github.com/oisee/vibing-steampunk" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 开源项目plur提供AI代理共享内存方案</h3>
+          <p class="news-body">开源项目plur主打针对AI代理的共享内存方案。该项目的社区数据为stars296、forks36、open issues425。此方案降低了AI代理间数据共享的技术门槛，加速多代理系统落地。它反映AI代理生态从单代理向多代理协作演进，共享内存成为多代理系统关键基础设施，聚焦AI代理开发领域降低开发者构建成本，推动开源AI代理工具链完善。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">plur-ai</span> <span class="tag tag-star">⭐ 296</span> <span class="tag tag-gray">agent-memory / ai-agents / ai-memory / context-engine</span></div>
+          <div class="pick-reason">plur是面向AI agents的共享内存方案，社区获296颗星、36个复刻，有425个未解决问题，为AI agents协作提供了共享内存的新尝试</div>
+          <div class="source">来源：<a href="https://github.com/plur-ai/plur" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Dify整合Agentic工作流与RAG构建部署能力</h3>
+          <p class="news-body">Dify是一款开源项目，社区数据显示其stars达157708，forks为24885，open issues共919个。它提供协作工作空间，支持构建Agentic工作流、RAG管道，具备丰富AI模型与工具支持。该项目支持部署在云、VPC或自托管环境，助力团队从原型到生产无需重建技术栈。这一整合解决了AI应用开发从原型到生产的栈重建痛点，降低了团队开发生产级AI应用的门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 157,708</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">dify是构建智能体工作流、RAG管道的AI工具，在行业受广泛关注，其社区数据亮眼：stars达157708，forks为24885，open_issues共919</div>
+          <div class="source">来源：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 开源工具unsloth提供本地UI运行训练多类AI模型</h3>
+          <p class="news-body">开源项目unsloth属于opensource模块，其社区数据显示stars达77124，forks为7097，open issues共1140。该工具具备本地图形界面，可用于运行和训练大语言模型（LLMs）及扩散模型。它支持GGUF、MLX、Qwen3.8、DeepSeek-V4、MiniMax-H3、Gemma4、FLUX等多种模型格式与类型。该工具降低了本地部署、训练AI模型的技术门槛，让非专业开发者也能通过图形界面操作，推动开源AI工具的普及与落地应用。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 77,124</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">Unsloth是用于运行和训练大语言模型及扩散模型的本地UI，在AI社区受高度关注，拥有77124星标、7097次复刻及1140个待解决问题。</div>
+          <div class="source">来源：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Managing Context and Communication in Distributed Agentic UAV Swarms</h3>
+          <p class="news-body">获顶会录用的5人团队研究显示，无人机集群在不确定环境中依赖语言模型智能体执行任务，全分布式控制（每架无人机搭载独立小型语言模型SLM）虽无需中央协调，但存在信息管理痛点。该团队提出分布式无人机智能体架构，采用事件驱动的reason-act-observe生命周期，将运行时知识组织为结构化原子笔记及核心、本地、同伴专属三类记忆，通过确定性兴趣感知gossip引擎选择性传播信息。研究用10架无人机在模拟搜救任务中测试该架构，结果显示其完成所有实验，相比无限制泛洪减少约一半推理token消耗、降低传输数据量，且幸存者计数误差更低，而让SLM负责转发决策的方案均未完成任务。该方案解决了分布式无人机集群的信息管理问题，推动这类集群在应急侦察等场景的实用化。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">这篇关于分布式智能无人机群上下文与通信管理的论文，以顶会录用为影响力信号，作者数5，是AI在无人机集群领域的重要研究成果。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.01569v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. LLM-Driven Multi-Agent Control for Skill-Based Smart Manufacturing</h3>
+          <p class="news-body">工厂转向小批量定制化生产，柔性自动化系统需频繁重编程。顶会录用的该论文（作者共4人）提出方案，为每个工厂模块配备LLM智能体与MCP工具服务器，通过OPC UA调用技能，智能体间经MQTT协作。模拟六模块工厂测试三种架构，整体和对等架构平均解决率达93%，编排架构可自主解决传送带隐性故障。该方案无需显式故障处理逻辑，解决定制化生产编程成本高、故障处理不足问题，为制造业智能化转型提供具体路径。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">作为第2名候选，这篇获顶会录用的论文由4位作者完成，探索LLM驱动的多智能体控制在技能型智能制造中的应用，为AI制造场景提供新方向</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.01364v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. SILSA框架优化高分辨率3D生成性能 论文入选NeurIPS2026</h3>
+          <p class="news-body">现有高分辨率3D生成依赖体素潜在与多阶段管道，存在成本高、拓扑一致性弱的痛点，相关论文（作者数7）获NeurIPS2026录用。该论文提出SILSA拓扑感知框架，用紧凑滑动窗口切片潜在表示替代昂贵体素令牌，采用单阶段生成与切片级拓扑监督。实验显示，SILSA较最强基线PSNR提升8.7%、覆盖率增5.96个百分点、Betti误差降9.2%，令牌数比最紧凑基线少70%，比稀疏或分层方案少98%以上。这一框架推动3D生成技术向高效拓扑感知方向发展，可优化游戏、工业设计等领域3D内容生成的效率与质量。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">SILSA论文获NeurIPS 2026录用，共7位作者，聚焦拓扑保持的高分辨率3D生成，为AI行业相关研究提供新方向</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.02201v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. From Rules to Neural Graphs: Scalable Structured Prediction for Patent Prior Art Search</h3>
+          <p class="news-body">针对专利现有技术搜索需处理数万token长文本的需求，多数神经检索方法因截断输入效果受限，图检索虽采用结构化发明图但依赖脆弱的规则解析器。该研究提出neural parser，将依存解析的双仿射注意力适配至专利文本直接预测发明图，通过滑动窗口限制成对评分，复杂度从O(n²)降至O(n·w)，训练短序列即可部署至4万+token文档无需重训。模型蒸馏自1百万份规则解析文档，推理成本较教师模型降低3倍，在下游Graph Transformer检索系统中，短查询引用召回率提升0.5%，全文提升1.1%，该研究获KDD 2026录用，作者共2人。其突破专利现有技术搜索的两大技术瓶颈，提升长文本专利结构化处理的准确性与可扩展性，对专利审查、研发等场景的AI应用有实际落地价值。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">KDD 2026录用的这篇论文，作者共2人，提出从规则到神经图的可扩展结构化预测方法，用于专利现有技术搜索，具行业参考价值。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.01553v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Do Multilingual Encoders Produce Language-Consistent Semantic IDs?</h3>
+          <p class="news-body">该研究针对生成式检索所用的语义ID（SIDs），验证多语言编码器能否为同一产品的不同语言版本生成一致的SIDs。实验采用Amazon ESCI的英文、西班牙文、日文商品列表，测试翻译后的SIDs与英文源的一致性、量化器对翻译的敏感性等指标。结果显示，多语言E5模型下，日文翻译的首SID代码一致性仅7.7%，远低于英文改写的89%；平衡量化器拟合会降低跨语言前缀一致性，西班牙首代码一致性从28.3%降至6.6%，仅单语言拟合能保留67.6%的西班牙翻译首代码一致性。结论为多语言暴露和平衡码本使用无法保证SIDs的语言一致性，这意味着生成式检索在多语言电商场景的应用需解决语义ID一致性的核心痛点。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">该论文为EMNLP 2026录用，仅2位作者，聚焦多语言编码器是否生成语言一致的语义ID，为多语言AI语义一致性研究提供新方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.01139v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. 9人Halluminate获3000万美元融资 服务美顶级AI实验室</h3>
+          <p class="news-body">Halluminate是一支仅9人的小型AI创业团队，近期完成了3000万美元的融资。该团队的客户包含4家美国顶级AI实验室。这类小型AI创业公司能拿下高壁垒客户并获得大额融资，说明其技术能力已获权威机构认可，也验证了细分领域AI解决方案的商业价值，为同类型小型AI创业公司的融资和获客提供了示范。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.8事件数据：amount_wan=3000</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxQeWNxS0luM2lwc0k5OVlQSFd4Sy1XN01sdnZGV2FZV3BxbHBZWV9PNzg3U1JKTHZSNDd0UkJBRERob1Vkb3NJZDNhVEdpQ3N2LWROdS1DajUwQkNzSEpyUDhNLXRuY043emZjSldEb1MwcDM1YmJsTWNrelBvSFJJSnptaC1EZw?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. The eternal complement</h3>
+          <p class="news-body">Advanced AI may matter most for the routine work behind breakthrough ideas. Explore why execution could shape the next economy and the pace of progress.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">作为AI行业的第2名候选事件，其“The eternal complement”的定位为行业提供了互补性方向的参考，是值得关注的趋势信号。</div>
+          <div class="source">来源：<a href="https://openai.com/index/the-eternal-complement" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Albertsons Companies借助AI优化零售运营与顾客体验</h3>
+          <p class="news-body">Albertsons Cos.正使用ChatGPT Enterprise及OpenAI API开展相关实践。该工具可帮助内部团队提升工作效率。同时优化数百万顾客的杂货购物体验。这一实践是传统实体零售落地企业级生成式AI的典型案例，为行业提供参考。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件为第3名候选，聚焦Albertsons Companies从内部重塑零售的实践，为AI赋能零售转型提供了行业参考案例。</div>
+          <div class="source">来源：<a href="https://openai.com/index/albertsons-reimagining-retail" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Google测算SpaceX星舰需发射1800次才让太空数据中心落地</h3>
+          <p class="news-body">Google发射首枚先进芯片进入轨道，为太空数据中心的落地铺路。Google测算，SpaceX的Starship需完成1800次发射，太空数据中心才能真正落地。这一测算明确了太空数据中心落地的核心硬件与发射频次门槛，为企业布局太空算力提供了关键参考。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Google认为SpaceX的星舰需完成1800次发射，太空数据中心才能落地，这为AI行业布局太空数据中心明确了核心发射要求</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/01/google-thinks-spacexs-starship-has-to-launch-1600-times-before-space-data-centers-get-off-the-ground/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AWS推出类Jeva决策模型Strands Decider 2B</h3>
+          <p class="news-body">AWS的Strand Labs推出一款类似Jeva的决策模型，名为Strands Decider 2B。目前网络上的决策模型数量较多。该模型是AWS推出的自有类Jeva模型。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag">Amazon</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">亚马逊推出自身的Jev克隆模型，当前决策模型在网络上大量涌现，这一事件体现了AI行业决策模型领域的发展趋势</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/01/amazon-releases-its-own-jev-clone-as-decision-models-flood-the-web/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>NousResearch发布hermes-agent开源智能体，主打随用户成长特性</b> — 该项目填补了随用户交互迭代的智能体工具空白，为开发者构建自适应AI助手提供新选择</div><div class="watch-item"><b>arXiv发布分布式智能体无人机集群上下文与通信管理研究</b> — 该研究解决多无人机集群协同关键技术难题，为AI在航天场景的应用提供理论支撑</div><div class="watch-item"><b>AI初创Halluminate获3000万美元融资，客户含四家顶尖美国AI实验室</b> — 这笔融资及顶尖客户资源将助力其加速技术迭代与市场拓展，是AI企业赛道的重要动态</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-02T05:46:51.006Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

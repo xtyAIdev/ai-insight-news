@@ -1,27 +1,4 @@
 {
- "2026-09-17": {
-  "paper": [
-   "paper|single token expected value scoring cold start candidate ranking",
-   "paper|multimodal aspect level sentiment analysis based gated noise filtering emotion r",
-   "paper|pagerecall measuring page selection literature grounded question answering",
-   "paper|zeroth order paradigm llm preference alignment",
-   "paper|scienceide turning world s scientific codebase agent learnable environments"
-  ],
-  "opensource": [
-   "opensource|transformers transformers model definition framework",
-   "opensource|mcp agent mail rust rust mcp server multi agent coordination 34 tools",
-   "opensource|nanolang tiny experimental language designed be targeted",
-   "opensource|ragflow ragflow is leading source retrieval augmented",
-   "opensource|worldmonitor real time global intelligence dashboard"
-  ],
-  "enterprise": [
-   "enterprise|aeo startup profound hits unicorn valuation 180m series d 7 months after last ro",
-   "enterprise|helping older adults use ai everyday life",
-   "enterprise|after accusations selling perv glasses meta prepares sell pair without camera",
-   "enterprise|your startup s next teammate might be ai agent gusto insight partners leland exp",
-   "enterprise|ai labs want house auditors but maybe they should shut front door"
-  ]
- },
  "2026-09-18": {
   "paper": [
    "paper|proposal agentic ai architecture support multi domain decision making brazilian ",
@@ -333,6 +310,29 @@
    "enterprise|helping small businesses put ai work",
    "enterprise|google gemini 4 argon called most powerful model yet",
    "enterprise|meta disputes claim that muse read user s private messages without permission"
+  ]
+ },
+ "2026-10-02": {
+  "paper": [
+   "paper|managing context communication distributed agentic uav swarms",
+   "paper|llm driven multi agent control skill based smart manufacturing",
+   "paper|silsa sliding window slice latents topology preserving high resolution 3d genera",
+   "paper|rules neural graphs scalable structured prediction patent prior art search",
+   "paper|do multilingual encoders produce language consistent semantic ids"
+  ],
+  "opensource": [
+   "opensource|hermes agent agent that grows you",
+   "opensource|vibing steampunk vs punk adt mcp bridge vibe code abap amdp",
+   "opensource|plur shared memory ai agents",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|unsloth local ui run train llms diffusion models"
+  ],
+  "enterprise": [
+   "enterprise|exclusive nine person halluminate 30 million counts four top u s ai labs custome",
+   "enterprise|eternal complement",
+   "enterprise|how albertsons companies is reimagining retail inside out",
+   "enterprise|google thinks spacex s starship has 1 800 times before space data centers get of",
+   "enterprise|amazon own jev clone decision models flood web"
   ]
  }
 }
