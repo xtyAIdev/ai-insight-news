@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-03</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's AI landscape features diverse developments spanning open-source tools, academic research, and major enterprise moves. Open-source projects like Codewhal">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-03">
+<meta property="og:description" content="Today's AI landscape features diverse developments spanning open-source tools, academic research, and major enterprise moves. Open-source projects like Codewhale (a terminal coding agent) and Claude-M">
+<meta property="og:url" content="./report_20261003.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-03">
+<meta name="twitter:description" content="Today's AI landscape features diverse developments spanning open-source tools, academic research, and major enterprise moves. Open-source projects like Codewhale (a terminal coding agent) and Claude-M">
+<link rel="canonical" href="./report_20261003.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-03 ｜ report_20261003</div>
+<div class="sub" data-lang-title="zh">2026-10-03 ｜ report_20261003</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's AI landscape features diverse developments spanning open-source tools, academic research, and major enterprise moves. Open-source projects like Codewhale (a terminal coding agent) and Claude-Mem (cross-session persistent context) focus on efficiency and user experience optimization. Academic papers have introduced research inspiration retrieval benchmarks and context compression methods for long-horizon coding agents. On the enterprise front, news such as Anthropic's preparation for a high-valuation IPO and OpenAI's release of the GPT-6 family guide stand out.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. headroom：Compress tool outputs, logs, files, and RAG chunks before</h3>
+          <p class="news-body">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-03</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 74,304</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">Headroom, a tool for compressing tool outputs, logs, files and RAG chunks, has 74,304 stars, 5,742 forks and 454 open issues, serving as a high-attention candidate in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. connectonion：CLI is all you need</h3>
+          <p class="news-body">CLI is all you need. The agent CLI harness.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-03</span> <span class="tag">openonion</span> <span class="tag tag-star">⭐ 1,491</span> <span class="tag tag-gray">agent / agentic-ai / llm / openonion</span></div>
+          <div class="pick-reason">As the 2nd candidate, connectonion's project &quot;CLI is all you need&quot; has drawn notable community attention in the AI CLI field, with 1,491 stars, 224 forks and 399 open issues.</div>
+          <div class="source">Source：<a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. claude-mem：Persistent Context Across Sessions for Every Agent –</h3>
+          <p class="news-body">Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-03</span> <span class="tag">thedotmack</span> <span class="tag tag-star">⭐ 95,208</span> <span class="tag tag-gray">ai / ai-agents / ai-memory / anthropic</span></div>
+          <div class="pick-reason">The project claude-mem, which offers persistent context across sessions for every agent, has earned 95,208 stars, 8,434 forks and 109 open issues, representing a notable exploration in the AI sector.</div>
+          <div class="source">Source：<a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. mcphub：Self-hosted MCP gateway and control plane for connecting,</h3>
+          <p class="news-body">Self-hosted MCP gateway and control plane for connecting, controlling, and operating MCP servers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-03</span> <span class="tag">samanhappy</span> <span class="tag tag-star">⭐ 2,489</span> <span class="tag tag-gray">mcp / mcp-gateway / mcp-hub / mcp-router</span></div>
+          <div class="pick-reason">In the AI industry, the self-hosted MCP gateway and control plane project mcphub has 2,489 stars, 13 weekly new stars, 330 forks and 17 open issues, drawing community attention.</div>
+          <div class="source">Source：<a href="https://github.com/samanhappy/mcphub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Codewhale：Open-source coding agent for your terminal, built in Rust</h3>
+          <p class="news-body">Open-source coding agent for your terminal, built in Rust and on a journey of continuous community improvement. Issues and PRs welcome.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-03</span> <span class="tag">Hmbown</span> <span class="tag tag-star">⭐ 41,035</span> <span class="tag tag-gray">agent-orchestration / ai-agent / cli / coding-agent</span></div>
+          <div class="pick-reason">Codewhale is an open-source coding agent for terminals built in Rust. It has 41,035 stars, 3,564 forks and 198 open issues, standing out in the AI coding agent space.</div>
+          <div class="source">Source：<a href="https://github.com/Hmbown/Codewhale" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. ScholarCatalyst: A Benchmark for Retrieving Papers That Inspire New Research</h3>
+          <p class="news-body">What makes great scientists great? Even as AI systems start to make progress on open problems, scientists remain far ahead of them at sensing which prior idea, buried in an ever-growing archive of research, a new problem needs. To study this skill, we draw on researchers who know firsthand which earlier work advanced their completed projects, with papers serving as pointers to the ideas within. Using our automated pipeline that makes author annotation scalable, we build ScholarCatalyst by having 184 lead authors of 207 recent computer science papers label which candidates did or could have advanced their project, each with a detailed rationale. We introduce a retrieval task with author-provided judgments: given an initial research question, retrieve these papers from only the literature available when the project began. Agentic search does no better than embedding retrieval (0.42 vs. 0.48 Recall@20) despite calling that same retriever as a tool. Even an agent built on Claude Fable 5.1, which may have seen the completed papers during training, reaches only 0.51 R@20. These results highlight the need for new training recipes that equip models with expert intuition for searching broad corpora. We envision ScholarCatalyst as a step toward scientific agents that can take a half-formed idea and point to the prior research it needs.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">ScholarCatalyst is a benchmark for retrieving papers that inspire new research. This paper has 10 authors, offering a new reference for the AI industry in this field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.02202v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Hierarchical Continuous Diffusion Language Models</h3>
+          <p class="news-body">Discrete diffusion language models offer a compelling alternative to autoregressive generation for tasks demanding bidirectional reasoning and global constraint satisfaction. Yet they share a structural bottleneck: when decoding in parallel, each token is sampled independently from its marginal, severing the statistical dependencies among the tokens decoded together. Continuous diffusion language models avoid this by denoising a shared continuous state, but their denoiser sees only that state, so nothing ties it to a valid token configuration until it is finally decoded. To address this, we propose Hierarchical Continuous Diffusion Language Models (HC-DLM), which couple discrete token generation with a continuous latent trajectory in a single, principled denoising process, whose training objective is derived from a variational bound on the token likelihood. In contrast to recent methods that attach continuous context to a self-contained discrete chain, HC-DLM makes the latent the only persistent generative state: tokens are read out from it at every step and feed back as a scaffold for the next latent update. On structured reasoning (Sudoku), mathematical planning (Countdown) and language modeling (LM1B), HC-DLM improves over discrete and continuous diffusion baselines at matched model size, in puzzle accuracy on Sudoku and Countdown and in generative perplexity on LM1B. Project page: https://hc-dlm.github.io/.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">As the 2nd candidate with 5 authors, the Hierarchical Continuous Diffusion Language Models study provides a new exploration direction for the field of hierarchical continuous diffusion language models in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.02193v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents</h3>
+          <p class="news-body">Coding agents solve repository-level software engineering tasks through long trajectories of code inspection, search, editing, and testing. As a task progresses, earlier exploration becomes stale, so managing context is more than avoiding overflow: an agent must decide when to compact, what working state to preserve, and how to continue from it. We introduce AutoCompact, which trains a coding agent to make these decisions as part of its policy. To collect training data, we run the base agent on coding tasks and use a judge to review its compaction decisions, summaries, and actions after compaction. Flawed outputs are replaced with corrected ones before being executed in the environment, so each trajectory continues from the corrected decisions. We use these trajectories for supervised fine-tuning, then jointly optimize coding and compaction through reinforcement learning with task-success rewards. Experiments on SWE-bench Verified and SWE-PolyBench Verified show that AutoCompact improves pass rates over the base model by an absolute 9.2\% and 5.0\%, respectively. The improvements hold across all evaluated inference budgets, with a 256K context window that never overflows and with a 16K window whose overflow triggers fallback compaction.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">This paper proposes AutoCompact targeting context compression for long-horizon coding agents. It has 5 authors and offers a new exploration for context optimization in AI coding agents.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.02163v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. From Knowledge Access to Source Learning: Developing Source-Specific Competence</h3>
+          <p class="news-body">Large language model (LLM) agents increasingly rely on persistent external sources to solve sequences of knowledge-intensive tasks. Existing methods improve how source content is accessed and organized, while agent-memory systems preserve reusable knowledge from prior interactions, but repeated use of the same source is still largely treated as repeated access rather than an opportunity to progressively improve understanding of that source. We study source learning: developing reusable source-specific competence over a persistent authoritative source. We represent this competence with a persistent source model that captures reusable understanding of the source, including how its knowledge is structured, interpreted, and applied. To construct and progressively refine such models, we propose SourceLearn, which combines two complementary learning mechanisms. Self-Directed Source Learning identifies what remains incompletely understood and adaptively revisits the source, while Task-Guided Source Learning uses downstream experience to reveal local representational gaps and recurring needs in how source knowledge should be organized. In both cases, learning signals determine what should be reconsidered, while persistent updates are reconstructed from the authoritative source. Across five benchmarks and three LLM backends, SourceLearn achieves the best performance in 13 of 15 settings, with gains of up to 22.6 points over Hybrid RAG and substantial overall improvements over static s</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">This paper, the 4th candidate, centers on developing source-specific competence from knowledge access to source learning, with 10 authors, offering relevant research references for the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.02150v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Finetuning with Sampling: SFT Learns Better Than You Think</h3>
+          <p class="news-body">Introducing new capabilities to frontier models has long been the goal of posttraining, which predominantly employs supervised finetuning (SFT) and reinforcement learning (RL) to this end. Conventional wisdom dictates that RL enables strong generalization on new tasks without losing existing capabilities, while SFT is prone to weak generalization and catastrophic forgetting. At the same time, SFT can learn from off-policy expert data, whereas RL must rely on a model's ability to find successful trajectories with repeated sampling. In our work, we seek to leverage the strength of on-policy learning while utilizing the privileged information contained in off-policy data. However, rather than modifying the learning objective to accommodate this data, we instead tailor the data distribution to better suit the learner. We introduce a Markov chain Monte Carlo (MCMC) sampling algorithm that progressively transforms off-policy traces to be more on-policy given a reference model for finetuning. Across tasks like scientific skill acquisition, mathematical reasoning, and open-ended expertise, our sampling algorithm enables SFT to rival prevailing posttraining techniques, often generalizing better and forgetting less than strong on-policy baselines. In addition, the resulting finetuned models exhibit strong distributional performance and are capable of learning beyond sharpening the base model distribution. At a higher level, our approach presents sampling as a model-native operator that</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">As the 5th candidate, the paper titled &quot;Finetuning with Sampling: SFT Learns Better Than You Think&quot; with 3 authors offers new insights into the SFT effect in AI fine-tuning field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.02140v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Bloomberg：Anthropic 为可能估值近 2 万亿美元的 IPO 邀请机构投资者质询高管</h3>
+          <p class="news-body">Bloomberg 报道，Anthropic 已邀请机构投资者在其可能估值近 2 万亿美元的 IPO 前质询高管。10 月 14 日的会议之后，最早 11 月 9 日当周启动正式路演，感恩节前上市；按 SEC 规则需在 10 月下旬公布 S-1 文件。OpenAI 则相反，以安全担忧为由排除 2026 年上市，正以约 1.4 万亿美元估值私下寻求至少 300 亿美元融资。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.5事件数据：amount_wan=3000000，round=IPO</div>
+          <div class="source">Source：<a href="https://x.com/rohanpaul_ai/status/2105921530211508488" target="_blank" rel="noopener">X：Rohan Paul (@rohanpaul_ai)</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. A model guide for the GPT-6 family</h3>
+          <p class="news-body">Learn how startups can choose GPT-6 models, tune reasoning effort, improve prompts and skills, coordinate tools, and prepare workflows for production.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event is a model guide for the GPT-6 family, offering relevant references for practitioners in the AI industry.</div>
+          <div class="source">Source：<a href="https://openai.com/index/practical-guide-building-gpt-6" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Chatham scales its capital markets expertise with OpenAI</h3>
+          <p class="news-body">Chatham Financial uses Codex and GPT-5.6 to build technology and redesign workflows, cutting trade validation from 30 minutes to under 4.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Chatham leverages OpenAI to expand its capital markets expertise. As the 3rd candidate in the AI industry, it demonstrates the application of AI in the capital market sector.</div>
+          <div class="source">Source：<a href="https://openai.com/index/chatham-financial" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. The latest AI news we announced in September 2026</h3>
+          <p class="news-body">The latest AI news we announced in September 2026 Here’s a recap of some of our biggest AI updates from September, including Gemini 4 Argon, new Connected Apps in the Gemini App, and WeatherNext 3. Your browser does not support the audio element. Google just released a bunch of new AI updates, including the powerful Gemini 4 Argon model for solving complex problems. They’ve added cool features like better voice tools, music generation, and ways to connect your favorite apps directly into Gemini.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 4, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Meta wants your next gadget to be Muse-infused</h3>
+          <p class="news-body">Meta wants Muse in your TV and your toaster, so it's giving the code away for free.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta plans to integrate Muse into the next generation of your gadgets, serving as a trend signal of AI technology penetrating consumer electronic devices.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Anthropic Prepares for Near-$2T IPO, Invites Institutional Investors to Question Executives</b> — The IPO progress of a leading AI company will influence industry valuations and financing environments, making it a core event for market attention.</div><div class="watch-item"><b>OpenAI Releases Guide for GPT-6 Family Models</b> — The GPT series is an industry benchmark, and its new model guide will reveal the technical direction and application potential of the next-generation models.</div><div class="watch-item"><b>Open-Source Coding Agent Codewhale (Built in Rust)</b> — This open-source terminal AI coding tool project is expected to lower the threshold for developers and drive the popularization of AI in the programming field.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域动态多元，涵盖开源技术工具、学术研究与头部企业动向。开源项目如Codewhale（终端编码代理）、Claude-Mem（跨会话持久上下文）聚焦效率与体验优化。学术论文推出了研究灵感检索基准、长上下文编码代理的上下文压缩方法等成果。企业端，Anthropic筹备高估值IPO、OpenAI发布GPT-6系列指南等消息值得关注。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. headroom工具压缩LLM输入内容 减少token消耗</h3>
+          <p class="news-body">headroom是一款可在工具输出、日志、文件、RAG块等内容抵达LLM前进行压缩的工具。该工具在编码代理场景下可减少20%的token消耗，在JSON格式内容上可减少60%-95%的token消耗，且输出答案保持一致。该工具以库、代理、MCP服务器等形式提供。它能在不牺牲输出质量的前提下降低LLM token消耗，适配编码代理、RAG等场景的成本控制需求。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-03</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 74,304</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">headroom是用于压缩工具输出、日志、文件及RAG块的工具，获74304星、5742复刻、454个开放议题，为AI行业该类工具的高关注度候选</div>
+          <div class="source">来源：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 开源项目connectonion以CLI简化AI代理使用门槛</h3>
+          <p class="news-body">开源项目connectonion的agent CLI工具，其社区数据显示stars达1491、forks为224、开放问题399。该工具打破传统AI工具依赖图形界面或复杂配置的模式，简化了AI代理的使用门槛。CLI因高效、可自动化集成的特性，成为AI代理落地和开发者快速部署的核心交互入口。这件事聚焦开源AI工具细分领域，对开发者群体、自动化运维场景及轻量AI应用构建产生直接影响。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-03</span> <span class="tag">openonion</span> <span class="tag tag-star">⭐ 1,491</span> <span class="tag tag-gray">agent / agentic-ai / llm / openonion</span></div>
+          <div class="pick-reason">作为第2名候选，connectonion的“CLI is all you need”项目在AI行业CLI方向受关注，获1491星、224复刻、399开放issue</div>
+          <div class="source">来源：<a href="https://github.com/openonion/connectonion" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. claude-mem开源工具实现AI代理跨会话持久上下文方案</h3>
+          <p class="news-body">claude-mem是一款开源工具，其社区数据显示stars达95208，forks为8434，open issues共109个。它能捕获AI代理在会话中的所有操作内容，通过AI压缩后将相关上下文注入后续会话。该工具支持Claude Code、OpenClaw、Codex、Gemini、Hermes、Copilot、OpenCode等多款AI工具。它解决了AI代理跨会话记忆缺失的核心痛点，减少多会话场景下的重复学习与信息断层问题，提升AI工具的连贯性与使用效率。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-03</span> <span class="tag">thedotmack</span> <span class="tag tag-star">⭐ 95,208</span> <span class="tag tag-gray">ai / ai-agents / ai-memory / anthropic</span></div>
+          <div class="pick-reason">claude-mem项目为每个智能体提供跨会话持久上下文，获95208星、8434个fork、109个开放议题，是AI行业相关重要探索。</div>
+          <div class="source">来源：<a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 开源mcphub提供自托管MCP网关管控能力</h3>
+          <p class="news-body">mcphub是一款开源的自托管MCP网关及管控平面，用于连接、管控和操作MCP服务器。其社区数据显示，stars数量为2489，周增长+13，forks达330，open issues共17个。该工具填补了自托管MCP管控工具的空白，满足企业对AI服务自主管控、数据安全的需求，避免依赖第三方平台。这件事在AI开发运维细分领域降低了使用MCP协议的团队管理服务器的技术门槛，提升管控效率。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-03</span> <span class="tag">samanhappy</span> <span class="tag tag-star">⭐ 2,489</span> <span class="tag tag-gray">mcp / mcp-gateway / mcp-hub / mcp-router</span></div>
+          <div class="pick-reason">AI行业中，自托管MCP网关与控制平面项目mcphub获2489星，周增长13星，fork数330，开放问题17，受社区关注</div>
+          <div class="source">来源：<a href="https://github.com/samanhappy/mcphub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Codewhale：Rust打造的终端开源编码代理社区数据可观</h3>
+          <p class="news-body">Codewhale是一款基于Rust构建的面向终端的开源编码代理工具。其GitHub社区数据显示，stars达41035、forks为3564，开放议题198，周增长1。该工具处于持续社区优化过程中，接受议题与PR贡献。这款工具填补了终端场景下开源编码代理的细分空白，Rust的高性能可提升编码辅助运行效率，对开发者本地编码效率有实际帮助。</p>
+          <p class="comment">若该工具持续完善社区生态，则可能推动开源编码代理向终端轻量化场景下沉，拓展Rust在AI工具基础设施中的应用空间。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-03</span> <span class="tag">Hmbown</span> <span class="tag tag-star">⭐ 41,035</span> <span class="tag tag-gray">agent-orchestration / ai-agent / cli / coding-agent</span></div>
+          <div class="pick-reason">Codewhale是用Rust构建的终端开源编码代理，在AI coding agent领域，它拥有41035颗星、3564个fork，是受关注的开源项目</div>
+          <div class="source">来源：<a href="https://github.com/Hmbown/Codewhale" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. ScholarCatalyst基准填补AI启发式论文检索领域空白</h3>
+          <p class="news-body">研究发现，AI在感知学术文献对新研究的启发价值上仍不及科学家。研究者构建ScholarCatalyst基准，邀请184位计算机科学论文通讯作者，对207篇论文标注其对项目的启发作用，设计带作者判断的检索任务。实验显示，Agentic搜索的Recall@20为0.42，嵌入检索为0.48，基于Claude Fable5.1的模型仅达0.51。这些结果凸显需开发新训练方法，赋予模型专家级文献搜索直觉。该基准填补AI学术文献启发式检索的基准空白，为AI科研工具开发提供标准化依据。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">ScholarCatalyst是用于检索启发新研究论文的基准，该论文作者数为10，为AI行业提供了相关检索基准的新参考方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.02202v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. HC-DLM突破扩散模型缺陷 优化非自回归文本生成性能</h3>
+          <p class="news-body">离散扩散语言模型适配需双向推理、全局约束的任务，但并行解码时各token独立采样，会切断共解码token间的统计依赖。连续扩散语言模型通过去噪共享连续状态解决该问题，但去噪器仅能感知该状态，无法关联到有效token配置。为此提出HC-DLM，将离散token生成与连续潜轨迹结合，训练目标基于token似然的变分边界。在Sudoku、Countdown、LM1B任务中，同规模下HC-DLM的表现优于离散与连续扩散基线。该研究突破了现有连续扩散语言模型的核心缺陷，为提升非自回归文本生成质量提供关键方案，填补了离散与连续扩散模型间的性能缺口。</p>
+          <p class="comment">若HC-DLM的分层结构能平衡并行解码效率与token间依赖，则可能推动非自回归生成技术在摘要、对话等任务的实用化</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Hierarchical Continuous Diffusion Language Models作为第2名候选，作者数为5，其相关研究为AI行业分层连续扩散语言模型领域提供了新的探索方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.02193v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. AutoCompact提升长程编码智能体上下文决策效率</h3>
+          <p class="news-body">编码智能体通过代码检查、搜索、编辑、测试的长轨迹处理仓库级软件工程任务，需决策何时压缩上下文、保留有效状态以避免溢出。AutoCompact是训练编码智能体自主做出这类决策的方案，通过监督微调与强化学习优化编码及压缩策略。实验在SWE-bench Verified和SWE-PolyBench Verified上，分别将基础模型的通过率提升9.2%与5.0%，且在不同推理预算下均有效。这一方法让编码智能体从被动处理上下文转向主动自主管理，提升长程编码任务效率，推动软件工程AI工具实用化。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该论文提出AutoCompact方法，针对长 horizon编码智能体的上下文压缩问题，作者数为5，为AI行业长序列编码智能体的上下文优化提供了新探索。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.02163v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. From Knowledge Access to Source Learning: Developing Source-Specific Competence</h3>
+          <p class="news-body">10位作者的研究针对LLM智能体依赖外部源解决知识密集任务的现状展开。现有方法侧重源内容访问组织与记忆复用，但重复使用同一源未作为渐进理解机会。研究提出源学习，构建源特定能力的持久模型，设计SourceLearn结合两种互补学习机制。在5个基准和3个LLM后端，SourceLearn在15个设置中13个最优，比Hybrid RAG最高提升22.6分。这一研究解决了LLM智能体依赖外部知识源完成复杂任务时的效率短板，推动智能体向针对外部知识源的长期深度学习演进，利好科研、专业咨询等场景。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该第4名候选论文聚焦从知识访问到源学习的源特定能力开发，作者数为10，为AI领域源学习方向提供了相关研究参考。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.02150v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Finetuning with Sampling: SFT Learns Better Than You Think</h3>
+          <p class="news-body">AI后训练常用监督微调（SFT）与强化学习（RL）两种方式，传统认知认为RL泛化能力更强，SFT易出现灾难性遗忘。该论文作者共3人，提出马尔可夫链蒙特卡洛（MCMC）采样算法，将离线数据逐步转为适配SFT的在线数据。经科学技能、数学推理等多任务验证，该算法让SFT媲美主流后训练技术，且泛化更好、遗忘更少。这一发现挑战了SFT与RL的固有优劣定位，为大模型微调提供了低成本高效的新方向。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-01</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">作为第5名候选，作者数为3的论文《Finetuning with Sampling: SFT Learns Better Than You Think》，为AI微调领域提供了关于SFT效果的新思考方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.02140v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Bloomberg：Anthropic 为可能估值近 2 万亿美元的 IPO 邀请机构投资者质询高管</h3>
+          <p class="news-body">Bloomberg 报道，Anthropic 已邀请机构投资者在其可能估值近 2 万亿美元的 IPO 前质询高管。10 月 14 日的会议之后，最早 11 月 9 日当周启动正式路演，感恩节前上市；按 SEC 规则需在 10 月下旬公布 S-1 文件。OpenAI 则相反，以安全担忧为由排除 2026 年上市，正以约 1.4 万亿美元估值私下寻求至少 300 亿美元融资。</p>
+          <p class="comment">Bloomberg报道，AI企业Anthropic在IPO前邀请机构投资者质询高管，其拟估值近2万亿美元，计划11月启动路演、感恩节前上市；同期OpenAI因安全担忧推迟2026年上市，当前私下估值约1.4万亿美元寻求融资。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.5事件数据：amount_wan=3000000，round=IPO</div>
+          <div class="source">来源：<a href="https://x.com/rohanpaul_ai/status/2105921530211508488" target="_blank" rel="noopener">X：Rohan Paul (@rohanpaul_ai)</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. GPT-6实操指南助力初创企业落地生产级应用</h3>
+          <p class="news-body">针对GPT-6的实操指南，聚焦初创企业落地生产级应用的核心需求。其内容涵盖模型选型、推理力度调整、提示词优化、工具协调及生产工作流准备等实操环节。该指南填补了GPT-6落地应用中初创企业实操层面的指导空白，降低企业试错成本，推动AI应用规模化落地。</p>
+          <p class="comment">若大模型厂商持续转向配套落地支持，将加速GPT-6等大模型的生产级应用普及。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件是针对GPT-6系列的模型指南，为AI行业从业者提供了GPT-6系列模型的相关参考指引，具备行业参考价值。</div>
+          <div class="source">来源：<a href="https://openai.com/index/practical-guide-building-gpt-6" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Chatham Financial借助OpenAI工具优化资本市场交易流程</h3>
+          <p class="news-body">Chatham Financial是金融服务机构，使用OpenAI的Codex和GPT-5.6构建技术并重新设计工作流程。该机构通过这一调整，将交易验证时间从30分钟缩短至不足4分钟。这一落地案例验证了AI在高复杂度、高合规要求的金融场景中能实现显著效率提升，打破了AI仅用于辅助性工作的认知。生成式AI正从通用场景向金融等专业领域的核心业务环节渗透，未来或成为企业优化关键流程的标配技术工具。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Chatham借助OpenAI拓展其资本市场专业能力，作为AI行业第3名候选，体现AI在金融资本市场领域的应用延伸</div>
+          <div class="source">来源：<a href="https://openai.com/index/chatham-financial" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Google 2026年9月推出Gemini 4 Argon等AI更新</h3>
+          <p class="news-body">2026年9月，Google推出多项AI更新，包括Gemini 4 Argon、Gemini App的Connected Apps功能及WeatherNext 3。其中Gemini 4 Argon是用于解决复杂问题的强大模型，还新增了优化的语音工具与音乐生成功能。这些更新支持将用户常用应用直接接入Gemini，强化了跨应用整合能力。此举强化了Google在生成式AI领域的竞争力，回应了企业用户对AI工具实用性和生态整合的需求。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 4，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Meta免费开放Muse代码 降低泛消费电子AI接入门槛</h3>
+          <p class="news-body">Meta将Muse代码免费开放，用于电视、烤面包机等各类消费电子设备。这一做法打破了AI技术仅服务巨头自有产品的常规模式，大幅降低了其他设备厂商接入AI交互能力的门槛，推动AI在泛消费电子领域普及。这代表AI技术正从巨头封闭生态向开放共享的泛设备渗透，未来更多AI核心技术或以开源或免费授权方式赋能全品类硬件厂商。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-02</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta计划将Muse融入下一代智能设备，这是AI技术向消费电子设备渗透的行业趋势信号</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Anthropic筹备近2万亿美元IPO并邀请机构投资者质询高管</b> — 头部AI企业IPO进展将影响行业估值与融资环境，是市场关注的核心事件。</div><div class="watch-item"><b>OpenAI发布GPT-6系列模型指南</b> — GPT系列是行业标杆，其新模型指南将揭示下一代模型的技术方向与应用潜力。</div><div class="watch-item"><b>开源编码代理Codewhale（Rust构建）</b> — 终端AI编码工具的开源项目，有望降低开发者使用门槛，推动AI在编程领域的普及。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-03T05:25:40.868Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
