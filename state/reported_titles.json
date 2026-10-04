@@ -1,27 +1,4 @@
 {
- "2026-09-19": {
-  "paper": [
-   "paper|demand attention language models know when recall",
-   "paper|don t mask environment observation supervision changes how agents explore under ",
-   "paper|paint anything unified any color control image generation editing",
-   "paper|quantifying overclaiming propensity frontier llm agents",
-   "paper|score centering stabilizes off policy reinforcement learning"
-  ],
-  "opensource": [
-   "opensource|hermes agent agent that grows you",
-   "opensource|openhands openhands ai driven development",
-   "opensource|opencode manager mobile web interface opencode ai agents",
-   "opensource|llama index llamaindex is document processing platform ai",
-   "opensource|siyuan source privacy self hosted knowledge"
-  ],
-  "enterprise": [
-   "enterprise|aventura ai startup 34 million plans add south florida jobs business journals",
-   "enterprise|meta s muse hits mac letting ai take actions your computer",
-   "enterprise|ai hallucination nearly triggers us military operation",
-   "enterprise|world model companies are keeping lot secrets",
-   "enterprise|alibaba qwen qwen3 8 omni flash 1m context omni modal model built around agentic"
-  ]
- },
  "2026-09-20": {
   "paper": [
    "paper|posteriorbench point estimates posterior matching evaluating generative inverse ",
@@ -333,6 +310,29 @@
    "enterprise|chatham scales capital markets expertise openai",
    "enterprise|ai news we september 2026",
    "enterprise|meta wants your next gadget be muse infused"
+  ]
+ },
+ "2026-10-04": {
+  "paper": [
+   "paper|argo bench evaluating data agents enterprise scale workflows",
+   "paper|where opd spatially guided policy self distillation mllms synthetic scenes",
+   "paper|one basis animate them all gaussian blendshape distillation real time avatars",
+   "paper|taco ternary absolute max column wise one sparse optimizer llm fine tuning",
+   "paper|ferpo forward entropy regularized policy optimization"
+  ],
+  "opensource": [
+   "opensource|hermes agent agent that grows you",
+   "opensource|litellm fastest litest ai gateway",
+   "opensource|baml programming language agents",
+   "opensource|kody your assistant s home memory keys code",
+   "opensource|suna source ai operating system"
+  ],
+  "enterprise": [
+   "enterprise|all ai agents that can live your text messages",
+   "enterprise|apple says it s tightening macos full disk access controls due risks ai agents",
+   "enterprise|apple trains own china ai model alibaba s quiet help yellow com",
+   "enterprise|alibaba powerful chip ambitious ai model plans sme amp entrepreneurship magazine",
+   "enterprise|推出 财务管理功能 chatgpt finances"
   ]
  }
 }
