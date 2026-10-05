@@ -1,25 +1,4 @@
 {
- "2026-09-20": {
-  "paper": [
-   "paper|posteriorbench point estimates posterior matching evaluating generative inverse ",
-   "paper|agile wam agile tactile world action model contact rich robot control",
-   "paper|workspace models lightweight robotic memory via saliency driven supervision",
-   "paper|reasoning quality matters combating reasoning collapse llm based embedding learn",
-   "paper|think thrice before reranking multi perspective evidence reasoning integration t"
-  ],
-  "opensource": [
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|touchdesigner mcp mcp server touchdesigner",
-   "opensource|worldmonitor real time global intelligence dashboard",
-   "opensource|awesome agent native services curated list agent native services infrastructure",
-   "opensource|cyber harness ai driven pi like agent cyber security single binary"
-  ],
-  "enterprise": [
-   "enterprise|startup that builds other startups 100m is all physical ai techcrunch",
-   "enterprise|australian youth safety blueprint",
-   "enterprise|alibaba s qwen qwen3 8 omni flash 1m token context technode"
-  ]
- },
  "2026-09-21": {
   "paper": [
    "paper|autoreclab describe experiment get code",
@@ -333,6 +312,25 @@
    "enterprise|apple trains own china ai model alibaba s quiet help yellow com",
    "enterprise|alibaba powerful chip ambitious ai model plans sme amp entrepreneurship magazine",
    "enterprise|推出 财务管理功能 chatgpt finances"
+  ]
+ },
+ "2026-10-05": {
+  "paper": [
+   "paper|layerit towards framework time aligned composable music visualizations",
+   "paper|what should world models forget stratified retention continual adaptation",
+   "paper|benchmarking literature retrieval model organism dictyostelium case study",
+   "paper|adaptive sparsity optimization learnable soft top k per term thresholding effici",
+   "paper|language models that play chess explain their moves"
+  ],
+  "opensource": [
+   "opensource|trueforge source agent harness runtime layer that",
+   "opensource|ida mcp rs headless ida pro mcp server",
+   "opensource|webui user friendly ai interface supports ollama openai api",
+   "opensource|claude mem persistent context across sessions every agent",
+   "opensource|magpie every agent s model"
+  ],
+  "enterprise": [
+   "enterprise|model guide gpt 6 family"
   ]
  }
 }
