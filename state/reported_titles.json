@@ -1,26 +1,4 @@
 {
- "2026-09-21": {
-  "paper": [
-   "paper|autoreclab describe experiment get code",
-   "paper|spoken wikipedia presentation corpus",
-   "paper|bayesian belief layer controllable opinion dynamics llm agents",
-   "paper|predictable failure multi hop retrieval score distributional confidence scoring ",
-   "paper|interpretable memory decision controller llm agents based three signal complemen"
-  ],
-  "opensource": [
-   "opensource|openai agents python lightweight powerful framework multi agent workflows",
-   "opensource|xum desktop app isolated parallel agentic development",
-   "opensource|spectrum ts bring agents any interfaces",
-   "opensource|awesome remote mcp servers collection remote mcp servers",
-   "opensource|cohub living space where people agents create play"
-  ],
-  "enterprise": [
-   "enterprise|singapore s temasek unit xora leads us 53 million funding round ai startup hang ",
-   "enterprise|alibaba qwen team qwen3 8 livetranslate real time interpretation model that cuts",
-   "enterprise|alibaba s weight qwen image 2 1 claims beat closed models image generation just ",
-   "enterprise|bytedance seedance 2 5 ai video model techjuice"
-  ]
- },
  "2026-09-22": {
   "paper": [
    "paper|if you hear it help find it orthogonal knowledge distillation vocabulary audio v",
@@ -331,6 +309,29 @@
   ],
   "enterprise": [
    "enterprise|model guide gpt 6 family"
+  ]
+ },
+ "2026-10-06": {
+  "paper": [
+   "paper|reading mood emotion guided book music recommendation via cgans llms",
+   "paper|protocol sensitive evaluation log anomaly detection component costs target acces",
+   "paper|anatomy aware fine grained multimodal fusion laryngopharyngeal cancer t staging ",
+   "paper|sprig semantic id enhanced paths knowledge graph based generative recommendation",
+   "paper|base models can reason taking cue training data"
+  ],
+  "opensource": [
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|langchain agent engineering platform",
+   "opensource|kody your assistant s home memory keys code",
+   "opensource|firecrawl supercharge your ai agents data web beyond",
+   "opensource|worldmonitor real time global intelligence dashboard"
+  ],
+  "enterprise": [
+   "enterprise|月之暗面据悉完成 前融资 最新估值约 亿美元 ipo 500",
+   "enterprise|our approach eu text provenance rules",
+   "enterprise|building advertising way people use ai",
+   "enterprise|reflection beam weight ai model rival chinese models lower compute cost",
+   "enterprise|instinct brings ai agent group chats even friends without account"
   ]
  }
 }
