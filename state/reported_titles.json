@@ -1,27 +1,4 @@
 {
- "2026-09-22": {
-  "paper": [
-   "paper|if you hear it help find it orthogonal knowledge distillation vocabulary audio v",
-   "paper|testing not presuming adequacy calibrating generative social simulators against ",
-   "paper|q tie lightweight generalizable re ranking framework temporal information retrie",
-   "paper|onpanda efficient annotation policy alignment data llms agents via token level c",
-   "paper|harness zero harness distillation via agent harness"
-  ],
-  "opensource": [
-   "opensource|hermes agent agent that grows you",
-   "opensource|code review fast efficient battle tested alibaba s scale",
-   "opensource|trueforge source agent harness runtime layer that",
-   "opensource|agent sandbox agent sandbox enables easy management isolated",
-   "opensource|mcp agent mail rust rust mcp server multi agent coordination 34 tools"
-  ],
-  "enterprise": [
-   "enterprise|chesterbrook ai startup cornelis networks 205m funding vista",
-   "enterprise|advisory group mathematics artificial intelligence",
-   "enterprise|meta s muse is outpacing chatgpt s early mobile",
-   "enterprise|meta s ai agent has been blocked using amazon com",
-   "enterprise|where will next breakout startup come benchmark s full partnership weighs techcr"
-  ]
- },
  "2026-09-23": {
   "paper": [
    "paper|refilter bridging embeddings llm filtering similar mobile app retrieval",
@@ -332,6 +309,29 @@
    "enterprise|building advertising way people use ai",
    "enterprise|reflection beam weight ai model rival chinese models lower compute cost",
    "enterprise|instinct brings ai agent group chats even friends without account"
+  ]
+ },
+ "2026-10-07": {
+  "paper": [
+   "paper|seeing context enhancing recommender systems image derived contextual signals",
+   "paper|depthworld 3d world model robot manipulation",
+   "paper|agentic autorag rag pipeline optimization through reasoning driven agents",
+   "paper|case study assuring ai written software",
+   "paper|ideaanchor teaching llms turn literature research ideas"
+  ],
+  "opensource": [
+   "opensource|suna source ai operating system",
+   "opensource|baml programming language agents",
+   "opensource|reflect source reflect rewrite local ai",
+   "opensource|lobehub lobehub is your chief agent operator organizing your",
+   "opensource|headroom compress tool outputs logs rag chunks before"
+  ],
+  "enterprise": [
+   "enterprise|据报道接近完成至少 亿元融资 腾讯与宁德时代参与 deepseek 800",
+   "enterprise|how jump trading is scaling quant research chatgpt",
+   "enterprise|sharing ai progress mathematics",
+   "enterprise|how ai decision models could change content moderation",
+   "enterprise|next hurdle ai agents getting websites let them"
   ]
  }
 }
