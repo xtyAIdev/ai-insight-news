@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-08</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's AI sector has seen rich developments, with multiple practical frameworks emerging in open-source, covering core scenarios like model evaluation and agen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-08">
+<meta property="og:description" content="Today's AI sector has seen rich developments, with multiple practical frameworks emerging in open-source, covering core scenarios like model evaluation and agent management. Several cutting-edge studi">
+<meta property="og:url" content="./report_20261008.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-08">
+<meta name="twitter:description" content="Today's AI sector has seen rich developments, with multiple practical frameworks emerging in open-source, covering core scenarios like model evaluation and agent management. Several cutting-edge studi">
+<link rel="canonical" href="./report_20261008.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-08 ｜ report_20261008</div>
+<div class="sub" data-lang-title="zh">2026-10-08 ｜ report_20261008</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's AI sector has seen rich developments, with multiple practical frameworks emerging in open-source, covering core scenarios like model evaluation and agent management. Several cutting-edge studies were released in academia, focusing on key directions such as multi-agent coordination and LLM knowledge updates. At the enterprise level, giants like OpenAI and Meta continue to promote AI implementation, while Bloom secures funding to focus on AI applications in the manufacturing sector.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. evalscope：A streamlined and customizable framework for efficient</h3>
+          <p class="news-body">A streamlined and customizable framework for efficient large model (LLM, VLM, AIGC) evaluation and performance benchmarking.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag">modelscope</span> <span class="tag tag-star">⭐ 3,507</span> <span class="tag tag-gray">evaluation / llm / performance / rag</span></div>
+          <div class="pick-reason">Evalscope, a streamlined and customizable efficient framework in the AI sector, has accumulated 3,507 stars, 507 forks and 44 open issues, offering practical tools for relevant practitioners.</div>
+          <div class="source">Source：<a href="https://github.com/modelscope/evalscope" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. magpie：Every agent's model</h3>
+          <p class="news-body">Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 6,233</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">Magpie's Every agent's model is a notable community project in the AI sector, with 6,233 stars, 443 forks and 270 open issues, demonstrating its community influence in the AI agent model domain</div>
+          <div class="source">Source：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. trueforge：The open-source agent harness - the runtime layer that</h3>
+          <p class="news-body">The open-source agent harness - the runtime layer that turns an LLM into a working agent.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag">truefoundry</span> <span class="tag tag-star">⭐ 6,080</span> <span class="tag tag-gray">agent / agentic-ai / agents / harness</span></div>
+          <div class="pick-reason">Trueforge, an open-source agent harness runtime layer, has secured 6,080 stars with a weekly growth of +47, 493 forks and 96 open issues, acting as a notable candidate in the AI open-source sector.</div>
+          <div class="source">Source：<a href="https://github.com/truefoundry/trueforge" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. agent-manager：WSO2 AI Agent Manager is an open control plane designed for</h3>
+          <p class="news-body">WSO2 AI Agent Manager is an open control plane designed for enterprises to deploy, manage, and govern AI agents at scale.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag">wso2</span> <span class="tag tag-star">⭐ 105</span> <span class="tag tag-gray">agent / ai / ai-gateway / Agent</span></div>
+          <div class="pick-reason">WSO2 AI Agent Manager, an open-source control plane for AI, has gained 105 stars, 76 forks and 109 open issues in the community, serving as an important candidate in this field</div>
+          <div class="source">Source：<a href="https://github.com/wso2/agent-manager" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 252,015</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">Hermes-agent is an AI agent that grows with users, with notable community metrics: 252,015 stars, a weekly growth of +1,616, 54,274 forks, and 47,623 open issues, making it a prominent project in the AI industry.</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Multi-Agent Coordination via Support-Preserving Distillation</h3>
+          <p class="news-body">Offline MARL increasingly relies on generative policies to model multimodal joint behavior, typically by distilling a centralized teacher into decentralized one-step actors under the CTDE. We identify a failure mode at the teacher training stage: standard flow-based teachers pair noise with replay targets independently, so nearby noise samples can be routed toward conflicting coordination modes. The teacher then produces samples between valid modes, and because the distillation loss regresses each local actor onto the conditional mean of the teacher's output given local input, this error is not absorbed but propagated to the student. To remove this teacher-side artifact, we propose Mode-Support Semi-Discrete Optimal Transport (MoSDOT), which summarizes multimodal replay into a finite mode support with prescribed capacities and uses conditional semi-discrete optimal transport to assign each noise sample to a single mode before teacher training. We additionally study a shared-randomness variant that uses a shared noise component at execution to expose the residual gap intrinsic to strict-product execution. On controlled diagnostics and offline MARL benchmarks, MoSDOT improves endpoint quality and routing consistency, particularly on datasets exhibiting multimodal joint behavior.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">This paper, accepted at NeurIPS 2026 with 4 authors, studies multi-agent coordination via support-preserving distillation, bringing new technical explorations to AI multi-agent collaboration.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.10087v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. CANDO: Cooperative Agentic Network for Layout Design Optimization</h3>
+          <p class="news-body">Layout generation for real-world facilities is a challenging problem, requiring reasoning over irregular site boundaries, heterogeneous orientations, access-aware placements, and motion-planning feasibility. Yet, most existing layout benchmarks in the generative AI space target simpler placements over rectangular domains and rely on distributional metrics such as FID and IoU that reward conformity to dataset priors, thus discounting design innovation. Motivated by these gaps, we introduce ALPS-Bench, a benchmark of $1,000$ professionally annotated real-world facility layouts paired with an instance-specific scoring protocol grounded in a structured design manual. As a strong baseline for ALPS-Bench, we propose CANDO, a training-free multi-agent framework in which specialized agents iteratively refine layouts through a verification-grounded loop, concentrating reasoning on strategic spatial decisions. We demonstrate that CANDO surpasses state-of-the-art trained and LLM-based baselines on the widely adopted PubLayNet, RICO, and PKU-PosterLayout benchmarks, establishing cooperative agentic design as a broadly effective recipe for constraint-aware layout synthesis.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">This CANDO, a Cooperative Agentic Network for Layout Design Optimization, is a research paper accepted by NeurIPS 2026 with 4 authors, serving as a key work in the AI layout design optimization field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.10044v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Decoupling Exploration from Optimization in RLVR</h3>
+          <p class="news-body">Modern language models undergo reinforcement learning with verifiable rewards (RLVR) on top of already-trained checkpoints. A key promise of RLVR is the discovery of new reasoning strategies. In principle, a model can sample novel ideas absent from its prior training data. In practice, however, augmenting RLVR with strong novelty incentives has seen limited success and can degrade model quality. Because verifiable rewards supervise only a narrow slice of the model's knowledge and behavior, such degradations are difficult to recover from. Instead, we decouple exploration from optimization in a framework we call Exploration-Distillation (ExpDis). We train one or more explorer policies with a novelty bonus in the reward, filter their trajectories for correctness and quality, and distill them into a separate student policy. The student policy is then trained without a novelty bonus. We repeat the above procedure for several rounds, alternating between exploration and optimization. This decoupling allows us to aggressively scale exploration without degrading the student policy. Across seven mathematical reasoning benchmarks and two model families, ExpDis outperforms DAPO at the same wall-clock budget. Moreover, we observe improved pass@$k$ scaling, indicating that ExpDis produces models that generate more diverse correct solutions.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">As the 3rd candidate, this paper on decoupling exploration from optimization in RLVR has only 2 authors, providing a new research direction for the RLVR field.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.10536v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. EngramEdit: Decoupled Knowledge Updates in LLMs through Conditional Memory</h3>
+          <p class="news-body">Conditional memory architectures such as DeepSeek Engram use input n-grams to look up learned embeddings, expanding the capacity of large language models (LLMs) with limited additional computation. Beyond model scaling, this architecture has demonstrated the potential to decouple factual knowledge storage from general-purpose computation, offering a promising route to updating factual knowledge while keeping the Transformer backbone fixed. Realizing this potential is challenging because different expressions of a fact may activate different n-gram embeddings, while updating shared embeddings can unintentionally change the model's predictions about other facts. We propose EngramEdit for decoupled knowledge updates through conditional memory. EngramEdit first computes target memory representations that make the model predict the updated fact across multiple expressions. It then jointly updates the shared n-gram embeddings to match these targets across expressions and edits, penalizing updates to frequently reused embeddings more strongly to preserve unrelated knowledge. Experiments show that EngramEdit enables independent factual knowledge updates through conditional memory, achieving near-perfect editing success. Revised knowledge is usable across unseen expressions and in multi-hop reasoning, with nearly three times the strongest baseline's accuracy under chain-of-thought (CoT) prompting. Unrelated knowledge and general capabilities are largely preserved even as factual updat</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">EngramEdit focuses on decoupled knowledge updates in LLMs via conditional memory. With 7 authors, this paper is the 4th candidate, bringing new insights to the LLM knowledge update domain.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.10533v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Rephrase Before You Act: Characterizing and Mitigating Language Sensitivity in Vision-Language-Action Models</h3>
+          <p class="news-body">Vision-language-action models (VLAs) are strikingly sensitive to instruction phrasing and do not inherit the language robustness of the vision-language models they are built on. A one-word edit can move success by tens of points: $π_{0.5}$ turns on a LIBERO stove 100% of the time for &quot;switch on the stove&quot; and 2% for &quot;switch on the hot plate&quot;, and a $π_0$ checkpoint finetuned with rephrase augmentation still shows swings of up to 61 points. We characterize this sensitivity with statistically tested single-edit swings and an oracle phrase search, which shows that phrasing alone nearly closes the 21-point gap between in-distribution and out-of-distribution tasks. We then reduce it without modifying the policy. Because the sensitivity is systematic, it can be expressed as explicit rules: we score many phrasings of a few training tasks, have a large language model distill the evidence into ten to twenty rephrasing rules, and at deployment rewrite each incoming instruction once under these rules. The rules improve the frozen $π_0$ by 16 to 27% relative on twelve held-out tasks across adversarial, VLM-generated, and human-generated phrasings, with gains concentrated on out-of-distribution tasks. The pipeline replicates on $π_{0.5}$ and LIBERO, lifting in-finetune success from 93.6% to 97.8%. The method requires no retraining and no per-step verification, and applies zero-shot to unseen tasks and instructions. Project website: https://sttawm.github.io/rephrase-before-you-act</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">This paper focuses on characterizing and mitigating language sensitivity in vision-language-action models, with 2 authors, serving as a candidate work in the AI industry.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.10526v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Bloom raises $3.6M to become the ‘Alibaba’ of American manufacturing</h3>
+          <p class="news-body">The Detroit startup has widened its scope beyond mobility to help drone and robotics companies find U.S.-based manufacturers, shippers, and more.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 3.3事件数据：amount_wan=360</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/07/bloom-raises-3-6m-to-become-the-alibaba-of-american-manufacturing/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Helping teens learn, plan, and shape the future of AI</h3>
+          <p class="news-body">College Planner is coming to ChatGPT for Teens to help students manage college applications, alongside new flashcards, quizzes, and a teen AI council.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This event helps teenagers learn, plan and shape the future of the AI industry, cultivating potential new forces for the AI field and promoting its long-term development.</div>
+          <div class="source">Source：<a href="https://openai.com/index/teens-learn-and-plan" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Radisson Hotel Group brings hotel discovery into ChatGPT</h3>
+          <p class="news-body">Radisson partnered with Accenture to build a ChatGPT plugin using OpenAI technology, helping travelers find, compare, and book hotels while planning their trips.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Radisson Hotel Group integrates hotel discovery into ChatGPT, providing a practical case for the landing application of AI in the hotel and accommodation field and expanding AI's application scenarios in the tourism industry.</div>
+          <div class="source">Source：<a href="https://openai.com/index/radisson" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta’s Muse launches on iPad just a month after its mobile debut</h3>
+          <p class="news-body">Meta’s AI agent Muse is now available on iPad, just a month after its mobile debut, as the company rapidly expands the assistant’s reach and integrations.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta’s AI product Muse launched on iPad just one month after its mobile debut, showing the trend of rapid cross-device expansion for AI applications.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/07/metas-muse-launches-on-ipad-just-a-month-after-its-mobile-debut/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Meta rolls out new AI tools to detect ads that secretly lead to child sexual abuse material</h3>
+          <p class="news-body">Meta launches new AI tools after discovering ads on its platforms that may look normal but direct users to harmful content elsewhere online.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta has rolled out new AI tools to detect ads that secretly lead to child sexual abuse material, which is an important industry practice of AI applied in combating illegal content related to child sexual abuse, offering a new direction for AI security governance.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/07/meta-rolls-out-new-ai-tools-to-detect-ads-that-secretly-lead-to-child-sexual-abuse-material/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>ModelScope Releases Open-Source Model Evaluation Framework EvalScope</b> — This framework streamlines model evaluation processes and supports customization, which will enhance the efficiency of AI model development and validation; its subsequent community iterations are worth following.</div><div class="watch-item"><b>Multi-Agent Coordination Research: Support-Preserving Distillation Method</b> — The multi-agent coordination method proposed in this study is expected to optimize inter-agent collaboration efficiency, providing important references for developing AI systems for complex tasks.</div><div class="watch-item"><b>Meta's AI Creation Tool Muse Launches on iPad</b> — Meta expands its AI creation tool to the iPad platform, extending the application boundaries of AI in mobile scenarios, reflecting the giant's continuous investment in AI implementation.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日AI领域动静丰富，开源方向涌现多个实用框架，覆盖模型评估、智能体管理等核心场景。学术端有多篇前沿研究发布，聚焦多智能体协调、LLM知识更新等关键方向。企业层面，OpenAI、Meta等巨头持续推进AI落地，Bloom获融资聚焦制造领域AI应用。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. evalscope成大模型评估工具 填补行业细分空白</h3>
+          <p class="news-body">evalscope是一款用于大语言模型、多模态大模型及AIGC内容评估与性能基准测试的精简可定制框架。该开源项目的社区数据显示，其star数达3507，fork数为507，开放问题共44个。当前大模型评估领域缺乏统一高效且灵活的工具，evalscope填补了这一细分空白，能大幅降低开发者评估大模型性能的门槛，加速模型迭代与落地。这件事意味着AI行业正从大模型“跑马圈地”转向“精耕细作”，开源工具成为推动大模型标准化评估、提升落地效率的核心基础设施。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag">modelscope</span> <span class="tag tag-star">⭐ 3,507</span> <span class="tag tag-gray">evaluation / llm / performance / rag</span></div>
+          <div class="pick-reason">evalscope是AI行业简化可定制的高效框架，获3507星标、507个复刻、44个未解决问题，为AI相关从业者提供实用工具。</div>
+          <div class="source">来源：<a href="https://github.com/modelscope/evalscope" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 开源工具magpie整合多AI模型至菜单栏</h3>
+          <p class="news-body">开源项目magpie的社区数据为stars6233、forks443、open_issues270。该工具在菜单栏整合不同AI模型，支持DeepSeek的Codex、Kimi的Claude Code。它解决了用户切换不同AI模型的繁琐操作，降低多模型使用门槛，聚焦个人开发者及普通用户的AI使用场景。这一工具推动AI工具向多模型整合、轻量化入口发展。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 6,233</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">magpie的Every agent's model是AI行业受关注的社区项目，拥有6233个星标、443个复刻、270个开放问题，体现其在AI agent模型领域的社区影响力</div>
+          <div class="source">来源：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 开源工具trueforge填补LLM代理运行时环节空白</h3>
+          <p class="news-body">trueforge是一款开源代理工具，作为运行时层可将LLM转化为可工作的代理。其社区数据显示，stars达6080，周增长+47，forks为493，open issues共96个。它填补了开源领域将LLM落地为可执行代理的运行时环节空白，降低了开发者构建AI代理的技术门槛，加速了AI代理的普及应用，也推动了开源AI生态工具链的完善。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag">truefoundry</span> <span class="tag tag-star">⭐ 6,080</span> <span class="tag tag-gray">agent / agentic-ai / agents / harness</span></div>
+          <div class="pick-reason">Trueforge作为开源智能体 harness的运行时层，获6080星标，周增长+47，forks达493，开放问题96，是AI行业开源领域的重要候选项目</div>
+          <div class="source">来源：<a href="https://github.com/truefoundry/trueforge" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. WSO2 AI Agent Manager填补企业级AI管控开源空白</h3>
+          <p class="news-body">WSO2 AI Agent Manager是一款开源控制平面，面向企业设计，用于规模化部署、管理及管控AI智能体。该项目社区数据显示，stars达105，forks为76，open issues共109。它填补了企业级AI智能体全生命周期管控的开源解决方案空白，降低了企业部署AI的门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag">wso2</span> <span class="tag tag-star">⭐ 105</span> <span class="tag tag-gray">agent / ai / ai-gateway / Agent</span></div>
+          <div class="pick-reason">WSO2 AI Agent Manager作为AI领域的开源控制平面，社区获105星、76个复刻、109个开放议题，是该方向的重要候选项目</div>
+          <div class="source">来源：<a href="https://github.com/wso2/agent-manager" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. hermes-agent开源智能体社区数据亮眼 填补适配空白</h3>
+          <p class="news-body">hermes-agent是一款随用户成长的开源智能体。其社区数据表现突出：stars达252015，周增长1616，forks54274，open issues47623。该产品填补了现有通用智能体在个性化适配和动态进化方面的开源空白。它降低了相关开发者的技术门槛，覆盖AI开发者、开源社区及垂直场景应用开发。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 252,015</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">hermes-agent是与用户共同成长的AI agent，社区数据亮眼，获stars252015，周增长+1616，forks54274，open_issues47623，为AI行业受关注的项目</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. NeurIPS2026录用论文：破解离线MARL策略蒸馏核心缺陷</h3>
+          <p class="news-body">作者数为4的该论文被NeurIPS2026录用，聚焦离线MARL生成策略蒸馏的教师训练阶段缺陷。研究提出Mode-Support Semi-Discrete Optimal Transport（MoSDOT）方法，通过半离散最优传输将噪声样本分配至单一模式，消除教师侧误差。在控制诊断与离线MARL基准测试中，MoSDOT提升了端点质量与路由一致性，对多模态联合行为数据集效果显著。该研究解决了CTDE框架下多智能体协调建模的样本冲突问题，为多智能体协作稳定性提供理论支撑，对MARL实用化及多机器人协作等应用场景有直接帮助。</p>
+          <p class="comment">若该论文提出的MoSDOT方法被行业采纳，或能优化CTDE框架下多智能体协调的样本冲突，加速MARL在复杂协作场景的落地。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">该论文是NeurIPS 2026录用、由4位作者完成的多智能体协调方向研究，为AI领域多智能体协作提供了相关技术探索。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.10087v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. CANDO多智能体布局框架登NeurIPS2026 补生成AI缺口</h3>
+          <p class="news-body">针对现实设施布局需处理不规则边界、异构朝向等复杂约束的难题，现有生成AI基准多聚焦简单矩形布局，依赖分布指标却忽视设计创新。研究推出含1000个专业标注真实设施布局的ALPS-Bench基准及基于结构化设计手册的评分协议，还提出无训练多智能体框架CANDO。CANDO在PubLayNet、RICO及PKU-PosterLayout等基准上超越现有SOTA及LLM基线，该研究获NeurIPS2026录用，作者共4人。这项研究填补了生成AI在复杂现实场景布局生成中忽视创新的空白，为工业级设施布局提供了贴合需求的技术路径。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">该CANDO是布局设计优化的协作智能体网络，获NeurIPS 2026录用，作者共4人，是AI行业布局设计优化方向的重要研究成果。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.10044v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. RLVR探索与优化解耦的ExpDis框架效果分析</h3>
+          <p class="news-body">由2位作者完成的研究针对现代语言模型基于预训练检查点采用的带可验证奖励的强化学习（RLVR）展开，该技术本应助力发现新推理策略，但实际加入强新颖性激励效果有限且会降低模型质量，因可验证奖励仅监督模型知识与行为的窄范围。研究提出名为ExpDis的框架，将探索与优化环节解耦，训练带新颖性奖励的探索策略，过滤轨迹后蒸馏至独立学生策略，多轮交替执行探索与优化流程。该框架可在不降低学生模型性能的前提下扩展探索，在7个数学推理基准及2个模型家族上，同时间预算下优于DAPO，且pass@k缩放表现更佳。这意味着该框架能在不损害模型性能的前提下，提升语言模型生成多样正确解的能力。</p>
+          <p class="comment">若ExpDis框架的优势能在更多模型与任务中复现，则可能为优化RLVR的探索环节提供新路径。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">作为第3名候选，这篇关于RLVR中探索与优化解耦的论文仅由2位作者完成，为RLVR领域的相关研究提供了新的思路方向</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.10536v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. EngramEdit实现LLM低干扰解耦式知识更新</h3>
+          <p class="news-body">由7位作者完成的研究提出EngramEdit架构，通过条件记忆实现LLM的解耦式知识更新。该架构先计算目标记忆表征以保障模型在多表达式下预测更新后的事实，再联合更新共享n元组嵌入，同时对高频复用嵌入施加更强惩罚以保留无关知识。实验表明，EngramEdit的编辑成功率近完美，更新后的知识可应用于未见过的表达式及多跳推理，在CoT提示下的准确率达最强基线的近3倍，且无关知识与通用能力大多保留。这一架构为LLM提供低代价、低干扰的知识更新路径，解决了现有知识更新成本高且易破坏原有能力的核心痛点。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">EngramEdit是针对LLM解耦知识更新的研究，通过条件记忆实现，该论文有7位作者，作为第4名候选，为LLM知识更新领域提供新方向</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.10533v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 研究揭示VLAs指令敏感性缺陷并提出无重训解决方法</h3>
+          <p class="news-body">视觉-语言-动作模型（VLAs）对指令措辞高度敏感，单字修改可导致成功率出现数十点波动，是具身AI等领域的核心缺陷。该研究通过统计单编辑波动、最优短语搜索等方法，系统表征了VLAs的指令敏感性。研究提出无需重训的解决方法：利用大语言模型提炼10至20条重述规则，部署时改写每条输入指令，该方法在π0.5等模型的LIBERO任务中，将成功率从93.6%提升至97.8%，且可零样本应用于新任务，为相关领域解决核心缺陷提供基础。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">该论文针对视觉语言动作模型的语言敏感性问题开展研究，作者数为2，是AI行业相关研究的候选成果，为模型优化提供方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.10526v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Bloom获360万美元融资 布局美国制造业B2B生态</h3>
+          <p class="news-body">底特律初创企业Bloom获得360万美元融资。该公司已将业务范围从移动领域拓展。目前主要帮助无人机、机器人企业对接美国本土制造商、物流商等资源。其目标是成为美国制造业领域的“阿里巴巴”。此举填补了美国本土制造与科技企业的供需对接空白，推动制造业服务化趋势。</p>
+          <p class="comment">若Bloom的美国制造业B2B服务模式落地顺畅，或能为无人机、机器人初创企业的供应链布局提供便利。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 3.3事件数据：amount_wan=360</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/07/bloom-raises-3-6m-to-become-the-alibaba-of-american-manufacturing/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ChatGPT for Teens新增College Planner等升学规划功能</h3>
+          <p class="news-body">ChatGPT for Teens新增College Planner功能，用于协助学生管理大学申请。该工具同步上线了抽认卡、测验等学习辅助内容。同时，还设立了青少年AI委员会。这一举措填补了青少年AI工具在升学规划场景的空白。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件助力青少年学习、规划并塑造AI行业的未来，为AI领域培育潜在新生力量，推动行业长远发展。</div>
+          <div class="source">来源：<a href="https://openai.com/index/teens-learn-and-plan" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Radisson酒店集团联合Accenture打造ChatGPT酒店预订插件</h3>
+          <p class="news-body">Radisson酒店集团与Accenture合作，借助OpenAI技术开发了一款ChatGPT插件。该插件可帮助旅行者在规划行程时，完成酒店的查找、对比与预订操作。这一合作打通了AI大模型与酒店预订场景的直接链路，降低了旅行者跨平台规划的成本，也为酒店行业的AI应用落地提供了可复用的场景范式。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Radisson Hotel Group将酒店发现功能接入ChatGPT，为AI在酒店住宿领域的落地应用提供了实际案例，拓展了AI在旅游行业的应用场景。</div>
+          <div class="source">来源：<a href="https://openai.com/index/radisson" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta AI助手Muse登陆iPad 距移动版发布仅一月</h3>
+          <p class="news-body">Meta的AI助手Muse在移动版推出仅一个月后，现已登陆iPad平台。Meta正快速拓展这款AI助手的覆盖范围与集成场景。这一动作意味着AI助手正加速向多终端延伸，对企业级AI产品的终端适配策略有参考意义。</p>
+          <p class="comment">若Meta维持当前快速迭代节奏，则可能推动更多厂商加快AI助手的多终端布局</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta的AI产品Muse在移动版推出仅一个月后就登陆iPad，展现了AI应用快速跨设备拓展的行业趋势</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/07/metas-muse-launches-on-ipad-just-a-month-after-its-mobile-debut/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Meta推出AI工具检测隐蔽指向儿童性虐材料的广告</h3>
+          <p class="news-body">Meta发现旗下平台存在看似正常却指向外部有害内容的广告。Meta推出新的AI工具，用于检测这类隐蔽有害广告，这类有害内容涉及儿童性虐待材料。这件事直击社交平台隐蔽有害内容传播的监管痛点，关联儿童安全，缩小了平台对非法内容的监管盲区。AI技术正从通用内容审核向精准识别隐蔽有害内容升级，成为平台应对新型网络犯罪的核心技术手段。</p>
+          <p class="comment">若Meta此举能覆盖旗下全平台，则可能强化未成年人保护，为同行业有害内容治理提供新的技术范式</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-07</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Meta推出新AI工具检测秘密导向儿童性虐待材料的广告，这是AI应用于打击儿童性虐待相关非法内容传播的重要行业实践，为AI安全治理提供了新方向</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/07/meta-rolls-out-new-ai-tools-to-detect-ads-that-secretly-lead-to-child-sexual-abuse-material/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>ModelScope发布开源模型评估框架EvalScope</b> — 该框架简化模型评估流程，支持定制化，将提升AI模型开发与验证效率，后续社区迭代值得关注。</div><div class="watch-item"><b>多智能体协调研究：支持保留蒸馏法</b> — 该研究提出的多智能体协调方法，有望优化智能体协作效率，对复杂任务AI系统开发有重要参考价值。</div><div class="watch-item"><b>Meta AI创作工具Muse登陆iPad</b> — Meta将AI创作工具扩展至iPad平台，拓展AI在移动场景的应用边界，反映巨头对AI落地的持续投入。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-08T06:13:28.137Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

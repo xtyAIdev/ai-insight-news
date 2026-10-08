@@ -1,27 +1,4 @@
 {
- "2026-09-23": {
-  "paper": [
-   "paper|refilter bridging embeddings llm filtering similar mobile app retrieval",
-   "paper|measuring serving stack instead model hidden confounds local tool use evaluation",
-   "paper|a2m trace optimized agent hijacking mcp ecosystem",
-   "paper|metric bench exploring context spatial metric reasoning vlms indoor scenes",
-   "paper|flash dllm io aware kv caching parallel decoding fast memory efficient diffusion"
-  ],
-  "opensource": [
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|awesome mcp servers collection mcp servers",
-   "opensource|browserskill let ai agents use your real logged browser without",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|hyperframes write html"
-  ],
-  "enterprise": [
-   "enterprise|chamelio 26 million series replace legacy legal software ai agents calcalistech ",
-   "enterprise|gpt 6 sol luna",
-   "enterprise|better prompt caching gpt 6",
-   "enterprise|meta admits muse s likeness openclaw isn t coincidence",
-   "enterprise|qualcomm two smartphone chips emphasis ai"
-  ]
- },
  "2026-09-24": {
   "paper": [
    "paper|fine tuning llms translation general forgetting mitigation does not preserve mt ",
@@ -332,6 +309,29 @@
    "enterprise|sharing ai progress mathematics",
    "enterprise|how ai decision models could change content moderation",
    "enterprise|next hurdle ai agents getting websites let them"
+  ]
+ },
+ "2026-10-08": {
+  "paper": [
+   "paper|multi agent coordination via support preserving distillation",
+   "paper|cando cooperative agentic network layout design optimization",
+   "paper|decoupling exploration optimization rlvr",
+   "paper|engramedit decoupled knowledge updates llms through conditional memory",
+   "paper|rephrase before you act characterizing mitigating language sensitivity vision la"
+  ],
+  "opensource": [
+   "opensource|evalscope streamlined customizable framework efficient",
+   "opensource|magpie every agent s model",
+   "opensource|trueforge source agent harness runtime layer that",
+   "opensource|agent manager wso2 ai agent manager is control plane designed",
+   "opensource|hermes agent agent that grows you"
+  ],
+  "enterprise": [
+   "enterprise|bloom 3 6m become alibaba american manufacturing",
+   "enterprise|helping teens learn plan shape future ai",
+   "enterprise|radisson hotel group brings hotel discovery chatgpt",
+   "enterprise|meta s muse ipad just month after mobile",
+   "enterprise|meta out ai tools detect ads that secretly lead child sexual abuse material"
   ]
  }
 }
