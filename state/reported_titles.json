@@ -1,27 +1,4 @@
 {
- "2026-09-24": {
-  "paper": [
-   "paper|fine tuning llms translation general forgetting mitigation does not preserve mt ",
-   "paper|automated extraction records processing activities ropa using hybrid rag locally",
-   "paper|small cues big consequences learning pivotal cues multimodal meme classification",
-   "paper|can llms reason about runtime behavior repository level dynamic benchmark",
-   "paper|order invariant answers order sensitive representations mathematical reasoning"
-  ],
-  "opensource": [
-   "opensource|xum desktop app isolated parallel agentic development",
-   "opensource|nexus nexus shared context plane where every agent human",
-   "opensource|mcp agent mail rust rust mcp server multi agent coordination 34 tools",
-   "opensource|headroom compress tool outputs logs rag chunks before",
-   "opensource|milvus milvus is high performance cloud native vector database"
-  ],
-  "enterprise": [
-   "enterprise|basecamp 140m series c six program pipeline test ai endpoints news",
-   "enterprise|two years openai academy",
-   "enterprise|openai extends cyber access ukraine civilian defense",
-   "enterprise|everything coming meta s ai agent muse",
-   "enterprise|meta made tamagotchi like wearable muse ai agent"
-  ]
- },
  "2026-09-25": {
   "paper": [
    "paper|semmsa latent semantic aided robust multimodal sentiment analysis incomplete dat",
@@ -332,6 +309,29 @@
    "enterprise|radisson hotel group brings hotel discovery chatgpt",
    "enterprise|meta s muse ipad just month after mobile",
    "enterprise|meta out ai tools detect ads that secretly lead child sexual abuse material"
+  ]
+ },
+ "2026-10-09": {
+  "paper": [
+   "paper|compact efficient indexes learned sparse retrieval",
+   "paper|vocabulary audio visual event localization via complex fusion",
+   "paper|auraluxmuse adaptive fusion modeling aesthetic stage lighting design music exper",
+   "paper|omnicapbench deep structured evaluation framework fine grained audio visual capt",
+   "paper|mental models multi agent systems"
+  ],
+  "opensource": [
+   "opensource|n8n fair code workflow automation platform native ai",
+   "opensource|memoria memory management ai agents ensures data",
+   "opensource|geak generating efficient ai centric kernels",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|ragflow ragflow is leading source retrieval augmented"
+  ],
+  "enterprise": [
+   "enterprise|cal ai s 19 year old founder just 10m his ai startup",
+   "enterprise|google brings agentic ai gemini starting businesses",
+   "enterprise|natura s 99 smart ring puts ai agents your finger",
+   "enterprise|goodfire says inside out monitors catch rogue ai agents fraction cost",
+   "enterprise|microsoft nvidia chip ai pcs revamped windows 11"
   ]
  }
 }
