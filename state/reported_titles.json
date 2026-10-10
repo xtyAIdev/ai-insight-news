@@ -1,27 +1,4 @@
 {
- "2026-09-25": {
-  "paper": [
-   "paper|semmsa latent semantic aided robust multimodal sentiment analysis incomplete dat",
-   "paper|trust not trust retrieval augmented fact checking speech",
-   "paper|temporal gradient inversion private trajectory reconstruction embodied reinforce",
-   "paper|alignment illusion multimodal large language models",
-   "paper|lsf sr latent semantic fusion sequential recommendation via flow based condition"
-  ],
-  "opensource": [
-   "opensource|mem0 memory layer ai agents drop memory",
-   "opensource|webui user friendly ai interface supports ollama openai api",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|litellm fastest litest ai gateway",
-   "opensource|ai engineering scratch learn it"
-  ],
-  "enterprise": [
-   "enterprise|ema 77m ai starts eating enterprise software services techcrunch",
-   "enterprise|meta s muse charm looks like tamagotchi but it s tapping much newer trend",
-   "enterprise|google photos clueless inspired virtual closet is now available android ios",
-   "enterprise|prismml brings tiny llms qualcomm powered smart glasses",
-   "enterprise|ando wants take slack team messaging app that lets humans agents work together"
-  ]
- },
  "2026-09-26": {
   "paper": [
    "paper|grasp generating revising assessing strategic planning agentic ai",
@@ -332,6 +309,29 @@
    "enterprise|natura s 99 smart ring puts ai agents your finger",
    "enterprise|goodfire says inside out monitors catch rogue ai agents fraction cost",
    "enterprise|microsoft nvidia chip ai pcs revamped windows 11"
+  ]
+ },
+ "2026-10-10": {
+  "paper": [
+   "paper|fastbench can streaming vlms perceive high dynamic real world streams",
+   "paper|woven weaving visual world modeling multimodal llms",
+   "paper|viskill reinforcing vlm agents evolving visual native skills",
+   "paper|spacecast bench evaluating predictive spatial reasoning vision language models",
+   "paper|long text predictive features llm guided blockwise feature engineering via execu"
+  ],
+  "opensource": [
+   "opensource|vllm high throughput memory efficient inference",
+   "opensource|ollama get up running kimi glm minimax deepseek",
+   "opensource|appium mcp appium mcp steroids",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|headroom compress tool outputs logs rag chunks before"
+  ],
+  "enterprise": [
+   "enterprise|maker non text ai model jev 7 5b just weeks after",
+   "enterprise|a16z s olivia moore state consumer ai",
+   "enterprise|sophos cuts threat investigation time 96 openai daybreak",
+   "enterprise|asana cuts model costs 76x browser tests gpt 6 1 sol",
+   "enterprise|月之暗面增资至约 1437"
   ]
  }
 }

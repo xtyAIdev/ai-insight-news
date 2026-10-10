@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-10</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-10-10: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-10">
+<meta property="og:description" content="2026-10-10: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261010.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-10">
+<meta name="twitter:description" content="2026-10-10: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261010.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-10 ｜ report_20261010</div>
+<div class="sub" data-lang-title="zh">2026-10-10 ｜ report_20261010</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-10-10: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. vllm：A high-throughput and memory-efficient inference and</h3>
+          <p class="news-body">A high-throughput and memory-efficient inference and serving engine for LLMs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">vllm-project</span> <span class="tag tag-star">⭐ 93,480</span> <span class="tag tag-gray">amd / blackwell / cuda / deepseek</span></div>
+          <div class="pick-reason">Composite score 4.5社区数据：stars=93,480，forks=23195，open_issues=8653</div>
+          <div class="source">Source：<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ollama：Get up and running with Kimi, GLM, MiniMax, DeepSeek,</h3>
+          <p class="news-body">Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">ollama</span> <span class="tag tag-star">⭐ 182,568</span> <span class="tag tag-gray">deepseek / gemma / gemma3 / glm</span></div>
+          <div class="pick-reason">Composite score 4社区数据：stars=182,568，forks=18179，open_issues=4234</div>
+          <div class="source">Source：<a href="https://github.com/ollama/ollama" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. appium-mcp：Appium MCP on Steroids</h3>
+          <p class="news-body">Appium MCP on Steroids!</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">appium</span> <span class="tag tag-star">⭐ 494</span> <span class="tag tag-gray">goose / mcp / mcp-appium / mcp-ios</span></div>
+          <div class="pick-reason">With 494 stars, 92 forks</div>
+          <div class="source">Source：<a href="https://github.com/appium/appium-mcp" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. unsloth：Local UI to run and train LLMs and diffusion models</h3>
+          <p class="news-body">Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4, MiniMax-H3, Gemma 4, FLUX and more.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 77,660</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">At 77,660 stars and 7,167 forks, unsloth's local UI for running and training LLMs and diffusion models keeps pulling steady interest, adding 536 stars in a week.</div>
+          <div class="source">Source：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. headroom：Compress tool outputs, logs, files, and RAG chunks before</h3>
+          <p class="news-body">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 74,856</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=74,856，周增长=+552，forks=5805，open_issues=447</div>
+          <div class="source">Source：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. FastBench: Can Streaming VLMs Perceive High-Dynamic Real-World Streams?</h3>
+          <p class="news-body">Streaming Video Large Language Models (VLMs) enable continuous video understanding, yet existing benchmarks focus on low-dynamic scenarios. Under bounded context budgets, models must balance temporal history, spatial resolution, and temporal granularity; sparse sampling at 1--2 FPS misses fast events. We introduce FastBench to evaluate high-dynamic perception in real-world video streams. Its trajectory-grounded pipeline combines QA generation from high-FPS clips, filtering of questions answerable at 2 FPS, answer verification using SAM3 and CoTracker3 trajectories, and three rounds of human inspection. FastBench contains 306 QA pairs across eight domains, six capabilities, and forward, instant, and backward temporal scopes, with human-annotated evidence intervals. We also present ProactiveFrame, a training-free baseline that adjusts incoming frame rates through text tokens. A dual-tier sliding window retains recent high-FPS observations while downsampling older ones into sparse history. Experiments reveal substantial limitations: the strongest model, Gemini-3.5-Flash, scores only 50.7%. Denser sampling improves Qwen3-VL-8B from 32.9% at 2 FPS to 44.6% at 24 FPS, but gains saturate as history is compressed. ProactiveFrame outperforms sparse uniform sampling by 5.4 and 1.5 percentage points, yet remains well below oracle-guided focusing, showing that current VLMs struggle to determine from the stream alone when finer temporal perception is needed. FastBench provides a testbed f</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">FastBench, a 10-author effort, asks whether streaming VLMs can truly perceive high-dynamic real-world streams, opening a new benchmarking direction for real-time perception in streaming vision-language models.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.12427v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. WOVEN: Weaving Visual World Modeling into Multimodal LLMs</h3>
+          <p class="news-body">Multimodal large language models (MLLMs) struggle with spatial, embodied, physical, and temporal reasoning. We hypothesize that these failures reflect a shared deficit in visual transition reasoning, and test whether this capability can serve as a shared training primitive, one that different models can learn from different supervision sources and reuse across different tasks, with a systematic training recipe. Existing benchmarks document these deficits separately but do not support controlled comparisons across scenes, actions, and reasoning operations. We therefore introduce WOVEN, a training source and benchmark for visual transition reasoning that organizes transition supervision by scene, action, and reasoning type, using diverse, realistic rollouts from video-pretrained generative models: 36,076 examples across 20 scene types, 5 action types, and 8 reasoning types. We first evaluate 38 frontier MLLMs (e.g., GPT-5.4 and Qwen3-VL-235B-A22B) and find a substantial and systematic deficit: even the strongest models fall far below humans, and the failures recur across model families and persist with scale. We then train MLLMs at multiple scales on WOVEN and find that they learn a shared capability that transfers broadly: training subsets of only about 2,000 items each collectively improve 22 of 26 external benchmarks by up to 27.3 percentage points, and WOVEN data can replace 30-50% of a task's own training data with comparable accuracy. Controlled comparisons further yield </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">With 10 co-authors, WOVEN weaves visual world modeling into multimodal LLMs, pointing to a new path for fusing multimodal understanding with world prediction.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.12417v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. ViSkill: Reinforcing VLM Agents with Evolving Visual-Native Skills</h3>
+          <p class="news-body">Skill-augmented agents improve sample efficiency by distilling successful trajectories into reusable strategies. Yet most existing approaches remain text-centric, linearizing spatial layouts and action-state correspondences into language that loses critical geometric structure. Recent efforts have begun incorporating visual evidence, but construct and update skills separately from policy optimization, leaving their mutual improvement underexplored. We propose ViSkill, a visual-native skill learning framework that encodes successful interactions as composite visual skill cards directly accessible to VLM agents. Retrieved skills guide both inference and reward shaping, while successful trajectories are distilled back into the library, forming a closed feedback loop in which skill accumulation and policy improvement reinforce each other. An optional cold-start mechanism further accelerates early-stage learning. Evaluated on Sokoban, FrozenLake, and PrimitiveSkill, ViSkill achieves an overall success rate of 0.89, rising to 0.91 with cold-start initialization, outperforming all evaluated proprietary and open-source baselines while converging faster than standard PPO. Our code is available at https://github.com/ZJU-REAL/ViSkill.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Authored by nine researchers</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.12403v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. SpaceCast-Bench: Evaluating Predictive Spatial Reasoning in Vision-Language Models</h3>
+          <p class="news-body">Existing spatial reasoning benchmarks mainly test spatial perception: reading off relations already visible in the input. Yet real-world spatial intelligence demands predictive spatial reasoning: constructing a scene from observations, anticipating how an intervention changes it, and reasoning about the unseen outcome. We introduce SpaceCast-Bench, the first benchmark to directly and diagnostically evaluate this capability. Built around an observe-transform-infer framework, its 3,862 questions from 182 real-world scenes span 16 task types at three levels: static perception, local prediction, and global prediction, progressively requiring scene understanding, spatial state updating, and relational inference over unobserved outcomes. Evaluating 21 models exposes a stark gap: the strongest model reaches only 58.0% against 87.2% human performance, while spatially specialized models remain near random chance. Controlled analyses further reveal that bridge views are critical for integrating distributed observations, and that explicit 3D evidence benefits models more reliably than generated outcome images or videos. Fine-tuning on our programmatically generated data lifts Qwen3-VL-4B from 34.0% to 65.7% with macro-average gains across six out-of-domain benchmarks.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=8</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.12402v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Long Text to Predictive Features: LLM-Guided Blockwise Feature Engineering via Executable Program Search</h3>
+          <p class="news-body">Industrial risk-control systems typically rely on structured-data models for efficient prediction, yet substantial valuable information remains embedded in unstructured long text. Extracting this information through manual feature engineering is labor-intensive, while requiring a large language model (LLM) to process every real-time input may not meet practical deployment requirements. To address this challenge, we propose LLM-BlockFE, an LLM-guided offline feature construction framework that converts long text into executable feature programs, thereby avoiding LLM calls during online inference. LLM-BlockFE constructs feature programs by incrementally appending immutable code blocks and evaluates candidate features using a downstream model. To address the tendency of conventional greedy search to become trapped in suboptimal solutions, our method introduces a block-level rollback mechanism based on depth-calibrated credit allocation and advances multiple independent search trajectories in an interleaved manner, reducing redundant exploration by sharing fixed descriptions of each trajectory's exploration direction. After the search, the resulting programs are frozen and deployed to extract structured features for downstream prediction models. Across two public and two private datasets, LLM-BlockFE achieves absolute AUC improvements of 0.0069 to 0.0358 over the strongest baseline on each dataset in the full-dataset comparison. Post-launch monitoring across five deployed financi</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=5</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.12390v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. The maker of non-text AI model Jev valued at $7.5B just weeks after launch</h3>
+          <p class="news-body">What has users and large corporations so excited about Jev is TypeSafe’s claim that it works significantly faster and uses far fewer tokens than LLMs.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag">Jev</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 3.3事件数据：amount_wan=75000</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. a16z’s Olivia Moore on the state of consumer AI</h3>
+          <p class="news-body">Moore sees a huge opportunity in consumer AI, particularly if the industry can tap into revenue streams beyond just subscriptions and API charges.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">a16z partner Olivia Moore offers the firm's read on the state of consumer AI, a signal from a top-tier VC on where consumer AI startups and capital are heading.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/09/a16zs-olivia-moore-on-the-state-of-consumer-ai/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Sophos cuts threat investigation time by 96% with OpenAI Daybreak</h3>
+          <p class="news-body">Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Sophos slashed threat investigation time by 96% using OpenAI Daybreak, a striking proof point that LLMs are moving into the core of security triage rather than staying on the sidelines. That scale of efficiency gain signals measurable, vendor-grade productivity from AI in threat hunting.</div>
+          <div class="source">Source：<a href="https://openai.com/index/sophos" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Asana cuts model costs 76x in browser tests with GPT-6.1 Sol</h3>
+          <p class="news-body">Using GPT-6 Astra in Codex, Asana made its browser agent 76x cheaper and 5x faster in tests to offer customers more capable models.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 2.5, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/index/asana-browser-agent" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 月之暗面增资至约1437万</h3>
+          <p class="news-body">36氪获悉，天眼查App显示，近日，北京月之暗面科技股份有限公司发生工商变更，注册资本由约1157.53万人民币增至约1437.23万人民币，增幅约24%。值得一提的是，今年以来，该公司已发生多次增资，注册资本从100万人民币增至约1437.23万人民币。 该公司成立于2023年4月，法定代表人为杨植麟，经营范围含软件开发、人工智能基础软件开发、人工智能应用软件开发等。股东信息显示，该公司由杨植麟</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">月之暗面</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Moonshot AI's registered capital has been raised to roughly 14.37 million yuan, a modest but telling filing that signals continued capital commitment behind one of the large-model players.</div>
+          <div class="source">Source：<a href="https://www.36kr.com/newsflashes/4019510605942920" target="_blank" rel="noopener">36氪</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>FastBench: Can Streaming VLMs Perceive High-Dynamic Real-World Streams?</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>WOVEN: Weaving Visual World Modeling into Multimodal LLMs</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>ViSkill: Reinforcing VLM Agents with Evolving Visual-Native Skills</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-10-10 共收录 15 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 5 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. vLLM 高吞吐低显存推理引擎星标破 9.3 万</h3>
+          <p class="news-body">vLLM 是一个面向大语言模型的高吞吐、显存高效的推理与服务引擎。该项目在 GitHub 上累计获得 93,480 个 star、23,195 次 fork，开放 issue 数为 8,653。它的定位落在了 LLM 在线服务最实际的一环：把吞吐、并发与显存占用当作核心工程指标来优化，而不只是比拼模型能力。这使 vLLM 直接关系到真实业务中的单位 token 成本与可服务规模，也成为开源模型落地与云服务商推理服务竞争中的关键组件。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">vllm-project</span> <span class="tag tag-star">⭐ 93,480</span> <span class="tag tag-gray">amd / blackwell / cuda / deepseek</span></div>
+          <div class="pick-reason">综合评分 4.5社区数据：stars=93,480，forks=23195，open_issues=8653</div>
+          <div class="source">来源：<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Ollama 一套运行时跑通 Kimi、GLM、DeepSeek 等中外模型</h3>
+          <p class="news-body">Ollama 可让开发者快速上手运行 Kimi、GLM、MiniMax、DeepSeek、gpt-oss、Qwen、Gemma 及其他模型，同时覆盖国产开源模型与 OpenAI 开放权重模型两条线。该仓库目前在 GitHub 上累计 182,568 stars、18,179 forks，open issues 为 4,234。把这些模型收进同一个运行时，开发者无需为各家推理框架分别适配，就能做多模型本地部署与横向评测；对隐私敏感或成本敏感的场景，也提供了云端 API 之外的可行替代。这使本地推理工具从单模型运行器转向跨厂商的模型分发与推理标准化平台，开源模型生态的入口价值进一步向 Ollama 这类运行时集中。</p>
+          <p class="comment">若 Ollama 持续把国产模型与 OpenAI 开放权重模型纳入同一运行时，本地推理的默认入口可能固化在这类工具上，轻量云端推理 API 在私有化 PoC 中的替代空间会被逐步挤压。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">ollama</span> <span class="tag tag-star">⭐ 182,568</span> <span class="tag tag-gray">deepseek / gemma / gemma3 / glm</span></div>
+          <div class="pick-reason">综合评分 4社区数据：stars=182,568，forks=18179，open_issues=4234</div>
+          <div class="source">来源：<a href="https://github.com/ollama/ollama" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. appium发布MCP</h3>
+          <p class="news-body">一个名为 appium-mcp 的开源项目发布/更新，将 Appium 的移动端自动化能力封装为 MCP（Model Context Protocol）服务器，供 Claude Code、Cursor 等 AI 编码代理直接调用，并宣称在常规 Appium MCP 封装之上提供了更强的能力集（如会话管理、元素探查、真机/模拟器交互）。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">appium</span> <span class="tag tag-star">⭐ 494</span> <span class="tag tag-gray">goose / mcp / mcp-appium / mcp-ios</span></div>
+          <div class="pick-reason">appium-mcp 以 494 stars、92 forks 和 23 open issues 显示，Appium 与 MCP 结合的移动自动化工具已有可观社区关注与分叉采用，成为 MCP 向测试领域延伸的信号。</div>
+          <div class="source">来源：<a href="https://github.com/appium/appium-mcp" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Unsloth 以本地 UI 统一 LLM 与扩散模型的运行与训练</h3>
+          <p class="news-body">Unsloth 提供一个本地 UI，可在同一界面中运行并训练 LLM 与扩散模型。该界面支持的格式与模型包括 GGUF、MLX、Qwen3.8、DeepSeek-V4、MiniMax-H3、Gemma 4、FLUX 等。其仓库当前 stars 为 77,660，周增长 +536，forks 7,167，open issues 672。若这类 UI 把低显存、高速微调内核从需要手工配置环境的工程师手中交到普通开发者手里，中小场景对云 GPU 租赁与托管微调的依赖可能被进一步压缩。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">unslothai</span> <span class="tag tag-star">⭐ 77,660</span> <span class="tag tag-gray">agent / ai / chatgpt / deepseek</span></div>
+          <div class="pick-reason">unsloth 以 77,660 stars、7,167 forks 体量提供本地运行与训练 LLM、扩散模型的 UI，周增 536 stars 显示本地化训练工具的需求仍在持续积累。</div>
+          <div class="source">来源：<a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. headroom 在 LLM 入口压缩上下文，JSON 负载可省 60-95% token</h3>
+          <p class="news-body">headroom 是一款在工具输出、日志、文件和 RAG 片段进入 LLM 之前先行压缩的开源组件，提供 library、proxy 和 MCP server 三种形态。按项目给出的数据，它能让编码 agent 少用 20% 的 token，面对 JSON 类负载时 token 降幅达 60-95%，而答案保持不变。该仓库目前有 74,856 stars、5,805 forks，周增长约 552 stars，open issues 447 个。token 消耗是 agent 生产部署中最直接的可变成本与延迟来源，这套方案不换模型、不改提示词，只在上下文入口做减法，若压缩效果在实际负载中可复现，则它可能成为性价比很高的效率杠杆，也说明结构化数据整段投喂给模型的做法本身存在大量冗余。</p>
+          <p class="comment">JSON 这类结构化负载能被砍掉六到九成 token 而不损答案，暴露出当下上下文投喂方式的低效是结构性的，而非模型能力问题。若压缩、裁剪、缓存这类能力以 proxy/MCP 组件的形式被默认接入，上下文治理很可能继 MCP 统一工具接入之后沉淀为独立中间件品类，与模型能力提升并行成赛道。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 74,856</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=74,856，周增长=+552，forks=5805，open_issues=447</div>
+          <div class="source">来源：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. FastBench：大模型+多模态</h3>
+          <p class="news-body">FastBench 是面向流式视频大模型的新评测基准，其轨迹锚定的流水线从高帧率片段生成 QA，并过滤掉稀疏采样即可答对的题目，专门检验高动态真实视频流中的连续感知能力。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">FastBench由10位作者共同提出，直指流式视觉语言模型能否感知高动态真实世界视频流这一空白，为评估流式VLM的实时感知能力提供了新的基准方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.12427v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. WOVEN用共享视觉转移原语统一解释MLLM四类推理缺陷</h3>
+          <p class="news-body">多模态大语言模型（MLLM）在空间、具身、物理和时序推理上表现不佳，论文假设这些失败源于视觉转移推理（visual transition reasoning）的共同缺陷，并检验它能否作为一套系统性训练配方下的共享训练原语，让不同模型从不同监督来源学习并跨任务复用。现有基准只是分别记录这些缺陷，不支持跨场景、动作与推理操作的受控比较；WOVEN 因此以视频预训练生成模型的多样化真实 rollout 组织转移监督，共 36,076 个样本，覆盖 20 种场景类型、5 种动作类型和 8 种推理类型。对 38 个前沿 MLLM（如 GPT-5.4 与 Qwen3-VL-235B-A22B）的评测显示，即便最强模型也远低于人类，且失败跨模型家族反复出现、随规模扩大依然存在。在 WOVEN 上按多种规模训练后，模型学到可广泛迁移的共享能力：每份仅约 2,000 条的多个训练子集合计把 26 个外部基准中的 22 个提升了最多 27.3 个百分点，WOVEN 数据还能替换某任务自身 30-50% 的训练数据而精度相当。若这一共享原语成立，多模态后训练的重心可能从堆叠任务数据转向构建共享的世界模型能力，具身与视频理解赛道的评测也需重新设计控制变量。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">WOVEN 由 10 位作者合作，尝试把视觉世界建模织入多模态大模型，为多模态理解与世界预测的融合提供了一条新路径。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.12417v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. ViSkill 实现视觉原生技能与策略协同进化</h3>
+          <p class="news-body">技能增强型智能体通常把成功轨迹蒸馏为可复用策略以提升样本效率，但主流做法仍以文本为中心，把空间布局和动作—状态对应关系线性化为语言，从而丢失关键几何结构；少量引入视觉证据的工作又把技能构建与更新同策略优化割裂，二者相互促进的潜力未被充分挖掘。ViSkill 把成功交互编码为可直接被 VLM 智能体调用的复合视觉技能卡，检索到的技能同时指导推理与奖励塑形，成功轨迹再被蒸馏回技能库，形成技能积累与策略改进互相强化的闭环，并附带可选的冷启动机制加速早期学习。在 Sokoban、FrozenLake 与 PrimitiveSkill 上，ViSkill 总体成功率 0.89，加入冷启动初始化后升至 0.91，优于所评估的全部闭源与开源基线，收敛速度快于标准 PPO。代码地址为 https://github.com/ZJU-REAL/ViSkill。若这种技能库与策略在同一循环中互相改进的范式在 GUI/网页操作、具身操作与 VLM 智能体训练管线中成立，多模态原生技能表示可能逐步取代线性化文本，成为空间推理类智能体的默认技能形态。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">9位作者合著的ViSkill聚焦以演化式视觉原生技能强化VLM智能体，为视觉智能体能力持续进化提供新思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.12403v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. VLM 最强仅 58%，SpaceCast-Bench 开测预测性空间推理</h3>
+          <p class="news-body">现有空间推理基准多只考察空间感知，即读取输入中已可见的关系，而真实空间智能需要预测性空间推理：从观察重建场景、预判干预如何改变场景、并对未见结果进行推理。为此，作者提出 SpaceCast-Bench，据其描述为首个直接且具诊断性地评估该能力的基准，围绕“观察—变换—推断”框架构建，包含来自 182 个真实场景的 3,862 道题，覆盖静态感知、局部预测、全局预测三个层级共 16 类任务，逐步要求场景理解、空间状态更新以及对未观察结果的关系推理。对 21 个模型的评测暴露出明显差距：最强模型仅达 58.0%，人类表现为 87.2%，而空间专用模型接近随机水平。控制分析进一步显示，bridge views 对整合分布式观察至关重要，显式 3D 证据比生成的结果图像或视频更稳定地帮助模型；在程序化生成数据上微调可将 Qwen3-VL-4B 从 34.0% 提升至 65.7%，并在六个域外基准上取得宏观平均增益。这也意味着多模态评测的标尺正从静态空间感知转向动态世界建模与因果预测，空间推理与具身智能、交互式规划的绑定会更深。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=8</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.12402v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Long Text to Predictive Features: LLM-Guided Blockwise Feature Engineering via Executable Program Search</h3>
+          <p class="news-body">工业风控系统通常依靠结构化数据模型做高效预测，但大量有价值信息仍嵌在非结构化长文本中：人工做特征工程成本高昂，而让大模型处理每一次实时输入又难以满足实际部署要求。为此作者提出 LLM-BlockFE，一个由 LLM 引导的离线特征构建框架，把长文本转成可执行的“特征程序”，使在线推理阶段无需调用 LLM。它对特征程序的构造方式是不断追加不可变代码块，并用下游模型评估候选特征；为缓解传统贪心搜索易陷入次优解的问题，方法引入基于深度校准信用分配的块级回滚机制，以交错方式推进多条独立搜索轨迹，并通过共享各轨迹探索方向的固定描述来减少冗余探索。搜索结束后程序被冻结部署，用于抽取结构化特征供下游预测模型使用。在 2 个公开与 2 个私有数据集上，全量数据对比中 LLM-BlockFE 相对各数据集最强基线的 AUC 绝对提升为 0.0069 至 0.0358；论文还提到对五个已部署金融场景进行上线后监控，但给定材料在此处截断。这意味着 LLM 的使用位置从在线推理前移到离线特征工程，既绕开长文本实时调用在延迟、成本与稳定性上的瓶颈，又保留了非结构化文本对风控模型的</p>
+          <p class="comment">论文提出 LLM-BlockFE：一个由 LLM 引导的离线特征构造框架，通过对长文本分块并搜索可执行程序，把非结构化文本转成结构化模型可直接消费的特征，而不必在实时推理时调用 LLM。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=5</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.12390v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Jev发布TypeSafe</h3>
+          <p class="news-body">TypeSafe 推出的非文本 AI 模型 Jev 在发布仅数周内估值达 75 亿美元，宣称比 LLM 运行显著更快且 token 消耗少得多。该事件凸显资本市场对非 LLM 架构的商业化期待。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag">Jev</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 3.3事件数据：amount_wan=75000</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. a16z 的 Olivia Moore：消费 AI 机会在订阅与 API 之外</h3>
+          <p class="news-body">a16z 的 Olivia Moore 就消费 AI 的现状分享看法，她认为这一领域仍存在巨大机会。在她看来，机会能否兑现的关键，在于行业能否找到订阅收费和 API 收费之外的收入来源。这意味着消费 AI 的想象空间不只取决于模型能力或用户规模，也取决于变现方式能否跳出单一订阅；若这些新收入路径成立，消费 AI 公司才可能从工具型小生意升级为平台级市场，并改写投资人对该赛道的估值逻辑。</p>
+          <p class="comment">Moore 把增长空间押在“订阅与 API 之外”，实质是在提示消费 AI 不该按 SaaS 的订阅天花板来定价。但这一判断要成立，前提是场景内的多元收入能被真实验证，否则再大的用户盘子也仍是一门工具型生意。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">a16z 合伙人 Olivia Moore 出面梳理消费级 AI 现状，由头部风投给出的赛道判断，往往被视作消费级 AI 创业方向与资本偏好的风向标。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/09/a16zs-olivia-moore-on-the-state-of-consumer-ai/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Sophos 用 OpenAI Daybreak 将威胁调查时间压缩 96%</h3>
+          <p class="news-body">Sophos 披露，其借助 OpenAI 的 Daybreak 将网络威胁调查耗时降低 96%，并把 MDR（托管检测与响应）中 52% 的案件转为自动化处理，同时保留人工监督环节。也就是说，分诊层的多数重复工作量已交给模型，但判断与责任闭环仍留在人这一侧。对于长期受困于告警疲劳和人力成本的 MDR 服务来说，这是少数在高风险、强审计要求的安全运营场景中公开量化收益的案例。若这类收益具备可复制性，AI 在关键业务中的衡量标准会从概念演示转向单位经济性，模型厂商也可能从单纯卖 API 转向打包 Daybreak 这类领域化企业产品，让安全运营成为 agentic AI 较早落地的垂直场景。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Sophos 借助 OpenAI Daybreak 将威胁调查时间压缩 96%，这一量级的安全运营效率提升，显示大模型正从辅助工具切入核心威胁研判流程，成为安全厂商可量化交付的生产力。</div>
+          <div class="source">来源：<a href="https://openai.com/index/sophos" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Asana用Codex调用GPT-6 Astra，浏览器代理成本降76倍</h3>
+          <p class="news-body">Asana 在 Codex 中使用 GPT-6 Astra 测试其浏览器代理，结果是成本降低 76 倍、速度提升 5 倍。这一变化让 Asana 可以为客户提供能力更强的模型。对企业级 AI 代理来说，成本与延迟直接决定能否规模化部署，76x/5x 的测试结果意味着浏览器自动化不再被推理账单和响应速度卡住，Asana 则可把高阶代理下放到更多套餐；模型竞争的焦点也因此从基准分数移向单位任务经济性。</p>
+          <p class="comment">若降本主要来自 Codex 这类工具调用与代码生成框架而非单纯模型降价，那么模型路由、缓存和任务分解会从优化手段变成企业软件的准入门槛。Asana 若能据此重设代理的定价与能力边界，竞品就被迫重新核算自己的模型成本结构。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 2.5，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/index/asana-browser-agent" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 月之暗面增资至约1437万</h3>
+          <p class="news-body">36氪获悉，天眼查App显示，近日，北京月之暗面科技股份有限公司发生工商变更，注册资本由约1157.53万人民币增至约1437.23万人民币，增幅约24%。值得一提的是，今年以来，该公司已发生多次增资，注册资本从100万人民币增至约1437.23万人民币。 该公司成立于2023年4月，法定代表人为杨植麟，经营范围含软件开发、人工智能基础软件开发、人工智能应用软件开发等。股东信息显示，该公司由杨植麟</p>
+          <p class="comment">北京月之暗面科技股份有限公司注册资本由约1157.53万元增至约1437.23万元，增幅约24%；今年以来已多次增资，从100万元增至当前规模，法定代表人为杨植麟。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">月之暗面</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">月之暗面注册资本增至约1437万元，金额虽不惊人，却是大模型公司在资本层面持续加注、为后续研发与规模扩张储备弹药的工商信号。</div>
+          <div class="source">来源：<a href="https://www.36kr.com/newsflashes/4019510605942920" target="_blank" rel="noopener">36氪</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>FastBench: Can Streaming VLMs Perceive High-Dynamic Real-World Streams?</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>WOVEN: Weaving Visual World Modeling into Multimodal LLMs</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>ViSkill: Reinforcing VLM Agents with Evolving Visual-Native Skills</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-10T05:59:35.772Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
