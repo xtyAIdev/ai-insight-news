@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-11</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's signals show the competitive focus shifting from raw model capability to the &quot;agent operating system&quot; layer: open-source projects such as OpenHands, dee">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-11">
+<meta property="og:description" content="Today's signals show the competitive focus shifting from raw model capability to the &quot;agent operating system&quot; layer: open-source projects such as OpenHands, deer-flow and LobeHub are iterating rapidly">
+<meta property="og:url" content="./report_20261011.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-11">
+<meta name="twitter:description" content="Today's signals show the competitive focus shifting from raw model capability to the &quot;agent operating system&quot; layer: open-source projects such as OpenHands, deer-flow and LobeHub are iterating rapidly">
+<link rel="canonical" href="./report_20261011.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-11 ｜ report_20261011</div>
+<div class="sub" data-lang-title="zh">2026-10-11 ｜ report_20261011</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's signals show the competitive focus shifting from raw model capability to the &quot;agent operating system&quot; layer: open-source projects such as OpenHands, deer-flow and LobeHub are iterating rapidly on long-horizon agent harnesses, while ByteDance and Alibaba push deeper into office and conversational service entry points. On the research side, attention centers on real-time monitoring and intervention in agent trajectories, principled skill distillation, and audits of legal chain-of-thought faithfulness — evidence that trustworthiness and controllability are becoming prerequisites for agent deployment. Meanwhile, Microsoft bypassing OpenAI's decision model to build on Alibaba's Qwen signals both model-supply diversification and ongoing geopolitical competition, which could rewrite enterprise model procurement logic.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. OpenHands：🙌 OpenHands: AI-Driven Development</h3>
+          <p class="news-body">🙌 OpenHands: AI-Driven Development</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-11</span> <span class="tag">OpenHands</span> <span class="tag tag-star">⭐ 90,534</span> <span class="tag tag-gray">agent / artificial-intelligence / chatgpt / claude-ai</span></div>
+          <div class="pick-reason">Composite score 4.5社区数据：stars=90,534，forks=11988，open_issues=945</div>
+          <div class="source">Source：<a href="https://github.com/OpenHands/OpenHands" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. deer-flow：An open-source long-horizon SuperAgent harness that</h3>
+          <p class="news-body">An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-11</span> <span class="tag">bytedance</span> <span class="tag tag-star">⭐ 83,675</span> <span class="tag tag-gray">agent / agentic / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">With 83,675 stars and 11,641 forks, deer-flow stands out as a large open-source long-horizon SuperAgent harness, and its +281 weekly stars show developers are still steadily adopting it.</div>
+          <div class="source">Source：<a href="https://github.com/bytedance/deer-flow" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. magpie：Every agent's model</h3>
+          <p class="news-body">Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-11</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 8,714</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">Magpie's 8,714 stars with a +3,804 weekly jump, plus 575 forks and 449 open</div>
+          <div class="source">Source：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. lobehub：🤯 LobeHub is your Chief Agent Operator, organizing your</h3>
+          <p class="news-body">🤯 LobeHub is your Chief Agent Operator, organizing your agents into 7×24 operations by hiring, scheduling, and reporting on your entire AI team.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-11</span> <span class="tag">lobehub</span> <span class="tag tag-star">⭐ 83,122</span> <span class="tag tag-gray">agent / agent-collaboration / agent-harness / ai</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=83,122，forks=15974，open_issues=1096</div>
+          <div class="source">Source：<a href="https://github.com/lobehub/lobehub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-11</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 78,169</span> <span class="tag tag-gray">agent-skills / ai-agents / binary-analysis / claude-code</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=78,169，周增长=+77614，forks=16787，open_issues=124</div>
+          <div class="source">Source：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. OnTrack: Real-Time Monitoring and Intervention in LLM Agent Trajectories via Streaming Structure-Aware Optimal Transport</h3>
+          <p class="news-body">Agents are deployed in applications from trip planners and stock trading to IT incident triage. In most cases, LLM agents work autonomously with minimal rule-based safeguarding, leading to cost and safety issues from irreversible actions. Recent works resolve this either by using a safeguard agent to monitor behavior or evaluating logs post-hoc. The first adds cost and latency to every step; the second delivers its verdict after the run, when tokens are burned and damage is done. To overcome this, we propose OnTrack, a streaming monitoring mechanism that compares an agent's steps and dependencies against recorded successful runs to alert users or block the agent in about a millisecond per step. We study this problem in three regimes of decreasing access: full reference access (historical runs and tool schemas), intermediate access (only tool schemas), and no prior knowledge (only step logs as generated). Expectation of OnTrack's monitoring capabilities reduces as data access drops, ranging from plan violation detection to identifying loops, stalls, and repeated tool calls. Finally, we evaluate OnTrack using SWE-bench trajectories. Based on the first 8 steps, our method ranks failing trajectories below succeeding ones better than content similarity approaches (+0.057 AUROC). With an abort policy, we save about 18% of compute that would be burned on failing runs, where 83% of interrupted runs were actually heading to failure (5 out of 6 aborts were correct).</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=4</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.12375v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Which Skill to Distill? SGUID: Selecting a Compact Skill Bank for Model-Skill Co-Evolution</h3>
+          <p class="news-body">Skills, reusable procedural guidance added at inference, can substantially improve LLM downstream performance (Li et al., 2026). Prior work retrieves skills from a bank by semantic relevance, then uses them as inference-time patches or for model distillation. The individual utility of each skill, however, is largely neglected. We first show that, in on-policy distillation where skill-conditioned policies serve as teachers, fewer than 25% of retrieved skills provide useful distillation signals. We then propose SGUID, a method for selecting a compact subset of skills for distillation. SGUID retains a skill only if it consistently yields effective learning signals during training. The selected skills are then distilled to produce a better model. Our results show that not all skills are worth distilling. Across four models from the Olmo and Qwen families, distilling 6 selected skills matches or exceeds full-bank distillation in mean avg@12 on three of the four models, and on all four after a second round that distills 3 newly selected skills, while the full banks are up to 11x larger. Importantly, SGUID supports stable model-skill co-evolution: after a distillation round, a new candidate bank is curated from the updated model's rollouts, and SGUID selects which skills to internalize next. In the second round, this loop selects 3 new skills and improves Qwen3-8B from 64.3% to 66.3%. The selection step is essential for stability: on Qwen3-4B, naively updating the model with unfilte</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=7</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.12367v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Cited but Not Consulted: A Counterfactual Audit of Legal Chain-of-Thought Faithfulness</h3>
+          <p class="news-body">Large language models increasingly justify legal decisions by naming the statute or precedent behind a verdict, treated as evidence that the decision follows from it. We test this directly: holding case facts fixed, we substitute the named legal authority for an unrelated one and decode a model's evolving verdict from its hidden states. Across seven open-weight models (8B-70B) and four benchmarks spanning judicial and contractual reasoning, when explicitly required to justify a verdict by naming the governing authority, models name the correct one in 66.7%-100% of generations, while the verdict changing when the authority changes is far less consistent: 0.0%-21.7% on CaseHOLD, 30.0%-76.7% on ECHR and SCOTUS, and 43.3%-50.0% on ContractNLI. Neither scale nor a purpose-built legal-reasoning model (a best-effort LoRA reproduction; Section 6) closes this gap. A red-teaming evaluation on five core models finds compliance with an adversarial instruction hidden in the case facts (73.3%-96.4%) exceeds verdict-swap sensitivity by a wide margin, holding without exception across model rankings. Naming a legal authority is thus a poor proxy for a verdict's dependence on it, while the same verdict remains separately vulnerable to adversarial manipulation. Both findings replicate across checks ruling out prompt-wording noise and confounded sampling, and bear directly on the use of generated legal explanations as compliance or audit artefacts.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">This three-author paper runs a counterfactual audit of legal chain-of-thought faithfulness, showing that an answer can be cited yet never actually consulted—a pointed challenge to treating CoT as a trustworthy explanation.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.12361v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. A Balanced Data Diet: Addressing the Exploration Bottleneck in Mega-Scale RL for Robot Control</h3>
+          <p class="news-body">General-purpose robots must perform a wide range of tasks from agile locomotion to dexterous manipulation. While sim-to-real reinforcement learning (RL) has proven to be a useful tool for this goal, current RL pipelines depend on engineering-heavy, per-task structural priors such as shaped rewards and demonstrations. Recent work has shown that diverse simulator resets, combined with massively parallel simulation, can alleviate much of this engineering burden on several manipulation problems. However, we find that naively scaling this paradigm to more precise or dynamic problems remains non-trivial. While simulator resets can help with exploration, uniformly sampling over this distribution wastes a growing fraction of learning experience on task configurations the policy has already mastered or cannot yet attempt. This makes it challenging to see the expected benefits of scaling parallel environments for RL, since much of the learning signal in a batch is wasted during learning. To mitigate this, we introduce Success Guided Sampling (SGS), a simple adaptive sampler that concentrates RL training on task configurations around the frontier of the policy's capabilities. Doing so allows large-scale simulated RL to make the most out of the experience in a batch, enabling much more effective scaling to large-scale parallel simulation. Across experiments using up to $2^{20}$ (over one million) parallel environments, SGS enables RL to solve challenging multi-terrain quadruped locomotio</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=7</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.12465v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. One Block, Multiple Depths: Recurrent Vision Transformers with Depth-Programmed Experts</h3>
+          <p class="news-body">In this work, we show that a single Transformer block, applied recurrently, can match the accuracy of a full-depth vision encoder at comparable inference FLOPs without intermediate feature distillation. reViT restores depth-specific transformations by representing the FFN at each recurrent depth as a convex combination of a small shared expert bank. A continuous normalized-depth coordinate programs this mixture, defining a resampleable trajectory through FFN parameter space. We evaluate this design in two regimes: supervised ImageNet-1k training and distillation from a DINOv2 teacher. Across both regimes, controlled adaptations identify weight-space merging as the strongest tested MoE family at a matching one-FFN budget, ahead of the token-dispatch and output-mixture alternatives. Trained from scratch, reViT-B/16 attains DeiT III accuracy with about 70\% fewer stored parameters. An 8-experts model distilled using only the teacher's output features retains nearly all of its DINOv2 teacher's linear-probe accuracy and transfers across classification, segmentation, and depth prediction. Elastic-depth training allows one checkpoint (trained model) to operate at multiple tested depths by resampling the same normalized coordinate interval. For fixed-depth deployment, the recurrent block can be materialized as a conventional dense graph, removing online routing and merging without changing the one-FFN-per-depth compute but expanding deployment storage.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Authored by just three researchers, this paper uses depth-programmed experts so a single recurrent vision Transformer block spans multiple depths, offering a parameter-reuse route to scaling model depth.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.12448v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Here are the top AI agents that can live in your text messages</h3>
+          <p class="news-body">We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/10/all-the-ai-agents-that-can-live-in-your-text-messages/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Microsoft skipped OpenAI’s decision model and built its own on Alibaba’s Qwen - The New Stack</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBiZk5lTERCRDkwMFBjblJEbDlDdUFVXzJqSjdJTEFTaXdzbmlacVFCdUVJR3lnSnFMZEtoanZfcndscjlBODNJQVRVUU5WVG5oQzZScHE0cTdCemoxZVRrRVByQ201M00?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Microsoft skipped OpenAI’s decision model and built its own on Alibaba’s Qwen&amp;lt;/</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBiZk5lTERCRDkwMFBjblJEbDlDdUFVXzJqSjdJTEFTaXdzbmlacVFCdUVJR3lnSnFMZEtoanZfcndscjlBODNJQVRVUU5WVG5oQzZScHE0cTdCemoxZVRrRVByQ201M00?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Top Tech Giants Accelerate AI Office Track Expansion, ByteDance TRAE Head Resigns to Launch Independent Startup - eu.36kr.com</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiU0FVX3lxTE9SampLZHhLQnZ6U0xlNmNHR0Fmak00bGxpdGgyMmpiamx6OFVkX3hka1Q4NzBGRHVoNmlBZ1hmcnRYSGNLQ2FWWFF4NnlnS1Rfamxz?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Top Tech Giants Accelerate AI Office Track Expansion, ByteDance TRAE Head Resigns to Launch Independent Start</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">字节跳动</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">As top tech giants accelerate their expansion into the AI office track, ByteDance's TRAE head has resigned to launch an independent startup — a signal that both platform competition and talent churn in AI office tools are intensifying.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9SampLZHhLQnZ6U0xlNmNHR0Fmak00bGxpdGgyMmpiamx6OFVkX3hka1Q4NzBGRHVoNmlBZ1hmcnRYSGNLQ2FWWFF4NnlnS1Rfamxz?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Alibaba Qwen Releases Qwen-Image-2.1-Turbo, an 8-Step 7B Image Model - MarkTechPost</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMirAFBVV95cUxOVXpvaFdacktESjZwbURtOUpFTW5WTTktSnZ4TjBudmVJcXVHenYxdEpRQ1p0RjFENkJuQmFIVHdVM3JjN1lSSkc3UEZfejI2cVNDRFNoRi1yV0l2NWNGb3VEQTVmVmpGcm1acWVOeXVtMFk0Y1JtNDFkUjNXdkZ4bFN4UHhjTk1qTGdIZkF1TmNTd3ZQWVNwWTlMX3A4SzhJTm5yTDlVRTE2TlhS0gGsAUFVX3lxTE5</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Alibaba's Qwen released Qwen-Image-2.1-Turbo, a 7B image model that renders in just 8 steps, signaling a push to cut diffusion inference steps to single digits for faster, cheaper image generation.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxOVXpvaFdacktESjZwbURtOUpFTW5WTTktSnZ4TjBudmVJcXVHenYxdEpRQ1p0RjFENkJuQmFIVHdVM3JjN1lSSkc3UEZfejI2cVNDRFNoRi1yV0l2NWNGb3VEQTVmVmpGcm1acWVOeXVtMFk0Y1JtNDFkUjNXdkZ4bFN4UHhjTk1qTGdIZkF1TmNTd3ZQWVNwWTlMX3A4SzhJTm5yTDlVRTE2TlhS0gGsAUFVX3lxTE5Vem9oV1pyS0RKNnBtRG05SkVNblZNOS1KdnhOMG52ZUlxdUd6djF0SlFDWnRGMUQ2Qm5CYUhUd1UzcmM3WVJKRzdQRl96MjZxU0NEU2hGLXJXSXY1Y0ZvdURBNWZWakZybVpxZU55dW0wWTRjUm00MWRSM1d2RnhsU3hQeGNOTWpMZ0hmQXVOY1N3dlBZU3BZOUxfcDhLOElObnJMOVVFMTZOWFI?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ByteDance's Doubao launches utility bill payments in China, accelerating conversational service expansion - BigGo Finance</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMidkFVX3lxTE05WThiekY4Um91SEd1akNqQU5ETGlSXzhzbEl0LWZIV2FZYVVWSjJyeWEwdVljbTE0VjdXS3BTeVF6MENnYmF6eEptOUVxemM3aGo2V0JYSWNzTHJBSndvTlYyQ1hjczZsOVg5aFZxWkVHTXhiWEE?oc=5&quot; target=&quot;_blank&quot;&amp;gt;ByteDance's Doubao launches utility bill payments in China, ac</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag">字节跳动</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE05WThiekY4Um91SEd1akNqQU5ETGlSXzhzbEl0LWZIV2FZYVVWSjJyeWEwdVljbTE0VjdXS3BTeVF6MENnYmF6eEptOUVxemM3aGo2V0JYSWNzTHJBSndvTlYyQ1hjczZsOVg5aFZxWkVHTXhiWEE?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Open-Source Long-Horizon Agent Harnesses (OpenHands, deer-flow, LobeHub)</b> — Several open-source projects advancing long-horizon agent orchestration landed on the same day, signaling that no standard has emerged yet — early movers could define de facto conventions for tool use, memory and multi-agent collaboration.</div><div class="watch-item"><b>Real-Time Monitoring and Intervention in Agent Trajectories (OnTrack)</b> — Applying streaming structure-aware optimal transport to trajectory anomaly detection targets the observability and risk-control gaps that appear once agents go live, with clear potential to become ops and safety products.</div><div class="watch-item"><b>Microsoft Building Its Own Decision Model on Alibaba's Qwen</b> — A leading vendor sidestepping its existing partner in favor of a Chinese open model points to a diversifying model supply chain and could reshape enterprise procurement and pricing dynamics.</div><div class="watch-item"><b>ByteDance's Doubao Adds Conversational Utility Payments</b> — Plugging a conversational assistant into high-frequency household bill payments marks a step from Q&amp;A toward transactional closure, making both the business model and compliance boundaries worth tracking.</div><div class="watch-item"><b>Alibaba's Qwen-Image-2.1-Turbo and the TRAE Lead's Startup Move</b> — An 8-step 7B image model keeps pushing generation costs down while the head of a leading AI coding product leaves to found a startup — both image generation and AI coding are entering a phase of acceleration and talent reshuffling.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日动态显示，AI 竞争焦点正从单一模型能力转向「智能体操作系统」层的争夺：OpenHands、deer-flow、LobeHub 等开源项目密集迭代长时程 Agent 框架，字节、阿里等大厂则同步加码办公与对话式服务入口。学术侧关注点集中在 Agent 轨迹的实时监控与干预、技能蒸馏的选择机制，以及法律思维链可信度审计，说明可信与可控正成为智能体落地的前置条件。与此同时，微软绕开 OpenAI 决策模型、基于阿里 Qwen 自研，释放出模型供应链多元化与地缘技术博弈并存的信号，企业级模型采购逻辑或将被重写。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. 开源编码代理 OpenHands 获 9 万 Star，主打 AI 驱动开发</h3>
+          <p class="news-body">OpenHands 是一个以「AI 驱动开发」为定位的开源项目，社区数据显示其累计获得 90,534 个 Star、11,988 次 Fork，当前未关闭 issue 为 945 个。从定位看，这类项目试图把 AI 从单轮代码补全推进到可执行、可验证的端到端任务闭环，并以开源方式让企业自行托管、审计乃至替换底层模型。9 万级 Star 与逾万次 Fork 的规模，反映编码代理方向在开源社区的高热度，而近千个未关闭 issue 则显示待处理事项仍然不少。若编码代理继续从 IDE 插件形态演进为「代理运行时 + 工具/环境协议」的通用底座，这一开源路线将对 Copilot、Cursor 等闭源编码助手构成替代压力，并直接拉动云沙箱与推理算力需求。</p>
+          <p class="comment">编码代理的胜负手不在补全速度，而在谁占住研发流程的入口：一旦可自托管、可审计的代理运行时成为默认底座，模型与算力就退化为可替换组件，闭源助手靠订阅建立的分发壁垒会被从下方侵蚀。OpenHands 近千个未关闭 issue 也提示，这一赛道的竞争焦点正在从功能堆叠转向运行时稳定性与工具生态的标准化。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-11</span> <span class="tag">OpenHands</span> <span class="tag tag-star">⭐ 90,534</span> <span class="tag tag-gray">agent / artificial-intelligence / chatgpt / claude-ai</span></div>
+          <div class="pick-reason">综合评分 4.5社区数据：stars=90,534，forks=11988，open_issues=945</div>
+          <div class="source">来源：<a href="https://github.com/OpenHands/OpenHands" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 开源长时程SuperAgent框架deer-flow：沙箱记忆多代理打包</h3>
+          <p class="news-body">deer-flow 是一个开源的长时程 SuperAgent harness，面向研究、编码与创作类任务。它借助沙箱、记忆、工具、技能、子代理和消息网关，处理从几分钟到数小时不同层级的任务。该项目目前累计 83,675 stars，周增长 281，fork 数 11,641，open issues 为 897。它把长时程代理所需的执行隔离、状态记忆、工具调用、多代理协作和消息入口整合进一个开源 harness，让企业自建小时级自治代理不必从零拼装，也不再停留于单步工具调用的示例层面。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-11</span> <span class="tag">bytedance</span> <span class="tag tag-star">⭐ 83,675</span> <span class="tag tag-gray">agent / agentic / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">deer-flow 以 83,675 stars、11,641 forks 的体量，成为开源长时程 SuperAgent 框架中社区规模突出的项目，周增 281 stars 显示其仍在持续吸纳开发者。</div>
+          <div class="source">来源：<a href="https://github.com/bytedance/deer-flow" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. yetone发布Agent新动态</h3>
+          <p class="news-body">开源作者 yetone 发布 macOS 菜单栏工具 magpie，让 Codex、Claude Code 等编码 Agent 可即时切换底层模型，例如把 Codex 指向 DeepSeek、把 Claude Code 指向 Kimi，无需改动 Agent 本身。它本质是 Agent 与模型之间的可插拔路由层，而非新模型或新 Agent。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-11</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 8,714</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">magpie 以 8,714 stars、单周净增 3,804 的速度扩张，575 个 fork 与 449 个 open issues 显示社区正围绕“每个 agent 的模型”这一方向快速聚集并持续打磨。</div>
+          <div class="source">来源：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. LobeHub 定位首席智能体运营官，让 AI 团队 7×24 运转</h3>
+          <p class="news-body">LobeHub 将自身定位为“首席智能体运营官”（Chief Agent Operator），目标是把用户手上的多个 agent 组织成 7×24 小时运转的 AI 团队，而不只是单个对话助手。其职责被拆成三块：招募（hiring）、排班调度（scheduling）与汇报（reporting），覆盖整个 AI 团队的日常运营。社区数据方面，该项目 stars 为 83,122、forks 为 15,974、open issues 为 1,096，已有相当规模的开发者参与。在多 Agent 落地普遍卡在编排与运维的背景下，这类把智能体当作“人力”来管理的思路若跑通，可能成为从单体助手走向 Agent Ops 的一个信号。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-11</span> <span class="tag">lobehub</span> <span class="tag tag-star">⭐ 83,122</span> <span class="tag tag-gray">agent / agent-collaboration / agent-harness / ai</span></div>
+          <div class="pick-reason">LobeHub 以「Chief Agent Operator」定位切入 Agent 编排赛道，83,122 stars、15,974 forks 的社区体量，加上 1,096 个 open issues，折射出 Agent 工具</div>
+          <div class="source">来源：<a href="https://github.com/lobehub/lobehub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-11</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 78,169</span> <span class="tag tag-gray">agent-skills / ai-agents / binary-analysis / claude-code</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=78,169，周增长=+77614，forks=16787，open_issues=124</div>
+          <div class="source">来源：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. OnTrack以流式最优输运实时监控并干预Agent轨迹</h3>
+          <p class="news-body">LLM Agent 已被用于旅行规划、股票交易和 IT 故障分诊等场景，但多数情况下它们自主运行、只有极少的规则式防护，一旦执行下单、改配置等不可逆动作就会带来成本与安全风险。现有做法要么额外挂一个守护 Agent 逐步监控（每一步都增加成本与延迟），要么事后评估日志——而判决出来时 token 已烧掉、损失已造成。为此作者（4 人）提出 OnTrack：一种流式监控机制，把 Agent 当前步骤及其依赖关系与历史成功运行记录做比对，从而在约每步 1 毫秒的开销下告警或阻断 Agent。论文按数据访问权限递减研究了三种情形——完整参考（历史运行记录＋工具 schema）、中间态（仅有工具 schema）、无先验知识（仅实时步骤日志），监控能力随之下降，从发现计划违规退化到识别循环、停滞和重复工具调用。在 SWE-bench 轨迹上，仅用前 8 步，OnTrack 将失败轨迹排在成功轨迹之下的效果优于内容相似度方法（AUROC +0.057）；配合中止策略可节省约 18% 本会消耗在失败运行上的算力，被中断的运行中有 83% 确实走向失败（6 次中止中 5 次正确）。这意味着安全判断正被前移到执行过程之中，而非等到事后审计，为自主 Agent 的可控部署提供了一种低开销的运行时监控路径。</p>
+          <p class="comment">如果毫秒级轨迹偏离检测能在更多基准和真实高风险场景上复现，Agent 安全层的重心可能从“每步再挂一个守护模型”转向轻量的分布度量中间件，把成本从推理预算挪到监控预算。不过结论目前只建立在 SWE-bench 与 6 次中止的样本上，其在金融交易、运维等不可逆动作场景的漏报率仍待验证。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">由4位作者完成的OnTrack，将LLM智能体轨迹的监控与干预从事后评估推进到流式结构感知最优传输，指向智能体可观测</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.12375v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. SGUID：大模型+推理</h3>
+          <p class="news-body">该论文提出 SGUID，用于为模型-技能协同演化筛选紧凑技能库；关键发现是：在 on-policy 蒸馏中，按语义相关性检索到的技能里，提供有效蒸馏信号的不足25%。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=7</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.12367v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Cited but Not Consulted: A Counterfactual Audit of Legal Chain-of-Thought Faithfulness</h3>
+          <p class="news-body">研究直接检验了一个被当作理所当然的假设：大模型常以点名法条或判例来为法律判决提供依据，而这种点名被视为判决确实依赖该依据的证据。作者在固定案件事实的前提下，把被引用的法律权威替换为无关权威，并从模型隐藏状态中解码其判决走向。在7个开源权重模型（8B–70B）和覆盖司法与合同推理的4个基准上，当被明确要求点名管辖权威时，模型有66.7%–100%的生成给出了正确权威，但判决随权威改变而改变的比例要低得多：CaseHOLD为0.0%–21.7%，ECHR与SCOTUS为30.0%–76.7%，ContractNLI为43.3%–50.0%；扩大参数规模或使用专门的法律推理模型（一次尽力而为的LoRA复现）都未能弥合这一差距。对5个核心模型的红队评估显示，对藏在案件事实中的对抗性指令的遵从率为73.3%–96.4%，远超判决切换敏感度，且在所有模型排名中无一例外。结论是：点名法律权威是判决对其依赖程度的糟糕代理，而同一判决却单独易受对抗操纵；这两项发现在排除提示措辞噪声与采样混淆的多次检验中均可复现，并直接关系到生成式法律解释能否被用作合规或审计材料。若隐藏状态级别的证据说明引用可能只是事后合理化，那么法律科技与AI合规审计中「引用即依据」的默认假设，以及以思维链为核心的可解释性验收标准，都可能需要重设。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">该论文由3位作者完成，用反事实审计检验法律领域思维链的忠实性，揭示模型答案被引用却未被真正参考，直指CoT可解释性可信度这一行业痛点。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.12361v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. A Balanced Data Diet: Addressing the Exploration Bottleneck in Mega-Scale RL for Robot Control</h3>
+          <p class="news-body">General-purpose robots must perform a wide range of tasks from agile locomotion to dexterous manipulation. While sim-to-real reinforcement learning (RL) has proven to be a useful tool for this goal, current RL pipelines depend on engineering-heavy, per-task structural priors such as shaped rewards and demonstrations. Recent work has shown that diverse simulator resets, combined with massively parallel simulation, can alleviate much of this engineering burden on several manipulation problems. However, we find that naively scaling this paradigm to more precise or dynamic problems remains non-trivial. While simulator resets can help with exploration, uniformly sampling over this distribution wastes a growing fraction of learning experience on task configurations the policy has already mastered or cannot yet attempt. This makes it challenging to see the expected benefits of scaling parallel environments for RL, since much of the learning signal in a batch is wasted during learning. To mitigate this, we introduce Success Guided Sampling (SGS), a simple adaptive sampler that concentrates RL training on task configurations around the frontier of the policy's capabilities. Doing so allows large-scale simulated RL to make the most out of the experience in a batch, enabling much more effective scaling to large-scale parallel simulation. Across experiments using up to $2^{20}$ (over one million) parallel environments, SGS enables RL to solve challenging multi-terrain quadruped locomotio</p>
+          <p class="comment">这篇论文针对大规模并行仿真强化学习在机器人控制中的探索瓶颈，提出一种“平衡数据饮食”方法，通过调节不同任务/重置分布的数据配比来缓解稀疏奖励下的探索失效问题。其动机是当前 sim-to-real RL 仍依赖人工设计的奖励塑形与示教，而单纯增加仿真环境多样性并不足以解决 mega-scale 训练中的探索效率塌陷。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=7</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.12465v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. reViT：单块循环多深度，用深度坐标编程FFN专家混合</h3>
+          <p class="news-body">这篇论文提出 reViT：让同一个 Transformer 块循环复用，在推理 FLOPs 相当的情况下精度可对标全深度视觉编码器，且无需中间特征蒸馏。其做法是把每个循环深度上的 FFN 表示为一个小型共享专家库的凸组合，并由连续的归一化深度坐标来编程该混合，从而在 FFN 参数空间中定义出一条可重采样的轨迹，重新引入深度特化。实验覆盖 ImageNet-1k 监督训练与 DINOv2 教师蒸馏两条路线；受控对比显示，在同等单 FFN 预算下权重空间合并是所测试的最强 MoE 家族，优于 token 分发与输出混合方案。从零训练的 reViT-B/16 达到 DeiT III 精度而存储参数约少 70%，一个仅用教师输出特征蒸馏的 8 专家模型保留了 DINOv2 教师几乎全部线性探测精度，并迁移到分类、分割与深度预测。弹性深度训练让单个 checkpoint 通过重采样同一归一化坐标区间在多个测试深度上运行，固定深度部署时循环块可物化为常规稠密图，去掉在线路由与合并，单深度单 FFN 的计算量不变但部署存储会扩大。</p>
+          <p class="comment">真正值得注意的是它把层数从离散结构变量改成了可插值的连续条件变量：若深度坐标可重采样这一点在端侧与弹性推理场景中成立，循环权重 Transformer 的竞争焦点就会从能否省参数转向如何省得无损。不过论文未给出真实部署延迟与跨架构验证，权重合并的领先优势能否在大规模骨干上维持，仍属待检验的推断。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-08</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">这篇仅3位作者完成的论文，提出深度编程专家让循环视觉Transformer以单一块承载多深度，为参数复用的深度扩展提供了新思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.12448v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Here are the top AI agents that can live in your text messages</h3>
+          <p class="news-body">We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/10/all-the-ai-agents-that-can-live-in-your-text-messages/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 微软弃用OpenAI决策模型，基于阿里Qwen自研</h3>
+          <p class="news-body">据 The New Stack 报道，微软在自建模型时跳过了 OpenAI 的决策模型，转而以阿里巴巴的 Qwen 为基础搭建。这意味着微软的模型供给不再只依赖 OpenAI 一家，中国开源权重模型进入了这家美国头部厂商的实际技术选型。原材料未披露该模型的参数规模、训练数据、性能对比及具体用途等细节。对微软而言，这相当于把 OpenAI 从“唯一供给”降级为“可选之一”，其在微软模型栈中的议价权被实质性稀释；放到更大范围看，模型层正在加速商品化，竞争重心向数据、后训练与推理成本上移。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">微软绕开OpenAI的决策模型，转而在阿里Qwen之上自建模型，既说明其模型栈对OpenAI的依赖出现</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBiZk5lTERCRDkwMFBjblJEbDlDdUFVXzJqSjdJTEFTaXdzbmlacVFCdUVJR3lnSnFMZEtoanZfcndscjlBODNJQVRVUU5WVG5oQzZScHE0cTdCemoxZVRrRVByQ201M00?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 字节TRAE负责人离职创业，AI办公人才争夺升温</h3>
+          <p class="news-body">据eu.36kr.com报道，字节跳动AI办公产品TRAE负责人已离职，将独立创业。同期，多家头部科技公司正加速AI办公赛道的扩张布局。TRAE是字节在AI办公与开发者工具方向的重要入口，其核心负责人外流可能直接影响产品节奏，也反映该赛道人才与组织竞争已进入白热化。从行业层面看，AI办公正从大厂内部赛马转向平台化产品与明星团队外溢创业并行，竞争焦点从模型能力转向工作流、商业化与生态集成，对字节、同类大厂及开发者工具创业公司形成直接竞争与人才流动冲击。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-10</span> <span class="tag">字节跳动</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">科技巨头加速AI办公赛道扩张之际，字节跳动TRAE负责人离职创办独立公司，头部厂商的布局提速与核心人才外流同时出现，成为AI办公竞争格局生变的信号。</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9SampLZHhLQnZ6U0xlNmNHR0Fmak00bGxpdGgyMmpiamx6OFVkX3hka1Q4NzBGRHVoNmlBZ1hmcnRYSGNLQ2FWWFF4NnlnS1Rfamxz?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 阿里巴巴发布Qwen新动态</h3>
+          <p class="news-body">阿里巴巴千问团队发布 Qwen-Image-2.1-Turbo，一个 7B 参数图像生成模型，主打仅需 8 步采样即可完成出图，强调低延迟与低推理成本。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">阿里Qwen推出Qwen-Image-2.1-Turbo，以7B参数实现8步生成的图像模型，把扩散推理压到个位数步数，指向图像生成提速与部署成本下探的工程路线。</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxOVXpvaFdacktESjZwbURtOUpFTW5WTTktSnZ4TjBudmVJcXVHenYxdEpRQ1p0RjFENkJuQmFIVHdVM3JjN1lSSkc3UEZfejI2cVNDRFNoRi1yV0l2NWNGb3VEQTVmVmpGcm1acWVOeXVtMFk0Y1JtNDFkUjNXdkZ4bFN4UHhjTk1qTGdIZkF1TmNTd3ZQWVNwWTlMX3A4SzhJTm5yTDlVRTE2TlhS0gGsAUFVX3lxTE5Vem9oV1pyS0RKNnBtRG05SkVNblZNOS1KdnhOMG52ZUlxdUd6djF0SlFDWnRGMUQ2Qm5CYUhUd1UzcmM3WVJKRzdQRl96MjZxU0NEU2hGLXJXSXY1Y0ZvdURBNWZWakZybVpxZU55dW0wWTRjUm00MWRSM1d2RnhsU3hQeGNOTWpMZ0hmQXVOY1N3dlBZU3BZOUxfcDhLOElObnJMOVVFMTZOWFI?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ByteDance's Doubao launches utility bill payments in China, accelerating conversational service expansion - BigGo Finance</h3>
+          <p class="news-body">字节跳动旗下 AI 助手豆包在中国上线生活缴费功能，用户可通过对话完成水电燃气等公用事业账单支付，这是其对话式服务能力的进一步扩张。该功能把豆包的使用场景从信息问答推进到实际交易与缴费履约环节。生活缴费属于高频、刚需且信任门槛较高的场景，从这一入口切入，意味着豆包开始直接触碰支付与本地生活服务，与微信、支付宝的缴费通道形成潜在竞争关系。若交易闭环能够跑通，AI 助手或将从信息生成工具进一步演变为承载支付、服务与场景分发的平台型入口。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-09</span> <span class="tag">字节跳动</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE05WThiekY4Um91SEd1akNqQU5ETGlSXzhzbEl0LWZIV2FZYVVWSjJyeWEwdVljbTE0VjdXS3BTeVF6MENnYmF6eEptOUVxemM3aGo2V0JYSWNzTHJBSndvTlYyQ1hjczZsOVg5aFZxWkVHTXhiWEE?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>开源长时程 Agent 框架竞赛（OpenHands、deer-flow、LobeHub）</b> — 同一天多个开源项目同时推进长时程智能体编排与调度，说明该层尚未形成标准，先发者有机会定义工具调用、记忆与多智能体协作的事实规范。</div><div class="watch-item"><b>Agent 轨迹实时监控与干预研究（OnTrack）</b> — 将流式结构感知最优传输用于轨迹异常检测，直击智能体上线后的可观测性与风险控制痛点，具备转化为运维与安全产品的潜力。</div><div class="watch-item"><b>微软基于阿里 Qwen 自研决策模型</b> — 头部厂商绕开原有合作方、选用中国开源模型，反映模型供应链多元化趋势，可能改变企业级模型的采购与议价格局。</div><div class="watch-item"><b>字节豆包拓展水电缴费等对话式服务</b> — 把对话助手接入高频生活缴费场景，是智能体从问答走向交易闭环的关键一步，商业模式与合规边界值得持续观察。</div><div class="watch-item"><b>阿里 Qwen-Image-2.1-Turbo 与 TRAE 负责人出走创业</b> — 一边是 8 步 7B 图像模型持续压低生成成本，一边是头部 AI 编程产品负责人独立创业，显示图像生成与 AI 编码两条赛道同时进入加速与人才重组期。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-11T05:54:11.243Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
