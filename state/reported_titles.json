@@ -1,25 +1,4 @@
 {
- "2026-09-27": {
-  "paper": [
-   "paper|rapid robot agentic programming demonstrations",
-   "paper|coding agents generalized task motion planning problems",
-   "paper|requirement bound verified commissioning frozen four billion parameter local mod",
-   "paper|return revise learning when revision helps retrieval augmented qa",
-   "paper|advancing model research agentx long horizon autonomy industrial recommender sys"
-  ],
-  "opensource": [
-   "opensource|mcphub self hosted mcp gateway control plane connecting",
-   "opensource|vllm metal community maintained hardware plugin vllm apple",
-   "opensource|hermes agent agent that grows you",
-   "opensource|lobehub lobehub is your chief agent operator organizing your",
-   "opensource|unsloth local ui run train llms diffusion models"
-  ],
-  "enterprise": [
-   "enterprise|meta youtube say they will run ads musk documentary after all",
-   "enterprise|proaction boosts sales 60 saves 75 hours codex",
-   "enterprise|alibaba cut price ai voice tools up 95 single wion"
-  ]
- },
  "2026-09-28": {
   "paper": [
    "paper|agentworld benchmarking long horizon collaboration multi agent llms",
@@ -332,6 +311,27 @@
    "enterprise|top tech giants accelerate ai office track expansion bytedance trae head resigns",
    "enterprise|alibaba qwen qwen image 2 1 turbo 8 step 7b image model marktechpost",
    "enterprise|bytedance s doubao utility bill payments china accelerating conversational servi"
+  ]
+ },
+ "2026-10-12": {
+  "paper": [
+   "paper|qtestbench test framework evaluating llm generated quantum code",
+   "paper|rated reliability aware ai agent tool retrieval via execution dynamics",
+   "paper|when vlms destroy what they know spatial representations fall below lexical prio",
+   "paper|task context shapes component roles language models",
+   "paper|tracing taming hallucinated terms via subsequence association filtering breadth "
+  ],
+  "opensource": [
+   "opensource|hermes agent agent that grows you",
+   "opensource|ollama get up running kimi glm minimax deepseek",
+   "opensource|claude mem persistent context across sessions every agent",
+   "opensource|ragflow ragflow is leading source retrieval augmented",
+   "opensource|worldmonitor real time global intelligence dashboard"
+  ],
+  "enterprise": [
+   "enterprise|阶跃 接入腾讯 step 5 preview workbuddy",
+   "enterprise|微软用阿里 打造决策模型 或将推广至所有领域 qwen",
+   "enterprise|bytedance tencent rush personal ai agents after meta s muse success caixin globa"
   ]
  }
 }
