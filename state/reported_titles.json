@@ -1,27 +1,4 @@
 {
- "2026-09-29": {
-  "paper": [
-   "paper|denoising multi robot trajectories",
-   "paper|rethinking personalized generation test time alignment via factorized ranking mo",
-   "paper|neural harmonic measure operator",
-   "paper|re cognize comic character re identification",
-   "paper|strategically robust game theoretic multi agent trajectory optimization"
-  ],
-  "opensource": [
-   "opensource|suna source ai management system",
-   "opensource|magpie every agent s model",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|omniroute never stop coding",
-   "opensource|hyperframes write html"
-  ],
-  "enterprise": [
-   "enterprise|source inference provider modal labs closing 750m round 15 75b valuation",
-   "enterprise|how we will do better australia",
-   "enterprise|google is killing off gemini s gems favor skills",
-   "enterprise|meta enterprise ai platform hires mongodb ceo lead initiative",
-   "enterprise|shopify checkout browser based ai agents"
-  ]
- },
  "2026-09-30": {
   "paper": [
    "paper|physics informed multi agent coordination hospital patient flow optimization",
@@ -336,6 +313,29 @@
    "enterprise|fitbit edge is google s middle ground between fitbit air pixel watch",
    "enterprise|富途牛牛 foundational architecture microsoft s models is alibaba s qwen over 60 deci",
    "enterprise|microsoft ai model based qwen forklog"
+  ]
+ },
+ "2026-10-14": {
+  "paper": [
+   "paper|ghost geometry constrained hybrid diffusion vocabulary 3d scene graph generation",
+   "paper|steering fidelity state preparation noisy bosonic systems risk seeking optimizat",
+   "paper|retrieval disagreement signal diagnosing steering multilingual dense embedders",
+   "paper|imprinting knowledge distillation can shift student behavior",
+   "paper|last mile coding agents long document tasks empirical study clinical trial proto"
+  ],
+  "opensource": [
+   "opensource|claude plugins official official anthropic managed directory high quality",
+   "opensource|magpie every agent s model",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|peekaboo peekaboo is macos cli optional mcp server that enables",
+   "opensource|hyperframes write html"
+  ],
+  "enterprise": [
+   "enterprise|albert invent 55 million bring ai chemical experiments forbes",
+   "enterprise|gemini 4 argon built solve your hardest problems",
+   "enterprise|science corporation implants vision restoring chip stargardt disease patient",
+   "enterprise|laplace intelligence red teams robots self driving cars before they hit real wor",
+   "enterprise|amex framework prevent ai agents making unauthorized purchases"
   ]
  }
 }
