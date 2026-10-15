@@ -1,27 +1,4 @@
 {
- "2026-09-30": {
-  "paper": [
-   "paper|physics informed multi agent coordination hospital patient flow optimization",
-   "paper|breaking uniformity trap scaling video diffusion model via splitmoe",
-   "paper|imagine3d llm teaching mllms imagine 3d scenes before answering",
-   "paper|pretraining latent information feedback transformers teacher supervision",
-   "paper|learning meta skills agent harness design test time ai4ai"
-  ],
-  "opensource": [
-   "opensource|hermes agent agent that grows you",
-   "opensource|trueforge source agent harness runtime layer that",
-   "opensource|fastmcp typescript framework building mcp servers",
-   "opensource|local rag ingest retrieval augmented generation rag",
-   "opensource|awesome remote mcp servers collection remote mcp servers"
-  ],
-  "enterprise": [
-   "enterprise|据报道洽谈以约 万亿美元估值融资至少 亿美元 openai 1 4 300",
-   "enterprise|gpt 6 1 sol",
-   "enterprise|devday 2026 recap",
-   "enterprise|ai powered app maker wabi pivots messaging experience",
-   "enterprise|meta is expanding ai agent muse small businesses"
-  ]
- },
  "2026-10-01": {
   "paper": [
    "paper|image classifiers are efficient self supervised video representation learners",
@@ -336,6 +313,25 @@
    "enterprise|science corporation implants vision restoring chip stargardt disease patient",
    "enterprise|laplace intelligence red teams robots self driving cars before they hit real wor",
    "enterprise|amex framework prevent ai agents making unauthorized purchases"
+  ]
+ },
+ "2026-10-15": {
+  "paper": [
+   "paper|reliable llm based natural language orchestration 5g network slicing using hybri"
+  ],
+  "opensource": [
+   "opensource|paperclip source app everyone uses manage agents work",
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|deer flow source long horizon superagent harness that",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|deepseek reasonix reliable coding agent complex software engineering"
+  ],
+  "enterprise": [
+   "enterprise|年化收入突破 亿美元并完成 亿美元 轮融资 modal 10 7 5 d",
+   "enterprise|figma features define how agents work platform",
+   "enterprise|ricursive intelligence is betting ai designed chips help solve compute crisis",
+   "enterprise|apate sends ai agents undercover get scammed so they can gather fraud intelligen",
+   "enterprise|floqer s ai agents research sales prospects so teams don t have"
   ]
  }
 }
