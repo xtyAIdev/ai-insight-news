@@ -1,27 +1,4 @@
 {
- "2026-10-01": {
-  "paper": [
-   "paper|image classifiers are efficient self supervised video representation learners",
-   "paper|is weight tying still beneficial decoder only llms private settings under dp sgd",
-   "paper|sqd agent llm driven agentic framework quantum chemistry workflows",
-   "paper|ranking aware prompt optimization multimodal clinical diagnosis",
-   "paper|semifactual credit augmented policy optimization"
-  ],
-  "opensource": [
-   "opensource|hermes webui hermes webui best way use hermes agent web",
-   "opensource|connectonion cli is all you need",
-   "opensource|claude mem persistent context across sessions every agent",
-   "opensource|headroom compress tool outputs logs rag chunks before",
-   "opensource|litellm fastest litest ai gateway"
-  ],
-  "enterprise": [
-   "enterprise|valor atreides sequoia ai startup flow engineering 750m valuation",
-   "enterprise|disrupting coordinated model distillation campaign",
-   "enterprise|helping small businesses put ai work",
-   "enterprise|google gemini 4 argon called most powerful model yet",
-   "enterprise|meta disputes claim that muse read user s private messages without permission"
-  ]
- },
  "2026-10-02": {
   "paper": [
    "paper|managing context communication distributed agentic uav swarms",
@@ -332,6 +309,29 @@
    "enterprise|ricursive intelligence is betting ai designed chips help solve compute crisis",
    "enterprise|apate sends ai agents undercover get scammed so they can gather fraud intelligen",
    "enterprise|floqer s ai agents research sales prospects so teams don t have"
+  ]
+ },
+ "2026-10-16": {
+  "paper": [
+   "paper|robust multi agent pursuit preemptive communication via reachability based contr",
+   "paper|recsoup efficient model merging approach controllable multi objective recommenda",
+   "paper|think not think pre decisional reasoning budgets referring audio visual segmenta",
+   "paper|metashare failure aware collective self improvement ended agents",
+   "paper|omniverifier c1 decomposed graded verifier rule governed generative world modeli"
+  ],
+  "opensource": [
+   "opensource|ragflow ragflow is leading source retrieval augmented",
+   "opensource|claude mem persistent context across sessions every agent",
+   "opensource|openhands openhands ai driven development",
+   "opensource|headroom compress tool outputs logs rag chunks before",
+   "opensource|cua scale computer use 2"
+  ],
+  "enterprise": [
+   "enterprise|消息称投资者下调 估值预期 从约 万亿美元降至约 anthropic ipo 2 1 5",
+   "enterprise|meta weight ai model that runs macs",
+   "enterprise|ai agents are coming rivian s cars",
+   "enterprise|china approves alibaba ai models use iphone duo other apple handsets south china",
+   "enterprise|alibaba shares rise pre market trade after qwen ai glasses investing com"
   ]
  }
 }
