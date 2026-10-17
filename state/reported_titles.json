@@ -1,27 +1,4 @@
 {
- "2026-10-02": {
-  "paper": [
-   "paper|managing context communication distributed agentic uav swarms",
-   "paper|llm driven multi agent control skill based smart manufacturing",
-   "paper|silsa sliding window slice latents topology preserving high resolution 3d genera",
-   "paper|rules neural graphs scalable structured prediction patent prior art search",
-   "paper|do multilingual encoders produce language consistent semantic ids"
-  ],
-  "opensource": [
-   "opensource|hermes agent agent that grows you",
-   "opensource|vibing steampunk vs punk adt mcp bridge vibe code abap amdp",
-   "opensource|plur shared memory ai agents",
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|unsloth local ui run train llms diffusion models"
-  ],
-  "enterprise": [
-   "enterprise|exclusive nine person halluminate 30 million counts four top u s ai labs custome",
-   "enterprise|eternal complement",
-   "enterprise|how albertsons companies is reimagining retail inside out",
-   "enterprise|google thinks spacex s starship has 1 800 times before space data centers get of",
-   "enterprise|amazon own jev clone decision models flood web"
-  ]
- },
  "2026-10-03": {
   "paper": [
    "paper|scholarcatalyst benchmark retrieving papers that inspire research",
@@ -332,6 +309,29 @@
    "enterprise|ai agents are coming rivian s cars",
    "enterprise|china approves alibaba ai models use iphone duo other apple handsets south china",
    "enterprise|alibaba shares rise pre market trade after qwen ai glasses investing com"
+  ]
+ },
+ "2026-10-17": {
+  "paper": [
+   "paper|libero perm benchmarking personalized robotic manipulation",
+   "paper|pathfm fast generative forecasting multivariate trajectories",
+   "paper|mlexpert towards generalist agentic model autonomous machine learning engineerin",
+   "paper|geostate learning view decoupled geometry states 3d world modeling",
+   "paper|lean graph search formal theorem proving"
+  ],
+  "opensource": [
+   "opensource|peekaboo peekaboo is macos cli optional mcp server that enables",
+   "opensource|reflect source reflect rewrite local ai",
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|hermes agent agent that grows you",
+   "opensource|dify build agentic workflows rag pipelines rich ai model"
+  ],
+  "enterprise": [
+   "enterprise|india becomes country report rogue ai agent activity",
+   "enterprise|elorian s ai model wants reason images not just about them",
+   "enterprise|jev is vercel s fastest adopted ai model ever",
+   "enterprise|veritas expands anti counterfeit chip jewelry trophies fragrance bottles",
+   "enterprise|replit s ceo says future work is self driving company"
   ]
  }
 }

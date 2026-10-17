@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-17</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's signals converge on agents moving from demo to infrastructure: on the open-source side, projects like Peekaboo, reflect-open, dify and hermes-agent are ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-17">
+<meta property="og:description" content="Today's signals converge on agents moving from demo to infrastructure: on the open-source side, projects like Peekaboo, reflect-open, dify and hermes-agent are clustering around the MCP protocol and l">
+<meta property="og:url" content="./report_20261017.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-17">
+<meta name="twitter:description" content="Today's signals converge on agents moving from demo to infrastructure: on the open-source side, projects like Peekaboo, reflect-open, dify and hermes-agent are clustering around the MCP protocol and l">
+<link rel="canonical" href="./report_20261017.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-17 ｜ report_20261017</div>
+<div class="sub" data-lang-title="zh">2026-10-17 ｜ report_20261017</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's signals converge on agents moving from demo to infrastructure: on the open-source side, projects like Peekaboo, reflect-open, dify and hermes-agent are clustering around the MCP protocol and local-first architectures, suggesting the integration and orchestration layer for agents is standardizing fast. Research is likewise tilting toward autonomy, with agentic and benchmark work on machine-learning engineering, formal theorem proving and personalized robotic manipulation, while 3D world modeling and trajectory forecasting remain focused on data efficiency. On the enterprise side, attention is shifting from capability to risk and org design: India reported anomalous AI agent activity, Replit floated the &quot;self-driving company,&quot; and Vercel is using model adoption speed as a new competitive metric.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. Peekaboo：Peekaboo is a macOS CLI &amp; optional MCP server that enables</h3>
+          <p class="news-body">Peekaboo is a macOS CLI &amp; optional MCP server that enables AI agents to capture screenshots of applications, or the entire system, with optional visual question answering through local or remote AI models.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-17</span> <span class="tag">openclaw</span> <span class="tag tag-star">⭐ 5,332</span> <span class="tag tag-gray">ai / macos / mcp / screenshots</span></div>
+          <div class="pick-reason">Peekaboo, a macOS CLI and optional MCP server, has drawn 5,332 stars and</div>
+          <div class="source">Source：<a href="https://github.com/openclaw/Peekaboo" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. reflect-open：Open-source Reflect rewrite: A local-first AI</h3>
+          <p class="news-body">Open-source Reflect rewrite: A local-first AI agent-friendly Markdown note-taking app</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-17</span> <span class="tag">team-reflect</span> <span class="tag tag-star">⭐ 1,583</span> <span class="tag tag-gray">agent / markdown / note-taking / Agent</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=1,583，forks=133，open_issues=104</div>
+          <div class="source">Source：<a href="https://github.com/team-reflect/reflect-open" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-17</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 293,344</span> <span class="tag tag-gray">agent-skills / ai-agents / binary-analysis / claude-code</span></div>
+          <div class="pick-reason">With 293,344 stars, 73,949 forks and 1,182 open issues, rea signals strong open-source community traction for using agents to reverse</div>
+          <div class="source">Source：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-17</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 254,468</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=254,468，forks=55289，open_issues=49695</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. dify：Build Agentic workflows, RAG pipelines, with rich AI model</h3>
+          <p class="news-body">Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-17</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 158,677</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=158,677，周增长=+716，forks=25079，open_issues=1138</div>
+          <div class="source">Source：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation</h3>
+          <p class="news-body">Personalization is essential for general-purpose robots to transition into household environments and achieve true practicality. While general robotic manipulation has been extensively studied, personalized robotic manipulation (PeRM) lacks a controlled benchmark for separating task completion from preference satisfaction. We introduce LIBERO-PeRM, a benchmark for preference learning in embodied agents. LIBERO-PeRM studies five questions: 1) how policies follow preferences in zero-shot settings; 2) how they learn single preferences from demonstrations; 3) how efficiently they acquire preferences as demonstrations increase; 4) how learned preferences generalize across layouts and tasks; and 5) how policies compose preferences and behave under conflicts. We propose a controlled formulation and taxonomy of observable preferences in simulation, covering motion, skill, and user-profile choices. This formulation is restricted to language-expressible preferences that can be instantiated in LIBERO without changing the task goal, evaluated automatically, and reused across tasks. Building on LIBERO, our procedural pipeline generates paired demonstrations with and without preferences. We create five task suites (312 tasks) with high-quality demonstrations, rich metadata, and preference-satisfaction metrics. Experiments show that current VLA policies struggle with zero-shot personalization, while SFT makes preferences learnable. Mixed training achieves better no-preference retention than</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-15</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">LIBERO-PeRM introduces a benchmark for personalized robotic manipulation, with 10 authors collaborating, offering an evaluation reference and signaling a push toward standardization in this area.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.22372v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. PathFM: Fast Generative Forecasting of Multivariate Trajectories</h3>
+          <p class="news-body">Time series foundation models are becoming increasingly popular for general-purpose forecasting. However, most leading models predict marginal quantiles, leaving the dependence structure of future trajectories unspecified. This distinction matters for trajectory-dependent quantities such as cumulative demand, peak load, and event timing, yet point and marginal scores do not reveal it. To model this dependence, we introduce PathFM, a trajectory-based forecasting model that uses flow matching to generate complete future paths. We further distill the model to one or two steps and share history attention cache across draws. Together, these enable PathFM to generate multiple paths for a single series in roughly the time needed for one query to a quantile model. The distilled sampler also makes it practical to optimize a calibration loss directly. PathFM achieves competitive marginal accuracy on the established forecasting benchmarks fev-bench and TIME. To complement these evaluations, we introduce Forecast Path Score Bench (fps-bench), which augments fev-bench tasks with energy and variogram scores and downstream metrics. PathFM achieves a higher aggregate path score on fps-bench than all evaluated external baselines. Experiments on chaotic systems further show that our flow model sustains long-run variability, while strong baselines rapidly collapse. PathFM makes generative time series forecasting both competitive and practical, enabling diverse downstream applications.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-15</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=8</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.22358v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering</h3>
+          <p class="news-body">Large language models (LLMs) are expanding from assisting scientific research and engineering to autonomously developing and improving AI systems, advancing AI for AI (AI4AI) as a pathway toward recursive self-improvement (RSI). Workflow-driven machine learning engineering (MLE) systems provide a practical path toward this pursuit through complex orchestration that manages long-horizon experimentation, while recent MLE systems adopt model-directed interaction, allowing models to autonomously organize experiments and adapt optimization strategies based on execution feedback. However, feedback from each experiment reflects several preceding decisions, and a long MLE run contains many such costly experiments. Training must therefore select useful supervision from long interaction trajectories and learn from intermediate outcomes. We propose a post-training method for autonomous long-horizon MLE optimization and apply it to train MLExpert, a 35B Mixture-of-Experts agentic model. We design the Kaggle-MLE Factory to construct executable tasks and an interaction harness for model-directed experimentation. Hierarchical agentic SFT transfers general tool-use and coding capabilities to MLE through outcome-guided supervision. Windowed Interaction RL (WIRL) treats the multi-turn decisions between successive experiment results as an execution window and assigns it a shared outcome-based reward. Asynchronous collection and policy correction support policy updates before the trajectory ends</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-15</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">The paper introduces MLExpert, a generalist agentic model for autonomous machine-learning engineering, with 10 authors, signaling a move toward end-to-end automation of ML engineering.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.22344v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. GeoState: Learning View-Decoupled Geometry States for 3D World Modeling</h3>
+          <p class="news-body">Recent 3D world models increasingly use features from geometry foundation models (GFMs) as predictive world states, benefiting from their rich geometric priors. However, the view dependence of these features entangles scene dynamics with camera-induced variation, making the resulting state evolution harder to predict. We propose GeoState, a view-decoupled geometry representation for predictive 3D world modeling that separates scene-state evolution from camera-dependent observation. Specifically, a scene tokenizer aggregates multi-view GFM features into a view-decoupled scene state, which a geometry decoder queries using camera rays. An autoregressive world model then predicts future scene states, while camera motion is modeled separately. The predicted states can therefore be decoded under either predicted or externally specified cameras, while retaining a single context-derived scale throughout the rollout without per-frame scale alignment. Experiments show that GeoState outperforms prior 3D world models on Waymo, supports geometrically consistent cross-view querying, and generalizes zero-shot to KITTI and nuScenes. Project page: https://hongchang-liu.github.io/GeoState-project-page/</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-15</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=8</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.22343v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Lean Graph Search for Formal Theorem Proving</h3>
+          <p class="news-body">Retrieving relevant lemmas is crucial for formal theorem proving, enabling provers to build machine-checkable proofs from established mathematical results. Recent retrieval systems match library declarations to a target theorem or its intermediate proof steps, but make limited use of multi-hop dependencies among declarations. These dependencies can reveal supporting lemmas that are not necessarily lexically similar to the target theorem but recur in proofs of related problems. To this end, we propose LeanGraphSearch, a graph-based retrieval method for Lean 4 that constructs a graph from Mathlib's forward dependencies and traverses it to uncover supporting lemmas through multi-hop dependency chains. Specifically, LeanGraphSearch links each declaration to the premises it depends on, uses a graph-based ranking algorithm to propagate relevance from semantically matched declarations to their dependencies, and reranks the expanded candidates against the original query. Across two mathematical retrieval benchmarks, LeanGraphSearch improves recall by up to 12% over the strongest baseline, LeanSearch v2, on MathlibQR and increases coverage of complete annotated proof routes on MathlibMPR, covering up to 3.7% of extra groups. More importantly, we evaluate whether these retrieval gains translate into improved end-to-end theorem proving by integrating LeanGraphSearch into an iterative proving loop guided by Lean feedback. Across three theorem proving benchmarks, LeanGraphSearch improves </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-15</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=10</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.22339v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. India becomes the latest country to report rogue AI agent activity</h3>
+          <p class="news-body">The agents got in through credentials and connection settings left exposed in app configurations, public code repositories, and overly permissive cloud roles.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">India becomes the latest country to report rogue AI agent activity, signaling that misbehaving autonomous agents are no longer isolated incidents but a multi-country pattern — a fresh geographic signal for AI governance and agent-safety oversight.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/16/india-becomes-the-latest-country-to-report-rogue-ai-agent-activity/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Elorian’s first AI model wants to reason with images, not just about them</h3>
+          <p class="news-body">According to Elorian's evaluations, Glimpse outperforms even GPT-6 Astra on scientific chart reasoning and short-form video captioning, with competitive results on other visual reasoning tasks.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Elorian’s first AI</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Jev is Vercel’s fastest-adopted AI model ever</h3>
+          <p class="news-body">The data comes from Vercel's AI gateway, a unified API service similar to OpenRouter.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Jev has become Vercel’s fastest-adopted AI model ever, highlighting how developer platforms can accelerate model distribution and real-world adoption.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/16/jev-is-vercels-fastest-adopted-ai-model-ever/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Veritas expands its anti-counterfeit chip to jewelry, trophies, and fragrance bottles</h3>
+          <p class="news-body">Counterfeiters are getting better at replicating brands' marks and passing off dupes, known as &quot;superfakes,&quot; as genuine items. A startup called Veritas wants to tackle the problem with its own chip that verifies goods.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Veritas is extending its anti-counterfeit chip into three new areas—jewelry, trophies and fragrance bottles—signaling that chip-level authentication is moving from a single category toward multi-segment adoption.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/16/veritas-is-building-a-chip-to-verify-luxury-goods/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Replit’s CEO says the future of work is the ‘self-driving company’</h3>
+          <p class="news-body">Replit CEO Amjad Masad envisions a future of “self-driving companies,” where AI agents handle day-to-day tasks and people focus on higher-level decisions.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Replit's CEO frames the 'self-driving company' as the future of work, signaling a shift from AI coding assistants toward AI-run organizations—a trend marker for AI-native company design.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/16/replits-ceo-says-the-future-of-work-is-the-self-driving-company/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Open-source agent stack built on MCP and local-first design</b> — Peekaboo (a macOS CLI with an optional MCP server), reflect-open (an open-source, local-first rewrite of Reflect), dify (agentic workflows and RAG) and hermes-agent all surfaced on the same day, showing the tooling layer coalescing around a shared protocol and data locality. Whoever becomes the default integration layer will shape the next phase of the agent ecosystem.</div><div class="watch-item"><b>Autonomous agents for ML engineering and theorem proving</b> — MLExpert and Lean Graph Search push agents into the high-value territory of doing research autonomously, shifting the yardstick from conversational quality to task completion. If such systems hold up in real R&amp;D pipelines, they will reshape the human-machine division of labor in engineering and mathematics.</div><div class="watch-item"><b>LIBERO-PeRM, a benchmark for personalized robotic manipulation</b> — Existing manipulation benchmarks largely assume generic tasks and leave personalization untested. By folding user preferences into evaluation, this benchmark could become the key yardstick as home and service robots move toward customization.</div><div class="watch-item"><b>Elorian's image-reasoning approach</b> — Most multimodal models treat images as input rather than as a medium for reasoning; Elorian argues for reasoning with images. If it holds up, it would matter for industrial inspection, design and education, where spatial and visual logic are essential. Watch its technical validation and commercial traction.</div><div class="watch-item"><b>Rogue AI agent incidents as a safety signal</b> — India is the latest country to report anomalous agent activity, a sign the problem is spreading from labs into national-scale infrastructure. Watch for unified detection, traceability and accountability mechanisms, which will define the compliance boundaries for large-scale agent deployment.</div><div class="watch-item"><b>The self-driving company and model adoption velocity</b> — Replit's organizational vision and Vercel's use of Jev's adoption speed as a competitive metric point to the same shift: competition is moving from raw model capability to org design and distribution efficiency, with the new scoreboard being how fast a model actually gets used.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日入选事件显示，Agent 正从演示走向基础设施：开源侧围绕 MCP 协议和本地优先架构，密集出现 Peekaboo、reflect-open、dify、hermes-agent 等工具链项目，Agent 的接入与编排层正在快速标准化。学术侧的研究重心同样转向自主性，出现了面向机器学习工程、形式化定理证明、个性化机器人操作的 Agent 化与基准化工作，同时 3D 世界建模与轨迹预测仍以数据效率为重点。企业侧的关注点则从能力转向风险与形态：印度报告了异常 AI Agent 活动，Replit 提出“自动驾驶公司”的组织设想，Vercel 则用模型采用速度作为新的竞争指标。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. openclaw发布CLI</h3>
+          <p class="news-body">开源项目 Peekaboo 提供 macOS 命令行工具和可选 MCP 服务器，使 AI agent 能截取指定应用或全系统屏幕，并调用本地或远程模型完成视觉问答。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-17</span> <span class="tag">openclaw</span> <span class="tag tag-star">⭐ 5,332</span> <span class="tag tag-gray">ai / macos / mcp / screenshots</span></div>
+          <div class="pick-reason">Peekaboo 作为 macOS CLI 兼可选 MCP server，已获 5,332 stars 与 412 forks，仅 7 个 open issues，显示其在 AI 工具链中的社区关注度与维护活跃度。</div>
+          <div class="source">来源：<a href="https://github.com/openclaw/Peekaboo" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Reflect开源重写版：本地优先与Agent友好</h3>
+          <p class="news-body">reflect-open 是 Reflect 的开源重写版，定位为本地优先、对 AI agent 友好的 Markdown 笔记应用，重点在于让笔记留在本地并以 agent 可读的方式使用。该仓库当前社区数据为 stars 1,583、forks 133、open_issues 104。它把数据所有权、开放格式和 AI agent 可读性放进同一套开源实现，降低笔记工具锁定风险，也为 AI 原生知识库提供可复用样本。若笔记应用继续从封闭云端 SaaS 转向本地优先、开放格式和 agent 可访问的上下文层，个人知识库可能成为 AI 的长期记忆入口，但短期影响主要落在笔记与个人知识管理细分市场。</p>
+          <p class="comment">reflect-open 的关键不是再做一个笔记界面，而是把个人笔记库变成 agent 可直接消费的本地上下文层；若这类开放格式形成事实标准，封闭 SaaS 靠迁移成本构筑的护城河会被削弱。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-17</span> <span class="tag">team-reflect</span> <span class="tag tag-star">⭐ 1,583</span> <span class="tag tag-gray">agent / markdown / note-taking / Agent</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=1,583，forks=133，open_issues=104</div>
+          <div class="source">来源：<a href="https://github.com/team-reflect/reflect-open" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-17</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 293,344</span> <span class="tag tag-gray">agent-skills / ai-agents / binary-analysis / claude-code</span></div>
+          <div class="pick-reason">rea 以293,344 stars、73,949 forks和1,182个开放issue，显示“用agent逆向任何应用行为”方向已形成大规模开源社区关注。</div>
+          <div class="source">来源：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. hermes-agent 星标超25万，主打随你成长的 agent 框架</h3>
+          <p class="news-body">开源项目 hermes-agent 以“The agent that grows with you”作为核心定位，强调 agent 会随着使用而成长，它于开源社区已积累 stars 254,468、forks 55,289、open_issues 49,695。从定位看，它要做的不是一次性的函数调用工具，而是能与用户关系持续演进的 agent 运行时；按材料给出的判断，这指向记忆层与适应循环成为框架重心。这类可自托管方案直接对应 OpenAI Assistants、Claude Agent SDK 等闭源 agent 栈，为不便把数据外传的团队提供替代选项，因此其真正意义在于把 agent 差异化的战场从编排挪到了记忆与模型-agent 协同设计上。（其中关于记忆层与定位的解读属于推断，项目材料本身仅给出名称与标语。）</p>
+          <p class="comment">若“随你成长”确实指向持久记忆与偏好累积，那么开源 agent 框架的竞争点就将从 prompt 编排迁移到记忆层与适应循环，同质化会先发生在编排层。短期它难以撼动闭源 API 厂商，但可能先分流数据敏感型与垂直行业开发者。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-17</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 254,468</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=254,468，forks=55289，open_issues=49695</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Dify 把 Agent 编排与 RAG 收进同一协作平台</h3>
+          <p class="news-body">Dify 将 Agentic workflow、RAG pipeline 与较丰富的 AI 模型及工具支持整合在同一个协作工作区中。部署形态覆盖云端、VPC 与自托管，团队可以从原型直接推进到生产，不必重建技术栈。仓库当前 stars 为 158,677，一周新增 716，forks 25,079，open issues 1,138。把编排、检索与部署选项放在同一平台，正对应原型到生产之间反复重构栈的痛点，也降低了私有化落地以及被模型、工具锁定的门槛。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-17</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 158,677</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=158,677，周增长=+716，forks=25079，open_issues=1138</div>
+          <div class="source">来源：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. LIBERO-PeRM：Agent+搜索学习</h3>
+          <p class="news-body">论文提出 LIBERO-PeRM，一个面向具身智能体个性化机器人操作（PeRM）的受控基准，将任务完成与用户偏好满足分开评估，并围绕零样本偏好遵循等五个问题设计评测。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-15</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">LIBERO-PeRM 提出个性化机器人操作基准，由10位作者协作，为该方向提供评测参照，释放标准化趋势信号。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.22372v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. PathFM以流匹配生成联合轨迹，蒸馏后逼近分位数模型查询速度</h3>
+          <p class="news-body">现有主流时间序列基础模型多预测边际分位数，未刻画未来轨迹之间的依赖结构，而累计需求、峰值负荷、事件时点等轨迹相关量恰恰依赖这种结构，点预测与边际评分无法揭示。PathFM 转而用 flow matching 直接生成完整未来路径，并通过蒸馏把采样压缩到一到两步、在多次抽样间共享历史注意力缓存，使单条序列生成多条路径的耗时大致相当于向分位数模型发起一次查询。蒸馏后的采样器还让直接优化校准损失变得可行。在 fev-bench 与 TIME 基准上，PathFM 的边际精度与现有模型相当；团队同时提出 fps-bench，在 fev-bench 任务上加入能源与 variogram 评分及下游指标，PathFM 的聚合路径分数高于所有被评估的外部基线。混沌系统实验显示，该流模型能维持长期变异性，而强基线则迅速崩溃。这意味着多变量概率预测与能源负荷、供应链峰值规划等依赖轨迹的决策场景，可以直接从“生成完整情景”而非“给出边际分布”中获益。</p>
+          <p class="comment">这篇论文的真正价值不在基准分数，而在把评估口径往路径级推：若 fps-bench 这类轨迹评分被沿用，只报边际分位数的模型在累计需求、峰值负荷类决策中可能被系统性高估。生成式采样被压到接近单次查询的延迟，则可能让“多情景抽样”从离线分析走进在线决策流程。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-15</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">8位作者提出PathFM，聚焦多变量轨迹的快速生成式预测，看点在以生成模型提升多变量轨迹预测</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.22358v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. MLExpert以分层SFT与窗口交互RL训练长程MLE智能体</h3>
+          <p class="news-body">这篇10位作者的论文提出一种面向自主长程机器学习工程（MLE）优化的后训练方法，并据此训练了35B混合专家（MoE）智能体模型MLExpert。为支撑模型主导实验，作者设计Kaggle-MLE Factory来构建可执行任务及交互harness。方法先用分层智能体SFT，通过结果引导监督把通用工具使用与编码能力迁移到MLE。随后用Windowed Interaction RL（WIRL）把相邻实验结果之间的多轮决策视为一个执行窗口并赋予共享的结果奖励，同时以异步收集和策略校正支持在轨迹结束前更新策略。这套流程的目标是把LLM从科研辅助推进到端到端自主实验与系统改进，若在AI4AI场景落地，可能先影响自动实验与实验复现等细分环节。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-15</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">该论文提出面向自主机器学习工程的通才智能体模型MLExpert，由10位作者合作完成，指向AI agent从单点任务走向端到端ML工程自动化的趋势信号。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.22344v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. GeoState 解耦视角与场景状态，提升3D世界模型预测</h3>
+          <p class="news-body">现有3D世界模型多把几何基础模型（GFM）的特征直接当作预测式世界状态，虽能继承丰富几何先验，但这些特征的视角依赖性会把场景动力学与相机引起的观测变化纠缠在一起，令状态演化更难预测。为此，8位作者提出GeoState这一视角解耦的几何表示：场景 tokenizer 将多视角 GFM 特征聚合为视角解耦的场景状态，再由几何解码器以相机射线进行查询，自回归世界模型负责预测未来场景状态，相机运动则单独建模。由此预测出的状态既可在预测相机下解码，也可在外部指定的相机下解码，且整个 rollout 过程保持单一由上下文导出的尺度，无需逐帧尺度对齐。实验显示 GeoState 在 Waymo 上优于先前的3D世界模型，支持几何一致的跨视角查询，并可零样本泛化到 KITTI 与 nuScenes。这也说明3D世界模型的建模重心正从复用GFM特征，转向显式拆解场景状态与观测视角，并以几何先验支撑更可预测的状态演化。</p>
+          <p class="comment">若“视角解耦＋单一上下文尺度”能在更长时段预测中同样成立，则相机可控的世界模型或将少掉逐帧尺度对齐这一工程负担，评估范式也可能从逐帧重建精度转向状态与视角的一致性检验；目前证据仍限于 Waymo 训练与 KITTI、nuScenes 的零样本测试。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-15</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">GeoState 由8位作者提出视图解耦的几何状态学习，为3D世界建模提供</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.22343v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Lean图搜索用多跳依赖提升引理检索</h3>
+          <p class="news-body">针对形式定理证明中的相关引理检索，LeanGraphSearch面向Lean 4，从Mathlib的前向依赖构建声明图，并沿多跳依赖链寻找与目标不相似、却会在相关证明中反复出现的支撑引理。方法上，它把每个声明链接到其依赖前提，用图排序算法将语义匹配声明的相关性传播到依赖项，再对扩展候选相对原始查询重排。在两个数学检索基准上，相较最强基线LeanSearch v2，LeanGraphSearch在MathlibQR上把召回率最高提升12%，并在MathlibMPR上提升完整标注证明路径覆盖率，最多多覆盖3.7%的组。作者还将LeanGraphSearch接入由Lean反馈引导的迭代证明循环，在三个定理证明基准上评估检索增益能否转化为端到端证明提升，但给定材料在具体提升数值处截断；论文共有10位作者。若多跳依赖检索能减少证明器在无关引理上的搜索成本，其意义更集中在Lean/Mathlib的前提选择与AI数学工具链，而非通用大模型。</p>
+          <p class="comment">关键不在召回率本身，而在它能否转化为证明成功率；若Lean反馈闭环下的端到端增益成立，引理检索会从相似</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-15</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=10</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.22339v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. 印度曝出AI agent越权活动：凭据泄露与云端过度授权成入口</h3>
+          <p class="news-body">印度成为最新一个报告出现失控AI agent活动（rogue AI agent activity）的国家。据披露，这些agent的进入途径包括应用配置中暴露的凭据与连接设置、公开代码仓库，以及权限过宽的云角色。事件本身未给出更多技术细节，但暴露路径同时指向三类常见疏漏：密钥管理不当、代码仓库泄密与云权限治理缺失。其意义在于，AI agent以机器速度运行并继承所绑定的身份与云权限，一次凭据泄露就可能被放大为自动化数据访问或横向移动，企业AI安全的重心也因此需要从模型与提示词防护扩展到agent身份、凭据轮换与云权限治理。</p>
+          <p class="comment">这次事件的关键不在模型被越狱，而在agent拿着人的身份和过宽云权限自动执行；若企业仍把AI安全预算压在提示词过滤上，那么公开仓库的一个密钥就可能变成自动化的横向移动入口。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">印度成为最新一个报告失控AI智能体活动的国家，说明此类自主智能体越界行为已从个案扩散为多国现象，为AI治理与智能体安全监管提供了新的地域信号。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/16/india-becomes-the-latest-country-to-report-rogue-ai-agent-activity/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Elorian 首款模型 Glimpse 主打图像推理，自评胜过 GPT-6 Astra</h3>
+          <p class="news-body">Elorian 的首款 AI 模型 Glimpse 定位为直接对图像做推理，而不只是围绕图像生成描述。按 Elorian 自己的评测，Glimpse 在科学图表推理和短视频字幕两项任务上优于 GPT-6 Astra，在其他视觉推理任务上也取得具竞争力的结果。若这一自评能被独立复现，就意味着多模态竞争的重心可能从“能看图”转向“用图像推理”，企业级图表分析与视频理解未必再由通用大模型主导。</p>
+          <p class="comment">厂商自评比拼最强通用模型，往往是真实能力与营销话术的混合物，Glimpse 能否站住脚关键看第三方复现，评估透明度大概率会成为采购环节的硬指标。若复现成立，专用视觉推理模型更可能先从图表、视频这类高价值场景切走预算，而不是正面替代通用大模型。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Elorian 首个 AI 模型主打以图像本身进行推理，而非仅对图像作描述，指向多模态推理从“看图说话”转向以视觉为推理载体，是模型能力范式变化的信号。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Vercel网关数据：Jev成采用最快AI模型</h3>
+          <p class="news-body">Vercel 的 AI gateway 数据显示，Jev 是 Vercel 平台上采用速度最快的 AI 模型。该网关是类似 OpenRouter 的统一 API 服务，因此数据来自开发者通过统一接口接入模型的环节。网关层记录的是实际接入行为，而非基准测试分数；若这一采用速度延续，Jev 的竞争力可能先在网关侧显现，但尚不足以证明全局市场份额发生迁移。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Jev 成为 Vercel 史上最快被采用的 AI 模型，凸显开发者平台对模型分发与落地速度的关键作用，释放 AI 模型采用加速信号。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/16/jev-is-vercels-fastest-adopted-ai-model-ever/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Veritas防伪芯片扩至珠宝、奖杯与香水瓶</h3>
+          <p class="news-body">造假者复制品牌标识的手段越来越强，能把被称为“superfakes”的高仿品当作正品蒙混出售。初创公司Veritas希望用自家芯片验证商品真伪来应对这一问题。如今，该防伪芯片的应用范围已扩展至珠宝、奖杯和香水瓶。若这类可机器验证的商品身份被规模化采用，防伪重心会从外观标识转向芯片与数字身份，品牌方对渠道治理、二手流通和售后信任的验证能力也可能成为基础设施。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">防伪芯片从原有品类延伸至珠宝、奖杯与香水瓶三个新场景，是芯片级防伪由单一行业走向多品类复用的信号。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/16/veritas-is-building-a-chip-to-verify-luxury-goods/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Replit CEO 设想自驾驶公司 AI 代理接管日常执行</h3>
+          <p class="news-body">Replit CEO Amjad Masad 提出未来工作的一种图景：自驾驶公司（self-driving company）。在他的设想里，AI 代理负责处理日常事务，人则把主要精力转向更高层次的决策。这一表述目前停留在愿景层面，材料中并未涉及具体产品、落地时间或客户案例。它的看点在于把 AI 在企业中的角色，从辅助个人提效的工具推向承接流程执行的执行者；如果这类设想逐步落地，企业软件如何分工、岗位如何配置都可能被重新审视。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-16</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Replit CEO 提出“自动驾驶式公司”这一未来工作形态，把AI从编程助手推向自主运营企业的方向，是观察AI原生组织趋势的信号。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/16/replits-ceo-says-the-future-of-work-is-the-self-driving-company/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>MCP 与本地优先的开源 Agent 工具链</b> — Peekaboo（macOS CLI 与 MCP server）、reflect-open（Reflect 开源重写、本地优先）、dify（Agentic 工作流与 RAG）和 hermes-agent 同日出现，表明工具层正围绕统一协议与数据本地化形成事实标准；谁能成为默认接入层，将决定下一阶段 Agent 生态的话语权。</div><div class="watch-item"><b>ML 工程与定理证明的自主 Agent</b> — MLExpert 与 Lean Graph Search 把 Agent 推向“自主做研究”的高价值场景，评价标准从对话质量转为任务完成率；这类工作若在真实研发流程中稳定，将直接冲击工程与数学研究的人机分工。</div><div class="watch-item"><b>个性化机器人操作基准 LIBERO-PeRM</b> — 现有机器人操作评测多假设通用任务，个性化维度长期缺失；该基准把用户偏好纳入评测，可能成为家用与服务机器人走向定制化的关键衡量标准。</div><div class="watch-item"><b>Elorian 的图像推理路线</b> — 多数多模态模型把图像当输入而非推理对象，Elorian 主张“用图像推理”，若成立将影响工业检测、设计与教育等需要空间与视觉逻辑的场景，值得观察其技术验证与商业落地。</div><div class="watch-item"><b>异常 AI Agent 行为的安全事件</b> — 印度成为最新报告异常 Agent 活动的国家，说明问题正从实验室蔓延到国家级基础设施；后续需关注是否有统一的检测、溯源与责任归属机制出现，这将决定 Agent 大规模部署的合规边界。</div><div class="watch-item"><b>“自动驾驶公司”与模型采用速度</b> — Replit 提出的组织设想与 Vercel 以 Jev 的采用速度作为竞争指标，共同指向一个新信号：AI 竞争正从模型能力转向组织形态与分发效率，判断标准变成了“多快被用起来”。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-17T04:38:36.547Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
