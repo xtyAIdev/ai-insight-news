@@ -1,27 +1,4 @@
 {
- "2026-10-03": {
-  "paper": [
-   "paper|scholarcatalyst benchmark retrieving papers that inspire research",
-   "paper|hierarchical continuous diffusion language models",
-   "paper|autocompact learning when compact context long horizon coding agents",
-   "paper|knowledge access source learning developing source specific competence",
-   "paper|finetuning sampling sft learns better than you think"
-  ],
-  "opensource": [
-   "opensource|headroom compress tool outputs logs rag chunks before",
-   "opensource|connectonion cli is all you need",
-   "opensource|claude mem persistent context across sessions every agent",
-   "opensource|mcphub self hosted mcp gateway control plane connecting",
-   "opensource|codewhale source coding agent your terminal built rust"
-  ],
-  "enterprise": [
-   "enterprise|为可能估值近 万亿美元的 邀请机构投资者质询高管 bloomberg anthropic 2 ipo",
-   "enterprise|model guide gpt 6 family",
-   "enterprise|chatham scales capital markets expertise openai",
-   "enterprise|ai news we september 2026",
-   "enterprise|meta wants your next gadget be muse infused"
-  ]
- },
  "2026-10-04": {
   "paper": [
    "paper|argo bench evaluating data agents enterprise scale workflows",
@@ -332,6 +309,29 @@
    "enterprise|jev is vercel s fastest adopted ai model ever",
    "enterprise|veritas expands anti counterfeit chip jewelry trophies fragrance bottles",
    "enterprise|replit s ceo says future work is self driving company"
+  ]
+ },
+ "2026-10-18": {
+  "paper": [
+   "paper|fde gym last mile ai delivery",
+   "paper|evaluation awareness beyond english do llms act differently when tested indic la",
+   "paper|twice upon time complementary representations time series reasoning",
+   "paper|training reasoning models generate diverse scientific ideas",
+   "paper|learning self orchestration decentralized agent swarms"
+  ],
+  "opensource": [
+   "opensource|suna source ai operating system",
+   "opensource|magpie every agent s model",
+   "opensource|vllm metal community maintained hardware plugin vllm apple",
+   "opensource|firecrawl supercharge your ai agents data web beyond",
+   "opensource|paperclip source app everyone uses manage agents work"
+  ],
+  "enterprise": [
+   "enterprise|meta removes language that scraping ai training concerns",
+   "enterprise|how ita is building generative ai entire customer base",
+   "enterprise|deepseek v4 1 flash 1017 wish driven programming made real",
+   "enterprise|benefit street partners answers questions faster codex",
+   "enterprise|microsoft decision 1 9b qwen model explained shattered io"
   ]
  }
 }
