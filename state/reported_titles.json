@@ -1,27 +1,4 @@
 {
- "2026-10-04": {
-  "paper": [
-   "paper|argo bench evaluating data agents enterprise scale workflows",
-   "paper|where opd spatially guided policy self distillation mllms synthetic scenes",
-   "paper|one basis animate them all gaussian blendshape distillation real time avatars",
-   "paper|taco ternary absolute max column wise one sparse optimizer llm fine tuning",
-   "paper|ferpo forward entropy regularized policy optimization"
-  ],
-  "opensource": [
-   "opensource|hermes agent agent that grows you",
-   "opensource|litellm fastest litest ai gateway",
-   "opensource|baml programming language agents",
-   "opensource|kody your assistant s home memory keys code",
-   "opensource|suna source ai operating system"
-  ],
-  "enterprise": [
-   "enterprise|all ai agents that can live your text messages",
-   "enterprise|apple says it s tightening macos full disk access controls due risks ai agents",
-   "enterprise|apple trains own china ai model alibaba s quiet help yellow com",
-   "enterprise|alibaba powerful chip ambitious ai model plans sme amp entrepreneurship magazine",
-   "enterprise|推出 财务管理功能 chatgpt finances"
-  ]
- },
  "2026-10-05": {
   "paper": [
    "paper|layerit towards framework time aligned composable music visualizations",
@@ -332,6 +309,27 @@
    "enterprise|deepseek v4 1 flash 1017 wish driven programming made real",
    "enterprise|benefit street partners answers questions faster codex",
    "enterprise|microsoft decision 1 9b qwen model explained shattered io"
+  ]
+ },
+ "2026-10-19": {
+  "paper": [
+   "paper|globe evolving structured agentic memory e commerce product optimization generat",
+   "paper|towards high semantic fidelity hyperdimensional symbolic messages multi agent co",
+   "paper|behavioral couplings formation behavioral emergence language models",
+   "paper|ai driven reproducibility analytical robustness scientific discovery",
+   "paper|discoveryrsi recursively learning discover valuable hypotheses"
+  ],
+  "opensource": [
+   "opensource|openhands openhands ai driven development",
+   "opensource|autogpt autogpt is vision accessible ai everyone use",
+   "opensource|worldmonitor real time global intelligence dashboard",
+   "opensource|lobehub lobehub is your chief agent operator organizing your",
+   "opensource|unsloth local ui run train llms diffusion models"
+  ],
+  "enterprise": [
+   "enterprise|india ai startups land 50m 302 85m funding week 2026 https tech insider org",
+   "enterprise|alibaba qwen glasses n1 2 218 yuan retail news asia",
+   "enterprise|tencent says third party models not hunyuan responsible ai agent activity china "
   ]
  }
 }
