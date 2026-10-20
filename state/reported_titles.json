@@ -1,23 +1,4 @@
 {
- "2026-10-05": {
-  "paper": [
-   "paper|layerit towards framework time aligned composable music visualizations",
-   "paper|what should world models forget stratified retention continual adaptation",
-   "paper|benchmarking literature retrieval model organism dictyostelium case study",
-   "paper|adaptive sparsity optimization learnable soft top k per term thresholding effici",
-   "paper|language models that play chess explain their moves"
-  ],
-  "opensource": [
-   "opensource|trueforge source agent harness runtime layer that",
-   "opensource|ida mcp rs headless ida pro mcp server",
-   "opensource|webui user friendly ai interface supports ollama openai api",
-   "opensource|claude mem persistent context across sessions every agent",
-   "opensource|magpie every agent s model"
-  ],
-  "enterprise": [
-   "enterprise|model guide gpt 6 family"
-  ]
- },
  "2026-10-06": {
   "paper": [
    "paper|reading mood emotion guided book music recommendation via cgans llms",
@@ -330,6 +311,29 @@
    "enterprise|india ai startups land 50m 302 85m funding week 2026 https tech insider org",
    "enterprise|alibaba qwen glasses n1 2 218 yuan retail news asia",
    "enterprise|tencent says third party models not hunyuan responsible ai agent activity china "
+  ]
+ },
+ "2026-10-20": {
+  "paper": [
+   "paper|next best action causal constrained offline rl business action targeting",
+   "paper|preference is not position evaluating reranking nevir fixed hybrid candidate poo",
+   "paper|mixispeech progressive state distillation one step vietnamese tts",
+   "paper|geometry agent memory forecasting retrieval bound memory failures characterizing",
+   "paper|cooperative multi agent reinforcement learning market making prediction market o"
+  ],
+  "opensource": [
+   "opensource|本地优先的微信数据工具 聊天记录查询导出 公众号日报与个人知识库 兼容 weflow cli mcp",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|langchain agent engineering platform",
+   "opensource|deepseek reasonix reliable coding agent complex software engineering",
+   "opensource|weknora source llm knowledge platform turn raw documents"
+  ],
+  "enterprise": [
+   "enterprise|万个 反诈拖住骗子 国内年轻人用 视频反制 apate ai 35 ai ai ai",
+   "enterprise|advancing coding low resource programming languages",
+   "enterprise|hackers hit ai coding tool opencode running up charges users ai accounts",
+   "enterprise|people are using ai make their smart tvs dumb again",
+   "enterprise|nvidia models run agents enterprise pcs"
   ]
  }
 }
