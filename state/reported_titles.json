@@ -1,27 +1,4 @@
 {
- "2026-10-06": {
-  "paper": [
-   "paper|reading mood emotion guided book music recommendation via cgans llms",
-   "paper|protocol sensitive evaluation log anomaly detection component costs target acces",
-   "paper|anatomy aware fine grained multimodal fusion laryngopharyngeal cancer t staging ",
-   "paper|sprig semantic id enhanced paths knowledge graph based generative recommendation",
-   "paper|base models can reason taking cue training data"
-  ],
-  "opensource": [
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|langchain agent engineering platform",
-   "opensource|kody your assistant s home memory keys code",
-   "opensource|firecrawl supercharge your ai agents data web beyond",
-   "opensource|worldmonitor real time global intelligence dashboard"
-  ],
-  "enterprise": [
-   "enterprise|月之暗面据悉完成 前融资 最新估值约 亿美元 ipo 500",
-   "enterprise|our approach eu text provenance rules",
-   "enterprise|building advertising way people use ai",
-   "enterprise|reflection beam weight ai model rival chinese models lower compute cost",
-   "enterprise|instinct brings ai agent group chats even friends without account"
-  ]
- },
  "2026-10-07": {
   "paper": [
    "paper|seeing context enhancing recommender systems image derived contextual signals",
@@ -334,6 +311,29 @@
    "enterprise|hackers hit ai coding tool opencode running up charges users ai accounts",
    "enterprise|people are using ai make their smart tvs dumb again",
    "enterprise|nvidia models run agents enterprise pcs"
+  ]
+ },
+ "2026-10-21": {
+  "paper": [
+   "paper|bitmtp when multi token prediction meets low bit large language models",
+   "paper|efficient edge aware attention network graph generation",
+   "paper|narraspace multimodal scene grounded evidence picture description dementia class",
+   "paper|benchmarking arabic dialects math problems",
+   "paper|capable teacher myopic scorer reward free teacher repair agentic policy distilla"
+  ],
+  "opensource": [
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|transformers transformers model definition framework",
+   "opensource|firecrawl supercharge your ai agents data web beyond",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|hyperframes write html"
+  ],
+  "enterprise": [
+   "enterprise|southeast asia s digital economy hit 368 billion",
+   "enterprise|meta s muse hits 10m us downloads 40 days milestone reached only 11 other apps",
+   "enterprise|us orders federal agencies remove china s deepseek ai their systems",
+   "enterprise|财报显示 业务超预期 占收入 spacex ai 52",
+   "enterprise|plants can speak using electricity so this startup built ai model decipher their"
   ]
  }
 }
