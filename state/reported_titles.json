@@ -1,27 +1,4 @@
 {
- "2026-10-07": {
-  "paper": [
-   "paper|seeing context enhancing recommender systems image derived contextual signals",
-   "paper|depthworld 3d world model robot manipulation",
-   "paper|agentic autorag rag pipeline optimization through reasoning driven agents",
-   "paper|case study assuring ai written software",
-   "paper|ideaanchor teaching llms turn literature research ideas"
-  ],
-  "opensource": [
-   "opensource|suna source ai operating system",
-   "opensource|baml programming language agents",
-   "opensource|reflect source reflect rewrite local ai",
-   "opensource|lobehub lobehub is your chief agent operator organizing your",
-   "opensource|headroom compress tool outputs logs rag chunks before"
-  ],
-  "enterprise": [
-   "enterprise|据报道接近完成至少 亿元融资 腾讯与宁德时代参与 deepseek 800",
-   "enterprise|how jump trading is scaling quant research chatgpt",
-   "enterprise|sharing ai progress mathematics",
-   "enterprise|how ai decision models could change content moderation",
-   "enterprise|next hurdle ai agents getting websites let them"
-  ]
- },
  "2026-10-08": {
   "paper": [
    "paper|multi agent coordination via support preserving distillation",
@@ -334,6 +311,29 @@
    "enterprise|us orders federal agencies remove china s deepseek ai their systems",
    "enterprise|财报显示 业务超预期 占收入 spacex ai 52",
    "enterprise|plants can speak using electricity so this startup built ai model decipher their"
+  ]
+ },
+ "2026-10-22": {
+  "paper": [
+   "paper|erclip small data adaptation clip free length image text retrieval",
+   "paper|plausible but unimplantable trustworthiness audit shape completion foundation mo",
+   "paper|conflicted records typed adversarial contracts auditable llm output quality enfo",
+   "paper|real pmids wrong papers harness design biomedical claim verification agents",
+   "paper|longzero enhancing long context reasoning llms zero data"
+  ],
+  "opensource": [
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|headroom compress tool outputs logs rag chunks before",
+   "opensource|infinity infinity is high throughput low latency serving engine",
+   "opensource|tidb tidb is built agentic workloads that grow",
+   "opensource|onyx source ai platform ai chat advanced features"
+  ],
+  "enterprise": [
+   "enterprise|据悉完成 亿元融资 宁德时代和腾讯参投 deepseek 1000",
+   "enterprise|meta wants pay broad ai buildout newly created class stock",
+   "enterprise|meta says muse has over 10m users shopping top activity",
+   "enterprise|recursive flint laptop coding model it says was largely built ai",
+   "enterprise|while amazon blocks ai agents walmart out welcome mat"
   ]
  }
 }
