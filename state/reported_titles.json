@@ -1,27 +1,4 @@
 {
- "2026-10-08": {
-  "paper": [
-   "paper|multi agent coordination via support preserving distillation",
-   "paper|cando cooperative agentic network layout design optimization",
-   "paper|decoupling exploration optimization rlvr",
-   "paper|engramedit decoupled knowledge updates llms through conditional memory",
-   "paper|rephrase before you act characterizing mitigating language sensitivity vision la"
-  ],
-  "opensource": [
-   "opensource|evalscope streamlined customizable framework efficient",
-   "opensource|magpie every agent s model",
-   "opensource|trueforge source agent harness runtime layer that",
-   "opensource|agent manager wso2 ai agent manager is control plane designed",
-   "opensource|hermes agent agent that grows you"
-  ],
-  "enterprise": [
-   "enterprise|bloom 3 6m become alibaba american manufacturing",
-   "enterprise|helping teens learn plan shape future ai",
-   "enterprise|radisson hotel group brings hotel discovery chatgpt",
-   "enterprise|meta s muse ipad just month after mobile",
-   "enterprise|meta out ai tools detect ads that secretly lead child sexual abuse material"
-  ]
- },
  "2026-10-09": {
   "paper": [
    "paper|compact efficient indexes learned sparse retrieval",
@@ -334,6 +311,26 @@
    "enterprise|meta says muse has over 10m users shopping top activity",
    "enterprise|recursive flint laptop coding model it says was largely built ai",
    "enterprise|while amazon blocks ai agents walmart out welcome mat"
+  ]
+ },
+ "2026-10-23": {
+  "paper": [
+   "paper|inherited not invented tracing provenance wait reasoning models",
+   "paper|rethinking sequence compression test time regression"
+  ],
+  "opensource": [
+   "opensource|claude mem persistent context across sessions every agent",
+   "opensource|ragflow ragflow is leading source retrieval augmented",
+   "opensource|openhands openhands ai driven development",
+   "opensource|worldmonitor real time global intelligence dashboard",
+   "opensource|unsloth local ui run train llms diffusion models"
+  ],
+  "enterprise": [
+   "enterprise|股权表内幕 风投迟到多年 如今无人持股超 anthropic 2",
+   "enterprise|mark zuckerberg s creative plan pay california s proposed billionaire tax withou",
+   "enterprise|left alone nothing do ai agents started playing",
+   "enterprise|1password way ai agents log your behalf without seeing your password",
+   "enterprise|canva image generation model"
   ]
  }
 }
