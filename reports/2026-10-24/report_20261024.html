@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-24</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's signals show AI competition shifting from raw model capability to deployable infrastructure. In open source, a wave of agent skill libraries, orchestrat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-24">
+<meta property="og:description" content="Today's signals show AI competition shifting from raw model capability to deployable infrastructure. In open source, a wave of agent skill libraries, orchestration platforms, reverse-engineering agent">
+<meta property="og:url" content="./report_20261024.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-24">
+<meta name="twitter:description" content="Today's signals show AI competition shifting from raw model capability to deployable infrastructure. In open source, a wave of agent skill libraries, orchestration platforms, reverse-engineering agent">
+<link rel="canonical" href="./report_20261024.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-24 ｜ report_20261024</div>
+<div class="sub" data-lang-title="zh">2026-10-24 ｜ report_20261024</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's signals show AI competition shifting from raw model capability to deployable infrastructure. In open source, a wave of agent skill libraries, orchestration platforms, reverse-engineering agents, and context-compression tools points to a maturing agent stack; on the enterprise side, Uber's rollout of ChatGPT Work to all 30,000 employees and Spotify's bet on being the music service agents choose show agents moving into production workflows at scale. OpenAI's lower valuation target alongside a plan to raise up to $30B, plus Moonshot's Kimi K3.1 Pro launch, underscore continued concentration of capital and model competition. Research is converging on RAG update costs, cost-aware abstention, EU AI Act compliance dashboards, and vertical GraphRAG—making cost, governance, and evaluability central to deployment. Securing frontier training environments is also rising on the agenda.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 373,974</span> <span class="tag tag-gray">agent-skills / ai-agents / binary-analysis / claude-code</span></div>
+          <div class="pick-reason">rea uses agents to reverse engineer anything from app behavior; with 373,974 stars and 93,532 forks, it signals large</div>
+          <div class="source">Source：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. garden-skills：ConardLi's open-source Skills collection, featuring web</h3>
+          <p class="news-body">ConardLi's open-source Skills collection, featuring web design, knowledge retrieval, image generation, and more.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">ConardLi</span> <span class="tag tag-star">⭐ 13,213</span> <span class="tag tag-gray">agent / claude / gpt-image-2 / rag</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=13,213，forks=1563，open_issues=23</div>
+          <div class="source">Source：<a href="https://github.com/ConardLi/garden-skills" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. lobehub：🤯 LobeHub is your Chief Agent Operator, organizing your</h3>
+          <p class="news-body">🤯 LobeHub is your Chief Agent Operator, organizing your agents into 7×24 operations by hiring, scheduling, and reporting on your entire AI team.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">lobehub</span> <span class="tag tag-star">⭐ 83,456</span> <span class="tag tag-gray">agent / agent-collaboration / agent-harness / ai</span></div>
+          <div class="pick-reason">With 83,456 stars, 16,017 forks and +175 stars in a</div>
+          <div class="source">Source：<a href="https://github.com/lobehub/lobehub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. headroom：Compress tool outputs, logs, files, and RAG chunks before</h3>
+          <p class="news-body">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 77,672</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=77,672，周增长=+2206，forks=6031，open_issues=607</div>
+          <div class="source">Source：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. hyperframes：Write HTML</h3>
+          <p class="news-body">Write HTML. Render video. Built for agents.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">heygen-com</span> <span class="tag tag-star">⭐ 70,909</span> <span class="tag tag-gray">ai / ai-agents / animation / claude-code</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=70,909，forks=6413，open_issues=371</div>
+          <div class="source">Source：<a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Cost-Aware Abstention for LLM-Based IT Ticket Classification</h3>
+          <p class="news-body">Wrong automatic routing of an IT support ticket can cost more than human triage. We evaluate cost-aware abstention as an offline, cost-conditional readiness assessment: select a routing policy on calibration data under explicit costs, then evaluate that frozen policy once on held-out test data. On a public 47,837-ticket, eight-class corpus, we compare four trained non-LLM classifiers with four large language models under zero- and few-shot prompting. Under the illustrative cost model (c_ok, c_triage, c_wrong) = (0, 1, 5), TF-IDF with logistic regression and a threshold of 0.60 selected on calibration reduces test cost from 0.763 to 0.472, a 38.1% relative reduction (paired ratio-bootstrap 95% CI [35.7%, 40.4%]), while lowering wrong routes from 15.3% to 3.5%. Frozen calibration-selected policies also beat both always-route and always-defer on held-out test data in 14 of 16 settings in a post-hoc cost-parameter analysis. The strongest prompted configuration reaches 0.477 accuracy on a stratified 1,000-ticket test subset, versus 0.879 for fine-tuned DistilBERT on the same tickets. Isotonic lowers expected calibration error without reliably improving discrimination: GPT-4o-mini few-shot has one confidence value before and after recalibration and correctness AUROC 0.500. We therefore report correctness AUROC and tie-aware risk-coverage area alongside ECE. At the analytically derived break-even probability 0.80, seven prompted configurations defer all tickets; Haiku few-shot route</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Accepted at a top conference with a single author,</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.31657v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. VERA: A Responsible AI Dashboard for Assessing LLM Deployments in Light of the EU AI Act</h3>
+          <p class="news-body">Institutions that deploy large language models in regulated settings often need technical evidence of responsible AI practices before approving a deployment. COMPL-AI provides a technical interpretation of the EU AI Act that organises this evidence under six principle groups and eighteen technical requirements, twelve of which current benchmarks can measure. The benchmark suites that produce this evidence are typically operated from a command line, while the staff who approve deployments are non-engineers. We present VERA, an open-source self-hosted dashboard deployed to facilitate responsible AI processes within a large European bank. A reviewer selects a model and runs public benchmarks against it. VERA scores the twelve requirements that current benchmarks can measure and instruments the energy consumed by each evaluation, adding run-level evidence for environmental impact. We run four served open-weight models through the requirement pipeline, and the dashboard displays a score for each measurable requirement. A within-subject study then compares how participants read these benchmark results: from the raw output files in one condition, and through the VERA dashboard in the other. The dashboard reduced the time needed to perform the responsible AI assessment, reducing the time required from 56 seconds using raw files to 30 seconds using our dashboard, on average. Our dashboard scored highly (4.36 out of 5) on usefulness in the survey conducted within the organization. The </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.SE</span></div>
+          <div class="pick-reason">This paper presents a responsible AI dashboard for assessing LLM deployments under the EU AI Act, and has been accepted to a top conference with seven authors—directly addressing the pressing need for practical AI governance compliance.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.31588v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Chunk Recomputation under Real Document Revisions: Measuring Update Cost and Retrieval Quality of Fixed, Recursive, and Content-Defined Chunking</h3>
+          <p class="news-body">Chunking strategies for retrieval-augmented generation are almost always evaluated on a static snapshot, yet the documents underlying a knowledge base continue to change. Because chunks are embedded independently, a boundary that moves after an edit forces unchanged text to be re-embedded. We measure this update cost on 120 pairs of adjacent Chinese and English Wikipedia revisions for three stateless chunkers (non-overlapping fixed-size, recursive paragraph-first, and content-defined chunking) under a strict byte-identical reuse rule and a frozen dense encoder. On the 116-article common-success pool, with frozen, length-calibrated parameters, fixed-size chunking recomputes 57-68% of its full new-version embedding-input workload, recursive chunking 38-56%, and content-defined chunking 43-54% (it failed on 4 of 62 Chinese articles), while at these parameters mean evidence recall under a fixed 2048-token retrieval budget differs by less than two percentage points within either language. A cost-only parameter grid shows that the ranking of the two content-aware chunkers changes with chunk-length settings, whereas non-overlapping fixed-size chunking has the highest recomputation cost in every length-matched condition. Controlled edits and a verbatim-presence diagnostic support boundary drift as one contributor to recomputation of text already present in the previous version. Update cost is therefore a substantial, parameter-sensitive dimension that static retrieval evaluations do </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Accepted at a top conference and authored by five researchers, this paper benchmarks fixed, recursive, and content-defined chunking under</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.31019v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Automated Enrichment Analysis with GraphRAG: Efficient Multi-Database ORA Extraction and Biological Interpretation</h3>
+          <p class="news-body">Over-representation analysis (ORA) is widely used to interpret gene-expression studies, but its outputs are often fragmented across gene-set databases and presented as flat term lists that obscure gene-level links among related enrichment signals. We propose Graph-Based Over-Representation Retrieval-Augmented Generation (GBOR-RAG), an integrated and traceable framework for ORA interpretation. GBOR-RAG represents heterogeneous gene-set databases as a unified term--gene knowledge graph, where shared genes connect related terms across sources. After graph-based ORA scoring, the framework retrieves a compact connected evidence subgraph that preserves both cross-database relationships and gene-level support. The subgraph conditions an LLM to generate biological interpretations, and we introduce a claim-level faithfulness metric to assess whether generated claims are supported by explicit evidence. Experiments show that graph-based ORA preserves conventional ORA results with high consistency (mean Pearson $r=0.997$) while reducing query time by a median of $37\times$ (up to $48\times$). The retrieved subgraphs average 36.8 nodes and achieve the highest overall integration score (4.12), and GBOR-RAG attains the highest claim-level faithfulness (0.90) among the compared systems. Adding a PubMed literature layer further improves the overall interpretation quality from 4.17 to 4.75.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Accepted at a top conference, this five-author paper applies GraphRAG to automated enrichment analysis and multi-database ORA extraction, offering an efficient route for biological interpretation.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.30710v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. GigaBench: Benchmarking Learnable Representations for Gigapixel Image Compression and Super-Resolution</h3>
+          <p class="news-body">Learnable Representations (LRs) can fit parametric families of functions to diverse kinds of signals. These emergent neural-native data formats are gathering interest in the scientific community due to their compactness, resolution-agnosticism and amenability to direct neural processing. On the other hand, gigapixel images are becoming increasingly widespread across a variety of scientific, cultural, and industrial domains. In this paper, we present GigaBench, the first benchmark and experimental evaluation focused on deploying LRs with gigapixel imagery. GigaBench includes images collected, acquired, and synthetically rendered across diverse domains, and addresses image compression and super-resolution. We adapt a representative set of LRs, spanning Implicit, Hybrid, and Explicit methods, so as to operate reliably at the gigapixel scale on consumer hardware. Through systematic evaluation across reconstruction quality, model size, compression and inference times, we identify consistent trends across methods and suggest actionable guidance for future investigation.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Accepted at a top conference with four authors, GigaBench brings learnable representations to gigapixel image compression and super-resolution, giving ultra-high-resolution vision a shared evaluation benchmark.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.31644v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. OpenAI 下调估值目标至 1.25 万亿美元，拟融资至多 300 亿美元</h3>
+          <p class="news-body">OpenAI 接近完成至多 300 亿美元的新一轮融资，但将估值目标从最初的 1.4 万亿美元下调至 1.25 万亿美元。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-23</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.5事件数据：amount_wan=3000000</div>
+          <div class="source">Source：<a href="https://the-decoder.com/openai-lowers-valuation-target-raises-up-to-30-billion/" target="_blank" rel="noopener">The Decoder：AI News（RSS）</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Introducing Kimi K3.1 Pro</h3>
+          <p class="news-body">Introducing Kimi K3.1 Pro</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">月之暗面</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 4, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://www.kimi.com/en/blog/kimi-k3-1-pro" target="_blank" rel="noopener">Kimi Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Uber puts all 30,000 employees on ChatGPT Work</h3>
+          <p class="news-body">The ride-share giant previously deployed a much smaller pilot for ChatGPT Work but is now taking the enterprise agent company-wide.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Uber is putting all 30,000 employees on ChatGPT Work, signaling that</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/22/uber-puts-all-30000-employees-on-chatgpt-work/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Spotify’s current AI bet is about being the music service that agents choose</h3>
+          <p class="news-body">Spotify co-CEO Gustav Söderström explains why the rise of AI agents could be good news for the music service.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Spotify's current AI bet is to be the music service that agents choose, signaling a shift toward AI agents as distribution gateways.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/22/spotifys-current-ai-bet-is-about-being-the-music-service-that-agents-choose/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Securing our frontier model training environment</h3>
+          <p class="news-body">OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-23</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.2, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/index/securing-our-frontier-model-training-environment" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Cost-Aware Abstention for LLM-Based IT Ticket Classification</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>VERA: A Responsible AI Dashboard for Assessing LLM Deployments in Light of the EU AI Act</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Chunk Recomputation under Real Document Revisions: Measuring Update Cost and Retrieval Quality of Fixed, Recursive, and Content-Defined Chunking</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日信号显示，AI 竞争正从模型能力转向“可落地的基础设施”：开源侧密集出现 Agent 技能库、编排平台、逆向工程与上下文压缩工具，企业侧 Uber 全员接入 ChatGPT Work、Spotify 押注 Agent 选择的服务入口，表明 Agent 正进入规模化工作流。与此同时，OpenAI 下调估值目标但仍拟大规模融资，Kimi K3.1 Pro 发布，头部模型与资本竞争持续。研究侧聚焦 RAG 更新成本、成本感知弃答、EU AI Act 合规仪表盘与 GraphRAG 垂直应用，成本、治理与可评估性成为部署关键。前沿训练环境安全也被提升为议题。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 373,974</span> <span class="tag tag-gray">agent-skills / ai-agents / binary-analysis / claude-code</span></div>
+          <div class="pick-reason">rea 以 agent 从应用行为反向工程任意对象，社区星标达 373,974、fork 93,532，显示 agent 驱动的逆向工具正获得大规模开发者关注。</div>
+          <div class="source">来源：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ConardLi 开源 Skills 集合，覆盖网页设计、知识检索与图像生成</h3>
+          <p class="news-body">ConardLi 在 GitHub 开源了名为 garden-skills 的 Skills 集合，内容覆盖网页设计、知识检索、图像生成等方向，把提示词与配套资源整理成可直接取用的技能单元，而不是零散的 prompt 片段。该项目目前累计 13,213 个 star、1,563 次 fork，开放 issue 为 23 个。按这一组织形式，个人创作者可以像引用一个包那样复用他人封装好的 agent 能力，复刻复杂工作流的门槛被明显拉低。这也意味着 Agent 生态正在显现连接层与流程/知识封装层的分工，独立开发者和内容创作者得以更低成本拼装垂直 agent，而企业侧更可能先落在设计产出、内部知识检索等轻量环节。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">ConardLi</span> <span class="tag tag-star">⭐ 13,213</span> <span class="tag tag-gray">agent / claude / gpt-image-2 / rag</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=13,213，forks=1563，open_issues=23</div>
+          <div class="source">来源：<a href="https://github.com/ConardLi/garden-skills" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. LobeHub 想做首席 Agent 运营官：招聘、调度、汇报全包</h3>
+          <p class="news-body">LobeHub 将自己定位为“首席 Agent 运营官”（Chief Agent Operator），目标是把用户手中的多个 agent 组织成一支 7×24 小时持续运转的团队，不再只做单任务工具。它的切入方式是把招聘（hiring）、调度排期（scheduling）与结果汇报（reporting）三件事统一管理，覆盖整个 AI 团队。社区侧数据为：GitHub stars 83,456、周增长 +175、forks 16,017、open issues 1,169，说明它已积累相当的开发者关注，但仍有大量待处理问题。以开源方式提供这类 agent 运营层，可降低开发团队和中小企业自行搭建多智能体协同与汇报体系的门槛。</p>
+          <p class="comment">如果编排、调度、汇报真的成为 agent 平台的主战场，那么竞争重点就会从模型接入数量转向能否承担企业级运营职责。LobeHub 目前只给出了定位，调度粒度、权限隔离与可审计性仍待验证；这些能力是否扎实，将决定它能否从“团队管理”概念走进实际生产流程。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">lobehub</span> <span class="tag tag-star">⭐ 83,456</span> <span class="tag tag-gray">agent / agent-collaboration / agent-harness / ai</span></div>
+          <div class="pick-reason">LobeHub 以 83,456 stars、16,017 forks 和一周 +175 的增长，强化其“Chief Agent Operator”定位，显示开源 Agent 编排与运营入口仍具社区黏性。</div>
+          <div class="source">来源：<a href="https://github.com/lobehub/lobehub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. headroom 压缩工具输出与日志，JSON 场景省 60–95% token</h3>
+          <p class="news-body">开源项目 headroom 的定位是在内容进入 LLM 之前做压缩，覆盖工具输出、日志、文件以及 RAG 检索分块。按项目给出的数据，编码 agent 场景可减少约 20% 的 token，JSON 类内容的 token 可减少 60–95%，同时答案质量保持不变。它以三种形态提供：代码库（library）、代理（proxy）和 MCP server，从而在不同接入方式下都能插入模型调用前的链路。社区侧数据为 77,672 stars、周增 2,206、6,031 forks、607 个 open issues。上下文长度与 token 成本是 agent 产品化的硬约束，而在调用模型前压缩这一层无需更换模型或重写 prompt，就能直接压低成本，真实 agent 链路中最大的上下文膨胀往往来自工具返回的大段 JSON 与日志。</p>
+          <p class="comment">压缩被抽成位于 agent 与模型之间的可插拔组件、并以 MCP 形态提供，意味着上下文管理正从 prompt 技巧转向独立的基础设施层；若这类中间层被主流框架默认集成，则编码 agent、日志与可观测性分析、JSON 密集的工具调用会最先受益，而以自然语言对话为主的通用应用收益有限。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">headroomlabs-ai</span> <span class="tag tag-star">⭐ 77,672</span> <span class="tag tag-gray">agent / ai / anthropic / claude-code</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=77,672，周增长=+2206，forks=6031，open_issues=607</div>
+          <div class="source">来源：<a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. hyperframes 让 Agent 用 HTML 渲染视频</h3>
+          <p class="news-body">开源项目 hyperframes 的定位是“写 HTML、渲染视频”，并明确面向 agent 场景构建。其社区数据为 stars 70,909、forks 6,413、open issues 371，显示已有一定开发者关注度。它把视频生产抽象为可编程 HTML，使 agent 能像生成网页一样生成视频，从而降低自动化视频管线的工程复杂度；相比传统剪辑接口，代码化路径更易集成、版本化和批量迭代。若这一路径成熟，视频生成可能从单一模型 API 转向“标记语言+渲染器”的 agent 原生工作流，开源框架也有机会成为 agent 内容创作的基础组件。</p>
+          <p class="comment">真正值得押注的不是再做一个视频模型，而是把视频变成 agent 可读写的中间格式；若 hyperframes 的 HTML 渲染路径被工具链广泛接入，视频模板的组件化和批量迭代速度可能被重新定价。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">heygen-com</span> <span class="tag tag-star">⭐ 70,909</span> <span class="tag tag-gray">ai / ai-agents / animation / claude-code</span></div>
+          <div class="pick-reason">hyperframes 以 70,909 stars</div>
+          <div class="source">来源：<a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Cost-Aware Abstention for LLM-Based IT Ticket Classification</h3>
+          <p class="news-body">该论文指出，IT工单的错误自动路由可能比人工分诊代价更高，并提出把成本感知弃权作为一套离线、由成本条件驱动的就绪度评估：先在校准数据上按显式成本选定路由策略，把策略冻结后，只在留出测试集上评估一次。在公开的47837条、八分类工单语料上，作者比较了4个训练型非LLM分类器与4个大模型在零样本、少样本提示下的表现；在示意性成本(c_ok, c_triage, c_wrong)=(0,1,5)下，TF-IDF加逻辑回归配合校准选出的0.60阈值，把测试成本从0.763降至0.472，相对降幅38.1%（配对比例自助法95% CI [35.7%, 40.4%]），误路由从15.3%降至3.5%。事后成本参数分析显示，校准选出的冻结策略在16种设置中有14种优于全程自动路由和全程转人工。在分层抽取的1000条测试子集上，最强提示配置准确率为0.477，同一批工单上微调DistilBERT为0.879；等渗校准降低了期望校准误差，却未能稳定提升判别力：GPT-4o-mini少样本重校准前后只有一个置信值，correctness AUROC为0.500，因此论文同时报告correctness AUROC与并列感知的风险-覆盖率面积；在解析推导的盈亏平衡概率0.80处，七个提示配置全部弃权、不路由任何工单。这项已被顶会录用的单作者工作意味着，ITSM与工单路由产品的模型选型将越来越取决于非对称成本与弃权机制，而不能只看准确率。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">该论文获顶会录用，且仅1位作者完成Cost-Aware Abstention for LLM-Based IT Ticket Classification，显示单人研究在LLM工单分类的成本感知弃权方向获顶会认可。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.31657v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 欧洲银行部署 VERA：把 EU AI Act 合规基准做成审批仪表盘</h3>
+          <p class="news-body">在受监管场景中部署大语言模型的机构，往往需要在批准上线前拿到负责任 AI 实践的技术证据。COMPL-AI 对 EU AI Act 给出技术解读，把这类证据归入六大原则组、十八项技术要求，其中十二项可由现有基准测量；但产出这些证据的基准套件通常在命令行中运行，而负责审批的员工并非工程师。为此作者提出开源、可自托管的仪表盘 VERA，并已部署在一家欧洲大型银行的负责任 AI 流程中：评审者选择模型并对其运行公开基准，VERA 对十二项可测要求逐项打分，并同时记录每次评测消耗的能源，为环境影响补充运行层面的证据。作者让四个已服务的开放权重模型跑完整条要求流水线，仪表盘为每项可测要求给出分数；随后一项被试内研究对比参与者阅读同一批基准结果的两种方式——直接看原始输出文件，或通过 VERA 仪表盘查看。结果显示，仪表盘把完成负责任 AI 评估所需的平均时间从看原始文件时的 56 秒缩短到 30 秒，并在组织内问卷中获得 4.36/5 的有用性评分（该论文为 7 位作者、获顶会录用）。受监管场景所需的可审计证据与审批决策者之间长期存在操作鸿沟，把基准结果直接落到审批界面，正是 AI 治理从原则声明走向可测量合规工程的一环。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.SE</span></div>
+          <div class="pick-reason">该论文提出面向 EU AI Act 的负责任 AI 仪表盘，用于评估 LLM 部署合规性，且已被顶会录用，7 位作者协作完成，切中 AI 治理落地的迫切需求。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.31588v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Content-Defined：RAG+边缘部署</h3>
+          <p class="news-body">该论文在120对相邻的中英文维基百科修订版本上，量化固定大小、递归段落优先和内容定义分块三种无状态分块器在文档编辑后的重嵌入更新成本与检索质量。关键点是：分块边界移动会迫使未改动文本被重复嵌入，而现有评估多基于静态快照。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该论文获顶会录用、由5位作者完成，系统测评固定、递归与内容定义分块在真实文档修订下的更新成本与检索质量，为RAG分块策略提供可量化依据。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.31019v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. GBOR-RAG：大模型+RAG</h3>
+          <p class="news-body">论文提出 GBOR-RAG，将多个异源基因集数据库统一为“术语—基因”知识图谱，用 GraphRAG 自动抽取 ORA 结果并生成可追溯的生物学解释。它针对 ORA 输出分散在多个数据库、扁平术语列表难以揭示基因与通路关联的问题。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">该论文获顶会录用，5位作者将GraphRAG用于自动化富集分析与多数据库ORA提取，为生物信息解读提供高效新路径。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.30710v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. GigaBench 首次统一评测十亿像素压缩与超分</h3>
+          <p class="news-body">论文提出 GigaBench，称其为首个面向十亿像素图像的可学习表示（LR）基准与实验评测，覆盖图像压缩与超分，数据来自多领域采集、获取和合成渲染。作者适配了覆盖 Implicit、Hybrid、Explicit 三类方法的代表性 LR，使其能在消费级硬件上稳定处理十亿像素规模。评测系统比较重建质量、模型大小、压缩时间与推理时间，并总结跨方法的一致趋势，给出后续研究可操作建议。该论文有4位作者且获顶会录用；若该基准被社区采纳，LR 格式的紧凑性与分辨率无关性将从零散个案转为可复现比较，进而影响神经原生数据格式能否进入工程选型。</p>
+          <p class="comment">GigaBench 可能改变的是比较方式：它把十亿像素下的压缩、超分与推理成本放进同一评测框架，而不是再添一个单点模型。若后续工作沿用这套口径，神经原生格式的工程采纳门槛会从“能否演示”变成“能否在消费级硬件上稳定胜出”。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">GigaBench 获顶会录用，4 位作者把可学习表征引入千兆像素图像压缩与超分，为超高清视觉任务提供统一评测基准。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.31644v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. OpenAI 下调估值目标至 1.25 万亿美元，拟融资至多 300 亿美元</h3>
+          <p class="news-body">OpenAI 接近完成至多 300 亿美元的新一轮融资，但将估值目标从最初的 1.4 万亿美元下调至 1.25 万亿美元。</p>
+          <p class="comment">OpenAI 正接近完成一轮至多 300 亿美元的融资，同时把目标估值从最初的 1.4 万亿美元下调至 1.25 万亿美元，这属于私募市场史上最大单笔融资之一，但募资价格低于原定预期。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-23</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.5事件数据：amount_wan=3000000</div>
+          <div class="source">来源：<a href="https://the-decoder.com/openai-lowers-valuation-target-raises-up-to-30-billion/" target="_blank" rel="noopener">The Decoder：AI News（RSS）</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 月之暗面推出 Kimi K3.1 Pro，原文未披露参数细节</h3>
+          <p class="news-body">月之暗面以“Introducing Kimi K3.1 Pro”为题对外介绍了 Kimi K3.1 Pro，原文正文只有这一句产品名，并未给出模型参数规模、上下文长度、定价、开放渠道，也没有说明它与上一版本的具体差异。从“K3.1”这一命名来看，这更像是 K3 系列的小版本迭代（此为推断，材料并未明确说明），但现有材料同样没有交代它是否面向企业级 API 或私有化部署开放。因此，目前能够确认的事实只有产品名称和介绍意图，任何关于能力提升幅度的说法都缺少依据。对企业采购方而言，如果这类小版本推进成为常态，那么决策变量就会更偏向版本稳定性、变更日志是否清晰以及迁移成本，而不是单次榜单跑分。</p>
+          <p class="comment">把“K3.1”当作正式产品名对外使用，意味着模型开始像软件一样按小版本节奏推进，企业买方的评估对象也从“一次最强”转向“可预期地持续维护”。如果这条路线成立，那么竞争的焦点就会从榜单名次转向变更透明度和迁移成本，即便它未必能立刻被 C 端用户感知。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">月之暗面</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 4，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://www.kimi.com/en/blog/kimi-k3-1-pro" target="_blank" rel="noopener">Kimi Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Uber把ChatGPT Work从试点推至3万员工全员部署</h3>
+          <p class="news-body">Uber此前只对ChatGPT Work做了规模较小的试点，如今将这套企业级AI代理推广到全公司范围，覆盖约3万名员工。原本局限在少数团队的试用，由此变成全员使用的企业级代理工具。这一动作意味着大型企业正把生成式AI代理从部门试点转为全员默认工具，采购、安全与合规门槛在实际部署中被走了一遍，对同量级企业的采购决策具有标杆参照。若该路径在Uber内部跑通，企业AI的形态可能从聊天机器人订阅进一步转向按员工规模分发、与既有工作流深度集成的代理式工作平台。</p>
+          <p class="comment">企业买方卡住的往往不是模型能力，而是安全与合规流程能否在万人规模上走通；这一步若被Uber验证，同量级企业的采购动作会从“挑一两个团队试”转为“按人头分发”，供应商竞争的焦点也会从席位价格移到与工作流的集成深度。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Uber让全部30,000名员工使用ChatGPT Work，显示AI办公工具正从试点走向全员级企业部署，成为大模型商业化的重要信号。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/22/uber-puts-all-30000-employees-on-chatgpt-work/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Spotify押注AI代理：争当agent默认选择的音乐服务</h3>
+          <p class="news-body">Spotify 联合 CEO Gustav Söderström 公开阐述了公司当前的 AI 押注方向：成为 AI 代理会主动选择的那家音乐服务。在他的判断中，AI agent 的兴起对音乐流媒体未必是威胁，反而可能是好消息。其潜台词是，当播放决策越来越多由 agent 而非用户亲手发起，Spotify 需要成为被机器默认调用的那一个。若这一判断成立，分发权将从应用首页与推荐流，迁移到可被机器调用的结构化目录、授权与个性化接口上（此为基于材料的推断）。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Spotify把AI赌注押在成为智能代理首选的音乐服务，指向AI代理成为分发入口的行业趋势。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/22/spotifys-current-ai-bet-is-about-being-the-music-service-that-agents-choose/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. OpenAI强化前沿模型训练环境隔离与高算力红队</h3>
+          <p class="news-body">OpenAI 说明了其如何为前沿模型训练与评估加强隔离（containment），具体措施包括采用离线环境，以及开展高算力红队测试。离线环境把训练与评估环节同外部网络隔开，高算力红队测试则用于检验高算力场景下的防护能力。这说明前沿模型训练基础设施正被视为需要专门防护的资产；训练环境一旦失守，就可能牵涉模型权重、训练数据和训练过程的安全。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-23</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件直指前沿模型训练环境的安全防护，属于AI</div>
+          <div class="source">来源：<a href="https://openai.com/index/securing-our-frontier-model-training-environment" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Cost-Aware Abstention for LLM-Based IT Ticket Classification</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>VERA: A Responsible AI Dashboard for Assessing LLM Deployments in Light of the EU AI Act</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Chunk Recomputation under Real Document Revisions: Measuring Update Cost and Retrieval Quality of Fixed, Recursive, and Content-Defined Chunking</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-24T04:43:50.820Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

@@ -1,27 +1,4 @@
 {
- "2026-10-09": {
-  "paper": [
-   "paper|compact efficient indexes learned sparse retrieval",
-   "paper|vocabulary audio visual event localization via complex fusion",
-   "paper|auraluxmuse adaptive fusion modeling aesthetic stage lighting design music exper",
-   "paper|omnicapbench deep structured evaluation framework fine grained audio visual capt",
-   "paper|mental models multi agent systems"
-  ],
-  "opensource": [
-   "opensource|n8n fair code workflow automation platform native ai",
-   "opensource|memoria memory management ai agents ensures data",
-   "opensource|geak generating efficient ai centric kernels",
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|ragflow ragflow is leading source retrieval augmented"
-  ],
-  "enterprise": [
-   "enterprise|cal ai s 19 year old founder just 10m his ai startup",
-   "enterprise|google brings agentic ai gemini starting businesses",
-   "enterprise|natura s 99 smart ring puts ai agents your finger",
-   "enterprise|goodfire says inside out monitors catch rogue ai agents fraction cost",
-   "enterprise|microsoft nvidia chip ai pcs revamped windows 11"
-  ]
- },
  "2026-10-10": {
   "paper": [
    "paper|fastbench can streaming vlms perceive high dynamic real world streams",
@@ -331,6 +308,29 @@
    "enterprise|left alone nothing do ai agents started playing",
    "enterprise|1password way ai agents log your behalf without seeing your password",
    "enterprise|canva image generation model"
+  ]
+ },
+ "2026-10-24": {
+  "paper": [
+   "paper|cost aware abstention llm based it ticket classification",
+   "paper|vera responsible ai dashboard assessing llm deployments light eu ai act",
+   "paper|chunk recomputation under real document revisions measuring update cost retrieva",
+   "paper|automated enrichment analysis graphrag efficient multi database ora extraction b",
+   "paper|gigabench benchmarking learnable representations gigapixel image compression sup"
+  ],
+  "opensource": [
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|garden skills conardli s source skills collection featuring web",
+   "opensource|lobehub lobehub is your chief agent operator organizing your",
+   "opensource|headroom compress tool outputs logs rag chunks before",
+   "opensource|hyperframes write html"
+  ],
+  "enterprise": [
+   "enterprise|下调估值目标至 万亿美元 拟融资至多 亿美元 openai 1 25 300",
+   "enterprise|kimi k3 1 pro",
+   "enterprise|uber puts all 30 000 employees chatgpt work",
+   "enterprise|spotify s current ai bet is about being music service that agents choose",
+   "enterprise|securing our frontier model training environment"
   ]
  }
 }
