@@ -1,27 +1,4 @@
 {
- "2026-10-10": {
-  "paper": [
-   "paper|fastbench can streaming vlms perceive high dynamic real world streams",
-   "paper|woven weaving visual world modeling multimodal llms",
-   "paper|viskill reinforcing vlm agents evolving visual native skills",
-   "paper|spacecast bench evaluating predictive spatial reasoning vision language models",
-   "paper|long text predictive features llm guided blockwise feature engineering via execu"
-  ],
-  "opensource": [
-   "opensource|vllm high throughput memory efficient inference",
-   "opensource|ollama get up running kimi glm minimax deepseek",
-   "opensource|appium mcp appium mcp steroids",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|headroom compress tool outputs logs rag chunks before"
-  ],
-  "enterprise": [
-   "enterprise|maker non text ai model jev 7 5b just weeks after",
-   "enterprise|a16z s olivia moore state consumer ai",
-   "enterprise|sophos cuts threat investigation time 96 openai daybreak",
-   "enterprise|asana cuts model costs 76x browser tests gpt 6 1 sol",
-   "enterprise|月之暗面增资至约 1437"
-  ]
- },
  "2026-10-11": {
   "paper": [
    "paper|ontrack real time monitoring intervention llm agent trajectories via streaming s",
@@ -331,6 +308,29 @@
    "enterprise|uber puts all 30 000 employees chatgpt work",
    "enterprise|spotify s current ai bet is about being music service that agents choose",
    "enterprise|securing our frontier model training environment"
+  ]
+ },
+ "2026-10-25": {
+  "paper": [
+   "paper|automating feature flag cleanup scale multi agent llm systems industrial experie",
+   "paper|can agent debug web corpus agentic auditing slovak fineweb2",
+   "paper|surveygraph generating academic surveys via methods entity knowledge graphs",
+   "paper|formal informal mathematical alignment through beyond human annotations",
+   "paper|direct pass k optimization thought pruning balancing quality diversity test time"
+  ],
+  "opensource": [
+   "opensource|vllm high throughput memory efficient inference",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|webui user friendly ai interface supports ollama openai api",
+   "opensource|mempalace best benchmarked source ai memory system",
+   "opensource|magpie every agent s model"
+  ],
+  "enterprise": [
+   "enterprise|block s voice model sounds eerily human",
+   "enterprise|here are top ai agents that can live your text messages",
+   "enterprise|rapidly scaling online storage serve over 1 billion chatgpt users part ii",
+   "enterprise|腾讯 接入模型 workbuddy kimi k3 1 pro",
+   "enterprise|github pull requests point alibaba s next qwen model nearing startup fortune"
   ]
  }
 }

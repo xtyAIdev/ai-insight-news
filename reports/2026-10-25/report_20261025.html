@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-25</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today’s signals show AI competition shifting from standalone models to systems-level races in inference infrastructure, agentic workflows, and memory/interface ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-25">
+<meta property="og:description" content="Today’s signals show AI competition shifting from standalone models to systems-level races in inference infrastructure, agentic workflows, and memory/interface layers. Open-source activity around vLLM">
+<meta property="og:url" content="./report_20261025.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-25">
+<meta name="twitter:description" content="Today’s signals show AI competition shifting from standalone models to systems-level races in inference infrastructure, agentic workflows, and memory/interface layers. Open-source activity around vLLM">
+<link rel="canonical" href="./report_20261025.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-25 ｜ report_20261025</div>
+<div class="sub" data-lang-title="zh">2026-10-25 ｜ report_20261025</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today’s signals show AI competition shifting from standalone models to systems-level races in inference infrastructure, agentic workflows, and memory/interface layers. Open-source activity around vLLM, Dify, Open-WebUI, and a new memory system continues, while OpenAI’s storage scaling for 1 billion users, Tencent WorkBuddy’s integration of Kimi-K3.1-Pro, and Alibaba’s upcoming open Qwen release point to faster production deployment and ecosystem lock-in. Academic work is focusing on multi-agent systems for industrial code cleanup, corpus auditing, survey generation, and test-time reasoning optimization, moving agents from demos to measurable production workflows. On the product side, attention is turning to human-like voice and messaging-native agents as new entry points.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. vllm：A high-throughput and memory-efficient inference and</h3>
+          <p class="news-body">A high-throughput and memory-efficient inference and serving engine for LLMs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-25</span> <span class="tag">vllm-project</span> <span class="tag tag-star">⭐ 95,374</span> <span class="tag tag-gray">amd / blackwell / cuda / deepseek</span></div>
+          <div class="pick-reason">With 95,374 stars, 23,908 forks and 9,403 open issues, vLLM stands out as a high-throughput, memory-efficient inference project with strong community traction and active</div>
+          <div class="source">Source：<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. dify：Build Agentic workflows, RAG pipelines, with rich AI model</h3>
+          <p class="news-body">Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-25</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 159,452</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">Composite score 4.5社区数据：stars=159,452，forks=25199，open_issues=1176</div>
+          <div class="source">Source：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. open-webui：User-friendly AI Interface (Supports Ollama, OpenAI API,</h3>
+          <p class="news-body">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-25</span> <span class="tag">open-webui</span> <span class="tag tag-star">⭐ 156,670</span> <span class="tag tag-gray">ai / llm / llm-ui / llm-webui</span></div>
+          <div class="pick-reason">Composite score 4.5社区数据：stars=156,670，forks=22808，open_issues=180</div>
+          <div class="source">Source：<a href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. mempalace：The best-benchmarked open-source AI memory system</h3>
+          <p class="news-body">The best-benchmarked open-source AI memory system. And it's free.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-25</span> <span class="tag">MemPalace</span> <span class="tag tag-star">⭐ 59,727</span> <span class="tag tag-gray">ai / chromadb / llm / mcp</span></div>
+          <div class="pick-reason">Composite score 4.3社区数据：stars=59,727，forks=7576，open_issues=850</div>
+          <div class="source">Source：<a href="https://github.com/MemPalace/mempalace" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. magpie：Every agent's model</h3>
+          <p class="news-body">Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-25</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 20,901</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">Composite score 4社区数据：stars=20,901，forks=1632，open_issues=1699</div>
+          <div class="source">Source：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Automating Feature Flag Cleanup at Scale with Multi-Agent LLM Systems: An Industrial Experience at DoorDash</h3>
+          <p class="news-body">Feature flags are runtime configuration mechanisms used for gradual feature rollouts, experimentation, and kill switches. Once a feature is fully rolled out, the flag and its gated code become technical debt and can introduce operational risk through inadvertently enabling dormant code paths. At DoorDash, over 56,000 feature flags span 623 repositories, with 1,659 currently stale as of May 2026, with internal estimates of one to two hours per manual cleanup. Existing rule-based cleanup tools proved insufficient in DoorDash's codebases. Our contribution is an end-to-end automated LLM-based feature flag cleanup system that integrates querying live feature flag rollout data using MCP, Jira ticket processing, and end-to-end pull request creation. Our system successfully produced engineer-approved flag removal PRs for 45 (90%) of the 50 stale flags it was evaluated on, proving the system's operational viability at scale with each cleanup averaging only $4.79 and 13.8 minutes. We evaluated the system's quality and reliability boundary based on success rates, cost per cleanup and time metrics. Furthermore, we discuss our lessons learned when architecting this system, to provide practical guidance for developing similar multi-agent systems.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.SE</span></div>
+          <div class="pick-reason">DoorDash's industrial experience paper, written</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.31351v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak FineWeb2</h3>
+          <p class="news-body">Multilingual pipelines such as FineWeb2 apply one recipe across a thousand languages, leaving the failure modes of individual languages unanticipated. We use an LLM once, as a corpus debugger rather than a classifier: a tool-using agent explores the corpus through a read-only, budgeted API and compiles each finding into an executable test, which a native speaker then validates. On the 26.5M-document Slovak portion of FineWeb2, three runs costing \$2.21-\$2.84 each found seven findings over four phenomena. The largest is a machine-generated content farm of 1,408,437 documents (5.32%) that passed the pipeline's filters, 86.6% of it passing even stricter thresholds. Blinded labels support 6 of the 7 findings (defect rates .53-1.00 against .08 in a random control) and do not support one. The compiled suite scans the full corpus in 0.7 s of wall-clock time without a GPU, against \$12k-\$90k per LLM classification pass. The best static sampling baseline validates more selectors than any agent run, at under half the cost. The agent contributes exact prevalence, a precision estimate checked against sampled documents, an account of why the pipeline missed each slice, and a reusable test. We release the framework, Slovak test suite, validation data and agent trajectories.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Accepted to EMNLP 2026, this three-author paper proposes agentic auditing of the Slovak FineWeb2 web corpus, pointing toward automated, agent-driven corpus quality review.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.31636v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. SurveyGraph: Generating Academic Surveys via Methods-Entity Knowledge Graphs</h3>
+          <p class="news-body">Most automated survey generation systems retrieve papers as flat documents, limiting their ability to capture research structure. We present SurveyGraph, a framework built around a Methods-Entity Knowledge Graph (MEKG) encoding method-level follow-on, competition, and shared-resource relations. The graph supports core-paper discovery, retrieval, hybrid outlining, and evidence-gated narrative synthesis. We evaluate retrieval, semantic edges, citation grounding, collection coverage, and generation-stage components. In a controlled seven-method equal-budget benchmark, MEKG-anchored fusion balances recall and structural density, with an independent co-citation check. In a separate archived graph-native diagnostic, graph-aware retrieval nearly doubles recall over flat lexical baselines across eight runs (p = 0.004). A semantic evidence gate achieves AUC = 0.75. Audits of 160 generated sentences find 80.6% anchored-or-partial citation support. Human adjudication of 108 stratified semantic edges finds 68.5% supported-or-partial relations (binary-support Cohen's kappa = 0.64), with improves strongest (80.6%) and extends weakest (52.8%). A SurveyBench-facing collection probe reaches mean reference coverage of 0.521 across four topics with an eight-paper budget. Same-backend Qwen diagnostics on a 30-paper/74-relation graph show reduced organization signals when hybrid outlining is removed. Concurrent-system comparisons provide bounded context rather than matched-backend end-to-end evid</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">SurveyGraph, a methods-entity knowledge graph approach to generating academic surveys, has been accepted to EMNLP 2026 with four authors, signaling that KG-driven survey automation is gaining top-conference attention.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.31317v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Formal-Informal Mathematical Alignment through and beyond Human Annotations</h3>
+          <p class="news-body">Formalized mathematics libraries such as Lean's \texttt{mathlib} provide machine-verifiable representations of mathematical knowledge, including definitions, theorems, and their relationships. If effectively connected to informal mathematical resources, formal mathematics could help uncover previously implicit links between mathematical concepts and improve access to existing formalizations. However, connections between informal and formal mathematics libraries are currently sparse and unsystematic. In this paper, we make first strides towards better formal integration. We construct a dataset linking informal statements from the Stacks Project to their formalizations in \texttt{mathlib} by exploiting expert annotations. We evaluate retrieval, LLM-based reranking, and LLM-assisted verification to discover new unannotated informal-to-formal links. To facilitate exploration and reuse of formalized knowledge, we integrated the newly discovered alignments into the MaRDI knowledge graph, enabling mathematicians to find formal counterparts to informal mathematical content. We discuss the difficulties and challenges in using LLMs for linking formal and informal mathematical content. All code and data necessary for reproducing this paper can be found at: https://github.com/AnkitSatpute/Formal-Informal-Mathematical-Alignment</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Accepted to CIKM '26 with five authors, this paper signals growing academic recognition for formal–informal mathematical alignment that goes beyond human annotations.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.31011v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Direct Pass@$k$ Optimization for Thought Pruning: Balancing Quality and Diversity in Test-Time Reasoning</h3>
+          <p class="news-body">Test-time scaling has emerged as a key inference strategy for reasoning models, where a model generates a large number of candidate solutions in the hope of finding at least one correct solution. Running all candidate solutions to completion can be computationally demanding, so recent work prunes the candidate pool after generating only a short prefix, committing further computation only to the surviving candidates. Existing pruning strategies divide broadly into two categories: Quality-based methods assign a score to each partial solution and discard those predicted to ultimately lead to an incorrect final solution, while diversity-based methods select partial solutions that follow different reasoning trajectories and are therefore likely to cover different final solutions. The tension between these two objectives is an instance of exploration versus exploitation, yet little to no prior work on pruning exposes this trade-off directly, let alone optimizes it. In this paper, we introduce a pruning procedure that addresses this trade-off directly by optimizing pass@$k$ over the selected solution pool. In particular, it chooses the pool to maximize the probability that at least one of its partial solutions, when continued to completion, yields a correct answer. Because this objective simultaneously rewards high-quality partial solutions and penalizes redundancy among them, quality and diversity are naturally balanced by the criterion itself rather than through separate ad-hoc de</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=4</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.31667v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Block’s new voice model sounds eerily human</h3>
+          <p class="news-body">Block said that the voice model can run locally on a MacBook M4 Max</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Block has introduced a new voice model that sounds eerily human, making human-like realism the key signal for voice AI.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Here are the top AI agents that can live in your text messages</h3>
+          <p class="news-body">We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">This highlights top AI agents that can live directly in text messages, signaling a shift from standalone apps to everyday messaging as an agent entry point.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/24/all-the-ai-agents-that-can-live-in-your-text-messages/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)</h3>
+          <p class="news-body">Learn how OpenAI scaled Habitat with reliable multi-tenancy, global caching, and Azure Cosmos DB to deliver 12× faster reads for ChatGPT.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-23</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 2.5, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/index/scaling-storage-one-billion-users-part-two" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 腾讯WorkBuddy接入模型Kimi-K3.1-Pro</h3>
+          <p class="news-body">10月24日，腾讯WorkBuddy宣布已接入模型Kimi-K3.1-Pro。据介绍，WorkBuddy同步接入高速版模型Kimi K3.1 Pro Highspeed，同等智能，输出速度约2-3倍。目前资源紧张，现阶段仅对“企业旗舰版”及“个人订阅用户”优先开放。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 2.4, authenticity 2.5, quality verified</div>
+          <div class="source">Source：<a href="https://www.36kr.com/newsflashes/4039662177653892" target="_blank" rel="noopener">36氪</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. GitHub pull requests point to Alibaba's next open Qwen model nearing release - Startup Fortune</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMipgFBVV95cUxPNGlDSnhPQnI1WDRwb2JDTnNLenZwWnlmY0NWLVVVZFJjSlFpSDhvUHVaZGl3ZzBseC04V3pMTnhvOHd0YTBFU0c5cVhGUFpPWVVTeWxpZ2FjY1FJYS1wWjMxaUg5LTB3QkI2UWN6Vk5HSFBaSVEtTmI0WmVibU1sa1JqeEpuMDNTUkdtMFdtZ0FBSXR4V29TNVdYSVh2WjlTN1U2LUR3?oc=5&quot; target=&quot;_blank&quot;&amp;</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPNGlDSnhPQnI1WDRwb2JDTnNLenZwWnlmY0NWLVVVZFJjSlFpSDhvUHVaZGl3ZzBseC04V3pMTnhvOHd0YTBFU0c5cVhGUFpPWVVTeWxpZ2FjY1FJYS1wWjMxaUg5LTB3QkI2UWN6Vk5HSFBaSVEtTmI0WmVibU1sa1JqeEpuMDNTUkdtMFdtZ0FBSXR4V29TNVdYSVh2WjlTN1U2LUR3?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Cost and throughput benchmarks for open-source inference and agent stacks</b> — vLLM, Dify, Open-WebUI, and similar components are active, and enterprises need reproducible data on throughput, memory, and orchestration stability for selection.</div><div class="watch-item"><b>Evaluation standards and privacy boundaries for AI memory systems</b> — Memory is central to the long-term value of agents, but benchmark credibility, forgetting mechanisms, and privacy compliance remain immature.</div><div class="watch-item"><b>Release cadence of Alibaba’s next open Qwen model</b> — GitHub pull request signals suggest an imminent release that could reshape open-model competition and China’s developer ecosystem.</div><div class="watch-item"><b>Tencent WorkBuddy integrates Kimi-K3.1-Pro</b> — Multi-model integration strengthens office agents, but cost, compliance, and model-switching flexibility need scrutiny.</div><div class="watch-item"><b>Multi-agent systems enter production code and data governance</b> — DoorDash’s feature-flag cleanup and corpus-auditing research show agents entering measurable operational workflows, where reliability, rollback, and human review are critical.</div><div class="watch-item"><b>Human-like voice and messaging-native agent entry points</b> — Block’s human-like voice model and messaging-native agents could change</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日信号显示，AI 竞争正从单一模型转向推理基础设施、智能体工作流与记忆/交互层的系统化比拼。开源侧 vLLM、Dify、Open-WebUI 与新记忆系统保持活跃，企业侧 OpenAI 为十亿级用户扩容存储、腾讯 WorkBuddy 接入 Kimi-K3.1-Pro、阿里下一代开源 Qwen 临近发布，表明规模化部署与生态绑定正在加速。学术研究聚焦多智能体在工业代码清理、语料审计、学术综述生成和测试时推理优化中的落地，智能体正从演示走向可度量的生产流程。产品端则关注拟人语音与短信内智能体等新入口。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. vLLM定位LLM高吞吐内存高效推理引擎</h3>
+          <p class="news-body">vLLM 是面向大语言模型的高吞吐、内存高效推理与服务引擎。其仓库社区规模为 95,374 stars、23,908 forks、9,403 个 open issues。材料未给出具体算法、性能数据或版本变更，核心信息是其推理与服务引擎定位。若其能把显存碎片与批处理效率做成可复用组件，推理层就可能从模型附带脚本独立为专门基础设施，并影响每百万 token 的推理成本。</p>
+          <p class="comment">vLLM 的价值不在再做一个模型仓库，而在把推理服务这一层标准化；若高并发生产环境验证其吞吐与显存效率，自托管部署的成本曲线可能被重新定价。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-25</span> <span class="tag">vllm-project</span> <span class="tag tag-star">⭐ 95,374</span> <span class="tag tag-gray">amd / blackwell / cuda / deepseek</span></div>
+          <div class="pick-reason">vllm以95,374 stars、23,908 forks成为高吞吐内存高效推理项目的社区焦点，9,403个open issues也显示其活跃迭代与待解问题并存。</div>
+          <div class="source">来源：<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Dify统一Agent与RAG编排，自托管直通生产</h3>
+          <p class="news-body">Dify 把 Agentic workflow 与 RAG 流水线的搭建统一到同一个协作工作台，并提供较丰富的模型与工具接入，团队不必在各组件之间自行拼接。部署形态上同时支持云端、VPC 与自托管，使从原型验证走向生产环境时可以沿用同一套技术栈，无需推倒重建。社区数据方面，该项目已积累 stars 159,452、forks 25,199，open issues 1,176，使用面广的同时，待办与讨论也相当密集。对有数据不出域诉求的金融、政务等场景，自托管选项把编排层与部署方式解耦，若被企业采用，则可能压缩 POC 到生产之间最耗资源的二次重建环节。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-25</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 159,452</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">dify 以 159,452 stars、25,199 forks 和 1,176 open issues，体现 Agentic workflows</div>
+          <div class="source">来源：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. open-webui 以 15.6 万 stars 印证通用 AI 界面层需求</h3>
+          <p class="news-body">open-webui 是一个面向终端用户的 AI 交互界面项目，主打易用性，通过 Ollama、OpenAI API 等接口接入不同模型后端。该仓库目前在社区侧积累了 156,670 个 stars、22,808 次 forks，仍有 180 个开放 issue。它的价值在于把模型能力与前端体验拆开：用户切换模型不必更换界面，企业在私有化部署时不必在数据不出内网与好用界面之间二选一。这种解耦让模型选型从 UI 层剥离出去，自托管 AI 落地的工程与培训成本随之下降，也使 open-webui 这类体验层组件成为私有化部署与内部 AI 门户的常见入口。</p>
+          <p class="comment">前端可插拔多模型后端一旦成为默认做法，模型厂商的竞争就会向接入协议的兼容性转移，而非界面黏性。若 OpenAI 兼容 API 继续稳固为事实上的接入标准，闭源 SaaS 前端靠界面留住客户的空间可能被进一步压缩。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-25</span> <span class="tag">open-webui</span> <span class="tag tag-star">⭐ 156,670</span> <span class="tag tag-gray">ai / llm / llm-ui / llm-webui</span></div>
+          <div class="pick-reason">综合评分 4.5社区数据：stars=156,670，forks=22808，open_issues=180</div>
+          <div class="source">来源：<a href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. mempalace 以最佳基准成绩做开源 AI 记忆系统</h3>
+          <p class="news-body">mempalace 是一个开源 AI 记忆系统，其项目自述为目前基准测试成绩最好的开源记忆方案，并强调完全免费。它的社区规模也处在较高水平：仓库已获得 59,727 个 stars、7,576 次 forks，开放 issue 数为 850，表明已有相当数量的开发者使用并提出反馈。原文没有给出基准测试的具体名称与分数，因此“最佳基准成绩”目前只是项目方的主张，还需第三方复现验证。记忆层是 Agent 执行长任务、保持个性化与跨会话一致性的关键瓶颈；开源且带基准成绩的方案会降低开发者的选型与验证成本，并可能对闭源记忆服务形成透明度与价格压力。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-25</span> <span class="tag">MemPalace</span> <span class="tag tag-star">⭐ 59,727</span> <span class="tag tag-gray">ai / chromadb / llm / mcp</span></div>
+          <div class="pick-reason">综合评分 4.3社区数据：stars=59,727，forks=7576，open_issues=850</div>
+          <div class="source">来源：<a href="https://github.com/MemPalace/mempalace" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. magpie 用菜单栏把编码代理和模型解耦</h3>
+          <p class="news-body">开源项目 magpie 以「Every agent's model」为口号，把不同编码代理接到不同模型上：Codex 跑在 DeepSeek 上、Claude Code 跑在 Kimi 上，切换入口放在菜单栏。仓库当前有 20,901 stars、1,632 forks 和 1,699 个 open issues，用户基础和待办积压规模都不小。它实际上是在代理层与模型层之间做了一层可插拔的中间层，让开发者按成本、能力和可用性自由组合代理与模型后端。菜单栏级的切换把多模型试错和日常换模型的成本压到接近零，使编码代理进一步变成可以接入任意模型的前端。这也正是它值得留意的原因：编码代理与特定模型厂商之间的强绑定，正被工具层一点点剥开。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-25</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 20,901</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">综合评分 4社区数据：stars=20,901，forks=1632，open_issues=1699</div>
+          <div class="source">来源：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. DoorDash用多智能体LLM自动清理过期feature flag</h3>
+          <p class="news-body">Feature flag 是用于灰度发布、实验和 kill switch 的运行时配置机制；功能全量上线后，flag 及其门控代码便成为技术债，误开启休眠代码路径还会带来运维风险。在 DoorDash，56,000 多个 feature flag 分布在 623 个仓库中，截至 2026 年 5 月有 1,659 个处于过期状态，内部估算每次人工清理耗时 1 至 2 小时，而既有规则式清理工具在该公司代码库上效果不足。这篇被顶会录用的论文（2 位作者）提出一套端到端 LLM 自动清理系统，用 MCP 查询线上 flag rollout 数据、处理 Jira 工单，并自动创建 pull request。在 50 个过期 flag 的评测中，系统为 45 个（90%）产出了工程师认可的删除 PR，平均每次清理耗时 13.8 分钟、成本 4.79 美元，论文还讨论了成功率、单次成本与时间维度的质量与可靠性边界及架构经验。这一案例表明 LLM 代理已能进入真实生产代码库处理技术债、而非停留在编码辅助演示，而长期留存的过期 flag 会保留休眠代码路径、带来误开启风险，使人工清理成本累积至数千小时量级。</p>
+          <p class="comment">若 90% 通过率能在更大 flag 存量上复现，flag 治理就可能从平台团队的规则式巡检，转为嵌入研发流程的多智能体工作流；但 4.79 美元的单次成本优势，只有在 PR 被真实合并、过期 flag 能被持续识别时才成立，否则自动化只是把技术债换了个形状。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.SE</span></div>
+          <div class="pick-reason">DoorDash 仅由 2 位作者完成多智能体 LLM 系统自动化特性开关清理的工业实践并获顶会录用，显示智能体在真实工程运维场景的落地信号。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.31351v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. GPU：Agent+大模型</h3>
+          <p class="news-body">该论文把 LLM 用作语料调试器而非分类器：工具型 agent 通过只读、限额 API 探索 FineWeb2 的斯洛伐克语子集，把每项发现编译成可执行测试，再由母语者验证；在 2650 万文档上三次运行单次成本 2.21–2.84 美元，得到七项发现。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该论文被EMNLP 2026录用，3位作者提出用智能体审计斯洛伐克语FineWeb2网络语料，把语料质量审查推向可自动执行的代理式流程。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.31636v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. SurveyGraph 以方法级知识图谱支撑可溯源综述生成</h3>
+          <p class="news-body">该论文（EMNLP 2026 录用，4 位作者）提出 SurveyGraph，一个以方法实体知识图谱（MEKG）为核心的自动综述生成框架：图谱显式编码方法之间的 follow-on、竞争与共享资源关系，并支撑核心论文发现、检索、混合式大纲生成与证据门控的叙事合成。作者分别评估了检索、语义边、引用落地、集合覆盖率与生成阶段各组件：在七种方法等预算的受控基准中，MEKG 锚定的融合策略兼顾召回与结构密度，并辅以独立共被引核验；一项基于已存档图谱的原生诊断显示，图感知检索在八次运行中对扁平词法基线的召回率提升近一倍（p = 0.004），语义证据门 AUC 达 0.75。对 160 条生成句子的审计中 80.6% 获得锚定或部分引用支持；108 条分层语义边的人工裁定中 68.5% 为支持或部分支持（二值支持 Cohen's kappa = 0.64），其中 improves 关系最强（80.6%）、extends 最弱（52.8%）。SurveyBench 导向的集合探测在八篇论文预算、四个主题下取得平均参考文献覆盖率 0.521；同后端 Qwen 在 30 篇论文/74 条关系的图谱诊断中，移除混合式大纲后组织信号下降；与并发系统的对比仅提供有限参照，并非同后端端到端评测。这意味着</p>
+          <p class="comment">该论文提出 SurveyGraph 框架，其核心是 Methods-Entity Knowledge Graph（MEKG）：它显式编码方法之间的后继、竞争与共享资源关系，而不是把论文当作扁平文档来检索，并在此之上实现核心论文发现、混合式大纲生成与证据门控的叙述合成。评测覆盖检索质量、语义边准确性、引用落地（citation grounding）、文献覆盖度与生成质量五个维度。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">SurveyGraph 以方法-实体知识图谱生成学术综述，获 EMNLP 2026 录用，由 4 位作者完成，显示知识图谱驱动的综述自动化正进入顶会视野。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.31317v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 专家标注加LLM检索，挖掘mathlib新形式化对齐</h3>
+          <p class="news-body">Lean 的 mathlib 等形式化库给出了定义、定理及其关系的机器可验证表示，若能与非形式化数学资源有效连接，有望揭示概念间此前隐含的关联，并让已有形式化成果更易被取用。但现实中两类库之间的连接稀疏且不成体系，该论文以此为起点，借助专家标注构建了把 Stacks Project 的非形式化陈述与其 mathlib 形式化对应起来的数据集。作者评估了检索、基于 LLM 的重排（reranking）和 LLM 辅助验证，用于发现尚未被标注的非形式化—形式化链接。新发现的对齐被整合进 MaRDI 知识图谱，使数学家能为非形式化数学内容找到对应的形式化版本，论文同时讨论了用 LLM 连接两类内容的难点与挑战；代码与复现所需数据已在 GitHub 公开，该工作被 CIKM '26 录用，作者共 5 人。对齐是自动形式化、定理检索与数学知识复用的底层设施，而人工资助的标注难以规模化，此类方法若成立便可显著压低构建成本。</p>
+          <p class="comment">这篇工作的看点不在模型本身，而在把“对齐”当成可流水线化的标注任务：检索召回、LLM 重排、LLM 验证三段拆开评估，等于把形式化库与自然语言数学之间最脏的活交给半自动流程。若这条路径在 mathlib 持续膨胀的规模下仍能保持可信度，AI4Math 的重心可能从单点定理证明转向知识图谱与语料的批量化对齐，短期内 LLM 更像是标注加速器而非证明者。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">该论文获CIKM '26录用、由5位作者完成，显示形式化与非形式化数学对齐在超越人工标注方向获得学术会议认可。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.31011v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Quality-based：推理</h3>
+          <p class="news-body">论文提出“直接 Pass@k 优化”的思维剪枝方法：在推理模型只生成短前缀后筛选候选路径，并显式平衡答案质量与候选多样性，以减少完整推理的算力开销。其关键是把最终 Pass@k 成功率作为剪枝目标，而非依赖单一质量或多样性启发式。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-22</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=4</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.31667v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Block语音模型可在MacBook本地运行</h3>
+          <p class="news-body">Block 的新语音模型被形容为听感“异常像人”。Block 表示，该模型可在 MacBook M4 Max 上本地运行。若这一端侧能力成立，语音合成会从依赖云端按量调用，转向可嵌入企业自有系统的本地组件，延迟、单次调用成本和数据出域风险有望同时下降。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Block 推出新语音模型，材料称其“听起来异常像真人”，拟真度成为语音 AI 贴近人类交互的看点。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Here are the top AI agents that can live in your text messages</h3>
+          <p class="news-body">We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work.</p>
+          <p class="comment">有媒体梳理了一批可直接运行在短信/消息线程中的AI代理，覆盖通用助手以及家庭、旅行和工作等专用场景，核心卖点是无需另装App即可调用。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">这条内容聚焦能直接驻留在短信里的头部 AI agent，点出智能体从独立应用走向日常通信入口的趋势。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/24/all-the-ai-agents-that-can-live-in-your-text-messages/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. OpenAI发布RAG新动态</h3>
+          <p class="news-body">OpenAI 发布 Habitat 在线存储系统扩容实践的第二篇文章，说明其通过可靠的多租户隔离、全局缓存层与 Azure Cosmos DB 支撑 ChatGPT 十亿级用户，并将读性能提升 12 倍。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-23</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 2.5，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/index/scaling-storage-one-billion-users-part-two" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 腾讯WorkBuddy接入模型Kimi-K3.1-Pro</h3>
+          <p class="news-body">10月24日，腾讯WorkBuddy宣布已接入模型Kimi-K3.1-Pro。据介绍，WorkBuddy同步接入高速版模型Kimi K3.1 Pro Highspeed，同等智能，输出速度约2-3倍。目前资源紧张，现阶段仅对“企业旗舰版”及“个人订阅用户”优先开放。</p>
+          <p class="comment">10月24日，腾讯WorkBuddy宣布接入Kimi-K3.1-Pro，并同步上线同等智能、输出速度约2—3倍的Highspeed版本；当前算力资源紧张，仅向企业旗舰版和个人订阅用户优先开放。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">腾讯</div>
+          <div class="source">来源：<a href="https://www.36kr.com/newsflashes/4039662177653892" target="_blank" rel="noopener">36氪</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. GitHub 代码动向显示阿里下一代开源 Qwen 模型临近发布</h3>
+          <p class="news-body">GitHub 仓库中的 pull request 活动显示，阿里下一代开源 Qwen 模型正接近发布。相关代码层面的动向出现在公开仓库中，被外界读作发布前的准备信号。原文未披露该模型的具体版本号、参数规模、能力指标与时间表。若新模型最终以开放权重形式落地，企业将可在自有环境自托管同类能力模型，闭源 API 的定价锚点也可能因此承压；对阿里而言，这仍是典型的以开源生态换取云与算力需求的做法，而模型发布本身也正变成代码先行、社区共创的工程化流程。</p>
+          <p class="comment">模型“未发先热”已成为常态：真正的观测窗口从发布会前移到 GitHub 的 PR 节奏，外界能在官方口径之前拼出产品路线。若这一节奏延续，竞争焦点会从单点榜单分数转向工具链、量化版本与小参数变体的矩阵完整度。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-24</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">GitHub pull requests</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPNGlDSnhPQnI1WDRwb2JDTnNLenZwWnlmY0NWLVVVZFJjSlFpSDhvUHVaZGl3ZzBseC04V3pMTnhvOHd0YTBFU0c5cVhGUFpPWVVTeWxpZ2FjY1FJYS1wWjMxaUg5LTB3QkI2UWN6Vk5HSFBaSVEtTmI0WmVibU1sa1JqeEpuMDNTUkdtMFdtZ0FBSXR4V29TNVdYSVh2WjlTN1U2LUR3?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>开源推理与智能体栈的成本/吞吐基准</b> — vLLM、Dify、Open-WebUI 等组件活跃，企业选型需要可复现的吞吐、内存与编排稳定性数据。</div><div class="watch-item"><b>AI 记忆系统的评测标准与隐私边界</b> — 记忆是智能体长期价值核心，但基准可信度、遗忘机制与隐私合规仍不成熟。</div><div class="watch-item"><b>阿里下一代开源 Qwen 的发布节奏</b> — GitHub PR 信号预示发布临近，可能改变开源模型竞争格局与国内开发者生态。</div><div class="watch-item"><b>腾讯 WorkBuddy 接入 Kimi-K3.1-Pro</b> — 多模型接入提升办公智能体能力，需观察成本、合规与模型切换灵活性。</div><div class="watch-item"><b>多智能体进入生产代码与数据治理</b> — DoorDash 特征开关清理与语料审计研究显示智能体可进入可度量运维流程，可靠性、回滚与人审是关键。</div><div class="watch-item"><b>拟人语音与短信内智能体入口</b> — Block 拟人语音和短信内智能体可能改变用户触达方式，需关注延迟、安全与平台政策。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-25T04:49:06.686Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
