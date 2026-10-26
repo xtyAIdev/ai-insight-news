@@ -1,27 +1,4 @@
 {
- "2026-10-11": {
-  "paper": [
-   "paper|ontrack real time monitoring intervention llm agent trajectories via streaming s",
-   "paper|which skill distill sguid selecting compact skill bank model skill co evolution",
-   "paper|cited but not consulted counterfactual audit legal chain thought faithfulness",
-   "paper|balanced data diet addressing exploration bottleneck mega scale rl robot control",
-   "paper|one block multiple depths recurrent vision transformers depth programmed experts"
-  ],
-  "opensource": [
-   "opensource|openhands openhands ai driven development",
-   "opensource|deer flow source long horizon superagent harness that",
-   "opensource|magpie every agent s model",
-   "opensource|lobehub lobehub is your chief agent operator organizing your",
-   "opensource|rea reverse engineer anything agents app behavior"
-  ],
-  "enterprise": [
-   "enterprise|here are top ai agents that can live your text messages",
-   "enterprise|microsoft skipped openai s decision model built own alibaba s qwen stack",
-   "enterprise|top tech giants accelerate ai office track expansion bytedance trae head resigns",
-   "enterprise|alibaba qwen qwen image 2 1 turbo 8 step 7b image model marktechpost",
-   "enterprise|bytedance s doubao utility bill payments china accelerating conversational servi"
-  ]
- },
  "2026-10-12": {
   "paper": [
    "paper|qtestbench test framework evaluating llm generated quantum code",
@@ -331,6 +308,27 @@
    "enterprise|rapidly scaling online storage serve over 1 billion chatgpt users part ii",
    "enterprise|腾讯 接入模型 workbuddy kimi k3 1 pro",
    "enterprise|github pull requests point alibaba s next qwen model nearing startup fortune"
+  ]
+ },
+ "2026-10-26": {
+  "paper": [
+   "paper|flownomaly single step conditional mean recovery few shot anomaly detection",
+   "paper|green code costly code evaluating energy costs iterative llm based code optimiza",
+   "paper|measure before you train typed decision models vs classical baseline vs generati",
+   "paper|do true false add up one complement consistency llm agent opinion simulations",
+   "paper|j comm jacobian guided latent communication between llm agents"
+  ],
+  "opensource": [
+   "opensource|paperclip source app everyone uses manage agents work",
+   "opensource|lobehub lobehub is your chief agent operator organizing your",
+   "opensource|omniroute never stop coding",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|hyperframes write html"
+  ],
+  "enterprise": [
+   "enterprise|字节跳动 电商欧洲负责人陈熙即将离职 tiktok",
+   "enterprise|qwen s jiang guanjun lays out personal agent framework built models memory ecosy",
+   "enterprise|former tencent hunyuan multimodal rl lead wang haonan embodied ai firms lag larg"
   ]
  }
 }
