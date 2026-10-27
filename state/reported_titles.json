@@ -1,25 +1,4 @@
 {
- "2026-10-12": {
-  "paper": [
-   "paper|qtestbench test framework evaluating llm generated quantum code",
-   "paper|rated reliability aware ai agent tool retrieval via execution dynamics",
-   "paper|when vlms destroy what they know spatial representations fall below lexical prio",
-   "paper|task context shapes component roles language models",
-   "paper|tracing taming hallucinated terms via subsequence association filtering breadth "
-  ],
-  "opensource": [
-   "opensource|hermes agent agent that grows you",
-   "opensource|ollama get up running kimi glm minimax deepseek",
-   "opensource|claude mem persistent context across sessions every agent",
-   "opensource|ragflow ragflow is leading source retrieval augmented",
-   "opensource|worldmonitor real time global intelligence dashboard"
-  ],
-  "enterprise": [
-   "enterprise|阶跃 接入腾讯 step 5 preview workbuddy",
-   "enterprise|微软用阿里 打造决策模型 或将推广至所有领域 qwen",
-   "enterprise|bytedance tencent rush personal ai agents after meta s muse success caixin globa"
-  ]
- },
  "2026-10-13": {
   "paper": [
    "paper|goal oriented bundle management flow control deep space communications via reinf",
@@ -329,6 +308,29 @@
    "enterprise|字节跳动 电商欧洲负责人陈熙即将离职 tiktok",
    "enterprise|qwen s jiang guanjun lays out personal agent framework built models memory ecosy",
    "enterprise|former tencent hunyuan multimodal rl lead wang haonan embodied ai firms lag larg"
+  ]
+ },
+ "2026-10-27": {
+  "paper": [
+   "paper|hypergraph enhanced evidence selection long context multimodal document qa",
+   "paper|belief conditioned multi agent actor critic decentralized llm collaboration",
+   "paper|knowing when escalate disagreement patterns uncertainty aware content moderation",
+   "paper|preserve expand source aware adaptation model merging multilingual llm based asr",
+   "paper|understanding jev style system one models does structure reduce selection bias"
+  ],
+  "opensource": [
+   "opensource|openagents openagents collaboration os ai agents",
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|ragflow ragflow is leading source retrieval augmented",
+   "opensource|opendataloader pdf pdf parser ai ready data"
+  ],
+  "enterprise": [
+   "enterprise|招股书 个细节解读 千亿募资 亿美元亏损与 anthropic ipo 11 807 7",
+   "enterprise|working academic communities build scientific understanding",
+   "enterprise|spacex locks 40b gpu financing deal apollo",
+   "enterprise|our newest ai quest mapping human brain",
+   "enterprise|字节跳动在廊坊成立平舒数源科技公司 注册资本 1"
   ]
  }
 }
