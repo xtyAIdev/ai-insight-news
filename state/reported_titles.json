@@ -1,27 +1,4 @@
 {
- "2026-10-13": {
-  "paper": [
-   "paper|goal oriented bundle management flow control deep space communications via reinf",
-   "paper|can language models play wikipedia game",
-   "paper|x agentred red teaming personal agents evolving multi service ecosystems",
-   "paper|spatialasm internalizing active mentalization spatial reasoning",
-   "paper|mc evobench auditing experience driven self improvement minecraft agents"
-  ],
-  "opensource": [
-   "opensource|graphiti build real time knowledge graphs ai agents",
-   "opensource|hermes webui hermes webui best way use hermes agent web",
-   "opensource|connectonion cli is all you need",
-   "opensource|prism insight ai based stock analysis trading system",
-   "opensource|工程化 文档助手 知识库 索引 docpaws rag pdf agent scope"
-  ],
-  "enterprise": [
-   "enterprise|microsoft expand azure maia system multi gigawatt deployments",
-   "enterprise|meta frontier model muse wonder",
-   "enterprise|fitbit edge is google s middle ground between fitbit air pixel watch",
-   "enterprise|富途牛牛 foundational architecture microsoft s models is alibaba s qwen over 60 deci",
-   "enterprise|microsoft ai model based qwen forklog"
-  ]
- },
  "2026-10-14": {
   "paper": [
    "paper|ghost geometry constrained hybrid diffusion vocabulary 3d scene graph generation",
@@ -331,6 +308,29 @@
    "enterprise|spacex locks 40b gpu financing deal apollo",
    "enterprise|our newest ai quest mapping human brain",
    "enterprise|字节跳动在廊坊成立平舒数源科技公司 注册资本 1"
+  ]
+ },
+ "2026-10-28": {
+  "paper": [
+   "paper|zero shot multimodal event spotting soccer broadcasts",
+   "paper|can complementary signals bridge similarity islands manifold augmented graph emb",
+   "paper|agent conditioned routing diverse reasoning paths within one frozen model",
+   "paper|heads security learned attention gates improve prompt injection robustness",
+   "paper|gepa curator curated learning self improving agents"
+  ],
+  "opensource": [
+   "opensource|magpie every agent s model",
+   "opensource|fastembed fast accurate lightweight python library make state",
+   "opensource|n8n fair code workflow automation platform native ai",
+   "opensource|claude mem persistent context across sessions every agent",
+   "opensource|vllm high throughput memory efficient inference"
+  ],
+  "enterprise": [
+   "enterprise|最大赢家或为 而非 anthropic ipo amazon vc",
+   "enterprise|openai expands partnership oracle bring apps chatgpt",
+   "enterprise|cohere says alibaba s qwen model tried send beijing techcrunch",
+   "enterprise|bank america kindly asks that you don t share your banking password your ai assi",
+   "enterprise|retell uses openai models help power 100m monthly calls"
   ]
  }
 }
