@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-29</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's picks show agentic AI maturing from point tools into orchestratable, observable engineering stacks: open-source projects such as Dify, RAGFlow and LobeH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-29">
+<meta property="og:description" content="Today's picks show agentic AI maturing from point tools into orchestratable, observable engineering stacks: open-source projects such as Dify, RAGFlow and LobeHub keep hardening workflow and retrieval">
+<meta property="og:url" content="./report_20261029.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-29">
+<meta name="twitter:description" content="Today's picks show agentic AI maturing from point tools into orchestratable, observable engineering stacks: open-source projects such as Dify, RAGFlow and LobeHub keep hardening workflow and retrieval">
+<link rel="canonical" href="./report_20261029.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-29 ｜ report_20261029</div>
+<div class="sub" data-lang-title="zh">2026-10-29 ｜ report_20261029</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's picks show agentic AI maturing from point tools into orchestratable, observable engineering stacks: open-source projects such as Dify, RAGFlow and LobeHub keep hardening workflow and retrieval foundations, while Microsoft's Copilot harness and the expanded OpenAI–ServiceNow partnership push multi-model agents into core enterprise processes. On the research side, the focus is shifting from leaderboard gains to capability boundaries—whether LLMs can discover physical laws on their own, how memory fails in group decisions, and how to make diffusion language agents cheaper to run—all questions of reliability and interpretability. In capital markets, Disruptive's $10B vehicle signals that large, patient checks are still being concentrated on a handful of AI leaders. Meanwhile, Nvidia's open transcription model and Wiz's warning about a coming vulnerability wave are a reminder that as voice interfaces spread, the security and governance bill keeps growing.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. dify：Build Agentic workflows, RAG pipelines, with rich AI model</h3>
+          <p class="news-body">Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 159,861</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">With 159,861 stars, 25,255 forks, and</div>
+          <div class="source">Source：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ragflow：RAGFlow is a leading open-source Retrieval-Augmented</h3>
+          <p class="news-body">RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag">infiniflow</span> <span class="tag tag-star">⭐ 93,041</span> <span class="tag tag-gray">agent-harness / agentic-ai / agentic-nagive / agentic-retrieval</span></div>
+          <div class="pick-reason">RAGFlow's 93,041 stars make it a leading open-source RAG project, and with +353 stars this week, 11,146 forks and 1,318 open issues, its community scale and collaboration activity remain strong.</div>
+          <div class="source">Source：<a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. figma-console-mcp：Your design system as an API</h3>
+          <p class="news-body">Your design system as an API. Connect AI to Figma for extraction, creation, and debugging.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag">southleft</span> <span class="tag tag-star">⭐ 2,621</span> <span class="tag tag-gray">ai / design-systems / figma / figma-api</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=2,621，forks=269，open_issues=8</div>
+          <div class="source">Source：<a href="https://github.com/southleft/figma-console-mcp" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. lobehub：🤯 LobeHub is your Chief Agent Operator, organizing your</h3>
+          <p class="news-body">🤯 LobeHub is your Chief Agent Operator, organizing your agents into 7×24 operations by hiring, scheduling, and reporting on your entire AI team.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag">lobehub</span> <span class="tag tag-star">⭐ 83,572</span> <span class="tag tag-gray">agent / agent-collaboration / agent-harness / ai</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=83,572，forks=16009，open_issues=1189</div>
+          <div class="source">Source：<a href="https://github.com/lobehub/lobehub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. OmniRoute：Never stop coding</h3>
+          <p class="news-body">Never stop coding. Free MIT AI gateway: one endpoint, 375 providers (150+ free), 1,400+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline &amp; Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 900+ contributors</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag">cheaper-inference</span> <span class="tag tag-star">⭐ 82,318</span> <span class="tag tag-gray">a2a / ai-agents / ai-gateway / anthropic</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=82,318，forks=12152，open_issues=526</div>
+          <div class="source">Source：<a href="https://github.com/cheaper-inference/OmniRoute" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Can LLMs Uncover Hidden Physical Laws through Free Exploration?</h3>
+          <p class="news-body">Scientific discovery often begins with an unexpected observation that prompts a new research question. In a world with altered physical laws, can large language models (LLMs) notice unexpected behavior, such as heavier objects falling more slowly, and discover the law through experiments without being told what to investigate? To evaluate this ability, we introduce LongChang, an automated framework that creates simulated worlds with altered physics, where one or more laws differ from ordinary physics. The evaluated LLMs act as explorers, manipulating objects and building tools to investigate their own questions without research tasks or hints about these laws. Separate LLM agents generate and review scenes, review tool designs, and evaluate reports for correctness and experimental support using the altered physical laws and exploration records. These records guide scene evolution for further exploration, allowing the full cycle to run without human intervention. Among 12 LLMs, GPT-6-Astra achieves a discovery rate of 16.7%, while the other 11 score 0%. The exploration records reveal uninvestigated anomalies and only partial identification of the altered physical laws.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Written by four authors, this paper asks whether LLMs can uncover hidden physical laws through free exploration, spotlighting autonomous scientific discovery by</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.37649v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Multi-State Linear Attention with Generalized Second-Order Routing</h3>
+          <p class="news-body">Self-attention plays a key role in long-sequence modeling, but its quadratic time complexity fundamentally limits the scaling of Large Language Models. Recently, Multi-State Linear Attention (MSLA) mechanisms have been proposed to make sequence modeling more efficient by splitting the context into segments and compressing each in its own memory state. MSLA aggregates the information extracted from each memory state using only the mean alignment between a query and each segment's keys, ignoring how the alignment is distributed within the segment. In order to model the relevance of a segment to a query more comprehensively and incorporate the variance of the alignment in the aggregation, we propose MERLIN (MomEnt Routing for multi-state LINear attention), a method that tracks the first and second moments of each segment's keys. Using the moments of keys, a query can recover both the mean and the variance of its alignment with each segment to perform a more content-aware aggregation of per-state readouts. Experiments on multi-state variants of Gated DeltaNet-1.3B and Mamba-2-780M show that MERLIN consistently outperforms existing aggregation methods on various long-context tasks. In particular, MERLIN outperforms baselines on RULER needle-in-a-haystack and long-context QA (+8.3% for Gated DeltaNet-1.3B and +7.0% for Mamba-2-780M) and diverse subtasks in LongBench (+13.5% and +12.0%). It even outperforms baselines that consume 4x more memory. MERLIN provides a simple and general </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=5</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.37645v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Metacognitive Decoding: Efficient Inference for Diffusion Language Agents</h3>
+          <p class="news-body">Diffusion language models offer a promising path to efficient agents through parallel token generation. However, efficient interaction requires adapting both where computation is spent and how much text is generated. We introduce a metacognitive controller that guides diffusion generation according to the needs of the current response and the agent's interaction with the environment. It learns when to finalize tokens and how far generation should extend, reducing overall computation within responses. Our controller, a lightweight plug-in for the diffusion backbone, is trained on agent trajectories to balance correctness and generation cost. This approach connects the agent's generation process to the interaction the agent serves. Experiments across five benchmarks demonstrate that our approach reduces inference FLOPs by 20.6% on average compared with the most efficient baseline, while maintaining competitive task accuracy. Ablation studies further validate the effectiveness of our approach.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">With eight authors, this paper introduces Metacognitive Decoding to make inference for diffusion language agents more efficient, signaling a broader push to reduce inference costs at the decoding level.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.37642v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Rare, Relevant, and Still Wrong: How Memory Fails LLM Group Decisions</h3>
+          <p class="news-body">When an LLM group's discussion is compressed into a short memory for a final decision maker, what should the memory keep? Two natural heuristics keep the rarest claims or the claims relevant to the decision criteria. On hidden-profile tasks both look attractive, because how widely a fact is held is confounded with whether it helps. We introduce CrossProfile, a diagnostic benchmark of 60 templates with automatically verified answer keys, in which the ownership of supporting, decoy, and irrelevant facts is crossed while their text is held fixed (480 tasks). Across Qwen2.5-7B, Llama-3.1-8B, and two DeepSeek models, both heuristics fail in predictable places. Selecting by relevance readmits decoys, because decoys are on topic: even a perfect relevance filter loses 23 to 31 points to rarest-first selection in the classic hidden-profile configuration. Rarest-first selection is no better than random selection on average and wins only where the rare facts happen to be the useful ones. In both cases accuracy follows the balance of evidence the memory keeps, not the policy that kept it. The decision model adds a third failure, a form of social proof: it gives extra weight to facts attributed to many agents. Removing the attribution tags, or reassigning them at random with line order fixed, raises accuracy in the classic configuration by 13 to 24 points. In natural discussions the evidence is lost before any memory acts: the complete transcript yields lower accuracy than no notes at all</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">With four authors, this paper examines how memory fails in LLM group decisions, highlighting a &quot;rare, relevant, and still wrong&quot; blind spot that matters for multi-agent reliability.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.37624v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. EnvSched: Environment-Aware Scheduling for Rollout-Efficient Agent Reinforcement Learning</h3>
+          <p class="news-body">As executable environments for language agents scale, generating and verifying their rollouts becomes increasingly expensive. Under finite rollout budgets, this raises an important question: can data management at the environment level make agentic reinforcement learning (RL) more efficient by organizing, evaluating, and scheduling task instances together with the environments that determine their tools, states, transitions, and verification? To address this question, we introduce EnvSched (Environment-aware Scheduling), an online scheduler that learns from rollout history. EnvSched assigns scheduling value through two complementary modeling choices: exploitation prioritizes tasks likely to provide informative reward differences, while coverage spreads each batch across underobserved environments and interaction patterns. EnvSched organizes environment--task pairs as nodes in a dual-relation graph, with within-environment edges capturing task semantics and shared tool, state, and verifier structure, and cross-environment edges capturing abstract execution and reward topology. By propagating historical rollout statistics along both edge types, it predicts within-task reward variance. These predictions guide a scheduler that allocates each batch to tasks with high predicted reward variance and underobserved environments and tasks. Environment quotas and a similarity penalty further limit concentration and redundancy, yielding informative and diverse batches without additional p</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">EnvSched proposes environment-aware scheduling for more rollout-efficient agent reinforcement learning, with a 10-author team; it signals growing attention to environment scheduling as a lever for training efficiency.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.37609v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Disruptive raises $10B fund to make big bets on at least 10 companies</h3>
+          <p class="news-body">Disruptive has made headlines in recent years for pouring money into companies like chip startup Groq and the AI voice-generation startup ElevenLabs.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag">Disruptive</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 3.3事件数据：amount_wan=100000</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/27/disruptive-raises-10b-fund-to-make-big-bets-on-at-least-10-companies/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI and ServiceNow expand partnership across enterprise workflows</h3>
+          <p class="news-body">OpenAI and ServiceNow expand their partnership to bring OpenAI models and agents into ServiceNow and ServiceNow workflows into ChatGPT and Codex.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-28</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">OpenAI and ServiceNow are expanding their partnership to bring AI into enterprise workflows, signaling a push to embed AI in real enterprise operations.</div>
+          <div class="source">Source：<a href="https://openai.com/index/openai-servicenow-partnership-expansion" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Introducing the Microsoft Copilot harness: Unlocking the potential of truly multi-model agentic work</h3>
+          <p class="news-body">Introducing the Microsoft Copilot harness: Unlocking the potential of truly multi-model agentic work Oct 28, 2026 | Tina Schuchman CVP, Foundry and Vladimir Fedorov, CTO, GitHub If you want to compete, you need to be multi-model. And if you want to take advantage of everything that different AI models have to offer, you need a great harness. But building one that works seamlessly across multiple models and surfaces is incredibly hard. You need to solve for performance, quality, and cost. And the</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-28</span> <span class="tag">Microsoft</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Microsoft's new Copilot harness targets truly multi-model agentic work, strengthening its agent orchestration stack and signaling that multi-model collaboration is becoming the industry default.</div>
+          <div class="source">Source：<a href="https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/" target="_blank" rel="noopener">Microsoft 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Voice AI in vogue: Nvidia releases new open transcription model</h3>
+          <p class="news-body">Nvidia just released a free speech-to-text model that can transcribe up to 40 languages, but it only works on recordings, not live audio, so it’s a big step for meeting and medical transcription tools while still leaving</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-28</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Nvidia has released a new open transcription model, underscoring that voice AI is in vogue and adding fresh open-model supply for speech transcription.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Wiz’s CTO on PHP2Shell and the coming ‘vulnpocalypse’</h3>
+          <p class="news-body">The PHP scare may have faded from your feed, but the cleanup is far from over. Last week, two critical bugs in the open source language behind roughly 70% of websites left organizations scrambling to fix their systems, w</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-28</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 2.4, authenticity 2.5, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/video/wizs-cto-on-php2shell-and-the-coming-vulnpocalypse/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Dify and RAGFlow: open-source agents meet retrieval infrastructure</b> — One owns workflow orchestration, the other retrieval augmentation; their release cadence tends to set the default stack for enterprises building AI in-house, so their capability boundaries and deployment costs merit ongoing comparison.</div><div class="watch-item"><b>Microsoft Copilot harness: a unified layer for multi-model agents</b> — If the harness becomes the standard orchestration layer across models, enterprises will build around it rather than around a single model vendor, potentially reshaping bargaining power in the model supply chain.</div><div class="watch-item"><b>OpenAI and ServiceNow deepen enterprise workflow integration</b> — A textbook case of a model vendor moving deeper into systems of record; track actual deployed use cases and renewal data rather than the announcement itself.</div><div class="watch-item"><b>Can LLMs discover physical laws through free exploration?</b> — This line of work tests whether models can genuinely generate hypotheses; if it holds up, it reframes scientific copilots entirely, though evaluation rigor is the near-term thing to scrutinize.</div><div class="watch-item"><b>Inference efficiency for diffusion language agents (Metacognitive Decoding)</b> — Inference cost is the main bottleneck for diffusion language models; if such decoding strategies generalize, they could change model selection for agent workloads.</div><div class="watch-item"><b>Disruptive's $10B fund and concentrated bets on AI leaders</b> — A single vehicle making large bets on at least ten companies reflects capital concentrating on a few winners—a useful leading indicator of how fast the sector consolidates.</div><div class="watch-item"><b>Nvidia's open transcription model and the voice-interface race</b> — An open transcription model lowers the barrier to voice interaction, likely accelerating agentification of support and meeting workflows while intensifying competition with dedicated speech vendors.</div><div class="watch-item"><b>Wiz's 'vulnpocalypse' warning and enterprise AI security spend</b> — Agentic systems widen the automated attack surface; reactive security spending may become an underappreciated line item in enterprise AI budgets heading into 2027.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日入选事件显示，代理式 AI 正从单点工具走向可编排、可观测的工程体系：开源侧的 Dify、RAGFlow、LobeHub 持续强化工作流与检索底座，微软 Copilot harness 与 OpenAI–ServiceNow 的合作则把多模型代理推进企业核心流程。研究端关注点集中在“能力边界”而非单纯刷榜——LLM 能否自主发现物理定律、群体决策中的记忆失效、以及扩散语言模型的推理效率，都在追问可靠性与可解释性。资本层面，Disruptive 募集 100 亿美元专项基金，表明大额长期资金仍愿为少数头部 AI 公司集中下注。Nvidia 开源转写模型与 Wiz 对漏洞风暴的警告，则提醒语音入口扩张的同时，安全与治理账单正在同步累积。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. Dify 用一个协作空间承载 Agent 工作流与 RAG 编排</h3>
+          <p class="news-body">Dify 的定位是让团队在同一个协作空间里构建 Agentic 工作流与 RAG 流水线，并获得较丰富的 AI 模型与工具支持。部署形态覆盖云端、VPC 和自托管三种方式，团队可以把同一套技术栈从原型阶段直接推进到生产环境，无需重建底层基础设施。该项目当前的社区数据为 159,861 stars、25,255 forks 和 1,238 个 open issues。它把应用编排、检索增强与部署运维集中在单一平台上，价值在于减少团队在原型与生产之间重复搭建基础设施的成本，并以 VPC 与自托管选项回应企业对数据合规和私有化的诉求。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 159,861</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">Dify以159,861 stars、25,255 forks和1,238个open issues，显示Agentic工作流与RAG管线开源工具的高社区采用度，是AI应用构建的重要趋势信号。</div>
+          <div class="source">来源：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. RAGFlow 以 RAG+Agent 构建 LLM 上下文层</h3>
+          <p class="news-body">RAGFlow 将自身定位为领先的开源 RAG 引擎，把 RAG 与 Agent 能力融合在一起，为 LLM 搭建上下文层。该项目的 GitHub 社区数据为 93,041 stars、11,146 forks、1,318 个 open issues，一周内新增 353 stars。也就是说，它不只做检索，还让检索与 Agent 编排处在同一开源栈内。对于想把私域知识接入 LLM 并构建可控知识问答、复杂任务代理的企业来说，这种一体化栈比单一向量检索组件更接近可直接落地的上下文基础设施。</p>
+          <p class="comment">它一周只增加 353 stars，这说明关注度集中在“RAG+Agent 一体化”这一定位，而不是单纯比拼向量检索性能。若企业把知识接入与工具调用视为同一件事，采购清单上的“检索插件”就会被这类上下文层项目替代，RAG 的竞争点也会从召回率转向上下文治理。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag">infiniflow</span> <span class="tag tag-star">⭐ 93,041</span> <span class="tag tag-gray">agent-harness / agentic-ai / agentic-nagive / agentic-retrieval</span></div>
+          <div class="pick-reason">RAGFlow 以 93,041 星标领跑开源检索增强生成赛道，周增 353 星标、11,146 次 fork 与 1,318 个待处理 issue 显示其社区规模与协作活跃度仍在持续。</div>
+          <div class="source">来源：<a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. figma-console-mcp：把设计系统做成 AI 可调用的 API</h3>
+          <p class="news-body">figma-console-mcp 的定位是把设计系统当作一套 API 使用：让 AI 接入 Figma，完成设计内容的提取、创建与调试，而不是由人把设计与代码之间的规范手工搬运一遍。该项目目前在社区有 2,621 stars、269 forks、8 个 open issues，说明它已获得一定关注，但维护规模仍处在早期阶段。它的思路是把设计令牌与组件规范从困在 Figma 里的静态资产，变成代理可以直接读写的接口，从而把设计到代码的交接简化为一次工具调用。这意味着设计系统有可能从“导出流水线”转向代理可寻址的双向 API，并与 Figma Dev Mode 等官方能力形成互补或竞争。</p>
+          <p class="comment">如果设计系统真能以双向 API 的形式被代理读写，设计令牌漂移就会从依靠流程治理的问题，变成接口契约层面的问题，人工同步环节也会被工具调用替代；照此推断，MCP 的竞争范围正从开发者工具延伸到设计工具层，社区实现与 Figma 官方 Dev Mode 之间更可能是竞合而非替代关系。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag">southleft</span> <span class="tag tag-star">⭐ 2,621</span> <span class="tag tag-gray">ai / design-systems / figma / figma-api</span></div>
+          <div class="pick-reason">figma-console-mcp 把设计系统封装为 API，已有 2,621 stars、269 forks、仅 8 个 open issues，体现设计工具与 AI 工作流衔接的社区关注度与可维护性信号</div>
+          <div class="source">来源：<a href="https://github.com/southleft/figma-console-mcp" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. LobeHub 定位 AI 团队的 7×24 调度台</h3>
+          <p class="news-body">开源项目 LobeHub 在简介中把自身定义为 &quot;Chief Agent Operator&quot;（首席 Agent 运营者），目标是把用户的整个 AI 团队组织成 7×24 小时不间断的运营。其能力描述围绕三件事展开：对 AI 团队进行招募（hiring）、排班（scheduling）与汇报（reporting），重心是团队级编排而不是单个 agent 的能力演示。社区规模上，该仓库目前 stars 为 83,572、forks 为 16,009、open_issues 为 1,189。这意味着 Agent 基础设施的竞争点正从模型接入与对话界面，上移到调度、可观测性与成本核算这类控制层；若这类能力以开源、可自托管的形式提供，中小企业就可能用极低成本搭起类似“AI 员工管理台”的控制面，闭源 Agent Ops 产品的定价空间也会被正面挤压。</p>
+          <p class="comment">把“招聘、排班、汇报”写进产品定位，实质是承认 Agent 落地的瓶颈已从模型能力转到运维编排——谁掌握排班表与报表，谁就掌握企业侧的使用黏性。若这一层被开源方案做厚，闭源 Agent 管理台大概率只能退守合规与托管服务来收钱。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag">lobehub</span> <span class="tag tag-star">⭐ 83,572</span> <span class="tag tag-gray">agent / agent-collaboration / agent-harness / ai</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=83,572，forks=16009，open_issues=1189</div>
+          <div class="source">来源：<a href="https://github.com/lobehub/lobehub" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. OmniRoute 开源 MIT 网关：单点接入 375 家供应商与 1400+ 模型</h3>
+          <p class="news-body">OmniRoute 是一个 MIT 许可的开源 AI 网关，用单一端点接入 375 家供应商（其中 150+ 家提供免费额度）和 1,400+ 个模型，覆盖 Kimi、Claude、GPT、Gemini、GLM、DeepSeek、MiniMax 等。它可搭配 Claude Code、Codex、Cursor、OpenCode、Cline 与 Copilot 使用，支持按配额感知的自动回退，并通过 RTK+Caveman 压缩节省 15%–95% 的 token，同时支持 MCP/A2A 协议以及桌面端和 PWA 形态。该项目由 900+ 贡献者共同建设，社区数据为 stars 82,318、forks 12,152、open issues 526。当多供应商切换、免费额度兜底与上下文压缩成为基础设施后，开发者的决策重心正从“选哪个模型”转向“如何路由与压缩成本”。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag">cheaper-inference</span> <span class="tag tag-star">⭐ 82,318</span> <span class="tag tag-gray">a2a / ai-agents / ai-gateway / anthropic</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=82,318，forks=12152，open_issues=526</div>
+          <div class="source">来源：<a href="https://github.com/cheaper-inference/OmniRoute" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. 12 个大模型自由探索被篡改的物理世界，仅 GPT-6-Astra 发现率 16.7%</h3>
+          <p class="news-body">论文提出 LongChang 自动化框架，构建一个或多个物理定律与常识不同的模拟世界，用于检验 LLM 能否在无人告知研究目标的情况下，像探索者一样主动操作物体、搭建工具，并自行提出与验证问题。框架由多个独立的 LLM 智能体分工，分别生成与审核场景、审核工具设计，并依据被篡改的物理定律和探索记录评判实验报告的正确性与实验支撑度；这些记录又反过来驱动场景演化，使整个循环无需人工介入即可持续运行。在 12 个受测 LLM 中，GPT-6-Astra 的定律发现率为 16.7%，其余 11 个模型均为 0%。探索记录还显示，模型普遍遗漏了未被追查的异常现象，对被篡改定律也只做到部分识别。该工作把 LLM 评估从知识回忆推进到“异常感知—实验设计—规律归纳”的自主科学发现链路，直接检验模型在未知物理环境中的探索与推理能力。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该论文由4位作者完成，直接追问LLM能否通过自由探索发现隐藏物理定律，切入AI自主科学发现这一前沿方向，值得关注其方法设计与验证边界。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.37649v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. MERLIN 用二阶矩路由改良线性注意力长上下文表现</h3>
+          <p class="news-body">自注意力的二次复杂度限制了大模型的长序列扩展，MSLA 通过把上下文分段并分别压缩进各自记忆状态来提升效率，但其聚合各状态信息时只利用查询与各段键之间的平均对齐，忽略了段内对齐的分布情况。为此，研究者提出 MERLIN（MomEnt Routing for multi-state LINear attention），通过追踪每段键的一阶与二阶矩，让查询同时恢复与各段对齐的均值与方差，从而对每个状态的读出做更内容感知的聚合。在 Gated DeltaNet-1.3B 与 Mamba-2-780M 的多状态变体上，MERLIN 在多种长上下文任务中稳定优于既有聚合方法：RULER needle-in-a-haystack 与长上下文问答分别提升 8.3% 和 7.0%，LongBench 多个子任务提升 13.5% 和 12.0%，甚至超过消耗 4 倍内存的基线。这意味着线性注意力在降低长序列建模成本之外，正尝试通过压缩记忆与结构化路由兼顾精度，缩小与全注意力的差距。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=5</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.37645v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 元认知控制器为扩散语言智能体按需解码，推理FLOPs降20.6%</h3>
+          <p class="news-body">扩散语言模型依靠并行 token 生成，被视为构建高效智能体的一条可行路径，但高效交互同时要求模型决定算力花在哪里、以及要生成多长的文本。为此，作者提出一个元认知控制器（metacognitive controller），依据当前回答的需求与智能体同环境的交互情况来引导扩散生成：它学习何时确定（finalize）token、生成应延伸到多远，从而压缩单次回答内的整体计算量。该控制器是扩散主干网络的轻量即插即用模块，在智能体轨迹上训练，以在正确性与生成成本之间取得平衡，并把智能体的生成过程与其所服务的交互绑定起来。在五个基准上的实验显示，相比最高效的基线，该方法平均降低 20.6% 的推理 FLOPs，同时保持有竞争力的任务准确率，消融研究进一步验证了其有效性。这意味着推理成本正从固定配置转向由模型自行判断“该想多少、该写多长”的按需分配。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">这篇由8位作者完成的论文提出Metacognitive Decoding，为扩散语言智能体的高效推理提供解码层面新思路，指向推理成本优化的行业趋势。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.37642v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Rare, Relevant, and Still Wrong: How Memory Fails LLM Group Decisions</h3>
+          <p class="news-body">研究追问：当LLM群体的讨论被压缩成一段短记忆交给最终决策者时，记忆该保留哪些内容。作者提出CrossProfile诊断基准，包含60个模板并自动验证答案键，将支持性、诱饵与无关事实的归属交叉设置而固定其文本，共480个任务。在Qwen2.5-7B、Llama-3.1-8B和两个DeepSeek模型上，按相关性筛选会重新放进切题诱饵——即便相关性过滤完美，在经典hidden-profile配置下仍比rarest-first选择低23至31分，而rarest-first平均只与随机选择相当，仅在稀有事实恰好有用时才占优。决策模型还叠加了社会证明式的偏差，对归属多个智能体的事实给予额外权重，移除归属标签或在固定行顺序下随机重排标签，可使经典配置准确率提升13至24分；在自然讨论中，证据在记忆介入前就已丢失，完整转录本的准确率反而低于完全不做笔记。这意味着多智能体讨论在信息充分交换后仍给出错误结论，部分可归因于记忆筛选这一可测量的失败来源。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">该论文以4位作者聚焦LLM群体决策中的记忆失效问题，揭示“稀有、相关却仍错误”的决策盲区，为多智能体协作可靠性提供诊断视角。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.37624v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. EnvSched把环境纳入调度，提升智能体RL的rollout效率</h3>
+          <p class="news-body">随着语言智能体的可执行环境规模扩大，生成并验证它们的 rollout 变得越来越昂贵。在有限 rollout 预算下，论文提出一个核心问题：能否在环境层面做数据管理，把任务实例与决定其工具、状态、转移和验证方式的环境放在一起组织、评估和调度，从而让智能体强化学习（RL）更高效。作者为此提出 EnvSched，这是一个从 rollout 历史中学习的在线调度器，它用两种互补方式分配调度价值：exploitation 优先选择更可能产生有信息量奖励差异的任务，coverage 则让每个批次覆盖欠观察的环境和交互模式。EnvSched 把“环境—任务”对组织成双关系图的节点，同一环境内的边捕捉任务语义，以及共享工具、状态与验证器结构，跨环境的边捕捉抽象执行与奖励拓扑；它沿两类边传播历史 rollout 统计，预测任务内的奖励方差，并据此把每批数据分配给预测方差高、环境与任务都欠观察的对象，再用环境配额与相似度惩罚抑制集中与冗余，从而在不增加预算的情况下获得有信息量且多样的批次。该论文共有 10 位作者。若这一思路成立，就意味着 RL 效率优化的重心可能从算法与模型侧部分转向环境与数据调度。</p>
+          <p class="comment">当 rollout 的生成与验证成为智能体 RL 的主要成本，把环境视为可度量、可排序、可调度的训练资源，可能会把优化重心从梯度更新移到采样端。若环境或沙箱提供方能输出标准化的 rollout 统计接口，这类调度逻辑就有机会沉淀为训练管线的中间层，不过它对通用大模型预训练格局的影响预计有限。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">该论文提出面向rollout效率的环境感知调度方法EnvSched，作者数达10人，显示agent强化学习正把环境调度作为训练提效的重要方向。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.37609v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Disruptive融资ElevenLabs</h3>
+          <p class="news-body">Disruptive 新设 100 亿美元基金，计划对至少 10 家公司进行大额集中投资；其此前已押注芯片公司 Groq 和 AI 语音生成公司 ElevenLabs。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-27</span> <span class="tag">Disruptive</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 3.3事件数据：amount_wan=100000</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/27/disruptive-raises-10b-fund-to-make-big-bets-on-at-least-10-companies/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI与ServiceNow双向打通代理与工作流</h3>
+          <p class="news-body">OpenAI 与 ServiceNow 扩大合作，方向是双向打通：OpenAI 的模型与代理进入 ServiceNow 平台，ServiceNow 的工作流则接入 ChatGPT 与 Codex。这一安排让前沿模型得以接触大型企业记录系统中的真实业务上下文，ServiceNow 也能在自有产品内引入前沿模型与代理运行时。其含义在于，企业 AI 的竞争焦点正从“模型能力接入”转向“动作执行权”：代理不再只检索数据，而可能发起工单、变更与审批这类带副作用的操作。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-28</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">OpenAI与ServiceNow扩大合作，将AI能力嵌入企业工作流，释放企业级AI落地的渠道与场景信号。</div>
+          <div class="source">来源：<a href="https://openai.com/index/openai-servicenow-partnership-expansion" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 微软推出Copilot harness，主推多模型智能体编排</h3>
+          <p class="news-body">微软发布 Microsoft Copilot harness，目标是让开发者在多个 AI 模型与多种交互界面之间无缝开展智能体工作。该文由微软 Foundry 部门 CVP Tina Schuchman 与 GitHub CTO Vladimir Fedorov 联合署名，发布时间标注为 2026 年 10 月 28 日。文章提出，要在竞争中立足就必须采用多模型策略，而要充分利用不同模型各自的能力，就需要一个优秀的 harness；但跨模型、跨界面构建无缝衔接的 harness 极其困难，必须同时解决性能、质量与成本三方面问题。GitHub 高管的联署表明，开发工作流将成为这一多模型智能体方案的首要落地场景，企业据此可按任务动态路由到不同模型，而不必被单一模型绑定。</p>
+          <p class="comment">多模型 harness 的竞争点已从模型能力转向路由、评测与治理的平台层；若这套方案能兑现性能、质量与成本三者的平衡，企业智能体规模化的主要瓶颈就可能从模型锁定转移到编排层选型。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-28</span> <span class="tag">Microsoft</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">微软推出 Copilot harness，聚焦真正意义上的多模型智能体协作，补强智能体编排能力，并释放出多模型协同将成行业标配的趋势信号。</div>
+          <div class="source">来源：<a href="https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/" target="_blank" rel="noopener">Microsoft 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Voice AI in vogue: Nvidia releases new open transcription model</h3>
+          <p class="news-body">Nvidia just released a free speech-to-text model that can transcribe up to 40 languages, but it only works on recordings, not live audio, so it’s a big step for meeting and medical transcription tools while still leaving</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-28</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">英伟达发布新的开源转录模型，显示语音AI正成为行业热点，也为语音转录带来新的开放模型供给。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Wiz CTO谈PHP2Shell：漏洞清理远未结束</h3>
+          <p class="news-body">上周，支撑约70%网站的开源语言PHP被曝出两个关键漏洞，企业被迫紧急修复系统；Wiz CTO以PHP2Shell和将至的“vulnpocalypse”为线索讨论这一局面。虽然相关恐慌已从信息流中退潮，但清理工作远未结束。对拥有大量对外Web资产和遗留、第三方系统的企业而言，未修补实例会让暴露窗口持续拉长，而不是随热点消退自动消失。漏洞治理因此更像长期清理与资产可见性工程：热点过后，规模化攻击入口仍可能来自那些没打补丁的实例。</p>
+          <p class="comment">真正需要警惕的不是披露当周的热度，而是补丁滞后形成的长尾暴露：若资产清单和持续验证缺位，攻击者会在舆论退潮后按图索骥。PHP2Shell这类事件可能把漏洞治理从应急响应推向常态化的补丁运营。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-28</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 2.4，真实性 2.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/video/wizs-cto-on-php2shell-and-the-coming-vulnpocalypse/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Dify 与 RAGFlow：开源代理与检索底座的组合演进</b> — 两者分别占据工作流编排与检索增强的入口，其版本迭代往往预示企业自建 AI 栈的默认技术选型，值得持续比对能力边界与部署成本。</div><div class="watch-item"><b>Microsoft Copilot harness：多模型代理的统一调度层</b> — 若 harness 成为跨模型的标准调度层，企业将围绕它而非单一模型厂商构建应用，可能重塑模型供应商的议价结构。</div><div class="watch-item"><b>OpenAI 与 ServiceNow 的企业工作流整合</b> — 这是模型厂商向流程系统纵深渗透的典型样本，需观察实际落地场景数量与客户续约数据，而非仅看合作公告。</div><div class="watch-item"><b>LLM 自主发现物理定律的研究路径</b> — 该方向检验模型是否具备真正的假设生成能力，若成立将显著改变科研辅助工具的定位，但当前更需关注其评估方法的严谨性。</div><div class="watch-item"><b>扩散语言模型的推理效率（Metacognitive Decoding）</b> — 扩散式语言模型的主要瓶颈在推理成本，此类解码策略若可泛化，可能改变 Agent 场景下的模型选型逻辑。</div><div class="watch-item"><b>Disruptive 100 亿美元基金与头部集中下注</b> — 单只基金瞄准至少十家公司的大额下注，反映资本向少数赢家集中的趋势，可作为判断行业整合节奏的领先指标。</div><div class="watch-item"><b>Nvidia 开源语音转写模型与语音入口竞争</b> — 开源转写模型降低语音交互门槛，可能加速客服、会议等场景的代理化，同时加剧与专业语音厂商的直接竞争。</div><div class="watch-item"><b>Wiz 警告的“漏洞风暴”与企业 AI 安全支出</b> — 代理系统扩大了自动化攻击面，安全侧的被动支出可能成为 2027 年企业 AI 预算中被低估的一块。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-29T05:55:29.194Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
