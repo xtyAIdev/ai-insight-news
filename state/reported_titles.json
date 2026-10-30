@@ -1,23 +1,4 @@
 {
- "2026-10-15": {
-  "paper": [
-   "paper|reliable llm based natural language orchestration 5g network slicing using hybri"
-  ],
-  "opensource": [
-   "opensource|paperclip source app everyone uses manage agents work",
-   "opensource|rea reverse engineer anything agents app behavior",
-   "opensource|deer flow source long horizon superagent harness that",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|deepseek reasonix reliable coding agent complex software engineering"
-  ],
-  "enterprise": [
-   "enterprise|年化收入突破 亿美元并完成 亿美元 轮融资 modal 10 7 5 d",
-   "enterprise|figma features define how agents work platform",
-   "enterprise|ricursive intelligence is betting ai designed chips help solve compute crisis",
-   "enterprise|apate sends ai agents undercover get scammed so they can gather fraud intelligen",
-   "enterprise|floqer s ai agents research sales prospects so teams don t have"
-  ]
- },
  "2026-10-16": {
   "paper": [
    "paper|robust multi agent pursuit preemptive communication via reachability based contr",
@@ -331,6 +312,29 @@
    "enterprise|microsoft copilot harness unlocking potential truly multi model agentic work",
    "enterprise|voice ai vogue nvidia transcription model",
    "enterprise|wiz s cto php2shell coming vulnpocalypse"
+  ]
+ },
+ "2026-10-30": {
+  "paper": [
+   "paper|symant grounding long horizon action anticipation adaptable symbolic priors",
+   "paper|elucidating design space lm data attribution",
+   "paper|shallowdefend harnessing shallow safety alignment multi turn defender",
+   "paper|textseal2 distortion free llm watermarking copula mixing memoryless races",
+   "paper|when assist what suggest joint gating memory grounded hint generation one compac"
+  ],
+  "opensource": [
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|magpie every agent s model",
+   "opensource|vllm high throughput memory efficient inference",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|hyperframes write html"
+  ],
+  "enterprise": [
+   "enterprise|wabi ai agent that builds mini apps now 1 25b after round",
+   "enterprise|how we detect frontier model misalignment",
+   "enterprise|meta quietly ai fashion app called style sketch",
+   "enterprise|mistral weights trillion parameter ai model targeting cybersecurity",
+   "enterprise|ex palantir execs dream 17m a16z build ai world models construction"
   ]
  }
 }
