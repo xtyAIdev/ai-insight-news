@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-10-31</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Three threads dominate today's news. The open-source agent ecosystem keeps expanding, with Hermes, Suna and Eliza competing on memory, web interfaces and OS-lev">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-10-31">
+<meta property="og:description" content="Three threads dominate today's news. The open-source agent ecosystem keeps expanding, with Hermes, Suna and Eliza competing on memory, web interfaces and OS-level orchestration. On the research side, ">
+<meta property="og:url" content="./report_20261031.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-10-31">
+<meta name="twitter:description" content="Three threads dominate today's news. The open-source agent ecosystem keeps expanding, with Hermes, Suna and Eliza competing on memory, web interfaces and OS-level orchestration. On the research side, ">
+<link rel="canonical" href="./report_20261031.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-10-31 ｜ report_20261031</div>
+<div class="sub" data-lang-title="zh">2026-10-31 ｜ report_20261031</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Three threads dominate today's news. The open-source agent ecosystem keeps expanding, with Hermes, Suna and Eliza competing on memory, web interfaces and OS-level orchestration. On the research side, attention is shifting toward verifiability for computer-using agents and new training paradigms such as on-policy distillation and progressive correction. Meanwhile, infrastructure and governance move in parallel: Nvidia is in talks to back debt for an Nscale data center, while OpenAI steps up teen protections and gives websites a clearer way to express AI training preferences. Taken together, agents are moving from a capability race into a phase of reliability, compliance and supporting infrastructure.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 258,933</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">Composite score 5社区数据：stars=258,933，周增长=+2633，forks=56918，open_issues=52138</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. mempalace：The best-benchmarked open-source AI memory system</h3>
+          <p class="news-body">The best-benchmarked open-source AI memory system. And it's free.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">MemPalace</span> <span class="tag tag-star">⭐ 60,169</span> <span class="tag tag-gray">ai / chromadb / llm / mcp</span></div>
+          <div class="pick-reason">With 60,169 stars, 7,624 forks and +442 stars in a week, mempalace shows</div>
+          <div class="source">Source：<a href="https://github.com/MemPalace/mempalace" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. hermes-webui：Hermes WebUI: The best way to use Hermes Agent from the web</h3>
+          <p class="news-body">Hermes WebUI: The best way to use Hermes Agent from the web or from your phone!</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">nesquena</span> <span class="tag tag-star">⭐ 19,302</span> <span class="tag tag-gray">agent / ai-agents / hermes / hermes-agent</span></div>
+          <div class="pick-reason">Composite score 4.3社区数据：stars=19,302，forks=2794，open_issues=903</div>
+          <div class="source">Source：<a href="https://github.com/nesquena/hermes-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. suna：Kortix CompanyOS – the open-source operating system for</h3>
+          <p class="news-body">Kortix CompanyOS – the open-source operating system for your company. Multiplayer AI agents, your company as code, sovereign on your infrastructure or ours.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">kortix-ai</span> <span class="tag tag-star">⭐ 20,337</span> <span class="tag tag-gray">ai / ai-agents / company-as-code / company-operating-system</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=20,337，forks=3441，open_issues=36</div>
+          <div class="source">Source：<a href="https://github.com/kortix-ai/suna" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. eliza：Open source agentic operating system</h3>
+          <p class="news-body">Open source agentic operating system</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">elizaOS</span> <span class="tag tag-star">⭐ 19,742</span> <span class="tag tag-gray">agent / agentic / ai / autonomous</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=19,742，周增长=+93，forks=5855，open_issues=154</div>
+          <div class="source">Source：<a href="https://github.com/elizaOS/eliza" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. VeriCUA: Verification as Agentic Exploration for Computer-Using Agents</h3>
+          <p class="news-body">Building and scaling computer-using agents (CUAs) across desktop, mobile, and web environments requires reliable task-completion verification for data curation, evaluation, and reinforcement learning. Typical automated approaches prompt vision-language models (VLMs) to judge trajectories or generate programs to inspect application state. However, both rely on partial views of complex digital environments. VLM judges are restricted to supplied observations, while generated programs depend on accessible state. These views can omit decisive evidence or leave completion judgments unsupported. Tailoring separate verifiers to different platforms and access settings adds further engineering cost. We present VeriCUA, a platform-agnostic framework for verification through agentic exploration. It treats verification as dynamic evidence gathering and assessment within a shared procedure for online and offline settings across platforms and observation modalities. After inspecting the available context to construct a task rubric, the verifier selects GUI or code checks for unresolved requirements and combines their findings under explicit evidence rules. Experiments show improved agreement with reference labels over the compared baselines across these settings, with the largest offline gains on hard cases and stronger rejection of false completion claims online. Further analyses connect these gains to complementary evidence and test-time exploration.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">The paper introduces verification as agentic exploration for computer-using agents, with eight authors advancing reliability research for CUA deployment.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.40578v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. PIVOT: Progressive Intervention via Online Teacher Correction</h3>
+          <p class="news-body">Reinforcement learning from verifiable rewards (RLVR) is limited by sparse outcome-level feedback on hard reasoning tasks: when all rollouts in a group fail, rewards provide no learning signal. Stronger teachers can provide additional guidance, but this raises a central question: how can such signals be incorporated into RLVR to support successful rollouts while remaining learnable for the student? We distinguish two complementary mechanisms: trajectory-level intervention, which improves access to reward-bearing trajectories, and token-level supervision, which provides dense targets to guide student learning. Our controlled experiments show that either mechanism alone can remain insufficient, motivating their combination. We therefore introduce PIVOT, which inserts teacher-generated corrections into student rollouts and applies token-level KL supervision to these segments alongside the RLVR objective. Beyond their combination, we systematically analyze where to intervene and how to supervise, yielding a recipe for effective guidance. Across hard logic games and mathematical reasoning benchmarks, PIVOT consistently outperforms existing methods, nearly doubling mean avg@8 on logic games from 19.5% for the best-performing baseline to 35.6%.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=10</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.40576v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Every Token Needs Its Own Teacher: Multi-teacher Adaptive On-policy Self-distillation</h3>
+          <p class="news-body">On-policy Self-distillation (OPSD) has proven effective for post-training large language models by constructing a teacher conditioned on privileged references. However, existing approaches keep the teacher fixed either throughout training by consistently exposing it to the full reference, or within each response by adaptively varying partial reference exposure only across responses. In this paper, we argue that neither of them is sufficient. Instead, every token needs its own teacher, as the teacher preference can vary token by token within the same response. Through a teacher-intervention pilot study, we validate that the teacher preference differs across tokens, and reveal that a preferred teacher can be identified for each token through majority voting and KL-based selection. Motivated by these findings, we propose Multi-teacher Adaptive On-policy Self-Distillation (MTA-OPSD), the first token-level adaptive OPSD method. Our method constructs a multi-teacher pool consisting of candidate teachers, and enables every token to adaptively select its preferred teacher during training. Experiments with Qwen3 models on mathematical reasoning tasks show that MTA-OPSD consistently outperforms existing OPSD approaches with an average gain of up to $+5.9$ over the base model, highlighting the importance of adapting teacher supervision at the token level. The code is available at https://github.com/xingzhejun/MTA-OPSD.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=6</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.40574v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Comparing Human Role-Players and LLM-Simulated Clients in Online Counselling Training: An Analysis of Counselling Patterns</h3>
+          <p class="news-body">This study investigates the capabilities of Large Language Models to simulate counselling clients in educational role-plays in comparison to human role-players. Initially, we recorded role-playing sessions, where novice counsellors interacted with human peers acting as clients, followed by role-plays between humans and clients simulated by Mistrals Mixtral 8x7b using 4-bit quantization. These interactions were analysed with a counselling communication pattern system at sentence level. We investigated two key questions: (1) to what extent LLM-generated responses replicate authentic conversational dynamics and (2) whether counsellors' communication behaviour differs when interacting with human versus LLM-simulated clients. The findings highlight both similarities and differences in the application of counselling patterns across scenarios, showing the potential of LLM-based role-playing exercises to enhance counselling competencies and to identify areas for further refinement in virtual client simulations.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">With three authors, this paper compares human role-players and LLM-simulated</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.40563v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Rethinking Neural Thickets Without Weight Perturbations</h3>
+          <p class="news-body">The Neural Thickets hypothesis posits that pretrained language models lie in dense neighborhoods of task-specific experts in weight space, which random Gaussian perturbations can uncover. We reproduce the reported gains, but show that they do not require this geometric explanation. Perturbing a single decoder block already recovers much of the improvement, while keeping the model entirely frozen and adding a random bias to its output logits matches or exceeds full-weight perturbations on most reasoning tasks. This suggests an alternative explanation based on output diversity, validation-based selection, and voting. We formalize this view as Perturb-Select-Vote (PSV), a general procedure that generates perturbed predictors, selects high-performing members on a small validation set, and aggregates their predictions. This interpretation connects Neural Thickets to established inference-time methods, including sampling, self-consistency, and verifier-guided selection. A first-order analysis further shows that small weight perturbations act primarily through their induced logit shifts. We extend this analysis to vision, where logit PSV substantially improves performance under domain shift, including on Earth observation, while full-weight perturbations provide little additional benefit. Together, these results suggest that the gains attributed to nearby weight-space experts can instead be obtained through output diversity, selection, and voting. Logit PSV realizes these benefits w</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">With five authors, this paper rethinks neural thickets without relying on weight perturbations, offering a fresh angle on loss landscapes and generalization.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.40649v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Nvidia 洽谈为 Nscale 西弗吉尼亚 Anthropic 数据中心提供债务担保</h3>
+          <p class="news-body">据 The Information 报道、Bloomberg 佐证，Nvidia 正洽谈为 Nscale 在西弗吉尼亚为 Anthropic 建设的数据中心担保数十亿美元债务融资，Anthropic 已就首栋建筑签署 446 亿美元合同。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 3.3事件数据：amount_wan=4460000</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/" target="_blank" rel="noopener">TechCrunch：AI（RSS）</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Community safety report and new protections for teens</h3>
+          <p class="news-body">OpenAI is strengthening violence prevention in ChatGPT with expanded safeguards, earlier interventions, and a new commitment to public safety reporting.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">The event pairs a community safety report with new protections for teens, signaling a concrete platform focus on teen safety and transparency.</div>
+          <div class="source">Source：<a href="https://openai.com/index/community-safety-report-and-new-protections-for-teens" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Making it easier for websites to express AI training preferences</h3>
+          <p class="news-body">OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Making it easier for websites to express AI training preferences moves the choice over training data to the site level, a signal in the data-authorization chain.</div>
+          <div class="source">Source：<a href="https://openai.com/index/helping-websites-express-ai-training-preferences" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Last-minute Halloween costumes for tech nerds</h3>
+          <p class="news-body">No Halloween costume? Just be a deceptively cute AI agent icon, a PHP vulnerability, or sleepy time Bryan Johnson.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Zest’s new AI agent finds restaurants and books reservations over text</h3>
+          <p class="news-body">Can't agree on where to eat? Zest's AI concierge can combine everyone's tastes, put restaurant options to a vote, and make the reservation.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Zest's new AI agent handles the full loop from finding a restaurant to booking a reservation over text, moving conversational agents beyond information lookup into real-world transaction fulfillment and pointing to local-services booking as a new AI agent entry point.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>The Hermes agent stack (Agent, WebUI and memory system)</b> — A single ecosystem now spans an agent framework, a web interaction layer and an open-source memory system. If the three pieces interlock, they could become a default open-source agent stack; watch for benchmark methodology and real-world deployments.</div><div class="watch-item"><b>OS-level agent orchestration in the open (Suna and Eliza)</b> — Both projects position agents as operating-system-level capabilities, shifting competition from standalone tools to platforms and workflow entry points. Watch enterprise adoption paths and plugin ecosystem growth.</div><div class="watch-item"><b>Verifiability for computer-using agents (VeriCUA)</b> — The work reframes verification as agentic exploration, targeting the core trust problem holding back computer-using agents. If results hold up, it could become a standard evaluation and training component for this class of agents.</div><div class="watch-item"><b>On-policy distillation and progressive correction (PIVOT and peers)</b> — Multi-teacher adaptive distillation and online teacher correction both aim at more efficient use of training signals, potentially reducing reliance on large-scale human annotation. Track reproducibility across model scales.</div><div class="watch-item"><b>Data-center financing and compute buildout (Nvidia and Nscale)</b> — A chipmaker stepping in with debt guarantees for a data center reflects financial innovation in compute expansion, but also raises concentration and cyclical-risk questions. Watch deal terms and whether similar structures follow.</div><div class="watch-item"><b>AI training preferences and teen safety mechanisms</b> — OpenAI is advancing both website-level training preferences and teen protections, effectively productizing content-governance rules. This will affect publishers' bargaining power and how the company aligns with regulators worldwide.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日动态呈现三条主线：开源智能体生态继续扩张，Hermes、Suna、Eliza 等项目围绕记忆、Web 界面与操作系统级编排展开竞争；学术侧重心转向计算机使用型智能体的可验证性与在线蒸馏、渐进纠错等训练范式；企业侧算力与治理同步推进，Nvidia 拟为 Nscale 数据中心提供债务担保，OpenAI 则加码青少年保护与网站训练偏好表达。整体看，智能体从能力竞赛进入可靠性、合规与基础设施配套的建设期。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. NousResearch发布Agent新动态</h3>
+          <p class="news-body">NousResearch 在开源仓库中发布了 hermes-agent：它不是一次性对话的 demo，而是一个可以持久运行、保存状态并逐步积累能力与个性化配置的 agent 框架；它与其 Hermes 系列开源权重模型配套使用，形成“模型+执行框架”的完整开源方案。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 258,933</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">综合评分 5社区数据：stars=258,933，周增长=+2633，forks=56918，open_issues=52138</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 开源记忆系统mempalace以最佳基准成绩切入Agent记忆层</h3>
+          <p class="news-body">开源项目mempalace自称是目前基准测试表现最好的开源AI记忆系统，且完全免费。该项目当前在社区拥有60,169个stars、7,624个forks、818个open issues，一周内新增442个stars。其定位是把记忆做成可横向对比的独立组件，而非由各家自行搭建的模块。原文未披露具体基准名称、评测分数或技术实现细节。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">MemPalace</span> <span class="tag tag-star">⭐ 60,169</span> <span class="tag tag-gray">ai / chromadb / llm / mcp</span></div>
+          <div class="pick-reason">作为开源 AI 记忆系统，mempalace 已获 60,169 stars、7,624 forks，周增 442，818 个 open issues 显示社区活跃、AI 记忆基础设施需求旺盛。</div>
+          <div class="source">来源：<a href="https://github.com/MemPalace/mempalace" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Hermes WebUI 为 Agent 补上网页与手机入口</h3>
+          <p class="news-body">hermes-webui 是一个面向 Hermes Agent 的 Web 前端项目，其定位是让用户从浏览器网页或手机访问并使用 Hermes Agent，从而不必局限于终端环境。该仓库目前获得 19,302 个 stars、2,794 个 forks，open issues 为 903 个，说明它已在社区中积累起相当的关注度与待办讨论量。项目自我描述为“从网页或手机使用 Hermes Agent 的最佳方式”，实际上是把自托管 Agent 的交互入口从命令行扩展到随时可访问的界面。这意味着 Agent 走向普及的瓶颈可能不只在模型能力，也在入口是否随手可得；社区自发补齐的 Web/移动前端，正在把“框架层”之外的前端与部署环节一并纳入开源 Agent 的竞争范围。</p>
+          <p class="comment">Agent 框架的实际采用门槛常常卡在交互入口而非模型能力，这类社区 WebUI 若被广泛采用，可能像 Stable Diffusion 的 WebUI 那样成为生态扩散的加速器。但 903 个 open issues 也提示，网页与移动端体验的打磨仍有一段路要走。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">nesquena</span> <span class="tag tag-star">⭐ 19,302</span> <span class="tag tag-gray">agent / ai-agents / hermes / hermes-agent</span></div>
+          <div class="pick-reason">Hermes WebUI 以 19,302 stars、2,794 forks 和 903 open issues，显示 Web 端接入 Hermes Agent 已形成可</div>
+          <div class="source">来源：<a href="https://github.com/nesquena/hermes-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. kortix-ai开源新动态</h3>
+          <p class="news-body">Kortix 发布开源 CompanyOS，将公司流程、角色与知识以代码形式组织，并让多个 AI agent 在同一组织上下文中协作，支持自有或托管基础设施部署。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">kortix-ai</span> <span class="tag tag-star">⭐ 20,337</span> <span class="tag tag-gray">ai / ai-agents / company-as-code / company-operating-system</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=20,337，forks=3441，open_issues=36</div>
+          <div class="source">来源：<a href="https://github.com/kortix-ai/suna" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. eliza 开源智能体操作系统星标达19742</h3>
+          <p class="news-body">eliza 的定位是开源的智能体操作系统（agentic operating system）。其 GitHub 社区当前星标为 19,742，周增长 +93，fork 数为 5,855，open issues 为 154。社区已有近 2 万星标和 5,000 多 fork，同时仍有 154 个未关闭问题，说明项目具备一定开发者基础且工程面仍有待收敛。若 OS 级抽象成熟，智能体在多工具、多任务协作中的运行时、权限与资源调度重复建设可能减少，并可能影响 Agent 基础设施的接口与规范。</p>
+          <p class="comment">智能体竞争正从模型与框架层上移到运行时/操作系统层，eliza 的社区体量可能说明开发者已在为底层抽象下注；但 154 个 open issues 也提示权限模型、资源调度和工具调用规范要经得起工程化检验，若被广泛采用则可能外溢到企业自动化与云平台。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">elizaOS</span> <span class="tag tag-star">⭐ 19,742</span> <span class="tag tag-gray">agent / agentic / ai / autonomous</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=19,742，周增长=+93，forks=5855，open_issues=154</div>
+          <div class="source">来源：<a href="https://github.com/elizaOS/eliza" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. VeriCUA用智能体探索重构CUA任务完成验证</h3>
+          <p class="news-body">针对桌面、移动和网页环境中构建与扩展CUA时必需的任务完成验证，VeriCUA被提出为一个与平台无关的框架，把验证视为智能体式探索中的动态取证与评估，并统一在线/离线、跨平台和不同观测模态的流程。现有自动方法要么让VLM裁判基于给定观测判断轨迹，要么生成程序检查应用状态，但二者都只依赖复杂数字环境的部分视图，可能漏掉决定性证据或让完成判断缺乏支撑，且为不同平台和访问设置定制验证器会增加工程成本。VeriCUA先检查可用上下文构建任务评分细则，再针对未满足要求选择GUI或代码检查，并按显式证据规则合并结果。实验显示，在多种设置下其与参考标签的一致率优于对比基线，离线困难案例增益最大，在线对虚假完成声明的拒绝更强，分析将增益归因于互补证据与测试时探索。对CUA而言，验证误判</p>
+          <p class="comment">论文提出 VeriCUA，将计算机使用代理（CUA）的任务完成验证从“VLM 裁判判断轨迹”或“生成程序检查状态”改为让验证智能体主动探索桌面、移动和 Web 环境，以获取更完整的交互证据。其核心是解决现有自动验证只依赖局部观测或受限程序访问的问题。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">该论文提出以验证驱动智能体探索的CUA方法，8位作者合力推进计算机使用智能体的可靠性研究，为Agent落地提供新思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.40578v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. PIVOT：用在线教师纠正把零梯度难题转成可学信号</h3>
+          <p class="news-body">RLVR 依赖结果级奖励，在困难推理任务上反馈稀疏：当一个组内所有 rollout 都失败时，奖励无法提供任何学习信号。作者把教师信号拆成两个互补机制——轨迹级干预（提高模型获得带奖励轨迹的概率）与 token 级监督（提供密集目标），受控实验显示两者单独使用都不充分。由此提出 PIVOT：把教师生成的纠正片段插入学生 rollout，对这些片段施加 token 级 KL 监督并与 RLVR 目标联合优化，同时系统分析了在何处干预、如何监督，形成一套可复用的指导配方。在困难逻辑游戏与数学推理基准上，PIVOT 稳定优于现有方法，逻辑游戏的平均 avg@8 从最佳基线的 19.5% 提升到 35.6%，接近翻倍（该论文作者数为 10）。这也把“全失败组如何处理”从工程细节抬升为方法议题：教师不再一次性产出蒸馏数据，而是在 rollout 循环内按需介入并按学生进度退火。</p>
+          <p class="comment">PIVOT 的关键不只是再引入一个教师，而是把“干预粒度与衰减调度”当作核心变量：教师信号过强会带来分布外轨迹、学生反而学不动，若后续工作能把这层强度约束量化，围绕教师调用预算与干预节奏的调度很可能成为 RLVR 的新竞争维度。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">PIVOT 提出以在线教师纠正实现渐进式干预，由 10 位作者共同完成，看点在于把教师模型的实时纠偏嵌入训练过程，而非依赖</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.40576v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. token级选师：MTA-OPSD让每个token自选教师</h3>
+          <p class="news-body">现有 on-policy 自蒸馏（OPSD）要么在训练全程向教师暴露完整参考，要么只在回复级层面调整部分参考的暴露比例，教师粒度偏粗。论文认为两者都不够：同一个回复内部，不同 token 的教师偏好也会变化。作者通过教师干预（teacher-intervention）试点研究验证了 token 间的偏好差异，并表明可以用多数投票加 KL 选择为每个 token 找出偏好教师。据此提出 MTA-OPSD，构建由候选教师组成的多教师池，训练中让每个 token 自适应地选择自己的教师，作者称其为首个 token 级自适应 OPSD 方法。在 Qwen3 模型的数学推理任务上，MTA-OPSD 相对基座模型的平均增益最高达 +5.9，并持续优于现有 OPSD 方法，代码已公开；这意味着后训练蒸馏的粒度正从训练级、回复级下沉到 token 级，细粒度 credit assignment 与按需参考暴露可能成为新的优化方向。</p>
+          <p class="comment">把教师粒度压到 token 级，针对的正是统一教师在同一回复内造成的信用分配偏差；若多教师池加 KL 选师的结论能推广到数学推理之外的开放域任务，OPSD 一类方法的设计空间就可能被重新划分。代价是维护多教师池大概率抬高训练开销，这种细粒度选择在更大模型与更长上下文上是否仍能保持收益，还有待验证。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=6</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.40574v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Comparing Human Role-Players and LLM-Simulated Clients in Online Counselling Training: An Analysis of Counselling Patterns</h3>
+          <p class="news-body">一项由3位作者完成的研究考察了大语言模型在教育角色扮演中模拟心理咨询来访者的能力，对照对象是真人扮演者。研究先录制新手咨询师与真人同伴（扮演来访者）的角色扮演会话，随后再录制新手咨询师与由Mistral的Mixtral 8x7b（采用4-bit量化）模拟的来访者之间的角色扮演，并用咨询沟通模式系统在句子层面分析这些互动。研究提出两个问题：LLM生成的回应在多大程度上复现真实对话动态；咨询师面对真人与LLM模拟来访者时沟通行为是否存在差异。结果显示，两种情境下咨询模式的应用既存在相似之处，也存在差异，说明基于LLM的角色扮演练习具备提升咨询胜任力的潜力，同时也指出了虚拟来访者模拟需要进一步改进的环节。这意味着LLM模拟来访者的研究已从单纯的体验层面，推进到对沟通过程做可量化评估的阶段，直接关系到AI角色能否在咨询训练中替代或补充真人陪练。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">这篇由3位作者完成的论文对比人类角色扮演者与LLM模拟来访者在在线咨询训练中的咨询模式，为AI模拟来访者的训练有效性提供直接分析。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.40563v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Rethinking Neural Thickets Without Weight Perturbations</h3>
+          <p class="news-body">这篇由5位作者完成的论文复现了 Neural Thickets 假说报告的增益——该假说认为预训练语言模型位于权重空间中任务专家密集的邻域，随机高斯扰动可以将其揭示出来。但作者发现，这些增益并不需要上述几何解释：仅扰动单个 decoder block 就能恢复大部分提升，而在模型完全冻结、只向输出 logits 叠加随机偏置的情况下，多数推理任务上的表现已追平甚至超过全权重扰动。作者据此提出替代解释，即输出多样性、基于验证集的选择与投票，并将其形式化为 Perturb-Select-Vote（PSV）通用流程：生成扰动预测器、在小验证集上选出高表现成员、再聚合其预测，从而把 Neural Thickets 与采样、self-consistency、verifier-guided selection 等推理期方法联系起来。一阶分析进一步表明，小幅权重扰动主要通过其引发的 logit 偏移起作用；该分析被扩展到视觉领域，logit PSV 在包括对地观测在内的域偏移场景下带来显著提升，而全权重扰动几乎没有额外收益。这意味着被归因于权重空间“邻近专家”的收益可以用输出多样性、选择与投票以更低成本获得，也削弱了以权重几何解释微调收益的因果证据。</p>
+          <p class="comment">如果仅靠 logit 层的随机偏置与验证集投票就能追平乃至超过全权重扰动，那么一批依赖权重空间几何叙事的模型编辑与集成工作就需要重做消融与基线对照，随机 logits 偏置这类轻量方法很可能成为新的低成本默认基线；这也是一个可被直接证伪的检验，若后续严格对照下厚丛效应仍显著，则该批评不成立。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">该论文由5位作者完成，重新审视不依赖权重扰动的神经厚集现象，为理解神经网络损失景观与泛化机制提供新视角。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.40649v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Nvidia 洽谈为 Nscale 西弗吉尼亚 Anthropic 数据中心提供债务担保</h3>
+          <p class="news-body">据 The Information 报道、Bloomberg 佐证，Nvidia 正洽谈为 Nscale 在西弗吉尼亚为 Anthropic 建设的数据中心担保数十亿美元债务融资，Anthropic 已就首栋建筑签署 446 亿美元合同。</p>
+          <p class="comment">Nvidia 正与 Nscale 洽谈，为其在西弗吉尼亚州为 Anthropic 建设的数据中心提供数十亿美元债务融资担保；Anthropic 已为首栋建筑签署 446 亿美元合同。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 3.3事件数据：amount_wan=4460000</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/" target="_blank" rel="noopener">TechCrunch：AI（RSS）</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI 扩大 ChatGPT 青少年防暴力保护并承诺公开安全报告</h3>
+          <p class="news-body">OpenAI 表示正在强化 ChatGPT 的暴力预防机制：一方面扩大既有防护措施的覆盖范围，另一方面把干预节点前移，在风险升级前更早介入。同时，OpenAI 作出新的公共安全报告承诺，即把安全工作的相关信息对外公开。这三项动作分别指向防护范围、介入时点与对外披露，构成一套较为完整的安全举措组合。从影响看，这类披露若形成周期化惯例，将把 AI 安全从企业内部工程议题推向可被外部审计的公开承诺，回应监管对未成年人保护与平台透明度的审查压力。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">该事件同时发布社区安全报告并推出面向青少年的新保护措施，体现平台在青少年安全治理上的持续投入与透明度。</div>
+          <div class="source">来源：<a href="https://openai.com/index/community-safety-report-and-new-protections-for-teens" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. OpenAI发布最新动态</h3>
+          <p class="news-body">OpenAI 宣布将遵循一个多方共用的 robots.txt 扩展信号，网站运营者可在该文件中声明是否允许 AI 训练抓取，OpenAI 承诺作为参与方之一予以识别和遵守。这是自愿性行业约定，并非法律强制，且只对加入该机制的提供方生效。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">让网站更便捷地表达对 AI 训练的偏好，使用于训练的知情选择权从模型方前移到站点侧，是数据授权链条上的一个信号。</div>
+          <div class="source">来源：<a href="https://openai.com/index/helping-websites-express-ai-training-preferences" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Last-minute Halloween costumes for tech nerds</h3>
+          <p class="news-body">某科技媒体发布了一篇万圣节“临时装扮”清单，把 AI agent 应用图标、PHP 漏洞、以及 Bryan Johnson 式睡眠养生梗列为可穿戴造型，属于节日类轻内容，而非产品发布。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">科技极客万圣节服饰选题凸显AI与极客文化向大众消费场景渗透，是</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Zest 短信 AI 代理可汇总口味投票并代订餐厅</h3>
+          <p class="news-body">Zest 的 AI 代理可在短信对话中帮用户找餐厅并完成预订。遇到同行者意见不一致时，它会汇总每个人的口味偏好，生成餐厅选项并发起投票。投票结束后，代理直接代为预订。这意味着 AI 代理正从信息检索走向多人协调与代客执行，并以短信这类无需安装的渠道降低使用门槛。</p>
+          <p class="comment">Zest 把群组决策和交易执行放进短信线程，若模式跑通，预订平台的前台入口可能被消息通道截走，AI 代理的比拼也会从“会推荐”转向“能替一群人拍板并下单”。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Zest 的新 AI agent 通过短信完成找餐厅到订位的完整闭环，把对话式代理从信息查询推进到真实交易履约，显示 AI agent 正切入本地生活服务的预订入口。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Hermes 智能体生态（Agent + WebUI + 记忆系统）</b> — 同一生态内同时出现智能体框架、Web 交互层与开源记忆系统，若三者形成协同，可能成为开源智能体的默认组合，需观察其基准测试方法与实际落地案例。</div><div class="watch-item"><b>开源操作系统级智能体编排（Suna / Eliza）</b> — 两个项目都把智能体定位为操作系统层能力，意味着竞争从单一工具转向平台与工作流入口，关注其企业采用路径与生态插件增长。</div><div class="watch-item"><b>计算机使用型智能体的可验证性（VeriCUA）</b> — 该研究将验证过程转化为智能体的探索行为，直指 CUA 落地最痛的可信度问题，若效果稳定，可能成为该类智能体的标准评测与训练组件。</div><div class="watch-item"><b>在线蒸馏与渐进纠错训练范式（PIVOT 等）</b> — 多教师自适应蒸馏与在线教师纠错共同指向更高效的训练信号利用方式，可能降低对大规模人工标注的依赖，需跟踪其在不同模型规模上的可复现性。</div><div class="watch-item"><b>AI 数据中心融资与算力配套（Nvidia / Nscale）</b> — 芯片厂商以债务担保方式介入数据中心融资，反映算力扩张的资本结构创新，也带来集中度与周期风险，需关注交易条款与后续类似案例。</div><div class="watch-item"><b>AI 训练偏好表达与青少年保护机制</b> — OpenAI 同时推进网站训练偏好表达与青少年保护，实质是把内容治理规则产品化，将影响内容方议价权与全球监管对接方式。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-10-31T05:50:29.076Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
