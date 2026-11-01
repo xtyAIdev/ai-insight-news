@@ -1,27 +1,4 @@
 {
- "2026-10-17": {
-  "paper": [
-   "paper|libero perm benchmarking personalized robotic manipulation",
-   "paper|pathfm fast generative forecasting multivariate trajectories",
-   "paper|mlexpert towards generalist agentic model autonomous machine learning engineerin",
-   "paper|geostate learning view decoupled geometry states 3d world modeling",
-   "paper|lean graph search formal theorem proving"
-  ],
-  "opensource": [
-   "opensource|peekaboo peekaboo is macos cli optional mcp server that enables",
-   "opensource|reflect source reflect rewrite local ai",
-   "opensource|rea reverse engineer anything agents app behavior",
-   "opensource|hermes agent agent that grows you",
-   "opensource|dify build agentic workflows rag pipelines rich ai model"
-  ],
-  "enterprise": [
-   "enterprise|india becomes country report rogue ai agent activity",
-   "enterprise|elorian s ai model wants reason images not just about them",
-   "enterprise|jev is vercel s fastest adopted ai model ever",
-   "enterprise|veritas expands anti counterfeit chip jewelry trophies fragrance bottles",
-   "enterprise|replit s ceo says future work is self driving company"
-  ]
- },
  "2026-10-18": {
   "paper": [
    "paper|fde gym last mile ai delivery",
@@ -335,6 +312,29 @@
    "enterprise|making it easier websites express ai training preferences",
    "enterprise|last minute halloween costumes tech nerds",
    "enterprise|zest s ai agent finds restaurants books reservations over text"
+  ]
+ },
+ "2026-11-01": {
+  "paper": [
+   "paper|difficulty calibration across time membership inference diffusion models",
+   "paper|gym anything robotics scaling physical simulations digital agents",
+   "paper|training foundation models single algorithm",
+   "paper|extreme weather agricultural consequences agentic ai",
+   "paper|probing spatial state representations visual foundation models"
+  ],
+  "opensource": [
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|worldmonitor real time global intelligence dashboard",
+   "opensource|hyperframes write html",
+   "opensource|awesome claude code hand picked collection finest resources",
+   "opensource|codewhale source agent terminal written rust"
+  ],
+  "enterprise": [
+   "enterprise|月起将 合并为统一 额度 openai 12 chatgpt codex token",
+   "enterprise|doordash said it s only received several hundred orders ai agents",
+   "enterprise|alibaba partners apple integrate qwen ai model apple intelligence chinese market",
+   "enterprise|alibaba s qwen ai model integrate apple intelligence landmark partnership xinhua",
+   "enterprise|bytedance s doubao work third party llms enterprise clients heating up multi mod"
   ]
  }
 }

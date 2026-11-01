@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-01</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Three threads run through today's signals. On the open-source side, agents are moving from demos to reusable engineering: a Rust terminal agent (Codewhale), a r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-01">
+<meta property="og:description" content="Three threads run through today's signals. On the open-source side, agents are moving from demos to reusable engineering: a Rust terminal agent (Codewhale), a reverse-engineering agent (rea) and an HT">
+<meta property="og:url" content="./report_20261101.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-01">
+<meta name="twitter:description" content="Three threads run through today's signals. On the open-source side, agents are moving from demos to reusable engineering: a Rust terminal agent (Codewhale), a reverse-engineering agent (rea) and an HT">
+<link rel="canonical" href="./report_20261101.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-01 ｜ report_20261101</div>
+<div class="sub" data-lang-title="zh">2026-11-01 ｜ report_20261101</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Three threads run through today's signals. On the open-source side, agents are moving from demos to reusable engineering: a Rust terminal agent (Codewhale), a reverse-engineering agent (rea) and an HTML-generation framework all landed at once, pointing to a standardizing agent toolchain. On the research side, work is filling the two gaps the agent ecosystem needs most — verifiability, such as difficulty calibration for membership inference in diffusion models, and scale, such as using digital agents to widen physical simulation for robotics. Commercially, the theme is repricing and gateway consolidation: OpenAI is folding ChatGPT and Codex into a single token quota, Alibaba's Qwen is entering China's iPhone gateway via Apple Intelligence, and ByteDance's Doubao Work is opening third-party models to enterprises. Meanwhile, DoorDash's admission of only a few hundred AI-agent orders is a reminder that real consumer-agent adoption still lags far behind the hype.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 416,138</span> <span class="tag tag-gray">agent-skills / ai / android / claude-code</span></div>
+          <div class="pick-reason">Composite score 4.6社区数据：stars=416,138，周增长=+42164，forks=104068，open_issues=1513</div>
+          <div class="source">Source：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. worldmonitor：Real-time global intelligence dashboard</h3>
+          <p class="news-body">Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">koala73</span> <span class="tag tag-star">⭐ 89,878</span> <span class="tag tag-gray">agent / ai / dashboard / geopolitics</span></div>
+          <div class="pick-reason">With 89,878 stars, 13,860 forks and 364 open issues, worldmonitor signals strong community traction and active collaboration around real-time global intelligence dashboards.</div>
+          <div class="source">Source：<a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. hyperframes：Write HTML</h3>
+          <p class="news-body">Write HTML. Render video. Built for agents.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">heygen-com</span> <span class="tag tag-star">⭐ 76,668</span> <span class="tag tag-gray">ai / ai-agents / animation / claude-code</span></div>
+          <div class="pick-reason">With 76,668 stars and 7,014 forks, hyperframes signals strong community traction for an HTML-writing tool, while 206 open issues points to ongoing maintenance and collaboration needs.</div>
+          <div class="source">Source：<a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. awesome-claude-code：A hand-picked collection of the finest of resources for the</h3>
+          <p class="news-body">A hand-picked collection of the finest of resources for the most awesome of agents, Claude Code, the undisputed champion of coding companions, from the unstoppable team at Anthropic PBC (no affiliation). A delectable showcase of top tier skills, ambidextrous agents, scintillating status lines, top notch developer tooling, and also we have plugins</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">hesreallyhim</span> <span class="tag tag-star">⭐ 57,005</span> <span class="tag tag-gray">agent-skills / agentic-code / agentic-coding / ai-workflow-optimization</span></div>
+          <div class="pick-reason">With 57,005 stars and 4,897 forks, this curated Claude Code resource collection shows strong community traction, signaling that AI coding tool ecosystems are shifting toward community-built resource hubs.</div>
+          <div class="source">Source：<a href="https://github.com/hesreallyhim/awesome-claude-code" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Codewhale：Open-source agent for the terminal written in Rust</h3>
+          <p class="news-body">Open-source agent for the terminal written in Rust. Use any provider or model. Issues &amp; PRs always welcome</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">codewhale-hq</span> <span class="tag tag-star">⭐ 41,163</span> <span class="tag tag-gray">agent-orchestration / ai-agent / cli / codewhale</span></div>
+          <div class="pick-reason">An open-source terminal agent written in Rust has drawn 41,163 stars and 3,568 forks while carrying only 65 open issues, signaling strong community appetite for terminal-native AI agents.</div>
+          <div class="source">Source：<a href="https://github.com/codewhale-hq/Codewhale" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Difficulty Calibration Across Time for Membership Inference in Diffusion Models</h3>
+          <p class="news-body">Modern diffusion models are trained on massive datasets that often include copyrighted or private images. Membership inference attacks (MIAs) address this by testing whether a given image was in a model's training set. The standard approach scores an image by its reconstruction loss and flags low-loss images as members. This often fails because some images are simply easier to reconstruct than others, so a simple unseen image can score a lower loss than a complex training image. Difficulty calibration separates memorization from how difficult an image is to begin with. We show how to calibrate along two axes of time: training time and diffusion time. First, across training time, we introduce Reference-Model Calibration (RMC), which compares a fine-tuned model's loss against an earlier checkpoint. This cleanly isolates newly memorized data and gives near-perfect auditing, even without text captions. Since earlier checkpoints are not always available, we next present Temporal Self-Calibration (TSC), which calibrates across diffusion time using only a single model. Our key observation is that an image's difficulty persists across noise levels, whereas memorization is localized in time. By comparing the loss at a target timestep against neighboring timesteps from the same model, TSC attenuates image difficulty using the model's own trajectory. Empirically, our methods beat the state of the art by a wide margin, and unlike most existing attacks, generalize across different model p</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">This two-author paper targets difficulty calibration across time for membership inference in diffusion models, pointing at a neglected issue: privacy risk estimates that drift as time passes.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.40616v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Gym-Anything for Robotics: Scaling physical simulations with digital agents</h3>
+          <p class="news-body">Realistic, fast robotics simulations could enable large-scale training of embodied AI models that transfer to the real world. However, despite decades of progress, available simulations cover only a narrow range of real-world tasks and physical phenomena. The core bottleneck is that creating better simulations requires significant expert effort and therefore does not scale. To address this, we introduce Gym-Anything for Robotics, a framework in which coding agents create realistic robotics simulations. Our core insight is that simulation creation is a coding agent task, so improvements in coding agents translate directly into richer and more faithful simulations. We select simulations based on U.S. GDP data to cover economically valuable physical work, define what makes a good simulation and a good task, and develop an adversarial creation-audit loop that checks each simulation and task against these definitions. Using this pipeline, we build RoboWorld, a set of 25 simulations with 25 test and 175 training RL environments of varying difficulty. Even the best frontier models fail on every RoboWorld test task, achieving an average reward of only 0.06. Building on RoboWorld, we introduce several new ways for frontier models to improve, including in-context learning across repeated attempts, a privileged teacher that reads the simulator state and teaches a student in context, self-assisted learning from the model's own privileged experience, and code policies that generate demons</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">With only two authors, this paper explores scaling robotic physical simulations via digital agents, offering a lightweight signal for scalable simulation research.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.40565v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Training Foundation Models with a Single Algorithm</h3>
+          <p class="news-body">Foundation models are typically trained in stages: pretraining, midtraining, supervised fine-tuning (SFT), and reinforcement learning (RL), with changes in both data and learning algorithms. We show that this algorithmic separation is not fundamental. By deriving suitable RL objectives as maximum-likelihood fitting to model-generated target distributions, we place all of these stages under a single likelihood-based training algorithm, unified training. This perspective turns the foundation-model training lifecycle into a problem of choosing which data to train on, in what proportions, and when, with conventional staged training as a special case. We instantiate this framework in a unified training system that mixes static data and RL generations within a single trainer. Across controlled and real-world experiments, unified training improves the accuracy-compute tradeoff and task coverage while preserving broader capabilities, and provides a stronger starting point for continual learning. This work lays the groundwork for a unified science of foundation-model training, connecting mathematical principles, training infrastructure, and the development of model capabilities.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">This paper, with 10 authors, explores training foundation models with a single algorithm, signaling a possible shift toward simpler, unified training pipelines.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.40564v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. From extreme weather to agricultural consequences with agentic AI</h3>
+          <p class="news-body">Extreme weather is forecast days ahead, yet its consequences for agriculture remain hard to predict: a forecast says where a storm will strike, not which crops will suffer or how much is at risk, and the records that could tell span many sources. We present WxCrop, the first agent that judges agricultural hazards from physically interpretable weather indices examined by causal analysis, and the first that combines weather and agricultural information to predict crop loss reliably for past and forecast dates. We demonstrate it in Florida on hurricanes, freezes and dry heat, with a loss model calibrated on insurance records for each, and the same procedure extends to other hazards and areas. Three checks show reliability: the hurricane index detects recorded cyclone days with an AUC of 0.98, recorded losses in held-out years are reproduced to within 2%, and independent production records confirm the county rankings (rank correlation 0.63). Users ask the agent for each crop group's loss as a fraction of expected season value, every number sourced, so that governments, growers and scientists respond to agricultural disasters quickly.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">physics.ao-ph</span></div>
+          <div class="pick-reason">With four authors, this paper links extreme weather to agricultural consequences via agentic AI,</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.40641v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Probing Spatial State Representations in Visual Foundation Models</h3>
+          <p class="news-body">An observer sees only part of the surrounding world, yet must keep track of what lies beyond the current view. Spatial perception therefore involves more than recognizing individual images: it calls for a persistent spatial state that is updated under self-motion and used to guide action. Do visual foundation models provide representations that support such a state? We study this question through four levels of spatial capability---spatial structure, object persistence, predictive spatial update, and actionability---using frozen-feature probes on ten representations under streaming egocentric observations of static indoor environments. The resulting capability profiles vary across tasks, network layers, and prefix lengths: strong readout of the visible scene does not ensure accurate object persistence or future-feature retrieval. Matched controls separate readout accuracy from reliance on visual history and motion. Native future prediction retains recoverable spatial structure, but a spatial reader trained on real features does not transfer to predicted features unchanged. Finally, goal-dependent candidate selection does not establish reliable continuous action utility: predicted actions respond to goal changes, yet supplying the correct goal does not reliably improve progress. Across the four levels, object persistence and actionability build on camera-pose readout, whereas feature prediction builds on visible-scene readout. Together, these findings motivate evaluating spati</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">This six-author paper probes spatial state representations inside visual foundation models, signaling a shift from surface</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.40636v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. OpenAI 12月起将ChatGPT与Codex合并为统一Token额度</h3>
+          <p class="news-body">作者引述OpenAI凌晨更新的帮助文档称，从12月开始Plus和Pro用户的ChatGPT聊天与Codex用量将合并为同一Token额度，仅Instant聊天不受影响。作者回顾此前按条数计费的历史、一个月内Codex Pro额度先降后恢复的运营反复，以及社区在GitHub上提issue抗议的反应，认为合并与IPO预期下的算力成本压力有关。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Starting in December, OpenAI will merge ChatGPT and Codex into a single</div>
+          <div class="source">Source：<a href="https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&amp;mid=2647688028&amp;idx=1&amp;sn=e509269da2e0e0b4d4dfbb121b42204b" target="_blank" rel="noopener">公众号：数字生命卡兹克</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. DoorDash said it’s only received ‘several hundred’ orders from AI agents</h3>
+          <p class="news-body">DoorDash said that it is open to working with third-party agent makers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">DoorDash said it has received only “several hundred” orders from AI agents, a concrete early signal that agent-driven commerce remains small-scale and still unproven despite the hype.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Alibaba partners with Apple to integrate Qwen AI model into Apple Intelligence for Chinese market - Anadolu Ajansı</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYWxtSWxQWFFKLVc1dUZCdGtGOElTdFlWeTJZV0FWZ0MzbXBzbkpNSzNmclhleVlWblpHeElhSHhNMDZtcHlKWjBZTVFEQk9MRDJlcWZDWFZQYzlUZDdGcVBDTVk0RndNdC1iVG9taW9vY0FCdTF6WWVzSjdhQVp1Yk1jUkQ4QU9jZjdCTlRCZmZmZTBranBrSzh0cDcydmVWVmpYQ21SOXFyYUkyTUZFU0VVZzdXUnY</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Alibaba's Qwen is being integrated into Apple Intelligence for the Chinese market, marking the first time a Chinese-built model becomes a system-level AI partner for iPhone—a signal that domestic models can scale through global device ecosystems.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYWxtSWxQWFFKLVc1dUZCdGtGOElTdFlWeTJZV0FWZ0MzbXBzbkpNSzNmclhleVlWblpHeElhSHhNMDZtcHlKWjBZTVFEQk9MRDJlcWZDWFZQYzlUZDdGcVBDTVk0RndNdC1iVG9taW9vY0FCdTF6WWVzSjdhQVp1Yk1jUkQ4QU9jZjdCTlRCZmZmZTBranBrSzh0cDcydmVWVmpYQ21SOXFyYUkyTUZFU0VVZzdXUnY0S2Q0bzE5ZU1XcGRxVUh2bDdyNHM2RGV3MUlJUVVBS3g1S28?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Alibaba's Qwen AI model to integrate into Apple Intelligence in landmark partnership - Xinhua</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMifEFVX3lxTFBDdm9yZ0ZYTTRwYXdMOWdXaXd5Zlp3eXlLVDlIbWdKb3VuaXBZbExuRkhGRnQ2RnViOTFBYzRpUGVmU2xKZXhBRy1wTGZpX25SdkY0d0hOVHpKa1VlZ09rVkJBWUo0SnR6ZU9jUTJUb1JIRVRJdUxJMEFUUUY?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Alibaba's Qwen AI model to integrate into Apple Intell</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBDdm9yZ0ZYTTRwYXdMOWdXaXd5Zlp3eXlLVDlIbWdKb3VuaXBZbExuRkhGRnQ2RnViOTFBYzRpUGVmU2xKZXhBRy1wTGZpX25SdkY0d0hOVHpKa1VlZ09rVkJBWUo0SnR6ZU9jUTJUb1JIRVRJdUxJMEFUUUY?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ByteDance's Doubao Work Opens Third-Party LLMs to Enterprise Clients, Heating Up Multi-Model Race in Office Agents - BigGo Finance</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMidkFVX3lxTFBqX1hKZFRlYlBHVk1kb00zS0xRX0NqalRhWFBvVkpHdXVDTVB6Vl9GcUxXZFB5bGtvcnpRcHhfaE0wdlhfZzczdVpvcEdTalFnMUtDajZiU0h3bWkyRVFCZGRKdXE5UXl5RGJpN0hVVFNOek5OWlE?oc=5&quot; target=&quot;_blank&quot;&amp;gt;ByteDance's Doubao Work Opens Third-Party LLMs to Enterprise C</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag">字节跳动</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Doubao Work is opening its platform to third-party LLMs for enterprise clients, signalling a shift in office agents from single-model offerings to multi-model competition as ByteDance uses openness to win the enterprise workspace.</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBqX1hKZFRlYlBHVk1kb00zS0xRX0NqalRhWFBvVkpHdXVDTVB6Vl9GcUxXZFB5bGtvcnpRcHhfaE0wdlhfZzczdVpvcEdTalFnMUtDajZiU0h3bWkyRVFCZGRKdXE5UXl5RGJpN0hVVFNOek5OWlE?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>OpenAI to merge ChatGPT and Codex into a single token quota from December</b> — A shared quota folds coding and research workloads into one billing logic, which could shift how developers pick models and serves as a direct read on whether agent pricing is maturing.</div><div class="watch-item"><b>Alibaba's Qwen to power Apple Intelligence in China</b> — This is the first time a Chinese model reaches users at system-level scale, touching distribution, compliance and on-device experience — and it reshuffles how AI assistants reach Chinese smartphone users.</div><div class="watch-item"><b>ByteDance's Doubao Work opens third-party LLMs to enterprise clients</b> — Office agents are shifting from a single in-house model to multi-model orchestration, moving competition from raw model capability to workflow integration and enterprise delivery; watch how deep the openness actually goes.</div><div class="watch-item"><b>Open-source agent toolchain for the terminal: Codewhale, rea and peers</b> — A Rust terminal agent and a reverse-engineering agent arriving together shows agents sinking from chat UIs into developers' local infrastructure, making security boundaries and permission models the key issue.</div><div class="watch-item"><b>Difficulty calibration for membership inference in diffusion models</b> — Provenance and privacy auditing for generative models have long lacked reliable measurement; if time-aware calibration holds up, it becomes a practical tool for data-compliance review.</div><div class="watch-item"><b>Gym-Anything: scaling robot simulation with digital agents</b> — Building simulation environments is a bottleneck for embodied AI; letting agents generate and expand them could sharply lower the data barrier for robot training.</div><div class="watch-item"><b>DoorDash's agent-order figures as an adoption signal</b> — A few hundred orders stands in stark contrast to market expectations, offering a useful counter-signal on whether consumer agents have truly crossed from demo to transaction.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日的信号可以归为三条主线：开源侧，agent 从「能演示」进入「可工程化复用」阶段，终端 agent（Codewhale）、逆向工程 agent（rea）和 HTML 生成框架同时出现，说明围绕 agent 的工具链正在被标准化。学术侧补的是 agent 生态最缺的两块基础：一是可验证性，例如针对扩散模型成员推断的难度校准；二是规模化，例如用数字 agent 扩展机器人物理仿真。商业侧的关键词是「重新定价与入口整合」：OpenAI 把 ChatGPT 与 Codex 合并为统一 Token 额度，阿里 Qwen 借 Apple Intelligence 进入中国手机入口，字节豆包 Work 向企业开放第三方模型。与此同时，DoorDash 仅数百单来自 AI agent 的订单提醒：消费级 agent 的真实渗透率仍远低于叙事热度。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 416,138</span> <span class="tag tag-gray">agent-skills / ai / android / claude-code</span></div>
+          <div class="pick-reason">综合评分 4.6社区数据：stars=416,138，周增长=+42164，forks=104068，open_issues=1513</div>
+          <div class="source">来源：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. worldmonitor开源实时全球情报面板，AI聚合新闻与基建监控</h3>
+          <p class="news-body">worldmonitor 是一个实时全球情报仪表盘，把 AI 驱动的新闻聚合、地缘政治监控与基础设施追踪整合进同一套态势感知界面。其社区数据显示 stars 达 89,878、forks 13,860、未关闭 issue 364 个。它填补了消费级新闻聚合与企业级情报平台（如 Dataminr、Palantir 一类产品）之间的空白：此前具备多源整合能力的态势感知工具价格高昂且封闭，开源方案让中小团队和个人分析师也能自建情报面板，OSINT 工具由此从分析师手写的脚本与 RSS 拼装，走向开箱即用的统一仪表盘。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">koala73</span> <span class="tag tag-star">⭐ 89,878</span> <span class="tag tag-gray">agent / ai / dashboard / geopolitics</span></div>
+          <div class="pick-reason">worldmonitor 以 89,878 stars、13,860 forks 和 364 个 open issues，显示实时全球情报仪表盘方向已具备高关注度与活跃协作基础。</div>
+          <div class="source">来源：<a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. hyperframes把HTML写作转为Agent视频渲染</h3>
+          <p class="news-body">hyperframes 的入口是让用户写 HTML，再把 HTML 渲染成视频，并明确面向 agent 构建。其开源社区当前有 76,668 个 stars、7,014 个 forks 和 206 个 open issues。按材料判断，若这条链路成立，视频生产的关键环节可能从概率式生成转向确定性渲染，LLM 擅长的 HTML/CSS 可充当中间表示，从而</p>
+          <p class="comment">HeyGen（heygen-com）开源了 hyperframes，一个把 HTML 直接渲染成视频的框架，定位是“为 agent 构建”——面向智能体提供可编程、可脚本调用的出片能力，而非依赖扩散模型逐帧生成。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">heygen-com</span> <span class="tag tag-star">⭐ 76,668</span> <span class="tag tag-gray">ai / ai-agents / animation / claude-code</span></div>
+          <div class="pick-reason">hyperframes 以 76,668 stars、7,014 forks 的社区体量，显示 HTML 写作工具在 AI 社区的高关注度，206 个 open issues 也反映持续维护与协作需求。</div>
+          <div class="source">来源：<a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Claude Code 精选资源库揽 5.7 万星，生态目录化</h3>
+          <p class="news-body">awesome-claude-code 是一份人工挑选的 Claude Code 资源清单，面向这款由 Anthropic 出品的编码代理，汇集了 skills、agents、statusline、开发者工具与 plugins 等条目；清单本身声明与 Anthropic 没有隶属关系。当前该仓库社区数据为 stars 57,005、forks 4,897、open issues 1,074，说明它已被大量开发者当作查阅入口而非单纯收藏。其价值在于把散落在众多个人仓库中的扩展配置集中在同一页面上，让团队在做技术选型时能低成本地评估已被别人验证过的实践，而不必逐个仓库翻找。换言之，编码代理生态的竞争点正在从单一工具能力，转向可复用、可分发的配置资产本身。</p>
+          <p class="comment">这类清单之所以有分量，是因为当下编码代理的差异更多来自别人调好的 skills、agents 与插件组合，而非模型参数本身。若社区继续以这种自发目录方式聚合配置，未来 6-12 个月出现更正式的注册中心或插件市场并不意外，届时精选列表很可能留在“发现层”，官方渠道接管“分发层”。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">hesreallyhim</span> <span class="tag tag-star">⭐ 57,005</span> <span class="tag tag-gray">agent-skills / agentic-code / agentic-coding / ai-workflow-optimization</span></div>
+          <div class="pick-reason">该项目以57,005 stars、4,897 forks的社区数据，显示Claude Code周边资源聚合已形成高关注度的开发者入口，反映AI编程工具生态正转向社区共建。</div>
+          <div class="source">来源：<a href="https://github.com/hesreallyhim/awesome-claude-code" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Codewhale：Rust 写的开源终端 agent，模型厂商不限</h3>
+          <p class="news-body">Codewhale 是一个面向终端的开源 agent，用 Rust 编写，可接入任意模型提供商与模型，项目描述中明确表示欢迎 issue 与 PR。当前社区规模为 41,163 stars、3,568 forks、65 个 open issue，已有相当的关注度。单二进制形态配合模型无关的接入方式，意味着团队切换终端 agent 的成本更多落在配置而非厂商绑定上。终端是开发者停留时间最长的界面，此前这一场景多由绑定单一厂商的闭源 CLI 占据，Codewhale 提供的是一个可选模型、可自托管的开源替代路径。</p>
+          <p class="comment">若 Rust 单二进制带来的低启动开销与易分发在实际使用中成立，它直接冲击的是现有闭源终端 agent 的定价与厂商锁定逻辑；在编码 agent 从 IDE 插件向 CLI 迁移的趋势下，“开源运行时加可插拔模型”很可能成为同类项目的默认形态。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">codewhale-hq</span> <span class="tag tag-star">⭐ 41,163</span> <span class="tag tag-gray">agent-orchestration / ai-agent / cli / codewhale</span></div>
+          <div class="pick-reason">Rust 编写的终端开源 agent 已积累 41163 stars、3568 forks，open issues 仅 65，反映终端侧 agent 工具获得社区规模关注且维护负担相对可控。</div>
+          <div class="source">来源：<a href="https://github.com/codewhale-hq/Codewhale" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Difficulty Calibration Across Time for Membership Inference in Diffusion Models</h3>
+          <p class="news-body">扩散模型常在海量包含版权或私人图像的数据上训练，成员推断攻击（MIA）通过判断某张图像是否出现在训练集中来审计这类风险。传统方法以重建损失为评分依据，把低损失图像判为成员，但部分图像本身就更易重建，导致简单未见图像得分可能低于复杂训练图像而误判。该论文提出沿训练时间与扩散时间两条轴做难度校准：训练时间上的 Reference-Model Calibration（RMC）将微调模型的损失与更早的 checkpoint 对比，从而干净地分离出新被记忆的数据，即使没有文本描述也能实现近乎完美的审计；在早期 checkpoint 不可得时，作者提出 Temporal Self-Calibration（TSC），仅用单一模型在扩散时间上校准，其观察是图像难度会跨噪声水平持续存在，而记忆则局限于特定时间步，因此用同一模型相邻时间步的损失对比来衰减图像难度。实验结果显示该方法大幅超越现有最优水平，并且不同于多数现有攻击，可跨不同模型泛化。这意味着隐私审计的评分开始从单一损失分数转向难度感知与时间步校准，使扩散模型的隐私泄漏度量更接近真实情况。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">该论文针对扩散模型成员推断中的跨时间难度校准问题，仅有2位作者完成，指向隐私风险评估随时间漂移这一常被忽略的环节。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.40616v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Gym-Anything for Robotics: Scaling physical simulations with digital agents</h3>
+          <p class="news-body">该论文提出 Gym-Anything for Robotics：由编码智能体自动创建机器人仿真环境与物理场景，以降低人工构建仿真所需的高昂专家成本。核心目标是把仿真覆盖从少量任务扩展到更广泛的真实世界任务与物理现象。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">该论文仅由2位作者完成，聚焦用数字智能体扩展机器人物理仿真，为仿真规模化提供轻量新思路。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.40565v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Training Foundation Models with a Single Algorithm</h3>
+          <p class="news-body">一篇由10位作者完成的论文指出，基础模型通常按预训练、midtraining、SFT和RL分阶段训练，并伴随数据与学习算法的切换，但这种算法</p>
+          <p class="comment">该论文提出“统一训练”：把预训练、中训练、SFT 与 RL 都重新表述为对模型生成目标分布的最大似然拟合，从而用同一套基于似然的算法覆盖原本分阶段的训练流程。关键点在于，它把 RL 目标推导为似然拟合问题，而非另起一套优化框架。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">这篇由10位作者完成的论文探讨用单一算法训练基础模型，看点在于将复杂训练流程收敛为统一方法的尝试，可能为训练范式简化提供新信号。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.40564v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. WxCrop 智能体用因果分析把极端天气换算成作物损失</h3>
+          <p class="news-body">极端天气通常能提前数天被预报，但它对农业的实际后果仍难判断：预报只说明风暴会在哪里登陆，却说不清哪些作物会受损、风险有多大，而可供判断的记录又分散在众多数据源中。4 位作者提出 WxCrop，称其为首个通过因果分析考察物理可解释的气象指数来判断农业灾害的智能体，也是首个把气象与农业信息结合起来、对历史日期和预报日期都能可靠预测作物损失的方案。研究在佛罗里达州以飓风、冰冻和干热三类灾害进行演示，损失模型分别用三类灾害对应的保险记录校准，并称同一流程可扩展到其他灾害与地区。三项检验支撑了它的可靠性：飓风指数识别有记录的气旋日时 AUC 达 0.98，在留出年份中记录的损失复现误差在 2% 以内，独立产量记录对县级排序的秩相关系数为 0.63。用户可以询问该智能体各作物组的损失占当季预期产值的比例，且每个数字都有来源，便于政府、种植者和科研人员快速响应农业灾害；这也意味着气象预警与农业损失评估之间的断层有望被接上，农业风险研判或将从单一气象预报转向多源数据融合、强调可解释指标的因果智能体。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">physics.ao-ph</span></div>
+          <div class="pick-reason">该论文以4位作者构建从极端天气到农业后果的agentic AI链路，把气候风险与农业影响连接起来，凸显AI在气候适应与农业决策中的落地看点。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.40641v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Probing Spatial State Representations in Visual Foundation Models</h3>
+          <p class="news-body">An observer sees only part of the surrounding world, yet must keep track of what lies beyond the current view. Spatial perception therefore involves more than recognizing individual images: it calls for a persistent spatial state that is updated under self-motion and used to guide action. Do visual foundation models provide representations that support such a state? We study this question through four levels of spatial capability---spatial structure, object persistence, predictive spatial update, and actionability---using frozen-feature probes on ten representations under streaming egocentric observations of static indoor environments. The resulting capability profiles vary across tasks, network layers, and prefix lengths: strong readout of the visible scene does not ensure accurate object persistence or future-feature retrieval. Matched controls separate readout accuracy from reliance on visual history and motion. Native future prediction retains recoverable spatial structure, but a spatial reader trained on real features does not transfer to predicted features unchanged. Finally, goal-dependent candidate selection does not establish reliable continuous action utility: predicted actions respond to goal changes, yet supplying the correct goal does not reliably improve progress. Across the four levels, object persistence and actionability build on camera-pose readout, whereas feature prediction builds on visible-scene readout. Together, these findings motivate evaluating spati</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-29</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">该论文由6位作者合作，聚焦视觉基础模型中的空间状态表征探测，看点在于把VFM空间理解从能力展示推进到内部表征层面的系统检验。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.40636v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. OpenAI 12月起将ChatGPT与Codex合并为统一Token额度</h3>
+          <p class="news-body">作者引述OpenAI凌晨更新的帮助文档称，从12月开始Plus和Pro用户的ChatGPT聊天与Codex用量将合并为同一Token额度，仅Instant聊天不受影响。作者回顾此前按条数计费的历史、一个月内Codex Pro额度先降后恢复的运营反复，以及社区在GitHub上提issue抗议的反应，认为合并与IPO预期下的算力成本压力有关。</p>
+          <p class="comment">OpenAI 更新帮助文档，宣布自12月起，Plus 与 Pro 订阅用户的 ChatGPT 对话用量和 Codex 用量将合并计算，共用一个 Token 额度，仅 Instant 模型的聊天不受此限制。此前 Codex Pro 额度在一个月内先下调后恢复，GitHub 上出现了社区抗议的 issue。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">OpenAI自12月起把ChatGPT与Codex并入统一Token额度，叠加IPO轮次信号，显示其正以统一计量整合产品与资本叙事。</div>
+          <div class="source">来源：<a href="https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&amp;mid=2647688028&amp;idx=1&amp;sn=e509269da2e0e0b4d4dfbb121b42204b" target="_blank" rel="noopener">公众号：数字生命卡兹克</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Agent领域发布最新动态</h3>
+          <p class="news-body">DoorDash 在财报/公开表态中透露，由 AI 智能体（第三方 agent）下达的订单目前仅有“数百单”，相对于其整体订单量可忽略不计；同时公司表示愿意与第三方智能体开发商合作，开放接入。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">DoorDash 透露 AI 智能体仅带来“数百”订单，这一具体规模为火热的智能体电商叙事提供早期参照：真实交易量仍小，商业化尚处验证阶段。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 阿里联手苹果：Qwen模型将接入Apple Intelligence服务中国市场</h3>
+          <p class="news-body">据Anadolu Ajansı报道，阿里巴巴与苹果达成合作，将阿里的Qwen大模型接入苹果的Apple Intelligence，面向中国市场提供AI能力。合作的核心是苹果在华生成式AI功能的模型侧由阿里承接，而非由苹果自有模型直接落地。从合规与数据本地化要求看，跨国终端厂商牵手本土大模型厂商，正成为AI功能进入中国市场的可行路径（此为推断）。这也意味着大模型竞争正从API与云端调用，向手机这类高频终端入口延伸。</p>
+          <p class="comment">苹果没有为中国市场单独推自有模型，而是把入口交给本土伙伴，说明终端AI的胜负手已从模型能力转向本地落地能力。若Apple Intelligence在华按此路径如期开放，阿里拿到的不只是一个云客户，而是Qwen在终端场景的商用背书，这会抬高其他本土模型厂商争夺硬件入口的门槛。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">阿里Qwen接入苹果Apple Intelligence并面向中国市场，标志中国本土大模型首次成为iPhone系统级AI能力合作方，是国产模型借终端生态出海的信号。</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYWxtSWxQWFFKLVc1dUZCdGtGOElTdFlWeTJZV0FWZ0MzbXBzbkpNSzNmclhleVlWblpHeElhSHhNMDZtcHlKWjBZTVFEQk9MRDJlcWZDWFZQYzlUZDdGcVBDTVk0RndNdC1iVG9taW9vY0FCdTF6WWVzSjdhQVp1Yk1jUkQ4QU9jZjdCTlRCZmZmZTBranBrSzh0cDcydmVWVmpYQ21SOXFyYUkyTUZFU0VVZzdXUnY0S2Q0bzE5ZU1XcGRxVUh2bDdyNHM2RGV3MUlJUVVBS3g1S28?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 阿里 Qwen 接入 Apple Intelligence，在华补上本地模型</h3>
+          <p class="news-body">据新华社报道，阿里巴巴的 Qwen 模型将集成进 Apple Intelligence，双方将其定位为一次标志性合作。这意味着苹果在中国市场的系统级 AI 能力补上了本土模型与合规缺口，避免功能缺位；阿里则借此获得数亿级终端入口，Qwen 的分发从云端 API 延伸至操作系统层。跨国终端厂商在华正走“本地大模型+本地合规”的落地路径，本土模型的竞争焦点也从榜单与参数转向操作系统、超级 App 与硬件入口。这一合作同时牵动中美 AI 生态的协作方式与模型厂商格局，并直接关系到中国 iPhone 的 AI 体验与阿里云 AI 的商业化节奏。</p>
+          <p class="comment">若 Qwen 真正进入 iOS 系统级调用链，模型厂商的议价筹码会从跑分转向装机量与系统入口权，阿里云的 AI 收入结构也可能由 API 计费向终端授权分成偏移。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBDdm9yZ0ZYTTRwYXdMOWdXaXd5Zlp3eXlLVDlIbWdKb3VuaXBZbExuRkhGRnQ2RnViOTFBYzRpUGVmU2xKZXhBRy1wTGZpX25SdkY0d0hOVHpKa1VlZ09rVkJBWUo0SnR6ZU9jUTJUb1JIRVRJdUxJMEFUUUY?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 字节跳动发布大模型新动态</h3>
+          <p class="news-body">字节跳动的办公智能体产品豆包工作（Doubao Work）向企业客户开放第三方大模型接入，企业可在豆包之外选择其他模型完成办公任务。关键事实是开放发生在企业办公场景，而非仅面向开发者的通用API。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag">字节跳动</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">豆包Work向企业客户开放第三方大模型接入，标志着办公智能体从单一模型自研转向多模型竞争，字节以开放生态切入企业办公入口，行业竞争进一步升温。</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBqX1hKZFRlYlBHVk1kb00zS0xRX0NqalRhWFBvVkpHdXVDTVB6Vl9GcUxXZFB5bGtvcnpRcHhfaE0wdlhfZzczdVpvcEdTalFnMUtDajZiU0h3bWkyRVFCZGRKdXE5UXl5RGJpN0hVVFNOek5OWlE?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>OpenAI 12 月起将 ChatGPT 与 Codex 合并为统一 Token 额度</b> — 额度合并意味着编码与研究型使用被纳入同一套计费逻辑，可能改变开发者的模型选择习惯，也是观察 agent 定价范式是否成熟的直接指标。</div><div class="watch-item"><b>阿里 Qwen 接入 Apple Intelligence 中国市场</b> — 这是国产大模型首次以系统级入口规模落地，涉及分发能力、合规与端侧体验，会重排中国手机端 AI 助手的分发格局。</div><div class="watch-item"><b>字节豆包 Work 向企业客户开放第三方大模型</b> — 办公 agent 从单一自研模型转向多模型编排，竞争焦点从模型能力转为工作流集成与企业交付能力，值得关注生态开放的实际深度。</div><div class="watch-item"><b>面向终端的开源 agent 工具链：Codewhale、rea 等</b> — Rust 终端 agent 与逆向工程 agent 同期出现，说明 agent 正从聊天界面下沉为开发者本机的基础设施，安全边界与权限模型将成关键议题。</div><div class="watch-item"><b>扩散模型成员推断的难度校准方法</b> — 生成模型的训练数据溯源与隐私审计长期缺乏可靠度量，跨时间校准若能稳定复现，会成为数据合规评估的实用工具。</div><div class="watch-item"><b>Gym-Anything：用数字 agent 扩展机器人物理仿真</b> — 具身智能的瓶颈之一是仿真环境的构建成本，用 agent 自动生成和扩展仿真场景，可能显著降低机器人训练的数据门槛。</div><div class="watch-item"><b>DoorDash 的 agent 下单数据作为渗透率信号</b> — 仅数百单的规模与市场预期形成反差，是检验消费级 agent 是否真正跨越「演示到交易」这一步的重要反证。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-01T06:13:52.922Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
