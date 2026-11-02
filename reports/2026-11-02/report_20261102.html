@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-02</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's open-source activity shifted from the models themselves to the plumbing agents run on: persistent memory, self-evolving agent frameworks, and high-throu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-02">
+<meta property="og:description" content="Today's open-source activity shifted from the models themselves to the plumbing agents run on: persistent memory, self-evolving agent frameworks, and high-throughput inference servers with SSD caching">
+<meta property="og:url" content="./report_20261102.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-02">
+<meta name="twitter:description" content="Today's open-source activity shifted from the models themselves to the plumbing agents run on: persistent memory, self-evolving agent frameworks, and high-throughput inference servers with SSD caching">
+<link rel="canonical" href="./report_20261102.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-02 ｜ report_20261102</div>
+<div class="sub" data-lang-title="zh">2026-11-02 ｜ report_20261102</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's open-source activity shifted from the models themselves to the plumbing agents run on: persistent memory, self-evolving agent frameworks, and high-throughput inference servers with SSD caching all landed at once, making engineering feasibility the main battleground. Research shows two clear threads — multimodal models reasoning in continuous latent space, and a multi-constraint retrieval benchmark grounded in real lab workflows — a sign that evaluation is moving from general Q&amp;A toward professional tasks. Among vendors, Apple Intelligence reaches China through Alibaba's Qwen, while Tencent is pairing Hunyuan Hy4 with WeChat's 1.439 billion monthly users; the giants are wiring model capability into distribution they already own. The common thread is connection: to context, to tools, to channels.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. magpie：Every agent's model</h3>
+          <p class="news-body">Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-02</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 27,886</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">With 27,886 stars and +</div>
+          <div class="source">Source：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. omlx：LLM inference server with continuous batching &amp; SSD caching</h3>
+          <p class="news-body">LLM inference server with continuous batching &amp; SSD caching for Apple Silicon — managed from the macOS menu bar</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-02</span> <span class="tag">jundot</span> <span class="tag tag-star">⭐ 23,281</span> <span class="tag tag-gray">apple-silicon / inference-server / llm / macos</span></div>
+          <div class="pick-reason">Composite score 4社区数据：stars=23,281，forks=2087，open_issues=567</div>
+          <div class="source">Source：<a href="https://github.com/jundot/omlx" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-02</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 259,579</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">With 259,579 stars and 57,135 forks, hermes-agent shows massive community scale, while 52,261 open issues highlight the collaboration and maintenance pressure behind that activity—making it a useful case for AI agent community governance.</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. MoneyPrinterTurbo：利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频</h3>
+          <p class="news-body">利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-02</span> <span class="tag">harry0703</span> <span class="tag tag-star">⭐ 137,231</span> <span class="tag tag-gray">ai-video-generator / content-creation / ffmpeg / instagram-reels</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=137,231，forks=21906，open_issues=74</div>
+          <div class="source">Source：<a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. claude-mem：Persistent Context Across Sessions for Every Agent –</h3>
+          <p class="news-body">Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-02</span> <span class="tag">thedotmack</span> <span class="tag tag-star">⭐ 109,729</span> <span class="tag tag-gray">ai / ai-agents / ai-memory / anthropic</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=109,729，forks=9585，open_issues=176</div>
+          <div class="source">Source：<a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Adaptive Coverage Algorithms for Mobile Ad Hoc Networks in Dynamic Worlds</h3>
+          <p class="news-body">This paper extends an existing framework for the coordination of mobile agents in unknown worlds, by considering the possibility of dynamic instability. In the original problem, known as the Partially Observable Cooperative Guard Art Gallery Problem (POCGAGP) (arXiv:2512.09495), the multi-agent system must establish a communication network which completely covers an initially unknown constrained space. However, the POCGAGP fails to account for the unpredictability often seen in real-world deployment. To address this, the dynamic case (DPOCGAGP) introduces two settings which can influence the mobile network during deployment: Agent Loss and World Change, which represent dynamic changes to the world. Within this study, we present advancements to two state-of-the-art algorithms, the Centralized Agent-Directed Exploration for Network Coverage (CADENCE), and its decentralized analogue, DADENCE, to provide solutions in these cases. We then compare their performance against another state-of-the-art benchmark algorithm, and show that the adapted algorithms outperform across our benchmark test set, which comprises over 4500 test cases of varied size and structure.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=3</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.41936v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ORION: An Outcome-Driven LLM Advisor for RL-Based Multi-Domain 6G Slice Placement</h3>
+          <p class="news-body">Deploying 6G network slices across administrative domains requires an online decision for each arriving request: which domain hosts each virtual network function, how traffic crosses domain boundaries, and whether the slice is admitted. This joint decision problem is NP-hard under continuous arrivals. Experiments on a parametrized family of multi-domain topologies show that no fixed planning strategy dominates across all regimes: the performance ranking reverses between topology classes, and feasible placements exist for most rejected requests but remain undiscovered. These findings identify the plan layer as the decisive performance lever. We introduce ORION, a hierarchical orchestrator in which two LLM agents translate service intents into structured requests and generate abstract placement plans. A cooperative multi-agent RL coordinator selects the cross-domain partition, treating the plan as a persistent soft prior, while per-domain agents place the functions. ORION main contribution lies at the plan layer: an outcome-driven episodic memory that records, for each completed attempt, the network-condition profile, the proposed plan, and its verified feasibility outcome. The memory feeds verified successes and labelled failures back to the planner, thereby closing the adaptation loop using deployment feasibility rather than a scalar reward assigned to the planner's own proposals. To isolate the effect of the plan quality, we evaluate the planner on held-out topology families</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">ORION, an outcome-driven LLM advisor for RL-based multi-domain 6G slice placement, has been accepted at a top conference with only three authors, signaling frontier work at the intersection of LLMs and RL for network slicing.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.41563v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Peeling the Matryoshka: Extracting Ontological Structure from Retrieval Embeddings</h3>
+          <p class="news-body">Taxonomy construction is essential for knowledge-intensive NLP yet remains costly: clustering-based methods (i) need careful per-corpus tuning and yield unstable hierarchies, while LLM-based pipelines (ii) depend on expensive task-specific training that does not transfer across domains. We report an empirical finding that bears on both: in Matryoshka Representation Learning (MRL) embeddings, where each leading prefix is itself a usable, coarser vector, prefix length aligns with the coarse-to-fine granularity of gold taxonomies; shuffled- and reverse-dimension controls isolate the alignment to the learned early prefix dimensions. The pattern holds across three architecturally distinct MRL models. To test whether this regularity is usable, we introduce PEEL (Peeling Embeddings to Extract Latent ontologies): a minimal probe over these frozen embeddings, trained once with an order-embedding objective that represents hierarchy as vector containment; a minimum spanning arborescence then decodes taxonomic DAGs. Using only a concept vocabulary (no documents), PEEL recovers taxonomic DAGs with high structural fidelity on two OLLM benchmarks, transferring to a new domain with no target-edge supervision. The end-to-end OLLM pipeline, which jointly discovers concepts and induces structure from document corpora, is reported as a cross-task reference. Pre-trained retrieval embeddings encode a decodable granularity gradient; a minimal probe renders it as explicit parent-child (is-a) structu</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Accepted to EMNLP 2026 with just two authors, this paper extracts ontological structure from retrieval embeddings, signaling progress on interpretability and knowledge structuring in embedding-based retrieval.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.41785v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. ProSearch: Benchmarking Multi-Constraint Protocol Retrieval in Experimental Science</h3>
+          <p class="news-body">In AI for Science scenarios, experimental design and method reproduction require retrieving protocols that satisfy multiple interdependent constraints, yet existing benchmarks lack systematic evaluation of this capability. To address this gap, we introduce ProSearch, a benchmark for multi-constraint protocol retrieval in experimental science. ProSearch has three key features: (1) realism, with queries grounded in real experimental records and expert-defined templates; (2) complexity, with 60 experimental fields and their dependencies; and (3) diagnosticity, with 3-5 explicit constraints per query, including numerical and negation constraints. We construct ProSearch through LLM-based extraction, data-driven constraint selection, controlled query generation, and evidence-based relevance validation. The resulting benchmark contains 1,515 queries across six experimental science domains. We conduct extensive experiments on ProSearch with 19 representative retrievers and complementary analyses. The best-performing retriever achieves an average nDCG@10 of only 0.290, which improves to 0.474 with reranking. Structured diagnostic analysis shows that explicit constraint matching provides a strong ranking signal, while manual error analysis identifies joint constraint binding as a key bottleneck. ProSearch provides a testbed for systematically evaluating scientific retrieval systems.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Accepted to NeurIPS 2026, this six-author paper introduces a multi-constraint protocol retrieval benchmark for experimental science, offering a testbed for AI's constraint-following and retrieval capabilities in real research workflows.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.41396v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Latent Reasoning in Continuous Space for Unified Multimodal Models</h3>
+          <p class="news-body">Unified Multimodal Models (UMMs) achieve remarkable success on diverse multimodal understanding and generation tasks, yet they still struggle to effectively leverage language-based chain-of-thought reasoning for image generation. As a result, existing reasoning-augmented UMMs often fail to inherit the test-time scaling and fine-grained controllability observed in large language models. We attribute this failure to a fundamental modality mismatch: reasoning is performed in a discrete token space, whereas image generation operates in a continuous space. To bridge this gap, we introduce a Latent Reasoning framework in Continuous space (LARC), which alleviates the token-level bottleneck by reasoning over continuous hidden states. Specifically, the training framework consists of two stages: (i) curriculum supervised fine-tuning (SFT), and (ii) information-gain reinforcement learning (RL). First, the curriculum SFT stage gradually converts token-level reasoning into latent reasoning. Subsequently, the information-gain RL stage self-evolves latent reasoning without ground truth supervision. Experiments across diverse text-to-image generation benchmarks show that LARC consistently improves generation quality, prompt following, and compositional fidelity. Notably, LARC achieves state-of-the-art performance on GenEval with a 7%p gain over BAGEL and demonstrates clear test-time scaling behavior, outperforming token-based generation under both parallel and sequential test-time scaling st</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=5</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2610.42149v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. 美国白宫科技顾问萨克斯称 Anthropic 可能成为资本主义史上最伟大企业</h3>
+          <p class="news-body">美国白宫科学与技术顾问会议主席戴维·萨克斯在 All-In 播客分析 Anthropic 的 S-1 文件，称其很可能成为资本主义历史上最伟大企业，也可能是回报最高的风险投资项目。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.5, authenticity 1, quality verified</div>
+          <div class="source">Source：<a href="https://www.ithome.com/1/020/633.htm" target="_blank" rel="noopener">IT之家·人工智能</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Weekly Recap: Tencent (700) WeChat MAUs 1.439B and Hunyuan AI Hy4 models - TradingView</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiywFBVV95cUxPWng0ZnZjOC1INDlYR18zbVZLbm9PVmF3ZXFrVWpXanpaYTgzc3M5LUN5N0N5OUdUcDdlcVRDOHg0N3dfa1RPdndjNUNJTl91X25SN1EybjZrbXR2c0NTNW5kXzhHdG1RdDhpdVR3cjRDZmJxUFdTclpnMFFtUzhYcXlRS1FiZzY4Wmh4dVJkQkg1cDRlSVhiTFhuZVRZRXo5WXNaLUhDYjN4ZE1KbkRVbnpYNm40Tkc</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxPWng0ZnZjOC1INDlYR18zbVZLbm9PVmF3ZXFrVWpXanpaYTgzc3M5LUN5N0N5OUdUcDdlcVRDOHg0N3dfa1RPdndjNUNJTl91X25SN1EybjZrbXR2c0NTNW5kXzhHdG1RdDhpdVR3cjRDZmJxUFdTclpnMFFtUzhYcXlRS1FiZzY4Wmh4dVJkQkg1cDRlSVhiTFhuZVRZRXo5WXNaLUhDYjN4ZE1KbkRVbnpYNm40Tkc0TGRMZXUxVFNIREVxTTN5T2RhRQ?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Apple to launch iPhone AI features in China in December via Alibaba partnership - South China Morning Post</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN2tkN3NFenBvWmVSMHFlWEJGWnlfeWpyVzFQQzhoUllDZ3ljS05venFUT1ZnT3pQai13c3hmUHU0RTlESklTekVvU2VuTXJXeDF0Z1k4THFicC1ybU0wcVk5MVBuNmdaMXVCUlZ3dTBPcmtLTVBjTnBKV2lHZEFGRmlKU0loWWttaWlXbDM3QkxLS1RkaHhic04xYm5FWGcyWWxDZDZFT01kVXl5WTFWQUtrcW1uZU0</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN2tkN3NFenBvWmVSMHFlWEJGWnlfeWpyVzFQQzhoUllDZ3ljS05venFUT1ZnT3pQai13c3hmUHU0RTlESklTekVvU2VuTXJXeDF0Z1k4THFicC1ybU0wcVk5MVBuNmdaMXVCUlZ3dTBPcmtLTVBjTnBKV2lHZEFGRmlKU0loWWttaWlXbDM3QkxLS1RkaHhic04xYm5FWGcyWWxDZDZFT01kVXl5WTFWQUtrcW1uZU020gG4AUFVX3lxTFA4YTg1dUhJeDhZajg5NTFxU29RRWNNeVZzZXRxMmpoUjZ3QTNuWktwS0FQVkxvbUQ3YjQ1NGcwa3hVRDE3TnNOTmVhdXk5QTVuYUhuMGgxR0tmWHZGbDdKV09tdnhWQWhJWTdnaW9mNmhZRWowaV9wQmdvZTRTa3FzdExZakVlTHpXT0RGNGxYS0RpeXd1emlfYXBqVkVCMk1MUjJhbmlQdV90M2RqN3FiakNEM3VYU2w?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Alibaba's Qwen AI model to integrate into Apple Intelligence in landmark partnership - CGTN</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZk1PNGVzNTlDakNZdkN5YVdBQTJNeC1namc5dGFXaUhHRXJvM0FLQ1B1Q003SU9JOW1XSnFHdDNFMTBkdWtRX0l1enpvSmUwdDBXOERQT3MxQW5KY0N2d1BvaGgyNWwzeWZ3dklaUTdhQTBrTzdKREp4cW9aN1ZQcV9VOVg5R0dNREVHekg2NWU3WnRKRHN6WGR5Vk1YUVhjeS1ZR3g2VnF2M3hST1otcTBqcEVSbGt</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZk1PNGVzNTlDakNZdkN5YVdBQTJNeC1namc5dGFXaUhHRXJvM0FLQ1B1Q003SU9JOW1XSnFHdDNFMTBkdWtRX0l1enpvSmUwdDBXOERQT3MxQW5KY0N2d1BvaGgyNWwzeWZ3dklaUTdhQTBrTzdKREp4cW9aN1ZQcV9VOVg5R0dNREVHekg2NWU3WnRKRHN6WGR5Vk1YUVhjeS1ZR3g2VnF2M3hST1otcTBqcEVSbGtMTjlMcWFpaG1HcXM?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Persistent agent memory layers (claude-mem, hermes-agent)</b> — Several projects are pitching cross-session context as the headline feature at once, which means memory is graduating from nice-to-have to core agent infrastructure. Look at storage formats, retrieval precision and data-residency exposure — not just the demo.</div><div class="watch-item"><b>High-throughput inference with SSD caching (omlx)</b> — Continuous batching plus disk-level KV caching points to a trade-storage-for-VRAM cost curve. If it holds under real traffic, it lowers the bar for private deployment considerably — worth tracking its benchmarks and long-context behaviour.</div><div class="watch-item"><b>One-click short-video pipelines (MoneyPrinterTurbo)</b> — Open-source automation now compresses keyword-to-finished-video into a single call, which will amplify content oversupply and copyright disputes. Watch platform anti-abuse policies and commercial compliance limits, not just generation speed.</div><div class="watch-item"><b>Apple Intelligence lands in China via Alibaba's Qwen</b> — This is the first large-scale template for a global device maker pairing with a domestic model, and it will shape both feature availability and compliance</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日开源生态的焦点从模型本身转向 agent 的「基础设施层」：持久记忆、可自我进化的 agent 框架、以及带 SSD 缓存的高吞吐推理服务集中出现，说明工程可行性正成为主要竞争面。学术侧呈现两条清晰脉络——多模态模型在连续隐空间中推理，以及面向真实实验流程的多约束检索基准，评估体系正从通识问答转向专业任务。企业层面，Apple Intelligence 借阿里 Qwen 落地中国，腾讯则以微信 14.39 亿月活为混元 Hy4 铺路，巨头正把模型能力接入既有入口。全篇的共同关键词是「连接」：连接上下文、连接工具、连接渠道。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. yetone发布Agent新动态</h3>
+          <p class="news-body">yetone 开源了 magpie，一个 macOS 菜单栏工具，可将 Codex、Claude Code 等编码 agent 的后端模型切换为 DeepSeek、Kimi 等第三方模型，在一个入口统一管理多 agent 与多模型组合。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-02</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 27,886</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">magpie 凭 27,886 stars、单周 +6,985 的增长，显示“Every agent's model”正快速聚拢社区关注；2,368 forks 与 2,753 open issues 也反映其被广泛使用并持续讨论。</div>
+          <div class="source">来源：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. omlx 为 Apple Silicon 本地推理补上连续批处理与 SSD 缓存</h3>
+          <p class="news-body">omlx 是一个面向 Apple Silicon 的 LLM 推理服务端，把连续批处理与 SSD 缓存引入本地推理，并提供 macOS 菜单栏入口用于管理服务运行。连续批处理此前多见于 GPU 服务端推理栈，SSD 分层缓存则指向在统一内存之外扩展缓存容量的思路。该项目目前在 GitHub 上累计 23,281 stars、2,087 forks 与 567 个 open issues。当批处理调度与分层缓存这类服务端特性被移到个人设备上，消费级 Mac 有望在长上下文、多并发场景下维持可用吞吐，本地推理栈的定位也从“能跑模型”转向“能当服务”。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-02</span> <span class="tag">jundot</span> <span class="tag tag-star">⭐ 23,281</span> <span class="tag tag-gray">apple-silicon / inference-server / llm / macos</span></div>
+          <div class="pick-reason">omlx 以连续批处理与 SSD 缓存切入 LLM</div>
+          <div class="source">来源：<a href="https://github.com/jundot/omlx" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. hermes-agent 以与用户共同成长定位，星标超 25 万</h3>
+          <p class="news-body">开源仓库 hermes-agent 对外只给出一句自我描述：与用户共同成长的 agent（The agent that grows with you），材料未披露其具体功能、技术路线或版本状态。社区数据方面，该项目已累积 stars 259,579、forks 57,135、open_issues 52,261，说明它同时拥有大规模关注与活跃的二次开发、问题反馈体量。从生态位置看，它被放在 Hermes 模型生态中作为 agent 运行时层的一环，若该定位成立，有望降低开发者搭建个性化、可积累型 agent 的门槛，并加深模型与运行时之间的绑定。</p>
+          <p class="comment">仅凭一句“与你共同成长”的定位就聚起 25 万星标，说明 agent 赛道的注意力正从模型参数转向长期记忆、技能积累这类运行时能力。若 hermes-agent 真能把个性化配置沉淀为可复用资产，模型厂商与 agent 框架的绑定会进一步收紧，小团队自建 agent 的起点也将被整体抬高。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-02</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 259,579</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">hermes-agent以259,579 stars、57,135 forks展现超大社区规模，同时52,261个open_issues显示高活跃度背后的协作与维护压力，成为AI agent社区治理的观察样本。</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. MoneyPrinterTurbo：利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频</h3>
+          <p class="news-body">利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.</p>
+          <p class="comment">开源项目 MoneyPrinterTurbo 由开发者 harry0703 发布，输入一个主题或关键词后，它会自动串联大模型写文案、TTS 配音、素材检索与字幕合成，直接输出高清竖屏短视频。项目把脚本生成到成片导出的全链路封装成可本地部署的流水线，并支持替换不同 LLM 与素材源。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-02</span> <span class="tag">harry0703</span> <span class="tag tag-star">⭐ 137,231</span> <span class="tag tag-gray">ai-video-generator / content-creation / ffmpeg / instagram-reels</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=137,231，forks=21906，open_issues=74</div>
+          <div class="source">来源：<a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. claude-mem 把会话记忆压缩后回注多类 agent</h3>
+          <p class="news-body">开源项目 claude-mem 主打为各类 agent 提供跨会话的持久上下文：记录 agent 在会话中的操作，用 AI 压缩，再把相关上下文注入后续会话。它称可配合 Claude Code、OpenClaw、Codex、Gemini、Hermes、Copilot、OpenCode 等工具使用。社区数据为 stars 109,729、forks 9,585、open issues 176。把记忆从各家 agent 的私有能力抽成可跨工具复用的中间层，是这件事受关注的关键：长任务中重复交代背景与上下文丢失的成本可能被压低，厂商锁定也可能被削弱。</p>
+          <p class="comment">十万级 stars 说明跨会话记忆已是 agent 工作流的真实痛点；若这类开源记忆层能稳定兼容多工具，记忆有望像 LSP 一样演化为通用接口，而不是每家 agent 的内置卖点。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-02</span> <span class="tag">thedotmack</span> <span class="tag tag-star">⭐ 109,729</span> <span class="tag tag-gray">ai / ai-agents / ai-memory / anthropic</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=109,729，forks=9585，open_issues=176</div>
+          <div class="source">来源：<a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. 论文将POCGAGP扩展至动态场景，改进CADENCE与DADENCE算法</h3>
+          <p class="news-body">该研究在原有 POCGAGP（Partially Observable Cooperative Guard Art Gallery Problem，arXiv:2512.09495）框架上引入动态不稳定性：原问题要求多智能体系统在初始完全未知的受限空间中建立一张全覆盖通信网络，但未考虑真实部署中常见的不可预测性。为此作者提出动态情形 DPOCGAGP，设定 Agent Loss（智能体丢失）与 World Change（世界变化）两类可在部署过程中影响移动网络的动态扰动。研究对两个前沿算法做了改进：集中式的 CADENCE（Centralized Agent-Directed Exploration for Network Coverage）及其去中心化版本 DADENCE，并与另一个前沿基准算法对比；在包含 4500 余个不同规模与结构测试用例的基准集上，改进后的算法整体表现更优。论文的信号为顶会录用，作者共 3 人。若静态假设在真实部署中不断被打破，覆盖与连通性保证能否在动态环境中继续成立，将直接关系到移动自组网与多机器人协同的可靠性。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">cs.RO</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=3</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.41936v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ORION：Agent+大模型</h3>
+          <p class="news-body">该论文提出 ORION，将大语言模型作为结果驱动的顾问嵌入强化学习流程，用于跨管理域的 6G 切片在线决策，包括虚拟网络功能放置、跨域流量路径和切片准入。研究在参数化多域拓扑族上验证，发现没有固定规划策略能在所有场景中占优。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">ORION 以结果驱动的 LLM 顾问赋能基于 RL 的多域 6G 切片放置，获顶会录用且仅 3 位作者，显示 LLM 与 RL 结合在网络切片领域的前沿探索价值。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.41563v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Pre-trained：大模型+RAG</h3>
+          <p class="news-body">论文报告了一个实证发现：在 Matryoshka 表示学习的检索嵌入中，每个前缀本身可作为更粗粒度的向量，前缀长度与本体从粗到细的层级结构对齐，因此可从检索嵌入中提取分类体系。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该论文被EMNLP 2026录用，仅由2位作者完成，聚焦从检索嵌入中提取本体结构，为嵌入可解释性与知识结构化提供了学术信号。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.41785v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. ProSearch构建多约束实验协议检索基准</h3>
+          <p class="news-body">在AI for Science场景中，实验设计与方法复现需要检索能同时满足多个相互依赖约束的协议，但现有基准缺少对这一能力的系统评测。为此，作者提出ProSearch多约束实验协议检索基准，该工作获NeurIPS 2026录用；其查询基于真实实验记录与专家模板，覆盖60个实验领域及其依赖关系，每条查询含3-5个显式约束，并包含数值与否定约束。该基准通过LLM抽取、数据驱动约束选择、受控查询生成和基于证据的相关性验证构建，最终包含六个实验科学领域的1515条查询。在19个代表性检索器上的实验显示，最佳检索器平均nDCG@10仅0.290，加入重排后升至0.474；结构化诊断分析表明显式约束匹配是强排序信号，人工错误分析则把联合约束绑定识别为关键瓶颈。这意味着科研检索评测正从语义相似转向多条件可执行性，短期更可能影响AI for Science场景下的检索系统选型与方法复现可靠性，而非全局基础设施级变化。</p>
+          <p class="comment">ProSearch的难点不在语义相似，而在多约束联立后仍可执行；最佳检索器仅0.290的nDCG@10说明现有系统离“按实验条件找对协议”仍有明显距离。若后续模型把约束绑定作为一等目标，科研检索的竞争点可能从召回转向可执行性验证。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">该论文被NeurIPS 2026录用，6位作者提出面向实验科学的多约束协议检索基准，为AI在真实科研流程中的约束遵循与检索能力提供可评测入口。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.41396v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. LARC用连续隐空间推理破解统一多模态模型生成瓶颈</h3>
+          <p class="news-body">统一多模态模型（UMMs）在多模态理解与生成任务上表现突出，却难以把基于语言的思维链推理有效用于图像生成，因此未能继承大语言模型上观察到的测试时扩展与细粒度可控性。论文把这一失效归因于模态错配：推理发生在离散 token 空间，而图像生成本身运行在连续空间。为此作者提出连续空间隐式推理框架 LARC，直接在连续隐状态上推理，以缓解 token 级瓶颈。训练分两阶段：课程式监督微调先把 token 级推理逐步转化为隐式推理，随后用信息增益强化学习在无真值监督下让隐式推理自我演化。在多个文生图基准上，LARC 在生成质量、提示词遵循与组合保真度上均稳定提升，并在 GenEval 上以较 BAGEL 高出 7 个百分点的成绩取得当前最优，同时在并行与串行两种测试时扩展下都优于基于 token 的生成；这意味着统一模型中理解与生成共享表征的瓶颈，或可由从离散语言推理转向连续表征的路径绕开。</p>
+          <p class="comment">把推理搬进连续隐空间，实质上让图像生成也能获得类似大语言模型的“思考预算”，这是对“文本 CoT 外挂”路线的正面挑战。但 7 个百分点的领先目前只体现在 GenEval 上，若连续推理无法在更通用基准稳定复现，这一范式大概率仍会停留在多模态生成的细分领域。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-30</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">该论文由5</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2610.42149v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. 美国白宫科技顾问萨克斯称 Anthropic 可能成为资本主义史上最伟大企业</h3>
+          <p class="news-body">美国白宫科学与技术顾问会议主席戴维·萨克斯在 All-In 播客分析 Anthropic 的 S-1 文件，称其很可能成为资本主义历史上最伟大企业，也可能是回报最高的风险投资项目。</p>
+          <p class="comment">白宫科技顾问会议主席戴维·萨克斯在 All-In 播客中基于 Anthropic 的 S-1 文件作出判断，称其可能成为资本主义史上最伟大企业，并可能是回报最高的风险投资项目。该表态属于个人公开评论，但因其白宫科技顾问身份而受到资本与政策圈关注。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.5，真实性 1，质量经校验通过</div>
+          <div class="source">来源：<a href="https://www.ithome.com/1/020/633.htm" target="_blank" rel="noopener">IT之家·人工智能</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 腾讯微信月活14.39亿，混元Hy4模型同框回顾</h3>
+          <p class="news-body">一份围绕腾讯（港股代码 700）的周度回顾同时提到两项要点：微信月活跃用户数达到 14.39 亿，以及混元（Hunyuan）Hy4 系列模型。原文未给出微信月活的同比或环比变化，也未披露 Hy4 的参数量、评测表现或具体上线安排。将这两条信息放在同一份回顾中，意味着市场更关注腾讯以超级App的用户规模承载自研模型、再由模型能力反哺云与企业服务的路径，而不只是模型本身。若 Hy4 后续借助微信场景完成验证并对外开放，则可能抬高云服务与模型 API 层面的竞争强度。</p>
+          <p class="comment">把 14.39 亿月活的入口与自研模型并列讨论，说明腾讯的AI叙事重心落在场景分发与数据回流上，而非单纯比拼参数规模；若 Hy4 走通“微信内验证—对外输出”的链路，模型厂商的竞争维度将从榜单分数转向可落地的场景闭环。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-01</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">腾讯披露微信月活1.439B并推进混元AI Hy4模型，凸显超大社交入口为AI模型落地提供规模基础，是</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxPWng0ZnZjOC1INDlYR18zbVZLbm9PVmF3ZXFrVWpXanpaYTgzc3M5LUN5N0N5OUdUcDdlcVRDOHg0N3dfa1RPdndjNUNJTl91X25SN1EybjZrbXR2c0NTNW5kXzhHdG1RdDhpdVR3cjRDZmJxUFdTclpnMFFtUzhYcXlRS1FiZzY4Wmh4dVJkQkg1cDRlSVhiTFhuZVRZRXo5WXNaLUhDYjN4ZE1KbkRVbnpYNm40Tkc0TGRMZXUxVFNIREVxTTN5T2RhRQ?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 苹果拟12月联手阿里在华上线iPhone AI功能</h3>
+          <p class="news-body">据南华早报报道，苹果计划于12月通过与阿里巴巴合作，在中国市场推出iPhone的AI功能。该合作的核心是把iPhone AI能力引入中国，并由阿里巴巴作为本土合作方参与。材料未披露具体功能范围、适配机型、上线节奏与商业安排。若合作按计划落地，这关系到苹果能否在中国高端手机市场补齐AI卖点，也可能为阿里的大模型与云服务带来高价值终端入口。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN2tkN3NFenBvWmVSMHFlWEJGWnlfeWpyVzFQQzhoUllDZ3ljS05venFUT1ZnT3pQai13c3hmUHU0RTlESklTekVvU2VuTXJXeDF0Z1k4THFicC1ybU0wcVk5MVBuNmdaMXVCUlZ3dTBPcmtLTVBjTnBKV2lHZEFGRmlKU0loWWttaWlXbDM3QkxLS1RkaHhic04xYm5FWGcyWWxDZDZFT01kVXl5WTFWQUtrcW1uZU020gG4AUFVX3lxTFA4YTg1dUhJeDhZajg5NTFxU29RRWNNeVZzZXRxMmpoUjZ3QTNuWktwS0FQVkxvbUQ3YjQ1NGcwa3hVRDE3TnNOTmVhdXk5QTVuYUhuMGgxR0tmWHZGbDdKV09tdnhWQWhJWTdnaW9mNmhZRWowaV9wQmdvZTRTa3FzdExZakVlTHpXT0RGNGxYS0RpeXd1emlfYXBqVkVCMk1MUjJhbmlQdV90M2RqN3FiakNEM3VYU2w?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 阿里Qwen接入Apple Intelligence，双方达成标志性合作</h3>
+          <p class="news-body">据CGTN报道，阿里巴巴的Qwen模型将接入Apple Intelligence，双方就此达成一项被形容为“标志性”的合作。目前公开的核心信息仅指向合作本身，接入的具体形式、上线时间与覆盖范围尚未在材料中披露。若这项合作服务于中国市场，则意味着Apple Intelligence在模型本地化与监管适配上有望依托本土伙伴推进，Qwen也将借苹果终端获得一个终端级分发入口。终端厂商的AI能力由此可能不再只依赖单一自研模型，而转向“多模型+本地合规”的组合方式，基础模型厂商与硬件入口的绑定随之加深。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-10-31</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZk1PNGVzNTlDakNZdkN5YVdBQTJNeC1namc5dGFXaUhHRXJvM0FLQ1B1Q003SU9JOW1XSnFHdDNFMTBkdWtRX0l1enpvSmUwdDBXOERQT3MxQW5KY0N2d1BvaGgyNWwzeWZ3dklaUTdhQTBrTzdKREp4cW9aN1ZQcV9VOVg5R0dNREVHekg2NWU3WnRKRHN6WGR5Vk1YUVhjeS1ZR3g2VnF2M3hST1otcTBqcEVSbGtMTjlMcWFpaG1HcXM?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Agent 持久记忆层（claude-mem、hermes-agent）</b> — 多个项目同时把「跨会话上下文」当作核心卖点，记忆正从附加功能变成 agent 的基础设施。需关注其存储格式、检索精度与数据驻留风险，而非只看演示效果。</div><div class="watch-item"><b>带 SSD 缓存的高吞吐推理服务（omlx）</b> — 连续批处理叠加磁盘级 KV 缓存，指向「用存储换显存」的降本路径；若在真实负载下成立，将直接改写私有化部署的成本门槛，值得跟踪其基准数据与长上下文表现。</div><div class="watch-item"><b>一键短视频生成工作流（MoneyPrinterTurbo）</b> — 开源自动化把「关键词到成片」压缩为单次调用，会进一步加剧平台内容供给过剩与版权争议；应关注平台反滥用策略与商用合规边界，而不只是生成速度。</div><div class="watch-item"><b>Apple Intelligence 通过阿里 Qwen 落地中国</b> — 这是跨国终端厂商与本土模型的首个规模化合作样本，直接决定 iPhone 在中国市场的 AI 功能可用性与合规路径；关注 12 月上线后的实际功能范围与监管口径差异。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-02T06:14:18.146Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
