@@ -1,25 +1,4 @@
 {
- "2026-10-19": {
-  "paper": [
-   "paper|globe evolving structured agentic memory e commerce product optimization generat",
-   "paper|towards high semantic fidelity hyperdimensional symbolic messages multi agent co",
-   "paper|behavioral couplings formation behavioral emergence language models",
-   "paper|ai driven reproducibility analytical robustness scientific discovery",
-   "paper|discoveryrsi recursively learning discover valuable hypotheses"
-  ],
-  "opensource": [
-   "opensource|openhands openhands ai driven development",
-   "opensource|autogpt autogpt is vision accessible ai everyone use",
-   "opensource|worldmonitor real time global intelligence dashboard",
-   "opensource|lobehub lobehub is your chief agent operator organizing your",
-   "opensource|unsloth local ui run train llms diffusion models"
-  ],
-  "enterprise": [
-   "enterprise|india ai startups land 50m 302 85m funding week 2026 https tech insider org",
-   "enterprise|alibaba qwen glasses n1 2 218 yuan retail news asia",
-   "enterprise|tencent says third party models not hunyuan responsible ai agent activity china "
-  ]
- },
  "2026-10-20": {
   "paper": [
    "paper|next best action causal constrained offline rl business action targeting",
@@ -334,6 +313,29 @@
    "enterprise|weekly recap tencent 700 wechat maus 1 439b hunyuan ai hy4 models tradingview",
    "enterprise|apple iphone ai features china december via alibaba partnership south china morn",
    "enterprise|alibaba s qwen ai model integrate apple intelligence landmark partnership cgtn"
+  ]
+ },
+ "2026-11-03": {
+  "paper": [
+   "paper|surgpace complexity aware progressive distillation surgical multimodal large lan",
+   "paper|vc 1k diverse video test real time communication",
+   "paper|preprocessing choices fine tuning data matter utility demographic sensitivity ll",
+   "paper|local skills long horizon web tasks progressive skill exploration llm web agents",
+   "paper|mira reinforcing multimodal reasoning via deceptive contextual augmentation"
+  ],
+  "opensource": [
+   "opensource|hermes webui hermes webui best way use hermes agent web",
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|paperclip source app everyone uses manage agents work",
+   "opensource|vllm high throughput memory efficient inference",
+   "opensource|ragflow ragflow is agent native database retrieval augmented"
+  ],
+  "enterprise": [
+   "enterprise|trajectory 45m make ai model training accessible nontechnical experts",
+   "enterprise|ai news we october 2026",
+   "enterprise|grid protectors program",
+   "enterprise|scaling git openai",
+   "enterprise|y combinator s garry tan uses ai agents so much he spends up 200k year tokens"
   ]
  }
 }
