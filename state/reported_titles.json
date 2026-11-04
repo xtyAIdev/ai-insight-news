@@ -1,27 +1,4 @@
 {
- "2026-10-20": {
-  "paper": [
-   "paper|next best action causal constrained offline rl business action targeting",
-   "paper|preference is not position evaluating reranking nevir fixed hybrid candidate poo",
-   "paper|mixispeech progressive state distillation one step vietnamese tts",
-   "paper|geometry agent memory forecasting retrieval bound memory failures characterizing",
-   "paper|cooperative multi agent reinforcement learning market making prediction market o"
-  ],
-  "opensource": [
-   "opensource|本地优先的微信数据工具 聊天记录查询导出 公众号日报与个人知识库 兼容 weflow cli mcp",
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|langchain agent engineering platform",
-   "opensource|deepseek reasonix reliable coding agent complex software engineering",
-   "opensource|weknora source llm knowledge platform turn raw documents"
-  ],
-  "enterprise": [
-   "enterprise|万个 反诈拖住骗子 国内年轻人用 视频反制 apate ai 35 ai ai ai",
-   "enterprise|advancing coding low resource programming languages",
-   "enterprise|hackers hit ai coding tool opencode running up charges users ai accounts",
-   "enterprise|people are using ai make their smart tvs dumb again",
-   "enterprise|nvidia models run agents enterprise pcs"
-  ]
- },
  "2026-10-21": {
   "paper": [
    "paper|bitmtp when multi token prediction meets low bit large language models",
@@ -336,6 +313,29 @@
    "enterprise|grid protectors program",
    "enterprise|scaling git openai",
    "enterprise|y combinator s garry tan uses ai agents so much he spends up 200k year tokens"
+  ]
+ },
+ "2026-11-04": {
+  "paper": [
+   "paper|vista vision language integrated semantic triage architecture online face cluste",
+   "paper|can network models science do without pluralist agents",
+   "paper|harp training free dual profile agentic communication llm based recommendation",
+   "paper|openbrain auditable generated label whole brain mri parcellation",
+   "paper|inter agent influence evaluating persuasion deception coercion multi agent syste"
+  ],
+  "opensource": [
+   "opensource|magpie every agent s model",
+   "opensource|agent lightning absolute trainer light up ai agents",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|webui user friendly ai interface supports ollama openai api",
+   "opensource|cua scale computer use 2"
+  ],
+  "enterprise": [
+   "enterprise|ai inference startup fal doubles valuation 16b demand surges",
+   "enterprise|42ai comes out stealth 62 5m world model that can predict human behavior",
+   "enterprise|accelerating engineering physical world",
+   "enterprise|腾讯混元发布 hy4",
+   "enterprise|qwen 4 alibaba source promise doubt shattered io"
   ]
  }
 }
