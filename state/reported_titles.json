@@ -1,27 +1,4 @@
 {
- "2026-10-21": {
-  "paper": [
-   "paper|bitmtp when multi token prediction meets low bit large language models",
-   "paper|efficient edge aware attention network graph generation",
-   "paper|narraspace multimodal scene grounded evidence picture description dementia class",
-   "paper|benchmarking arabic dialects math problems",
-   "paper|capable teacher myopic scorer reward free teacher repair agentic policy distilla"
-  ],
-  "opensource": [
-   "opensource|rea reverse engineer anything agents app behavior",
-   "opensource|transformers transformers model definition framework",
-   "opensource|firecrawl supercharge your ai agents data web beyond",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|hyperframes write html"
-  ],
-  "enterprise": [
-   "enterprise|southeast asia s digital economy hit 368 billion",
-   "enterprise|meta s muse hits 10m us downloads 40 days milestone reached only 11 other apps",
-   "enterprise|us orders federal agencies remove china s deepseek ai their systems",
-   "enterprise|财报显示 业务超预期 占收入 spacex ai 52",
-   "enterprise|plants can speak using electricity so this startup built ai model decipher their"
-  ]
- },
  "2026-10-22": {
   "paper": [
    "paper|erclip small data adaptation clip free length image text retrieval",
@@ -336,6 +313,29 @@
    "enterprise|accelerating engineering physical world",
    "enterprise|腾讯混元发布 hy4",
    "enterprise|qwen 4 alibaba source promise doubt shattered io"
+  ]
+ },
+ "2026-11-05": {
+  "paper": [
+   "paper|ma safediffuser safe multi agent planning diffusion probabilistic models",
+   "paper|framework context enrichment selective robustness llm social agents",
+   "paper|sauce summary analysis using conversation entailment",
+   "paper|counterfactual retrieval evidence aware individual animal identification",
+   "paper|beaker expert curated benchmark embodied brains self driving chemical laboratori"
+  ],
+  "opensource": [
+   "opensource|ragflow ragflow is agent native database retrieval augmented",
+   "opensource|cherry studio your ai workspace models agents productivity",
+   "opensource|milvus milvus is high performance cloud native vector database",
+   "opensource|tidb tidb is built agentic workloads that grow",
+   "opensource|pdfmathtranslate emnlp 2025 demo pdf scientific paper translation"
+  ],
+  "enterprise": [
+   "enterprise|meta ai coding startup conductor",
+   "enterprise|openai pierre computer company inc",
+   "enterprise|daybreak red is now available aws govcloud us east",
+   "enterprise|almost no one uses ai agents book their uber company says",
+   "enterprise|宣布收购 背后公司 openai code storage pierre"
   ]
  }
 }

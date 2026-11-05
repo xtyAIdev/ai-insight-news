@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-05</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's activity clusters around two themes. First, the open-source data and workspace layer keeps heating up: RAGFlow, Milvus and TiDB are re-architecting retr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-05">
+<meta property="og:description" content="Today's activity clusters around two themes. First, the open-source data and workspace layer keeps heating up: RAGFlow, Milvus and TiDB are re-architecting retrieval and storage for agent workloads, w">
+<meta property="og:url" content="./report_20261105.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-05">
+<meta name="twitter:description" content="Today's activity clusters around two themes. First, the open-source data and workspace layer keeps heating up: RAGFlow, Milvus and TiDB are re-architecting retrieval and storage for agent workloads, w">
+<link rel="canonical" href="./report_20261105.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-05 ｜ report_20261105</div>
+<div class="sub" data-lang-title="zh">2026-11-05 ｜ report_20261105</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's activity clusters around two themes. First, the open-source data and workspace layer keeps heating up: RAGFlow, Milvus and TiDB are re-architecting retrieval and storage for agent workloads, while tools like Cherry Studio are shaping unified workspaces for models and agents. Second, leading vendors are buying their way into AI coding and code assets, with Meta acquiring Conductor and OpenAI acquiring Pierre, both pointing at the coding-agent race. Meanwhile, Uber's disclosure that almost no one books rides through AI agents is a reminder that consumer-facing agents still face experience and trust gaps. On the research side, attention centers on multi-agent safety, robustness of social agents, and embodied automation in scientific labs.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. ragflow：RAGFlow is an agent-native database: a Retrieval-Augmented</h3>
+          <p class="news-body">RAGFlow is an agent-native database: a Retrieval-Augmented Generation (RAG) engine that grew into context infrastructure.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag">infiniflow</span> <span class="tag tag-star">⭐ 93,538</span> <span class="tag tag-gray">agent-harness / agent-native-database / agentic-ai / agentic-retrieval</span></div>
+          <div class="pick-reason">RAGFlow’s 93,538 stars, 11,229 forks and 1,325 open issues</div>
+          <div class="source">Source：<a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. cherry-studio：Your AI workspace for models, agents, and productivity</h3>
+          <p class="news-body">Your AI workspace for models, agents, and productivity.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag">CherryHQ</span> <span class="tag tag-star">⭐ 53,265</span> <span class="tag tag-gray">agent-skills / agent-workspace / agentic-workspace / ai-agents</span></div>
+          <div class="pick-reason">With 53,265 stars and 5,178 forks, Cherry Studio shows solid open-source community traction as a multi-model AI workspace, while its 2,487 open issues point to ongoing maintenance and iteration needs.</div>
+          <div class="source">Source：<a href="https://github.com/CherryHQ/cherry-studio" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. milvus：Milvus is a high-performance, cloud-native vector database</h3>
+          <p class="news-body">Milvus is a high-performance, cloud-native vector database built for scalable vector ANN search</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag">milvus-io</span> <span class="tag tag-star">⭐ 46,600</span> <span class="tag tag-gray">anns / cloud-native / diskann / distributed</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=46,600，forks=4328，open_issues=1541</div>
+          <div class="source">Source：<a href="https://github.com/milvus-io/milvus" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. tidb：TiDB is built for agentic workloads that grow</h3>
+          <p class="news-body">TiDB is built for agentic workloads that grow unpredictably, with ACID guarantees and native support for transactions, analytics, and vector search. No data silos. No noisy neighbors. No infrastructure ceiling.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag">pingcap</span> <span class="tag tag-star">⭐ 40,710</span> <span class="tag tag-gray">agent / agent-context / agent-memory / agentic</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=40,710，forks=6289，open_issues=7505</div>
+          <div class="source">Source：<a href="https://github.com/pingcap/tidb" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. PDFMathTranslate：[EMNLP 2025 Demo] PDF scientific paper translation with</h3>
+          <p class="news-body">[EMNLP 2025 Demo] PDF scientific paper translation with preserved formats - 基于 AI 完整保留排版的 PDF 文档全文双语翻译，支持 Google/DeepL/Ollama/OpenAI 等服务，提供 CLI/GUI/MCP/Docker/Zotero</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag">PDFMathTranslate</span> <span class="tag tag-star">⭐ 38,210</span> <span class="tag tag-gray">chinese / document / edit / english</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=38,210，forks=3425，open_issues=170</div>
+          <div class="source">Source：<a href="https://github.com/PDFMathTranslate/PDFMathTranslate" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. MA-SafeDiffuser: Safe Multi-Agent Planning with Diffusion Probabilistic Models</h3>
+          <p class="news-body">We propose MA-SafeDiffuser, a multi-agent extension of SafeDiffuser that equips diffusion-based trajectory planners with finite-time diffusion invariance guarantees for joint-agent safety specifications. Building on the single-agent construction that embeds control barrier function (CBF) constraints into reverse-diffusion updates, we: (i) formalize joint safe sets as intersections of per-agent and pairwise barrier sets; (ii) derive centralized and decentralized (communication-aware) constrained denoising procedures with provable invariance under mild assumptions; (iii) address local-trap and deadlock phenomena via time-varying specifications and liveness CBFs; and (iv) develop a lightweight benchmarking suite including a multi-agent Maze2D domain. Empirically, MA-SafeDiffuser reduces violation counts relative to unconstrained diffusion baselines, while retaining planning quality. We provide algorithms, proofs, and reference implementations.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-03</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Accepted at a top conference, this four-author work applies diffusion probabilistic models to safe multi-agent planning, signaling a new direction for safety-aware decision-making in AI agent collaboration.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.05524v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. A Framework for Context Enrichment and Selective Robustness in LLM Social Agents</h3>
+          <p class="news-body">Researchers use large language models as agents in social simulations, where agents are prompted with observations and background information intended to shape their actions. Yet LLM agents have been shown to substantially change their behavior under meaning-preserving prompt variations, creating a validation problem for social simulation. One plausible hypothesis is that this brittleness reflects a lack of grounding and can be reduced by enriching the context provided to the agents. Whether richer context improves robustness remains unclear, in part because context richness and robustness are rarely defined in ways that support controlled comparisons. We address the first need with controlled context enrichment, a set of prompt substitution rules that systematically enriches distinct types of context: neutral padding, generic social background, descriptive decision grounding, and normative decision grounding. We address the second by introducing selective robustness as a validation criterion: insensitivity to meaning-preserving prompt variation combined with a directional response to decision-relevant changes in the social world. We demonstrate the framework in a Prisoner's Dilemma-like game, showing how it can be used to identify which forms of context enrichment produce more desirable and robust agent behavior. We find that these forms of enrichment produce distinct behavioral patterns that vary between the two models tested.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=3</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.06914v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. SAUCE: Summary Analysis Using Conversation Entailment</h3>
+          <p class="news-body">With the growing need for evaluating Large Language Models (LLMs) and their applications to speech, challenges persist in summarizing and evaluating conversations that lack a clear end goal. We introduce SAUCE -- a reference-free, fact-based evaluation pipeline for cross-lingual conversational speech summarization. It measures the accuracy and the fact coverage of a summary through the entailment between conversation and text. We compare SAUCE against several popular summarization metrics and demonstrate the effectiveness of capturing information loss due to transcription and translation error and identifying broken summaries. Crucially, unlike black-box LLM evaluators or dense embedding metrics, SAUCE is inherently explainable: it maps summary scores to discrete, verifiable facts, allowing users to pinpoint exact hallucinations or omissions. We illustrate how this interpretability helps developers systematically profile LLM behaviors and gives end-users an actionable tool to verify summary accuracy in noisy, real-world conditions. Preliminary investigations show SAUCE strongly align with human judgment.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=ACL 录用，作者数=5</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.06812v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. CounterFactual Retrieval for Evidence-Aware Individual Animal Identification</h3>
+          <p class="news-body">Automated identification of individual animals is moving from small curated studies toward shared benchmarks and reusable foundation models. This progress is useful, but current evaluation leaves the evidence behind a match unresolved, i.e., high retrieval accuracy does not show whether a model used animal features or identity-correlated shortcuts. We address this with Counterfactual Foreground Retrieval (CFR), an evidence-aware evaluation protocol. CFR evaluates the same query-gallery task under different views: full image, foreground-only, and shortcut-only. The full-image measures standard retrieval performance; the foreground-only measures foreground-supported retrieval; and shortcut-only view measure how much identity signal is recoverable from background, or silhouette. This turns a retrieval score into an evidence profile: how well the model performs on the original images, how much of that performance remains when only the animal is visible, and how much identity signal remains recoverable when the animal is removed. We release around 0.5M masks for 34 datasets and code for mask generation and CFR evaluation.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=WACV 录用，作者数=8</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.06864v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. BEAKER: An Expert-Curated Benchmark for Embodied Brains in Self-Driving Chemical Laboratories</h3>
+          <p class="news-body">Self-Driving Chemical Laboratories (SDCLs) are moving chemical experimentation toward embodied automation, where machines must perceive laboratory scenes, reason about experimental states, and act under physical, procedural, and safety constraints. Although Multimodal Large Language Models (MLLMs) are increasingly considered as embodied brains for such systems, existing laboratory benchmarks mainly focus on safety, anomaly detection, or general scientific understanding, leaving their execution-oriented embodied capabilities underexplored. To fill this gap, we introduce BEAKER, a Benchmark for evaluating Embodied Actionability, Knowledge, Experimentation, and Reasoning in SDCLs. BEAKER contains 1,000 expert-curated question-answer samples across 11 image and video task types, covering key judgments required for chemical laboratory execution, including affordance grounding, trajectory planning, equipment, state, and safety recognition, apparatus setup, operation and step reasoning, and temporal procedure reasoning. All questions and annotations are manually created and reviewed by chemistry and embodied Artificial Intelligence (AI) experts, without AI-assisted generation or annotation. We evaluate 28 general-purpose, science-oriented, chemistry-specialized, and embodied MLLMs in an offline, single-turn setting. Results show that current models can follow coarse experimental procedures in videos, but still struggle to ground actions into operable regions and feasible trajectorie</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=10</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.06911v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Meta acquires AI coding startup Conductor</h3>
+          <p class="news-body">The startup allows software engineers to deploy teams of agents to work on various aspects of a project simultaneously.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag">Meta</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Meta's acquisition of Conductor, an AI coding startup, shows big tech plugging gaps in AI coding tooling through M&amp;A, a clear consolidation signal in the AI coding space.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI to acquire Pierre Computer Company, Inc.</h3>
+          <p class="news-body">OpenAI will acquire Pierre Computer Company, expanding Codex’s tools for building, understanding, and reviewing code.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">OpenAI's move to acquire Pierre Computer Company, Inc. shows the company extending its capabilities through M&amp;A, a signal that the industry's biggest players are consolidating the AI stack — worth watching how the acquired team and tech get folded in.</div>
+          <div class="source">Source：<a href="https://openai.com/index/openai-to-acquire-pierre" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Daybreak Red is now available in AWS GovCloud (US-East)</h3>
+          <p class="news-body">Daybreak Red brings GPT-5.6 Cyber to approved customers in AWS GovCloud (US-East) through Amazon Bedrock for authorized cybersecurity work.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Daybreak Red is now offered in AWS GovCloud (US-East), giving the AI product a compliant cloud path into U.S. public-sector deployments and signaling a push into government and regulated markets.</div>
+          <div class="source">Source：<a href="https://openai.com/index/daybreak-red-aws-govcloud" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Almost no one uses AI agents to book their Uber, company says</h3>
+          <p class="news-body">During its busiest week last quarter, Uber said only four people booked a ride using an AI agent.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Uber says almost no one uses AI agents to book rides, a firsthand usage signal from a major platform that undercuts the hype around AI agents and points to the gap between demos and real adoption.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. OpenAI 宣布收购 Code Storage 背后公司 Pierre</h3>
+          <p class="news-body">OpenAI 宣布收购 Pierre Computer Company，即 Code Storage 及多款开源开发者工具背后的公司。其 Trees 和 Diffs 库已被用于 Codex 应用的文件浏览与代码变更审阅；交割后 Pierre 的开源项目将继续开源，Code Storage 客户可继续使用，功能将逐步并入 Codex，交割尚待监管批准。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">OpenAI's acquisition of Pierre, the company behind Code Storage, points to strengthening code-storage and developer-tool capabilities, signaling a trend of AI giants buying up code infrastructure to deepen their programming offerings.</div>
+          <div class="source">Source：<a href="https://openai.com/index/openai-to-acquire-pierre" target="_blank" rel="noopener">OpenAI：官网动态（RSS · 排除企业/客户案例）</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Meta acquires AI coding startup Conductor</b> — Meta is following other giants in buying coding-agent capability outright, signaling a shift from in-house R&amp;D to external consolidation in AI coding that could reshape the developer-tooling landscape.</div><div class="watch-item"><b>OpenAI acquires Pierre Computer and its parent company</b> — A leading model vendor extending into code storage and collaboration points to OpenAI moving from model provider toward a full-stack developer platform, a potential disruptor to existing code-hosting and IDE ecosystems.</div><div class="watch-item"><b>RAGFlow positions itself as an agent-native database</b> — Retrieval and database layers are being redesigned around agent workloads; if this approach proves out, it will reshape how enterprises choose architectures for knowledge bases and RAG.</div><div class="watch-item"><b>TiDB evolves for agentic workloads</b> — A traditional distributed-database vendor moving into agentic use cases shows the competitive focus shifting from general OLTP toward elasticity and concurrency tuned for agents.</div><div class="watch-item"><b>Uber says almost no one books rides with AI agents</b> — A sharp contrast between hype and low adoption makes this a key test case for real consumer demand and trust barriers around agents; worth tracking how Uber adjusts its product strategy.</div><div class="watch-item"><b>MA-SafeDiffuser: safe multi-agent planning with diffusion models</b> — Multi-agent safety is a prerequisite for large-scale agent deployment, and this work offers a new methodological path for embedding safety constraints into the planning stage.</div><div class="watch-item"><b>Rise of unified AI workspaces such as Cherry Studio</b> — Consolidating models, agents and productivity tools in one interface could become the primary entry point for individuals and teams, making its ecosystem integration worth watching.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日动态集中在两个方向：一是开源数据与工作台层持续升温，RAGFlow、Milvus、TiDB 等围绕 agent 场景重构检索与存储基础设施，Cherry Studio 等面向模型与 agent 的统一工作台加速成型；二是头部厂商通过并购补齐 AI 编程与代码资产能力，Meta 收购 Conductor、OpenAI 收购 Pierre 均指向编码智能体赛道。与此同时，Uber 披露几乎无人用 AI agent 订车，提醒市场消费级 agent 落地仍存体验与信任落差。学术侧则聚焦多智能体安全、社交智能体鲁棒性与具身科研自动化等前沿议题。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. infiniflow发布RAG新动态</h3>
+          <p class="news-body">InfiniFlow 将开源项目 RAGFlow 从 RAG 引擎升级定位为 agent-native database，核心是为智能体提供检索增强、上下文存储与管理的基础设施。关键事实是它强调从 RAG 引擎成长为 context infrastructure。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag">infiniflow</span> <span class="tag tag-star">⭐ 93,538</span> <span class="tag tag-gray">agent-harness / agent-native-database / agentic-ai / agentic-retrieval</span></div>
+          <div class="pick-reason">RAGFlow以93,538 stars、11,229 forks和1,325个open issues展示出高关注度与活跃协作，也反映其作为agent-native RAG数据库面临持续维护压力。</div>
+          <div class="source">来源：<a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. cherry-studio：Your AI workspace for models, agents, and productivity</h3>
+          <p class="news-body">Your AI workspace for models, agents, and productivity.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag">CherryHQ</span> <span class="tag tag-star">⭐ 53,265</span> <span class="tag tag-gray">agent-skills / agent-workspace / agentic-workspace / ai-agents</span></div>
+          <div class="pick-reason">Cherry Studio 以 53,265 星、5,178 次 fork 体现多模型 AI 工作台的开源社区基础，2,487 个 open issues 也显示持续维护与迭代需求。</div>
+          <div class="source">来源：<a href="https://github.com/CherryHQ/cherry-studio" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Milvus：面向可扩展向量近邻检索的云原生数据库</h3>
+          <p class="news-body">Milvus 的定位是高性能、云原生的向量数据库，核心能力是支撑可扩展的向量近似最近邻（ANN）检索。其社区体量上，GitHub stars 为 46,600，forks 为 4,328，open issues 为 1,541，说明项目拥有较大的开发者基数，并且仍有持续的问题讨论在发生。向量检索已是 RAG、语义搜索与推荐系统的基础设施层；Milvus 是该品类中社区活跃度较高的开源项目之一，因此其架构选择会直接影响企业在千亿级知识库上可接受的成本与延迟上限。对需要私有化部署且单集群向量规模超过 10 亿的企业来说，这类选型更接近全局性基础设施决策，而不仅是单个组件的取舍。</p>
+          <p class="comment">stars 与 forks 的规模表明，Milvus 已从“尝鲜选项”变成向量检索选型时的默认对照项；若企业要求私有化部署且单集群向量规模上到十亿级，那么决策焦点就会从功能清单转向存储下沉与写入链路的架构代价，而非单纯的召回效果比拼。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag">milvus-io</span> <span class="tag tag-star">⭐ 46,600</span> <span class="tag tag-gray">anns / cloud-native / diskann / distributed</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=46,600，forks=4328，open_issues=1541</div>
+          <div class="source">来源：<a href="https://github.com/milvus-io/milvus" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. pingcap发布Agent新动态</h3>
+          <p class="news-body">PingCAP 将 TiDB 定位为面向不可预测增长的 Agentic AI 工作负载的数据库，在单一系统中原生融合 ACID 事务、实时分析与向量检索。其核心卖点是消除数据孤岛、租户间资源干扰和基础设施容量上限。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag">pingcap</span> <span class="tag tag-star">⭐ 40,710</span> <span class="tag tag-gray">agent / agent-context / agent-memory / agentic</span></div>
+          <div class="pick-reason">TiDB以40,710 stars、6,289 forks的社区体量，明确面向持续增长的agentic</div>
+          <div class="source">来源：<a href="https://github.com/pingcap/tidb" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. PDFMathTranslate 以保排版 PDF 翻译接入 MCP 与 Zotero</h3>
+          <p class="news-body">PDFMathTranslate 是一个以 EMNLP 2025 Demo 形式出现的开源项目，目标是在完整保留原始排版的前提下，对 PDF 文档做全文双语翻译。翻译环节可调用 Google、DeepL、Ollama、OpenAI 等服务，使用形态覆盖 CLI、GUI、MCP、Docker 与 Zotero 插件。项目当前社区数据为 stars 38,210、forks 3,425、open_issues 170。公式、脚注与双栏版式长期是机器翻译出错最集中的环节，保留版式意味着译文可直接用于精读与引用而无需二次排版；同时以 MCP 与 Zotero 插件嵌入研究者既有工作流，使学术翻译从网页工具变为可本地私有化部署的基础能力，也把学术文档处理推向版面感知与结构化解析的路线。</p>
+          <p class="comment">学术翻译的竞争点正从“翻得准”转向“版式还原+工作流嵌入”，谁能稳定处理公式、脚注和双栏，谁就更可能成为研究者默认的阅读入口；若这一能力继续沿 MCP、Zotero 这类协议与文献管理器扩散，通用翻译厂商在 PDF 场景的份额可能被逐步挤压，冲击集中在版式还原这一高门槛环节。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag">PDFMathTranslate</span> <span class="tag tag-star">⭐ 38,210</span> <span class="tag tag-gray">chinese / document / edit / english</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=38,210，forks=3425，open_issues=170</div>
+          <div class="source">来源：<a href="https://github.com/PDFMathTranslate/PDFMathTranslate" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. MA-SafeDiffuser 为多智能体扩散规划提供可证明安全保证</h3>
+          <p class="news-body">We propose MA-SafeDiffuser, a multi-agent extension of SafeDiffuser that equips diffusion-based trajectory planners with finite-time diffusion invariance guarantees for joint-agent safety specifications. Building on the single-agent construction that embeds control barrier function (CBF) constraints into reverse-diffusion updates, we: (i) formalize joint safe sets as intersections of per-agent and pairwise barrier sets; (ii) derive centralized and decentralized (communication-aware) constrained denoising procedures with provable invariance under mild assumptions; (iii) address local-trap and deadlock phenomena via time-varying specifications and liveness CBFs; and (iv) develop a lightweight benchmarking suite including a multi-agent Maze2D domain. Empirically, MA-SafeDiffuser reduces violation counts relative to unconstrained diffusion baselines, while retaining planning quality. We provide algorithms, proofs, and reference implementations.</p>
+          <p class="comment">论文提出 MA-SafeDiffuser，将 SafeDiffuser 从单智能体扩展到多智能体：在反向扩散更新中嵌入控制障碍函数（CBF）约束，把联合安全集定义为各智能体自身障碍集与成对障碍集的交集，并给出集中式和通信感知去中心化两种受约束方案，提供有限时间扩散不变性保证。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-03</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">顶会录用的4作者工作将扩散概率模型用于安全多智能体规划，为AI智能体协作的安全决策提供新方法信号。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.05524v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. A Framework for Context Enrichment and Selective Robustness in LLM Social Agents</h3>
+          <p class="news-body">Researchers use large language models as agents in social simulations, where agents are prompted with observations and background information intended to shape their actions. Yet LLM agents have been shown to substantially change their behavior under meaning-preserving prompt variations, creating a validation problem for social simulation. One plausible hypothesis is that this brittleness reflects a lack of grounding and can be reduced by enriching the context provided to the agents. Whether richer context improves robustness remains unclear, in part because context richness and robustness are rarely defined in ways that support controlled comparisons. We address the first need with controlled context enrichment, a set of prompt substitution rules that systematically enriches distinct types of context: neutral padding, generic social background, descriptive decision grounding, and normative decision grounding. We address the second by introducing selective robustness as a validation criterion: insensitivity to meaning-preserving prompt variation combined with a directional response to decision-relevant changes in the social world. We demonstrate the framework in a Prisoner's Dilemma-like game, showing how it can be used to identify which forms of context enrichment produce more desirable and robust agent behavior. We find that these forms of enrichment produce distinct behavioral patterns that vary between the two models tested.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=3</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.06914v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. SAUCE 提出无参考对话语音摘要事实评估框架</h3>
+          <p class="news-body">针对缺乏明确终点的对话难以摘要与评估的问题，研究提出 SAUCE：一套面向跨语言对话语音摘要的无参考、基于事实的评估流程，通过对话与摘要文本之间的蕴含关系衡量摘要的准确性与事实覆盖度，该论文已被 ACL 录用，作者共 5 人。作者将 SAUCE 与多种常用摘要指标对比，验证了它能捕捉转写与翻译错误带来的信息损失，并识别出结构破碎的摘要。与黑箱式 LLM 评估器或稠密嵌入指标不同，SAUCE 具有内在可解释性，它把摘要得分映射到离散、可验证的事实，让使用者定位具体的幻觉或遗漏。初步研究显示 SAUCE 与人工判断高度一致，作者还展示了这种可解释性如何帮助开发者系统刻画 LLM 行为，并为终端用户提供在嘈杂真实环境中核验摘要准确性的可操作工具。这意味着语音摘要与 LLM 语音应用的评测重心，有望从参考匹配、表面相似度转向基于蕴含的事实核查，并向跨语言与开放式会话场景延伸。</p>
+          <p class="comment">摘要评估长期依赖参考摘要或嵌入相似度，只能给出“像不像”的分数，却难以指认哪句是编的；SAUCE 把分数拆成可逐条核验的事实，若被后续基准与模型选型采纳，评测口径可能从相似度转向事实一致性，但其前提是蕴含判定在多语言口语噪声下依然稳定。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">SAUCE 把摘要分析建模为对话蕴涵任务，获 ACL 录用、由 5 位作者完成，体现出摘要评估正转向对话级语义推理这一细分方向的趋势信号。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.06812v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. CounterFactual Retrieval for Evidence-Aware Individual Animal Identification</h3>
+          <p class="news-body">动物个体识别正从小规模精选研究走向共享基准与可复用基础模型，但现有评测并不回答“匹配依据是什么”：检索准确率高，并不能说明模型依赖的是动物本体特征，还是与身份相关的捷径。为此，作者提出证据感知评测协议 CounterFactual Retrieval / Counterfactual Foreground Retrieval（CFR），把同一个 query-gallery 任务放到三种视图下分别评估：全图视图衡量标准检索性能，仅前景视图衡量由前景支撑的检索表现，仅捷径视图则衡量从背景或轮廓中还能恢复多少身份信号。由此，单一的检索分数被转换为一份“证据画像”——模型在原始图像上表现如何、只保留动物时还剩多少性能、移除动物后身份信号还能被恢复多少。作者同时公开约 0.5M 个掩码、覆盖 34 个数据集，以及掩码生成与 CFR 评测代码（该论文被 WACV 录用，共 8 位作者）。这意味着，依赖检索准确率的开放集生物识别与生态监测应用，今后多了一条可审计的评测入口。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">该工作获WACV录用，由8位作者合作完成，显示证据感知</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.06864v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. NeurIPS 2026收录BEAKER：千题评测MLLM化学实验执行力</h3>
+          <p class="news-body">自驱动化学实验室（SDCLs）正把化学实验推向具身自动化，机器需感知实验室场景、推理实验状态，并在物理、流程与安全约束下行动；MLLM被越来越多地视作这类系统的“具身大脑”，但现有实验室基准多集中于安全、异常检测或通用科学理解，对其执行导向的具身能力覆盖不足。为此，作者提出 BEAKER——面向 SDCLs 的具身可执行性、知识、实验与推理评测基准，包含 1000 条专家人工编写并复核的问答样本，横跨 11 类图像与视频任务，覆盖可供性定位、轨迹规划、设备/状态/安全识别、装置搭建、操作与步骤推理、时序流程推理等实验室执行所需的关键判断，全程未使用 AI 辅助生成或标注。研究在离线单轮设定下评测了 28 个通用、科学导向、化学专用及具身 MLLM，结果显示模型能跟随视频中的粗略实验流程，却仍难以把动作落到可操作区域与可行轨迹上。该基准由 10 位作者完成并被 NeurIPS 2026 录用，为高风险科研自动化场景补上了“能否闭环执行”这一评测缺口，也意味着具身评测正从静态感知问答转向约束条件下的任务执行。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=10</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.06911v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Meta收购AI编程初创Conductor，押注多智能体并行编排</h3>
+          <p class="news-body">Meta 已收购 AI 编程初创公司 Conductor。该公司的产品让软件工程师能够同时部署多支智能体（agent）团队，并行推进同一个项目的不同环节。这笔交易补强了 Meta 在多智能体编排与 AI 辅助软件工程上的能力，若整合顺利，将同时指向内部研发提效与企业级 AI 编程竞争两条战线。</p>
+          <p class="comment">AI 编程正从单一代码助手转向「多智能体团队」协作，agent 编排层与开发者入口可能成为企业研发工具链的新分发权；Meta 选择买而非自建，或意味着这层窗口期比预期更短。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag">Meta</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Meta 收购 AI 编程初创公司 Conductor，显示大厂以并购方式补齐 AI 编码工具布局，AI 编程赛道的整合信号进一步明确。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI收购Pierre，Codex扩至代码构建与评审</h3>
+          <p class="news-body">OpenAI将收购Pierre Computer Company，目的是扩展Codex在代码构建、理解和评审方面的工具能力。代码评审是研发流程中频次最高的环节之一，若OpenAI借收购把Codex嵌入PR流水线，Codex可能从辅助工具变成影响合并结果的必需工具，并取得代码库与评审偏好等高价值上下文。AI编程的竞争若因此从代码补全延伸到编码、评审、测试、维护的全生命周期，模型厂商通过收购开发工具类初创公司自建应用层，可能直接冲击CodeRabbit、Qodo、Graphite及GitHub Copilot code review等AI评审产品。</p>
+          <p class="comment">这起收购的看点不是再做一个代码补全插件，而是抢占PR合并前的评审决策点；若Codex能掌握团队评审偏好，模型厂商的议价权会从IDE扩展到研发流程治理。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">OpenAI 收购 Pierre Computer Company，是其以并购扩张能力版图的又一动作，释放出巨头加速整合 AI 产业链的信号，被收购方的团队与技术如何并入值得关注。</div>
+          <div class="source">来源：<a href="https://openai.com/index/openai-to-acquire-pierre" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Daybreak Red 上线 AWS GovCloud，GPT-5.6 Cyber 面向授权客户</h3>
+          <p class="news-body">Daybreak Red 现已在 AWS GovCloud（美国东部）可用，通过 Amazon Bedrock 向获批客户提供 GPT-5.6 Cyber，用于经授权的网络安全工作。其可用对象限于经过审批的客户，落地形态是政府云环境下的托管调用。这意味着前沿模型能力被放进政府云的授权与审计边界内，为进入美国联邦及受监管市场提供了一条合规通道。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Daybreak Red 登陆 AWS GovCloud（US-East），为该 AI 产品打通面向美国公共部门的合规云部署通道，是切入政府与受监管行业市场的落地信号。</div>
+          <div class="source">来源：<a href="https://openai.com/index/daybreak-red-aws-govcloud" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Uber最忙一周仅4人用AI代理叫车</h3>
+          <p class="news-body">Uber披露，在上季度最繁忙的一周，全平台只有4人通过AI agent完成订车。这一口径指向的是由agent代为下单的场景，与App内的常规叫车、以及对话式查询属于不同层次。考虑到该周本就是订单高峰，agent代下单的实际使用量几乎可以视为零。对出行与本地生活平台来说，这意味着从对话式查询迈向代理式执行，真正卡住这一步的并非模型能否调用API，而在于支付授权、身份核验与责任归属等基础环节尚未打通。</p>
+          <p class="comment">那些按“AI流量入口”给平台定价的叙事，正被4这个数字重新校准：瓶颈在谁授权付款、谁承担错单责任，而非模型能力。若agent支付协议与身份认证层迟迟不补齐，agent大概率长期停在比价、行程规划等信息环节，交易闭环仍由人手动完成。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Uber 称“几乎没人”用 AI 代理叫车，这一来自一线平台的实际使用反馈，给当下火热的 AI 代理落地叙事泼了冷水，提示行业关注真实用户采纳率而非演示效果。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. OpenAI 宣布收购 Code Storage 背后公司 Pierre</h3>
+          <p class="news-body">OpenAI 宣布收购 Pierre Computer Company，即 Code Storage 及多款开源开发者工具背后的公司。其 Trees 和 Diffs 库已被用于 Codex 应用的文件浏览与代码变更审阅；交割后 Pierre 的开源项目将继续开源，Code Storage 客户可继续使用，功能将逐步并入 Codex，交割尚待监管批准。</p>
+          <p class="comment">OpenAI 宣布收购 Pierre Computer Company，也就是 Code Storage 及其 Trees、Diffs 等开源开发者工具背后的公司；交易仍待监管批准。收购完成后，Pierre 的开源项目仍会继续开源，Code Storage 客户可以继续使用现有服务，相关功能将逐步并入 Codex。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-04</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">OpenAI收购Code Storage背后公司Pierre，指向补强代码存储与开发者工具能力，释放AI巨头通过并购整合代码基础设施、加码编程场景的趋势信号。</div>
+          <div class="source">来源：<a href="https://openai.com/index/openai-to-acquire-pierre" target="_blank" rel="noopener">OpenAI：官网动态（RSS · 排除企业/客户案例）</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Meta 收购 AI 编程初创公司 Conductor</b> — 继多家巨头之后，Meta 通过并购直接获取编码智能体能力，反映 AI 编程正从内部自研转向外部整合，可能改变开发者工具竞争格局。</div><div class="watch-item"><b>OpenAI 收购 Pierre Computer 及其母公司</b> — 头部模型厂商向代码存储与协作层延伸，意味着 OpenAI 正从模型提供方向全栈开发平台靠拢，对现有代码托管与 IDE 生态构成潜在冲击。</div><div class="watch-item"><b>RAGFlow 提出 agent 原生数据库定位</b> — 检索层与数据库层正在为 agent 负载重新设计，若该路线被验证，将影响企业知识库与 RAG 架构的选型标准。</div><div class="watch-item"><b>TiDB 面向 agentic 工作负载演进</b> — 传统分布式数据库厂商主动切入 agent 场景，说明数据库市场的竞争焦点正从通用 OLTP 转向面向智能体的弹性与并发能力。</div><div class="watch-item"><b>Uber 称几乎无人用 AI agent 订车</b> — 高热度与低采纳形成鲜明反差，是检验消费级 agent 真实需求与信任门槛的关键样本，值得持续跟踪其后续产品策略调整。</div><div class="watch-item"><b>MA-SafeDiffuser：扩散模型驱动的安全多智能体规划</b> — 多智能体安全是 agent 大规模部署的前置条件，该工作为规划阶段的安全性约束提供了新方法路径。</div><div class="watch-item"><b>Cherry Studio 等统一 AI 工作台兴起</b> — 模型、agent 与生产力工具在同一界面收拢，可能成为个人与团队使用 AI 的主要入口，值得关注其生态整合能力。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-05T06:55:19.465Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
