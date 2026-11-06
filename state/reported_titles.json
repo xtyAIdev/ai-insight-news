@@ -1,27 +1,4 @@
 {
- "2026-10-22": {
-  "paper": [
-   "paper|erclip small data adaptation clip free length image text retrieval",
-   "paper|plausible but unimplantable trustworthiness audit shape completion foundation mo",
-   "paper|conflicted records typed adversarial contracts auditable llm output quality enfo",
-   "paper|real pmids wrong papers harness design biomedical claim verification agents",
-   "paper|longzero enhancing long context reasoning llms zero data"
-  ],
-  "opensource": [
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|headroom compress tool outputs logs rag chunks before",
-   "opensource|infinity infinity is high throughput low latency serving engine",
-   "opensource|tidb tidb is built agentic workloads that grow",
-   "opensource|onyx source ai platform ai chat advanced features"
-  ],
-  "enterprise": [
-   "enterprise|据悉完成 亿元融资 宁德时代和腾讯参投 deepseek 1000",
-   "enterprise|meta wants pay broad ai buildout newly created class stock",
-   "enterprise|meta says muse has over 10m users shopping top activity",
-   "enterprise|recursive flint laptop coding model it says was largely built ai",
-   "enterprise|while amazon blocks ai agents walmart out welcome mat"
-  ]
- },
  "2026-10-23": {
   "paper": [
    "paper|inherited not invented tracing provenance wait reasoning models",
@@ -336,6 +313,29 @@
    "enterprise|daybreak red is now available aws govcloud us east",
    "enterprise|almost no one uses ai agents book their uber company says",
    "enterprise|宣布收购 背后公司 openai code storage pierre"
+  ]
+ },
+ "2026-11-06": {
+  "paper": [
+   "paper|user embeddings are superpositions interpretable behavioral modes",
+   "paper|unpacking compute efficiency strong weak opd against grpo",
+   "paper|medgraph maintaining patient state graph memory long term medical dialogue",
+   "paper|stepback step level error localized resampling efficient test time reasoning",
+   "paper|cultural adaptation within repeated social interactions"
+  ],
+  "opensource": [
+   "opensource|context7 context7 platform up date docs ai agents",
+   "opensource|awesome agent harness survey dedicated llm agent harnesses 168",
+   "opensource|ai infra init record my learning path ai infra especially",
+   "opensource|vibesys can ai agents build bespoke systems",
+   "opensource|internship tracker auto updated tech internships india 160 company"
+  ],
+  "enterprise": [
+   "enterprise|palo alto networks talks buy ai agent security startup clutch 500m",
+   "enterprise|gemini omni 1 2 flash fast cost effective longer clips",
+   "enterprise|meta says us users can now video chat their muse ai avatar",
+   "enterprise|meta warns that election backlash against data centers could make ai expansion h",
+   "enterprise|airbnb says it s ai travel agent half 2027"
   ]
  }
 }
