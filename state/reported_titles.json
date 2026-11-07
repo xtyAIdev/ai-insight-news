@@ -1,24 +1,4 @@
 {
- "2026-10-23": {
-  "paper": [
-   "paper|inherited not invented tracing provenance wait reasoning models",
-   "paper|rethinking sequence compression test time regression"
-  ],
-  "opensource": [
-   "opensource|claude mem persistent context across sessions every agent",
-   "opensource|ragflow ragflow is leading source retrieval augmented",
-   "opensource|openhands openhands ai driven development",
-   "opensource|worldmonitor real time global intelligence dashboard",
-   "opensource|unsloth local ui run train llms diffusion models"
-  ],
-  "enterprise": [
-   "enterprise|股权表内幕 风投迟到多年 如今无人持股超 anthropic 2",
-   "enterprise|mark zuckerberg s creative plan pay california s proposed billionaire tax withou",
-   "enterprise|left alone nothing do ai agents started playing",
-   "enterprise|1password way ai agents log your behalf without seeing your password",
-   "enterprise|canva image generation model"
-  ]
- },
  "2026-10-24": {
   "paper": [
    "paper|cost aware abstention llm based it ticket classification",
@@ -336,6 +316,29 @@
    "enterprise|meta says us users can now video chat their muse ai avatar",
    "enterprise|meta warns that election backlash against data centers could make ai expansion h",
    "enterprise|airbnb says it s ai travel agent half 2027"
+  ]
+ },
+ "2026-11-07": {
+  "paper": [
+   "paper|benchmarking large language models heterogeneous cognitive biomedical knowledge ",
+   "paper|xstack benchmark ml repo migration",
+   "paper|swarmevolve latent agent swarms evolutionary discovery optimization",
+   "paper|reprobridge building reproducibility ml research artifacts",
+   "paper|power meta access software future demonstrated llm chat uis chat ai"
+  ],
+  "opensource": [
+   "opensource|openbot source ai coworkers that each get computer their",
+   "opensource|tiny llm learn llm inference system apple silicon systems",
+   "opensource|localgpt local ai assistant dreaming explorable worlds",
+   "opensource|dulus dulus ai agentic ai 100 cache hit rate dulus is made",
+   "opensource|evener coding agent give it prompt it reads writes runs"
+  ],
+  "enterprise": [
+   "enterprise|dropbox tigris data 350m bolster ai infrastructure",
+   "enterprise|partnering hacktron find vulnerabilities openai s systems",
+   "enterprise|measuring how ai agents handle everyday wet lab science",
+   "enterprise|meta spaces way collaborate your muse agent",
+   "enterprise|underdog shows off 32mb speech model demo"
   ]
  }
 }
