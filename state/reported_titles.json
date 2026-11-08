@@ -1,27 +1,4 @@
 {
- "2026-10-24": {
-  "paper": [
-   "paper|cost aware abstention llm based it ticket classification",
-   "paper|vera responsible ai dashboard assessing llm deployments light eu ai act",
-   "paper|chunk recomputation under real document revisions measuring update cost retrieva",
-   "paper|automated enrichment analysis graphrag efficient multi database ora extraction b",
-   "paper|gigabench benchmarking learnable representations gigapixel image compression sup"
-  ],
-  "opensource": [
-   "opensource|rea reverse engineer anything agents app behavior",
-   "opensource|garden skills conardli s source skills collection featuring web",
-   "opensource|lobehub lobehub is your chief agent operator organizing your",
-   "opensource|headroom compress tool outputs logs rag chunks before",
-   "opensource|hyperframes write html"
-  ],
-  "enterprise": [
-   "enterprise|下调估值目标至 万亿美元 拟融资至多 亿美元 openai 1 25 300",
-   "enterprise|kimi k3 1 pro",
-   "enterprise|uber puts all 30 000 employees chatgpt work",
-   "enterprise|spotify s current ai bet is about being music service that agents choose",
-   "enterprise|securing our frontier model training environment"
-  ]
- },
  "2026-10-25": {
   "paper": [
    "paper|automating feature flag cleanup scale multi agent llm systems industrial experie",
@@ -339,6 +316,27 @@
    "enterprise|measuring how ai agents handle everyday wet lab science",
    "enterprise|meta spaces way collaborate your muse agent",
    "enterprise|underdog shows off 32mb speech model demo"
+  ]
+ },
+ "2026-11-08": {
+  "paper": [
+   "paper|decision models retrieval gates against injection pollution",
+   "paper|domain specific information retrieval",
+   "paper|probabilistic relevance decisions semantic retrieval",
+   "paper|arcadedb python process multi model database",
+   "paper|zerorag adaptive semantic peer routing decentralized retrieval augmented generat"
+  ],
+  "opensource": [
+   "opensource|wegent plan build deliver source self hostable",
+   "opensource|vibesys can ai agents build bespoke systems",
+   "opensource|睡前消息知识库 视频节目文稿 问答 马前卒工作室 bedtimenews agent ai agent",
+   "opensource|local shell mcp enables llm use cli environment",
+   "opensource|hermes agent agent that grows you"
+  ],
+  "enterprise": [
+   "enterprise|拟感恩节前 接受低于预期的估值 募资 亿美元 anthropic ipo 800 1000",
+   "enterprise|qwen 4 date what we know so far fello ai",
+   "enterprise|qwen 4 confirmed facts teaser status kingy ai"
   ]
  }
 }

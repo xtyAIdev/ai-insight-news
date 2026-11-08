@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-08</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-11-08: 13 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 3  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-08">
+<meta property="og:description" content="2026-11-08: 13 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 3  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261108.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-08">
+<meta name="twitter:description" content="2026-11-08: 13 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 3  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261108.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-08 ｜ report_20261108</div>
+<div class="sub" data-lang-title="zh">2026-11-08 ｜ report_20261108</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-11-08: 13 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 3  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. Wegent：Plan, build, and deliver with an open-source, self-hostable</h3>
+          <p class="news-body">Plan, build, and deliver with an open-source, self-hostable AI workspace for coding, collaboration, and automation.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-08</span> <span class="tag">wecode-ai</span> <span class="tag tag-star">⭐ 885</span> <span class="tag tag-gray">agent / ai / chatbot / claude-code</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=885，forks=148，open_issues=117</div>
+          <div class="source">Source：<a href="https://github.com/wecode-ai/Wegent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. vibesys：Can AI Agents Build Bespoke Systems</h3>
+          <p class="news-body">Can AI Agents Build Bespoke Systems?</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-08</span> <span class="tag">uw-syfi</span> <span class="tag tag-star">⭐ 128</span> <span class="tag tag-gray">agent / llm-serving / systems / Agent</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=128，周增长=+4，forks=46，open_issues=225</div>
+          <div class="source">Source：<a href="https://github.com/uw-syfi/vibesys" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. BedtimeNews-Agent：睡前消息知识库 | 视频节目文稿 | 问答AI Agent | 马前卒工作室 | 睡前消息 | 参考信息 | 高见 |</h3>
+          <p class="news-body">睡前消息知识库 | 视频节目文稿 | 问答AI Agent | 马前卒工作室 | 睡前消息 | 参考信息 | 高见 | 讲点黑话 | 产经破壁机，⭐ 124</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-08</span> <span class="tag">BedtimeNewsStudio</span> <span class="tag tag-star">⭐ 124</span> <span class="tag tag-gray">agentic-rag / ai-agents / chatbot / rag</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=124</div>
+          <div class="source">Source：<a href="https://github.com/BedtimeNewsStudio/BedtimeNews-Agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. local-shell-mcp：Enables LLM to use a cli environment</h3>
+          <p class="news-body">Enables LLM to use a cli environment.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-08</span> <span class="tag">fwerkor</span> <span class="tag tag-star">⭐ 106</span> <span class="tag tag-gray">chatgpt-app / dsh-plugin / harness / mcp</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=106，forks=19，open_issues=9</div>
+          <div class="source">Source：<a href="https://github.com/fwerkor/local-shell-mcp" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-08</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 261,561</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=261,561，周增长=+2309，forks=58056，open_issues=53583</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Decision Models as Retrieval Gates Against Injection and Pollution</h3>
+          <p class="news-body">Retrieved web text can carry instructions aimed at the language model, or synthetic pages written to mislead. We test whether released open-weight decision models, which answer typed questions about a text without generating tokens, can screen retrieved passages against both threats. On a benchmark of 1,000 questions over forum-style web pages with hidden injected instructions, a Kev-4B gate reads each passage's HTML. Attack success, measured automatically, falls from 27.9% with no defence to 13.6% with the published mitigations (sanitisation, normalisation and citation prompting) and to 5.7% with the gate added. The gate takes 76 ms per passage and wrongly flags 4 of 186 benign pages with instructions for human readers. Responsiveness on clean queries stays within a point (85.6% to 86.2%). On a 200-query pollution testbed where two thirds of the candidate pages are fake, filtering the pool before the top ten are chosen keeps fake pages out of the answer (0.5% exposure) and holds accuracy at 83%, against 28% with no filter. Filtering only the top ten leaves the generator too few pages to answer. Large LLMs used as judges rank attacks better (AUROC 0.99 against 0.94) but cost ten times more. Gates catch more attacks when they read the page's HTML than when they read its plain text. Every model is open-weight.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag tag-gray">cs.CR</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=2</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.08325v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Domain-specific information retrieval</h3>
+          <p class="news-body">Information Retrieval (IR) is much more than ad hoc web search: a large portion of the information seeking activities takes place in specific domains, often addressing work-related tasks. Examples are lawyers finding relevant prior cases for a legal case and academic researchers studying the background material for a paper. In Chapter 2 we outline the most common domain-specific tasks, datasets and applications. Domain-specific IR has a number of challenges that make set it apart from simple web search tasks: they often deal with long documents, long queries and long sessions with specific user needs. We discuss these in Chapter 3. We also address issues related to bias and fairness of models. In Chapter 4, we describe the models and methods developed for domain-specific tasks and data, addressing the specific challenges, including user aspects related to domain-specific IR tasks, dealing with queries, user models, and user interactions. We show that many of the methodological advances in domain-specific IR are transferable to other domains and even to open-domain web search. We conclude with the main takeaways and propose research directions for the near future.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=3</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.08228v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Probabilistic Relevance Decisions for Semantic Retrieval</h3>
+          <p class="news-body">Dense similarity supplies reusable corpus representations, while probabilistic relevance decisions offer query-dependent document scoring. We compare dense-only BGE-M3 with TypeSafe Jev Noul and OpenAI Decisions Predicate scores on the official BEIR SciFact test benchmark. The study evaluates 300 official test queries using identical positive-enriched 100-document pools and full-corpus dense retrieval followed by reranking at candidate depths of 50 and 100. Unlike the controlled pools, neither dense prefix receives positive injection. Jev has the highest observed Recall@5 and nDCG@10 under the evaluated conditions. At depth 50, full-corpus nDCG@10 is 0.6413 for BGE-M3, 0.7545 with OpenAI and 0.7805 with Jev. Extending depth from 50 to 100 increases known-positive candidate recall but produces small, uncertain final-effectiveness changes. All four paired-bootstrap depth intervals include zero. Unique-condition API scoring cost approximately doubles, while compatible cached decisions reduce incremental expenditure. OpenAI returns many exact-zero scores, and secondary exact-tie randomization reveals ranking sensitivity without replacing deterministic primary results. Top-100 latency mixes cached and new execution. Historical hybrid latency is a saved-component sum under different execution environments and timer boundaries. These exploratory, unadjusted analyses support relevance decisions as a complement to dense retrieval within this protocol, without establishing general supe</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=2</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.08014v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. ArcadeDB in Python: An In-Process Multi-Model Database</h3>
+          <p class="news-body">Some Python workflows need transactional reads and writes over documents, traversals over a graph, and similarity search over vector embeddings. In practice these are split across separate systems (a document store, a graph engine, and a vector index), and the data is copied between them and kept consistent by application code. ArcadeDB is an open-source multi-model database engine, written in Java, that supports all three access patterns and can be embedded in a host process. We present arcadedb-embedded, a Python package that runs ArcadeDB inside the Python process via JPype, using a Java Runtime Environment bundled in the wheel. One pip install gives a database with documents, a property graph, and vector search, and needs no Java installation. Query results can be returned as Python lists, NumPy arrays, pandas DataFrames, or Arrow tables. We demonstrate a hybrid retrieval workflow that chains vector search, SQL filtering, and graph traversal over one dataset. We benchmark arcadedb-embedded against SQLite, DuckDB, LadybugDB, and Chroma, and report its costs.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag tag-gray">cs.DB</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=1</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.07971v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ZeroRAG: Adaptive Semantic Peer Routing for Decentralized Retrieval-Augmented Generation</h3>
+          <p class="news-body">Retrieval-augmented generation (RAG) is a standard approach to enhance the reliability of large language model (LLM) outputs by retrieving documents relevant to a query and supplying them in the LLM prompt. Today's RAG systems collect, index, and serve these documents from centralized stores. In practice, however, documents are owned by organizations, devices, and individuals who cannot or will not surrender custody of them to a central party, e.g., because of privacy, copyright or regulatory compliance. Existing modern decentralized retrieval techniques either reintroduce a coordinating authority, or rely on a global data structure that requires continuous network-wide coordination (e.g., DHTs). We present ZeroRAG, a decentralized routing layer for document retrieval in RAG that performs semantic query routing across an overlay of peers with- out global data structures or centralized orchestration. Documents remain with the peers that own them, and each peer keeps only lightweight local state: a bounded set of neighbor advertisements and a cache of recently routed queries. Using these, ZeroRAG steers each query through a best-first walk that progressively rewires the overlay toward semantically relevant neighbors, so recall improves over time as the network self-organizes. We evaluate ZeroRAG using three real-world workloads and two decentralized baselines. We find that ZeroRAG outperforms baselines in terms of recall and required network messages, approaches the recall and </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag tag-gray">cs.DC</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=7</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.07928v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Anthropic 拟感恩节前 IPO，接受低于预期的估值，募资 800–1000 亿美元</h3>
+          <p class="news-body">据《金融时报》援引投资者的消息，Anthropic 计划在感恩节前 IPO，拟募资 800–1000 亿美元，估值 1.25–1.75 万亿美元，低于最乐观投资者期望的 2 万亿美元，但高于当前 9650 亿美元。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-07</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.5事件数据：amount_wan=10000000，round=IPO</div>
+          <div class="source">Source：<a href="https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation/" target="_blank" rel="noopener">The Decoder：AI News（RSS）</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Qwen 4 Release Date: What We Know So Far - Fello AI</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiQEFVX3lxTFBfTjduVmhuVzQ2N1p5Z0RvMHJOWVBMbkk4ZnBRQ3lLdnlmZnpXajZ0UV9RakZtdllEN1BsaC1OTXo?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Qwen 4 Release Date: What We Know So Far&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;lt;font color=&quot;#6f6f6f&quot;&amp;gt;Fello AI&amp;lt;/font&amp;gt;</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-06</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiQEFVX3lxTFBfTjduVmhuVzQ2N1p5Z0RvMHJOWVBMbkk4ZnBRQ3lLdnlmZnpXajZ0UV9RakZtdllEN1BsaC1OTXo?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Qwen 4: Confirmed Facts, Latest Teaser and Release Status - Kingy AI</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiXkFVX3lxTE1PZlV1ZmUzR1ZoeEZlTWpZaWFBUmxmcE5PeG5Nb3RYYjB3TGp0NTNpYUtMRXVnS3JPMUNtbmx6NnRLX3o3SXdhVWl5dE4tcXJCYmg4dWctbTAxLTN2MlE?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Qwen 4: Confirmed Facts, Latest Teaser and Release Status&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;lt;fon</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-06</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE1PZlV1ZmUzR1ZoeEZlTWpZaWFBUmxmcE5PeG5Nb3RYYjB3TGp0NTNpYUtMRXVnS3JPMUNtbmx6NnRLX3o3SXdhVWl5dE4tcXJCYmg4dWctbTAxLTN2MlE?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Decision Models as Retrieval Gates Against Injection and Pollution</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Domain-specific information retrieval</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Probabilistic Relevance Decisions for Semantic Retrieval</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-11-08 共收录 13 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 3 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. wecode-ai开源新动态</h3>
+          <p class="news-body">事件为「Wegent：Plan, build, and deliver with an open-source, self-hostable」。Plan, build, and deliver with an open-source, se</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-08</span> <span class="tag">wecode-ai</span> <span class="tag tag-star">⭐ 885</span> <span class="tag tag-gray">agent / ai / chatbot / claude-code</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=885，forks=148，open_issues=117</div>
+          <div class="source">来源：<a href="https://github.com/wecode-ai/Wegent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. uw-syfi发布Agent新动态</h3>
+          <p class="news-body">事件为「vibesys：Can AI Agents Build Bespoke Systems」。Can AI Agents Build Bespoke Systems?</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-08</span> <span class="tag">uw-syfi</span> <span class="tag tag-star">⭐ 128</span> <span class="tag tag-gray">agent / llm-serving / systems / Agent</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=128，周增长=+4，forks=46，open_issues=225</div>
+          <div class="source">来源：<a href="https://github.com/uw-syfi/vibesys" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. BedtimeNews-Agent：睡前消息知识库 | 视频节目文稿 | 问答AI Agent | 马前卒工作室 | 睡前消息 | 参考信息 | 高见 |</h3>
+          <p class="news-body">睡前消息知识库 | 视频节目文稿 | 问答AI Agent | 马前卒工作室 | 睡前消息 | 参考信息 | 高见 | 讲点黑话 | 产经破壁机</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-08</span> <span class="tag">BedtimeNewsStudio</span> <span class="tag tag-star">⭐ 124</span> <span class="tag tag-gray">agentic-rag / ai-agents / chatbot / rag</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=124</div>
+          <div class="source">来源：<a href="https://github.com/BedtimeNewsStudio/BedtimeNews-Agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. fwerkor发布大模型新动态</h3>
+          <p class="news-body">事件为「local-shell-mcp：Enables LLM to use a cli environment」。Enables LLM to use a cli environment.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-08</span> <span class="tag">fwerkor</span> <span class="tag tag-star">⭐ 106</span> <span class="tag tag-gray">chatgpt-app / dsh-plugin / harness / mcp</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=106，forks=19，open_issues=9</div>
+          <div class="source">来源：<a href="https://github.com/fwerkor/local-shell-mcp" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. NousResearch发布Agent新动态</h3>
+          <p class="news-body">事件为「hermes-agent：The agent that grows with you」。The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-08</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 261,561</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=261,561，周增长=+2309，forks=58056，open_issues=53583</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. AUROC：大模型+RAG</h3>
+          <p class="news-body">事件为「Decision Models as Retrieval Gates Against Injection and Pollution」。Retrieved web text can carry instructions aimed</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag tag-gray">cs.CR</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=2</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.08325v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Domain-specific：RAG+搜索学习</h3>
+          <p class="news-body">事件为「Domain-specific information retrieval」。Information Retrieval (IR) is much more than ad hoc web search: a large porti</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=3</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.08228v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Probabilistic Relevance Decisions for Semantic Retrieval</h3>
+          <p class="news-body">事件为「Probabilistic Relevance Decisions for Semantic Retrieval」。Dense similarity supplies reusable corpus representations,</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=2</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.08014v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Multi-Model：RAG+搜索学习</h3>
+          <p class="news-body">事件为「ArcadeDB in Python: An In-Process Multi-Model Database」。Some Python workflows need transactional reads and writes ov</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag tag-gray">cs.DB</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=1</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.07971v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Retrieval-Augmented：大模型+RAG</h3>
+          <p class="news-body">事件为「ZeroRAG: Adaptive Semantic Peer Routing for Decentralized Retrieval-Augmented Generation」。Retrieval-augmented genera</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-05</span> <span class="tag tag-gray">cs.DC</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=7</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.07928v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Anthropic 拟感恩节前 IPO，接受低于预期的估值，募资 800–1000 亿美元</h3>
+          <p class="news-body">据《金融时报》援引投资者的消息，Anthropic 计划在感恩节前 IPO，拟募资 800–1000 亿美元，估值 1.25–1.75 万亿美元，低于最乐观投资者期望的 2 万亿美元，但高于当前 9650 亿美元。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-07</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.5事件数据：amount_wan=10000000，round=IPO</div>
+          <div class="source">来源：<a href="https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation/" target="_blank" rel="noopener">The Decoder：AI News（RSS）</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 阿里巴巴发布Qwen新动态</h3>
+          <p class="news-body">事件为「Qwen 4 Release Date: What We Know So Far - Fello AI」。&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiQEFVX3lxTF</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-06</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiQEFVX3lxTFBfTjduVmhuVzQ2N1p5Z0RvMHJOWVBMbkk4ZnBRQ3lLdnlmZnpXajZ0UV9RakZtdllEN1BsaC1OTXo?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 阿里巴巴发布Qwen新动态</h3>
+          <p class="news-body">事件为「Qwen 4: Confirmed Facts, Latest Teaser and Release Status - Kingy AI」。&amp;lt;a href=&quot;https://news.google.com/rss/articl</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-06</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE1PZlV1ZmUzR1ZoeEZlTWpZaWFBUmxmcE5PeG5Nb3RYYjB3TGp0NTNpYUtMRXVnS3JPMUNtbmx6NnRLX3o3SXdhVWl5dE4tcXJCYmg4dWctbTAxLTN2MlE?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Decision Models as Retrieval Gates Against Injection and Pollution</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Domain-specific information retrieval</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Probabilistic Relevance Decisions for Semantic Retrieval</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-08T06:08:34.207Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
