@@ -1,27 +1,4 @@
 {
- "2026-10-25": {
-  "paper": [
-   "paper|automating feature flag cleanup scale multi agent llm systems industrial experie",
-   "paper|can agent debug web corpus agentic auditing slovak fineweb2",
-   "paper|surveygraph generating academic surveys via methods entity knowledge graphs",
-   "paper|formal informal mathematical alignment through beyond human annotations",
-   "paper|direct pass k optimization thought pruning balancing quality diversity test time"
-  ],
-  "opensource": [
-   "opensource|vllm high throughput memory efficient inference",
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|webui user friendly ai interface supports ollama openai api",
-   "opensource|mempalace best benchmarked source ai memory system",
-   "opensource|magpie every agent s model"
-  ],
-  "enterprise": [
-   "enterprise|block s voice model sounds eerily human",
-   "enterprise|here are top ai agents that can live your text messages",
-   "enterprise|rapidly scaling online storage serve over 1 billion chatgpt users part ii",
-   "enterprise|腾讯 接入模型 workbuddy kimi k3 1 pro",
-   "enterprise|github pull requests point alibaba s next qwen model nearing startup fortune"
-  ]
- },
  "2026-10-26": {
   "paper": [
    "paper|flownomaly single step conditional mean recovery few shot anomaly detection",
@@ -337,6 +314,25 @@
    "enterprise|拟感恩节前 接受低于预期的估值 募资 亿美元 anthropic ipo 800 1000",
    "enterprise|qwen 4 date what we know so far fello ai",
    "enterprise|qwen 4 confirmed facts teaser status kingy ai"
+  ]
+ },
+ "2026-11-09": {
+  "paper": [
+   "paper|orthogonal norm growth two tower retrieval popularity mechanism unified discover",
+   "paper|structure lineage evidence vietnamese statutory article retrieval drill",
+   "paper|refer cityflow m3track benchmark dataset reference framework language driven mul",
+   "paper|flowmop stochastic multi person motion prediction",
+   "paper|flow guided target space alignment via path consistency"
+  ],
+  "opensource": [
+   "opensource|vllm metal community maintained hardware plugin vllm apple",
+   "opensource|cohub living space where people agents create play",
+   "opensource|obsidian hybrid search hybrid search obsidian vaults via plugin cli mcp",
+   "opensource|lollms all one ai solution compatible any known ai",
+   "opensource|dify build agentic workflows rag pipelines rich ai model"
+  ],
+  "enterprise": [
+   "enterprise|完成 亿美元融资首批到账 估值达 万亿美元 bloomberg openai 110 1 25"
   ]
  }
 }
