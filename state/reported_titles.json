@@ -1,25 +1,4 @@
 {
- "2026-10-26": {
-  "paper": [
-   "paper|flownomaly single step conditional mean recovery few shot anomaly detection",
-   "paper|green code costly code evaluating energy costs iterative llm based code optimiza",
-   "paper|measure before you train typed decision models vs classical baseline vs generati",
-   "paper|do true false add up one complement consistency llm agent opinion simulations",
-   "paper|j comm jacobian guided latent communication between llm agents"
-  ],
-  "opensource": [
-   "opensource|paperclip source app everyone uses manage agents work",
-   "opensource|lobehub lobehub is your chief agent operator organizing your",
-   "opensource|omniroute never stop coding",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|hyperframes write html"
-  ],
-  "enterprise": [
-   "enterprise|字节跳动 电商欧洲负责人陈熙即将离职 tiktok",
-   "enterprise|qwen s jiang guanjun lays out personal agent framework built models memory ecosy",
-   "enterprise|former tencent hunyuan multimodal rl lead wang haonan embodied ai firms lag larg"
-  ]
- },
  "2026-10-27": {
   "paper": [
    "paper|hypergraph enhanced evidence selection long context multimodal document qa",
@@ -333,6 +312,29 @@
   ],
   "enterprise": [
    "enterprise|完成 亿美元融资首批到账 估值达 万亿美元 bloomberg openai 110 1 25"
+  ]
+ },
+ "2026-11-10": {
+  "paper": [
+   "paper|maxim maximally informative incremental summarization via reinforcement learning",
+   "paper|scaling taxonomy free image labeling generative ai multimodal",
+   "paper|hive mem interleaving horizontal memory expansion vertical evidence composition ",
+   "paper|workflowarena benchmarking executable workflow orchestration llm based multi age",
+   "paper|curbside chatbots auditing mental health interventions large language models rec"
+  ],
+  "opensource": [
+   "opensource|code review fast efficient battle tested alibaba s scale",
+   "opensource|wegent plan build deliver source self hostable",
+   "opensource|mojo dllm local inference diffusion language models llada",
+   "opensource|internship tracker auto updated tech internships india 160 company",
+   "opensource|truenas mcp monitor manage your truenas via llm using mcp plugin"
+  ],
+  "enterprise": [
+   "enterprise|据报道 推进 计划下周四或周五挂牌 anthropic ipo",
+   "enterprise|chatgpt enterprise now available aws marketplace",
+   "enterprise|control room central system track stop model workloads across our research infra",
+   "enterprise|meta muse ember lightweight model agent execution",
+   "enterprise|meta expands instagram s ai age guessing tech globally"
   ]
  }
 }
