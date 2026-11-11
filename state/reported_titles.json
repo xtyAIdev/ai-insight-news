@@ -1,27 +1,4 @@
 {
- "2026-10-27": {
-  "paper": [
-   "paper|hypergraph enhanced evidence selection long context multimodal document qa",
-   "paper|belief conditioned multi agent actor critic decentralized llm collaboration",
-   "paper|knowing when escalate disagreement patterns uncertainty aware content moderation",
-   "paper|preserve expand source aware adaptation model merging multilingual llm based asr",
-   "paper|understanding jev style system one models does structure reduce selection bias"
-  ],
-  "opensource": [
-   "opensource|openagents openagents collaboration os ai agents",
-   "opensource|rea reverse engineer anything agents app behavior",
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|ragflow ragflow is leading source retrieval augmented",
-   "opensource|opendataloader pdf pdf parser ai ready data"
-  ],
-  "enterprise": [
-   "enterprise|招股书 个细节解读 千亿募资 亿美元亏损与 anthropic ipo 11 807 7",
-   "enterprise|working academic communities build scientific understanding",
-   "enterprise|spacex locks 40b gpu financing deal apollo",
-   "enterprise|our newest ai quest mapping human brain",
-   "enterprise|字节跳动在廊坊成立平舒数源科技公司 注册资本 1"
-  ]
- },
  "2026-10-28": {
   "paper": [
    "paper|zero shot multimodal event spotting soccer broadcasts",
@@ -335,6 +312,29 @@
    "enterprise|control room central system track stop model workloads across our research infra",
    "enterprise|meta muse ember lightweight model agent execution",
    "enterprise|meta expands instagram s ai age guessing tech globally"
+  ]
+ },
+ "2026-11-11": {
+  "paper": [
+   "paper|timeseek multi task multi domain pretraining generalized time series analytics",
+   "paper|point time encoders earnings calls",
+   "paper|lumir decoupled multimodal representation learning heterogeneous data next poi r",
+   "paper|abrr transforming temporal sentence grounding wasserstein adaptive refinement pr",
+   "paper|multimodal judges flag humans decide review edit framework ai generated product "
+  ],
+  "opensource": [
+   "opensource|从零开始构建智能体 从零开始的智能体原理与实践教程 hello agents",
+   "opensource|magpie every agent s model",
+   "opensource|omlx llm inference server continuous batching ssd caching",
+   "opensource|hermes webui hermes webui best way use hermes agent web",
+   "opensource|octop smarter self hosted ai assistant multi user"
+  ],
+  "enterprise": [
+   "enterprise|位创始人 各套现约 亿美元并保留控制权 wsj anthropic 7 ipo 2 5",
+   "enterprise|chatgpt plus veterans servicemembers",
+   "enterprise|gemini intelligence features more devices",
+   "enterprise|google cloud gemini healthcare",
+   "enterprise|meta s ai agent muse lands apple watch android wear os"
   ]
  }
 }

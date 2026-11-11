@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-11</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-11-11: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-11">
+<meta property="og:description" content="2026-11-11: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261111.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-11">
+<meta name="twitter:description" content="2026-11-11: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261111.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-11 ｜ report_20261111</div>
+<div class="sub" data-lang-title="zh">2026-11-11 ｜ report_20261111</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-11-11: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. hello-agents：📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程</h3>
+          <p class="news-body">📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程，⭐ 86,653</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">datawhalechina</span> <span class="tag tag-star">⭐ 86,653</span> <span class="tag tag-gray">agent / llm / rag / tutorial</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=86,653，forks=10814，open_issues=174</div>
+          <div class="source">Source：<a href="https://github.com/datawhalechina/hello-agents" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. magpie：Every agent's model</h3>
+          <p class="news-body">Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 34,130</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=34,130，周增长=+4844，forks=3034，open_issues=3720</div>
+          <div class="source">Source：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. omlx：LLM inference server with continuous batching &amp; SSD caching</h3>
+          <p class="news-body">LLM inference server with continuous batching &amp; SSD caching for Apple Silicon — managed from the macOS menu bar</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">jundot</span> <span class="tag tag-star">⭐ 23,526</span> <span class="tag tag-gray">apple-silicon / inference-server / llm / macos</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=23,526，forks=2120，open_issues=530</div>
+          <div class="source">Source：<a href="https://github.com/jundot/omlx" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. hermes-webui：Hermes WebUI: The best way to use Hermes Agent from the web</h3>
+          <p class="news-body">Hermes WebUI: The best way to use Hermes Agent from the web or from your phone!</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">nesquena</span> <span class="tag tag-star">⭐ 19,481</span> <span class="tag tag-gray">agent / ai-agents / hermes / hermes-agent</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=19,481，forks=2828，open_issues=1000</div>
+          <div class="source">Source：<a href="https://github.com/nesquena/hermes-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Octop：A smarter, self-hosted AI assistant — multi-user,</h3>
+          <p class="news-body">A smarter, self-hosted AI assistant — multi-user, multi-agent.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">TencentCloud</span> <span class="tag tag-star">⭐ 11,872</span> <span class="tag tag-gray">agent / agentic-ai / ai / ai-agent</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=11,872，forks=1650，open_issues=755</div>
+          <div class="source">Source：<a href="https://github.com/TencentCloud/Octop" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. TimeSeek: Multi-Task and Multi-Domain Pretraining for Generalized Time Series Analytics</h3>
+          <p class="news-body">Time series analytics has been widely applied across various domains. While existing time series foundation models (TSFMs) have demonstrated promising results, they still face two major challenges: 1) Most TSFMs mainly rely on stacking Transformer layers to increase parameter size, lacking the ability to adaptively model complex time series patterns from multi-domain data. 2) Current TSFMs are primarily pre-trained for specific tasks, e.g., forecasting or anomaly detection, and a few models support multiple tasks, but they fail to fully leverage task specificity and commonality, resulting in suboptimal performance. To address these challenges, we propose TimeSeek, a novel generalized time series analytics model that adaptively models time series patterns from multi-domain data and unifies multiple tasks in pre-training. Conceptually, TimeSeek is guided by selective information sharing under domain and task heterogeneity. From the perspective of multi-domain data, we propose a Multi-Domain Feature Extractor that adaptively captures temporal dependencies and channel correlations based on domain-specific characteristics, including progressive multi-scale modeling and adaptive slot channel modeling. From the perspective of the diversity of tasks, we propose multi-task collaborative training, which leverages task specificity and task commonality through task customization and cross-task training, effectively unifying multiple tasks in pre-training and better adapting to diverse do</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=9</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.14491v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Point-in-Time Encoders for Earnings Calls</h3>
+          <p class="news-body">Text encoders turn earnings calls into vectors for search, for language models that answer from retrieved passages, and for forecasting models. A live retriever can use an encoder trained once on all available text, as finance retrievers are, but a backtest needs an encoder that read no text written after the date of each vector. To address this look-ahead bias, from 412,248 calls we train vintages under four pretraining recipes, with yearly cutoffs from 2010 to 2024, and each vintage reads only text dated on or before its cutoff. We then fine-tune each vintage on the question-answer pairs of the calls themselves. The vintages we train on calls alone, with 33.8M parameters, retrieve answers on held-out calls better than the general retrievers we tested in every test quarter. Their vectors also raise by about half the rank correlation between next-day returns and forecasts built from past returns and firm size. When each vintage continues the previous one, a later vintage retrieves better on earlier quarters than the vintage available at the time, and a point-in-time language model that answers from the passages the later vintage retrieves inherits the gain. The 2024 vintage of our families also forecasts earnings surprises better, although the interval of this gain includes zero on calls that no vintage read. It forecasts returns no better, so point-in-time vintages matter most for retrieval and little for forecasts of returns.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=1</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.14325v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. LUMIR: Decoupled Multimodal Representation Learning from Heterogeneous Data for Next-POI Recommendation</h3>
+          <p class="news-body">As multimodal tourism-related information collected from heterogeneous data sources has become increasingly available, learning effective representations has attracted attention for improving recommendation performance. Existing approaches often tightly couple multimodal fusion with the architecture and optimization objective of a specific downstream model, which limits the generality and reusability of the learned representations. To address these limitations, we propose LUMIR, a decoupled multimodal representation learning framework based on contrastive learning. Multimodal information collected from heterogeneous data sources is first semantically unified into a shared textual representation space using large language models (LLMs). An interaction-aware fusion mechanism is then designed to model cross-modal interactions, while sequential signals are incorporated as a structural constraint to guide representation learning. To evaluate the learned representations, experiments are conducted on a multimodal point-of-interest (POI) dataset under the next-POI recommendation setting across multiple sequential recommendation backbones. The results show that LUMIR consistently outperforms existing multimodal fusion baselines in both accuracy-oriented and beyond-accuracy metrics, demonstrating that decoupling representation learning from downstream optimization provides an effective paradigm for learning reusable multimodal representations. The code is publicly available at https://</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=3</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.14004v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. ABRR: Transforming Temporal Sentence Grounding with Wasserstein-Adaptive Refinement and Precision Ranking</h3>
+          <p class="news-body">Temporal Sentence Grounding (TSG) aims to localize temporal segments in untrimmed videos that correspond to natural language queries, a critical task for video understanding with applications in video retrieval, summarization, and human-computer interaction. Despite significant progress driven by transformer-based models, existing TSG methods suffer from two key limitations: quantization errors due to temporal downsampling, which misalign segment boundaries, and suboptimal ranking of predictions based on semantic matching rather than localization precision. To address these challenges, we propose the Adaptive Boundary Refinement and Ranking (ABRR) framework, a novel, model-agnostic post-processing approach that enhances the performance of any TSG model without retraining. ABRR integrates three innovative components: (1) Temporal Distribution Smoothing, which mitigates noise in predicted score distributions using Gaussian kernel convolution; (2) Boundary Refinement via Optimal Transport, which leverages the 2-Wasserstein distance and Sinkhorn iterations to align coarse segment boundaries with true temporal moments, grounded in Monge-Kantorovich optimal transport theory; and (3) Quality-Driven Re-Ranking, which reorders predictions using a composite score balancing localization precision and semantic relevance. By correcting quantization errors and prioritizing accurately localized segments, ABRR achieves substantial improvements over state-of-the-art TSG models. Extensive expe</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-09</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=4</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.13310v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Multimodal Judges Flag, Humans Decide: A Review-and-Edit Framework for AI-Generated Product Video Ads</h3>
+          <p class="news-body">Generative pipelines can now turn every product page of an e-commerce catalog into a short video ad, but deciding whether such an ad is usable is not one good-or-bad call. We describe how we operationalized the review and editing of these ads so that both can keep pace with generation: reviewers go through each ad scene by scene and answer six questions, on the product, scene quality, pronunciation, script, sound and captions; judges built from vision-language, speech and language models file each finding under the matching question, and reviewers accept or reject each finding and add what the judges missed. Each confirmed issue then opens an edit tool matched to it. The questions and the routing from a finding to its fix do not depend on the models that generate the ad. Across 120 ads from our pipeline, reviewed with judge findings on screen, reviewers marked the product wrong on 60% of scenes, and script, caption or sound problems on under 10% each. On 60 of these ads, they marked the product wrong on 58% of scenes, far more than the 26% marked by two reviewers who later saw the ads with the judges hidden; one reviewer who saw the ads both ways marked 57% with judge findings and 19% without. On 120 blind-labeled scenes, a product judge that watches the clip with the catalog photos reached AUC 0.84, while video-quality and photo-similarity scores were close to chance. We tune the judges for recall: the product judge catches nearly all defects but also flags many clean scenes</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-09</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=4</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.13178v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. WSJ：Anthropic 7 位创始人 IPO 各套现约 2.5 亿美元并保留控制权</h3>
+          <p class="news-body">WSJ 报道，Anthropic 7 位创始人将在 IPO 中各出售约 2.5 亿美元股票，每人保留约 180 亿美元持仓。据公司文件，每人出售近 3.4M 股，发行价区间预计 70 至 78 美元，上市预计下周进行，估值接近 1.3 万亿美元，募资 800 亿美元以上，部分通过包括 Google 在内的私募配售。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.5事件数据：amount_wan=25000，round=IPO</div>
+          <div class="source">Source：<a href="https://x.com/rohanpaul_ai/status/2120392847505715324" target="_blank" rel="noopener">X：Rohan Paul (@rohanpaul_ai)</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ChatGPT Plus for veterans and servicemembers</h3>
+          <p class="news-body">More than 20,000 veterans and transitioning service members have claimed a free year of ChatGPT Plus. See how they use it to prepare for civilian careers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/index/chatgpt-plus-for-veterans" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Gemini Intelligence: New features, on more devices</h3>
+          <p class="news-body">Gemini Intelligence: New features, on more devices Gemini Intelligence is now available on more devices, including motorola signature 27 and Pixel 10. See how expanded capabilities across these devices help you do more. Your browser does not support the audio element. Gemini Intelligence 1 brings the best of Gemini to Android devices, helping your devices work harder for you. Earlier this year, we announced Gemini Intelligence , and this summer devices started rolling out — from the Pixel 11 to</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Google Cloud launches Gemini for healthcare.</h3>
+          <p class="news-body">Google Cloud launches Gemini for healthcare. Google Cloud has announced Gemini for healthcare , an AI solution engineered to unify fragmented clinical, operational, and administrative systems. Moving beyond simple information retrieval, it enables healthcare teams to turn siloed data into coordinated action. Clinicians lose nearly 28 hours each week to paperwork and administrative tasks, fueling burnout and straining budgets. By integrating specialized skills and data connectors with existing th</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Meta’s AI agent Muse lands on Apple Watch and Android Wear OS</h3>
+          <p class="news-body">Users can now interact with Meta’s AI assistant through voice calls, text messages, or dictation on their Apple Watch.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>TimeSeek: Multi-Task and Multi-Domain Pretraining for Generalized Time Series Analytics</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Point-in-Time Encoders for Earnings Calls</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>LUMIR: Decoupled Multimodal Representation Learning from Heterogeneous Data for Next-POI Recommendation</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-11-11 共收录 15 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 5 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. hello-agents：📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程</h3>
+          <p class="news-body">📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">datawhalechina</span> <span class="tag tag-star">⭐ 86,653</span> <span class="tag tag-gray">agent / llm / rag / tutorial</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=86,653，forks=10814，open_issues=174</div>
+          <div class="source">来源：<a href="https://github.com/datawhalechina/hello-agents" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. yetone发布Agent新动态</h3>
+          <p class="news-body">事件为「magpie：Every agent's model」。Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 34,130</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=34,130，周增长=+4844，forks=3034，open_issues=3720</div>
+          <div class="source">来源：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. jundot发布大模型新动态</h3>
+          <p class="news-body">事件为「omlx：LLM inference server with continuous batching &amp; SSD caching」。LLM inference server with continuous batching &amp; SS</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">jundot</span> <span class="tag tag-star">⭐ 23,526</span> <span class="tag tag-gray">apple-silicon / inference-server / llm / macos</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=23,526，forks=2120，open_issues=530</div>
+          <div class="source">来源：<a href="https://github.com/jundot/omlx" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. nesquena发布Agent新动态</h3>
+          <p class="news-body">事件为「hermes-webui：Hermes WebUI: The best way to use Hermes Agent from the web」。Hermes WebUI: The best way to use Hermes A</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">nesquena</span> <span class="tag tag-star">⭐ 19,481</span> <span class="tag tag-gray">agent / ai-agents / hermes / hermes-agent</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=19,481，forks=2828，open_issues=1000</div>
+          <div class="source">来源：<a href="https://github.com/nesquena/hermes-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. TencentCloud发布最新动态</h3>
+          <p class="news-body">事件为「Octop：A smarter, self-hosted AI assistant — multi-user,」。A smarter, self-hosted AI assistant — multi-user, multi-age</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">TencentCloud</span> <span class="tag tag-star">⭐ 11,872</span> <span class="tag tag-gray">agent / agentic-ai / ai / ai-agent</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=11,872，forks=1650，open_issues=755</div>
+          <div class="source">来源：<a href="https://github.com/TencentCloud/Octop" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Multi-Domain：大模型+RAG</h3>
+          <p class="news-body">事件为「TimeSeek: Multi-Task and Multi-Domain Pretraining for Generalized Time Series Analytics」。Time series analytics has b</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=9</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.14491v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Point-in：大模型+RAG</h3>
+          <p class="news-body">事件为「Point-in-Time Encoders for Earnings Calls」。Text encoders turn earnings calls into vectors for search, for language m</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=1</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.14325v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Next-POI：大模型+多模态</h3>
+          <p class="news-body">事件为「LUMIR: Decoupled Multimodal Representation Learning from Heterogeneous Data for Next-POI Recommendation」。As multimod</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=3</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.14004v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Wasserstein-Adaptive：多模态+RAG</h3>
+          <p class="news-body">事件为「ABRR: Transforming Temporal Sentence Grounding with Wasserstein-Adaptive Refinement and Precision Ranking」。Temporal</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-09</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=4</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.13310v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AI-Generated：大模型+多模态</h3>
+          <p class="news-body">事件为「Multimodal Judges Flag, Humans Decide: A Review-and-Edit Framework for AI-Generated Product Video Ads」。Generative pi</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-09</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=4</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.13178v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. WSJ：Anthropic 7 位创始人 IPO 各套现约 2.5 亿美元并保留控制权</h3>
+          <p class="news-body">WSJ 报道，Anthropic 7 位创始人将在 IPO 中各出售约 2.5 亿美元股票，每人保留约 180 亿美元持仓。据公司文件，每人出售近 3.4M 股，发行价区间预计 70 至 78 美元，上市预计下周进行，估值接近 1.3 万亿美元，募资 800 亿美元以上，部分通过包括 Google 在内的私募配售。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.5事件数据：amount_wan=25000，round=IPO</div>
+          <div class="source">来源：<a href="https://x.com/rohanpaul_ai/status/2120392847505715324" target="_blank" rel="noopener">X：Rohan Paul (@rohanpaul_ai)</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI发布最新动态</h3>
+          <p class="news-body">事件为「ChatGPT Plus for veterans and servicemembers」。More than 20,000 veterans and transitioning service members have claim</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/index/chatgpt-plus-for-veterans" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Google发布Gemini新动态</h3>
+          <p class="news-body">事件为「Gemini Intelligence: New features, on more devices」。Gemini Intelligence: New features, on more devices Gemini Intell</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Google发布Gemini新动态</h3>
+          <p class="news-body">事件为「Google Cloud launches Gemini for healthcare.」。Google Cloud launches Gemini for healthcare. Google Cloud has announce</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Meta发布Agent新动态</h3>
+          <p class="news-body">事件为「Meta’s AI agent Muse lands on Apple Watch and Android Wear OS」。Users can now interact with Meta’s AI assistant throu</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>TimeSeek: Multi-Task and Multi-Domain Pretraining for Generalized Time Series Analytics</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Point-in-Time Encoders for Earnings Calls</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>LUMIR: Decoupled Multimodal Representation Learning from Heterogeneous Data for Next-POI Recommendation</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-11T06:31:21.141Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
