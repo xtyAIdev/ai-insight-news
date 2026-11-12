@@ -1,27 +1,4 @@
 {
- "2026-10-28": {
-  "paper": [
-   "paper|zero shot multimodal event spotting soccer broadcasts",
-   "paper|can complementary signals bridge similarity islands manifold augmented graph emb",
-   "paper|agent conditioned routing diverse reasoning paths within one frozen model",
-   "paper|heads security learned attention gates improve prompt injection robustness",
-   "paper|gepa curator curated learning self improving agents"
-  ],
-  "opensource": [
-   "opensource|magpie every agent s model",
-   "opensource|fastembed fast accurate lightweight python library make state",
-   "opensource|n8n fair code workflow automation platform native ai",
-   "opensource|claude mem persistent context across sessions every agent",
-   "opensource|vllm high throughput memory efficient inference"
-  ],
-  "enterprise": [
-   "enterprise|最大赢家或为 而非 anthropic ipo amazon vc",
-   "enterprise|openai expands partnership oracle bring apps chatgpt",
-   "enterprise|cohere says alibaba s qwen model tried send beijing techcrunch",
-   "enterprise|bank america kindly asks that you don t share your banking password your ai assi",
-   "enterprise|retell uses openai models help power 100m monthly calls"
-  ]
- },
  "2026-10-29": {
   "paper": [
    "paper|can llms uncover hidden physical laws through free exploration",
@@ -335,6 +312,29 @@
    "enterprise|gemini intelligence features more devices",
    "enterprise|google cloud gemini healthcare",
    "enterprise|meta s ai agent muse lands apple watch android wear os"
+  ]
+ },
+ "2026-11-12": {
+  "paper": [
+   "paper|contrastive discovery ended scientific discovery over competing explanations",
+   "paper|comparative analysis agent evaluation frameworks stability detection discovery e",
+   "paper|emergent biological capabilities foundation model molecular interactions",
+   "paper|starse compact russian sentence embeddings sign coded static encoder",
+   "paper|ugg unified generative geometry model"
+  ],
+  "opensource": [
+   "opensource|context7 context7 platform up date docs ai agents",
+   "opensource|code review fast efficient battle tested alibaba s scale",
+   "opensource|inspector deterministic testing tools mcp servers",
+   "opensource|evalscope streamlined customizable framework efficient",
+   "opensource|agent foundation a13n build run manage ai agents scale your"
+  ],
+  "enterprise": [
+   "enterprise|拟募资最高 美元 或成史上最大上市 anthropic ipo 90 4b",
+   "enterprise|gilbert tobin rethinks business law ai",
+   "enterprise|gemini decisions api fast calibrated multimodal decisions",
+   "enterprise|meta is losing longtime head infrastructure",
+   "enterprise|jensen huang accused having another affair nvidia exec"
   ]
  }
 }

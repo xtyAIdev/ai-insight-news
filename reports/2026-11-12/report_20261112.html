@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-12</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-11-12: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-12">
+<meta property="og:description" content="2026-11-12: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261112.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-12">
+<meta name="twitter:description" content="2026-11-12: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261112.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-12 ｜ report_20261112</div>
+<div class="sub" data-lang-title="zh">2026-11-12 ｜ report_20261112</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-11-12: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. context7：Context7 Platform -- Up-to-date docs for AI agents</h3>
+          <p class="news-body">Context7 Platform -- Up-to-date docs for AI agents</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">upstash</span> <span class="tag tag-star">⭐ 64,647</span> <span class="tag tag-gray">llm / mcp / mcp-server / vibe-coding</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=64,647，周增长=+385，forks=3241，open_issues=48</div>
+          <div class="source">Source：<a href="https://github.com/upstash/context7" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. open-code-review：Secure, fast, efficient, battle-tested at Alibaba's scale</h3>
+          <p class="news-body">Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">alibaba</span> <span class="tag tag-star">⭐ 49,867</span> <span class="tag tag-gray">agent / agent-skills / code-review / code-review-assistant</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=49,867，forks=3674，open_issues=336</div>
+          <div class="source">Source：<a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. inspector：Deterministic testing tools for MCP servers</h3>
+          <p class="news-body">Deterministic testing tools for MCP servers</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">modelcontextprotocol</span> <span class="tag tag-star">⭐ 11,279</span> <span class="tag tag-gray">cli / debug / mcp / tool</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=11,279，forks=1567，open_issues=18</div>
+          <div class="source">Source：<a href="https://github.com/modelcontextprotocol/inspector" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. evalscope：A streamlined and customizable framework for efficient</h3>
+          <p class="news-body">A streamlined and customizable framework for efficient large model (LLM, VLM, AIGC) evaluation and performance benchmarking.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">modelscope</span> <span class="tag tag-star">⭐ 3,684</span> <span class="tag tag-gray">evaluation / llm / performance / rag</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=3,684，forks=567，open_issues=18</div>
+          <div class="source">Source：<a href="https://github.com/modelscope/evalscope" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. agent-foundation：a13n - Build, run, and manage AI agents at scale on your</h3>
+          <p class="news-body">a13n - Build, run, and manage AI agents at scale on your own infrastructure. Open source, with a built-in harness, durable execution, multi-provider support, and a management console. Built With Love 💜 @converge-ai-labs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">converge-ai-labs</span> <span class="tag tag-star">⭐ 1,119</span> <span class="tag tag-gray">a13n / agent / harness / managed-agents</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=1,119，周增长=+797，forks=33，open_issues=38</div>
+          <div class="source">Source：<a href="https://github.com/converge-ai-labs/agent-foundation" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Contrastive Discovery: Open-Ended Scientific Discovery over Competing Explanations</h3>
+          <p class="news-body">LLM agents are increasingly used for open-ended, data-driven scientific discovery, yet most of them evaluate hypotheses pointwise, testing an empirical claim $h$ only against its complement $\neg h$. When evidence rejects $h$, the agent learns that one explanation is unlikely but not which alternative the evidence supports. To recover that alternative, we introduce Contrastive Discovery, which replaces the single hypothesis with a contrast set, a scientific question paired with mutually exclusive and collectively exhaustive competing explanations. Each experiment is scored by how its evidence redistributes belief across the set, and the question is resolved when belief concentrates on one explanation. Because contrast sets change only the unit an agent proposes and scores, an existing agent can use them to re-evaluate evidence it has already collected or to guide its search. Across six domains, $89\%$ of the pointwise candidates with the largest belief shifts are rejections. On the same evidence, contrast sets resolve $73\%$ of these candidates to a specific alternative. When contrast sets guide search, the agent resolves $67\%$ more questions than pointwise surprisal under the same experiment budget. In a blinded study, $38$ human experts chose the same explanation on $78\%$ of resolved questions and on $82\%$ of questions where the pointwise agent rejected its hypothesis and stopped. Together, these results support explicit competing explanations as a way for discovery agen</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=4</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.14514v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Comparative Analysis of Agent Evaluation Frameworks: Stability, Detection, and Discovery in Enterprise Analytics Agents</h3>
+          <p class="news-body">Deploying LLM-based analytics agents in enterprise settings requires evaluation frameworks that can reliably detect failures across complex, multi-tool workflows. We present a three-phase comparative study of three evaluation frameworks, each representing a distinct evaluation paradigm (trace-based LLM judging, text-only LLM judging with red-teaming, and deterministic heuristics), applied to two analytics agents in a controlled research setting using frozen execution traces. Phase 1 quantifies evaluation harness stability through repeated measurements, finding that 97% of configurations meet the stability threshold and that stability patterns are agent-independent. Phase 2 measures known risk detection on 72 ground-truth test cases, where the trace-based framework achieves the best precision-recall balance (F1=0.90) while text-only evaluation matches on recall but generates 5x more false alarms. Phase 3 evaluates unknown risk discovery, uncovering 24 novel failures with zero overlap between functional testing and security red-teaming. Our results demonstrate that (1) the information available to the evaluation harness determines evaluation quality, (2) functional and security evaluation are complementary, and (3) LLM-based evaluation harnesses surface subtle errors that human reviewers miss. We recommend a two-framework strategy: trace-based evaluation for functional assessment and adversarial red-teaming for security validation.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=KDD 2026 录用，作者数=6</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.14493v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Emergent Biological Capabilities in a Foundation Model for Molecular Interactions</h3>
+          <p class="news-body">Foundation models trained on large unlabeled corpora develop emergent capabilities, tasks that go beyond the training objective. We extend this paradigm to multimodal biology with Bonbon, a foundation model for molecular interactions trained on approximately 3.2 trillion tokens of paired protein-ligand sequences. From a single representation space, Bonbon exhibits three zero-shot emergent capabilities at hierarchical levels of resolution: functional (mechanism of action), residue (binding site localization, including orthosteric/allosteric discrimination), and bond (covalent versus non-covalent engagement). All three capabilities generalize to out-of-distribution complexes. Bonbon was trained on protein-ligand sequences alone, without any task-specific supervision and without structural coordinates. We conducted controlled scaling experiments across six model scales from 42M to 1.6B parameters; every capability evaluated shows a sharp jump at the largest scale on continuous metrics, even as pretraining loss decreases smoothly. This demonstrates that loss-based scaling laws alone are insufficient to predict when zero-shot emergent capabilities become available. The capabilities reported here emerge after training at a 1:2,000 parameter-to-token ratio to accommodate the sparsity of paired biological interaction data. The same frozen representations achieve state-of-the-art binding and affinity prediction at five orders of magnitude greater speed than co-folding methods. In pros</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=1</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.14504v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. StaRSE: Compact Russian Sentence Embeddings with a Sign-Coded Static Encoder</h3>
+          <p class="news-body">Transformer sentence encoders provide strong retrieval quality, but their inference cost becomes a bottleneck when embeddings must be produced on CPUs or refreshed frequently. We introduce StaRSE, a compact Russian static sentence encoder that removes Transformer inference at deployment time: token directions are stored as sign bits, token norms are stored separately, and sentences are encoded by mean pooling over norm-scaled sign directions. StaRSE is initialized from ruBERT-base, fine-tuned on Russian adjacent-sentence and task-shaped pairs, and post-trained with a contrastive stage that directly optimizes the sign-projected token table. On RuMTEB, StaRSE reaches a task mean of $51.16$, $7.98$ points above the strongest included static baseline. The packaged model occupies $11.3$ MiB and has a mean CPU latency of $0.08$ ms per sentence, compared with an estimated $55.7$ MiB 16-bit parameter footprint and $1.43$ ms mean CPU latency for the closest-quality contextual encoder. Ablations examine adjacent-sentence supervision, token norms, and direct sign-projected post-training.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=SIGIR 2026 录用，作者数=9</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.14236v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. UGG: Unified Generative Geometry Model</h3>
+          <p class="news-body">Understanding 4D scenes is a core challenge in visual intelligence, requiring models to jointly capture scene geometry, appearance, and dynamics from partial observations. However, existing approaches are subdivided into feedforward models for direct geometric prediction, and generative models for visual synthesis. We introduce UGG, a unified framework for 4D scene understanding that jointly models RGB video and geometric representations such as depth and camera pose. By assigning different noise levels across modalities and time, UGG formulates visual generation and geometric prediction as conditional completion within a single generative model. This flexible formulation enables the model to learn from diverse, heterogeneous datasets with different subsets of geometric and visual annotations. Furthermore, our generative formulation enables inference-time search over multiple plausible scene hypotheses, using geometric evidence extracted from observed RGB frames to improve geometric prediction without ground truth geometry. We demonstrate UGG's effectiveness over non-unified baselines across camera-controlled video generation, depth estimation, and camera pose prediction, including in challenging sparse observation settings. Code and visualizations are available at https://ugg-model.github.io/</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=7</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.14440v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Anthropic IPO 拟募资最高 90.4B 美元，或成史上最大上市</h3>
+          <p class="news-body">Bloomberg 报道 Anthropic IPO 已获数倍于发行份额的订单，主要来自大型机构投资者的锚定级意向。公司通过 IPO 加私募配售寻求最高 $90.4B，将超过 SpaceX 的 $85.7B 纪录成为史上最大上市，完全稀释估值目标约 $1.4T；Goldman Sachs 和 Morgan Stanley 牵头共 22 家银行，股票将以 ANT 在纳斯达克全球精选市场交易。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.5事件数据：amount_wan=904000，round=IPO</div>
+          <div class="source">Source：<a href="https://x.com/rohanpaul_ai/status/2120526677247939001" target="_blank" rel="noopener">X：Rohan Paul (@rohanpaul_ai)</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Gilbert + Tobin rethinks the business of law with AI</h3>
+          <p class="news-body">A conversation with Sam Nickless, Partner and Chief Executive Officer at Gilbert + Tobin.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/index/gilbert-tobin-sam-nickless" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Gemini Decisions API: Fast, calibrated multimodal decisions</h3>
+          <p class="news-body">Gemini Decisions API: Fast, calibrated multimodal decisions Introducing the Gemini Decisions API, powered by our new Gemini Decision 1 model. Evaluate up to 1,000 yes/no, choice, and rubric-scoring questions in a fast, single pass across text, images, audio, video, and PDFs. Your browser does not support the audio element. We are introducing the Gemini Decisions API to help you make fast, probabilistic choices across text, images, audio, video, and PDFs. This tool computes confidence scores for</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta is losing its longtime head of infrastructure</h3>
+          <p class="news-body">Santosh Janardhan, who originally joined the company in 2009, will be stepping down from his role.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/11/meta-is-losing-its-longtime-head-of-infrastructure/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Jensen Huang accused of having another affair — with an Nvidia exec</h3>
+          <p class="news-body">Jensen Huang, who has come under fire for admitting to an affair with a woman accused of being a Chinese intelligence agent, has been accused of having a separate affair with an Nvidia subordinate.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/11/jensen-huang-accused-of-having-another-affair-with-a-nvidia-exec/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Contrastive Discovery: Open-Ended Scientific Discovery over Competing Explanations</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Comparative Analysis of Agent Evaluation Frameworks: Stability, Detection, and Discovery in Enterprise Analytics Agents</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Emergent Biological Capabilities in a Foundation Model for Molecular Interactions</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-11-12 共收录 15 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 5 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. upstash发布Agent新动态</h3>
+          <p class="news-body">事件为「context7：Context7 Platform -- Up-to-date docs for AI agents」。Context7 Platform -- Up-to-date docs for AI agents</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">upstash</span> <span class="tag tag-star">⭐ 64,647</span> <span class="tag tag-gray">llm / mcp / mcp-server / vibe-coding</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=64,647，周增长=+385，forks=3241，open_issues=48</div>
+          <div class="source">来源：<a href="https://github.com/upstash/context7" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. alibaba融资NPE</h3>
+          <p class="news-body">事件为「open-code-review：Secure, fast, efficient, battle-tested at Alibaba's scale」。Secure, fast, efficient, battle-tested a</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">alibaba</span> <span class="tag tag-star">⭐ 49,867</span> <span class="tag tag-gray">agent / agent-skills / code-review / code-review-assistant</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=49,867，forks=3674，open_issues=336</div>
+          <div class="source">来源：<a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. modelcontextprotocol发布MCP</h3>
+          <p class="news-body">事件为「inspector：Deterministic testing tools for MCP servers」。Deterministic testing tools for MCP servers</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">modelcontextprotocol</span> <span class="tag tag-star">⭐ 11,279</span> <span class="tag tag-gray">cli / debug / mcp / tool</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=11,279，forks=1567，open_issues=18</div>
+          <div class="source">来源：<a href="https://github.com/modelcontextprotocol/inspector" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. modelscope发布AIGC</h3>
+          <p class="news-body">事件为「evalscope：A streamlined and customizable framework for efficient」。A streamlined and customizable framework for effic</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">modelscope</span> <span class="tag tag-star">⭐ 3,684</span> <span class="tag tag-gray">evaluation / llm / performance / rag</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=3,684，forks=567，open_issues=18</div>
+          <div class="source">来源：<a href="https://github.com/modelscope/evalscope" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. converge-ai-labs发布Agent新动态</h3>
+          <p class="news-body">事件为「agent-foundation：a13n - Build, run, and manage AI agents at scale on your」。a13n - Build, run, and manage AI agents a</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">converge-ai-labs</span> <span class="tag tag-star">⭐ 1,119</span> <span class="tag tag-gray">a13n / agent / harness / managed-agents</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=1,119，周增长=+797，forks=33，open_issues=38</div>
+          <div class="source">来源：<a href="https://github.com/converge-ai-labs/agent-foundation" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Open-Ended：Agent+大模型</h3>
+          <p class="news-body">事件为「Contrastive Discovery: Open-Ended Scientific Discovery over Competing Explanations」。LLM agents are increasingly used</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=4</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.14514v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. LLM-based：Agent+大模型</h3>
+          <p class="news-body">事件为「Comparative Analysis of Agent Evaluation Frameworks: Stability, Detection, and Discovery in Enterprise Analytics Age</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=KDD 2026 录用，作者数=6</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.14493v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Interactions：大模型+多模态</h3>
+          <p class="news-body">事件为「Emergent Biological Capabilities in a Foundation Model for Molecular Interactions」。Foundation models trained on larg</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=1</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.14504v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Sign-Coded：推理+RAG</h3>
+          <p class="news-body">事件为「StaRSE: Compact Russian Sentence Embeddings with a Sign-Coded Static Encoder」。Transformer sentence encoders provide</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=SIGIR 2026 录用，作者数=9</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.14236v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. UGG：多模态+推理</h3>
+          <p class="news-body">事件为「UGG: Unified Generative Geometry Model」。Understanding 4D scenes is a core challenge in visual intelligence, requirin</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-10</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=7</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.14440v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Anthropic IPO 拟募资最高 90.4B 美元，或成史上最大上市</h3>
+          <p class="news-body">Bloomberg 报道 Anthropic IPO 已获数倍于发行份额的订单，主要来自大型机构投资者的锚定级意向。公司通过 IPO 加私募配售寻求最高 $90.4B，将超过 SpaceX 的 $85.7B 纪录成为史上最大上市，完全稀释估值目标约 $1.4T；Goldman Sachs 和 Morgan Stanley 牵头共 22 家银行，股票将以 ANT 在纳斯达克全球精选市场交易。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.5事件数据：amount_wan=904000，round=IPO</div>
+          <div class="source">来源：<a href="https://x.com/rohanpaul_ai/status/2120526677247939001" target="_blank" rel="noopener">X：Rohan Paul (@rohanpaul_ai)</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI发布最新动态</h3>
+          <p class="news-body">事件为「Gilbert + Tobin rethinks the business of law with AI」。A conversation with Sam Nickless, Partner and Chief Executive</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/index/gilbert-tobin-sam-nickless" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Google发布Gemini新动态</h3>
+          <p class="news-body">事件为「Gemini Decisions API: Fast, calibrated multimodal decisions」。Gemini Decisions API: Fast, calibrated multimodal decis</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Meta发布最新动态</h3>
+          <p class="news-body">事件为「Meta is losing its longtime head of infrastructure」。Santosh Janardhan, who originally joined the company in 2009, wi</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">Meta</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/11/meta-is-losing-its-longtime-head-of-infrastructure/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Nvidia发布最新动态</h3>
+          <p class="news-body">事件为「Jensen Huang accused of having another affair — with an Nvidia exec」。Jensen Huang, who has come under fire for admit</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/11/jensen-huang-accused-of-having-another-affair-with-a-nvidia-exec/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Contrastive Discovery: Open-Ended Scientific Discovery over Competing Explanations</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Comparative Analysis of Agent Evaluation Frameworks: Stability, Detection, and Discovery in Enterprise Analytics Agents</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Emergent Biological Capabilities in a Foundation Model for Molecular Interactions</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-12T07:17:58.509Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
