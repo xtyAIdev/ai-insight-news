@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-13</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-11-13: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-13">
+<meta property="og:description" content="2026-11-13: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261113.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-13">
+<meta name="twitter:description" content="2026-11-13: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261113.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-13 ｜ report_20261113</div>
+<div class="sub" data-lang-title="zh">2026-11-13 ｜ report_20261113</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-11-13: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. magpie：Every agent's model</h3>
+          <p class="news-body">Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 35,675</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=35,675，forks=3179，open_issues=4022</div>
+          <div class="source">Source：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. SAG-Wiki：A lightweight knowledge base for people and agents, with</h3>
+          <p class="news-body">A lightweight knowledge base for people and agents, with ultra fast indexing and most precise retrieval.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">Zleap-AI</span> <span class="tag tag-star">⭐ 1,135</span> <span class="tag tag-gray">knowledge-base / knowledge-graph / rag / rust</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=1,135，forks=134，open_issues=8</div>
+          <div class="source">Source：<a href="https://github.com/Zleap-AI/SAG-Wiki" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 263,036</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=263,036，forks=59219，open_issues=53612</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. AutoGPT：AutoGPT is the vision of accessible AI for everyone, to use</h3>
+          <p class="news-body">AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">Significant-Gravitas</span> <span class="tag tag-star">⭐ 188,012</span> <span class="tag tag-gray">agentic-ai / agents / ai / artificial-intelligence</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=188,012，forks=45870，open_issues=708</div>
+          <div class="source">Source：<a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. dify：Build Agentic workflows, RAG pipelines, with rich AI model</h3>
+          <p class="news-body">Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 161,075</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=161,075，forks=25472，open_issues=1248</div>
+          <div class="source">Source：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Internalizing Investment Mandates: A Neurosymbolic RL Approach to Portfolio Allocation</h3>
+          <p class="news-body">Institutional portfolios operate under investment policy statements that specify asset allocation constraints, often conditioned on market regime information. Deep reinforcement learning has been shown to optimize financial performance but typically does not enforce rule compliance, making it unsuitable for real-world deployment. Existing neurosymbolic methods such as Probabilistic Logic Policy Gradient (PLPG) offer constraint-satisfying reinforcement learning (RL) via differentiable symbolic supervision but assume a finite, discrete action space. We present a PLPG-inspired continuous allocation method that estimates the probability that the policy's own executed action satisfies the investment mandate, using reparameterized Monte Carlo sampling, and adds it to the training objective. No post-hoc enforcement mechanism intercepts actions at inference time and compliance is learned by the agent. Audited directly on deterministic mean actions with no correction, the policy reduces violations of a six-rule regime-conditional mandate from 96-98% for unconstrained RL and 33.4% for a reward-penalty baseline to 4.8%, showing that a continuous-action neurosymbolic policy can substantially internalize a symbolic mandate.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=4</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17329v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Negative-Only Policy Optimization for One-Sided Verifiable Rewards</h3>
+          <p class="news-body">Reinforcement learning with verifiable rewards (RLVR) typically relies on a verifier that can reliably judge whether sampled solutions are correct. However, in many realistic settings, complete verification is generally unavailable, while cheap checks can only falsify failures. We formalize this regime as one-sided verifiability (OSV): verified negatives are reliable counterexamples, but verified positives are merely non-falsified candidates and may contain many false positives. This asymmetry makes standard RLVR unreliable, because reinforcing verified positives can directly reward shortcuts that pass partial checks. To address this issue, we propose Negative-Only Policy Optimization (NOPO), which treats verified positives as unlabeled and updates the policy only by suppressing trusted verified negatives. Specifically, NOPO combines a reference-relative negative suppression loss with a group-level adapter that scales each update by the proportion of non-falsified responses. Across unit-test, constraint-check, and LLM self-verifiers, NOPO improves pass@k over baselines on code, logic, and math benchmarks when oracle rewards are unavailable. These gains persist under inference-time scaling and cross-benchmark transfer.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=5</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17287v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. KuaiRecV2: Benchmarking Large-Scale Continual Learning for Diversified and Multi-task Recommendation</h3>
+          <p class="news-body">Recommender systems, which retrieve items of interest to users based on their interaction histories, have recently witnessed several key technological advancements, benefiting from the semantic representation space and model-data scaling. Nevertheless, practitioners and researchers have frequently encountered critical inconsistencies between simple offline evaluations and complex online results, and this gap still exists in the era of large models. In this work, we address several key factors that contribute to this inconsistency: 1) the \textit{large-scale continual learning challenge} that assumes a practical demand to maintain long-term model effectiveness under dynamic item pools and distributional shifts; 2) the \textit{combinatorial diversity challenge} that requires the generation strategy to solve the accuracy-diversity trade-off in both the finer token level and the holistic item level; and 3) the \textit{multi-task reward balancing challenge}, which is particularly critical for modern generative models that can accurately model the sequence distribution but are less controllable for the multi-task demands. To address these challenges and further pave the way for the development of more realistic recommendation solutions, we introduce KuaiRecV2, a deliberately constructed benchmark with industrial-level datasets from Kuaishou. Specifically, we provide a large-scale interaction dataset with million-scale multi-modal item information and long-term interaction records a</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=10</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.16795v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. MULTILOOP: Evolving Multi-Agent Harnesses for Complex Information-Seeking Tasks</h3>
+          <p class="news-body">The performance of LLM-based agents depends not only on the underlying model but also on the harness: the prompts, tools, and orchestration logic around it. Recent works automate harness optimization with coding agents that analyze execution traces, diagnose failures, and edit the harness code; however, those focused on single-agent systems. Multi-agent harnesses are harder to optimize as fixing them requires changing how agents interact in addition to how each behaves. We study whether automated harness optimization can diagnose and repair failures in multi-agent systems through a case study on complex information-seeking tasks from DeepSearchQA [Gupta et al., 2026]. We apply MULTILOOP, a simple optimization loop in which a coding agent iteratively analyzes, evaluates and edits the harness. With only 10 training samples, the evolved harness improves accuracy by 4.6% over the base harness and by 3.2% over the best single-agent system. However, a taxonomy of failure modes before and after optimization shows that the orchestration failures that characterize multi-agent systems largely persist. Our findings motivate harness optimization methods that encourage structural changes to how agents delegate tasks and share information.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=7</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.15754v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ArchSpace: Recording, Reviewing, and Referencing LLM Architecture Research</h3>
+          <p class="news-body">Model architecture shapes the scaling behavior, training efficiency, and inference cost of LLMs, making it a central focus of both industry and academia. In industry, teams such as those behind DeepSeek, Qwen, and Kimi routinely introduce architectural innovations, yet public reports rarely document which ideas succeeded, which were abandoned, and why. In academia, limited compute and inconsistent baselines often restrict evaluations to small-scale, single-point comparisons, making it difficult to establish whether improvements hold at larger scales or translate into broader impact. ArchSpace addresses both gaps as a public platform for Recording, Reviewing, and Referencing Architecture Researc}: each proposal is recorded with its experiments and reasoning, reviewed by the community, and referenced by later work. To evaluate ideas before costly large-scale training, ArchSpace leverages scaling laws to predict model loss at larger scales from smaller experiments, a practice widely adopted in industry. We provide initial references that make the platform usable: Qwen3.5 and OLMo3 baselines, fitted scaling laws, and a reusable training recipe. Ideas validated through this review can in turn become new baselines, and ArchSpace thereby aims to broaden the range of ideas that shape the next generation of models.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=10</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17332v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Jensen Huang’s exit puts Nvidia’s support for open source in question</h3>
+          <p class="news-body">Jensen Huang’s resignation raises questions about Nvidia’s commitment to open source AI, including its Hugging Face acquisition, open-weight models, and advocacy against restrictions, as the company navigates a leadershi</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">Hugging face</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/12/jensen-huangs-exit-puts-nvidias-support-for-open-source-in-question/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. How Amplitude ships product improvements in 1–2 days with OpenAI</h3>
+          <p class="news-body">Built primarily on OpenAI models, Amplitude’s proactive product agent, Wave, identifies what to build, helps teams ship changes with coding agents, and measures the impact.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/business/customer-stories/amplitude" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Gondola doubles revenue as its team builds more with Codex</h3>
+          <p class="news-body">Gondola helps creatives get credit and get hired, with Codex raising its lead engineer’s output by 50% and ChatGPT simplifying daily work.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/business/customer-stories/gondola" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Google Search gets a major upgrade with Gemini 4 Hydrogen</h3>
+          <p class="news-body">Google Search gets a major upgrade with Gemini 4 Hydrogen Your browser does not support the audio element. We are bringing Gemini 4 Hydrogen to Google Search to help you find exactly what you need. This update understands complex, multi-part questions and provides clear answers with helpful images, tables, and links. You can now ask about specific requirements for travel, shopping, or hobbies in your own natural language. It connects you to more relevant websites and tools to save you time durin</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Nectar launches an AI agent to automate creator discovery and outreach for brands</h3>
+          <p class="news-body">Nectar's new AI agent automates influencer marketing, helping brands discover creators, manage outreach and partnerships, and track campaign results.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">Nectar</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/12/nectar-launches-an-ai-agent-to-automate-creator-discovery-and-outreach-for-brands/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Internalizing Investment Mandates: A Neurosymbolic RL Approach to Portfolio Allocation</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Negative-Only Policy Optimization for One-Sided Verifiable Rewards</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>KuaiRecV2: Benchmarking Large-Scale Continual Learning for Diversified and Multi-task Recommendation</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-11-13 共收录 15 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 5 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. yetone发布Agent新动态</h3>
+          <p class="news-body">事件为「magpie：Every agent's model」。Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 35,675</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=35,675，forks=3179，open_issues=4022</div>
+          <div class="source">来源：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Zleap-AI发布Agent新动态</h3>
+          <p class="news-body">事件为「SAG-Wiki：A lightweight knowledge base for people and agents, with」。A lightweight knowledge base for people and agent</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">Zleap-AI</span> <span class="tag tag-star">⭐ 1,135</span> <span class="tag tag-gray">knowledge-base / knowledge-graph / rag / rust</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=1,135，forks=134，open_issues=8</div>
+          <div class="source">来源：<a href="https://github.com/Zleap-AI/SAG-Wiki" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. NousResearch发布Agent新动态</h3>
+          <p class="news-body">事件为「hermes-agent：The agent that grows with you」。The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 263,036</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=263,036，forks=59219，open_issues=53612</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Significant-Gravitas发布最新动态</h3>
+          <p class="news-body">事件为「AutoGPT：AutoGPT is the vision of accessible AI for everyone, to use」。AutoGPT is the vision of accessible AI for ever</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">Significant-Gravitas</span> <span class="tag tag-star">⭐ 188,012</span> <span class="tag tag-gray">agentic-ai / agents / ai / artificial-intelligence</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=188,012，forks=45870，open_issues=708</div>
+          <div class="source">来源：<a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. langgenius发布RAG新动态</h3>
+          <p class="news-body">事件为「dify：Build Agentic workflows, RAG pipelines, with rich AI model」。Build Agentic workflows, RAG pipelines, with rich A</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 161,075</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=161,075，forks=25472，open_issues=1248</div>
+          <div class="source">来源：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. RL：Agent+推理</h3>
+          <p class="news-body">事件为「Internalizing Investment Mandates: A Neurosymbolic RL Approach to Portfolio Allocation」。Institutional portfolios ope</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=4</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17329v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Negative-Only：大模型+推理</h3>
+          <p class="news-body">事件为「Negative-Only Policy Optimization for One-Sided Verifiable Rewards」。Reinforcement learning with verifiable rewards (</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=5</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17287v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Large-Scale：搜索学习</h3>
+          <p class="news-body">事件为「KuaiRecV2: Benchmarking Large-Scale Continual Learning for Diversified and Multi-task Recommendation」。Recommender sy</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=10</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.16795v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Information-Seeking：Agent+大模型</h3>
+          <p class="news-body">事件为「MULTILOOP: Evolving Multi-Agent Harnesses for Complex Information-Seeking Tasks」。The performance of LLM-based agents</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-11</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=7</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.15754v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ArchSpace：大模型+推理</h3>
+          <p class="news-body">事件为「ArchSpace: Recording, Reviewing, and Referencing LLM Architecture Research」。Model architecture shapes the scaling be</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=10</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17332v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Hugging face开源新动态</h3>
+          <p class="news-body">事件为「Jensen Huang’s exit puts Nvidia’s support for open source in question」。Jensen Huang’s resignation raises questions a</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">Hugging face</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/12/jensen-huangs-exit-puts-nvidias-support-for-open-source-in-question/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI更新新动态</h3>
+          <p class="news-body">事件为「How Amplitude ships product improvements in 1–2 days with OpenAI」。Built primarily on OpenAI models, Amplitude’s proa</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/business/customer-stories/amplitude" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. OpenAI发布最新动态</h3>
+          <p class="news-body">事件为「Gondola doubles revenue as its team builds more with Codex」。Gondola helps creatives get credit and get hired, with C</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/business/customer-stories/gondola" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Google更新Gemini新动态</h3>
+          <p class="news-body">事件为「Google Search gets a major upgrade with Gemini 4 Hydrogen」。Google Search gets a major upgrade with Gemini 4 Hydrogen</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Nectar发布Agent新动态</h3>
+          <p class="news-body">事件为「Nectar launches an AI agent to automate creator discovery and outreach for brands」。Nectar's new AI agent automates i</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag">Nectar</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/12/nectar-launches-an-ai-agent-to-automate-creator-discovery-and-outreach-for-brands/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Internalizing Investment Mandates: A Neurosymbolic RL Approach to Portfolio Allocation</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Negative-Only Policy Optimization for One-Sided Verifiable Rewards</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>KuaiRecV2: Benchmarking Large-Scale Continual Learning for Diversified and Multi-task Recommendation</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-13T06:51:42.856Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

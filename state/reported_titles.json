@@ -1,27 +1,4 @@
 {
- "2026-10-29": {
-  "paper": [
-   "paper|can llms uncover hidden physical laws through free exploration",
-   "paper|multi state linear attention generalized second order routing",
-   "paper|metacognitive decoding efficient inference diffusion language agents",
-   "paper|rare relevant still wrong how memory fails llm group decisions",
-   "paper|envsched environment aware scheduling rollout efficient agent reinforcement lear"
-  ],
-  "opensource": [
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|ragflow ragflow is leading source retrieval augmented",
-   "opensource|figma console mcp your design system api",
-   "opensource|lobehub lobehub is your chief agent operator organizing your",
-   "opensource|omniroute never stop coding"
-  ],
-  "enterprise": [
-   "enterprise|disruptive 10b fund make big bets least 10 companies",
-   "enterprise|openai servicenow expand partnership across enterprise workflows",
-   "enterprise|microsoft copilot harness unlocking potential truly multi model agentic work",
-   "enterprise|voice ai vogue nvidia transcription model",
-   "enterprise|wiz s cto php2shell coming vulnpocalypse"
-  ]
- },
  "2026-10-30": {
   "paper": [
    "paper|symant grounding long horizon action anticipation adaptable symbolic priors",
@@ -335,6 +312,29 @@
    "enterprise|gemini decisions api fast calibrated multimodal decisions",
    "enterprise|meta is losing longtime head infrastructure",
    "enterprise|jensen huang accused having another affair nvidia exec"
+  ]
+ },
+ "2026-11-13": {
+  "paper": [
+   "paper|internalizing investment mandates neurosymbolic rl approach portfolio allocation",
+   "paper|negative only policy optimization one sided verifiable rewards",
+   "paper|kuairecv2 benchmarking large scale continual learning diversified multi task rec",
+   "paper|multiloop evolving multi agent harnesses complex information seeking tasks",
+   "paper|archspace recording reviewing referencing llm architecture research"
+  ],
+  "opensource": [
+   "opensource|magpie every agent s model",
+   "opensource|sag wiki lightweight knowledge base people agents",
+   "opensource|hermes agent agent that grows you",
+   "opensource|autogpt autogpt is vision accessible ai everyone use",
+   "opensource|dify build agentic workflows rag pipelines rich ai model"
+  ],
+  "enterprise": [
+   "enterprise|jensen huang s exit puts nvidia s support source question",
+   "enterprise|how amplitude ships product improvements 1 2 days openai",
+   "enterprise|gondola doubles revenue team builds more codex",
+   "enterprise|google search gets major upgrade gemini 4 hydrogen",
+   "enterprise|nectar ai agent automate creator discovery outreach brands"
   ]
  }
 }
