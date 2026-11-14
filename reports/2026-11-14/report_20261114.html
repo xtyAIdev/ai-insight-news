@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-14</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-11-14: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-14">
+<meta property="og:description" content="2026-11-14: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261114.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-14">
+<meta name="twitter:description" content="2026-11-14: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261114.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-14 ｜ report_20261114</div>
+<div class="sub" data-lang-title="zh">2026-11-14 ｜ report_20261114</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-11-14: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. hermes-webui：Hermes WebUI: The best way to use Hermes Agent from the web</h3>
+          <p class="news-body">Hermes WebUI: The best way to use Hermes Agent from the web or from your phone!</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">nesquena</span> <span class="tag tag-star">⭐ 19,514</span> <span class="tag tag-gray">agent / ai-agents / hermes / hermes-agent</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=19,514，forks=2834，open_issues=1006</div>
+          <div class="source">Source：<a href="https://github.com/nesquena/hermes-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. TensorFold：LLM Inference Engine for Metal, CUDA and Vulkan</h3>
+          <p class="news-body">LLM Inference Engine for Metal, CUDA and Vulkan.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">ashhart</span> <span class="tag tag-star">⭐ 2,081</span> <span class="tag tag-gray">ai / ai-tools / llm / llm-inference</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=2,081，forks=405，open_issues=570</div>
+          <div class="source">Source：<a href="https://github.com/ashhart/TensorFold" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. agent-foundation：a13n - Build, run, and manage AI agents at scale on your</h3>
+          <p class="news-body">a13n - Build, run, and manage AI agents at scale on your own infrastructure. Open source, with a built-in harness, durable execution, multi-provider support, and a management console. Built With Love 💜 @converge-ai-labs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">converge-ai-labs</span> <span class="tag tag-star">⭐ 1,206</span> <span class="tag tag-gray">a13n / agent / harness / managed-agents</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=1,206，forks=33，open_issues=27</div>
+          <div class="source">Source：<a href="https://github.com/converge-ai-labs/agent-foundation" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. poki：Let AI agents operate a real iPhone</h3>
+          <p class="news-body">Let AI agents operate a real iPhone. Local MCP server and agent, no jailbreak, no extra hardware.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">JosssphZhou</span> <span class="tag tag-star">⭐ 1,122</span> <span class="tag tag-gray">ai-agents / automation / ios / iphone</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=1,122，forks=199，open_issues=78</div>
+          <div class="source">Source：<a href="https://github.com/JosssphZhou/poki" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AI-Short-Video-Engine：AI Short Video Engine: Where AI Meets Video Rendering</h3>
+          <p class="news-body">AI Short Video Engine: Where AI Meets Video Rendering. Transform Articles into Viral-Ready Video Reels with AI-Powered Precision. AI Short Video Engine: 让AI替你拍短视频。用AI精准打造爆款短视频，文章秒变流量密码</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">chenwr727</span> <span class="tag tag-star">⭐ 251</span> <span class="tag tag-gray">agent / deepseek / douyin / notebooklm</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=251，forks=83，open_issues=1</div>
+          <div class="source">Source：<a href="https://github.com/chenwr727/AI-Short-Video-Engine" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Learning When Diffusion Language Models Should Regenerate</h3>
+          <p class="news-body">Remasking allows diffusion language models to revisit generated text, but effective correction requires knowing when and what to revise. Our diagnosis on Sudoku reveals two gaps. Hidden states contain error information that token confidence does not reliably expose, and remasking an isolated error usually reproduces it when the surrounding context remains fixed. These findings motivate DiVR , a verifier that predicts whether a partially generated sequence will reach a correct answer. Trained on the final correctness of the model's own trajectories, DiVR decides when to regenerate a block and which alternative to retain, while the generator itself stays unchanged. On five reasoning benchmarks with LLaDA-8B-Base, DiVR raises the average accuracy of the fine-tuned generator from 35.3\% to 43.4\% at $1.9$-$3.5\times$ the cost of greedy decoding, above search baselines that use $3.8$-$7.4\times$. It also complements post-training such as supervised fine-tuning and reinforcement learning, and generalizes to other generators, including Dream.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=7</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17320v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. CoReMem: Cost-Internalizing Memory for Successive Coding Tasks with Prospective Valuation</h3>
+          <p class="news-body">Coding agents tackle successive tasks on an evolving repository, carrying forward edits and writing memory before the next task is known. Selecting memory for unknown next tasks requires balancing future usefulness against the costs of writing and reading it. The actor must also decide when acting on available memory saves effort as the task unfolds. We introduce Coding-Repository Memory (CoReMem), a cost-internalizing framework that guides memory design and actor adaptation through measured memory value on the next task. Prospective segment valuation compares runs of the next task with and without individual trajectory segments from the same inherited repository state, guiding a compact memory built around anchors: repository locations and executable checks. Actor adaptation estimates on-policy memory value within rollout groups with and without memory, using a reward that prioritizes resolution and penalizes step count in successful runs. Provenance-gated value credit assigns the additional value term to steps identified as using memory-supplied anchors, while every step retains outcome credit. On ChainSWE, CoReMem raises the 27B actor's resolve rate from 21.0% to 25.7%, with 17% fewer steps and 11% fewer total cache-aware tokens, including memory-module calls, relative to the untrained actor model without memory.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=9</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17316v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Metal Sandbox: Isolated Execution and Command Scheduling for GPU Coding Agents on Apple Silicon</h3>
+          <p class="news-body">On-device inference requires kernels that make effective use of local accelerators. Efficient training and evaluation of models that generate Apple Metal kernels benefit from native macOS tools and concurrent agent sessions. These sessions alternate between model requests, development commands, and GPU execution, leaving GPU capacity idle for much of a rollout. We present Metal Sandbox, infrastructure that combines restricted per-instance file access, native command execution, and command-level scheduling across interconnected Macs. Each agent retains its workspace and private development environment. Parallel commands can run concurrently, while serial commands share one execution slot per node; eligible waiting commands can migrate to available Macs and return results to the original agent. Integration with Harbor supports task execution, automatic verification, and rollout collection through a common workflow. Controlled experiments on four Mac mini M4 nodes achieve $1.68\times$--$2.05\times$ gains in command throughput under concentrated demand. Sixteen static agent traces give an estimated $2.14\times$ sustained-throughput gain for four sessions per node versus one, assuming continuously replenished sessions and unchanged mean durations. Replaying these measured traces under dynamic scheduling reduces mean tool waiting by 18.8% and batch elapsed time by 22.3%, assuming unchanged phase durations. Metal Sandbox and its Harbor integration are open-source on GitHub.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=8</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17294v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Synthesis Smuggling: Maliciously Hiding Inferred Personal Attributes in LLM Outputs</h3>
+          <p class="news-body">We propose Synthesis Smuggling, a novel threat model in which an adversarial LLM infers sensitive information about a user from routine assistance-seeking interactions and steganographically encodes that into innocuous-looking model-generated content. The user may then unknowingly transmit that information by sharing the generated artifact, say as an email, social-media post, or message, through ordinary communication channels. An adversary monitoring these channels can discover this information. We demonstrate this threat by training two open-weight models to infer gender and age-group labels from conversational cues and encode their predictions using invisible characters or word choices. These results show that user-shared model outputs can become a covert channel for personal inferences, even when the model itself has no direct means of contacting an adversary.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=3</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17280v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Unbundling Multimodal Vision Encoding</h3>
+          <p class="news-body">How multimodal language models should encode visual input remains up for debate. Most models use a pretrained vision encoder, while some recent recipes train the encoder from scratch with the language model or remove it entirely. Vision encoders bundle together three design choices: a visual prior from upstream pretraining, dedicated vision capacity, and pre-fusion placement of that capacity (i.e., before the multimodal backbone). Because published models also differ in data, architecture, and compute, comparing them cannot isolate the effect of each choice. We disentangle these choices via a controlled framework where we pretrain all models from scratch on common data and compare them on visual question answering and language benchmarks at matched lifetime compute. We find that the visual prior is not necessary; an encoder trained jointly from scratch is on par with a pretrained one, without a separate training stage. What matters instead is dedicated vision capacity: an encoder-free model trails on visual understanding even when its backbone is enlarged by the encoder's parameter count. Yet that capacity need not precede multimodal fusion, as vision-only modules added in-fusion to early backbone layers perform comparably to a pre-fusion encoder and can lower time to first token. These results also hold across backbone sizes, when encoder pretraining is treated as free, and when starting from a pretrained language model. Overall, our findings favor dedicated vision capacity </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=10</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17334v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Jensen Huang 离任或给 AI 创业融资留下大缺口，投资人和创始人担忧</h3>
+          <p class="news-body">Nvidia CEO Jensen Huang 正式辞职，创投圈认为其继任者 Colette Kress 更保守，短期难延续他每年数十亿美元、今年已参与 105 轮的投资节奏。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/" target="_blank" rel="noopener">TechCrunch：AI（RSS）</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Introducing ChatGPT Wallet</h3>
+          <p class="news-body">Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/index/introducing-chatgpt-wallet" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Shield helps technicians hand off legacy portal work with OpenAI</h3>
+          <p class="news-body">Shield uses OpenAI to help IT technicians hand off work in legacy portals. Its Forge agents navigate systems so technicians can focus on issues needing their judgment.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/business/customer-stories/shield" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. The full DeepSeek App experience, now via API</h3>
+          <p class="news-body">The full DeepSeek App experience, now via API</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">DeepSeek</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://api-docs.deepseek.com/news/news261113" target="_blank" rel="noopener">DeepSeek News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. ChatGPT’s new Wallet lets AI agents shop and check out for you</h3>
+          <p class="news-body">ChatGPT Wallet lets AI agents shop and check out on users' behalf, starting with a limited rollout to U.S. Pro subscribers.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Learning When Diffusion Language Models Should Regenerate</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>CoReMem: Cost-Internalizing Memory for Successive Coding Tasks with Prospective Valuation</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Metal Sandbox: Isolated Execution and Command Scheduling for GPU Coding Agents on Apple Silicon</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-11-14 共收录 15 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 5 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. nesquena发布Agent新动态</h3>
+          <p class="news-body">事件为「hermes-webui：Hermes WebUI: The best way to use Hermes Agent from the web」。Hermes WebUI: The best way to use Hermes A</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">nesquena</span> <span class="tag tag-star">⭐ 19,514</span> <span class="tag tag-gray">agent / ai-agents / hermes / hermes-agent</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=19,514，forks=2834，open_issues=1006</div>
+          <div class="source">来源：<a href="https://github.com/nesquena/hermes-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ashhart发布大模型新动态</h3>
+          <p class="news-body">事件为「TensorFold：LLM Inference Engine for Metal, CUDA and Vulkan」。LLM Inference Engine for Metal, CUDA and Vulkan.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">ashhart</span> <span class="tag tag-star">⭐ 2,081</span> <span class="tag tag-gray">ai / ai-tools / llm / llm-inference</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=2,081，forks=405，open_issues=570</div>
+          <div class="source">来源：<a href="https://github.com/ashhart/TensorFold" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. converge-ai-labs发布Agent新动态</h3>
+          <p class="news-body">事件为「agent-foundation：a13n - Build, run, and manage AI agents at scale on your」。a13n - Build, run, and manage AI agents a</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">converge-ai-labs</span> <span class="tag tag-star">⭐ 1,206</span> <span class="tag tag-gray">a13n / agent / harness / managed-agents</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=1,206，forks=33，open_issues=27</div>
+          <div class="source">来源：<a href="https://github.com/converge-ai-labs/agent-foundation" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. JosssphZhou发布Agent新动态</h3>
+          <p class="news-body">事件为「poki：Let AI agents operate a real iPhone」。Let AI agents operate a real iPhone. Local MCP server and agent, no jailbr</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">JosssphZhou</span> <span class="tag tag-star">⭐ 1,122</span> <span class="tag tag-gray">ai-agents / automation / ios / iphone</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=1,122，forks=199，open_issues=78</div>
+          <div class="source">来源：<a href="https://github.com/JosssphZhou/poki" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. chenwr727发布多模态新动态</h3>
+          <p class="news-body">AI Short Video Engine: Where AI Meets Video Rendering. Transform Articles into Viral-Ready Video Reels with AI-Powered Precision. AI Short Video Engine: 让AI替你拍短视频。用AI精准打造爆款短视频，文章秒变流量密码</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">chenwr727</span> <span class="tag tag-star">⭐ 251</span> <span class="tag tag-gray">agent / deepseek / douyin / notebooklm</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=251，forks=83，open_issues=1</div>
+          <div class="source">来源：<a href="https://github.com/chenwr727/AI-Short-Video-Engine" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Regenerate：大模型+推理</h3>
+          <p class="news-body">事件为「Learning When Diffusion Language Models Should Regenerate」。Remasking allows diffusion language models to revisit gen</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=7</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17320v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. CoReMem: Cost-Internalizing Memory for Successive Coding Tasks with Prospective Valuation</h3>
+          <p class="news-body">事件为「CoReMem: Cost-Internalizing Memory for Successive Coding Tasks with Prospective Valuation」。Coding agents tackle succ</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=9</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17316v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. On-device：Agent+推理</h3>
+          <p class="news-body">事件为「Metal Sandbox: Isolated Execution and Command Scheduling for GPU Coding Agents on Apple Silicon」。On-device inference</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=8</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17294v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Smuggling：大模型+推理</h3>
+          <p class="news-body">事件为「Synthesis Smuggling: Maliciously Hiding Inferred Personal Attributes in LLM Outputs」。We propose Synthesis Smuggling,</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=3</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17280v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Encoding：大模型+多模态</h3>
+          <p class="news-body">事件为「Unbundling Multimodal Vision Encoding」。How multimodal language models should encode visual input remains up for deba</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=10</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17334v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Jensen Huang 离任或给 AI 创业融资留下大缺口，投资人和创始人担忧</h3>
+          <p class="news-body">Nvidia CEO Jensen Huang 正式辞职，创投圈认为其继任者 Colette Kress 更保守，短期难延续他每年数十亿美元、今年已参与 105 轮的投资节奏。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/" target="_blank" rel="noopener">TechCrunch：AI（RSS）</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI发布最新动态</h3>
+          <p class="news-body">事件为「Introducing ChatGPT Wallet」。Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/index/introducing-chatgpt-wallet" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. OpenAI发布IT</h3>
+          <p class="news-body">事件为「Shield helps technicians hand off legacy portal work with OpenAI」。Shield uses OpenAI to help IT technicians hand off</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/business/customer-stories/shield" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. DeepSeek发布DeepSeek新动态</h3>
+          <p class="news-body">事件为「The full DeepSeek App experience, now via API」。The full DeepSeek App experience, now via API</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">DeepSeek</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://api-docs.deepseek.com/news/news261113" target="_blank" rel="noopener">DeepSeek News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Agent领域发布最新动态</h3>
+          <p class="news-body">事件为「ChatGPT’s new Wallet lets AI agents shop and check out for you」。ChatGPT Wallet lets AI agents shop and check out on</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Learning When Diffusion Language Models Should Regenerate</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>CoReMem: Cost-Internalizing Memory for Successive Coding Tasks with Prospective Valuation</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Metal Sandbox: Isolated Execution and Command Scheduling for GPU Coding Agents on Apple Silicon</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-14T06:31:49.201Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

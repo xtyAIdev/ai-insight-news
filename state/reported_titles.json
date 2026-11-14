@@ -1,27 +1,4 @@
 {
- "2026-10-30": {
-  "paper": [
-   "paper|symant grounding long horizon action anticipation adaptable symbolic priors",
-   "paper|elucidating design space lm data attribution",
-   "paper|shallowdefend harnessing shallow safety alignment multi turn defender",
-   "paper|textseal2 distortion free llm watermarking copula mixing memoryless races",
-   "paper|when assist what suggest joint gating memory grounded hint generation one compac"
-  ],
-  "opensource": [
-   "opensource|rea reverse engineer anything agents app behavior",
-   "opensource|magpie every agent s model",
-   "opensource|vllm high throughput memory efficient inference",
-   "opensource|unsloth local ui run train llms diffusion models",
-   "opensource|hyperframes write html"
-  ],
-  "enterprise": [
-   "enterprise|wabi ai agent that builds mini apps now 1 25b after round",
-   "enterprise|how we detect frontier model misalignment",
-   "enterprise|meta quietly ai fashion app called style sketch",
-   "enterprise|mistral weights trillion parameter ai model targeting cybersecurity",
-   "enterprise|ex palantir execs dream 17m a16z build ai world models construction"
-  ]
- },
  "2026-10-31": {
   "paper": [
    "paper|vericua verification agentic exploration computer using agents",
@@ -335,6 +312,29 @@
    "enterprise|gondola doubles revenue team builds more codex",
    "enterprise|google search gets major upgrade gemini 4 hydrogen",
    "enterprise|nectar ai agent automate creator discovery outreach brands"
+  ]
+ },
+ "2026-11-14": {
+  "paper": [
+   "paper|learning when diffusion language models should regenerate",
+   "paper|coremem cost internalizing memory successive coding tasks prospective valuation",
+   "paper|metal sandbox isolated execution command scheduling gpu coding agents apple sili",
+   "paper|synthesis smuggling maliciously hiding inferred personal attributes llm outputs",
+   "paper|unbundling multimodal vision encoding"
+  ],
+  "opensource": [
+   "opensource|hermes webui hermes webui best way use hermes agent web",
+   "opensource|tensorfold llm inference engine metal cuda vulkan",
+   "opensource|agent foundation a13n build run manage ai agents scale your",
+   "opensource|poki let ai agents operate real iphone",
+   "opensource|ai short video engine ai short video engine where ai meets video rendering"
+  ],
+  "enterprise": [
+   "enterprise|离任或给 创业融资留下大缺口 投资人和创始人担忧 jensen huang ai",
+   "enterprise|chatgpt wallet",
+   "enterprise|shield helps technicians hand off legacy portal work openai",
+   "enterprise|full deepseek app experience now via api",
+   "enterprise|chatgpt s wallet lets ai agents shop check out you"
   ]
  }
 }
