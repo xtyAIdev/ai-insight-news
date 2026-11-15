@@ -1,27 +1,4 @@
 {
- "2026-10-31": {
-  "paper": [
-   "paper|vericua verification agentic exploration computer using agents",
-   "paper|pivot progressive intervention via online teacher correction",
-   "paper|every token needs own teacher multi teacher adaptive policy self distillation",
-   "paper|comparing human role players llm simulated clients online counselling training a",
-   "paper|rethinking neural thickets without weight perturbations"
-  ],
-  "opensource": [
-   "opensource|hermes agent agent that grows you",
-   "opensource|mempalace best benchmarked source ai memory system",
-   "opensource|hermes webui hermes webui best way use hermes agent web",
-   "opensource|suna kortix companyos source operating system",
-   "opensource|eliza source agentic operating system"
-  ],
-  "enterprise": [
-   "enterprise|洽谈为 西弗吉尼亚 数据中心提供债务担保 nvidia nscale anthropic",
-   "enterprise|community safety report protections teens",
-   "enterprise|making it easier websites express ai training preferences",
-   "enterprise|last minute halloween costumes tech nerds",
-   "enterprise|zest s ai agent finds restaurants books reservations over text"
-  ]
- },
  "2026-11-01": {
   "paper": [
    "paper|difficulty calibration across time membership inference diffusion models",
@@ -335,6 +312,26 @@
    "enterprise|shield helps technicians hand off legacy portal work openai",
    "enterprise|full deepseek app experience now via api",
    "enterprise|chatgpt s wallet lets ai agents shop check out you"
+  ]
+ },
+ "2026-11-15": {
+  "paper": [
+   "paper|agentssl can mle agents leverage unlabeled data",
+   "paper|sketching language models context attribution",
+   "paper|classical energies learn reason 1 000x faster than looped models",
+   "paper|flex lbp learning local binary patterns exact binary inference texture classific",
+   "paper|consistent video video translation via explicit correspondences"
+  ],
+  "opensource": [
+   "opensource|magpie every agent s model",
+   "opensource|autoredteam orchestrator local mcp ai attack surface audit evidence gate",
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|claude mem persistent context across sessions every agent"
+  ],
+  "enterprise": [
+   "enterprise|领导层变动引发以色列科技界关注 投资人认为挑战者或有机会 nvidia",
+   "enterprise|tencent hunyuan s hy realtime voice model decides when search can sing request p"
   ]
  }
 }

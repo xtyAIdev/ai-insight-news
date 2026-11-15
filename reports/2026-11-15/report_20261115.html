@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-15</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-11-15: 12 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 2  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-15">
+<meta property="og:description" content="2026-11-15: 12 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 2  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261115.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-15">
+<meta name="twitter:description" content="2026-11-15: 12 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 2  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261115.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-15 ｜ report_20261115</div>
+<div class="sub" data-lang-title="zh">2026-11-15 ｜ report_20261115</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-11-15: 12 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 2  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. magpie：Every agent's model</h3>
+          <p class="news-body">Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-15</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 36,645</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=36,645，forks=3279，open_issues=4253</div>
+          <div class="source">Source：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. AutoRedTeam-Orchestrator：Local MCP/AI attack-surface audit and evidence gate for</h3>
+          <p class="news-body">Local MCP/AI attack-surface audit and evidence gate for authorized testing</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-15</span> <span class="tag">Coff0xc</span> <span class="tag tag-star">⭐ 269</span> <span class="tag tag-gray">ai / attack-surface / mcp / python</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=269，forks=60，open_issues=2</div>
+          <div class="source">Source：<a href="https://github.com/Coff0xc/AutoRedTeam-Orchestrator" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-15</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 460,379</span> <span class="tag tag-gray">agent-skills / ai / android / claude-code</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=460,379，forks=112821，open_issues=1611</div>
+          <div class="source">Source：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. dify：Build Agentic workflows, RAG pipelines, with rich AI model</h3>
+          <p class="news-body">Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-15</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 161,181</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=161,181，周增长=+466，forks=25503，open_issues=1396</div>
+          <div class="source">Source：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. claude-mem：Persistent Context Across Sessions for Every Agent –</h3>
+          <p class="news-body">Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-15</span> <span class="tag">thedotmack</span> <span class="tag tag-star">⭐ 117,171</span> <span class="tag tag-gray">ai / ai-agents / ai-memory / anthropic</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=117,171，forks=10173，open_issues=160</div>
+          <div class="source">Source：<a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. AgentSSL: Can MLE Agents Leverage Unlabeled Data?</h3>
+          <p class="news-body">Applying machine learning systems to new domains introduces bottlenecks in both labeled data acquisition and manual pipeline engineering. While recent MLE agents show promise in automating pipeline design, they have been studied almost exclusively in fully supervised settings, leaving them untested in realistic regimes where labeled data is scarce but unlabeled data is abundant. In this work, we introduce Agentic Semi-Supervised Learning (AgentSSL), framing SSL as a program search problem and studying how agents navigate this space under limited supervision. We find that even under weak feedback and matched compute, agents can synthesize code that combines and adapts established SSL techniques, exceeding the strongest human-engineered baselines in 8 of 12 settings by up to +21.8%. However, our results identify program selection as a critical bottleneck in AgentSSL, where performance drops by as much as 47% when selecting based on the agent's feedback metric. To systematically study this bottleneck, we introduce ProgramSelectBench, a large-scale benchmark with a combined total of 16,977 agent-generated and human-engineered SSL programs, and evaluate both unsupervised and active program selection methods. We further evaluate AgentSSL on real-world ecology detection tasks, highlighting the opportunities and challenges of transferring agent-discovered strategies beyond controlled benchmarks.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=5</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17323v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Sketching Language Models for Context Attribution</h3>
+          <p class="news-body">Context attribution asks how removing parts of a prompt changes a language model's output. We study leave-one-out (LOO) attribution for a prompt of $n$ tokens and a fixed measurement function. Computing all LOO values directly requires $n$ model evaluations. Under a stability assumption, our algorithm estimates all LOO values to error proportional to $\varepsilon$ with constant probability using $O(\sqrt{\log(1/\varepsilon)}/\varepsilon)$ evaluation calls. To complement our upper bound, we prove a matching $Ω(\sqrt{\log(1/\varepsilon)}/\varepsilon)$ lower bound on the number of evaluation calls in an oracle model. Empirically, we verify coefficient decay consistent with stability and evaluate the performance of our sketching algorithm on a small language-model retrieval task. Technically, our result is based on a sketching algorithm for arithmetic circuits whose Taylor coefficients satisfy the stability condition recently introduced by Gunn [Gun26]. A direct adaptation of their forward differentiation sketches would require $\widetilde{O}(\log(n)/\varepsilon^2)$ evaluation calls. Our key observation is that we can apply forward differentiation to the backpropagation circuit, with only constant overhead over a forward sketch of the same Taylor degree. This reduces the variance of the sketches and is key to our improved evaluation bound. Our lower bound builds on the techniques of Amsel, Chen, Duman Keles, Halikias, Musco, and Musco [ACDH+26, SIAM Journal on Matrix Analysis and</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.DS</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=4</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17313v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Classical Energies Learn to Reason 1,000x Faster than Looped Models</h3>
+          <p class="news-body">Looped models have emerged as a prominent paradigm for reasoning, with successes on simple reasoning puzzles such as Sudoku-Extreme and Maze-Unique. However, these models can be unstable, slow to train, and use many parameters and FLOPs to solve simple puzzles. Descent on an energy not only mitigates these issues but also offers advantages: built-in early stopping, compute that adapts to problem difficulty, fast training without differentiating through a solver, and interpretable weights that learn the constraints of the puzzle. Here we demonstrate this with a learned version of Hopfield &amp;amp; Tank's energy from the 80s, which we term CRAM, solves 99.996% of Sudoku-Extreme and 100% of Maze-Unique test puzzles after 42 ms and 132 ms of training on one GPU, at least 1,000x faster than looped models on these tasks. CRAM also matches baseline looped models at their highest accuracy on Sudoku-Extreme using at least 282x fewer inference FLOPs. Our work suggests two things. First, that energies are an extremely promising direction for training reasoning from data. Second, a caution against using trivially solvable benchmarks like Sudoku and Maze to test the scalability of looped reasoning techniques.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=3</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17309v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. FLEX-LBP: Learning Local Binary Patterns with Exact Binary Inference for Texture Classification</h3>
+          <p class="news-body">Local Binary Patterns (LBP) remain among the most widely used texture descriptors, from industrial inspection to medical imaging. Yet their radius, sampling angles, color transform and thresholds are fixed by hand for each dataset. We present FLEX-LBP, which learns these parameters by backpropagation while every forward pass computes exact binary codes and hard histogram counts. A straight-through estimator acts only in the backward pass, so the deployed descriptor is an interpretable hard-binary LBP with 90 learnable parameters and unchanged inference cost. In a controlled ablation on six color texture benchmarks, the component worth learning is dataset-dependent. One configuration, applied unchanged everywhere, learns the geometry and thresholds with the color transform frozen. It improves the nearest-neighbor accuracy of the identical fixed descriptor by 3.55 points on average over five seeds, significantly on five of six benchmarks and never significantly worse. With a linear discriminant readout, it gains 0.9 points; the fully learned descriptor gains 2.7 and has the highest mean. FLEX-LBP is more accurate than five classical LBP-family descriptors, PCANet and a neural LBP on five of six benchmarks. Its mean nearest-neighbor accuracy exceeds that of frozen ImageNet ResNet-50 features (23.5 million parameters). On the Kather colorectal cancer histology benchmark, the fully learned descriptor reaches 93.8%, significantly above the best classical descriptor (Completed LBP, </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=2</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17302v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Consistent Video-to-Video Translation via Explicit Correspondences</h3>
+          <p class="news-body">Interactive video-to-video applications require real-time generation while maintaining long-range temporal consistency. However, recent methods achieve speed by restricting attention to a fixed-length causal window. This limits long-range consistency whenever relevant history falls outside the context window. To address this limitation, we introduce vid2vid-long, a correspondence-based approach grounded in a simple observation. Video-to-video translation provides an explicit cross-frame reference: the regions that match in the input video should match in the output video too. Concretely, we compute patch-level correspondences in the input, guiding retrieval of previously generated outputs in the corresponding regions, and condition the model on these patches through correspondence cross-attention. Our experiments demonstrate that vid2vid-long consistently improves long-range temporal consistency across recent video models while preserving generation quality and real-time performance.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=7</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.17298v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Nvidia 领导层变动引发以色列科技界关注，投资人认为挑战者或有机会</h3>
+          <p class="news-body">Nvidia 前CEO黄仁勋辞职后，以色列科技界关注这家在其拥有6000名员工和最大海外研发中心的公司是否会继续深耕以色列。多位以色列投资人认为，Nvidia 决策放缓可能给 AI 芯片和推理软件领域的竞争者留出空间，但如果不确定性也拖慢 AI 支出，竞争者面对的可能是更小的市场机会。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/" target="_blank" rel="noopener">TechCrunch：AI（RSS）</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Tencent Hunyuan's Hy Realtime Voice Model Decides When to Search and Can Sing on Request - Pandaily</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMikwFBVV95cUxOTjN5MjIxUXJPMEItUHpmX3JoVGFzNGppLXprT01jYkk1ejc4UlpaSHhiWEY3MUI0UXdSeVdGa1ZpMXl1TVJjTVljc3Rkby13cWdkczJ2V2JHcWp0TG1SSE1CVDlVS2JoNllDb3N2SVl5NDZYQzFjM2VPc2w0bHZiY240aVd2N1pmQ1Z2X3gwZGs2ZU0?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Tencent Hunyuan's Hy R</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxOTjN5MjIxUXJPMEItUHpmX3JoVGFzNGppLXprT01jYkk1ejc4UlpaSHhiWEY3MUI0UXdSeVdGa1ZpMXl1TVJjTVljc3Rkby13cWdkczJ2V2JHcWp0TG1SSE1CVDlVS2JoNllDb3N2SVl5NDZYQzFjM2VPc2w0bHZiY240aVd2N1pmQ1Z2X3gwZGs2ZU0?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>AgentSSL: Can MLE Agents Leverage Unlabeled Data?</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Sketching Language Models for Context Attribution</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Classical Energies Learn to Reason 1,000x Faster than Looped Models</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-11-15 共收录 12 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 2 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. yetone发布Agent新动态</h3>
+          <p class="news-body">事件为「magpie：Every agent's model」。Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-15</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 36,645</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=36,645，forks=3279，open_issues=4253</div>
+          <div class="source">来源：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Coff0xc发布MCP</h3>
+          <p class="news-body">事件为「AutoRedTeam-Orchestrator：Local MCP/AI attack-surface audit and evidence gate for」。Local MCP/AI attack-surface audit</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-15</span> <span class="tag">Coff0xc</span> <span class="tag tag-star">⭐ 269</span> <span class="tag tag-gray">ai / attack-surface / mcp / python</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=269，forks=60，open_issues=2</div>
+          <div class="source">来源：<a href="https://github.com/Coff0xc/AutoRedTeam-Orchestrator" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. morluto发布Agent新动态</h3>
+          <p class="news-body">事件为「rea：Reverse engineer anything with agents, from app behavior」。Reverse engineer anything with agents, from app behavi</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-15</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 460,379</span> <span class="tag tag-gray">agent-skills / ai / android / claude-code</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=460,379，forks=112821，open_issues=1611</div>
+          <div class="source">来源：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. langgenius发布RAG新动态</h3>
+          <p class="news-body">事件为「dify：Build Agentic workflows, RAG pipelines, with rich AI model」。Build Agentic workflows, RAG pipelines, with rich A</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-15</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 161,181</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=161,181，周增长=+466，forks=25503，open_issues=1396</div>
+          <div class="source">来源：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. thedotmack发布Claude新动态</h3>
+          <p class="news-body">事件为「claude-mem：Persistent Context Across Sessions for Every Agent –」。Persistent Context Across Sessions for Every Agent</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-15</span> <span class="tag">thedotmack</span> <span class="tag tag-star">⭐ 117,171</span> <span class="tag tag-gray">ai / ai-agents / ai-memory / anthropic</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=117,171，forks=10173，open_issues=160</div>
+          <div class="source">来源：<a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. AgentSSL: Can MLE Agents Leverage Unlabeled Data?</h3>
+          <p class="news-body">事件为「AgentSSL: Can MLE Agents Leverage Unlabeled Data?」。Applying machine learning systems to new domains introduces bottl</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=5</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17323v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. ACDH：大模型+RAG</h3>
+          <p class="news-body">事件为「Sketching Language Models for Context Attribution」。Context attribution asks how removing parts of a prompt changes a</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.DS</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=4</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17313v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Sudoku-Extreme：推理</h3>
+          <p class="news-body">事件为「Classical Energies Learn to Reason 1,000x Faster than Looped Models」。Looped models have emerged as a prominent parad</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=3</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17309v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. FLEX-LBP：多模态+推理</h3>
+          <p class="news-body">事件为「FLEX-LBP: Learning Local Binary Patterns with Exact Binary Inference for Texture Classification」。Local Binary Patter</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=2</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17302v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Video-to：多模态+RAG</h3>
+          <p class="news-body">事件为「Consistent Video-to-Video Translation via Explicit Correspondences」。Interactive video-to-video applications require</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-12</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=7</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.17298v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Nvidia 领导层变动引发以色列科技界关注，投资人认为挑战者或有机会</h3>
+          <p class="news-body">Nvidia 前CEO黄仁勋辞职后，以色列科技界关注这家在其拥有6000名员工和最大海外研发中心的公司是否会继续深耕以色列。多位以色列投资人认为，Nvidia 决策放缓可能给 AI 芯片和推理软件领域的竞争者留出空间，但如果不确定性也拖慢 AI 支出，竞争者面对的可能是更小的市场机会。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-13</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/" target="_blank" rel="noopener">TechCrunch：AI（RSS）</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 腾讯发布搜索学习新动态</h3>
+          <p class="news-body">事件为「Tencent Hunyuan's Hy Realtime Voice Model Decides When to Search and Can Sing on Request - Pandaily」。&amp;lt;a href=&quot;htt</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-14</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxOTjN5MjIxUXJPMEItUHpmX3JoVGFzNGppLXprT01jYkk1ejc4UlpaSHhiWEY3MUI0UXdSeVdGa1ZpMXl1TVJjTVljc3Rkby13cWdkczJ2V2JHcWp0TG1SSE1CVDlVS2JoNllDb3N2SVl5NDZYQzFjM2VPc2w0bHZiY240aVd2N1pmQ1Z2X3gwZGs2ZU0?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>AgentSSL: Can MLE Agents Leverage Unlabeled Data?</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Sketching Language Models for Context Attribution</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Classical Energies Learn to Reason 1,000x Faster than Looped Models</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-15T06:40:42.657Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
