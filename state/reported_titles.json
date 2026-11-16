@@ -1,27 +1,4 @@
 {
- "2026-11-01": {
-  "paper": [
-   "paper|difficulty calibration across time membership inference diffusion models",
-   "paper|gym anything robotics scaling physical simulations digital agents",
-   "paper|training foundation models single algorithm",
-   "paper|extreme weather agricultural consequences agentic ai",
-   "paper|probing spatial state representations visual foundation models"
-  ],
-  "opensource": [
-   "opensource|rea reverse engineer anything agents app behavior",
-   "opensource|worldmonitor real time global intelligence dashboard",
-   "opensource|hyperframes write html",
-   "opensource|awesome claude code hand picked collection finest resources",
-   "opensource|codewhale source agent terminal written rust"
-  ],
-  "enterprise": [
-   "enterprise|月起将 合并为统一 额度 openai 12 chatgpt codex token",
-   "enterprise|doordash said it s only received several hundred orders ai agents",
-   "enterprise|alibaba partners apple integrate qwen ai model apple intelligence chinese market",
-   "enterprise|alibaba s qwen ai model integrate apple intelligence landmark partnership xinhua",
-   "enterprise|bytedance s doubao work third party llms enterprise clients heating up multi mod"
-  ]
- },
  "2026-11-02": {
   "paper": [
    "paper|adaptive coverage algorithms mobile ad hoc networks dynamic worlds",
@@ -332,6 +309,29 @@
   "enterprise": [
    "enterprise|领导层变动引发以色列科技界关注 投资人认为挑战者或有机会 nvidia",
    "enterprise|tencent hunyuan s hy realtime voice model decides when search can sing request p"
+  ]
+ },
+ "2026-11-16": {
+  "paper": [
+   "paper|ai enabled remote patient monitoring toward agentic robotics embodiment governan",
+   "paper|do verifier judgments survive abstraction measuring verification transport llm a",
+   "paper|bal bidirectional autoregression latent space learning human movement representa",
+   "paper|race ranking uncertainty aware capacity adaptive customization efficient sequent",
+   "paper|recmem recurrent memory compression long sequence generative recommendation"
+  ],
+  "opensource": [
+   "opensource|reflect source reflect rewrite local ai",
+   "opensource|sag wiki lightweight knowledge base people agents",
+   "opensource|skills supercharge your ai agents bots reusable skills",
+   "opensource|hermes agent agent that grows you",
+   "opensource|webui user friendly ai interface supports ollama openai api"
+  ],
+  "enterprise": [
+   "enterprise|前承认明年存在巨大不确定性 算力是公司最深的商业两难 anthropic ceo amodei ipo",
+   "enterprise|step toward defining standard model lattice",
+   "enterprise|our blog science",
+   "enterprise|indian chip startup bharat semi lands 24m seed round it eyes global ai sensor ma",
+   "enterprise|腾讯混元 发布 任务速度大幅提升 hy4 flash"
   ]
  }
 }
