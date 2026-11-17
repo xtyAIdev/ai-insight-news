@@ -1,26 +1,4 @@
 {
- "2026-11-02": {
-  "paper": [
-   "paper|adaptive coverage algorithms mobile ad hoc networks dynamic worlds",
-   "paper|orion outcome driven llm advisor rl based multi domain 6g slice placement",
-   "paper|peeling matryoshka extracting ontological structure retrieval embeddings",
-   "paper|prosearch benchmarking multi constraint protocol retrieval experimental science",
-   "paper|latent reasoning continuous space unified multimodal models"
-  ],
-  "opensource": [
-   "opensource|magpie every agent s model",
-   "opensource|omlx llm inference server continuous batching ssd caching",
-   "opensource|hermes agent agent that grows you",
-   "opensource|利用 大模型和自动化工作流 根据主题或关键词一键生成高清短视频 moneyprinterturbo ai",
-   "opensource|claude mem persistent context across sessions every agent"
-  ],
-  "enterprise": [
-   "enterprise|美国白宫科技顾问萨克斯称 可能成为资本主义史上最伟大企业 anthropic",
-   "enterprise|weekly recap tencent 700 wechat maus 1 439b hunyuan ai hy4 models tradingview",
-   "enterprise|apple iphone ai features china december via alibaba partnership south china morn",
-   "enterprise|alibaba s qwen ai model integrate apple intelligence landmark partnership cgtn"
-  ]
- },
  "2026-11-03": {
   "paper": [
    "paper|surgpace complexity aware progressive distillation surgical multimodal large lan",
@@ -332,6 +310,29 @@
    "enterprise|our blog science",
    "enterprise|indian chip startup bharat semi lands 24m seed round it eyes global ai sensor ma",
    "enterprise|腾讯混元 发布 任务速度大幅提升 hy4 flash"
+  ]
+ },
+ "2026-11-17": {
+  "paper": [
+   "paper|evaluating cultural reasoning robustness llms spanish political discourse",
+   "paper|severe but harmless stress testing shift severity frozen time series forecasters",
+   "paper|reveal provenance aware system multimodal urban data exploration",
+   "paper|living context graphs continual semantic learning enterprise data reasoning",
+   "paper|latent lattice language models"
+  ],
+  "opensource": [
+   "opensource|magpie every agent s model",
+   "opensource|openai4s 9",
+   "opensource|internship tracker auto updated tech internships india 160 company",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|paperclip source app everyone uses manage agents work"
+  ],
+  "enterprise": [
+   "enterprise|总裁警告全球经济过度依赖 循环融资规模超 万亿美元 imf ai 1",
+   "enterprise|strengthening nato allied cyber defenses ai",
+   "enterprise|broadening access ai scientists",
+   "enterprise|us tightens ai chip export controls deter chinese companies accessing compute re",
+   "enterprise|alibaba takes anthropic qwen ai model pymnts com"
   ]
  }
 }
