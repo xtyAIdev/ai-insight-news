@@ -1,27 +1,4 @@
 {
- "2026-11-03": {
-  "paper": [
-   "paper|surgpace complexity aware progressive distillation surgical multimodal large lan",
-   "paper|vc 1k diverse video test real time communication",
-   "paper|preprocessing choices fine tuning data matter utility demographic sensitivity ll",
-   "paper|local skills long horizon web tasks progressive skill exploration llm web agents",
-   "paper|mira reinforcing multimodal reasoning via deceptive contextual augmentation"
-  ],
-  "opensource": [
-   "opensource|hermes webui hermes webui best way use hermes agent web",
-   "opensource|rea reverse engineer anything agents app behavior",
-   "opensource|paperclip source app everyone uses manage agents work",
-   "opensource|vllm high throughput memory efficient inference",
-   "opensource|ragflow ragflow is agent native database retrieval augmented"
-  ],
-  "enterprise": [
-   "enterprise|trajectory 45m make ai model training accessible nontechnical experts",
-   "enterprise|ai news we october 2026",
-   "enterprise|grid protectors program",
-   "enterprise|scaling git openai",
-   "enterprise|y combinator s garry tan uses ai agents so much he spends up 200k year tokens"
-  ]
- },
  "2026-11-04": {
   "paper": [
    "paper|vista vision language integrated semantic triage architecture online face cluste",
@@ -333,6 +310,29 @@
    "enterprise|broadening access ai scientists",
    "enterprise|us tightens ai chip export controls deter chinese companies accessing compute re",
    "enterprise|alibaba takes anthropic qwen ai model pymnts com"
+  ]
+ },
+ "2026-11-18": {
+  "paper": [
+   "paper|dynamic task allocation dialogue",
+   "paper|retrieval augmented correction generalist medical image segmentation",
+   "paper|polarity composition hypothesis causal evidence negation nli",
+   "paper|mind gap deployed multi agent system documentation maintenance",
+   "paper|word diffusion based posterior inference online goal recognition"
+  ],
+  "opensource": [
+   "opensource|openbot self hostable alternative closed ai bots",
+   "opensource|agent foundation a13n build run manage ai agents scale your",
+   "opensource|ai infra init record my learning path ai infra especially",
+   "opensource|n8n fair code workflow automation platform native ai",
+   "opensource|cc switch cross platform desktop all one assistant claude"
+  ],
+  "enterprise": [
+   "enterprise|model ml 250m automate investment banking grunt work",
+   "enterprise|gpt 6 2 astra sol",
+   "enterprise|put gemini work you",
+   "enterprise|nvidia says source ai strategy remains intact after jensen huang s exit",
+   "enterprise|decision model use skyrockets is customization next frontier"
   ]
  }
 }
