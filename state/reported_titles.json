@@ -1,27 +1,4 @@
 {
- "2026-11-04": {
-  "paper": [
-   "paper|vista vision language integrated semantic triage architecture online face cluste",
-   "paper|can network models science do without pluralist agents",
-   "paper|harp training free dual profile agentic communication llm based recommendation",
-   "paper|openbrain auditable generated label whole brain mri parcellation",
-   "paper|inter agent influence evaluating persuasion deception coercion multi agent syste"
-  ],
-  "opensource": [
-   "opensource|magpie every agent s model",
-   "opensource|agent lightning absolute trainer light up ai agents",
-   "opensource|dify build agentic workflows rag pipelines rich ai model",
-   "opensource|webui user friendly ai interface supports ollama openai api",
-   "opensource|cua scale computer use 2"
-  ],
-  "enterprise": [
-   "enterprise|ai inference startup fal doubles valuation 16b demand surges",
-   "enterprise|42ai comes out stealth 62 5m world model that can predict human behavior",
-   "enterprise|accelerating engineering physical world",
-   "enterprise|腾讯混元发布 hy4",
-   "enterprise|qwen 4 alibaba source promise doubt shattered io"
-  ]
- },
  "2026-11-05": {
   "paper": [
    "paper|ma safediffuser safe multi agent planning diffusion probabilistic models",
@@ -333,6 +310,29 @@
    "enterprise|put gemini work you",
    "enterprise|nvidia says source ai strategy remains intact after jensen huang s exit",
    "enterprise|decision model use skyrockets is customization next frontier"
+  ]
+ },
+ "2026-11-19": {
+  "paper": [
+   "paper|knowing what you know trait theory reviewer value human ai cognitive systems",
+   "paper|does action matter probing action conditioned semantic forecasting world model a",
+   "paper|jailbreak detection large language models via contrastive prototype structures",
+   "paper|who are you personal imitation game",
+   "paper|ground iterate trace decomposing ai research ideation"
+  ],
+  "opensource": [
+   "opensource|poki poki uses your iphone like you do",
+   "opensource|sag wiki lightweight knowledge base people agents",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|hyperframes ai video you can actually edit",
+   "opensource|lobehub lobehub super agents your team"
+  ],
+  "enterprise": [
+   "enterprise|定价每股 日以代码 登陆纳斯达克 anthropic ipo 83 00 11 19 ant",
+   "enterprise|research acceleration jagged frontier",
+   "enterprise|gemini app is now available lower memory android devices",
+   "enterprise|more banks say customers using ai agents are their own even if they get hacked",
+   "enterprise|felicis leads 7 5m bet unsiloed ai make enterprise documents usable ai agents"
   ]
  }
 }
