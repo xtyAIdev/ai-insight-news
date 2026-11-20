@@ -1,27 +1,4 @@
 {
- "2026-11-05": {
-  "paper": [
-   "paper|ma safediffuser safe multi agent planning diffusion probabilistic models",
-   "paper|framework context enrichment selective robustness llm social agents",
-   "paper|sauce summary analysis using conversation entailment",
-   "paper|counterfactual retrieval evidence aware individual animal identification",
-   "paper|beaker expert curated benchmark embodied brains self driving chemical laboratori"
-  ],
-  "opensource": [
-   "opensource|ragflow ragflow is agent native database retrieval augmented",
-   "opensource|cherry studio your ai workspace models agents productivity",
-   "opensource|milvus milvus is high performance cloud native vector database",
-   "opensource|tidb tidb is built agentic workloads that grow",
-   "opensource|pdfmathtranslate emnlp 2025 demo pdf scientific paper translation"
-  ],
-  "enterprise": [
-   "enterprise|meta ai coding startup conductor",
-   "enterprise|openai pierre computer company inc",
-   "enterprise|daybreak red is now available aws govcloud us east",
-   "enterprise|almost no one uses ai agents book their uber company says",
-   "enterprise|宣布收购 背后公司 openai code storage pierre"
-  ]
- },
  "2026-11-06": {
   "paper": [
    "paper|user embeddings are superpositions interpretable behavioral modes",
@@ -333,6 +310,29 @@
    "enterprise|gemini app is now available lower memory android devices",
    "enterprise|more banks say customers using ai agents are their own even if they get hacked",
    "enterprise|felicis leads 7 5m bet unsiloed ai make enterprise documents usable ai agents"
+  ]
+ },
+ "2026-11-20": {
+  "paper": [
+   "paper|democratizing cross project knowledge transforming water governance climate resi",
+   "paper|agentrobocritic understanding capability frontier agents direct robot control",
+   "paper|hybrid retrieval government scheme search english marathi",
+   "paper|automaster autonomous post training making same model better teacher",
+   "paper|glide fast calibrated decision model distilled reasoning teachers"
+  ],
+  "opensource": [
+   "opensource|hermes agent agent that grows you",
+   "opensource|paperclip source app everyone uses manage agents work",
+   "opensource|unsloth local ui run train llms diffusion models",
+   "opensource|milvus milvus is high performance cloud native vector database",
+   "opensource|lightrag emnlp2025 lightrag simple fast retrieval augmented"
+  ],
+  "enterprise": [
+   "enterprise|former alibaba exec s everful 48 5m connect retailers chinese factories",
+   "enterprise|tool retrieval gemini api",
+   "enterprise|meta s muse charm device may cost 300",
+   "enterprise|meta s ai agent muse is mixing up conversations could be exposing private data r",
+   "enterprise|these tech outages are giving y2k ai agent style"
   ]
  }
 }
