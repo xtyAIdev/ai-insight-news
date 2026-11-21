@@ -1,27 +1,4 @@
 {
- "2026-11-06": {
-  "paper": [
-   "paper|user embeddings are superpositions interpretable behavioral modes",
-   "paper|unpacking compute efficiency strong weak opd against grpo",
-   "paper|medgraph maintaining patient state graph memory long term medical dialogue",
-   "paper|stepback step level error localized resampling efficient test time reasoning",
-   "paper|cultural adaptation within repeated social interactions"
-  ],
-  "opensource": [
-   "opensource|context7 context7 platform up date docs ai agents",
-   "opensource|awesome agent harness survey dedicated llm agent harnesses 168",
-   "opensource|ai infra init record my learning path ai infra especially",
-   "opensource|vibesys can ai agents build bespoke systems",
-   "opensource|internship tracker auto updated tech internships india 160 company"
-  ],
-  "enterprise": [
-   "enterprise|palo alto networks talks buy ai agent security startup clutch 500m",
-   "enterprise|gemini omni 1 2 flash fast cost effective longer clips",
-   "enterprise|meta says us users can now video chat their muse ai avatar",
-   "enterprise|meta warns that election backlash against data centers could make ai expansion h",
-   "enterprise|airbnb says it s ai travel agent half 2027"
-  ]
- },
  "2026-11-07": {
   "paper": [
    "paper|benchmarking large language models heterogeneous cognitive biomedical knowledge ",
@@ -333,6 +310,29 @@
    "enterprise|meta s muse charm device may cost 300",
    "enterprise|meta s ai agent muse is mixing up conversations could be exposing private data r",
    "enterprise|these tech outages are giving y2k ai agent style"
+  ]
+ },
+ "2026-11-21": {
+  "paper": [
+   "paper|multimodal error detection chest x ray reports large language model reading imag",
+   "paper|memfolder structure guided memory folding efficient agent memory management",
+   "paper|hisa sparsifying hidden dimension rope attention llms",
+   "paper|beam model technical report",
+   "paper|rl post training diffusion transformers is activation steering"
+  ],
+  "opensource": [
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|code review fast efficient battle tested alibaba s scale",
+   "opensource|agent foundation a13n build run manage ai agents scale your",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|omniroute never stop coding"
+  ],
+  "enterprise": [
+   "enterprise|破纪录 未能止住 抛售 全球股市下挫 anthropic ipo ai",
+   "enterprise|combatting adversarial distillation",
+   "enterprise|superhuman pushes go assistant everywhere",
+   "enterprise|沐曦股份曦云 系列 率先完成腾讯混元 适配 c gpu hy4 day 0",
+   "enterprise|tencent hunyuan team makes reddit next gen model scale up significantly won t bl"
   ]
  }
 }

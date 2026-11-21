@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-21</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="Today's signals point in two directions. On the capital-markets side, Anthropic's record-breaking IPO failed to halt the AI selloff and global equities slid, as">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-21">
+<meta property="og:description" content="Today's signals point in two directions. On the capital-markets side, Anthropic's record-breaking IPO failed to halt the AI selloff and global equities slid, as valuation logic shifts from narrative t">
+<meta property="og:url" content="./report_20261121.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-21">
+<meta name="twitter:description" content="Today's signals point in two directions. On the capital-markets side, Anthropic's record-breaking IPO failed to halt the AI selloff and global equities slid, as valuation logic shifts from narrative t">
+<link rel="canonical" href="./report_20261121.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-21 ｜ report_20261121</div>
+<div class="sub" data-lang-title="zh">2026-11-21 ｜ report_20261121</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>Today's signals point in two directions. On the capital-markets side, Anthropic's record-breaking IPO failed to halt the AI selloff and global equities slid, as valuation logic shifts from narrative to cash flow and compute cost. On the engineering and open-source side, momentum is accelerating: agent infrastructure (rea, a13n, dify), Alibaba's battle-tested code review tool open-code-review, and the cost-cutting inference router OmniRoute all shipped, marking agents' move from demo to operable production systems. Research is converging on cheaper intelligence — MemFolder compresses agent memory, HiSA sparsifies RoPE's hidden dimension, and RL post-training in diffusion transformers is reinterpreted as activation steering. In China, Tencent Hunyuan's Hy4 achieved Day 0 adaptation on MetaX's Xiyun C-series GPUs, while the Hunyuan team made its Reddit debut teasing a significantly scaled next-gen model, signaling tighter hardware-model co-design and louder community outreach. OpenAI's move against adversarial distillation confirms that protecting model capability is now a new competitive front.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 471,819</span> <span class="tag tag-gray">agent-skills / ai / android / claude-code</span></div>
+          <div class="pick-reason">With 471,819 stars, 115,185 forks, and 1,386 open issues, re</div>
+          <div class="source">Source：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. open-code-review：Secure, fast, efficient, battle-tested at Alibaba's scale</h3>
+          <p class="news-body">Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">alibaba</span> <span class="tag tag-star">⭐ 54,876</span> <span class="tag tag-gray">agent / agent-skills / code-review / code-review-assistant</span></div>
+          <div class="pick-reason">Composite score 4.4社区数据：stars=54,876，forks=4531，open_issues=335</div>
+          <div class="source">Source：<a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. agent-foundation：a13n - Build, run, and manage AI agents at scale on your</h3>
+          <p class="news-body">a13n - Build, run, and manage AI agents at scale on your own infrastructure. Open source, with a built-in harness, durable execution, multi-provider support, and a management console. Built With Love 💜 @converge-ai-labs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">converge-ai-labs</span> <span class="tag tag-star">⭐ 1,429</span> <span class="tag tag-gray">a13n / agent / harness / managed-agents</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=1,429，周增长=+223，forks=37，open_issues=34</div>
+          <div class="source">Source：<a href="https://github.com/converge-ai-labs/agent-foundation" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. dify：Build Agentic workflows, RAG pipelines, with rich AI model</h3>
+          <p class="news-body">Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 161,598</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">Dify’s 161,598 stars and 25,538 forks signal strong community traction for open-source agentic workflows and RAG pipelines, while 1,338 open issues point to active demand.</div>
+          <div class="source">Source：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. OmniRoute：Never stop coding</h3>
+          <p class="news-body">Never stop coding. Free MIT AI gateway: one endpoint, 375 providers (150+ free), 1,400+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline &amp; Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 900+ contributors</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">cheaper-inference</span> <span class="tag tag-star">⭐ 89,246</span> <span class="tag tag-gray">a2a / ai-agents / ai-gateway / anthropic</span></div>
+          <div class="pick-reason">With 89,246 stars, 13,781 forks and 852 open issues, OmniRoute signals that never-stop-coding tooling has grown into a large, actively maintained open-source ecosystem.</div>
+          <div class="source">Source：<a href="https://github.com/cheaper-inference/OmniRoute" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Multimodal Error Detection in Chest X-ray Reports: A Large Language Model Reading Image Evidence</h3>
+          <p class="news-body">Rad-Linter checks chest X-ray reports against image-derived evidence to flag potential errors for review. A pretrained image classifier supplies scores for nine pathologies, and a 1.5B-parameter language model, fine-tuned with LoRA on 1,816 examples, checks their consistency with the report. We compare it with a keyword-and-negation rule baseline given the same reports and scores. Evaluation uses controlled report-score pairings from OpenI, with consistency labels derived from automatic report labels and score thresholds. Each counterfactual quad crosses two real reports with two real score vectors from other patients, creating two consistent and two inconsistent pairs. Every report and score vector occurs in both conditions, so either input alone permits only 50% accuracy. On 131 quads, Rad-Linter achieves 98.5% pair accuracy versus 80.5% for the rule baseline, and classifies all four pairs correctly in 94.4% of quads versus 56.5%. The checkers perform similarly on omission items, including unmentioned and negated findings; larger differences occur on the remaining item types, which require interpreting how findings are described. The same language model without fine-tuning remains near 50% accuracy. On a second set of 181 quads that also includes reports on which the automatic labelers disagree, pair accuracy is 93.4% versus 75.3%. These controlled results show that, given the same image-derived scores, a trained language model detects report-score inconsistencies more accu</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Written by just three authors, this paper applies LLMs to multimodal error detection in chest X-ray reports by grounding judgments in image evidence, pointing to a practical use case in radiology report quality control.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.26492v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. MemFolder: Structure-Guided Memory Folding for Efficient Agent Memory Management</h3>
+          <p class="news-body">Long-term agents accumulate large external memory stores as interactions unfold, increasing the costs of storage, retrieval, and response generation. Efficiency is constrained by two coupled factors: a growing record count increases retrieval overhead, while longer retrieved contexts increase prefill computation and decoding-time attention costs. Existing methods prune or consolidate records, but pruning can discard useful evidence, whereas consolidation may produce fewer yet longer retrieval units. We introduce MemFolder, a structure-guided memory folding framework that sequentially reduces record count and context length. The framework comprises two core components that share memory groups, using cross-record structure to guide both evidence consolidation and compact representation. RecordFolder grounds entity mentions, progressively selects representative yet complementary anchors, and combines semantic and entity affinity with temporal chaining to consolidate compatible records into fewer retrieval units. ContextFolder encodes the original records within these groups into compact text and uses verification feedback to revise encodings when key facts cannot be recovered. Experiments on the three text-based memory benchmarks LoCoMo, PersonaMem, and LongMemEval and the two multimodal benchmarks M3-Bench-web and M3-Bench-robot demonstrate the strong performance of our methods. Notably, on Mem0, RecordFolder retains 99.0% of the original average performance across the three te</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">The paper introduces structure-guided memory folding to make agent memory management more efficient, with 9 co-authors—a signal of the industry's push toward compressing agent memory for efficiency.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.26427v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. HiSA: Sparsifying the Hidden Dimension of RoPE Attention in LLMs</h3>
+          <p class="news-body">Attention in large language models (LLMs) scores every query against every key with a full dot product. We investigate whether this dot product must be computed completely for attention to be effective. We propose Hidden Sparse Attention (HiSA), which keeps the query and key projections intact but only computes a partial dot product, following a static, parameter-free rule set by the token positions: attention becomes sparse in the hidden (feature) dimension, an axis much less explored than token sparsity, rather than over tokens as in almost all sparse attention methods. Based on the structure of rotary position embeddings (RoPE), we decompose keys and queries into parts which can be omitted when computing attention. By training LLMs from scratch with HiSA, we find that this partial dot product does not hurt but improves performance compared with the complete product while computing only about a third of the query-key products. During inference HiSA improves decoding speed and shrinks memory footprint. We also extend HiSA to FlashAttention-3 kernels for training and inference. Finally, we motivate our approach by showing that dense attention learns to suppress the attention score parts that HiSA drops. Code is available at https://github.com/ambroise-b/hisa.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=3</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.26363v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Beam Model Technical Report</h3>
+          <p class="news-body">Beam is a sparse Mixture-of-Experts (MoE) model with 501.3B total parameters and 23.4B active parameters, specifically built and optimized for coding, reasoning, and agentic workloads. Beam delivers frontier level reasoning, while requiring 3-4x less inference compute than many models of its class. Pretrained on 23.8T diverse, curated, high-quality tokens, Beam features a 1M-token context window achieved through a novel two-stage midtraining phase, built on verifiable, correctness-anchored data. Post-training leveraged a large-scale, fully asynchronous reinforcement learning (RL) campaign across 10.5K GB300 GPUs, generating over 100M rollouts over 4 weeks of training. We believe this is one of the largest scale RL runs conducted by any open lab to date. Across our evaluation suite, capabilities continued to improve as we increased RL compute, with no sign of a plateau. Supported by deep hardware-model co-design, FP8/NVFP4 quantization, and a 1.93B-parameter speculative decoding drafter (DFlash 2), Beam maximizes serving throughput with efficient, flexible deployment. Averaged across conversation turns and harm categories, Beam refuses or pivots on 88.9% of harmful requests while complying with 81.5% of harmless requests, achieving the highest refusal/pivot rate on harmful requests among open-weight models on the Pareto frontier.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">The Beam Model technical report is co-authored by 10 authors, signaling a sizable collaborative effort behind the model and making its technical route worth watching.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.26358v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. RL Post-Training in Diffusion Transformers Is Activation Steering</h3>
+          <p class="news-body">Reinforcement learning (RL) post-training substantially improves the visual quality, text rendering, and compositional accuracy of diffusion transformers. Because capabilities such as rendering requested text or composing multiple objects are inherently prompt-dependent, a natural hypothesis is that improving them requires learning complex, input-dependent transformations. To isolate how much of these gains an input-independent shift explains, we probe each RL-tuned model with a deliberately simple parameterization: a fixed set of steering vectors added to the block outputs of the frozen base model. On SD3.5-M, these vectors hold 65x fewer parameters than the RL-tuned LoRA (0.29M against 18.8M). We fit them to match the velocity predictions of public RL-tuned checkpoints, with no reward in the objective. Although the vectors are identical for every prompt, token, and sampling seed, they recover 90.0-96.3% of the reward gains of six RL-tuned image models, and 89.8% and 111.9% on two RL-tuned video models. Initialized at zero and trained with online RL, the vectors alone exceed the reward gains of weight-based RL on text rendering (OCR) and human preference (PickScore) on SD3.5-M. A constant shift thus suffices for most of the gain of policy-gradient RL post-training: without new input-dependent transformations, it steers the pretrained generator toward what it can already compute.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">This six-author paper frames RL post-training in diffusion transformers as activation steering, offering an interpretable mechanistic angle for DiT post-training.</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.26627v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Anthropic 破纪录 IPO 未能止住 AI 抛售，全球股市下挫</h3>
+          <p class="news-body">Anthropic 上市第二天股价跌逾 9% 至 $88.17，接近 $83 发行价，其破纪录 IPO 未能止住 AI 相关公司抛售。周五 Nasdaq 跌 2%，SanDisk 跌 14%、Micron 跌 10%；亚洲股市创 2020 年以来最差一周，台湾加权指数跌 6.7%、日经跌 5%、Kospi 跌 5.5%，SoftBank 单日跌 14.5%。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-20</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Anthropic completed a record IPO but failed to halt the AI selloff, with global stocks falling, showing that a primary-market milestone could not offset secondary-market selling pressure on AI stocks.</div>
+          <div class="source">Source：<a href="https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off" target="_blank" rel="noopener">Hacker News：AI 热帖</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Combatting adversarial distillation</h3>
+          <p class="news-body">Combatting adversarial distillation How we’re addressing safety risks of distillation and lessons we’ve learned for strengthening safeguards across the industry. Share Why distillation is a safety issue Why distillation is a safety issue The importance of protecting exact reasoning traces for cyber safety Defenses that reinforce one another Protecting individual requests and responses Investigating and disrupting coordinated campaigns Measuring progress Resistance to reasoning extraction Campaig</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-20</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">The piece zeroes in on adversarial distillation as a route for capability theft, signaling that defenders are now systematically addressing attacks that replicate model abilities through output distillation—evidence that model security and IP protection are moving up the agenda.</div>
+          <div class="source">Source：<a href="https://openai.com/index/combatting-adversarial-distillation" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Superhuman pushes its Go assistant everywhere</h3>
+          <p class="news-body">Superhuman is making Go its central agent and making it available in Docs and Mail.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Superhuman is pushing its Go assistant across its entire product, signaling a shift where AI assistants move from add-on features to a default layer running through email and workflows.</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/19/superhuman-pushes-its-go-assistant-everywhere/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 沐曦股份曦云C系列GPU率先完成腾讯混元Hy4 Day 0适配</h3>
+          <p class="news-body">据沐曦股份消息，11月20日，腾讯混元正式开源Hy4。沐曦股份旗下曦云C系列GPU率先完成Hy4的Day 0适配。（财联社）</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 2.4, authenticity 2.5, quality verified</div>
+          <div class="source">Source：<a href="https://www.36kr.com/newsflashes/4079148232168323" target="_blank" rel="noopener">36氪</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Tencent Hunyuan Team Makes Reddit Debut: Next-Gen Model to Scale Up Significantly, Won't Blindly Chase Leaderboards - BigGo Finance</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMidkFVX3lxTE83VmFKelgxYnhQQ3hNbHZFeWRsSXF2VnZOVXR4M1o4RjI5aVhhQ0k2c3BqdXFST3dsYW00ei01ZXVNYVVxV2Uxa3ZneUpsYW1hbzZ0b3lMSUQ1aHRzczA2aUVwSEFiTEJ2bDUwM0VtaTNxRmZ5T3c?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Tencent Hunyuan Team Makes Reddit Debut: Next-Gen Model to Sca</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-20</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Tencent Hunyuan Team made its Reddit debut, saying its next-gen model will scale up significantly and won't blindly chase leaderboards—a signal</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE83VmFKelgxYnhQQ3hNbHZFeWRsSXF2VnZOVXR4M1o4RjI5aVhhQ0k2c3BqdXFST3dsYW00ei01ZXVNYVVxV2Uxa3ZneUpsYW1hbzZ0b3lMSUQ1aHRzczA2aUVwSEFiTEJ2bDUwM0VtaTNxRmZ5T3c?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Anthropic's record IPO and the AI selloff</b> — Even the largest AI IPO to date failed to support the sector, showing investors are repricing on profitability paths and compute spend — with knock-on effects for future fundraising and talent flows.</div><div class="watch-item"><b>OpenAI's push against adversarial distillation</b> — A frontier lab publicly targeting capability theft signals that output watermarking, access controls and licensing terms are becoming part of the moat, directly shaping API and open-weight strategy.</div><div class="watch-item"><b>Day 0 adaptation of Tencent Hunyuan Hy4 on MetaX GPUs</b> — Same-day adaptation between a domestic model and a domestic GPU is a key maturity signal for hardware-software co-design, and it shapes the inference cost curve and supply-chain resilience.</div><div class="watch-item"><b>MemFolder and agent memory management</b> — For long-running agents the cost bottleneck is memory rather than inference; if structure-guided memory folding proves reusable, it could sharply cut token spend on multi-turn tasks.</div><div class="watch-item"><b>Alibaba open-sources open-code-review</b> — A code review tool battle-tested at hyperscale could become a default component of enterprise AI coding pipelines and intensify standardization pressure in the segment.</div><div class="watch-item"><b>Inference cost cutting: HiSA sparsification and OmniRoute</b> — One attacks sparsity at the attention-structure level, the other optimizes cost at the request-routing layer; together they determine whether agent products can hold margins in a price war.</div><div class="watch-item"><b>rea: reverse engineering app behavior with agents</b> — Agent-driven automated reverse engineering is highly valuable for security research and compatibility testing, yet equally prone to misuse — its dual-use risk and compliance boundaries deserve scrutiny.</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日信号明显分化：资本市场一侧，Anthropic 创纪录 IPO 未能止住 AI 抛售、全球股市下挫，估值逻辑正从「叙事驱动」转向「现金流与算力成本驱动」。工程与开源一侧却在加速，Agent 基础设施（rea、a13n、dify）、阿里超大规模代码审查工具 open-code-review、推理降本方案 OmniRoute 密集释出，Agent 正从 Demo 走向可运维的生产系统。学术前沿聚焦「更省算力的智能」：MemFolder 压缩 Agent 记忆、HiSA 稀疏化 RoPE 隐藏维度、扩散模型 RL 后训练被重新解释为激活引导。国内侧腾讯混元 Hy4 与沐曦曦云 C 系列完成 Day 0 适配、混元团队首次登陆 Reddit 预告下一代模型显著扩容，国产软硬协同与开源社区运营同步加码。OpenAI 出手反对抗蒸馏，则说明模型能力保护已成为新的竞争前线。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">开源项目 rea 的定位是让 agent 对任意目标做逆向分析，覆盖从应用行为到原生二进制。其社区数据为 stars 471,819、forks 115,185、open issues 1,386，显示出较高关注度与一定待处理问题量。原文未披露具体实现、支持平台或性能指标，核心信息集中在分析范围同时覆盖应用行为层与 native binaries 层。若这类 agent 工作流按描述落地，可能把逆向中依赖专家手工的动静结合分析编排转为可复用流程，降低门槛并提升样本与应用分析吞吐。</p>
+          <p class="comment">真正的变量不是“anything”的口号，而是 agent 能否稳定生成可验证的二进制假设；若验证闭环成立，安全分析工具链的入口会被重新定义，双用途滥用风险也会同步上升。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 471,819</span> <span class="tag tag-gray">agent-skills / ai / android / claude-code</span></div>
+          <div class="pick-reason">rea 以 471,819 stars、115,185 forks 和 1,386 个 open issues 显示，用 agents 逆向分析应用行为是关注度很高的 AI 工具方向。</div>
+          <div class="source">来源：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 阿里开源混合架构代码审查工具 open-code-review：规则引擎加 LLM Agent</h3>
+          <p class="news-body">open-code-review 是一个在阿里规模下经过实战检验的代码审查工具，主打安全、快速与高效。它采用混合架构：由确定性流水线负责规则检测，LLM Agent 负责语义审查，并支持精确到行级的评论定位。工具内置多语言规则集，覆盖 NPE、线程安全、XSS、SQL 注入等问题，同时兼容 OpenAI 与 Anthropic 的接口。目前该仓库在社区已积累 stars=54,876、forks=4,531、open_issues=335。它把静态规则与 LLM 语义审查结合以应对大规模场景下的误报、漏报与成本问题的思路，为大中型研发团队和开源项目提供了一个可直接落地的开源选项。</p>
+          <p class="comment">代码审查工具正在从单一 LLM 提示转向「规则引擎+Agent+行级定位」的混合工程化路线，大厂内部工具的持续开源外溢，若形成稳定生态，可能对商业代码审查 SaaS 构成替代压力。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">alibaba</span> <span class="tag tag-star">⭐ 54,876</span> <span class="tag tag-gray">agent / agent-skills / code-review / code-review-assistant</span></div>
+          <div class="pick-reason">综合评分 4.4社区数据：stars=54,876，forks=4531，open_issues=335</div>
+          <div class="source">来源：<a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. a13n 开源打包 Agent 运行时与运维控制台</h3>
+          <p class="news-body">名为 a13n（agent-foundation）、由 @converge-ai-labs 维护的开源项目，定位是让团队在自有基础设施上构建、规模化运行并管理 AI Agent。其内置能力包括 harness、durable execution（持久化执行）、多模型供应商支持以及一个管理控制台。社区侧当前 stars 为 1,429、周增长 +223、forks 37、open issues 34，关注度在抬升，同时仍有相当数量的未关闭问题。这套组合把此前多出现在托管商业平台上的“Agent 运行时＋状态持久化＋运维控制台”能力以开源形式交付，对自建团队而言，数据出域与供应商锁定的顾虑随之有了替代路径；而 Agent 技术栈的选型标准也可能因此更多落在执行可靠性与可观测治理上，而非模型调用是否顺手。</p>
+          <p class="comment">如果执行可靠性和治理能力真的成为选型门槛，自建 Agent 平台的企业就会把 a13n 与 LangGraph、Temporal 类编排以及 Dify 放进同一张对比表里，开源 Agent 框架这条细分赛道的替代评估会明显变密。34 个未关闭 issue 也提示，运维成熟度仍是它需要先证明的部分。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">converge-ai-labs</span> <span class="tag tag-star">⭐ 1,429</span> <span class="tag tag-gray">a13n / agent / harness / managed-agents</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=1,429，周增长=+223，forks=37，open_issues=34</div>
+          <div class="source">来源：<a href="https://github.com/converge-ai-labs/agent-foundation" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Dify 将 Agent 工作流与 RAG 收进单一协作平台</h3>
+          <p class="news-body">Dify 的定位是一个协作式工作台：Agent 工作流编排、RAG 检索管道搭建，以及多模型与多工具的接入，都在同一处完成。部署形态覆盖云端、VPC 与自托管，团队可以从原型直接推进到生产环境，而不必重搭技术栈。当前该开源仓库的社区数据为 161,598 stars、25,538 forks、1,338 个 open issues，体量已属于头部项目。把编排、检索、模型与工具接入、部署运维集中到同一平台，意味着企业构建 LLM 应用的集成成本与供应商锁定风险被同时压低，也说明这一层的竞争正从单点能力转向可部署的平台化供给。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">langgenius</span> <span class="tag tag-star">⭐ 161,598</span> <span class="tag tag-gray">agent / agentic-ai / agentic-framework / agentic-workflow</span></div>
+          <div class="pick-reason">Dify 以 161,598 stars、25,538 forks 显示开源 Agentic workflow 与 RAG 管线的高社区关注度，1,338 个 open issues 也反映需求活跃。</div>
+          <div class="source">来源：<a href="https://github.com/langgenius/dify" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. OmniRoute 单端点聚合375家供应商，靠配额回退与token压缩降本</h3>
+          <p class="news-body">开源项目 OmniRoute 以 MIT 协议提供免费 AI 网关，用单一端点接入 375 家模型提供商（其中 150+ 家带免费额度），覆盖 Kimi、Claude、GPT、Gemini、GLM、DeepSeek、MiniMax 等 1,400+ 个模型，并可直接配合 Claude Code、Codex、Cursor、OpenCode、Cline 与 Copilot 使用。它支持按配额感知的自动故障切换，以及 RTK+Caveman 压缩，官方称可节省 15%-95% 的 token，同时兼容 MCP/A2A 协议并提供 Desktop/PWA 形态，由 900+ 贡献者共同构建。仓库当前 stars 89,246、forks 13,781、open issues 852，社区体量已接近基础设施级项目。这意味着多模型路由、故障切换与上下文压缩正从商业网关的付费能力迁移为开源标配，推理成本的竞争重心也随之从模型单价下移到调度与压缩效率。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">cheaper-inference</span> <span class="tag tag-star">⭐ 89,246</span> <span class="tag tag-gray">a2a / ai-agents / ai-gateway / anthropic</span></div>
+          <div class="pick-reason">OmniRoute 凭 89,246 stars、13,781 forks 的社区体量与 852 个 open issues 的持续协作，显示「不中断编码」这类工具已沉淀为规模化开源生态。</div>
+          <div class="source">来源：<a href="https://github.com/cheaper-inference/OmniRoute" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. 1.5B模型LoRA微调可检出胸片报告与图像证据不一致</h3>
+          <p class="news-body">Rad-Linter 先用预训练图像分类器为九类病理打分，再由一个经 LoRA 在 1,816 个样本上微调的 1.5B 参数语言模型判断这些图像证据与胸片报告是否一致，从而标记出可疑错误，供人工复核。研究以关键词加否定判断的规则方法作为基线对照；该研究用 OpenI 构造受控反事实四元组：每组的两个真实报告与来自其他患者的两份真实分数向量交叉组合，得到两对一致、两对不一致的配对，且每个报告与每个分数向量都会在两种条件下出现，因此单看任一输入最高只能达到 50% 准确率。在 131 个四元组上，Rad-Linter 的配对准确率为 98.5%，规则基线为 80.5%；四对全部判对的比例为 94.4%，规则基线为 56.5%。在涉及未提及和否定发现的省略项上，两者表现接近；差异主要出现在需要理解发现如何描述的其余项类型上。同一语言模型不做微调时，准确率仍停留在 50% 附近；在另外 181 个纳入自动标注器分歧报告的四元组上，配对准确率为 93.4%，规则基线为 75.3%。这意味着放射报告质控的核查对象，可能从纯文本规则转向报告与图像证据的一致性；不过该研究短期仍把它定位为辅助标记，而不是自动修改报告。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该论文仅由3位作者完成，把大语言模型用于胸片报告的多模态错误检测，强调模型需读取图像证据作判断，指向放射报告质控这一可落地场景，显示多模态校验正从研究走向临床文档把关。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.26492v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. MemFolder用结构引导折叠兼顾智能体记忆保真与效率</h3>
+          <p class="news-body">长期智能体在交互中积累大量外部记忆，存储、检索和响应生成成本会随记录数与检索上下文长度同时上升；剪枝可能丢弃有用证据，合并又可能产生更少但更长的检索单元。由9位作者完成的论文提出MemFolder，这是一个结构引导的记忆折叠框架，按顺序压缩记录数与上下文长度，两个核心组件共享记忆组，并利用跨记录结构指导证据合并与紧凑表示。RecordFolder对实体提及做grounding，逐步选择有代表性且互补的锚点，结合语义与实体亲和度及时间链，将兼容记录合并为更少检索单元；ContextFolder把组内原始记录编码为紧凑文本，并在关键事实无法恢复时用验证反馈修正编码。在LoCoMo、PersonaMem、LongMemEval三个文本记忆基准和M3-Bench-web、M3-Bench-robot两个多模态基准上，实验显示该方法性能较强；在Mem0上，RecordFolder在三个文本基准上保留了原始平均性能的99.0%。这指向长期智能体记忆管理从粗粒度剪枝或摘要转向结构感知的压缩与分层组织，若落地，记忆检索、上下文构造与推理成本可能被一起重新优化。</p>
+          <p class="comment">MemFolder的关键不是单纯把记忆压短，而是用跨记录结构判断哪些证据可折叠、哪些必须保留；若验证反馈能稳定兜住关键事实，记忆模块会更像可计算的索引结构，而不是单纯向量库或对话日志。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">该论文提出结构引导的记忆折叠方法，聚焦智能体记忆管理效率，由9位作者合作完成，指向Agent记忆压缩与效率优化的行业趋势。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.26427v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. HiSA 把注意力稀疏化搬到隐藏维度，点积只算三分之一仍胜过全量</h3>
+          <p class="news-body">HiSA（Hidden Sparse Attention）针对 LLM 注意力中每个 query 都要与每个 key 做完整点积的做法，保留 query 与 key 投影不变，只计算部分点积；其稀疏发生在隐藏（特征）维度，而非几乎所有稀疏注意力方法所针对的 token 维，且裁剪规则由 token 位置静态决定、不含可学习参数。作者依据 RoPE 的结构把 key 和 query 拆成可在注意力计算时省略的部分，并从零训练 LLM，结果显示这种部分点积只计算约三分之一的 query-key 乘积，性能不降反升。推理阶段 HiSA 提升解码速度并压缩显存占用，作者还把方案扩展到 FlashAttention-3 kernel，覆盖训练与推理。论文给出的动机分析是：稠密注意力在训练中本身就会学着抑制 HiSA 所丢弃的那部分注意力分数；代码已在 github.com/ambroise-b/hisa 开源。这意味着注意力效率优化可以从 token 级稀疏走向更细粒度的特征维结构化稀疏，为削减 LLM 注意力计算量提供一条与 token 稀疏正交、且不增加学习参数的新路径。</p>
+          <p class="comment">把稀疏对象从 token 对挪到隐藏维，等于在不改动投影的前提下对点积做静态裁剪，若在更大模型和更长上下文上精度依然稳定，注意力内核的设计空间可能被重新划分。而“稠密注意力本就在抑制被丢弃的分数”这一观察，暗示现有注意力的冗余粒度比 token 稀疏假设更细。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=3</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.26363v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Post-training：Agent+推理</h3>
+          <p class="news-body">Beam 技术报告公开了一个稀疏 MoE 模型：总参数 501.3B、激活参数 23.4B（稀疏度约 4.7%），在 23.8T 条精选 token 上预训练，并通过两阶段 midtraining 把上下文扩展到 1M token，专门面向编码、推理与 agentic 工作负载优化。报告称其推理效果达到同级前沿水平，同时推理算力需求比同类模型低 3-4 倍。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Beam Model技术报告由10位作者联合署名发布，显示该模型工作依托较大规模团队协作，其技术路线与工程化信号值得关注。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.26358v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. RL Post-Training in Diffusion Transformers Is Activation Steering</h3>
+          <p class="news-body">强化学习后训练能显著提升扩散 Transformer 的视觉质量、文字渲染与组合准确率，由于这些能力本身依赖提示词，通常被假设需要学习复杂的输入相关变换。为量化其中有多少收益可被一个与输入无关的平移解释，作者用极简参数化方式探测各 RL 模型：在冻结基座的 block 输出上加一组固定 steering 向量；在 SD3.5-M 上这组向量仅 0.29M 参数，比 RL 微调的 LoRA（18.8M）少 65 倍。这些向量通过拟合公开 RL checkpoint 的速度预测得到，目标函数中不含奖励，且对每个提示词、token 和采样种子完全相同，却能复现六个 RL 图像模型 90.0–96.3% 的奖励增益，并在两个 RL 视频模型上分别达到 89.8% 和 111.9%。以零初始化并用在线 RL 训练时，仅靠这组向量在 SD3.5-M 的文字渲染（OCR）与人类偏好（PickScore）上就超过了基于权重更新的 RL 增益。结论是：一个恒定偏移足以解释策略梯度式 RL 后训练的大部分收益——它并未学到新的输入相关变换，而是把预训练生成器导向其本已具备的能力；这也意味着部分后训练收益可能只是全局表征或激活被重新校准，而非新能力被学会。</p>
+          <p class="comment">若一组与输入无关的固定向量就能复现绝大部分 RL 增益，后训练的成本结构与可解释性叙事都要重估：对齐更接近“校准激活”而非“教会新技能”。由此推理，推理时的 steering 干预或许能替代一部分昂贵的策略梯度训练，但其在更复杂提示与安全对齐场景下是否同样成立，仍待验证。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">这篇6作者论文把扩散Transformer的RL后训练表述为激活引导，为DiT后训练提供了一条可解释的机制视角。</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.26627v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Anthropic 破纪录 IPO 未能止住 AI 抛售，全球股市下挫</h3>
+          <p class="news-body">Anthropic 上市第二天股价跌逾 9% 至 $88.17，接近 $83 发行价，其破纪录 IPO 未能止住 AI 相关公司抛售。周五 Nasdaq 跌 2%，SanDisk 跌 14%、Micron 跌 10%；亚洲股市创 2020 年以来最差一周，台湾加权指数跌 6.7%、日经跌 5%、Kospi 跌 5.5%，SoftBank 单日跌 14.5%。</p>
+          <p class="comment">Anthropic 上市次日股价跌逾9%至88.17美元，逼近83美元发行价；其破纪录IPO未能阻止AI板块抛售，Nasdaq跌2%，SanDisk、Micron分别跌14%和10%，亚洲主要股指创2020年以来最差一周。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-20</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Anthropic 完成破纪录 IPO 却未能止住 AI 抛售，全球股市随之下挫，显示一级市场里程碑难敌二级市场对 AI 板块的抛售情绪。</div>
+          <div class="source">来源：<a href="https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off" target="_blank" rel="noopener">Hacker News：AI 热帖</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Combatting adversarial distillation</h3>
+          <p class="news-body">Combatting adversarial distillation How we’re addressing safety risks of distillation and lessons we’ve learned for strengthening safeguards across the industry. Share Why distillation is a safety issue Why distillation is a safety issue The importance of protecting exact reasoning traces for cyber safety Defenses that reinforce one another Protecting individual requests and responses Investigating and disrupting coordinated campaigns Measuring progress Resistance to reasoning extraction Campaig</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-20</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">聚焦对抗性蒸馏这一模型能力窃取路径，意味着防御方正系统性应对通过输出蒸馏复制模型能力的攻击，是模型安全与知识产权保护议题升温的信号。</div>
+          <div class="source">来源：<a href="https://openai.com/index/combatting-adversarial-distillation" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Superhuman Pushes Assistant 动态</h3>
+          <p class="news-body">Superhuman 将 Go 助手从邮件场景扩展至 Docs 和 Mail，并把它定位为跨产品的中心代理，统一处理文档与邮件任务。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Superhuman 把 Go 助手从单一场景扩展到全产品线，说明 AI 助手正从附加功能变为贯穿邮件与工作流的默认入口，这是产品级 AI 全面嵌入的趋势信号。</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/19/superhuman-pushes-its-go-assistant-everywhere/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 沐曦股份曦云C系列GPU率先完成腾讯混元Hy4 Day 0适配</h3>
+          <p class="news-body">据沐曦股份消息，11月20日，腾讯混元正式开源Hy4。沐曦股份旗下曦云C系列GPU率先完成Hy4的Day 0适配。（财联社）</p>
+          <p class="comment">腾讯混元于11月20日正式开源Hy4，沐曦股份曦云C系列GPU在发布当天完成Day 0适配，成为首批兼容该模型的国产GPU之一。</p>
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 2.4，真实性 2.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://www.36kr.com/newsflashes/4079148232168323" target="_blank" rel="noopener">36氪</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 腾讯混元团队Reddit首秀：下一代模型将大幅扩规模但不盲追榜单</h3>
+          <p class="news-body">腾讯混元团队首次在Reddit上亮相，直接面向全球开发者社区沟通下一代模型的路线。团队表示，下一代模型将在规模上有明显提升，同时明确不会盲目追逐榜单排名。这表明其重心更偏向真实可用性和产品化落地，竞争焦点可能会从基准分数转向实际能力与部署体验，开发者反馈和社区沟通也被摆到更靠前的位置。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-20</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">腾讯混元团队首次登陆Reddit，透露下一代模型将显著扩大规模且不盲目追逐榜单，释放大模型竞争从刷榜转向实际能力的趋势信号。</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE83VmFKelgxYnhQQ3hNbHZFeWRsSXF2VnZOVXR4M1o4RjI5aVhhQ0k2c3BqdXFST3dsYW00ei01ZXVNYVVxV2Uxa3ZneUpsYW1hbzZ0b3lMSUQ1aHRzczA2aUVwSEFiTEJ2bDUwM0VtaTNxRmZ5T3c?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Anthropic 创纪录 IPO 与 AI 板块抛售</b> — 史上最大规模 AI 公司 IPO 仍未能托住板块，说明市场开始按盈利路径与算力支出重新定价，后续融资环境与人才流动将随之变化。</div><div class="watch-item"><b>OpenAI 反对抗蒸馏</b> — 头部实验室公开对抗能力窃取，意味着输出水印、访问控制与许可条款将成为模型护城河的一部分，直接影响 API 与开源权重策略。</div><div class="watch-item"><b>腾讯混元 Hy4 与沐曦 GPU 的 Day 0 适配</b> — 国产模型与国产 GPU 首发即适配，是软硬协同成熟度的关键指标，也决定推理侧成本曲线与供应链韧性。</div><div class="watch-item"><b>MemFolder 与 Agent 记忆管理</b> — 长期运行的 Agent 成本瓶颈在记忆而非推理，结构化记忆折叠若可复用，将显著降低多轮任务的 token 开销。</div><div class="watch-item"><b>阿里 open-code-review 开源</b> — 超大规模实战验证的代码审查工具开源，可能成为企业 AI 编码流水线的默认组件，并加剧该赛道的标准化竞争。</div><div class="watch-item"><b>推理降本组合：HiSA 稀疏化与 OmniRoute</b> — 一端是注意力结构层的稀疏化，一端是请求路由层的成本优化，二者叠加决定 Agent 产品能否在价格战中维持毛利。</div><div class="watch-item"><b>rea：用 Agent 逆向工程应用行为</b> — Agent 自动化逆向能力对安全研究与兼容性测试价值极高，但同样可被滥用，需关注其双用途风险与合规边界。</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-21T07:16:46.258Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
