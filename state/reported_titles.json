@@ -1,27 +1,4 @@
 {
- "2026-11-07": {
-  "paper": [
-   "paper|benchmarking large language models heterogeneous cognitive biomedical knowledge ",
-   "paper|xstack benchmark ml repo migration",
-   "paper|swarmevolve latent agent swarms evolutionary discovery optimization",
-   "paper|reprobridge building reproducibility ml research artifacts",
-   "paper|power meta access software future demonstrated llm chat uis chat ai"
-  ],
-  "opensource": [
-   "opensource|openbot source ai coworkers that each get computer their",
-   "opensource|tiny llm learn llm inference system apple silicon systems",
-   "opensource|localgpt local ai assistant dreaming explorable worlds",
-   "opensource|dulus dulus ai agentic ai 100 cache hit rate dulus is made",
-   "opensource|evener coding agent give it prompt it reads writes runs"
-  ],
-  "enterprise": [
-   "enterprise|dropbox tigris data 350m bolster ai infrastructure",
-   "enterprise|partnering hacktron find vulnerabilities openai s systems",
-   "enterprise|measuring how ai agents handle everyday wet lab science",
-   "enterprise|meta spaces way collaborate your muse agent",
-   "enterprise|underdog shows off 32mb speech model demo"
-  ]
- },
  "2026-11-08": {
   "paper": [
    "paper|decision models retrieval gates against injection pollution",
@@ -333,6 +310,28 @@
    "enterprise|superhuman pushes go assistant everywhere",
    "enterprise|沐曦股份曦云 系列 率先完成腾讯混元 适配 c gpu hy4 day 0",
    "enterprise|tencent hunyuan team makes reddit next gen model scale up significantly won t bl"
+  ]
+ },
+ "2026-11-22": {
+  "paper": [
+   "paper|tidecache efficient hybrid llm serving transparent cache management layer wise s",
+   "paper|active feature acquisition distilling oracle teacher",
+   "paper|realized versus population reliability anytime valid self consistency certificat",
+   "paper|probing conscious mind selective access global workspace vision language models",
+   "paper|text aware vision blind how multimodal image editing systems handle unsafe input"
+  ],
+  "opensource": [
+   "opensource|openbot self hostable alternative closed ai bots",
+   "opensource|eta eta is self contained 0 vendor multi agent all one",
+   "opensource|推理王国 关于 推理机制的思想实验手册 reasoning kingdom ai",
+   "opensource|juben multi agent platform short drama planning writing",
+   "opensource|hermes agent agent that grows you"
+  ],
+  "enterprise": [
+   "enterprise|hebbia sees improvements financial research gpt 6 astra",
+   "enterprise|here are top ai agents that can live your text messages",
+   "enterprise|tencent s yao shunyu team late night full response computing power shortages ben",
+   "enterprise|tencent s hunyuan holds public q amp next generation model scale up significantl"
   ]
  }
 }

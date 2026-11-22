@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-22</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-11-22: 14 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 4  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-22">
+<meta property="og:description" content="2026-11-22: 14 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 4  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261122.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-22">
+<meta name="twitter:description" content="2026-11-22: 14 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 4  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261122.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-22 ｜ report_20261122</div>
+<div class="sub" data-lang-title="zh">2026-11-22 ｜ report_20261122</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-11-22: 14 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 4  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. OpenBot：The open, self-hostable alternative to closed AI bots</h3>
+          <p class="news-body">The open, self-hostable alternative to closed AI bots. Production-ready, fully customizable, and plugs into every stack: any agent, any model, any tool.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-22</span> <span class="tag">CopilotKit</span> <span class="tag tag-star">⭐ 13,154</span> <span class="tag tag-gray">ag-ui / agent-governance / ai-agents / browser-automation</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=13,154，forks=1646，open_issues=165</div>
+          <div class="source">Source：<a href="https://github.com/CopilotKit/OpenBot" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. eta：Eta is a self-contained 0-vendor multi-agent all-in-one</h3>
+          <p class="news-body">Eta is a self-contained 0-vendor multi-agent all-in-one endomorphic agent loop/runtime/harness/app.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-22</span> <span class="tag">0xfe-project</span> <span class="tag tag-star">⭐ 278</span> <span class="tag tag-gray">agent / claude-code / grok-bot / harness</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=278，forks=19，open_issues=17</div>
+          <div class="source">Source：<a href="https://github.com/0xfe-project/eta" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. reasoning-kingdom：🌟 推理王国：关于 AI 推理机制的思想实验手册</h3>
+          <p class="news-body">🌟 推理王国：关于 AI 推理机制的思想实验手册。从信息论、符号逻辑与表示学习出发，系统剖析大模型“智能”的本质。，⭐ 235</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-22</span> <span class="tag">datawhalechina</span> <span class="tag tag-star">⭐ 235</span> <span class="tag tag-gray">ai / algorithm / deep-learning / llm</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=235，forks=20</div>
+          <div class="source">Source：<a href="https://github.com/datawhalechina/reasoning-kingdom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. juben：multi-agent platform for short-drama planning, writing &amp;</h3>
+          <p class="news-body">multi-agent platform for short-drama planning, writing &amp; evaluation — 40+ specialized AI agents|AI影视多智能体创作平台：40+ 专业 AI Agent，覆盖策划、创作、评估全流程；多智能体协作编排批量生成剧本提示词｜人物小传｜故事大纲｜飞书集成｜AI影视自动化工作流｜竖屏短剧长剧IP改编｜情节题材提炼｜拉片人物剧集故事五元素分析｜知识图谱|SKills,Tools,Memory</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-22</span> <span class="tag">VanGong1999</span> <span class="tag tag-star">⭐ 192</span> <span class="tag tag-gray">agent / agent-memory / agent-orchestration / agentic</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=192，forks=56</div>
+          <div class="source">Source：<a href="https://github.com/VanGong1999/juben" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-22</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 265,252</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=265,252，forks=59960，open_issues=54288</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming</h3>
+          <p class="news-body">Hybrid architectures have become mainstream among open-weight language models. Their global-attention and bounded-state layers maintain heterogeneous caches whose demands vary with context length and concurrency. We present TideCache, a serving system on CPU--GPU superchips with three components for allocating GPU memory among caches and managing their residency across GPU and host memory. The Transparent Cache Pool redistributes physical pages among cache components behind fixed virtual addresses, preserving cache layouts and backend interfaces. The Cache Streamer uses computation intervals provided by bounded-state layers to prefetch the next global-attention layer's prefix into GPU slots shared across global-attention layers, reducing GPU residency while overlapping layer-wise transfers with computation. Generated KV remains resident. The Request Scheduler selects resident or streamed execution and triggers capacity adjustments according to request size and queue state. Together, they let HBM released by streaming accommodate other cache components and additional requests. Implemented in SGLang and evaluated on GB300 and GH200 across seven model/platform configurations, TideCache completes up to 2.04x as many agent turns, reduces overall P50 per-token latency by 20--59%, and improves agent P50 TTFT by 1.40--3.05x compared with SGLang with HiCache.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.DC</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=6</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.26619v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Active Feature Acquisition by Distilling an Oracle Teacher</h3>
+          <p class="news-body">Acquiring every feature of an instance is often costly: a measurement can carry a monetary price, a time delay, or a privacy cost. Active Feature Acquisition (AFA) addresses this by learning a policy that decides, per instance, which features to acquire under a budget. Existing AFA methods train this policy by optimizing a self-constructed utility target rather than distilling an explicit teacher. We construct this teacher explicitly. At training time the label and the unobserved feature values are available, and together they determine the teacher in closed form: an oracle that ranks every candidate by its effect on the downstream predictor's error. OracleImitator distills this ranking into a deployable policy by soft-target imitation. Across multimodal medical diagnosis and the AFABench benchmark, OracleImitator matches or outperforms existing AFA methods across the budget range, recovering 90% of the attainable accuracy gain at under a quarter of the acquisition cost. Because the teacher is an explicit algorithmic object rather than an implicit optimization target, we can also measure directly how much of its ranking is recoverable by a policy restricted to what is visible at deployment.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=4</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.26598v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Realized versus Population Reliability: Anytime-Valid Self-Consistency Certification under Correlated Reasoning</h3>
+          <p class="news-body">Self-consistency certification treats repeated sampling from a language model as sequential evidence accumulation and stops when an anytime-valid e-process crosses a threshold, guaranteeing finite-sample Type I error control by Ville's inequality. Prior constructions assume sampled rollouts are conditionally independent. We show this assumption fails in practice: reasoning streams are positively correlated through shared reasoning prefixes or across-prompt heterogeneity, changing not merely certificate efficiency but the hypothesis certified. Modeling dependence via a per-unit latent state (the random-effects / intraclass-correlation structure) induces exchangeable, equi-correlated increments with correlation $ρ$. Correlation splits the single null into a realized null about the drawn belief and a population null about average model behavior, which coincide only when $ρ=0$. We show: (i) the standard betting e-process remains anytime-valid for the realized null, not the population null; (ii) read as a population-null test, a suitable mixture has asymptotic crossing probability at least $π=P(μ(Z)&amp;gt;0)$, potentially exceeding nominal $ε$; (iii) the within-unit mean's effective sample size saturates at $1/ρ$, so extra within-unit rollouts cannot restore population validity; and (iv) a prompt-level e-process restores population validity, with optimal allocation at one rollout per prompt under a pure rollout budget. Simulations and Claude Haiku 4.5 rollouts confirm this regime dep</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">stat.ME</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=2</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.26592v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Probing the &quot;Conscious&quot; Mind: Selective Access and Global Workspace in Vision-Language Models</h3>
+          <p class="news-body">Vision-language models (VLMs) integrate visual and textual information, but their outputs do not reveal internal concept representations. Global workspace theory (GWT) proposes that information is selected from parallel brain processes, integrated in a shared workspace, and made available to specialised processes. We introduce the Multimodal Concept Lens (MC-Lens), a multimodal Jacobian lens, to study these functions in VLM concept processing. Its vision encoder and language decoder lenses map intermediate states to a shared semantic space defined by the decoder's output vocabulary to compare concept accessibility across modalities. MC-Lens supports internal concept interventions to examine the role of accessed concepts in downstream computation. (i) Accessibility and selective access. Multimodal concept information is readable in intermediate states and selectively accessible as tasks require. We extend &quot;readout carriers&quot; from one name token to a token set to better capture and express concept information and support counterfactual experiments. (ii) Concepts in downstream computation. Counterfactual experiments show that accessed concept information participates in downstream computation and reasoning. (iii) Development of cross-modal alignment and selective access. We develop two J-space metrics tracking the development of cross-modal concept alignment more clearly than hidden state cosine in controlled VLM training. The experiment also shows that reliable selective access </p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=2</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.26590v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Text-Aware, Vision-Blind: How Multimodal Image Editing Systems Handle Unsafe Inputs</h3>
+          <p class="news-body">Multimodal image generation systems have made rapid progress and increasingly emphasize content safety. However, their safety mechanisms tend to rely on a single modality and lack joint consideration of both visual content and text prompts, particularly in instruction-guided image editing, where the uploaded image may itself carry risk. We thus introduce EditSafetyBench, a benchmark that measures system-level safety awareness of advanced image editing systems, containing 5,940 image-instruction pairs, covering safe and unsafe images across 11 risk categories and three edit intents. We then probe the benchmark dataset on four systems, including Gemini, GPT, Qwen API, and Qwen Local. Based on our evaluation, we observe a systematic text-vision safety mismatch: Gemini and GPT refuse 87.1\% and 81.6\% cases containing unsafe-intent editing prompts, while only refusing 24.2\% and 22.4\% cases with both unsafe images and neutral instructions. At the category level, most risks are considered inconsistently by different systems, e.g., GPT allows 70.4\% editing attempts of unsafe political content while Gemini only allows 34.8\%. Notably, sexual content shows the strongest visual sensitivity, likely benefiting from mature NSFW identification works. Our findings highlight the need for safety guardrails that jointly reason over both visual and textual modalities in image editing systems.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.CR</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=4</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.26569v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Hebbia sees improvements in financial research with GPT-6 Astra</h3>
+          <p class="news-body">Hebbia sees improvements in financial research with GPT‑6 Astra Hebbia sees gains in financial research in tests of GPT‑6 Astra. Percentage-point lead over the best alternative tested in Hebbia’s tests. Percent of cited excerpts relevant to the question in Hebbia’s tests. Percent of applicable presentation requirements met in Hebbia’s tests. Percentage-point lead over the best alternative tested on presentation requirements. Share From source documents to presentations From source documents to p</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-20</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/business/customer-stories/hebbia" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Here are the top AI agents that can live in your text messages</h3>
+          <p class="news-body">We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Tencent’s Yao Shunyu Team Late-Night Full Response: Computing Power Shortages, Benchmark Gaming Models, and In-Depth Strategic Insights on Leiting - eu.36kr.com</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiU0FVX3lxTE8tLVJOaHo3TXBUZmdidUJpZEhhczZ6RUQ3MjJLbXZ4RnllWVdMOHR1N280a2hwOXFhLWQ5UUpnTVo5MW91aE9ucG1md0hKbDZTNEk4?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Tencent’s Yao Shunyu Team Late-Night Full Response: Computing Power Shortages, Benchmark Gaming Models, and I</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE8tLVJOaHo3TXBUZmdidUJpZEhhczZ6RUQ3MjJLbXZ4RnllWVdMOHR1N280a2hwOXFhLWQ5UUpnTVo5MW91aE9ucG1md0hKbDZTNEk4?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Tencent's Hunyuan holds first public Q&amp;amp;A: next-generation model to scale up significantly, won't blindly chase single leaderboards - BigGo Finance</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMidkFVX3lxTE83VmFKelgxYnhQQ3hNbHZFeWRsSXF2VnZOVXR4M1o4RjI5aVhhQ0k2c3BqdXFST3dsYW00ei01ZXVNYVVxV2Uxa3ZneUpsYW1hbzZ0b3lMSUQ1aHRzczA2aUVwSEFiTEJ2bDUwM0VtaTNxRmZ5T3c?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Tencent's Hunyuan holds first public Q&amp;amp;A: next-generation</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-20</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE83VmFKelgxYnhQQ3hNbHZFeWRsSXF2VnZOVXR4M1o4RjI5aVhhQ0k2c3BqdXFST3dsYW00ei01ZXVNYVVxV2Uxa3ZneUpsYW1hbzZ0b3lMSUQ1aHRzczA2aUVwSEFiTEJ2bDUwM0VtaTNxRmZ5T3c?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Active Feature Acquisition by Distilling an Oracle Teacher</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Realized versus Population Reliability: Anytime-Valid Self-Consistency Certification under Correlated Reasoning</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-11-22 共收录 14 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 4 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. CopilotKit发布Production-ready</h3>
+          <p class="news-body">事件为「OpenBot：The open, self-hostable alternative to closed AI bots」。The open, self-hostable alternative to closed AI bots</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-22</span> <span class="tag">CopilotKit</span> <span class="tag tag-star">⭐ 13,154</span> <span class="tag tag-gray">ag-ui / agent-governance / ai-agents / browser-automation</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=13,154，forks=1646，open_issues=165</div>
+          <div class="source">来源：<a href="https://github.com/CopilotKit/OpenBot" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 0xfe-project发布Agent新动态</h3>
+          <p class="news-body">事件为「eta：Eta is a self-contained 0-vendor multi-agent all-in-one」。Eta is a self-contained 0-vendor multi-agent all-in-one</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-22</span> <span class="tag">0xfe-project</span> <span class="tag tag-star">⭐ 278</span> <span class="tag tag-gray">agent / claude-code / grok-bot / harness</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=278，forks=19，open_issues=17</div>
+          <div class="source">来源：<a href="https://github.com/0xfe-project/eta" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. reasoning-kingdom：🌟 推理王国：关于 AI 推理机制的思想实验手册</h3>
+          <p class="news-body">🌟 推理王国：关于 AI 推理机制的思想实验手册。从信息论、符号逻辑与表示学习出发，系统剖析大模型“智能”的本质。</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-22</span> <span class="tag">datawhalechina</span> <span class="tag tag-star">⭐ 235</span> <span class="tag tag-gray">ai / algorithm / deep-learning / llm</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=235，forks=20</div>
+          <div class="source">来源：<a href="https://github.com/datawhalechina/reasoning-kingdom" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. VanGong1999发布Agent新动态</h3>
+          <p class="news-body">multi-agent platform for short-drama planning, writing &amp; evaluation — 40+ specialized AI agents|AI影视多智能体创作平台：40+ 专业 AI Agent，覆盖策划、创作、评估全流程；多智能体协作编排批量生成剧本提示词｜人物小传｜故事大纲｜飞书集成｜AI影视自动化工作流｜竖屏短剧长剧IP改编｜情节题材提炼｜拉片人物剧集故事五元素分析｜知识图谱|SKills,Tools,Memory</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-22</span> <span class="tag">VanGong1999</span> <span class="tag tag-star">⭐ 192</span> <span class="tag tag-gray">agent / agent-memory / agent-orchestration / agentic</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=192，forks=56</div>
+          <div class="source">来源：<a href="https://github.com/VanGong1999/juben" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. NousResearch发布Agent新动态</h3>
+          <p class="news-body">事件为「hermes-agent：The agent that grows with you」。The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-22</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 265,252</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=265,252，forks=59960，open_issues=54288</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Layer-Wise：Agent+大模型</h3>
+          <p class="news-body">事件为「TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming」。Hybrid architect</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.DC</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=6</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.26619v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OracleImitator：多模态+搜索学习</h3>
+          <p class="news-body">事件为「Active Feature Acquisition by Distilling an Oracle Teacher」。Acquiring every feature of an instance is often costly:</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=4</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.26598v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Self-Consistency：大模型+推理</h3>
+          <p class="news-body">事件为「Realized versus Population Reliability: Anytime-Valid Self-Consistency Certification under Correlated Reasoning」。Sel</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">stat.ME</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=2</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.26592v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Vision-Language：大模型+多模态</h3>
+          <p class="news-body">事件为「Probing the &quot;Conscious&quot; Mind: Selective Access and Global Workspace in Vision-Language Models」。Vision-language model</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.AI</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=2</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.26590v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Vision-Blind：多模态+安全</h3>
+          <p class="news-body">事件为「Text-Aware, Vision-Blind: How Multimodal Image Editing Systems Handle Unsafe Inputs」。Multimodal image generation sys</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-19</span> <span class="tag tag-gray">cs.CR</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=4</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.26569v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. OpenAI更新GPT新动态</h3>
+          <p class="news-body">事件为「Hebbia sees improvements in financial research with GPT-6 Astra」。Hebbia sees improvements in financial research with</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-20</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/business/customer-stories/hebbia" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Agent领域发布最新动态</h3>
+          <p class="news-body">事件为「Here are the top AI agents that can live in your text messages」。We created a list of the most notable AI agents that</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 腾讯发布Late-Night</h3>
+          <p class="news-body">事件为「Tencent’s Yao Shunyu Team Late-Night Full Response: Computing Power Shortages, Benchmark Gaming Models, and In-Depth</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-21</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE8tLVJOaHo3TXBUZmdidUJpZEhhczZ6RUQ3MjJLbXZ4RnllWVdMOHR1N280a2hwOXFhLWQ5UUpnTVo5MW91aE9ucG1md0hKbDZTNEk4?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 腾讯发布最新动态</h3>
+          <p class="news-body">事件为「Tencent's Hunyuan holds first public Q&amp;amp;A: next-generation model to scale up significantly, won't blindly chase s</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-20</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE83VmFKelgxYnhQQ3hNbHZFeWRsSXF2VnZOVXR4M1o4RjI5aVhhQ0k2c3BqdXFST3dsYW00ei01ZXVNYVVxV2Uxa3ZneUpsYW1hbzZ0b3lMSUQ1aHRzczA2aUVwSEFiTEJ2bDUwM0VtaTNxRmZ5T3c?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Active Feature Acquisition by Distilling an Oracle Teacher</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Realized versus Population Reliability: Anytime-Valid Self-Consistency Certification under Correlated Reasoning</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-22T06:56:51.833Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
