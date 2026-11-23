@@ -1,25 +1,4 @@
 {
- "2026-11-08": {
-  "paper": [
-   "paper|decision models retrieval gates against injection pollution",
-   "paper|domain specific information retrieval",
-   "paper|probabilistic relevance decisions semantic retrieval",
-   "paper|arcadedb python process multi model database",
-   "paper|zerorag adaptive semantic peer routing decentralized retrieval augmented generat"
-  ],
-  "opensource": [
-   "opensource|wegent plan build deliver source self hostable",
-   "opensource|vibesys can ai agents build bespoke systems",
-   "opensource|睡前消息知识库 视频节目文稿 问答 马前卒工作室 bedtimenews agent ai agent",
-   "opensource|local shell mcp enables llm use cli environment",
-   "opensource|hermes agent agent that grows you"
-  ],
-  "enterprise": [
-   "enterprise|拟感恩节前 接受低于预期的估值 募资 亿美元 anthropic ipo 800 1000",
-   "enterprise|qwen 4 date what we know so far fello ai",
-   "enterprise|qwen 4 confirmed facts teaser status kingy ai"
-  ]
- },
  "2026-11-09": {
   "paper": [
    "paper|orthogonal norm growth two tower retrieval popularity mechanism unified discover",
@@ -332,6 +311,28 @@
    "enterprise|here are top ai agents that can live your text messages",
    "enterprise|tencent s yao shunyu team late night full response computing power shortages ben",
    "enterprise|tencent s hunyuan holds public q amp next generation model scale up significantl"
+  ]
+ },
+ "2026-11-23": {
+  "paper": [
+   "paper|evaluating prompting strategies zero shot multilingual aspect based sentiment an",
+   "paper|beyond self critique epistemic convergence control multi agent research verifica",
+   "paper|windchime audiovisual installation audio language model implementations",
+   "paper|epistemic social learning latent behavioral structure under endogenous multi age",
+   "paper|memonce scalable memory architecture large language models"
+  ],
+  "opensource": [
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|dify build agentic workflows rag pipelines rich ai model",
+   "opensource|paperclip source app everyone uses manage agents work",
+   "opensource|ragflow ragflow is agent native database retrieval augmented",
+   "opensource|hyperframes source ai video editor edit your own footage"
+  ],
+  "enterprise": [
+   "enterprise|前三家机构如何重注押注 anthropic ipo",
+   "enterprise|perplexity intelligence",
+   "enterprise|阿里云旗下公司入股艾捷科芯",
+   "enterprise|alibaba widely qwen4 max ai model 2 4 trillion parameters vietnam vn"
   ]
  }
 }
