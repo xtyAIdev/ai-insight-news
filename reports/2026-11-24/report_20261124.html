@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-24</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-11-24: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-24">
+<meta property="og:description" content="2026-11-24: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261124.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-24">
+<meta name="twitter:description" content="2026-11-24: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261124.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-24 ｜ report_20261124</div>
+<div class="sub" data-lang-title="zh">2026-11-24 ｜ report_20261124</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-11-24: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. magpie：Every agent's model</h3>
+          <p class="news-body">Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 40,815</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=40,815，forks=3734，open_issues=5051</div>
+          <div class="source">Source：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. agent-foundation：a13n - Build, run, and manage AI agents at scale on your</h3>
+          <p class="news-body">a13n - Build, run, and manage AI agents at scale on your own infrastructure. Open source, with a built-in harness, durable execution, multi-provider support, and a management console. Built With Love 💜 @converge-ai-labs</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">converge-ai-labs</span> <span class="tag tag-star">⭐ 1,546</span> <span class="tag tag-gray">a13n / agent / harness / managed-agents</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=1,546，forks=40，open_issues=36</div>
+          <div class="source">Source：<a href="https://github.com/converge-ai-labs/agent-foundation" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. swipt：The universal iOS automation platform</h3>
+          <p class="news-body">The universal iOS automation platform</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">swipt-automation</span> <span class="tag tag-star">⭐ 577</span> <span class="tag tag-gray">automation / ios / mcp / MCP</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=577，forks=30，open_issues=11</div>
+          <div class="source">Source：<a href="https://github.com/swipt-automation/swipt" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. eta：Eta is a self-contained 0-vendor multi-agent all-in-one</h3>
+          <p class="news-body">Eta is a self-contained 0-vendor multi-agent all-in-one endomorphic agent loop/runtime/harness/app.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">0xfe-project</span> <span class="tag tag-star">⭐ 286</span> <span class="tag tag-gray">agent / claude-code / grok-bot / harness</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=286，forks=19，open_issues=21</div>
+          <div class="source">Source：<a href="https://github.com/0xfe-project/eta" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. mydb：A high-performance MySQL-compatible database for HTAP and</h3>
+          <p class="news-body">A high-performance MySQL-compatible database for HTAP and AI agents Mixed transactional and analytical workloads, with native AI retrieval.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">yzsind</span> <span class="tag tag-star">⭐ 102</span> <span class="tag tag-gray">agent / data / database / mysql</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=102，forks=21，open_issues=42</div>
+          <div class="source">Source：<a href="https://github.com/yzsind/mydb" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Agentic AI for Intent Management and Control in Autonomous Communication Networks</h3>
+          <p class="news-body">Artificial intelligence (AI)-driven automation will help future mobile networks translate high-level network intents into concrete network optimization or control actions. However, existing approaches often focus on intent management and orchestration, leaving the adaptation of underlying network optimization and control functions largely unaddressed. This article proposes a triadic agentic AI framework that co-designs intent management and intent fulfillment through three agents: an interpreter, powered by a language model, that translates and refines intents into machine-readable optimization templates; an optimizer that adapts controller policies to intent specifications; and a controller that performs fast decision-making. We discuss the design space of each agent and how the workflow can be embedded across network architectural domains. Finally, we develop a concrete realization combining a language-model interpreter with Bayesian optimization for the optimizer and multi-objective reinforcement learning for the controller, and evaluate it in a radio resource management case study for differentiated connectivity. Results demonstrate how the agentic AI framework can connect high-level intents with runtime network control, showing adaptability of intent specifications and control policies to service requirements and changing network conditions.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=3</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.31223v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. SuSi-RAG: A Hybrid Graph RAG for Equipment Maintenance</h3>
+          <p class="news-body">In the manufacturing domain, equipment maintenance tasks depend on expert knowledge. Their documentation is often stored in heterogeneous formats and sources. The enhancement of LLMs with Retrieval-Augmented Generation (RAG) is promising for bridging the scattered knowledge, but traditional vector-based RAG shows weaknesses with two characteristics which are common in real maintenance queries: complex causal chains and cross-domain synthesis. To address this, we propose SuSi-RAG, a hybrid Graph RAG solution, that matches a user query and each maintenance record using subgraph similarity. This work shows an in-use system: SuSi-RAG has run on an active Bosch production line for more than eight months, handling 10,664 question-answer interactions and demonstrates upper bound answer accuracy of 96.25% (confirmed error rate 3.75%). In a proof-of-concept, SuSi-RAG improves top-1 retrieval accuracy from 61.5% to 96.2% and expert-rated answer quality from 44.9% to 84.1% against a vector-based baseline. We present an integrated operational feedback loop to update SuSi-RAG.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=6</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.30588v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. TRAE: Trustworthy Automated ESG Annotation via Multi-Agent Consensus and Confidence Assessment</h3>
+          <p class="news-body">With the growing demand for ESG disclosure and evaluation, constructing high-quality datasets for automatically extracting ESG-related information from large-scale documents has become essential. However, ESG annotation remains challenging due to strong context dependence, ambiguous label boundaries, and the need for domain expertise, resulting in high annotation cost and limited scalability. To address these challenges, we propose TRAE (TRustworthy Automated ESG annotation), a multi-agent framework for scalable and reliable ESG data construction. Unlike direct LLM-based annotation, TRAE evaluates annotation reliability by modeling agreement, confidence, and reasoning consistency among multiple agents through a structured multi-step reasoning process. Experimental results demonstrate that TRAE improves annotation performance compared with existing automated annotation strategies. Furthermore, TRAE supports a hybrid human-AI annotation strategy that assigns expert labeling only to uncertain samples, reducing annotation cost while preserving data quality. Using TRAE, we construct a high-quality ESG dataset containing approximately 20,000 instances with complete reasoning traces, intermediate agent outputs, and reliability information to enhance transparency and reproducibility. Overall, this work provides a practical and scalable framework for trustworthy ESG data construction. The code and data are publicly available at: https://github.com/nowzer0/TRAE.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=2</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.30035v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</h3>
+          <p class="news-body">Recent multimodal search agents use reasoning, vision, and live web search across many turns to answer questions beyond parametric knowledge by orchestrating a small library of hand-crafted search and visual tools. However, the library is laborious to create and maintain, and frozen when new query types, evidence formats, and failure modes are encountered in the wild. Human practitioners, by contrast, cope with insufficient tools by fashioning new ones from familiar parts and reusing them across tasks. Inspired by this, we propose ToolSmith, an automatic tool-generation framework that grows and reuses modules on top of a lean base tool library. We evaluate ToolSmith on three in-domain multimodal search benchmarks and ten out-of-domain benchmarks under a VLM-as-a-Judge protocol. ToolSmith consistently improves over the base library across deployed agents of varying scales, with larger backbones reaping greater gains, demonstrating the scalability of the approach. Our code and data are available at https://threesr.github.io/toolsmith/.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=5</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.31198v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. CO-GRAFT: Attributing Reinforcement Learning Gains in Search Agents via Role-Level Policy Grafting</h3>
+          <p class="news-body">Reinforcement learning (RL) improves large language model search agents by up to 32 exact-match (EM) points over their pre-RL initializations, yet overall accuracy gains do not identify which underlying functional capabilities improve or interact during training. We introduce CO-GRAFT, a reward-agnostic interventional attribution framework in which an RL-trained agent and its pre-RL initialization jointly generate a single trajectory under closed-loop execution with live retrieval. Each policy controls a mutually exclusive subset of four functional roles: intermediate reasoning, search-or-answer decision, search query generation, and final answer extraction. Evaluating all 2^4=16 role assignments without modifying weights or retraining defines a cooperative game whose Shapley values decompose the total RL gain across roles, while M&quot;obius interaction terms distinguish standalone role improvements from multi-role coupling. Applying CO-GRAFT to Search-R1 agents across Qwen2.5 and Llama-3.2 models (spanning two sizes, base and instruction-tuned initializations, GRPO and PPO optimizers, and NQ and HotpotQA datasets), we show that query generation never exceeds 15% of the total gain; instead, gains are governed by pre-RL answer validity, search retention, model scale, and fixed task-level search budgets, shifting credit from reasoning toward answer extraction in larger or well-formatted answer response checkpoints while smaller base models rely on reasoning--decision coupling.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=3</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.31185v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Supertake raises $20M to let AI agents turn your market predictions into stock portfolios</h3>
+          <p class="news-body">Think you know where the market is headed? A startup called Supertake lets you put money behind your ideas without having to pick the stocks yourself.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag">Supertake</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 3.3事件数据：amount_wan=2000</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI and Cisco introduce Shirudo</h3>
+          <p class="news-body">OpenAI and Cisco introduce Shirudo An open-source runtime that helps operators protect running Linux systems without needing to wait for the patch or restarts Testing and deploying a patch can still take days or weeks. Protecting a service in the meantime can be challenging because an exploit and a legitimate request may rely on the same Linux operation. Blocking that operation entirely could take the service offline. Shirudo (Japanese for “shield”) is designed to help security teams navigate th</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/index/introducing-shirudo" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Connected intelligence for in-house legal</h3>
+          <p class="news-body">Connected intelligence for in-house legal Watch OpenAI’s Stacey Wang and Craig Bruney, Mary O’Carroll of LECG, and Cooley’s Richard Segal explore how AI can help in-house legal teams connect business context, build reusable workflows and get more from outside counsel.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://openai.com/business/learn/connected-intelligence-for-in-house-legal" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. A more tailored Google Search that’s uniquely yours</h3>
+          <p class="news-body">A more tailored Google Search that’s uniquely yours Get more helpful Search responses by securely opting in to connect Google Wallet, Drive, and the Gemini app to Personal Intelligence in AI Mode. Your browser does not support the audio element. We’re adding Google Wallet and Drive to Personal Intelligence, allowing Search to provide answers based on your spending, documents, and chats. These updates help you manage finances, organize projects, and maintain context across your search threads. Yo</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.9, authenticity 5, quality verified</div>
+          <div class="source">Source：<a href="https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 阿里巴巴回应子公司被列入美实体清单：将通过一切法律途径维护公司权益</h3>
+          <p class="news-body">11月24日，在美国商务部将阿里巴巴旗下新加坡子公司Apex Enterprise Solutions列入实体清单后，阿里巴巴发言人明确回应：“将Apex Enterprise Solutions列入实体清单是错误的。Apex从未转移任何受美国出口管制的先进计算芯片。我们将通过一切法律途径，维护公司的合法权益和声誉。”（界面）</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 2.4, authenticity 2.5, quality verified</div>
+          <div class="source">Source：<a href="https://www.36kr.com/newsflashes/4083551374731648" target="_blank" rel="noopener">36氪</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Agentic AI for Intent Management and Control in Autonomous Communication Networks</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>SuSi-RAG: A Hybrid Graph RAG for Equipment Maintenance</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>TRAE: Trustworthy Automated ESG Annotation via Multi-Agent Consensus and Confidence Assessment</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-11-24 共收录 15 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 5 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. yetone发布Agent新动态</h3>
+          <p class="news-body">事件为「magpie：Every agent's model」。Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">yetone</span> <span class="tag tag-star">⭐ 40,815</span> <span class="tag tag-gray">claude-code / codex / deepseek / gemini-cli</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=40,815，forks=3734，open_issues=5051</div>
+          <div class="source">来源：<a href="https://github.com/yetone/magpie" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. converge-ai-labs发布Agent新动态</h3>
+          <p class="news-body">事件为「agent-foundation：a13n - Build, run, and manage AI agents at scale on your」。a13n - Build, run, and manage AI agents a</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">converge-ai-labs</span> <span class="tag tag-star">⭐ 1,546</span> <span class="tag tag-gray">a13n / agent / harness / managed-agents</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=1,546，forks=40，open_issues=36</div>
+          <div class="source">来源：<a href="https://github.com/converge-ai-labs/agent-foundation" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. swipt-automation发布最新动态</h3>
+          <p class="news-body">事件为「swipt：The universal iOS automation platform」。The universal iOS automation platform</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">swipt-automation</span> <span class="tag tag-star">⭐ 577</span> <span class="tag tag-gray">automation / ios / mcp / MCP</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=577，forks=30，open_issues=11</div>
+          <div class="source">来源：<a href="https://github.com/swipt-automation/swipt" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 0xfe-project发布Agent新动态</h3>
+          <p class="news-body">事件为「eta：Eta is a self-contained 0-vendor multi-agent all-in-one」。Eta is a self-contained 0-vendor multi-agent all-in-one</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">0xfe-project</span> <span class="tag tag-star">⭐ 286</span> <span class="tag tag-gray">agent / claude-code / grok-bot / harness</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=286，forks=19，open_issues=21</div>
+          <div class="source">来源：<a href="https://github.com/0xfe-project/eta" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. yzsind发布MySQL-compatible</h3>
+          <p class="news-body">事件为「mydb：A high-performance MySQL-compatible database for HTAP and」。A high-performance MySQL-compatible database for HTA</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">yzsind</span> <span class="tag tag-star">⭐ 102</span> <span class="tag tag-gray">agent / data / database / mysql</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=102，forks=21，open_issues=42</div>
+          <div class="source">来源：<a href="https://github.com/yzsind/mydb" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. Networks：Agent+大模型</h3>
+          <p class="news-body">事件为「Agentic AI for Intent Management and Control in Autonomous Communication Networks」。Artificial intelligence (AI)-driv</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=3</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.31223v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. SuSi-RAG：大模型+RAG</h3>
+          <p class="news-body">事件为「SuSi-RAG: A Hybrid Graph RAG for Equipment Maintenance」。In the manufacturing domain, equipment maintenance tasks dep</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=6</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.30588v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Multi-Agent：Agent+大模型</h3>
+          <p class="news-body">事件为「TRAE: Trustworthy Automated ESG Annotation via Multi-Agent Consensus and Confidence Assessment」。With the growing dem</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=2</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.30035v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Tool-Generation：Agent+多模态</h3>
+          <p class="news-body">事件为「ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents」。Recent multimodal search agents use</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=5</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.31198v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Role-Level：Agent+大模型</h3>
+          <p class="news-body">事件为「CO-GRAFT: Attributing Reinforcement Learning Gains in Search Agents via Role-Level Policy Grafting」。Reinforcement le</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=3</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.31185v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. Supertake融资Agent新动态</h3>
+          <p class="news-body">事件为「Supertake raises $20M to let AI agents turn your market predictions into stock portfolios」。Think you know where the</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag">Supertake</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 3.3事件数据：amount_wan=2000</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. OpenAI发布新动态</h3>
+          <p class="news-body">事件为「OpenAI and Cisco introduce Shirudo」。OpenAI and Cisco introduce Shirudo An open-source runtime that helps operators p</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/index/introducing-shirudo" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. OpenAI发布LECG</h3>
+          <p class="news-body">事件为「Connected intelligence for in-house legal」。Connected intelligence for in-house legal Watch OpenAI’s Stacey Wang and</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag">OpenAI</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://openai.com/business/learn/connected-intelligence-for-in-house-legal" target="_blank" rel="noopener">OpenAI 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Google发布搜索学习新动态</h3>
+          <p class="news-body">事件为「A more tailored Google Search that’s uniquely yours」。A more tailored Google Search that’s uniquely yours Get more he</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-23</span> <span class="tag">Google</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.9，真实性 5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/" target="_blank" rel="noopener">Google 官方 Blog</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 阿里巴巴回应子公司被列入美实体清单：将通过一切法律途径维护公司权益</h3>
+          <p class="news-body">11月24日，在美国商务部将阿里巴巴旗下新加坡子公司Apex Enterprise Solutions列入实体清单后，阿里巴巴发言人明确回应：“将Apex Enterprise Solutions列入实体清单是错误的。Apex从未转移任何受美国出口管制的先进计算芯片。我们将通过一切法律途径，维护公司的合法权益和声誉。”（界面）</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-24</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 2.4，真实性 2.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://www.36kr.com/newsflashes/4083551374731648" target="_blank" rel="noopener">36氪</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Agentic AI for Intent Management and Control in Autonomous Communication Networks</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>SuSi-RAG: A Hybrid Graph RAG for Equipment Maintenance</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>TRAE: Trustworthy Automated ESG Annotation via Multi-Agent Consensus and Confidence Assessment</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-24T10:00:06.042Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

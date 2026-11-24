@@ -1,23 +1,4 @@
 {
- "2026-11-09": {
-  "paper": [
-   "paper|orthogonal norm growth two tower retrieval popularity mechanism unified discover",
-   "paper|structure lineage evidence vietnamese statutory article retrieval drill",
-   "paper|refer cityflow m3track benchmark dataset reference framework language driven mul",
-   "paper|flowmop stochastic multi person motion prediction",
-   "paper|flow guided target space alignment via path consistency"
-  ],
-  "opensource": [
-   "opensource|vllm metal community maintained hardware plugin vllm apple",
-   "opensource|cohub living space where people agents create play",
-   "opensource|obsidian hybrid search hybrid search obsidian vaults via plugin cli mcp",
-   "opensource|lollms all one ai solution compatible any known ai",
-   "opensource|dify build agentic workflows rag pipelines rich ai model"
-  ],
-  "enterprise": [
-   "enterprise|完成 亿美元融资首批到账 估值达 万亿美元 bloomberg openai 110 1 25"
-  ]
- },
  "2026-11-10": {
   "paper": [
    "paper|maxim maximally informative incremental summarization via reinforcement learning",
@@ -333,6 +314,29 @@
    "enterprise|perplexity intelligence",
    "enterprise|阿里云旗下公司入股艾捷科芯",
    "enterprise|alibaba widely qwen4 max ai model 2 4 trillion parameters vietnam vn"
+  ]
+ },
+ "2026-11-24": {
+  "paper": [
+   "paper|agentic ai intent management control autonomous communication networks",
+   "paper|susi rag hybrid graph rag equipment maintenance",
+   "paper|trae trustworthy automated esg annotation via multi agent consensus confidence a",
+   "paper|toolsmith automatic tool generation framework multimodal search agents",
+   "paper|co graft attributing reinforcement learning gains search agents via role level p"
+  ],
+  "opensource": [
+   "opensource|magpie every agent s model",
+   "opensource|agent foundation a13n build run manage ai agents scale your",
+   "opensource|swipt universal ios automation platform",
+   "opensource|eta eta is self contained 0 vendor multi agent all one",
+   "opensource|mydb high performance mysql compatible database htap"
+  ],
+  "enterprise": [
+   "enterprise|supertake 20m let ai agents turn your market predictions stock portfolios",
+   "enterprise|openai cisco shirudo",
+   "enterprise|connected intelligence house legal",
+   "enterprise|more tailored google search that s uniquely yours",
+   "enterprise|阿里巴巴回应子公司被列入美实体清单 将通过一切法律途径维护公司权益"
   ]
  }
 }
