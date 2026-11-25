@@ -1,27 +1,4 @@
 {
- "2026-11-10": {
-  "paper": [
-   "paper|maxim maximally informative incremental summarization via reinforcement learning",
-   "paper|scaling taxonomy free image labeling generative ai multimodal",
-   "paper|hive mem interleaving horizontal memory expansion vertical evidence composition ",
-   "paper|workflowarena benchmarking executable workflow orchestration llm based multi age",
-   "paper|curbside chatbots auditing mental health interventions large language models rec"
-  ],
-  "opensource": [
-   "opensource|code review fast efficient battle tested alibaba s scale",
-   "opensource|wegent plan build deliver source self hostable",
-   "opensource|mojo dllm local inference diffusion language models llada",
-   "opensource|internship tracker auto updated tech internships india 160 company",
-   "opensource|truenas mcp monitor manage your truenas via llm using mcp plugin"
-  ],
-  "enterprise": [
-   "enterprise|据报道 推进 计划下周四或周五挂牌 anthropic ipo",
-   "enterprise|chatgpt enterprise now available aws marketplace",
-   "enterprise|control room central system track stop model workloads across our research infra",
-   "enterprise|meta muse ember lightweight model agent execution",
-   "enterprise|meta expands instagram s ai age guessing tech globally"
-  ]
- },
  "2026-11-11": {
   "paper": [
    "paper|timeseek multi task multi domain pretraining generalized time series analytics",
@@ -337,6 +314,29 @@
    "enterprise|connected intelligence house legal",
    "enterprise|more tailored google search that s uniquely yours",
    "enterprise|阿里巴巴回应子公司被列入美实体清单 将通过一切法律途径维护公司权益"
+  ]
+ },
+ "2026-11-25": {
+  "paper": [
+   "paper|uncertainty aware candidate generation entity linking cyber threat intelligence",
+   "paper|diacap jointly learning who speaks when audiovisual dialogue captioning",
+   "paper|cot proxy cross format transfer distilling long horizon policies",
+   "paper|bias disguise tiny gradient edits stop small language model s thinking loops com",
+   "paper|sag mem 1 0 technical report"
+  ],
+  "opensource": [
+   "opensource|graphiti build real time knowledge graphs ai agents",
+   "opensource|pydantic ai how python does ai",
+   "opensource|webrouter webrouter is source standard that connects your",
+   "opensource|n8n fair code workflow automation platform native ai",
+   "opensource|dify build agentic workflows rag pipelines rich ai model"
+  ],
+  "enterprise": [
+   "enterprise|上市不到一周跌破 美元发行价 anthropic 83",
+   "enterprise|gpt 6 models demonstrate intrinsic protein design capabilities",
+   "enterprise|searching distant planets astra",
+   "enterprise|how gemini is changing game golden state s organization fans",
+   "enterprise|walmart teams up meta bring black friday deals ai agent muse"
   ]
  }
 }
