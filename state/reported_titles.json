@@ -1,27 +1,4 @@
 {
- "2026-11-11": {
-  "paper": [
-   "paper|timeseek multi task multi domain pretraining generalized time series analytics",
-   "paper|point time encoders earnings calls",
-   "paper|lumir decoupled multimodal representation learning heterogeneous data next poi r",
-   "paper|abrr transforming temporal sentence grounding wasserstein adaptive refinement pr",
-   "paper|multimodal judges flag humans decide review edit framework ai generated product "
-  ],
-  "opensource": [
-   "opensource|从零开始构建智能体 从零开始的智能体原理与实践教程 hello agents",
-   "opensource|magpie every agent s model",
-   "opensource|omlx llm inference server continuous batching ssd caching",
-   "opensource|hermes webui hermes webui best way use hermes agent web",
-   "opensource|octop smarter self hosted ai assistant multi user"
-  ],
-  "enterprise": [
-   "enterprise|位创始人 各套现约 亿美元并保留控制权 wsj anthropic 7 ipo 2 5",
-   "enterprise|chatgpt plus veterans servicemembers",
-   "enterprise|gemini intelligence features more devices",
-   "enterprise|google cloud gemini healthcare",
-   "enterprise|meta s ai agent muse lands apple watch android wear os"
-  ]
- },
  "2026-11-12": {
   "paper": [
    "paper|contrastive discovery ended scientific discovery over competing explanations",
@@ -337,6 +314,22 @@
    "enterprise|searching distant planets astra",
    "enterprise|how gemini is changing game golden state s organization fans",
    "enterprise|walmart teams up meta bring black friday deals ai agent muse"
+  ]
+ },
+ "2026-11-26": {
+  "opensource": [
+   "opensource|trueforge source agent harness runtime layer that",
+   "opensource|tensorfold llm inference engine metal cuda vulkan",
+   "opensource|rulesync utility cli ai coding agents",
+   "opensource|chunkhound enterprise scale engineering research",
+   "opensource|nexus multi agent collaboration platform persistent"
+  ],
+  "enterprise": [
+   "enterprise|scoop ai search platform exa talks fresh funds around 7 billion valuation newcom",
+   "enterprise|amazon meta reportedly talks lift blockade ai agent muse",
+   "enterprise|even best ai agents struggle everyday life",
+   "enterprise|tencent hunyuan sources hy4 flash gguf quantized weights 224b large model squeez",
+   "enterprise|bytedance s doubao xiaodou public beta joining battle personal ai assistant entr"
   ]
  }
 }
