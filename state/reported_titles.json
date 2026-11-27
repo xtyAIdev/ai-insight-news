@@ -1,27 +1,4 @@
 {
- "2026-11-12": {
-  "paper": [
-   "paper|contrastive discovery ended scientific discovery over competing explanations",
-   "paper|comparative analysis agent evaluation frameworks stability detection discovery e",
-   "paper|emergent biological capabilities foundation model molecular interactions",
-   "paper|starse compact russian sentence embeddings sign coded static encoder",
-   "paper|ugg unified generative geometry model"
-  ],
-  "opensource": [
-   "opensource|context7 context7 platform up date docs ai agents",
-   "opensource|code review fast efficient battle tested alibaba s scale",
-   "opensource|inspector deterministic testing tools mcp servers",
-   "opensource|evalscope streamlined customizable framework efficient",
-   "opensource|agent foundation a13n build run manage ai agents scale your"
-  ],
-  "enterprise": [
-   "enterprise|拟募资最高 美元 或成史上最大上市 anthropic ipo 90 4b",
-   "enterprise|gilbert tobin rethinks business law ai",
-   "enterprise|gemini decisions api fast calibrated multimodal decisions",
-   "enterprise|meta is losing longtime head infrastructure",
-   "enterprise|jensen huang accused having another affair nvidia exec"
-  ]
- },
  "2026-11-13": {
   "paper": [
    "paper|internalizing investment mandates neurosymbolic rl approach portfolio allocation",
@@ -330,6 +307,29 @@
    "enterprise|even best ai agents struggle everyday life",
    "enterprise|tencent hunyuan sources hy4 flash gguf quantized weights 224b large model squeez",
    "enterprise|bytedance s doubao xiaodou public beta joining battle personal ai assistant entr"
+  ]
+ },
+ "2026-11-27": {
+  "paper": [
+   "paper|hierarchical semantic learning multimodal sentiment analysis missing modalities",
+   "paper|post training policy replication strategy following multi agent deep reinforceme",
+   "paper|stranger things when objects appear without their typical neighbors",
+   "paper|grounding user preferences shared multimodal concepts recommendation",
+   "paper|onequery unified sequence structure generation multilingual e commerce query und"
+  ],
+  "opensource": [
+   "opensource|vibe kanban get 10x more out claude code codex any coding agent",
+   "opensource|pydantic ai how python does ai",
+   "opensource|hermes webui hermes webui best way use hermes agent web",
+   "opensource|openbot self hostable alternative closed ai bots",
+   "opensource|evalscope streamlined customizable framework efficient"
+  ],
+  "enterprise": [
+   "enterprise|every 17 5m series 110m valuation help teams adopt ai unite ai",
+   "enterprise|nvidia hits pause chip shipments southeast asia",
+   "enterprise|tencent hunyuan hy3d 3 6 professional high poly 3d assets pandaily",
+   "enterprise|qwen image generator free which model mac fello ai",
+   "enterprise|ai firm modaic claims jev decision model is based alibaba s qwen kucoin"
   ]
  }
 }

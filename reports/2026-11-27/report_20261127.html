@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-27</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-11-27: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-27">
+<meta property="og:description" content="2026-11-27: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261127.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-27">
+<meta name="twitter:description" content="2026-11-27: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261127.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-27 ｜ report_20261127</div>
+<div class="sub" data-lang-title="zh">2026-11-27 ｜ report_20261127</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-11-27: 15 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 5  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. vibe-kanban：Get 10X more out of Claude Code, Codex or any coding agent</h3>
+          <p class="news-body">Get 10X more out of Claude Code, Codex or any coding agent</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">BloopAI</span> <span class="tag tag-star">⭐ 28,837</span> <span class="tag tag-gray">agent / ai-agents / kanban / management</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=28,837，forks=3071，open_issues=538</div>
+          <div class="source">Source：<a href="https://github.com/BloopAI/vibe-kanban" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. pydantic-ai：How Python does AI</h3>
+          <p class="news-body">How Python does AI. Agents, realtime voice, image generation, embeddings. Every model, every interface, typed end to end.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">pydantic</span> <span class="tag tag-star">⭐ 21,425</span> <span class="tag tag-gray">agent-framework / genai / harness / harness-engineering</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=21,425，forks=3294，open_issues=2156</div>
+          <div class="source">Source：<a href="https://github.com/pydantic/pydantic-ai" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. hermes-webui：Hermes WebUI: The best way to use Hermes Agent from the web</h3>
+          <p class="news-body">Hermes WebUI: The best way to use Hermes Agent from the web or from your phone!</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">nesquena</span> <span class="tag tag-star">⭐ 19,648</span> <span class="tag tag-gray">agent / ai-agents / hermes / hermes-agent</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=19,648，forks=2870，open_issues=1043</div>
+          <div class="source">Source：<a href="https://github.com/nesquena/hermes-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. OpenBot：The open, self-hostable alternative to closed AI bots</h3>
+          <p class="news-body">The open, self-hostable alternative to closed AI bots. Production-ready, fully customizable, and plugs into every stack: any agent, any model, any tool.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">CopilotKit</span> <span class="tag tag-star">⭐ 13,709</span> <span class="tag tag-gray">ag-ui / agent-governance / ai-agents / browser-automation</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=13,709，forks=1713，open_issues=187</div>
+          <div class="source">Source：<a href="https://github.com/CopilotKit/OpenBot" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. evalscope：A streamlined and customizable framework for efficient</h3>
+          <p class="news-body">A streamlined and customizable framework for efficient large model (LLM, VLM, AIGC) evaluation and performance benchmarking.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">modelscope</span> <span class="tag tag-star">⭐ 3,743</span> <span class="tag tag-gray">evaluation / llm / performance / rag</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=3,743，forks=598，open_issues=28</div>
+          <div class="source">Source：<a href="https://github.com/modelscope/evalscope" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Hierarchical Semantic Learning for Multimodal Sentiment Analysis with Missing Modalities</h3>
+          <p class="news-body">Multimodal sentiment analysis (MSA) in real-world systems must handle unpredictable modality missingness caused by sensor failures, privacy masking, and unstable transmission. Existing methods either learn reliability-aware representations or reconstruct missing inputs, often using a single flattened encoder output. This overlooks deep encoders' semantic hierarchy and intra- and inter-modal interactions, causing semantic averaging and ill-posed mappings. We propose Hierarchical Semantic Learning (HSL), a framework that exploits semantic hierarchy for robust MSA with missing modalities. Hierarchical Semantic Decoupling exposes low-, mid-, and high-level feature streams from each modality encoder. Cross-Modal Cross-Level Semantic Reconstruction performs ladder-style recovery, using high-level semantics from observed modalities as global anchors to progressively reconstruct mid-level structures and low-level details of missing modalities. To stabilize cross-level reconstruction, Hierarchical Cascade Error Supervisor applies prototypical contrastive regularization to observed and reconstructed features, enforcing level-specific semantic consistency and limiting error propagation. Finally, Hierarchical Interactive Fusion captures dense interactions across modalities and semantic levels to produce robust predictions under diverse missingness patterns. Experiments on CMU-MOSI, CMU-MOSEI, IEMOCAP, and CH-SIMS show that HSL outperforms baselines in most missing-modality settings.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.MM</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=8</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.34184v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Post-Training Policy Replication for Strategy-Following Multi-Agent Deep Reinforcement Learning across Team Sizes</h3>
+          <p class="news-body">Although multi-agent deep reinforcement learning enables coordinated behavior, aligning it with managerial intent remains difficult due to complex agent interactions. Although the strategy-following distributed attentional actor architecture (sfDA7-X) improves controllability via regional instructions, instruction combinations scale exponentially with team and instruction sizes, leading to prohibitive training costs and poor transferability. To reduce this computational cost, we introduce a team-size-independent observation architecture and reconstruct collective behavior by replicating a single trained policy across agents in teams of different sizes, thereby eliminating the need to train from scratch. Additionally, we evaluate warm-start retraining by initializing policy networks with a pre-trained policy to significantly lower computational overhead. In an object collection game, a policy trained in a four-agent team is deployed to teams of three to eight agents. Experiments demonstrate that training with the proposed aggregated observation matrix achieves performance comparable to that of the baseline method, sfDA7-X. Furthermore, policy replication preserves performance without substantial degradation in three- and five-agent teams, and warm-start retraining outperforms training from scratch while reducing required training episodes by up to 90%. Deployments to six- and eight-agent teams further confirm effective spatial region allocation following given instructions. Th</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=顶会录用，作者数=3</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.34035v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Stranger Things: When Objects Appear Without Their Typical Neighbors</h3>
+          <p class="news-body">Visual context is a powerful cue for object recognition: scenes inform what, where, and at what scale objects are likely to appear. Yet over-reliance on context becomes a failure mode when models predict objects based on their typical neighbors rather than the objects' own visual features, which we call typicality bias. While extensively studied in the pre-Transformer era, it has often been assumed that architectural and scale improvements would naturally solve it, and a systematic diagnostic across the modern vision stack remains absent. We provide such a diagnostic framework. We measure typicality bias via normalized pointwise mutual information (NPMI) over object pairs, and introduce STRANGE-Bench (Synthetic Typicality-RANked Grounded Evaluation Benchmark): a photorealistic, layout-controlled benchmark spanning 17 sub-tiers from typical to never-co-occurring object pairs. Across five model families (specialist detectors, open-vocabulary detectors, self-supervised, vision-language, and multimodal large language models) and three recognition tasks (supervised detection, open-vocabulary detection, and classification), the bias is prevalent: gaps of 5-11 p.p. persist when objects appear outside their typical company, and do not consistently shrink with scale. To mitigate it, we turn to data augmentation: existing augmentations are designed for visual diversity, not for breaking co-occurrence shortcuts, and sample from the very distribution that produces typicality bias. We pro</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=5</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.34881v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Grounding User Preferences in Shared Multimodal Concepts for Recommendation</h3>
+          <p class="news-body">Multimodal recommendation has substantially advanced item understanding by incorporating rich visual and textual content. Yet user preferences are still commonly encoded as implicit signals tied to individual items, leaving recurring semantic factors without persistent identities that can be shared across items. We introduce MKGE, a multimodal knowledge graph framework that represents these factors as canonical, addressable concepts. MKGE induces a domain-adaptive concept vocabulary from item images and titles, grounds each user's interaction history in supported concepts, and jointly models direct user-item evidence and concept-mediated preference signals. By turning recurring semantics into shared coordinates, MKGE enables evidence from different items to accumulate around the same preference factors. Extensive experiments on three public benchmarks demonstrate that MKGE consistently outperforms collaborative, knowledge-graph, multimodal, and recent LLM/MLLM-based recommenders across all six reported metrics. Controlled studies further demonstrate the importance of canonical concept identities and personalized user-concept correspondence, with especially pronounced gains over removing or rewiring the user graph for low-activity users. These results establish canonical multimodal concepts as effective units for preference modeling and transfer. Code, constructed knowledge graphs, and prompts are available at https://github.com/Garden1a-X/MKGE.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=WSDM 2027 录用，作者数=8</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.34436v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. OneQuery: Unified Sequence-to-Structure Generation for Multilingual E-commerce Query Understanding</h3>
+          <p class="news-body">Multilingual e-commerce search requires robust query understanding to convert cross-lingual user queries with varied linguistic patterns into standardized semantic representations that support retrieval and ranking. However, traditional Query Understanding systems suffer from error accumulation, separately optimized subtasks that ignore their mutual correlations, and high maintenance costs. To address these issues, this paper proposes OneQuery, a unified generative framework for multilingual query understanding based on domain-specific large language models in e-commerce. We reformulate four subtasks, namely Language Recognition, Spelling Correction, Translation, and Query Tagging, into a unified Sequenceto-Structure autoregressive generation process constrained by predefined schemas, and design a three-stage progressive training pipeline with multi-task reinforcement learning alignment. OneQuery demonstrates consistent gains over baselines across all tasks and remains effective across different backbone sizes, and online experiments in the AliExpress e-commerce search scenario further confirm its practical value for industrial deployment.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=WSDM 2027 录用，作者数=6</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.33653v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. Every Raises $17.5M Series A at $110M Valuation to Help Teams Adopt AI - Unite.AI</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMilAFBVV95cUxPaVl6WFI4WmZ1Wm1iR21oUWdxQ08tNUF3WFZtbkthRC1NNHdWUFkzZTJjX1MwOHFXTDhvSFdMOGs5TEtrYnpfSUxDS2FndGdLVGx5eGljSl9HZ3czZUlDN3BnVVR3dWw3MHlTR2xVQ0pKNHJfNWE0M2d3ZTJzTktvdmt3WjA0UTFsd3dMN1BlWG9uWlZC?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Every Raises $17.5M S</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.8事件数据：amount_wan=1750</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxPaVl6WFI4WmZ1Wm1iR21oUWdxQ08tNUF3WFZtbkthRC1NNHdWUFkzZTJjX1MwOHFXTDhvSFdMOGs5TEtrYnpfSUxDS2FndGdLVGx5eGljSl9HZ3czZUlDN3BnVVR3dWw3MHlTR2xVQ0pKNHJfNWE0M2d3ZTJzTktvdmt3WjA0UTFsd3dMN1BlWG9uWlZC?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Nvidia hits pause on chip shipments to Southeast Asia</h3>
+          <p class="news-body">Nvidia has told manufacturing partners to pause server shipments to Malaysia, Singapore, Thailand and Indonesia as the U.S. tightens its push to keep AI chips out of China.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 3.3, authenticity 4, quality verified</div>
+          <div class="source">Source：<a href="https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Tencent Hunyuan Releases Hy3D 3.6 for Professional High-Poly 3D Assets - Pandaily</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMid0FVX3lxTE5QMkUtM21UOERWYm1LZjVsNVJZaFNfSzFRdHFoZDdEUUR3REw0SDdOMFVVeFh5YVg5MXkzdWRWZkZMX2ZlLUJKSENyYUN1aUpyQVlZSWVGRDRNalpMSVViMlVhSmllbDluT2hITmZCSzZOemswTGVV?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Tencent Hunyuan Releases Hy3D 3.6 for Professional High-Poly</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE5QMkUtM21UOERWYm1LZjVsNVJZaFNfSzFRdHFoZDdEUUR3REw0SDdOMFVVeFh5YVg5MXkzdWRWZkZMX2ZlLUJKSENyYUN1aUpyQVlZSWVGRDRNalpMSVViMlVhSmllbDluT2hITmZCSzZOemswTGVV?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Qwen Image Generator: Free? Which Model? On Mac? - Fello AI</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiU0FVX3lxTE1XNkNreGVFakRoRV85eFBrUVozaTA4b3M0RTllVkVBY01WY3VFNzdCMGpzbkFhU2VaYXZEV21hRW1QSXZjUGhvcFBTVGRpaWNoaEtn?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Qwen Image Generator: Free? Which Model? On Mac?&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;lt;font color=&quot;#6f6f6f&quot;&amp;gt;Fel</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE1XNkNreGVFakRoRV85eFBrUVozaTA4b3M0RTllVkVBY01WY3VFNzdCMGpzbkFhU2VaYXZEV21hRW1QSXZjUGhvcFBTVGRpaWNoaEtn?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. AI firm Modaic claims its Jev decision model is based on Alibaba's Qwen. - KuCoin</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiowFBVV95cUxOdHQ2VGlKa2xValNYVTJKWXg4Um1nbjE1WVphMEJzb1lvRXRwMGlDdGdwR2tJWHcyQ1B6Z3NVTWJyelY4bXdKWW9iQXBMcXRuUVdKRFFFOTREX2FwamlRN0tqTGVFaGctRnpZMFpqSHM0c202SVdxVFdGVUV5WlF1YXNJUnQ2NEROblpLR1dPVmxSMWpWVjkta0YxSHFRcjFITGFr?oc=5&quot; target=&quot;_blank&quot;&amp;gt;A</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOdHQ2VGlKa2xValNYVTJKWXg4Um1nbjE1WVphMEJzb1lvRXRwMGlDdGdwR2tJWHcyQ1B6Z3NVTWJyelY4bXdKWW9iQXBMcXRuUVdKRFFFOTREX2FwamlRN0tqTGVFaGctRnpZMFpqSHM0c202SVdxVFdGVUV5WlF1YXNJUnQ2NEROblpLR1dPVmxSMWpWVjkta0YxSHFRcjFITGFr?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Hierarchical Semantic Learning for Multimodal Sentiment Analysis with Missing Modalities</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Post-Training Policy Replication for Strategy-Following Multi-Agent Deep Reinforcement Learning across Team Sizes</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Stranger Things: When Objects Appear Without Their Typical Neighbors</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-11-27 共收录 15 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 5 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. BloopAI发布Claude新动态</h3>
+          <p class="news-body">事件为「vibe-kanban：Get 10X more out of Claude Code, Codex or any coding agent」。Get 10X more out of Claude Code, Codex or an</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">BloopAI</span> <span class="tag tag-star">⭐ 28,837</span> <span class="tag tag-gray">agent / ai-agents / kanban / management</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=28,837，forks=3071，open_issues=538</div>
+          <div class="source">来源：<a href="https://github.com/BloopAI/vibe-kanban" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. pydantic发布最新动态</h3>
+          <p class="news-body">事件为「pydantic-ai：How Python does AI」。How Python does AI. Agents, realtime voice, image generation, embeddings. Every</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">pydantic</span> <span class="tag tag-star">⭐ 21,425</span> <span class="tag tag-gray">agent-framework / genai / harness / harness-engineering</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=21,425，forks=3294，open_issues=2156</div>
+          <div class="source">来源：<a href="https://github.com/pydantic/pydantic-ai" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. nesquena发布Agent新动态</h3>
+          <p class="news-body">事件为「hermes-webui：Hermes WebUI: The best way to use Hermes Agent from the web」。Hermes WebUI: The best way to use Hermes A</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">nesquena</span> <span class="tag tag-star">⭐ 19,648</span> <span class="tag tag-gray">agent / ai-agents / hermes / hermes-agent</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=19,648，forks=2870，open_issues=1043</div>
+          <div class="source">来源：<a href="https://github.com/nesquena/hermes-webui" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. CopilotKit发布Production-ready</h3>
+          <p class="news-body">事件为「OpenBot：The open, self-hostable alternative to closed AI bots」。The open, self-hostable alternative to closed AI bots</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">CopilotKit</span> <span class="tag tag-star">⭐ 13,709</span> <span class="tag tag-gray">ag-ui / agent-governance / ai-agents / browser-automation</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=13,709，forks=1713，open_issues=187</div>
+          <div class="source">来源：<a href="https://github.com/CopilotKit/OpenBot" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. modelscope发布AIGC</h3>
+          <p class="news-body">事件为「evalscope：A streamlined and customizable framework for efficient」。A streamlined and customizable framework for effic</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">modelscope</span> <span class="tag tag-star">⭐ 3,743</span> <span class="tag tag-gray">evaluation / llm / performance / rag</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=3,743，forks=598，open_issues=28</div>
+          <div class="source">来源：<a href="https://github.com/modelscope/evalscope" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. CMU-MOSEI：多模态+RAG</h3>
+          <p class="news-body">事件为「Hierarchical Semantic Learning for Multimodal Sentiment Analysis with Missing Modalities」。Multimodal sentiment analy</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.MM</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=8</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.34184v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Strategy-Following：Agent+强化学习</h3>
+          <p class="news-body">事件为「Post-Training Policy Replication for Strategy-Following Multi-Agent Deep Reinforcement Learning across Team Sizes」。A</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.MA</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=顶会录用，作者数=3</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.34035v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Typicality-RANked：大模型+多模态</h3>
+          <p class="news-body">事件为「Stranger Things: When Objects Appear Without Their Typical Neighbors」。Visual context is a powerful cue for object re</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.CV</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=NeurIPS 2026 录用，作者数=5</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.34881v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. MLLM-based：大模型+多模态</h3>
+          <p class="news-body">事件为「Grounding User Preferences in Shared Multimodal Concepts for Recommendation」。Multimodal recommendation has substanti</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=WSDM 2027 录用，作者数=8</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.34436v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. Sequence-to：大模型+强化学习</h3>
+          <p class="news-body">事件为「OneQuery: Unified Sequence-to-Structure Generation for Multilingual E-commerce Query Understanding」。Multilingual e-c</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.IR</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=WSDM 2027 录用，作者数=6</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.33653v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. AI 企业融资新动态</h3>
+          <p class="news-body">事件为「Every Raises $17.5M Series A at $110M Valuation to Help Teams Adopt AI - Unite.AI」。&amp;lt;a href=&quot;https://news.google.c</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.8事件数据：amount_wan=1750</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxPaVl6WFI4WmZ1Wm1iR21oUWdxQ08tNUF3WFZtbkthRC1NNHdWUFkzZTJjX1MwOHFXTDhvSFdMOGs5TEtrYnpfSUxDS2FndGdLVGx5eGljSl9HZ3czZUlDN3BnVVR3dWw3MHlTR2xVQ0pKNHJfNWE0M2d3ZTJzTktvdmt3WjA0UTFsd3dMN1BlWG9uWlZC?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Nvidia发布最新动态</h3>
+          <p class="news-body">事件为「Nvidia hits pause on chip shipments to Southeast Asia」。Nvidia has told manufacturing partners to pause server shipme</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">Nvidia</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 3.3，真实性 4，质量经校验通过</div>
+          <div class="source">来源：<a href="https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/" target="_blank" rel="noopener">TechCrunch AI</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 腾讯发布High-Poly</h3>
+          <p class="news-body">事件为「Tencent Hunyuan Releases Hy3D 3.6 for Professional High-Poly 3D Assets - Pandaily」。&amp;lt;a href=&quot;https://news.google.c</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-27</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE5QMkUtM21UOERWYm1LZjVsNVJZaFNfSzFRdHFoZDdEUUR3REw0SDdOMFVVeFh5YVg5MXkzdWRWZkZMX2ZlLUJKSENyYUN1aUpyQVlZSWVGRDRNalpMSVViMlVhSmllbDluT2hITmZCSzZOemswTGVV?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. 阿里巴巴发布Qwen新动态</h3>
+          <p class="news-body">事件为「Qwen Image Generator: Free? Which Model? On Mac? - Fello AI」。&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiU0</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE1XNkNreGVFakRoRV85eFBrUVozaTA4b3M0RTllVkVBY01WY3VFNzdCMGpzbkFhU2VaYXZEV21hRW1QSXZjUGhvcFBTVGRpaWNoaEtn?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. 阿里巴巴发布Qwen新动态</h3>
+          <p class="news-body">事件为「AI firm Modaic claims its Jev decision model is based on Alibaba's Qwen. - KuCoin」。&amp;lt;a href=&quot;https://news.google.c</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOdHQ2VGlKa2xValNYVTJKWXg4Um1nbjE1WVphMEJzb1lvRXRwMGlDdGdwR2tJWHcyQ1B6Z3NVTWJyelY4bXdKWW9iQXBMcXRuUVdKRFFFOTREX2FwamlRN0tqTGVFaGctRnpZMFpqSHM0c202SVdxVFdGVUV5WlF1YXNJUnQ2NEROblpLR1dPVmxSMWpWVjkta0YxSHFRcjFITGFr?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Hierarchical Semantic Learning for Multimodal Sentiment Analysis with Missing Modalities</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Post-Training Policy Replication for Strategy-Following Multi-Agent Deep Reinforcement Learning across Team Sizes</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Stranger Things: When Objects Appear Without Their Typical Neighbors</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-27T08:41:49.393Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
