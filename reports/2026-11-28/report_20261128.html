@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- P4-2 双 title 修复：HTML 规范只允许一个 <title>，原双 title 第二个被浏览器忽略 -->
+<title>AI Industry Market Intelligence Daily 2026-11-28</title>
+<!-- P4-1 OG/SEO 元数据：社交分享卡片 + 搜索引擎收录 -->
+<meta name="description" content="2026-11-28: 13 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 3  in total — open source and research remain active, enterprise driven by product &amp; strateg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Industry Market Intelligence Daily 2026-11-28">
+<meta property="og:description" content="2026-11-28: 13 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 3  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<meta property="og:url" content="./report_20261128.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Industry Market Intelligence Daily 2026-11-28">
+<meta name="twitter:description" content="2026-11-28: 13 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 3  in total — open source and research remain active, enterprise driven by product &amp; strategy news.">
+<link rel="canonical" href="./report_20261128.html">
+<style>
+:root { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased; font-size:15px; }
+.wrap { max-width:900px; margin:0 auto; padding:40px 24px 70px; position:relative; }
+header { text-align:center; padding:26px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }
+header h1 { font-family:var(--serif); font-size:27px; letter-spacing:0.5px; }
+header .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+/* 语言切换按钮：右上角 */
+.lang-switch { position:absolute; top:24px; right:44px; display:inline-flex; border:1px solid var(--accent-border); border-radius:999px; overflow:hidden; background:var(--card); }
+.lang-switch button { border:none; background:transparent; padding:5px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; transition:all .15s; }
+.lang-switch button.on { background:var(--accent); color:#fff; }
+.lang-switch button:not(.on):hover { color:var(--accent); background:var(--accent-soft); }
+/* 昼夜切换按钮（语言开关右侧） */
+.theme-toggle { position:absolute; top:24px; right:0; width:34px; height:32px; border:1px solid var(--accent-border); border-radius:999px; background:var(--card); color:var(--text-2); font-size:15px; cursor:pointer; transition:all .15s; line-height:1; }
+.theme-toggle:hover { background:var(--accent-soft); }
+/* 双语内容：默认全部可见（P4-3 无 JS/爬虫可读性——display:none 会让纯文本环境只看到一份）；
+   JS 启用后由 setLang 控制显隐（html.js 类由脚本第一时间挂上）。 */
+[data-lang-block] { display:block; }
+html.js [data-lang-block] { display:none; }
+html.js [data-lang-block].active { display:block; }
+.summary { background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:12px; padding:20px 24px; margin-bottom:30px; }
+.summary h2 { font-family:var(--serif); font-size:18px; margin-bottom:8px; }
+.summary p { color:var(--text-2); font-size:14.5px; }
+.module { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:24px; }
+.module h2 { font-family:var(--serif); font-size:20px; border-left:4px solid var(--accent); padding-left:12px; margin-bottom:16px; letter-spacing:0.3px; }
+.news-item { padding:18px 0; border-bottom:1px solid var(--border); }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { font-size:16.5px; font-weight:650; margin-bottom:8px; color:var(--text); line-height:1.5; }
+.news-body { font-size:14.5px; color:var(--text-2); margin-bottom:10px; white-space:pre-line; }
+.comment { font-size:13.5px; color:#8a4baf; background:#f8f2fc; border-left:3px solid #c084fc; padding:8px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.meta { margin-bottom:8px; }
+.tag { display:inline-block; background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:1px 10px; font-size:12px; margin-right:6px; font-weight:500; }
+.tag-gray { background:#f1f3f7; color:var(--muted); }
+.tag-star { background:#fffbe6; color:#ad8b00; border:1px solid #ffe58f; }
+.tag-time { background:#fff7e6; color:#ad6800; border:1px solid #ffe58f; }
+.pick-reason { font-size:13px; color:#2f54eb; background:#eef2ff; border-left:3px solid #2f54eb; padding:7px 12px; border-radius:6px; margin-bottom:10px; line-height:1.6; }
+.module-nav { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:-8px 0 26px; }
+.module-nav a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 16px; border:1px solid var(--accent-border); border-radius:999px; background:var(--accent-soft); transition:all .15s; }
+.module-nav a:hover { background:var(--accent); color:#fff; }
+.module-nav .sep { color:var(--muted); align-self:center; }
+.back-top { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#fff; text-decoration:none; font-size:13px; padding:8px 14px; border-radius:999px; box-shadow:0 2px 10px rgba(47,84,235,.3); opacity:.85; }
+.back-top:hover { opacity:1; }
+.source { font-size:12.5px; color:var(--muted); }
+.source a { color:var(--accent); text-decoration:none; margin-right:8px; }
+.source a:hover { text-decoration:underline; }
+.empty-note { color:var(--muted); font-style:italic; padding:10px 0; }
+.watch-item { padding:8px 0; font-size:14px; border-bottom:1px solid var(--border); }
+footer { text-align:center; color:var(--muted); font-size:12px; margin-top:34px; border-top:1px solid var(--border); padding-top:20px; }
+/* P4-5 昼夜模式：默认跟随系统；右上角手动开关（☀/🌙）可覆盖，记忆到 localStorage */
+html[data-theme="dark"] { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+html[data-theme="dark"] .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+html[data-theme="dark"] .tag { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .tag-gray { background:#232b3d; color:var(--muted); }
+html[data-theme="dark"] .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+html[data-theme="dark"] .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+html[data-theme="dark"] .pick-reason { background:var(--accent-soft); color:var(--accent); }
+html[data-theme="dark"] .lang-switch { background:var(--card); }
+html[data-theme="light"] { --bg:#f7f8fa; --card:#fff; --border:#e5e8ee; --text:#1a2233; --text-2:#3d4759; --muted:#6b7486; --accent:#2f54eb; --accent-soft:#eef2ff; --accent-border:#c7d2fe; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) { --bg:#0f1420; --card:#161c2b; --border:#2a3244; --text:#e8ecf4; --text-2:#b8c0d0; --muted:#7c8699; --accent:#6a8bff; --accent-soft:#1d2740; --accent-border:#3a4a75; }
+  html:not([data-theme]) .comment { color:#c99ef0; background:#241a33; border-left-color:#9d6fe0; }
+  html:not([data-theme]) .tag { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .tag-gray { background:#232b3d; color:var(--muted); }
+  html:not([data-theme]) .tag-star { background:#2d2510; color:#d9b545; border-color:#5a4a1a; }
+  html:not([data-theme]) .tag-time { background:#2d2510; color:#d9a545; border-color:#5a4a1a; }
+  html:not([data-theme]) .pick-reason { background:var(--accent-soft); color:var(--accent); }
+  html:not([data-theme]) .lang-switch { background:var(--card); }
+}
+/* P4-5 移动端断点：窄屏收紧留白与字号 */
+@media (max-width: 640px) {
+  .wrap { padding:20px 14px 60px; }
+  header h1 { font-size:21px; }
+  .lang-switch { position:static; display:flex; justify-content:center; margin:0 auto 12px; }
+  header { padding-top:16px; }
+  .module { padding:16px 14px; border-radius:12px; }
+  .module h2 { font-size:17px; }
+  .news-item h3 { font-size:15px; }
+  .summary { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" class="on">En</button>
+    <button type="button" data-lang-btn="zh">中文</button>
+  </div>
+  <button type="button" id="theme-toggle" class="theme-toggle" title="切换昼夜模式" aria-label="Toggle theme">🌙</button>
+<h1 data-lang-title="en">AI Industry Market Intelligence Daily</h1>
+<h1 data-lang-title="zh">AI 行业市场洞察日报</h1>
+<div class="sub" data-lang-title="en">2026-11-28 ｜ report_20261128</div>
+<div class="sub" data-lang-title="zh">2026-11-28 ｜ report_20261128</div>
+</header>
+
+  <nav class="module-nav">
+    <a href="#module-opensource">AI Open Source</a><span class="sep">｜</span><a href="#module-paper">AI Research</a><span class="sep">｜</span><a href="#module-enterprise">AI Enterprise</a>
+  </nav>
+<div data-lang-block="en" class="active">
+
+  <section class="summary">
+    <h2>📌 Today at a Glance</h2>
+    <p>2026-11-28: 13 high-value AI updates. AI 开源技术 5 ，AI 学术研究 5 ，AI 企业动态 3  in total — open source and research remain active, enterprise driven by product &amp; strategy news.</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI Open Source</h2>
+      
+        <article class="news-item">
+          <h3>1. awesome-ai-apps：A collection of projects showcasing RAG, agents, workflows,</h3>
+          <p class="news-body">A collection of projects showcasing RAG, agents, workflows, and other AI use cases</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-28</span> <span class="tag">Arindam200</span> <span class="tag tag-star">⭐ 17,185</span> <span class="tag tag-gray">agents / ai / hacktoberfest / llm</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=17,185，forks=1947，open_issues=69</div>
+          <div class="source">Source：<a href="https://github.com/Arindam200/awesome-ai-apps" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. gaik-toolkit：Generative AI knowledge management toolkit: strategy,</h3>
+          <p class="news-body">Generative AI knowledge management toolkit: strategy, guidance, evaluation and reusable Python components.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-28</span> <span class="tag">GAIK-project</span> <span class="tag tag-star">⭐ 111</span> <span class="tag tag-gray">generative-ai / knowledge-management / llm / python</span></div>
+          <div class="pick-reason">Composite score 3.8社区数据：stars=111，forks=24，open_issues=12</div>
+          <div class="source">Source：<a href="https://github.com/GAIK-project/gaik-toolkit" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. rea：Reverse engineer anything with agents, from app behavior</h3>
+          <p class="news-body">Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-28</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 481,435</span> <span class="tag tag-gray">agent-skills / ai / android / claude-code</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=481,435，周增长=+9616，forks=116908，open_issues=1091</div>
+          <div class="source">Source：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. hermes-agent：The agent that grows with you</h3>
+          <p class="news-body">The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-28</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 266,637</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=266,637，周增长=+1385，forks=60530，open_issues=54941</div>
+          <div class="source">Source：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. claude-mem：Persistent Context Across Sessions for Every Agent –</h3>
+          <p class="news-body">Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-28</span> <span class="tag">thedotmack</span> <span class="tag tag-star">⭐ 120,273</span> <span class="tag tag-gray">ai / ai-agents / ai-memory / anthropic</span></div>
+          <div class="pick-reason">Composite score 3.6社区数据：stars=120,273，forks=10463，open_issues=109</div>
+          <div class="source">Source：<a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI Research</h2>
+      
+        <article class="news-item">
+          <h3>1. Where Does the Asymmetry Enter? Staging a Fairness Audit Across a Fused Multimodal Moderation Pipeline</h3>
+          <p class="news-body">Almost every short-video upload now passes through a classifier that fuses video, speech, and on-screen text into one decision about whether it may be seen. It moderates every language community on the platform at once, and fairness across them is judged, if at all, from one accuracy score. That score is compatible with error falling almost entirely on one language group. An audit that goes looking reads the model's decisions, the last stage of a long pipeline and the one whose test has the fewest items. We ask where in a fused pipeline a subgroup asymmetry can be detected at all: in what the classifier may read, in what its branches encode, or in what it decides. We answer this with a post-hoc audit of a published TikTok classifier, holding all three stages to one significance standard using only its logged decisions, labels, and pre-fusion features, with source language as the subgroup axis. The asymmetry is significant at the stage deciding what the model may read, and again in what the text branch encodes. At the earlier stage, a language-blind cap admits less of a Vietnamese clip than an English one, for reasons of segmentation, not verbosity. The asymmetry is undetectable at the decision, where the smallest subgroup leaves twelve items to test. An audit reading only decisions looks where its evidence is thinnest; the same test staged upstream recovers a disparity the decision-level view returns as noise.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：影响力信号=ACL 录用，作者数=2</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.34491v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Can image generation help visual reasoning? An empirical study</h3>
+          <p class="news-body">Language models think in words; then multimodal models might think in images. We test whether a generated helper improves the answer to a visual question. A model describes the helper it needs and then answers using the original and generated images together. Across 13 vision-language model and generator pairs, generation lowers mean accuracy by 3.7 percentage points, with declines on nine of ten tasks. Two unified models, BAGEL and Janus-Pro-7B, each lose accuracy on eight tasks. On VSTAR, adding a generated image to the same planning hint lowers accuracy by 10.47 points. Repeated image edits yield different outcomes across tasks. ChartQAPro and MathVista stay below their no-generation baselines, while ERQA gains three points after ten edits.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=8</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.34935v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Diverse Alternative Reasoning Traces for Hard Math Problems</h3>
+          <p class="news-body">Post-training large language models (LLMs) for mathematical reasoning often relies on accepted traces whose final answers pass a verifier. For hard math problems, however, such traces can be rare under independent Monte Carlo (MC) sampling. To address this, we propose Diverse Alternative Reasoning Traces (DART), a trace-mining method that starts from a rejected trace, decomposes it into reasoning steps, and ranks them by position-weighted uncertainty. It then generates deliberately distinct alternative candidates for highly ranked steps using reference-answer guidance and a meta-thought before completing the resulting traces. On greedy-unsolved DeepMath-103K problems, DART recovers 37% more problems than MC sampling at a matched number of generated traces. Its estimated generation cost per recovered problem is nearly identical, while its cost per accepted trace is 30% lower. Post-training Llama-3.1-8B-Instruct on traces mined by DART achieves the highest point estimate in five of six evaluations across MATH-500 and AIME benchmarks. These results demonstrate that revisiting rejected traces with DART can expand problem coverage and provide effective post-training data.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=8</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.34928v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Mixture-of-Loops Transformer</h3>
+          <p class="news-body">Looped Transformers boost expressivity by reusing shared layers across loops, yet at the cost of efficiency. Pushing their expressivity-efficiency frontier requires rethinking the core mechanism connecting adjacent loops: What should be passed as a Transformer loops? We introduce Mixture-of-Loops Transformer (MoLT), whose Mixture-of-Loops Attention (MoLA) uses keys and values (KV) as memory for selective reuse across depths and loops. Under loop residual, MoLT-R retains the residual stream and reads local KV across loops for expressivity. Under loop KV, MoLT-KV instead restarts from embeddings and reads current-loop local KV with preceding-loop memory KV at earlier positions for efficiency. MoLT-KV eliminates same-position cross-loop dependence and, paired with loop forcing for parallel training, unlocks single-traversal Mixture-of-Loops (MoL) decoding beyond the training loop horizon. To balance efficiency and quality, we introduce U-shaped MoLT (U-MoLT), which separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. In 400B-token pretraining, U-MoLT outperforms OLMo3 across 700M/1.5B dense and 3B MoE models, achieving 1.7x validation cross-entropy (CE) token efficiency at 700M while improving 3B MoE 10-domain perplexity by 0.75 and 10-task accuracy by 2.1 percentage points. In 100B-token continued pretraining of Qwen3.5-0.8B-Base, our U-MoLT adaptation lowers CE on all 11 domains over the matched baseline with 1</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=6</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.34923v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. $μ$-Bench: Benchmarking Multi-User Task Completion in Shared Interaction Voice Agents</h3>
+          <p class="news-body">Voice agents in shared spaces must satisfy interdependent multi-user requests while upholding per-user authority, privacy, and task constraints. Existing evaluations offer limited coverage when participants react throughout a session. We introduce $μ$-Bench, a benchmark for joint task completion in closed-loop, full-duplex multi-user voice interaction. Simulated participants act from isolated profiles of goals, knowledge, and permissions, adapting to the agent's speech and tool outcomes. Across 20 domains, 100 scenarios vary group size, acoustics, and follow-up demands to form 800 cases (408 tool-augmented, 392 tool-free). Joint Task Success (JTS) requires all user goals, privacy boundaries, and terminal states to hold jointly, while Pure JTS further disallows unauthorized tool calls; Attribution, Threading, and Coordination (ATC) diagnostics localize failures. Across 13 voice agents, proprietary systems peak at 62.24\% tool-free and 65.44\% tool-augmented success, while open-weight models remain below 20\%. ATC diagnostics show that open-weight models lag primarily in multi-turn attribution and threading, and controlled contrasts reveal that larger groups consistently degrade joint task success across capable systems. By coupling reactive multi-user simulation with verifiable session-level outcomes, $μ$-Bench provides a rigorous testbed for shared voice agents.</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">Composite score 3.6论文数据：作者数=10</div>
+          <div class="source">Source：<a href="https://arxiv.org/abs/2611.34920v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI Enterprise</h2>
+      
+        <article class="news-item">
+          <h3>1. ElevenLabs in talks to raise funding at $33bn valuation, reports say - Sifted</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiekFVX3lxTFAxWks4My1DLU5USGx6VENkOElVblJueExHZ1RpdG5mbEY3N25aVmxSNnhDQUFKTWhqWTdNVWxTVjVtZEVibkJKc1ItNTZiOVdhN3JRNmZLQXJ4RUUza0tScGdaUXM4LURjRWUtN3JsVUVKU2VENUd3ZjlB?oc=5&quot; target=&quot;_blank&quot;&amp;gt;ElevenLabs in talks to raise funding at $33bn valuation,</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">Composite score 1.8事件数据：amount_wan=330000</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiekFVX3lxTFAxWks4My1DLU5USGx6VENkOElVblJueExHZ1RpdG5mbEY3N25aVmxSNnhDQUFKTWhqWTdNVWxTVjVtZEVibkJKc1ItNTZiOVdhN3JRNmZLQXJ4RUUza0tScGdaUXM4LURjRWUtN3JsVUVKU2VENUd3ZjlB?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. Qwen Image Generator: Is It Free, Which Model Is It, and Can Your Mac Run It? - Fello AI</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiU0FVX3lxTE1XNkNreGVFakRoRV85eFBrUVozaTA4b3M0RTllVkVBY01WY3VFNzdCMGpzbkFhU2VaYXZEV21hRW1QSXZjUGhvcFBTVGRpaWNoaEtn?oc=5&quot; target=&quot;_blank&quot;&amp;gt;Qwen Image Generator: Is It Free, Which Model Is It, and Can Your Mac Run It?&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;l</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE1XNkNreGVFakRoRV85eFBrUVozaTA4b3M0RTllVkVBY01WY3VFNzdCMGpzbkFhU2VaYXZEV21hRW1QSXZjUGhvcFBTVGRpaWNoaEtn?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. No Need to Change Models for 4.2x Faster Token Output: Tencent Hunyuan Open-Sources Draft Model DFly2 to Specifically Accelerate Hy4 flash - AIBase</h3>
+          <p class="news-body">&amp;lt;a href=&quot;https://news.google.com/rss/articles/CBMiSkFVX3lxTE1LSElyLXJSclNBZjYtT3lFVjVINElSSzZXYjlpa1VBUG0wNWNvemFyeXI3V2hfMk9DNHNXcWFKV01SNWh1OW1naXR3?oc=5&quot; target=&quot;_blank&quot;&amp;gt;No Need to Change Models for 4.2x Faster Token Output: Tencent Hunyuan Open-Sources Draft Model DFly2 to Specifically Acc</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">Composite score 1.8, authenticity 1.5, quality verified</div>
+          <div class="source">Source：<a href="https://news.google.com/rss/articles/CBMiSkFVX3lxTE1LSElyLXJSclNBZjYtT3lFVjVINElSSzZXYjlpa1VBUG0wNWNvemFyeXI3V2hfMk9DNHNXcWFKV01SNWh1OW1naXR3?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 Watchlist</h2><div class="watch-item"><b>Where Does the Asymmetry Enter? Staging a Fairness Audit Across a Fused Multimodal Moderation Pipeline</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Can image generation help visual reasoning? An empirical study</b> — TopN pick, composite score 3.6</div><div class="watch-item"><b>Diverse Alternative Reasoning Traces for Hard Math Problems</b> — TopN pick, composite score 3.6</div></section>
+</div>
+<div data-lang-block="zh">
+
+  <section class="summary">
+    <h2>📌 今日要闻速览</h2>
+    <p>今日 2026-11-28 共收录 13 条 AI 行业高价值动态：AI 开源技术 5 条，AI 学术研究 5 条，AI 企业动态 3 条。整体来看，开源生态与学术研究保持活跃，企业端以产品与战略动态为主。</p>
+  </section>
+  
+    <section class="module" id="module-opensource">
+      <h2>AI 开源技术</h2>
+      
+        <article class="news-item">
+          <h3>1. Arindam200发布RAG新动态</h3>
+          <p class="news-body">事件为「awesome-ai-apps：A collection of projects showcasing RAG, agents, workflows,」。A collection of projects showcasing RAG</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-28</span> <span class="tag">Arindam200</span> <span class="tag tag-star">⭐ 17,185</span> <span class="tag tag-gray">agents / ai / hacktoberfest / llm</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=17,185，forks=1947，open_issues=69</div>
+          <div class="source">来源：<a href="https://github.com/Arindam200/awesome-ai-apps" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. GAIK-project发布边缘部署新动态</h3>
+          <p class="news-body">事件为「gaik-toolkit：Generative AI knowledge management toolkit: strategy,」。Generative AI knowledge management toolkit: stra</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-28</span> <span class="tag">GAIK-project</span> <span class="tag tag-star">⭐ 111</span> <span class="tag tag-gray">generative-ai / knowledge-management / llm / python</span></div>
+          <div class="pick-reason">综合评分 3.8社区数据：stars=111，forks=24，open_issues=12</div>
+          <div class="source">来源：<a href="https://github.com/GAIK-project/gaik-toolkit" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. morluto发布Agent新动态</h3>
+          <p class="news-body">事件为「rea：Reverse engineer anything with agents, from app behavior」。Reverse engineer anything with agents, from app behavi</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-28</span> <span class="tag">morluto</span> <span class="tag tag-star">⭐ 481,435</span> <span class="tag tag-gray">agent-skills / ai / android / claude-code</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=481,435，周增长=+9616，forks=116908，open_issues=1091</div>
+          <div class="source">来源：<a href="https://github.com/morluto/rea" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. NousResearch发布Agent新动态</h3>
+          <p class="news-body">事件为「hermes-agent：The agent that grows with you」。The agent that grows with you</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-28</span> <span class="tag">NousResearch</span> <span class="tag tag-star">⭐ 266,637</span> <span class="tag tag-gray">ai / ai-agent / ai-agents / anthropic</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=266,637，周增长=+1385，forks=60530，open_issues=54941</div>
+          <div class="source">来源：<a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. thedotmack发布Claude新动态</h3>
+          <p class="news-body">事件为「claude-mem：Persistent Context Across Sessions for Every Agent –」。Persistent Context Across Sessions for Every Agent</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-28</span> <span class="tag">thedotmack</span> <span class="tag tag-star">⭐ 120,273</span> <span class="tag tag-gray">ai / ai-agents / ai-memory / anthropic</span></div>
+          <div class="pick-reason">综合评分 3.6社区数据：stars=120,273，forks=10463，open_issues=109</div>
+          <div class="source">来源：<a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-paper">
+      <h2>AI 学术研究</h2>
+      
+        <article class="news-item">
+          <h3>1. TikTok：多模态</h3>
+          <p class="news-body">事件为「Where Does the Asymmetry Enter? Staging a Fairness Audit Across a Fused Multimodal Moderation Pipeline」。Almost every</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：影响力信号=ACL 录用，作者数=2</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.34491v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. MathVista：大模型+多模态</h3>
+          <p class="news-body">事件为「Can image generation help visual reasoning? An empirical study」。Language models think in words; then multimodal mode</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=8</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.34935v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. Post-training：大模型+推理</h3>
+          <p class="news-body">事件为「Diverse Alternative Reasoning Traces for Hard Math Problems」。Post-training large language models (LLMs) for mathemat</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=8</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.34928v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>4. Mixture-of-Loops Transformer</h3>
+          <p class="news-body">事件为「Mixture-of-Loops Transformer」。Looped Transformers boost expressivity by reusing shared layers across loops, ye</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.LG</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=6</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.34923v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+        <article class="news-item">
+          <h3>5. $μ$-Bench: Benchmarking Multi-User Task Completion in Shared Interaction Voice Agents</h3>
+          <p class="news-body">事件为「$μ$-Bench: Benchmarking Multi-User Task Completion in Shared Interaction Voice Agents」。Voice agents in shared spaces</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-25</span> <span class="tag tag-gray">cs.CL</span></div>
+          <div class="pick-reason">综合评分 3.6论文数据：作者数=10</div>
+          <div class="source">来源：<a href="https://arxiv.org/abs/2611.34920v1" target="_blank" rel="noopener">arXiv</a></div>
+        </article>
+    </section>
+    <section class="module" id="module-enterprise">
+      <h2>AI 企业动态</h2>
+      
+        <article class="news-item">
+          <h3>1. AI 企业融资ElevenLabs</h3>
+          <p class="news-body">事件为「ElevenLabs in talks to raise funding at $33bn valuation, reports say - Sifted」。&amp;lt;a href=&quot;https://news.google.com/r</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">AI 企业</span> <span class="tag tag-gray">投融资</span></div>
+          <div class="pick-reason">综合评分 1.8事件数据：amount_wan=330000</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiekFVX3lxTFAxWks4My1DLU5USGx6VENkOElVblJueExHZ1RpdG5mbEY3N25aVmxSNnhDQUFKTWhqWTdNVWxTVjVtZEVibkJKc1ItNTZiOVdhN3JRNmZLQXJ4RUUza0tScGdaUXM4LURjRWUtN3JsVUVKU2VENUd3ZjlB?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>2. 阿里巴巴发布Qwen新动态</h3>
+          <p class="news-body">事件为「Qwen Image Generator: Is It Free, Which Model Is It, and Can Your Mac Run It? - Fello AI」。&amp;lt;a href=&quot;https://news.g</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">阿里巴巴</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE1XNkNreGVFakRoRV85eFBrUVozaTA4b3M0RTllVkVBY01WY3VFNzdCMGpzbkFhU2VaYXZEV21hRW1QSXZjUGhvcFBTVGRpaWNoaEtn?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+        <article class="news-item">
+          <h3>3. 腾讯开源Open-Sources</h3>
+          <p class="news-body">事件为「No Need to Change Models for 4.2x Faster Token Output: Tencent Hunyuan Open-Sources Draft Model DFly2 to Specificall</p>
+          
+          <div class="meta"><span class="tag tag-time">🕐 2026-11-26</span> <span class="tag">腾讯</span> <span class="tag tag-gray">产品战略</span></div>
+          <div class="pick-reason">综合评分 1.8，真实性 1.5，质量经校验通过</div>
+          <div class="source">来源：<a href="https://news.google.com/rss/articles/CBMiSkFVX3lxTE1LSElyLXJSclNBZjYtT3lFVjVINElSSzZXYjlpa1VBUG0wNWNvemFyeXI3V2hfMk9DNHNXcWFKV01SNWh1OW1naXR3?oc=5" target="_blank" rel="noopener">Google News</a></div>
+        </article>
+    </section>
+  <section class="module"><h2>👀 观察名单</h2><div class="watch-item"><b>Where Does the Asymmetry Enter? Staging a Fairness Audit Across a Fused Multimodal Moderation Pipeline</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Can image generation help visual reasoning? An empirical study</b> — 入选 TopN，综合评分 3.6</div><div class="watch-item"><b>Diverse Alternative Reasoning Traces for Hard Math Problems</b> — 入选 TopN，综合评分 3.6</div></section>
+</div>
+<footer>Generated by AI Insight Agent ｜ 2026-11-28T07:55:55.379Z</footer>
+</div>
+<a href="#" class="back-top" title="Back to top">↑ Top</a>
+<script>document.documentElement.className += ' js';</script>
+<script>
+(function () {
+  // P4-5 昼夜模式：默认跟随系统（无 data-theme 属性即随 media query）；
+  // 手动点击后写入 data-theme 并记忆，图标随模式切换
+  var toggle = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    if (toggle) toggle.textContent = t === 'light' ? '🌙' : '☀️';
+    try { if (t) localStorage.setItem('ai-daily-theme', t); else localStorage.removeItem('ai-daily-theme'); } catch (e) {}
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.setAttribute('data-theme', saved);
+    if (toggle) toggle.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+  if (toggle) toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var nowDark = cur ? cur === 'dark' : sysDark;
+    applyTheme(nowDark ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function () {
+  var btns = document.querySelectorAll('[data-lang-btn]');
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  function setLang(lang) {
+    btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang-btn') === lang); });
+    blocks.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+    document.querySelectorAll('[data-lang-title]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang-title') === lang ? '' : 'none';
+    });
+    try { localStorage.setItem('ai-daily-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  var saved = null; try { saved = localStorage.getItem('ai-daily-lang'); } catch (e) {}
+  var initial = saved === 'zh' ? 'zh' : 'en'; // 默认英文
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

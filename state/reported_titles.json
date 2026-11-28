@@ -1,27 +1,4 @@
 {
- "2026-11-13": {
-  "paper": [
-   "paper|internalizing investment mandates neurosymbolic rl approach portfolio allocation",
-   "paper|negative only policy optimization one sided verifiable rewards",
-   "paper|kuairecv2 benchmarking large scale continual learning diversified multi task rec",
-   "paper|multiloop evolving multi agent harnesses complex information seeking tasks",
-   "paper|archspace recording reviewing referencing llm architecture research"
-  ],
-  "opensource": [
-   "opensource|magpie every agent s model",
-   "opensource|sag wiki lightweight knowledge base people agents",
-   "opensource|hermes agent agent that grows you",
-   "opensource|autogpt autogpt is vision accessible ai everyone use",
-   "opensource|dify build agentic workflows rag pipelines rich ai model"
-  ],
-  "enterprise": [
-   "enterprise|jensen huang s exit puts nvidia s support source question",
-   "enterprise|how amplitude ships product improvements 1 2 days openai",
-   "enterprise|gondola doubles revenue team builds more codex",
-   "enterprise|google search gets major upgrade gemini 4 hydrogen",
-   "enterprise|nectar ai agent automate creator discovery outreach brands"
-  ]
- },
  "2026-11-14": {
   "paper": [
    "paper|learning when diffusion language models should regenerate",
@@ -330,6 +307,27 @@
    "enterprise|tencent hunyuan hy3d 3 6 professional high poly 3d assets pandaily",
    "enterprise|qwen image generator free which model mac fello ai",
    "enterprise|ai firm modaic claims jev decision model is based alibaba s qwen kucoin"
+  ]
+ },
+ "2026-11-28": {
+  "paper": [
+   "paper|where does asymmetry enter staging fairness audit across fused multimodal modera",
+   "paper|can image generation help visual reasoning empirical study",
+   "paper|diverse alternative reasoning traces hard math problems",
+   "paper|mixture loops transformer",
+   "paper|bench benchmarking multi user task completion shared interaction voice agents"
+  ],
+  "opensource": [
+   "opensource|awesome ai apps collection projects showcasing rag agents workflows",
+   "opensource|gaik toolkit generative ai knowledge management toolkit strategy",
+   "opensource|rea reverse engineer anything agents app behavior",
+   "opensource|hermes agent agent that grows you",
+   "opensource|claude mem persistent context across sessions every agent"
+  ],
+  "enterprise": [
+   "enterprise|elevenlabs talks funding 33bn valuation reports say sifted",
+   "enterprise|qwen image generator is it free which model is it can your mac run it fello ai",
+   "enterprise|no need change models 4 2x faster token output tencent hunyuan sources draft mod"
   ]
  }
 }
